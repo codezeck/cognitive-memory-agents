@@ -3,10 +3,13 @@
   {
     "id": "EVAL001",
     "categoria": "contexto",
-    "descricao": "Recuperar uma informação fornecida anteriormente",
+    "descricao": "Recuperar o nome do projeto",
     "mensagens": [
       "Meu projeto se chama Axis.",
       "Qual é o nome do meu projeto?"
+    ],
+    "memorias": [
+      "Meu projeto se chama Axis."
     ],
     "esperado": "Axis"
   },
@@ -17,21 +20,54 @@
     "mensagens": [
       "Responda em português: qual é a capital do Brasil?"
     ],
+    "memorias": [],
     "esperado": "Brasília"
   },
   {
     "id": "EVAL003",
-    "categoria": "contexto",
-    "descricao": "Recuperar uma preferência informada anteriormente",
+    "categoria": "preferencia",
+    "descricao": "Recuperar uma preferência",
     "mensagens": [
-        "Prefiro respostas curtas e objetivas.",
-        "Qual é minha preferência para as respostas?"
+      "Prefiro respostas curtas e objetivas.",
+      "Qual é minha preferência para as respostas?"
+    ],
+    "memorias": [
+      "O usuário prefere respostas curtas e objetivas."
     ],
     "esperado": [
-        "curtas",
-        "breve",
-        "objetiva"
+      "curtas",
+      "objetiva"
     ]
-    }
-
+  },
+  {
+    "id": "EVAL004",
+    "categoria": "atualizacao",
+    "descricao": "Priorizar o nome atualizado do projeto",
+    "mensagens": [
+      "Meu projeto se chama Axis.",
+      "Atualização: o nome atual do meu projeto é Codezeck. Axis era o nome antigo.",
+      "Qual é o nome atual do meu projeto?"
+    ],
+    "memorias": [
+      "O nome atual do projeto é Codezeck. Axis era o nome antigo."
+    ],
+    "esperado": "Codezeck"
+  },
+  {
+    "id": "EVAL005",
+    "categoria": "conflito",
+    "descricao": "Priorizar a preferência mais recente",
+    "mensagens": [
+      "Prefiro respostas longas e detalhadas.",
+      "Atualização: agora prefiro respostas curtas e objetivas.",
+      "Como devo responder?"
+    ],
+    "memorias": [
+      "A preferência atual do usuário é receber respostas curtas e objetivas."
+    ],
+    "esperado": [
+      "curtas",
+      "objetiva"
+    ]
+  }
 ]
