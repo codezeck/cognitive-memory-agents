@@ -1,0 +1,37 @@
+
+[
+  {
+    "id": "EVAL001",
+    "categoria": "contexto",
+    "descricao": "Recuperar uma informação fornecida anteriormente",
+    "mensagens": [
+      "Meu projeto se chama Axis.",
+      "Qual é o nome do meu projeto?"
+    ],
+    "esperado": "Axis"
+  },
+  {
+    "id": "EVAL002",
+    "categoria": "instrucao",
+    "descricao": "Responder em português",
+    "mensagens": [
+      "Responda em português: qual é a capital do Brasil?"
+    ],
+    "esperado": "Brasília"
+  },
+  {
+    "id": "EVAL003",
+    "categoria": "contexto",
+    "descricao": "Recuperar uma preferência informada anteriormente",
+    "mensagens": [
+        "Prefiro respostas curtas e objetivas.",
+        "Qual é minha preferência para as respostas?"
+    ],
+    "esperado": [
+        "curtas",
+        "breve",
+        "objetiva"
+    ]
+    }
+
+]
