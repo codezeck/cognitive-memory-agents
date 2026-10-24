@@ -16,3 +16,6 @@ __pycache__/
 
 # Referências locais
 reference/
+
+# Dados
+dados/
