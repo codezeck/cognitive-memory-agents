@@ -83,3 +83,87 @@ def test_agente_responde_apos_falha_anterior(mock_chat):
     assert resposta == "Consegui responder."
     assert agent.historico[-2]["content"] == "Nova tentativa"
     assert agent.historico[-1]["content"] == "Consegui responder."
+
+
+from types import SimpleNamespace
+
+from src import agent
+
+
+def test_memoria_externa_e_incluida_no_contexto(monkeypatch):
+    chamadas = []
+
+    def modelo_simulado(model, messages):
+        chamadas.append(messages)
+        return SimpleNamespace(
+            message=SimpleNamespace(
+                content="O projeto se chama Axis."
+            )
+        )
+
+    monkeypatch.setattr(agent.ollama, "chat", modelo_simulado)
+
+    historico_original = agent.historico.copy()
+
+    try:
+        resposta = agent.responder(
+            "Qual é o nome do projeto?",
+            memorias=["O projeto se chama Axis."],
+        )
+
+        assert "Axis" in resposta
+
+        mensagens = chamadas[0]
+        assert any(
+            "O projeto se chama Axis." in mensagem["content"]
+            for mensagem in mensagens
+        )
+
+    finally:
+        agent.historico[:] = historico_original
+
+
+def test_sem_memorias_continua_funcionando(monkeypatch):
+    chamadas = []
+
+    def modelo_simulado(model, messages):
+        chamadas.append(messages)
+        return SimpleNamespace(
+            message=SimpleNamespace(content="Olá!")
+        )
+
+    monkeypatch.setattr(agent.ollama, "chat", modelo_simulado)
+
+    historico_original = agent.historico.copy()
+
+    try:
+        resposta = agent.responder("Olá!")
+
+        assert resposta == "Olá!"
+        assert len(chamadas) == 1
+        assert not any(
+            mensagem["role"] == "system"
+            and "Contexto de memória:" in mensagem["content"]
+            for mensagem in chamadas[0]
+        )
+
+    finally:
+        agent.historico[:] = historico_original
+
+
+def test_memoria_externa_nao_fica_no_historico_permanente():
+    historico_original = agent.historico.copy()
+
+    try:
+        contexto = agent.formatar_memorias(
+            ["O projeto se chama Axis."]
+        )
+
+        assert "Axis" in contexto
+        assert all(
+            "Contexto de memória:" not in mensagem["content"]
+            for mensagem in agent.historico
+        )
+
+    finally:
+        agent.historico[:] = historico_original
