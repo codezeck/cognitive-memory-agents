@@ -1,0 +1,23 @@
+[
+  {
+    "id": "EVAL001",
+    "categoria": "contexto",
+    "passou": true,
+    "esperado": "Axis",
+    "resposta": "O nome do seu projeto é Axis."
+  },
+  {
+    "id": "EVAL002",
+    "categoria": "instrucao",
+    "passou": true,
+    "esperado": "Brasília",
+    "resposta": "A capital do Brasil é Brasília."
+  },
+  {
+    "id": "EVAL003",
+    "categoria": "contexto",
+    "passou": true,
+    "esperado": "curtas | breve | objetiva",
+    "resposta": "Prefiro respostas curtas e objetivas."
+  }
+]
