@@ -32,18 +32,18 @@ def test_lista_de_termos_exige_todos():
 
 def test_cenario_sem_memoria_usa_apenas_pergunta(monkeypatch):
     chamadas = []
-
-    def modelo_simulado(model, messages, options):
-        chamadas.append(messages)
-        return SimpleNamespace(
-            message=SimpleNamespace(content="Brasília"),
-            prompt_eval_count=10,
-            eval_count=2,
-        )
+    
+    def modelo_simulado(mensagens, options=None):
+        chamadas.append(mensagens)
+        return {
+            "resposta": "Brasília",
+            "tokens_entrada": 10,
+            "tokens_saida": 2,
+        }
 
     monkeypatch.setattr(
-        evaluate.agent.ollama,
-        "chat",
+        evaluate.agent.modelo_ia,
+        "gerar_com_detalhes",
         modelo_simulado,
     )
 
@@ -69,18 +69,18 @@ def test_cenario_sem_memoria_usa_apenas_pergunta(monkeypatch):
 
 def test_memoria_externa_recebe_fatos_fornecidos(monkeypatch):
     chamadas = []
-
-    def modelo_simulado(model, messages, options):
-        chamadas.append(messages)
-        return SimpleNamespace(
-            message=SimpleNamespace(content="Codezeck"),
-            prompt_eval_count=20,
-            eval_count=3,
-        )
+    
+    def modelo_simulado(mensagens, options=None):
+        chamadas.append(mensagens)
+        return {
+            "resposta": "Codezeck",
+            "tokens_entrada": 20,
+            "tokens_saida": 3,
+        }
 
     monkeypatch.setattr(
-        evaluate.agent.ollama,
-        "chat",
+        evaluate.agent.modelo_ia,
+        "gerar_com_detalhes",
         modelo_simulado,
     )
 

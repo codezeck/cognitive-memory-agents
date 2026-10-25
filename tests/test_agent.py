@@ -1,6 +1,5 @@
 
-from unittest.mock import patch, Mock
-from types import SimpleNamespace
+from unittest.mock import patch
 
 import pytest
 
@@ -14,26 +13,19 @@ def setup_function():
     agent.historicos_por_usuario.clear()
 
 
-@patch("src.agent.ollama.chat")
-def test_responder_retorna_resposta_do_modelo(mock_chat):
-    mock_chat.return_value = Mock(
-        message=Mock(content="Olá! Sou o agente.")
-    )
+@patch("src.agent.modelo_ia.gerar")
+def test_responder_retorna_resposta_do_modelo(mock_gerar):
+    mock_gerar.return_value = "Olá! Sou o agente."
 
-    resposta = agent.responder(
-        "Olá",
-        usuario_id=USUARIO_TESTE,
-    )
+    resposta = agent.responder("Olá", usuario_id=USUARIO_TESTE)
 
     assert resposta == "Olá! Sou o agente."
-    mock_chat.assert_called_once()
+    mock_gerar.assert_called_once()
 
 
-@patch("src.agent.ollama.chat")
-def test_responder_mantem_historico(mock_chat):
-    mock_chat.return_value = Mock(
-        message=Mock(content="Seu projeto se chama Axis.")
-    )
+@patch("src.agent.modelo_ia.gerar")
+def test_responder_mantem_historico(mock_gerar):
+    mock_gerar.return_value = "Seu projeto se chama Axis."
 
     agent.responder(
         "Meu projeto se chama Axis.",
@@ -53,25 +45,19 @@ def test_responder_mantem_historico(mock_chat):
 
 
 def test_mensagem_vazia_nao_consulta_modelo():
-    with patch("src.agent.ollama.chat") as mock_chat:
-        resposta = agent.responder(
-            "   ",
-            usuario_id=USUARIO_TESTE,
-        )
+    with patch("src.agent.modelo_ia.gerar") as mock_gerar:
+        resposta = agent.responder("   ", usuario_id=USUARIO_TESTE)
 
     assert resposta == ""
-    mock_chat.assert_not_called()
+    mock_gerar.assert_not_called()
 
 
-@patch("src.agent.ollama.chat")
-def test_falha_ollama_nao_adiciona_mensagem_ao_historico(mock_chat):
-    mock_chat.side_effect = RuntimeError("Ollama indisponível")
+@patch("src.agent.modelo_ia.gerar")
+def test_falha_ollama_nao_adiciona_mensagem_ao_historico(mock_gerar):
+    mock_gerar.side_effect = RuntimeError("Ollama indisponível")
 
     with pytest.raises(RuntimeError, match="Ollama indisponível"):
-        agent.responder(
-            "Olá",
-            usuario_id=USUARIO_TESTE,
-        )
+        agent.responder("Olá", usuario_id=USUARIO_TESTE)
 
     historico = agent.obter_historico(USUARIO_TESTE)
 
@@ -79,18 +65,15 @@ def test_falha_ollama_nao_adiciona_mensagem_ao_historico(mock_chat):
     assert historico[0]["role"] == "system"
 
 
-@patch("src.agent.ollama.chat")
-def test_agente_responde_apos_falha_anterior(mock_chat):
-    mock_chat.side_effect = [
+@patch("src.agent.modelo_ia.gerar")
+def test_agente_responde_apos_falha_anterior(mock_gerar):
+    mock_gerar.side_effect = [
         RuntimeError("Falha temporária"),
-        Mock(message=Mock(content="Consegui responder.")),
+        "Consegui responder.",
     ]
 
     with pytest.raises(RuntimeError):
-        agent.responder(
-            "Primeira tentativa",
-            usuario_id=USUARIO_TESTE,
-        )
+        agent.responder("Primeira tentativa", usuario_id=USUARIO_TESTE)
 
     resposta = agent.responder(
         "Nova tentativa",
@@ -107,15 +90,11 @@ def test_agente_responde_apos_falha_anterior(mock_chat):
 def test_memoria_externa_e_incluida_no_contexto(monkeypatch):
     chamadas = []
 
-    def modelo_simulado(model, messages):
-        chamadas.append(messages)
-        return SimpleNamespace(
-            message=SimpleNamespace(
-                content="O projeto se chama Axis."
-            )
-        )
+    def modelo_simulado(mensagens):
+        chamadas.append(mensagens)
+        return "O projeto se chama Axis."
 
-    monkeypatch.setattr(agent.ollama, "chat", modelo_simulado)
+    monkeypatch.setattr(agent.modelo_ia, "gerar", modelo_simulado)
 
     resposta = agent.responder(
         "Qual é o nome do projeto?",
@@ -135,18 +114,13 @@ def test_memoria_externa_e_incluida_no_contexto(monkeypatch):
 def test_sem_memorias_continua_funcionando(monkeypatch):
     chamadas = []
 
-    def modelo_simulado(model, messages):
-        chamadas.append(messages)
-        return SimpleNamespace(
-            message=SimpleNamespace(content="Olá!")
-        )
+    def modelo_simulado(mensagens):
+        chamadas.append(mensagens)
+        return "Olá!"
 
-    monkeypatch.setattr(agent.ollama, "chat", modelo_simulado)
+    monkeypatch.setattr(agent.modelo_ia, "gerar", modelo_simulado)
 
-    resposta = agent.responder(
-        "Olá!",
-        usuario_id=USUARIO_TESTE,
-    )
+    resposta = agent.responder("Olá!", usuario_id=USUARIO_TESTE)
 
     assert resposta == "Olá!"
     assert len(chamadas) == 1
@@ -158,10 +132,7 @@ def test_sem_memorias_continua_funcionando(monkeypatch):
 
 
 def test_memoria_externa_nao_fica_no_historico_permanente():
-    contexto = agent.formatar_memorias(
-        ["O projeto se chama Axis."]
-    )
-
+    contexto = agent.formatar_memorias(["O projeto se chama Axis."])
     historico = agent.obter_historico(USUARIO_TESTE)
 
     assert "Axis" in contexto
@@ -172,11 +143,8 @@ def test_memoria_externa_nao_fica_no_historico_permanente():
 
 
 def test_historicos_sao_separados_por_usuario():
-    usuario_a = "usuario_a"
-    usuario_b = "usuario_b"
-
-    historico_a = agent.obter_historico(usuario_a)
-    historico_b = agent.obter_historico(usuario_b)
+    historico_a = agent.obter_historico("usuario_a")
+    historico_b = agent.obter_historico("usuario_b")
 
     historico_a.append({
         "role": "user",
