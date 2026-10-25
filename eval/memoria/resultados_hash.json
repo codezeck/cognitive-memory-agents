@@ -1,0 +1,317 @@
+{
+  "resumo": {
+    "k": 3,
+    "perguntas": 21,
+    "taxa_acerto": 0.619,
+    "taxa_lembranca_correta": 0.5294,
+    "taxa_informacao_desatualizada": 0.0,
+    "taxa_esquecimento_correto": 1.0,
+    "tokens_medios_memoria": 10.0,
+    "tokens_medios_historico_completo": 40.9,
+    "reducao_tokens_percentual": 75.7
+  },
+  "por_tipo": {
+    "antes_da_mudanca": {
+      "perguntas": 1,
+      "acertos": 1
+    },
+    "atualizado": {
+      "perguntas": 4,
+      "acertos": 2
+    },
+    "atualizado_duas_vezes": {
+      "perguntas": 1,
+      "acertos": 0
+    },
+    "atualizado_parafrase": {
+      "perguntas": 4,
+      "acertos": 1
+    },
+    "esquecido": {
+      "perguntas": 1,
+      "acertos": 1
+    },
+    "esquecido_usuario": {
+      "perguntas": 3,
+      "acertos": 3
+    },
+    "estavel": {
+      "perguntas": 1,
+      "acertos": 0
+    },
+    "estavel_antigo": {
+      "perguntas": 2,
+      "acertos": 2
+    },
+    "isolamento_entre_usuarios": {
+      "perguntas": 1,
+      "acertos": 1
+    },
+    "multiplas_memorias": {
+      "perguntas": 1,
+      "acertos": 0
+    },
+    "parafrase": {
+      "perguntas": 1,
+      "acertos": 1
+    },
+    "recomeco_apos_apagar": {
+      "perguntas": 1,
+      "acertos": 1
+    }
+  },
+  "detalhes": [
+    {
+      "usuario_id": "u01",
+      "apos_sessao": 2,
+      "pergunta": "Onde eu moro?",
+      "tipo": "antes_da_mudanca",
+      "tem_esperado": true,
+      "recuperou_esperado": true,
+      "devolveu_proibido": false,
+      "acertou": true,
+      "tokens_memoria": 23,
+      "tokens_historico_completo": 37
+    },
+    {
+      "usuario_id": "u01",
+      "apos_sessao": 3,
+      "pergunta": "Em que cidade eu moro hoje?",
+      "tipo": "atualizado",
+      "tem_esperado": true,
+      "recuperou_esperado": false,
+      "devolveu_proibido": false,
+      "acertou": false,
+      "tokens_memoria": 17,
+      "tokens_historico_completo": 42
+    },
+    {
+      "usuario_id": "u01",
+      "apos_sessao": 4,
+      "pergunta": "Qual é a minha profissão?",
+      "tipo": "atualizado_parafrase",
+      "tem_esperado": true,
+      "recuperou_esperado": false,
+      "devolveu_proibido": false,
+      "acertou": false,
+      "tokens_memoria": 19,
+      "tokens_historico_completo": 52
+    },
+    {
+      "usuario_id": "u01",
+      "apos_sessao": 5,
+      "pergunta": "Qual cidade é a minha casa atualmente?",
+      "tipo": "atualizado_duas_vezes",
+      "tem_esperado": true,
+      "recuperou_esperado": false,
+      "devolveu_proibido": false,
+      "acertou": false,
+      "tokens_memoria": 23,
+      "tokens_historico_completo": 65
+    },
+    {
+      "usuario_id": "u01",
+      "apos_sessao": 5,
+      "pergunta": "Como se chama o meu cachorro?",
+      "tipo": "estavel_antigo",
+      "tem_esperado": true,
+      "recuperou_esperado": true,
+      "devolveu_proibido": false,
+      "acertou": true,
+      "tokens_memoria": 7,
+      "tokens_historico_completo": 65
+    },
+    {
+      "usuario_id": "u01",
+      "apos_sessao": 5,
+      "pergunta": "Que esporte eu pratico?",
+      "tipo": "atualizado_parafrase",
+      "tem_esperado": true,
+      "recuperou_esperado": false,
+      "devolveu_proibido": false,
+      "acertou": false,
+      "tokens_memoria": 0,
+      "tokens_historico_completo": 65
+    },
+    {
+      "usuario_id": "u02",
+      "apos_sessao": 3,
+      "pergunta": "Quantos filhos eu tenho?",
+      "tipo": "atualizado",
+      "tem_esperado": true,
+      "recuperou_esperado": true,
+      "devolveu_proibido": false,
+      "acertou": true,
+      "tokens_memoria": 10,
+      "tokens_historico_completo": 38
+    },
+    {
+      "usuario_id": "u02",
+      "apos_sessao": 4,
+      "pergunta": "Qual carro eu dirijo?",
+      "tipo": "atualizado",
+      "tem_esperado": true,
+      "recuperou_esperado": false,
+      "devolveu_proibido": false,
+      "acertou": false,
+      "tokens_memoria": 0,
+      "tokens_historico_completo": 47
+    },
+    {
+      "usuario_id": "u02",
+      "apos_sessao": 5,
+      "pergunta": "Qual carro eu dirijo?",
+      "tipo": "esquecido",
+      "tem_esperado": false,
+      "recuperou_esperado": true,
+      "devolveu_proibido": false,
+      "acertou": true,
+      "tokens_memoria": 0,
+      "tokens_historico_completo": 47
+    },
+    {
+      "usuario_id": "u02",
+      "apos_sessao": 5,
+      "pergunta": "Para qual time eu torço?",
+      "tipo": "estavel_antigo",
+      "tem_esperado": true,
+      "recuperou_esperado": true,
+      "devolveu_proibido": false,
+      "acertou": true,
+      "tokens_memoria": 13,
+      "tokens_historico_completo": 47
+    },
+    {
+      "usuario_id": "u02",
+      "apos_sessao": 5,
+      "pergunta": "O que eu ensino?",
+      "tipo": "parafrase",
+      "tem_esperado": true,
+      "recuperou_esperado": true,
+      "devolveu_proibido": false,
+      "acertou": true,
+      "tokens_memoria": 7,
+      "tokens_historico_completo": 47
+    },
+    {
+      "usuario_id": "u03",
+      "apos_sessao": 2,
+      "pergunta": "Que hobby eu tenho?",
+      "tipo": "estavel",
+      "tem_esperado": true,
+      "recuperou_esperado": false,
+      "devolveu_proibido": false,
+      "acertou": false,
+      "tokens_memoria": 0,
+      "tokens_historico_completo": 31
+    },
+    {
+      "usuario_id": "u03",
+      "apos_sessao": 3,
+      "pergunta": "Para onde vou viajar em dezembro?",
+      "tipo": "atualizado",
+      "tem_esperado": true,
+      "recuperou_esperado": true,
+      "devolveu_proibido": false,
+      "acertou": true,
+      "tokens_memoria": 22,
+      "tokens_historico_completo": 44
+    },
+    {
+      "usuario_id": "u03",
+      "apos_sessao": 4,
+      "pergunta": "Quantos gatos eu tenho?",
+      "tipo": "multiplas_memorias",
+      "tem_esperado": true,
+      "recuperou_esperado": false,
+      "devolveu_proibido": false,
+      "acertou": false,
+      "tokens_memoria": 0,
+      "tokens_historico_completo": 52
+    },
+    {
+      "usuario_id": "u03",
+      "apos_sessao": 5,
+      "pergunta": "Qual é o meu cargo?",
+      "tipo": "atualizado_parafrase",
+      "tem_esperado": true,
+      "recuperou_esperado": false,
+      "devolveu_proibido": false,
+      "acertou": false,
+      "tokens_memoria": 22,
+      "tokens_historico_completo": 58
+    },
+    {
+      "usuario_id": "u03",
+      "apos_sessao": 5,
+      "pergunta": "Onde eu moro?",
+      "tipo": "isolamento_entre_usuarios",
+      "tem_esperado": true,
+      "recuperou_esperado": true,
+      "devolveu_proibido": false,
+      "acertou": true,
+      "tokens_memoria": 4,
+      "tokens_historico_completo": 58
+    },
+    {
+      "usuario_id": "u04",
+      "apos_sessao": 3,
+      "pergunta": "Qual é o meu trabalho?",
+      "tipo": "atualizado_parafrase",
+      "tem_esperado": true,
+      "recuperou_esperado": true,
+      "devolveu_proibido": false,
+      "acertou": true,
+      "tokens_memoria": 16,
+      "tokens_historico_completo": 38
+    },
+    {
+      "usuario_id": "u04",
+      "apos_sessao": 4,
+      "pergunta": "Onde eu moro?",
+      "tipo": "esquecido_usuario",
+      "tem_esperado": false,
+      "recuperou_esperado": true,
+      "devolveu_proibido": false,
+      "acertou": true,
+      "tokens_memoria": 0,
+      "tokens_historico_completo": 0
+    },
+    {
+      "usuario_id": "u04",
+      "apos_sessao": 4,
+      "pergunta": "Qual instrumento eu toco?",
+      "tipo": "esquecido_usuario",
+      "tem_esperado": false,
+      "recuperou_esperado": true,
+      "devolveu_proibido": false,
+      "acertou": true,
+      "tokens_memoria": 0,
+      "tokens_historico_completo": 0
+    },
+    {
+      "usuario_id": "u04",
+      "apos_sessao": 5,
+      "pergunta": "Onde eu moro?",
+      "tipo": "recomeco_apos_apagar",
+      "tem_esperado": true,
+      "recuperou_esperado": true,
+      "devolveu_proibido": false,
+      "acertou": true,
+      "tokens_memoria": 13,
+      "tokens_historico_completo": 13
+    },
+    {
+      "usuario_id": "u04",
+      "apos_sessao": 5,
+      "pergunta": "Qual é a minha profissão?",
+      "tipo": "esquecido_usuario",
+      "tem_esperado": false,
+      "recuperou_esperado": true,
+      "devolveu_proibido": false,
+      "acertou": true,
+      "tokens_memoria": 13,
+      "tokens_historico_completo": 13
+    }
+  ]
+}
