@@ -1,0 +1,327 @@
+{
+  "modelo": "qwen2.5-coder:3b",
+  "repeticoes": 1,
+  "observacao": "Memória externa simulada; não representa integração com a API real. Tokens e tempos incluem as chamadas registradas pelo avaliador.",
+  "resultados": [
+    {
+      "id": "EVAL001",
+      "categoria": "contexto",
+      "cenario": "sem_memoria",
+      "passou": false,
+      "esperado": "Axis",
+      "resposta": "O nome do seu projeto é \"Memória de Longo Prazo para Agentes Inteligentes\".",
+      "tokens_entrada": 167,
+      "tokens_saida": 23,
+      "tempo_ms": 425.17,
+      "tokens_total": 190,
+      "chamadas_modelo": 1,
+      "repeticao": 1
+    },
+    {
+      "id": "EVAL001",
+      "categoria": "contexto",
+      "cenario": "historico_completo",
+      "passou": true,
+      "esperado": "Axis",
+      "resposta": "O nome do seu projeto é Axis.",
+      "tokens_entrada": 365,
+      "tokens_saida": 23,
+      "tempo_ms": 406.18,
+      "tokens_total": 388,
+      "chamadas_modelo": 2,
+      "repeticao": 1
+    },
+    {
+      "id": "EVAL001",
+      "categoria": "contexto",
+      "cenario": "memoria_externa",
+      "passou": true,
+      "esperado": "Axis",
+      "resposta": "O nome do seu projeto é Axis.",
+      "tokens_entrada": 221,
+      "tokens_saida": 9,
+      "tempo_ms": 237.35,
+      "tokens_total": 230,
+      "chamadas_modelo": 1,
+      "repeticao": 1
+    },
+    {
+      "id": "EVAL002",
+      "categoria": "instrucao",
+      "cenario": "sem_memoria",
+      "passou": true,
+      "esperado": "Brasília",
+      "resposta": "A capital do Brasil é Brasília.",
+      "tokens_entrada": 174,
+      "tokens_saida": 9,
+      "tempo_ms": 198.54,
+      "tokens_total": 183,
+      "chamadas_modelo": 1,
+      "repeticao": 1
+    },
+    {
+      "id": "EVAL002",
+      "categoria": "instrucao",
+      "cenario": "historico_completo",
+      "passou": true,
+      "esperado": "Brasília",
+      "resposta": "A capital do Brasil é Brasília.",
+      "tokens_entrada": 174,
+      "tokens_saida": 9,
+      "tempo_ms": 164.84,
+      "tokens_total": 183,
+      "chamadas_modelo": 1,
+      "repeticao": 1
+    },
+    {
+      "id": "EVAL002",
+      "categoria": "instrucao",
+      "cenario": "memoria_externa",
+      "passou": true,
+      "esperado": "Brasília",
+      "resposta": "A capital do Brasil é Brasília.",
+      "tokens_entrada": 174,
+      "tokens_saida": 9,
+      "tempo_ms": 162.05,
+      "tokens_total": 183,
+      "chamadas_modelo": 1,
+      "repeticao": 1
+    },
+    {
+      "id": "EVAL003",
+      "categoria": "preferencia",
+      "cenario": "sem_memoria",
+      "passou": false,
+      "esperado": [
+        "curtas",
+        "objetiva"
+      ],
+      "resposta": "Como assistente de IA, eu não tenho preferências pessoais. Minha função é fornecer informações e ajudar de acordo com as suas solicitações.",
+      "tokens_entrada": 170,
+      "tokens_saida": 35,
+      "tempo_ms": 539.49,
+      "tokens_total": 205,
+      "chamadas_modelo": 1,
+      "repeticao": 1
+    },
+    {
+      "id": "EVAL003",
+      "categoria": "preferencia",
+      "cenario": "historico_completo",
+      "passou": true,
+      "esperado": [
+        "curtas",
+        "objetiva"
+      ],
+      "resposta": "Minha preferência é respostas curtas e objetivas.",
+      "tokens_entrada": 376,
+      "tokens_saida": 31,
+      "tempo_ms": 606.55,
+      "tokens_total": 407,
+      "chamadas_modelo": 2,
+      "repeticao": 1
+    },
+    {
+      "id": "EVAL003",
+      "categoria": "preferencia",
+      "cenario": "memoria_externa",
+      "passou": true,
+      "esperado": [
+        "curtas",
+        "objetiva"
+      ],
+      "resposta": "Minha preferência é respostas curtas e objetivas.",
+      "tokens_entrada": 229,
+      "tokens_saida": 15,
+      "tempo_ms": 260.69,
+      "tokens_total": 244,
+      "chamadas_modelo": 1,
+      "repeticao": 1
+    },
+    {
+      "id": "EVAL004",
+      "categoria": "atualizacao",
+      "cenario": "sem_memoria",
+      "passou": false,
+      "esperado": "Codezeck",
+      "resposta": "O nome atual do seu projeto é \"Memória de Longo Prazo para Agentes Inteligentes\".",
+      "tokens_entrada": 168,
+      "tokens_saida": 24,
+      "tempo_ms": 363.48,
+      "tokens_total": 192,
+      "chamadas_modelo": 1,
+      "repeticao": 1
+    },
+    {
+      "id": "EVAL004",
+      "categoria": "atualizacao",
+      "cenario": "historico_completo",
+      "passou": true,
+      "esperado": "Codezeck",
+      "resposta": "O nome atual do seu projeto é Codezeck.",
+      "tokens_entrada": 624,
+      "tokens_saida": 43,
+      "tempo_ms": 772.88,
+      "tokens_total": 667,
+      "chamadas_modelo": 3,
+      "repeticao": 1
+    },
+    {
+      "id": "EVAL004",
+      "categoria": "atualizacao",
+      "cenario": "memoria_externa",
+      "passou": true,
+      "esperado": "Codezeck",
+      "resposta": "O nome atual do seu projeto é Codezeck.",
+      "tokens_entrada": 231,
+      "tokens_saida": 12,
+      "tempo_ms": 228.77,
+      "tokens_total": 243,
+      "chamadas_modelo": 1,
+      "repeticao": 1
+    },
+    {
+      "id": "EVAL005",
+      "categoria": "conflito",
+      "cenario": "sem_memoria",
+      "passou": false,
+      "esperado": [
+        "curtas",
+        "objetiva"
+      ],
+      "resposta": "Como assistente de IA, eu não tenho preferências pessoais. No entanto, posso que você me forneça suas preferências específicas para o tamanho e o estilo das respostas.",
+      "tokens_entrada": 176,
+      "tokens_saida": 44,
+      "tempo_ms": 668.8,
+      "tokens_total": 220,
+      "chamadas_modelo": 1,
+      "repeticao": 1
+    },
+    {
+      "id": "EVAL005",
+      "categoria": "conflito",
+      "cenario": "historico_completo",
+      "passou": true,
+      "esperado": [
+        "curtas",
+        "objetiva"
+      ],
+      "resposta": "Sua preferência atual é respostas curtas e objetivas.",
+      "tokens_entrada": 704,
+      "tokens_saida": 94,
+      "tempo_ms": 1455.72,
+      "tokens_total": 798,
+      "chamadas_modelo": 3,
+      "repeticao": 1
+    },
+    {
+      "id": "EVAL005",
+      "categoria": "conflito",
+      "cenario": "memoria_externa",
+      "passou": true,
+      "esperado": [
+        "curtas",
+        "objetiva"
+      ],
+      "resposta": "Minha preferência atual é receber respostas curtas e objetivas.",
+      "tokens_entrada": 258,
+      "tokens_saida": 17,
+      "tempo_ms": 302.57,
+      "tokens_total": 275,
+      "chamadas_modelo": 1,
+      "repeticao": 1
+    },
+    {
+      "id": "EVAL006",
+      "categoria": "informacao_desconhecida",
+      "cenario": "sem_memoria",
+      "passou": true,
+      "esperado": [
+        "não sei"
+      ],
+      "resposta": "Desculpe, mas não tenho acesso ao histórico de conversas anteriores para fornecer informações específicas sobre o nome de seu primeiro professor de programação. Para obter essa informação, você precisaria consultar o histórico de sua educação ou perguntar diretamente ao seu primeiro professor.",
+      "tokens_entrada": 171,
+      "tokens_saida": 61,
+      "tempo_ms": 895.04,
+      "tokens_total": 232,
+      "chamadas_modelo": 1,
+      "repeticao": 1
+    },
+    {
+      "id": "EVAL006",
+      "categoria": "informacao_desconhecida",
+      "cenario": "historico_completo",
+      "passou": true,
+      "esperado": [
+        "não sei"
+      ],
+      "resposta": "Desculpe, mas não tenho acesso ao histórico de conversas anteriores para fornecer informações específicas sobre o nome de seu primeiro professor de programação. Para obter essa informação, você precisaria consultar o histórico de sua educação ou perguntar diretamente ao seu primeiro professor.",
+      "tokens_entrada": 171,
+      "tokens_saida": 61,
+      "tempo_ms": 866.38,
+      "tokens_total": 232,
+      "chamadas_modelo": 1,
+      "repeticao": 1
+    },
+    {
+      "id": "EVAL006",
+      "categoria": "informacao_desconhecida",
+      "cenario": "memoria_externa",
+      "passou": true,
+      "esperado": [
+        "não sei"
+      ],
+      "resposta": "Desculpe, mas não tenho acesso ao histórico de conversas anteriores para fornecer informações específicas sobre o nome de seu primeiro professor de programação. Para obter essa informação, você precisaria consultar o histórico de sua educação ou perguntar diretamente ao seu primeiro professor.",
+      "tokens_entrada": 171,
+      "tokens_saida": 61,
+      "tempo_ms": 870.44,
+      "tokens_total": 232,
+      "chamadas_modelo": 1,
+      "repeticao": 1
+    }
+  ],
+  "resumo": {
+    "sem_memoria": {
+      "casos": 6,
+      "executados": 6,
+      "aprovados": 2,
+      "erros": 0,
+      "taxa_erro": 0.0,
+      "taxa_aprovacao": 33.33,
+      "tokens_entrada_total": 1026,
+      "tokens_saida_total": 196,
+      "tokens_total": 1222,
+      "tempo_total_ms": 3090.52,
+      "chamadas_modelo": 6,
+      "tempo_medio_ms": 515.09
+    },
+    "historico_completo": {
+      "casos": 6,
+      "executados": 6,
+      "aprovados": 6,
+      "erros": 0,
+      "taxa_erro": 0.0,
+      "taxa_aprovacao": 100.0,
+      "tokens_entrada_total": 2414,
+      "tokens_saida_total": 261,
+      "tokens_total": 2675,
+      "tempo_total_ms": 4272.55,
+      "chamadas_modelo": 12,
+      "tempo_medio_ms": 712.09
+    },
+    "memoria_externa": {
+      "casos": 6,
+      "executados": 6,
+      "aprovados": 6,
+      "erros": 0,
+      "taxa_erro": 0.0,
+      "taxa_aprovacao": 100.0,
+      "tokens_entrada_total": 1284,
+      "tokens_saida_total": 123,
+      "tokens_total": 1407,
+      "tempo_total_ms": 2061.87,
+      "chamadas_modelo": 6,
+      "tempo_medio_ms": 343.64
+    }
+  }
+}
