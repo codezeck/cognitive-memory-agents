@@ -1,0 +1,36 @@
+{
+  "usuarios": [
+    {
+      "usuario_id": "u01",
+      "sessoes": [
+        {
+          "sessao": 1,
+          "fatos": [
+            {"chave": "cidade", "texto": "Eu moro em Osasco."},
+            {"chave": "pet", "texto": "Meu cachorro se chama Thor."}
+          ]
+        },
+        {
+          "sessao": 7,
+          "fatos": [
+            {"chave": "cidade", "texto": "Mudei para Campinas."}
+          ]
+        }
+      ],
+      "perguntas": [
+        {
+          "apos_sessao": 8,
+          "pergunta": "Em que cidade eu moro?",
+          "esperado": ["Campinas"],
+          "proibido": ["Osasco"]
+        },
+        {
+          "apos_sessao": 8,
+          "pergunta": "Qual é o nome do meu cachorro?",
+          "esperado": ["Thor"],
+          "proibido": []
+        }
+      ]
+    }
+  ]
+}
