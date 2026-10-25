@@ -29,24 +29,23 @@ def campo(resposta, nome, padrao=0):
     return getattr(resposta, nome, padrao) or padrao
 
 
+
 def executar_modelo(mensagens):
     inicio = time.perf_counter()
 
-    resposta = agent.ollama.chat(
-        model=agent.MODEL,
-        messages=mensagens,
+    resultado = agent.modelo_ia.gerar_com_detalhes(
+        mensagens,
         options={"temperature": 0},
     )
 
     tempo_ms = (time.perf_counter() - inicio) * 1000
 
     return {
-        "resposta": resposta.message.content or "",
-        "tokens_entrada": int(campo(resposta, "prompt_eval_count")),
-        "tokens_saida": int(campo(resposta, "eval_count")),
+        "resposta": resultado["resposta"],
+        "tokens_entrada": int(resultado["tokens_entrada"]),
+        "tokens_saida": int(resultado["tokens_saida"]),
         "tempo_ms": round(tempo_ms, 2),
     }
-
 
 
 
