@@ -1,0 +1,488 @@
+{
+  "versao": 1,
+  "descricao": "Benchmark sintético de memória de longo prazo: 4 usuários fictícios, 5 sessões cada (20 sessões). Nenhum dado pessoal real.",
+  "regras_de_comparacao": "Comparar sem diferenciar maiúsculas/minúsculas nem acentos. 'esperado': todos os termos devem aparecer. 'proibido': nenhum pode aparecer.",
+  "acoes_de_sessao": {
+    "fatos": "lista de fatos salvos na sessão; fato com a mesma 'chave' substitui o anterior",
+    "esquecer_chaves": "o usuário pede para esquecer fatos dessas chaves",
+    "apagar_usuario": "o usuário pede para apagar tudo (direito ao esquecimento)"
+  },
+  "usuarios": [
+    {
+      "usuario_id": "u01",
+      "sessoes": [
+        {
+          "sessao": 1,
+          "fatos": [
+            {
+              "chave": "cidade",
+              "texto": "Eu moro em Osasco."
+            },
+            {
+              "chave": "profissao",
+              "texto": "Trabalho como enfermeira."
+            },
+            {
+              "chave": "pet",
+              "texto": "Meu cachorro se chama Thor."
+            }
+          ]
+        },
+        {
+          "sessao": 2,
+          "fatos": [
+            {
+              "chave": "esporte",
+              "texto": "Nas horas livres eu faço corrida de rua."
+            },
+            {
+              "chave": "comida",
+              "texto": "Minha comida favorita é lasanha."
+            }
+          ]
+        },
+        {
+          "sessao": 3,
+          "fatos": [
+            {
+              "chave": "cidade",
+              "texto": "Mudei para Campinas."
+            }
+          ]
+        },
+        {
+          "sessao": 4,
+          "fatos": [
+            {
+              "chave": "profissao",
+              "texto": "Agora sou coordenadora de enfermagem."
+            }
+          ]
+        },
+        {
+          "sessao": 5,
+          "fatos": [
+            {
+              "chave": "esporte",
+              "texto": "Troquei a corrida pela natação."
+            },
+            {
+              "chave": "cidade",
+              "texto": "Me mudei para Santos."
+            }
+          ]
+        }
+      ],
+      "perguntas": [
+        {
+          "apos_sessao": 2,
+          "pergunta": "Onde eu moro?",
+          "esperado": [
+            "Osasco"
+          ],
+          "proibido": [],
+          "tipo": "antes_da_mudanca"
+        },
+        {
+          "apos_sessao": 3,
+          "pergunta": "Em que cidade eu moro hoje?",
+          "esperado": [
+            "Campinas"
+          ],
+          "proibido": [
+            "Osasco"
+          ],
+          "tipo": "atualizado"
+        },
+        {
+          "apos_sessao": 4,
+          "pergunta": "Qual é a minha profissão?",
+          "esperado": [
+            "coordenadora"
+          ],
+          "proibido": [
+            "enfermeira"
+          ],
+          "tipo": "atualizado_parafrase"
+        },
+        {
+          "apos_sessao": 5,
+          "pergunta": "Qual cidade é a minha casa atualmente?",
+          "esperado": [
+            "Santos"
+          ],
+          "proibido": [
+            "Osasco",
+            "Campinas"
+          ],
+          "tipo": "atualizado_duas_vezes"
+        },
+        {
+          "apos_sessao": 5,
+          "pergunta": "Como se chama o meu cachorro?",
+          "esperado": [
+            "Thor"
+          ],
+          "proibido": [],
+          "tipo": "estavel_antigo"
+        },
+        {
+          "apos_sessao": 5,
+          "pergunta": "Que esporte eu pratico?",
+          "esperado": [
+            "natação"
+          ],
+          "proibido": [
+            "corrida"
+          ],
+          "tipo": "atualizado_parafrase"
+        }
+      ]
+    },
+    {
+      "usuario_id": "u02",
+      "sessoes": [
+        {
+          "sessao": 1,
+          "fatos": [
+            {
+              "chave": "cidade",
+              "texto": "Moro em Curitiba."
+            },
+            {
+              "chave": "profissao",
+              "texto": "Sou professor de matemática."
+            },
+            {
+              "chave": "filhos",
+              "texto": "Tenho dois filhos."
+            }
+          ]
+        },
+        {
+          "sessao": 2,
+          "fatos": [
+            {
+              "chave": "carro",
+              "texto": "Meu carro é um Gol azul."
+            },
+            {
+              "chave": "time",
+              "texto": "Torço pelo Coritiba."
+            }
+          ]
+        },
+        {
+          "sessao": 3,
+          "fatos": [
+            {
+              "chave": "filhos",
+              "texto": "Agora tenho três filhos, nasceu a Bia."
+            }
+          ]
+        },
+        {
+          "sessao": 4,
+          "fatos": [
+            {
+              "chave": "carro",
+              "texto": "Vendi o Gol e comprei um Onix branco."
+            }
+          ]
+        },
+        {
+          "sessao": 5,
+          "fatos": [],
+          "esquecer_chaves": [
+            "carro"
+          ]
+        }
+      ],
+      "perguntas": [
+        {
+          "apos_sessao": 3,
+          "pergunta": "Quantos filhos eu tenho?",
+          "esperado": [
+            "três"
+          ],
+          "proibido": [
+            "dois"
+          ],
+          "tipo": "atualizado"
+        },
+        {
+          "apos_sessao": 4,
+          "pergunta": "Qual carro eu dirijo?",
+          "esperado": [
+            "Onix"
+          ],
+          "proibido": [
+            "Gol"
+          ],
+          "tipo": "atualizado"
+        },
+        {
+          "apos_sessao": 5,
+          "pergunta": "Qual carro eu dirijo?",
+          "esperado": [],
+          "proibido": [
+            "Onix",
+            "Gol"
+          ],
+          "tipo": "esquecido"
+        },
+        {
+          "apos_sessao": 5,
+          "pergunta": "Para qual time eu torço?",
+          "esperado": [
+            "Coritiba"
+          ],
+          "proibido": [],
+          "tipo": "estavel_antigo"
+        },
+        {
+          "apos_sessao": 5,
+          "pergunta": "O que eu ensino?",
+          "esperado": [
+            "matemática"
+          ],
+          "proibido": [],
+          "tipo": "parafrase"
+        }
+      ]
+    },
+    {
+      "usuario_id": "u03",
+      "sessoes": [
+        {
+          "sessao": 1,
+          "fatos": [
+            {
+              "chave": "cidade",
+              "texto": "Moro em Recife."
+            },
+            {
+              "chave": "pet",
+              "texto": "Minha gata se chama Luna."
+            },
+            {
+              "chave": "profissao",
+              "texto": "Sou designer gráfica."
+            }
+          ]
+        },
+        {
+          "sessao": 2,
+          "fatos": [
+            {
+              "chave": "hobby",
+              "texto": "Gosto de fotografia."
+            },
+            {
+              "chave": "viagem",
+              "texto": "Quero viajar para o Japão em dezembro."
+            }
+          ]
+        },
+        {
+          "sessao": 3,
+          "fatos": [
+            {
+              "chave": "viagem",
+              "texto": "Troquei o destino: vou para Portugal em dezembro."
+            }
+          ]
+        },
+        {
+          "sessao": 4,
+          "fatos": [
+            {
+              "chave": "pet2",
+              "texto": "Adotei um segundo gato, o Simba."
+            }
+          ]
+        },
+        {
+          "sessao": 5,
+          "fatos": [
+            {
+              "chave": "profissao",
+              "texto": "Virei diretora de arte."
+            }
+          ]
+        }
+      ],
+      "perguntas": [
+        {
+          "apos_sessao": 2,
+          "pergunta": "Que hobby eu tenho?",
+          "esperado": [
+            "fotografia"
+          ],
+          "proibido": [],
+          "tipo": "estavel"
+        },
+        {
+          "apos_sessao": 3,
+          "pergunta": "Para onde vou viajar em dezembro?",
+          "esperado": [
+            "Portugal"
+          ],
+          "proibido": [
+            "Japão"
+          ],
+          "tipo": "atualizado"
+        },
+        {
+          "apos_sessao": 4,
+          "pergunta": "Quantos gatos eu tenho?",
+          "esperado": [
+            "Luna",
+            "Simba"
+          ],
+          "proibido": [],
+          "tipo": "multiplas_memorias"
+        },
+        {
+          "apos_sessao": 5,
+          "pergunta": "Qual é o meu cargo?",
+          "esperado": [
+            "diretora"
+          ],
+          "proibido": [
+            "designer"
+          ],
+          "tipo": "atualizado_parafrase"
+        },
+        {
+          "apos_sessao": 5,
+          "pergunta": "Onde eu moro?",
+          "esperado": [
+            "Recife"
+          ],
+          "proibido": [
+            "Osasco",
+            "Campinas",
+            "Santos",
+            "Curitiba",
+            "Porto Alegre",
+            "Florianópolis"
+          ],
+          "tipo": "isolamento_entre_usuarios"
+        }
+      ]
+    },
+    {
+      "usuario_id": "u04",
+      "sessoes": [
+        {
+          "sessao": 1,
+          "fatos": [
+            {
+              "chave": "cidade",
+              "texto": "Moro em Porto Alegre."
+            },
+            {
+              "chave": "profissao",
+              "texto": "Trabalho como programador."
+            },
+            {
+              "chave": "instrumento",
+              "texto": "Toco violão."
+            }
+          ]
+        },
+        {
+          "sessao": 2,
+          "fatos": [
+            {
+              "chave": "cidade",
+              "texto": "Mudei para Florianópolis."
+            },
+            {
+              "chave": "projeto",
+              "texto": "Meu projeto usa Python."
+            }
+          ]
+        },
+        {
+          "sessao": 3,
+          "fatos": [
+            {
+              "chave": "profissao",
+              "texto": "Agora trabalho como analista de dados."
+            }
+          ]
+        },
+        {
+          "sessao": 4,
+          "fatos": [],
+          "apagar_usuario": true
+        },
+        {
+          "sessao": 5,
+          "fatos": [
+            {
+              "chave": "cidade",
+              "texto": "Voltei a usar o assistente e agora moro em Belém."
+            }
+          ]
+        }
+      ],
+      "perguntas": [
+        {
+          "apos_sessao": 3,
+          "pergunta": "Qual é o meu trabalho?",
+          "esperado": [
+            "analista"
+          ],
+          "proibido": [
+            "programador"
+          ],
+          "tipo": "atualizado_parafrase"
+        },
+        {
+          "apos_sessao": 4,
+          "pergunta": "Onde eu moro?",
+          "esperado": [],
+          "proibido": [
+            "Florianópolis",
+            "Porto Alegre"
+          ],
+          "tipo": "esquecido_usuario"
+        },
+        {
+          "apos_sessao": 4,
+          "pergunta": "Qual instrumento eu toco?",
+          "esperado": [],
+          "proibido": [
+            "violão"
+          ],
+          "tipo": "esquecido_usuario"
+        },
+        {
+          "apos_sessao": 5,
+          "pergunta": "Onde eu moro?",
+          "esperado": [
+            "Belém"
+          ],
+          "proibido": [
+            "Florianópolis",
+            "Porto Alegre"
+          ],
+          "tipo": "recomeco_apos_apagar"
+        },
+        {
+          "apos_sessao": 5,
+          "pergunta": "Qual é a minha profissão?",
+          "esperado": [],
+          "proibido": [
+            "analista",
+            "programador"
+          ],
+          "tipo": "esquecido_usuario"
+        }
+      ]
+    }
+  ]
+}
