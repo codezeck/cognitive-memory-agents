@@ -1,0 +1,85 @@
+
+[
+  {
+    "id": "EVAL001",
+    "categoria": "contexto",
+    "descricao": "Recuperar o nome do projeto",
+    "mensagens": [
+      "Meu projeto se chama Axis.",
+      "Qual é o nome do meu projeto?"
+    ],
+    "memorias": [
+      "Meu projeto se chama Axis."
+    ],
+    "esperado": "Axis"
+  },
+  {
+    "id": "EVAL002",
+    "categoria": "instrucao",
+    "descricao": "Responder em português",
+    "mensagens": [
+      "Responda em português: qual é a capital do Brasil?"
+    ],
+    "memorias": [],
+    "esperado": "Brasília"
+  },
+  {
+    "id": "EVAL003",
+    "categoria": "preferencia",
+    "descricao": "Recuperar uma preferência",
+    "mensagens": [
+      "Prefiro respostas curtas e objetivas.",
+      "Qual é minha preferência para as respostas?"
+    ],
+    "memorias": [
+      "O usuário prefere respostas curtas e objetivas."
+    ],
+    "esperado": [
+      "curtas",
+      "objetiva"
+    ]
+  },
+  {
+    "id": "EVAL004",
+    "categoria": "atualizacao",
+    "descricao": "Priorizar o nome atualizado do projeto",
+    "mensagens": [
+      "Meu projeto se chama Axis.",
+      "Atualização: o nome atual do meu projeto é Codezeck. Axis era o nome antigo.",
+      "Qual é o nome atual do meu projeto?"
+    ],
+    "memorias": [
+      "O nome atual do projeto é Codezeck. Axis era o nome antigo."
+    ],
+    "esperado": "Codezeck"
+  },
+  {
+  "id": "EVAL005",
+  "categoria": "conflito",
+  "descricao": "Priorizar a preferência mais recente",
+  "mensagens": [
+    "Prefiro respostas longas e detalhadas.",
+    "Atualização: agora prefiro respostas curtas e objetivas.",
+    "Qual é minha preferência atual para o tamanho e o estilo das respostas?"
+  ],
+  "memorias": [
+    "A preferência atual do usuário é receber respostas curtas e objetivas. A preferência anterior por respostas longas e detalhadas foi substituída."
+  ],
+  "esperado": [
+    "curtas",
+    "objetiva"
+  ]
+  },
+  {
+  "id": "EVAL006",
+  "categoria": "informacao_desconhecida",
+  "descricao": "Verificar se o agente admite não conhecer uma informação",
+  "mensagens": [
+    "Qual é o nome do meu primeiro professor de programação?"
+  ],
+  "memorias": [],
+  "esperado": [
+    "não sei"
+  ]
+}
+]
