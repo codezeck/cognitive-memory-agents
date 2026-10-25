@@ -47,14 +47,50 @@ def executar_modelo(mensagens):
     }
 
 
+
+
 def avaliar_resposta(resposta, esperados):
+    texto = resposta.casefold().strip()
+
+    indicadores_desconhecido = [
+        "não sei",
+        "nao sei",
+        "não tenho essa informação",
+        "nao tenho essa informacao",
+        "não tenho informações",
+        "nao tenho informacoes",
+        "não há informações suficientes",
+        "nao ha informacoes suficientes",
+        "não tenho informação",
+        "nao tenho informacao",
+        "não tenho informações sobre",
+        "nao tenho informacoes sobre",
+    ]
+
+    # Reconhece o caso que avalia informação desconhecida.
+    if isinstance(esperados, list) and any(
+        termo.casefold() in ("não sei", "nao sei")
+        for termo in esperados
+    ):
+        admite_desconhecimento = any(
+            indicador in texto
+            for indicador in indicadores_desconhecido
+        )
+
+        inventa_nome = (
+            "seu primeiro professor foi" in texto
+            or "o nome do seu primeiro professor foi" in texto
+        )
+
+        return admite_desconhecimento and not inventa_nome
+
     if isinstance(esperados, str):
         esperados = [esperados]
 
-    texto = resposta.casefold()
-
-    # Uma lista representa critérios que devem aparecer todos.
-    return all(termo.casefold() in texto for termo in esperados)
+    return all(
+        termo.casefold() in texto
+        for termo in esperados
+    )
 
 
 def avaliar_sem_memoria(caso):

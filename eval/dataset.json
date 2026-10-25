@@ -54,20 +54,32 @@
     "esperado": "Codezeck"
   },
   {
-    "id": "EVAL005",
-    "categoria": "conflito",
-    "descricao": "Priorizar a preferência mais recente",
-    "mensagens": [
-      "Prefiro respostas longas e detalhadas.",
-      "Atualização: agora prefiro respostas curtas e objetivas.",
-      "Como devo responder?"
-    ],
-    "memorias": [
-      "A preferência atual do usuário é receber respostas curtas e objetivas."
-    ],
-    "esperado": [
-      "curtas",
-      "objetiva"
-    ]
-  }
+  "id": "EVAL005",
+  "categoria": "conflito",
+  "descricao": "Priorizar a preferência mais recente",
+  "mensagens": [
+    "Prefiro respostas longas e detalhadas.",
+    "Atualização: agora prefiro respostas curtas e objetivas.",
+    "Qual é minha preferência atual para o tamanho e o estilo das respostas?"
+  ],
+  "memorias": [
+    "A preferência atual do usuário é receber respostas curtas e objetivas. A preferência anterior por respostas longas e detalhadas foi substituída."
+  ],
+  "esperado": [
+    "curtas",
+    "objetiva"
+  ]
+  },
+  {
+  "id": "EVAL006",
+  "categoria": "informacao_desconhecida",
+  "descricao": "Verificar se o agente admite não conhecer uma informação",
+  "mensagens": [
+    "Qual é o nome do meu primeiro professor de programação?"
+  ],
+  "memorias": [],
+  "esperado": [
+    "não sei"
+  ]
+}
 ]
