@@ -1,4 +1,5 @@
 
+import httpx
 import ollama
 
 
@@ -17,8 +18,15 @@ class RespostaModeloVaziaError(ErroModelo):
 class OllamaAdapter:
     """Integra o projeto ao Ollama seguindo o contrato comum."""
 
-    def __init__(self, modelo: str):
+    def __init__(
+        self,
+        modelo: str,
+        timeout: float = 60.0,
+    ):
         self.modelo = modelo
+        self.cliente = ollama.Client(
+            timeout=httpx.Timeout(timeout),
+        )
 
     def gerar_com_detalhes(
         self,
@@ -28,7 +36,7 @@ class OllamaAdapter:
         """Gera uma resposta e retorna também as métricas disponíveis."""
 
         try:
-            resposta = ollama.chat(
+            resposta = self.cliente.chat(
                 model=self.modelo,
                 messages=mensagens,
                 options=options,
@@ -37,7 +45,8 @@ class OllamaAdapter:
             raise ModeloIndisponivelError(
                 f"Não foi possível consultar o modelo "
                 f"'{self.modelo}' no Ollama. Verifique se o serviço "
-                "está ativo e se o modelo está instalado."
+                "está ativo e se o modelo está instalado, ou se "
+                "a chamada excedeu o tempo limite."
             ) from erro
 
         try:
