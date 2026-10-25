@@ -1,5 +1,9 @@
 
-from src.modelos.ollama_adapter import OllamaAdapter
+from src.modelos.ollama_adapter import (
+    OllamaAdapter,
+    ModeloIndisponivelError,
+    RespostaModeloVaziaError,
+)
 
 MODEL = "qwen2.5-coder:3b"
 
@@ -168,8 +172,25 @@ def iniciar_agente() -> None:
             print("\nAgente encerrado.")
             break
 
+        except ModeloIndisponivelError:
+            print(
+                "\nNão foi possível conectar ao modelo de IA. "
+                "Verifique se o Ollama está ativo e se o modelo "
+                f"'{MODEL}' está instalado.\n"
+            )
+
+        except RespostaModeloVaziaError:
+            print(
+                "\nO modelo de IA não retornou uma resposta válida. "
+                "Tente novamente.\n"
+            )
+
         except Exception as erro:
-            print(f"\nErro ao consultar o Ollama: {erro}\n")
+            print(
+                "\nOcorreu um erro inesperado. "
+                "Tente novamente. "
+                f"Detalhes técnicos: {erro}\n"
+            )
 
 
 if __name__ == "__main__":
