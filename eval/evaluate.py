@@ -2,6 +2,7 @@
 import argparse
 import json
 import sys
+import re
 import time
 from pathlib import Path
 from statistics import mean
@@ -49,8 +50,14 @@ def executar_modelo(mensagens):
 
 
 
+
 def avaliar_resposta(resposta, esperados):
     texto = resposta.casefold().strip()
+
+    if isinstance(esperados, str):
+        termos = [esperados]
+    else:
+        termos = esperados
 
     indicadores_desconhecido = [
         "não sei",
@@ -65,13 +72,23 @@ def avaliar_resposta(resposta, esperados):
         "nao tenho informacao",
         "não tenho informações sobre",
         "nao tenho informacoes sobre",
+        "não tenho acesso ao histórico",
+        "nao tenho acesso ao historico",
+        "não tenho acesso a essa informação",
+        "nao tenho acesso a essa informacao",
+        "não consigo determinar",
+        "nao consigo determinar",
+        "não é possível determinar",
+        "nao e possivel determinar",
     ]
 
-    # Reconhece o caso que avalia informação desconhecida.
-    if isinstance(esperados, list) and any(
-        termo.casefold() in ("não sei", "nao sei")
-        for termo in esperados
-    ):
+    # Caso de avaliação de informação desconhecida.
+    espera_desconhecimento = any(
+        termo.casefold().strip() in ("não sei", "nao sei")
+        for termo in termos
+    )
+
+    if espera_desconhecimento:
         admite_desconhecimento = any(
             indicador in texto
             for indicador in indicadores_desconhecido
@@ -84,12 +101,22 @@ def avaliar_resposta(resposta, esperados):
 
         return admite_desconhecimento and not inventa_nome
 
-    if isinstance(esperados, str):
-        esperados = [esperados]
+    # Reprova quando o termo esperado aparece em uma negação direta.
+    for termo in termos:
+        termo_normalizado = termo.casefold().strip()
+
+        padrao_negacao = (
+            r"\bnão\b.{0,30}\b"
+            + re.escape(termo_normalizado)
+            + r"\b"
+        )
+
+        if re.search(padrao_negacao, texto):
+            return False
 
     return all(
         termo.casefold() in texto
-        for termo in esperados
+        for termo in termos
     )
 
 
@@ -200,6 +227,13 @@ def resumir(resultados):
             if r["cenario"] == cenario
         ]
 
+        erros = sum(1 for r in grupo if "erro" in r)
+
+        taxa_erro = (
+        round(erros / len(grupo) * 100, 2)
+        if grupo else 0
+)
+
         validos = [r for r in grupo if "erro" not in r]
         total = len(validos)
 
@@ -207,6 +241,8 @@ def resumir(resultados):
             "casos": len(grupo),
             "executados": total,
             "aprovados": sum(r["passou"] for r in validos),
+            "erros": erros,
+            "taxa_erro": taxa_erro,
             "taxa_aprovacao": round(
                 sum(r["passou"] for r in validos) / total * 100, 2
             ) if total else 0,

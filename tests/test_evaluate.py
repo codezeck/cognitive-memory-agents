@@ -140,3 +140,35 @@ def test_resumo_calcula_metricas_e_ignora_erros_nas_taxas():
     assert resumo["taxa_aprovacao"] == 50.0
     assert resumo["tokens_total"] == 22
     assert resumo["chamadas_modelo"] == 2
+
+def test_resposta_com_termo_esperado_mas_contradicao():
+    assert not evaluate.avaliar_resposta(
+        "O projeto não se chama Axis; ele se chama Codezeck.",
+        "Axis",
+    )
+
+
+def test_resumo_informa_taxa_de_erro():
+    resultados = [
+        {
+            "cenario": "sem_memoria",
+            "passou": True,
+            "tokens_entrada": 10,
+            "tokens_saida": 2,
+            "tokens_total": 12,
+            "tempo_ms": 100,
+            "chamadas_modelo": 1,
+        },
+        {
+            "cenario": "sem_memoria",
+            "passou": False,
+            "erro": "falha simulada",
+        },
+    ]
+
+    resumo = evaluate.resumir(resultados)["sem_memoria"]
+
+    assert resumo["casos"] == 2
+    assert resumo["executados"] == 1
+    assert resumo["erros"] == 1
+    assert resumo["taxa_erro"] == 50.0
