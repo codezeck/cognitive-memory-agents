@@ -1,7 +1,9 @@
 
-import ollama
+from src.modelos.ollama_adapter import OllamaAdapter
 
 MODEL = "qwen2.5-coder:3b"
+
+modelo_ia = OllamaAdapter(MODEL)
 
 SYSTEM_PROMPT = """
 Você é um agente de IA de um projeto acadêmico sobre memória
@@ -109,12 +111,7 @@ def responder(
     mensagens.append({"role": "user", "content": mensagem})
 
     try:
-        resposta = ollama.chat(
-            model=MODEL,
-            messages=mensagens,
-        )
-
-        texto = resposta.message.content or ""
+        texto = modelo_ia.gerar(mensagens)
 
     except Exception:
         # O histórico permanece inalterado se o Ollama falhar.
