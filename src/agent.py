@@ -114,12 +114,7 @@ def responder(
     mensagens.extend(historico[1:])
     mensagens.append({"role": "user", "content": mensagem})
 
-    try:
-        texto = modelo_ia.gerar(mensagens)
-
-    except Exception:
-        # O histórico permanece inalterado se o Ollama falhar.
-        raise
+    texto = modelo_ia.gerar(mensagens)
 
     historico.extend([
         {"role": "user", "content": mensagem},

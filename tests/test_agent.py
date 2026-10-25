@@ -87,6 +87,20 @@ def test_agente_responde_apos_falha_anterior(mock_gerar):
     assert historico[-1]["content"] == "Consegui responder."
 
 
+@patch("src.agent.modelo_ia.gerar")
+def test_resposta_vazia_nao_altera_historico(mock_gerar):
+    mock_gerar.side_effect = agent.RespostaModeloVaziaError(
+        "O modelo retornou uma resposta vazia."
+    )
+
+    with pytest.raises(agent.RespostaModeloVaziaError):
+        agent.responder("Olá", usuario_id=USUARIO_TESTE)
+
+    historico = agent.obter_historico(USUARIO_TESTE)
+
+    assert len(historico) == 1
+    assert historico[0]["role"] == "system"
+
 def test_memoria_externa_e_incluida_no_contexto(monkeypatch):
     chamadas = []
 
