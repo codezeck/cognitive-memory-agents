@@ -2,13 +2,13 @@
   "resumo": {
     "k": 3,
     "perguntas": 21,
-    "taxa_acerto": 0.619,
-    "taxa_lembranca_correta": 0.5294,
+    "taxa_acerto": 0.7143,
+    "taxa_lembranca_correta": 0.6471,
     "taxa_informacao_desatualizada": 0.0,
     "taxa_esquecimento_correto": 1.0,
-    "tokens_medios_memoria": 10.0,
-    "tokens_medios_historico_completo": 40.9,
-    "reducao_tokens_percentual": 75.7
+    "tokens_medios_memoria": 10.3,
+    "tokens_medios_historico_completo": 40.6,
+    "reducao_tokens_percentual": 74.5
   },
   "por_tipo": {
     "antes_da_mudanca": {
@@ -17,7 +17,7 @@
     },
     "atualizado": {
       "perguntas": 4,
-      "acertos": 2
+      "acertos": 3
     },
     "atualizado_duas_vezes": {
       "perguntas": 1,
@@ -25,7 +25,7 @@
     },
     "atualizado_parafrase": {
       "perguntas": 4,
-      "acertos": 1
+      "acertos": 2
     },
     "esquecido": {
       "perguntas": 1,
@@ -106,8 +106,8 @@
       "recuperou_esperado": false,
       "devolveu_proibido": false,
       "acertou": false,
-      "tokens_memoria": 23,
-      "tokens_historico_completo": 65
+      "tokens_memoria": 15,
+      "tokens_historico_completo": 64
     },
     {
       "usuario_id": "u01",
@@ -119,7 +119,7 @@
       "devolveu_proibido": false,
       "acertou": true,
       "tokens_memoria": 7,
-      "tokens_historico_completo": 65
+      "tokens_historico_completo": 64
     },
     {
       "usuario_id": "u01",
@@ -127,11 +127,11 @@
       "pergunta": "Que esporte eu pratico?",
       "tipo": "atualizado_parafrase",
       "tem_esperado": true,
-      "recuperou_esperado": false,
+      "recuperou_esperado": true,
       "devolveu_proibido": false,
-      "acertou": false,
-      "tokens_memoria": 0,
-      "tokens_historico_completo": 65
+      "acertou": true,
+      "tokens_memoria": 7,
+      "tokens_historico_completo": 64
     },
     {
       "usuario_id": "u02",
@@ -151,11 +151,11 @@
       "pergunta": "Qual carro eu dirijo?",
       "tipo": "atualizado",
       "tem_esperado": true,
-      "recuperou_esperado": false,
+      "recuperou_esperado": true,
       "devolveu_proibido": false,
-      "acertou": false,
-      "tokens_memoria": 0,
-      "tokens_historico_completo": 47
+      "acertou": true,
+      "tokens_memoria": 9,
+      "tokens_historico_completo": 46
     },
     {
       "usuario_id": "u02",
@@ -167,7 +167,7 @@
       "devolveu_proibido": false,
       "acertou": true,
       "tokens_memoria": 0,
-      "tokens_historico_completo": 47
+      "tokens_historico_completo": 46
     },
     {
       "usuario_id": "u02",
@@ -179,7 +179,7 @@
       "devolveu_proibido": false,
       "acertou": true,
       "tokens_memoria": 13,
-      "tokens_historico_completo": 47
+      "tokens_historico_completo": 46
     },
     {
       "usuario_id": "u02",
@@ -191,7 +191,7 @@
       "devolveu_proibido": false,
       "acertou": true,
       "tokens_memoria": 7,
-      "tokens_historico_completo": 47
+      "tokens_historico_completo": 46
     },
     {
       "usuario_id": "u03",
