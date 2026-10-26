@@ -1,0 +1,2 @@
+# Dependências opcionais da camada de memória (não afetam o requirements.txt do grupo)
+fastembed==0.9.1
