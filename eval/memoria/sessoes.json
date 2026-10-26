@@ -64,7 +64,7 @@
           "fatos": [
             {
               "chave": "esporte",
-              "texto": "Troquei a corrida pela natação."
+              "texto": "Agora eu pratico natação."
             },
             {
               "chave": "cidade",
@@ -186,7 +186,7 @@
           "fatos": [
             {
               "chave": "carro",
-              "texto": "Vendi o Gol e comprei um Onix branco."
+              "texto": "Agora meu carro é um Onix branco."
             }
           ]
         },
