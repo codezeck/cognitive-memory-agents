@@ -18,3 +18,8 @@ class ProvedorIndisponivel(ErroDominio):
 
 class ProvedorTimeout(ErroDominio):
     codigo, status_http = "provedor_timeout", 504
+
+    
+
+class MemoriaNaoEncontrada(ErroDominio):
+    codigo, status_http = "memoria_nao_encontrada", 404
