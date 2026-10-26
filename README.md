@@ -1,317 +1,170 @@
 # Cognitive Memory Agents
 
+**Curso:** EAD_PROINT_100.DD-ADS-PI-10-74.2026.74  
+**Disciplina:** Projeto Integrador
 
+**Integrantes:**
+- Ezequiel da Silva Manço — RA: 2410701 
+- Vinícius Silva Dos Santos — RA: 2412504 
+- Paloma Quimbely de Lima Silva — RA: 2411659 
 
-Projeto de desenvolvimento e avaliação de agentes inteligentes com foco em memória conversacional, recuperação de informações relevantes e otimização do contexto enviado a modelos de linguagem (LLMs).
+---
 
+## Sobre o projeto
 
+O Cognitive Memory Agents é um projeto de desenvolvimento e avaliação de agentes inteligentes com foco em memória conversacional, recuperação de informações relevantes e otimização do contexto enviado a modelos de linguagem (LLMs).
 
-## Objetivo
+O objetivo é investigar como diferentes estratégias de memória podem melhorar a continuidade das respostas e reduzir o consumo de tokens durante as interações com modelos de inteligência artificial.
 
+## Funcionalidades
 
-
-O objetivo do projeto é investigar como o uso de histórico conversacional e memórias externas pode melhorar a continuidade das respostas e reduzir o consumo de tokens.
-
-
-
-A proposta de longo prazo é desenvolver uma camada de memória reutilizável, capaz de trabalhar com diferentes modelos de IA por meio de integrações específicas.
-
-
-
-> **Status:** o projeto está em desenvolvimento. A implementação atual inclui um agente baseado em Ollama e uma estrutura experimental de avaliação. A integração completa com outros serviços e a persistência da memória ainda são etapas futuras.
-
-
-
-## Funcionalidades atuais
-
-
-
-- Agente conversacional baseado em Ollama.
-
+- Agente conversacional integrado ao Ollama.
 - Utilização do modelo `qwen2.5-coder:3b`.
-
-- Histórico de conversa separado por identificador de usuário durante a execução.
-
-- Recebimento de memórias externas como contexto adicional.
-
-- Tratamento de mensagens inválidas e falhas na chamada ao modelo.
-
+- Histórico de conversas separado por identificador de usuário durante a execução.
+- Inclusão de memórias externas no contexto enviado ao modelo.
+- Tratamento de mensagens inválidas e falhas na comunicação com o modelo.
 - Testes automatizados para validar o comportamento do agente.
+- Avaliação experimental de estratégias de memória, consumo de tokens e tempo de execução.
 
-- Avaliação experimental de estratégias de contexto e consumo de tokens.
+## Tecnologias utilizadas
 
+- **Python:** desenvolvimento da aplicação.
+- **Ollama:** execução local do modelo de linguagem.
+- **pytest:** testes automatizados.
+- **Git e GitHub:** controle de versão e colaboração.
+- **GitHub Actions:** automação da execução dos testes.
 
+## Arquitetura e funcionamento
 
-## Tecnologias
+O agente recebe uma mensagem e um identificador de usuário. O contexto enviado ao modelo pode conter instruções do sistema, histórico da conversa e memórias externas fornecidas pelo componente responsável pela chamada.
 
+O projeto avalia três estratégias de construção de contexto:
 
+1. **Sem memória:** envio da pergunta sem o histórico anterior ou as memórias externas do cenário.
+2. **Histórico completo:** utilização das mensagens anteriores da conversa.
+3. **Memória externa:** utilização de informações relevantes fornecidas separadamente, evitando o envio de todo o histórico usado no cenário de comparação.
 
-- Python
-
-- Ollama
-
-- pytest
-
-- Git e GitHub
-
-- GitHub Actions para automação de testes
-
-
-
-## Como funciona
-
-
-
-O agente recebe uma mensagem e um identificador de usuário. Quando disponíveis, as informações de memória externa são adicionadas ao contexto enviado ao modelo, junto com as instruções do sistema e o histórico daquela conversa.
-
-
-
-A implementação atual mantém o histórico em memória durante a execução do processo. As memórias externas são fornecidas ao agente pelo componente que o chama.
-
-
-
-### Estratégias avaliadas
-
-
-
-1. **Sem memória:** a pergunta é enviada sem o histórico anterior ou as memórias externas do cenário.
-
-2. **Histórico completo:** o contexto é construído com as mensagens anteriores da conversa.
-
-3. **Memória externa:** informações relevantes são fornecidas como contexto, evitando o envio de todo o histórico utilizado no cenário de comparação.
-
-
+Atualmente, o histórico é mantido em memória durante a execução do processo. A persistência das informações e a integração completa com o gerenciador de memória são etapas de desenvolvimento.
 
 ## Pré-requisitos
 
+Antes de executar o projeto, instale:
 
+- Python.
+- Ollama.
+- Git.
 
-- Python instalado.
-
-- Ollama instalado e em execução.
-
-- Modelo `qwen2.5-coder:3b` disponível no Ollama.
-
-- Git instalado.
-
-
+Também é necessário disponibilizar o modelo `qwen2.5-coder:3b` no Ollama.
 
 ## Instalação
 
-
-
 Clone o repositório:
 
-
-
 ```bash
-
 git clone https://github.com/codezeck/cognitive-memory-agents.git
-
 cd cognitive-memory-agents
-
 ```
-
-
 
 Crie um ambiente virtual:
 
-
-
-```powershell
-
+```bash
 python -m venv .venv
-
 ```
 
-
-
-Ative o ambiente virtual no Windows PowerShell:
-
-
+Ative o ambiente no Windows PowerShell:
 
 ```powershell
-
-..venv\Scripts\Activate.ps1
-
+.\.venv\Scripts\Activate.ps1
 ```
-
-
 
 Instale as dependências:
 
-
-
-```powershell
-
+```bash
 python -m pip install -r requirements.txt
-
 ```
 
+Baixe o modelo utilizado:
 
-
-Baixe o modelo:
-
-
-
-```powershell
-
+```bash
 ollama pull qwen2.5-coder:3b
-
 ```
-
-
 
 ## Execução
 
+Com as dependências instaladas e o Ollama em execução, execute:
 
-
-Com o Ollama em execução e as dependências instaladas, execute:
-
-
-
-```powershell
-
+```bash
 python src/agent.py
-
 ```
 
-
-
-A forma de interação disponível depende da implementação atual do arquivo `src/agent.py`.
-
-
+A forma de interação depende da implementação disponível no arquivo `src/agent.py`.
 
 ## Testes automatizados
 
+Para executar os testes:
 
-
-Execute a suíte de testes:
-
-
-
-```powershell
-
+```bash
 python -m pytest -v
-
 ```
 
-
-
-Os testes cobrem aspectos como:
-
-
+Os testes validam aspectos como:
 
 - Geração de respostas e tratamento de erros.
-
-- Manutenção e isolamento do histórico por usuário.
-
 - Comportamento diante de mensagens vazias.
-
+- Preservação e isolamento do histórico por usuário.
 - Inclusão de memória externa no contexto.
+- Comportamento do adaptador de modelo.
 
-- Avaliação das respostas e cálculo de métricas.
-
-
+Os testes também podem ser executados automaticamente pelo GitHub Actions.
 
 ## Avaliação experimental
 
+O projeto possui um conjunto de casos de avaliação em `eval/dataset.json`, um avaliador em `eval/evaluate.py` e resultados registrados em `eval/results.json`.
 
+Execute a avaliação com:
 
-O projeto contém um conjunto de casos em `eval/dataset.json`, um avaliador em `eval/evaluate.py` e resultados registrados em `eval/results.json`.
-
-
-
-Para executar a avaliação:
-
-
-
-```powershell
-
+```bash
 python eval/evaluate.py
-
 ```
 
+A avaliação compara a taxa de aprovação dos casos, o consumo de tokens, a quantidade de chamadas ao modelo e o tempo de execução.
 
-
-A avaliação compara aprovação dos casos, consumo de tokens, chamadas ao modelo e tempo de execução.
-
-
-
-### Resultados de uma execução experimental
-
-
+### Resultados experimentais
 
 | Indicador | Sem memória | Histórico completo | Memória externa |
-
 |---|---:|---:|---:|
-
 | Casos aprovados | 2 de 6 | 6 de 6 | 6 de 6 |
-
 | Taxa de aprovação | 33,33% | 100% | 100% |
-
 | Tokens totais | 1.222 | 2.675 | 1.407 |
-
 | Chamadas ao modelo | 6 | 12 | 6 |
-
 | Tempo total | 3,09 s | 4,27 s | 2,06 s |
 
+Os resultados correspondem a uma execução experimental com seis casos por cenário. Portanto, são preliminares e podem variar em novas execuções.
 
+Nesse experimento, o cenário de memória externa utilizou aproximadamente 47% menos tokens e 52% menos tempo do que o cenário de histórico completo. A memória externa foi simulada pelo avaliador e não representa, por si só, uma integração completa com um sistema persistente.
 
-Os valores são resultados preliminares de uma execução com seis casos por cenário. Eles não garantem o mesmo desempenho em outras execuções.
-
-
-
-Nesse experimento, o cenário de memória externa utilizou aproximadamente 47% menos tokens e 52% menos tempo do que o cenário de histórico completo. Essa comparação é experimental: a memória externa foi simulada pelo avaliador, e não representa uma integração completa com um sistema persistente de memória.
-
-
-
-## Limitações atuais
-
-
+## Limitações conhecidas
 
 - O histórico não é persistido após o encerramento do processo.
-
-- O identificador de usuário separa históricos na implementação, mas não substitui autenticação e autorização.
-
-- A memória externa precisa ser fornecida pelo componente que chama o agente.
-
-- A integração com API e gerenciador de memória ainda precisa ser validada.
-
-- Os resultados de avaliação utilizam um conjunto pequeno de casos.
-
-
+- O identificador de usuário não substitui mecanismos de autenticação e autorização.
+- As memórias externas precisam ser fornecidas pelo componente que chama o agente.
+- A integração completa entre agente, API e gerenciador de memória precisa ser validada.
+- Os resultados experimentais utilizam um conjunto limitado de casos.
 
 ## Próximos passos
 
-
-
-- Integrar o agente ao gerenciador de memória do projeto.
-
-- Integrar o agente à API da aplicação.
-
+- Integrar o agente ao gerenciador de memória.
+- Validar a integração com a API da aplicação.
 - Implementar armazenamento persistente e recuperação de memórias relevantes.
-
-- Avaliar mecanismos de resumo, atualização e remoção de memórias.
-
-- Criar adaptadores para diferentes modelos e provedores de IA.
-
-- Ampliar os testes e repetir as avaliações para obter comparações mais robustas.
-
-- Reforçar autenticação, isolamento de dados e controles de privacidade.
-
-
+- Desenvolver mecanismos de atualização, resumo e remoção de memórias.
+- Ampliar os testes automatizados e os cenários de avaliação.
+- Investigar a integração com diferentes modelos e provedores de IA.
+- Reforçar os mecanismos de autenticação, isolamento e privacidade.
 
 ## Contribuição
 
-
-
-Alterações devem respeitar a divisão de responsabilidades do projeto, incluir testes quando aplicável e passar pela revisão da equipe antes de serem integradas à branch principal.
-
-
+As contribuições devem seguir a organização do projeto, incluir testes quando aplicável e passar por revisão antes da integração à branch principal.
 
 ## Licença
 
-
-
-A licença do projeto deverá ser definida pela equipe responsável.
+A licença do projeto será definida pela equipe responsável.
