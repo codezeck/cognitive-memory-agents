@@ -17,8 +17,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from src.memoria import EmbedderHash, MemoriaEmRam  # noqa: E402
 from src.memoria.benchmark import avaliar, carregar, formatar_resumo  # noqa: E402
 
-# Novos embedders (ex.: semântico) entram aqui, sem mexer no resto.
-EMBEDDERS = {"hash": EmbedderHash}
+from src.memoria.embeddings_semantico import EmbedderFastembed  # noqa: E402
+
+# Novos embedders entram aqui, sem mexer no resto.
+EMBEDDERS = {"hash": EmbedderHash, "semantico": EmbedderFastembed}
 
 
 def main() -> None:
