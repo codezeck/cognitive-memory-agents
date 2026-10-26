@@ -29,11 +29,15 @@ async def tratar_erro_dominio(request: Request, exc: ErroDominio):
 
 @app.exception_handler(RequestValidationError)
 async def tratar_validacao(request: Request, exc: RequestValidationError):
-    campos = [".".join(str(p) for p in e["loc"] if p not in ("body", "path", "query"))
-              for e in exc.errors()]
-    return JSONResponse(status_code=422, content={
-        "codigo": "entrada_invalida",
-        "mensagem": "Dados inválidos nos campos: " + ", ".join(campos)})
+    erros = exc.errors()
+    if any(e["type"] == "json_invalid" for e in erros):
+        mensagem = "O corpo do pedido não é um JSON válido (confira vírgulas e aspas)."
+    else:
+        campos = [".".join(str(p) for p in e["loc"] if p not in ("body", "path", "query"))
+                  for e in erros]
+        mensagem = "Dados inválidos nos campos: " + ", ".join(campos)
+    return JSONResponse(status_code=422,
+                        content={"codigo": "entrada_invalida", "mensagem": mensagem})
 
 
 @app.exception_handler(ValueError)
