@@ -1,0 +1,153 @@
+[
+ {
+  "id": "aval-c01",
+  "usuario_id": "k01",
+  "descricao": "nome, cidade e esporte; mudança e esquecimento de endereço",
+  "turnos": [
+   "Olá! Meu nome é Carla.",
+   "Eu moro em Niterói e faço natação.",
+   "Mudei para São Gonçalo.",
+   "Esqueça meu endereço.",
+   "Pode me dizer qual é o meu nome?"
+  ],
+  "checkpoints": [
+   {
+    "apos_turno": 2,
+    "estado": {
+     "nome": "Carla",
+     "cidade": "Niterói",
+     "esporte": "natação"
+    },
+    "ausentes": []
+   },
+   {
+    "apos_turno": 3,
+    "estado": {
+     "cidade": "São Gonçalo"
+    },
+    "ausentes": []
+   },
+   {
+    "apos_turno": 4,
+    "estado": {
+     "nome": "Carla",
+     "esporte": "natação"
+    },
+    "ausentes": [
+     "cidade"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "aval-c02",
+  "usuario_id": "k02",
+  "descricao": "profissão, negação do fato antigo e filhos",
+  "turnos": [
+   "Sou professor.",
+   "Agora trabalho como diretor de escola.",
+   "Não trabalho mais como professor.",
+   "Tenho três filhas."
+  ],
+  "checkpoints": [
+   {
+    "apos_turno": 2,
+    "estado": {
+     "profissao": "diretor de escola"
+    },
+    "ausentes": []
+   },
+   {
+    "apos_turno": 3,
+    "estado": {
+     "profissao": "diretor de escola"
+    },
+    "ausentes": []
+   },
+   {
+    "apos_turno": 4,
+    "estado": {
+     "profissao": "diretor de escola",
+     "filhos": "3"
+    },
+    "ausentes": []
+   }
+  ]
+ },
+ {
+  "id": "aval-c03",
+  "usuario_id": "k03",
+  "descricao": "time: repetição, negação e troca",
+  "turnos": [
+   "Meu time é o Fluminense.",
+   "Torço pelo Fluminense desde criança.",
+   "Não torço mais pelo Fluminense.",
+   "Agora torço pelo Bahia."
+  ],
+  "checkpoints": [
+   {
+    "apos_turno": 2,
+    "estado": {
+     "time": "Fluminense"
+    },
+    "ausentes": []
+   },
+   {
+    "apos_turno": 3,
+    "estado": {},
+    "ausentes": [
+     "time"
+    ]
+   },
+   {
+    "apos_turno": 4,
+    "estado": {
+     "time": "Bahia"
+    },
+    "ausentes": []
+   }
+  ]
+ },
+ {
+  "id": "aval-c04",
+  "usuario_id": "k04",
+  "descricao": "apagar tudo e recomeçar",
+  "turnos": [
+   "Atualmente moro em Osasco.",
+   "Apague tudo.",
+   "Moro em Osasco de novo.",
+   "Meu carro é um Polo."
+  ],
+  "checkpoints": [
+   {
+    "apos_turno": 1,
+    "estado": {
+     "cidade": "Osasco"
+    },
+    "ausentes": []
+   },
+   {
+    "apos_turno": 2,
+    "estado": {},
+    "ausentes": [
+     "cidade"
+    ]
+   },
+   {
+    "apos_turno": 3,
+    "estado": {
+     "cidade": "Osasco"
+    },
+    "ausentes": []
+   },
+   {
+    "apos_turno": 4,
+    "estado": {
+     "cidade": "Osasco",
+     "carro": "Polo"
+    },
+    "ausentes": []
+   }
+  ]
+ }
+]

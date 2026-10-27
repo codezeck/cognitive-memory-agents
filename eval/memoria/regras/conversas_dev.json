@@ -1,0 +1,224 @@
+[
+ {
+  "id": "dev-c01",
+  "usuario_id": "c01",
+  "descricao": "mudança de cidade e de profissão",
+  "turnos": [
+   "Oi! Eu moro em Osasco e trabalho como enfermeira.",
+   "Meu cachorro se chama Thor.",
+   "Você lembra onde eu moro?",
+   "Mudei para Campinas.",
+   "Agora sou coordenadora de enfermagem."
+  ],
+  "checkpoints": [
+   {
+    "apos_turno": 1,
+    "estado": {
+     "cidade": "Osasco",
+     "profissao": "enfermeira"
+    },
+    "ausentes": []
+   },
+   {
+    "apos_turno": 4,
+    "estado": {
+     "cidade": "Campinas",
+     "profissao": "enfermeira",
+     "pet:cachorro:thor": "Thor"
+    },
+    "ausentes": []
+   },
+   {
+    "apos_turno": 5,
+    "estado": {
+     "cidade": "Campinas",
+     "profissao": "coordenadora de enfermagem",
+     "pet:cachorro:thor": "Thor"
+    },
+    "ausentes": []
+   }
+  ]
+ },
+ {
+  "id": "dev-c02",
+  "usuario_id": "c02",
+  "descricao": "esquecer por tópico e atualizar número de filhos",
+  "turnos": [
+   "Meu carro é um Gol azul e torço pelo Coritiba.",
+   "Tenho dois filhos.",
+   "Esqueça o que eu disse sobre o carro.",
+   "Agora tenho três filhos, nasceu a Bia."
+  ],
+  "checkpoints": [
+   {
+    "apos_turno": 2,
+    "estado": {
+     "carro": "Gol azul",
+     "time": "Coritiba",
+     "filhos": "2"
+    },
+    "ausentes": []
+   },
+   {
+    "apos_turno": 3,
+    "estado": {
+     "time": "Coritiba",
+     "filhos": "2"
+    },
+    "ausentes": [
+     "carro"
+    ]
+   },
+   {
+    "apos_turno": 4,
+    "estado": {
+     "filhos": "3"
+    },
+    "ausentes": [
+     "carro"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "dev-c03",
+  "usuario_id": "c03",
+  "descricao": "apagar tudo e recomeçar",
+  "turnos": [
+   "Me chamo Lucas e moro em Porto Alegre.",
+   "Trabalho como programador.",
+   "Esqueça tudo sobre mim.",
+   "Moro em Belém."
+  ],
+  "checkpoints": [
+   {
+    "apos_turno": 2,
+    "estado": {
+     "nome": "Lucas",
+     "cidade": "Porto Alegre",
+     "profissao": "programador"
+    },
+    "ausentes": []
+   },
+   {
+    "apos_turno": 3,
+    "estado": {},
+    "ausentes": [
+     "nome",
+     "cidade",
+     "profissao"
+    ]
+   },
+   {
+    "apos_turno": 4,
+    "estado": {
+     "cidade": "Belém"
+    },
+    "ausentes": [
+     "nome",
+     "profissao"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "dev-c04",
+  "usuario_id": "c04",
+  "descricao": "negação que não pode apagar fato mais novo",
+  "turnos": [
+   "Moro em Osasco.",
+   "Mudei para Santos.",
+   "Não moro mais em Osasco."
+  ],
+  "checkpoints": [
+   {
+    "apos_turno": 2,
+    "estado": {
+     "cidade": "Santos"
+    },
+    "ausentes": []
+   },
+   {
+    "apos_turno": 3,
+    "estado": {
+     "cidade": "Santos"
+    },
+    "ausentes": []
+   }
+  ]
+ },
+ {
+  "id": "dev-c05",
+  "usuario_id": "c05",
+  "descricao": "correção na mesma mensagem e repetição",
+  "turnos": [
+   "Moro em Osasco. Na verdade, moro em Campinas.",
+   "Moro em Campinas.",
+   "Torço pelo Santos. Meu time é o Santos."
+  ],
+  "checkpoints": [
+   {
+    "apos_turno": 1,
+    "estado": {
+     "cidade": "Campinas"
+    },
+    "ausentes": []
+   },
+   {
+    "apos_turno": 3,
+    "estado": {
+     "cidade": "Campinas",
+     "time": "Santos"
+    },
+    "ausentes": []
+   }
+  ]
+ },
+ {
+  "id": "dev-c06",
+  "usuario_id": "c06",
+  "descricao": "vários pets, gosto e esquecimento por espécie",
+  "turnos": [
+   "Minha gata se chama Luna e meu cachorro se chama Thor.",
+   "Adotei um segundo gato, o Simba.",
+   "Gosto de fotografia.",
+   "Não gosto mais de fotografia.",
+   "Apague meus gatos."
+  ],
+  "checkpoints": [
+   {
+    "apos_turno": 2,
+    "estado": {
+     "pet:gato:luna": "Luna",
+     "pet:cachorro:thor": "Thor",
+     "pet:gato:simba": "Simba"
+    },
+    "ausentes": []
+   },
+   {
+    "apos_turno": 3,
+    "estado": {
+     "gosto:fotografia": "fotografia"
+    },
+    "ausentes": []
+   },
+   {
+    "apos_turno": 4,
+    "estado": {},
+    "ausentes": [
+     "gosto:fotografia"
+    ]
+   },
+   {
+    "apos_turno": 5,
+    "estado": {
+     "pet:cachorro:thor": "Thor"
+    },
+    "ausentes": [
+     "pet:gato:luna",
+     "pet:gato:simba"
+    ]
+   }
+  ]
+ }
+]

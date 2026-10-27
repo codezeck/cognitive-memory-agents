@@ -1,0 +1,556 @@
+[
+ {
+  "id": "aval-001",
+  "origem": "manual",
+  "frase": "Resido atualmente em Niterói.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Niterói"
+   ]
+  ]
+ },
+ {
+  "id": "aval-002",
+  "origem": "manual",
+  "frase": "Acabei de me mudar para Brasília.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Brasília"
+   ]
+  ]
+ },
+ {
+  "id": "aval-003",
+  "origem": "manual",
+  "frase": "Estou morando em Fortaleza desde março.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Fortaleza"
+   ]
+  ]
+ },
+ {
+  "id": "aval-004",
+  "origem": "manual",
+  "frase": "Sou de Salvador, mas moro em Goiânia.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Goiânia"
+   ]
+  ]
+ },
+ {
+  "id": "aval-005",
+  "origem": "manual",
+  "frase": "Minha profissão atual é médica.",
+  "esperado": [
+   [
+    "salvar",
+    "profissao",
+    "médica"
+   ]
+  ]
+ },
+ {
+  "id": "aval-006",
+  "origem": "manual",
+  "frase": "Atuo como dentista.",
+  "esperado": [
+   [
+    "salvar",
+    "profissao",
+    "dentista"
+   ]
+  ]
+ },
+ {
+  "id": "aval-007",
+  "origem": "manual",
+  "frase": "Eu trabalho como arquiteta há cinco anos.",
+  "esperado": [
+   [
+    "salvar",
+    "profissao",
+    "arquiteta"
+   ]
+  ]
+ },
+ {
+  "id": "aval-008",
+  "origem": "manual",
+  "frase": "Sou fotógrafo.",
+  "esperado": [
+   [
+    "salvar",
+    "profissao",
+    "fotógrafo"
+   ]
+  ]
+ },
+ {
+  "id": "aval-009",
+  "origem": "manual",
+  "frase": "Meu nome é Ana Beatriz.",
+  "esperado": [
+   [
+    "salvar",
+    "nome",
+    "Ana Beatriz"
+   ]
+  ]
+ },
+ {
+  "id": "aval-010",
+  "origem": "manual",
+  "frase": "Todos me chamam de Duda.",
+  "esperado": [
+   [
+    "salvar",
+    "apelido",
+    "Duda"
+   ]
+  ]
+ },
+ {
+  "id": "aval-011",
+  "origem": "manual",
+  "frase": "Tenho um cachorro chamado Bob.",
+  "esperado": [
+   [
+    "salvar",
+    "pet:cachorro:bob",
+    "Bob"
+   ]
+  ]
+ },
+ {
+  "id": "aval-012",
+  "origem": "manual",
+  "frase": "Minha coelha se chama Branquinha.",
+  "esperado": [
+   [
+    "salvar",
+    "pet:coelho:branquinha",
+    "Branquinha"
+   ]
+  ]
+ },
+ {
+  "id": "aval-013",
+  "origem": "manual",
+  "frase": "Minha gata chama-se Mimi.",
+  "esperado": [
+   [
+    "salvar",
+    "pet:gato:mimi",
+    "Mimi"
+   ]
+  ]
+ },
+ {
+  "id": "aval-014",
+  "origem": "manual",
+  "frase": "Faço natação duas vezes por semana.",
+  "esperado": [
+   [
+    "salvar",
+    "esporte",
+    "natação"
+   ]
+  ]
+ },
+ {
+  "id": "aval-015",
+  "origem": "manual",
+  "frase": "Comecei a praticar yoga.",
+  "esperado": [
+   [
+    "salvar",
+    "esporte",
+    "yoga"
+   ]
+  ]
+ },
+ {
+  "id": "aval-016",
+  "origem": "manual",
+  "frase": "Joguei futebol ontem.",
+  "esperado": []
+ },
+ {
+  "id": "aval-017",
+  "origem": "manual",
+  "frase": "Meu carro é um Civic prata.",
+  "esperado": [
+   [
+    "salvar",
+    "carro",
+    "Civic prata"
+   ]
+  ]
+ },
+ {
+  "id": "aval-018",
+  "origem": "manual",
+  "frase": "Comprei um Corolla novo.",
+  "esperado": [
+   [
+    "salvar",
+    "carro",
+    "Corolla novo"
+   ]
+  ]
+ },
+ {
+  "id": "aval-019",
+  "origem": "manual",
+  "frase": "Tenho dois filhos pequenos.",
+  "esperado": [
+   [
+    "salvar",
+    "filhos",
+    "2"
+   ]
+  ]
+ },
+ {
+  "id": "aval-020",
+  "origem": "manual",
+  "frase": "Minha esposa está grávida.",
+  "esperado": []
+ },
+ {
+  "id": "aval-021",
+  "origem": "manual",
+  "frase": "Sou torcedor do Vasco.",
+  "esperado": [
+   [
+    "salvar",
+    "time",
+    "Vasco"
+   ]
+  ]
+ },
+ {
+  "id": "aval-022",
+  "origem": "manual",
+  "frase": "Meu time do coração é o Botafogo.",
+  "esperado": [
+   [
+    "salvar",
+    "time",
+    "Botafogo"
+   ]
+  ]
+ },
+ {
+  "id": "aval-023",
+  "origem": "manual",
+  "frase": "Minha música favorita é Garota de Ipanema.",
+  "esperado": [
+   [
+    "salvar",
+    "favorito:musica",
+    "Garota de Ipanema"
+   ]
+  ]
+ },
+ {
+  "id": "aval-024",
+  "origem": "manual",
+  "frase": "Adoro chocolate.",
+  "esperado": [
+   [
+    "salvar",
+    "gosto:chocolate",
+    "chocolate"
+   ]
+  ]
+ },
+ {
+  "id": "aval-025",
+  "origem": "manual",
+  "frase": "Gosto de ler romances policiais.",
+  "esperado": [
+   [
+    "salvar",
+    "gosto:ler romances policiais",
+    "ler romances policiais"
+   ]
+  ]
+ },
+ {
+  "id": "aval-026",
+  "origem": "manual",
+  "frase": "Vou viajar para Lisboa em março.",
+  "esperado": [
+   [
+    "salvar",
+    "viagem",
+    "Lisboa em março"
+   ]
+  ]
+ },
+ {
+  "id": "aval-027",
+  "origem": "manual",
+  "frase": "Quero conhecer Roma.",
+  "esperado": []
+ },
+ {
+  "id": "aval-028",
+  "origem": "manual",
+  "frase": "Pode esquecer meu endereço, por favor.",
+  "esperado": [
+   [
+    "esquecer",
+    "cidade",
+    null
+   ]
+  ]
+ },
+ {
+  "id": "aval-029",
+  "origem": "manual",
+  "frase": "Quero que você apague tudo o que sabe sobre mim.",
+  "esperado": [
+   [
+    "apagar_usuario",
+    null,
+    null
+   ]
+  ]
+ },
+ {
+  "id": "aval-030",
+  "origem": "manual",
+  "frase": "Esqueça o que eu falei sobre meu time.",
+  "esperado": [
+   [
+    "esquecer",
+    "time",
+    null
+   ]
+  ]
+ },
+ {
+  "id": "aval-031",
+  "origem": "manual",
+  "frase": "Não quero mais que você guarde meu carro.",
+  "esperado": [
+   [
+    "esquecer",
+    "carro",
+    null
+   ]
+  ]
+ },
+ {
+  "id": "aval-032",
+  "origem": "manual",
+  "frase": "Apague o meu cachorro da memória.",
+  "esperado": [
+   [
+    "esquecer",
+    "pet:cachorro:",
+    null
+   ]
+  ]
+ },
+ {
+  "id": "aval-033",
+  "origem": "manual",
+  "frase": "Deixei de morar em Osasco.",
+  "esperado": [
+   [
+    "esquecer",
+    "cidade",
+    "Osasco"
+   ]
+  ]
+ },
+ {
+  "id": "aval-034",
+  "origem": "manual",
+  "frase": "Já não trabalho como enfermeira.",
+  "esperado": [
+   [
+    "esquecer",
+    "profissao",
+    "enfermeira"
+   ]
+  ]
+ },
+ {
+  "id": "aval-035",
+  "origem": "manual",
+  "frase": "Hoje eu moro em Osasco.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Osasco"
+   ]
+  ]
+ },
+ {
+  "id": "aval-036",
+  "origem": "manual",
+  "frase": "Moro em Osasco, trabalho como enfermeira e tenho dois filhos.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Osasco"
+   ],
+   [
+    "salvar",
+    "profissao",
+    "enfermeira"
+   ],
+   [
+    "salvar",
+    "filhos",
+    "2"
+   ]
+  ]
+ },
+ {
+  "id": "aval-037",
+  "origem": "manual",
+  "frase": "Será que eu moro em Osasco?",
+  "esperado": []
+ },
+ {
+  "id": "aval-038",
+  "origem": "manual",
+  "frase": "Se eu ganhar na loteria, moro em Paris.",
+  "esperado": []
+ },
+ {
+  "id": "aval-039",
+  "origem": "manual",
+  "frase": "Minha irmã trabalha como enfermeira.",
+  "esperado": []
+ },
+ {
+  "id": "aval-040",
+  "origem": "manual",
+  "frase": "Meu cachorro se chama Thor e o gato se chama Tom.",
+  "esperado": [
+   [
+    "salvar",
+    "pet:cachorro:thor",
+    "Thor"
+   ],
+   [
+    "salvar",
+    "pet:gato:tom",
+    "Tom"
+   ]
+  ]
+ },
+ {
+  "id": "aval-041",
+  "origem": "manual",
+  "frase": "Eu tenho uma gata, a Nina.",
+  "esperado": [
+   [
+    "salvar",
+    "pet:gato:nina",
+    "Nina"
+   ]
+  ]
+ },
+ {
+  "id": "aval-042",
+  "origem": "manual",
+  "frase": "Não moro em Osasco.",
+  "esperado": [
+   [
+    "esquecer",
+    "cidade",
+    "Osasco"
+   ]
+  ]
+ },
+ {
+  "id": "aval-043",
+  "origem": "manual",
+  "frase": "Antes eu morava em Recife, agora moro em Natal.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Natal"
+   ]
+  ]
+ },
+ {
+  "id": "aval-044",
+  "origem": "manual",
+  "frase": "Sou enfermeira e moro em Osasco.",
+  "esperado": [
+   [
+    "salvar",
+    "profissao",
+    "enfermeira"
+   ],
+   [
+    "salvar",
+    "cidade",
+    "Osasco"
+   ]
+  ]
+ },
+ {
+  "id": "aval-045",
+  "origem": "manual",
+  "frase": "Obrigado, até amanhã!",
+  "esperado": []
+ },
+ {
+  "id": "aval-046",
+  "origem": "manual",
+  "frase": "Eu gosto de você.",
+  "esperado": []
+ },
+ {
+  "id": "aval-047",
+  "origem": "manual",
+  "frase": "Tenho 12 anos de experiência.",
+  "esperado": []
+ },
+ {
+  "id": "aval-048",
+  "origem": "manual",
+  "frase": "Trabalho em uma escola.",
+  "esperado": []
+ },
+ {
+  "id": "aval-049",
+  "origem": "manual",
+  "frase": "Estou trabalhando como professora agora.",
+  "esperado": [
+   [
+    "salvar",
+    "profissao",
+    "professora"
+   ]
+  ]
+ },
+ {
+  "id": "aval-050",
+  "origem": "manual",
+  "frase": "Meus pais moram em Curitiba.",
+  "esperado": []
+ }
+]

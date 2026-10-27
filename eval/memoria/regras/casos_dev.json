@@ -1,0 +1,1664 @@
+[
+ {
+  "id": "dev-001",
+  "origem": "manual",
+  "frase": "Eu moro em Osasco.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Osasco"
+   ]
+  ]
+ },
+ {
+  "id": "dev-002",
+  "origem": "manual",
+  "frase": "Moro em São Paulo.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "São Paulo"
+   ]
+  ]
+ },
+ {
+  "id": "dev-003",
+  "origem": "manual",
+  "frase": "Agora moro em Campinas.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Campinas"
+   ]
+  ]
+ },
+ {
+  "id": "dev-004",
+  "origem": "manual",
+  "frase": "Me mudei para Santos.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Santos"
+   ]
+  ]
+ },
+ {
+  "id": "dev-005",
+  "origem": "manual",
+  "frase": "Mudei para Curitiba.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Curitiba"
+   ]
+  ]
+ },
+ {
+  "id": "dev-006",
+  "origem": "manual",
+  "frase": "Vivo em Recife.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Recife"
+   ]
+  ]
+ },
+ {
+  "id": "dev-007",
+  "origem": "manual",
+  "frase": "Eu moro em Belo Horizonte, mas trabalho em casa.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Belo Horizonte"
+   ]
+  ]
+ },
+ {
+  "id": "dev-008",
+  "origem": "manual",
+  "frase": "Mudei de cidade para Florianópolis.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Florianópolis"
+   ]
+  ]
+ },
+ {
+  "id": "dev-009",
+  "origem": "manual",
+  "frase": "Resido em Porto Alegre.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Porto Alegre"
+   ]
+  ]
+ },
+ {
+  "id": "dev-010",
+  "origem": "manual",
+  "frase": "Mudei para o Rio de Janeiro.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Rio de Janeiro"
+   ]
+  ]
+ },
+ {
+  "id": "dev-011",
+  "origem": "manual",
+  "frase": "Moro no Rio de Janeiro.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Rio de Janeiro"
+   ]
+  ]
+ },
+ {
+  "id": "dev-012",
+  "origem": "manual",
+  "frase": "Moro nos Estados Unidos.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Estados Unidos"
+   ]
+  ]
+ },
+ {
+  "id": "dev-013",
+  "origem": "manual",
+  "frase": "Não moro mais em Osasco.",
+  "esperado": [
+   [
+    "esquecer",
+    "cidade",
+    "Osasco"
+   ]
+  ]
+ },
+ {
+  "id": "dev-014",
+  "origem": "manual",
+  "frase": "Não moro mais em Osasco, agora moro em Campinas.",
+  "esperado": [
+   [
+    "esquecer",
+    "cidade",
+    "Osasco"
+   ],
+   [
+    "salvar",
+    "cidade",
+    "Campinas"
+   ]
+  ]
+ },
+ {
+  "id": "dev-015",
+  "origem": "manual",
+  "frase": "Moro em Osasco. Na verdade, moro em Campinas.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Osasco"
+   ],
+   [
+    "salvar",
+    "cidade",
+    "Campinas"
+   ]
+  ]
+ },
+ {
+  "id": "dev-016",
+  "origem": "manual",
+  "frase": "Moro em um apartamento pequeno.",
+  "esperado": []
+ },
+ {
+  "id": "dev-017",
+  "origem": "manual",
+  "frase": "Moro na rua das Flores.",
+  "esperado": []
+ },
+ {
+  "id": "dev-018",
+  "origem": "manual",
+  "frase": "Minha mãe mora em Recife.",
+  "esperado": []
+ },
+ {
+  "id": "dev-019",
+  "origem": "manual",
+  "frase": "Onde eu moro?",
+  "esperado": []
+ },
+ {
+  "id": "dev-020",
+  "origem": "manual",
+  "frase": "Você sabe onde eu moro?",
+  "esperado": []
+ },
+ {
+  "id": "dev-021",
+  "origem": "manual",
+  "frase": "Quando eu morava em Lisboa era diferente.",
+  "esperado": []
+ },
+ {
+  "id": "dev-022",
+  "origem": "manual",
+  "frase": "Pretendo morar em Paris.",
+  "esperado": []
+ },
+ {
+  "id": "dev-023",
+  "origem": "manual",
+  "frase": "Eu moro em Osasco e trabalho como enfermeira.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Osasco"
+   ],
+   [
+    "salvar",
+    "profissao",
+    "enfermeira"
+   ]
+  ]
+ },
+ {
+  "id": "dev-024",
+  "origem": "manual",
+  "frase": "Trabalho como enfermeira.",
+  "esperado": [
+   [
+    "salvar",
+    "profissao",
+    "enfermeira"
+   ]
+  ]
+ },
+ {
+  "id": "dev-025",
+  "origem": "manual",
+  "frase": "Agora trabalho como coordenadora de enfermagem.",
+  "esperado": [
+   [
+    "salvar",
+    "profissao",
+    "coordenadora de enfermagem"
+   ]
+  ]
+ },
+ {
+  "id": "dev-026",
+  "origem": "manual",
+  "frase": "Sou professor de matemática.",
+  "esperado": [
+   [
+    "salvar",
+    "profissao",
+    "professor de matemática"
+   ]
+  ]
+ },
+ {
+  "id": "dev-027",
+  "origem": "manual",
+  "frase": "Minha profissão é designer gráfica.",
+  "esperado": [
+   [
+    "salvar",
+    "profissao",
+    "designer gráfica"
+   ]
+  ]
+ },
+ {
+  "id": "dev-028",
+  "origem": "manual",
+  "frase": "Virei diretora de arte.",
+  "esperado": [
+   [
+    "salvar",
+    "profissao",
+    "diretora de arte"
+   ]
+  ]
+ },
+ {
+  "id": "dev-029",
+  "origem": "manual",
+  "frase": "Fui promovido a gerente.",
+  "esperado": [
+   [
+    "salvar",
+    "profissao",
+    "gerente"
+   ]
+  ]
+ },
+ {
+  "id": "dev-030",
+  "origem": "manual",
+  "frase": "Sou programador.",
+  "esperado": [
+   [
+    "salvar",
+    "profissao",
+    "programador"
+   ]
+  ]
+ },
+ {
+  "id": "dev-031",
+  "origem": "manual",
+  "frase": "Agora sou analista de dados.",
+  "esperado": [
+   [
+    "salvar",
+    "profissao",
+    "analista de dados"
+   ]
+  ]
+ },
+ {
+  "id": "dev-032",
+  "origem": "manual",
+  "frase": "Sou muito feliz.",
+  "esperado": []
+ },
+ {
+  "id": "dev-033",
+  "origem": "manual",
+  "frase": "Sou de São Paulo.",
+  "esperado": []
+ },
+ {
+  "id": "dev-034",
+  "origem": "manual",
+  "frase": "Não trabalho mais como programador.",
+  "esperado": [
+   [
+    "esquecer",
+    "profissao",
+    "programador"
+   ]
+  ]
+ },
+ {
+  "id": "dev-035",
+  "origem": "manual",
+  "frase": "Trabalho como motorista de aplicativo e moro em Guarulhos.",
+  "esperado": [
+   [
+    "salvar",
+    "profissao",
+    "motorista de aplicativo"
+   ],
+   [
+    "salvar",
+    "cidade",
+    "Guarulhos"
+   ]
+  ]
+ },
+ {
+  "id": "dev-036",
+  "origem": "manual",
+  "frase": "Qual é a minha profissão?",
+  "esperado": []
+ },
+ {
+  "id": "dev-037",
+  "origem": "manual",
+  "frase": "Meu pai trabalha como pedreiro.",
+  "esperado": []
+ },
+ {
+  "id": "dev-038",
+  "origem": "manual",
+  "frase": "Sou advogada.",
+  "esperado": [
+   [
+    "salvar",
+    "profissao",
+    "advogada"
+   ]
+  ]
+ },
+ {
+  "id": "dev-039",
+  "origem": "manual",
+  "frase": "Trabalho como autônomo.",
+  "esperado": [
+   [
+    "salvar",
+    "profissao",
+    "autônomo"
+   ]
+  ]
+ },
+ {
+  "id": "dev-040",
+  "origem": "manual",
+  "frase": "Eu sou engenheiro civil.",
+  "esperado": [
+   [
+    "salvar",
+    "profissao",
+    "engenheiro civil"
+   ]
+  ]
+ },
+ {
+  "id": "dev-041",
+  "origem": "manual",
+  "frase": "Meu nome é Marina.",
+  "esperado": [
+   [
+    "salvar",
+    "nome",
+    "Marina"
+   ]
+  ]
+ },
+ {
+  "id": "dev-042",
+  "origem": "manual",
+  "frase": "Me chamo Rafael.",
+  "esperado": [
+   [
+    "salvar",
+    "nome",
+    "Rafael"
+   ]
+  ]
+ },
+ {
+  "id": "dev-043",
+  "origem": "manual",
+  "frase": "Meu nome completo é Julia Santos Lima.",
+  "esperado": [
+   [
+    "salvar",
+    "nome",
+    "Julia Santos Lima"
+   ]
+  ]
+ },
+ {
+  "id": "dev-044",
+  "origem": "manual",
+  "frase": "Qual é o meu nome?",
+  "esperado": []
+ },
+ {
+  "id": "dev-045",
+  "origem": "manual",
+  "frase": "Pode me chamar de Vini.",
+  "esperado": [
+   [
+    "salvar",
+    "apelido",
+    "Vini"
+   ]
+  ]
+ },
+ {
+  "id": "dev-046",
+  "origem": "manual",
+  "frase": "Meu cachorro se chama Thor.",
+  "esperado": [
+   [
+    "salvar",
+    "pet:cachorro:thor",
+    "Thor"
+   ]
+  ]
+ },
+ {
+  "id": "dev-047",
+  "origem": "manual",
+  "frase": "Minha gata se chama Luna.",
+  "esperado": [
+   [
+    "salvar",
+    "pet:gato:luna",
+    "Luna"
+   ]
+  ]
+ },
+ {
+  "id": "dev-048",
+  "origem": "manual",
+  "frase": "Meu gato é o Simba.",
+  "esperado": [
+   [
+    "salvar",
+    "pet:gato:simba",
+    "Simba"
+   ]
+  ]
+ },
+ {
+  "id": "dev-049",
+  "origem": "manual",
+  "frase": "Adotei um segundo gato, o Simba.",
+  "esperado": [
+   [
+    "salvar",
+    "pet:gato:simba",
+    "Simba"
+   ]
+  ]
+ },
+ {
+  "id": "dev-050",
+  "origem": "manual",
+  "frase": "Adotei uma cachorra chamada Mel.",
+  "esperado": [
+   [
+    "salvar",
+    "pet:cachorro:mel",
+    "Mel"
+   ]
+  ]
+ },
+ {
+  "id": "dev-051",
+  "origem": "manual",
+  "frase": "Meu papagaio se chama Paco e minha tartaruga se chama Lola.",
+  "esperado": [
+   [
+    "salvar",
+    "pet:papagaio:paco",
+    "Paco"
+   ],
+   [
+    "salvar",
+    "pet:tartaruga:lola",
+    "Lola"
+   ]
+  ]
+ },
+ {
+  "id": "dev-052",
+  "origem": "manual",
+  "frase": "Adotei um gato muito fofo.",
+  "esperado": []
+ },
+ {
+  "id": "dev-053",
+  "origem": "manual",
+  "frase": "Qual é o nome do meu cachorro?",
+  "esperado": []
+ },
+ {
+  "id": "dev-054",
+  "origem": "manual",
+  "frase": "O cachorro do meu vizinho se chama Rex.",
+  "esperado": []
+ },
+ {
+  "id": "dev-055",
+  "origem": "manual",
+  "frase": "Eu faço corrida de rua.",
+  "esperado": [
+   [
+    "salvar",
+    "esporte",
+    "corrida de rua"
+   ]
+  ]
+ },
+ {
+  "id": "dev-056",
+  "origem": "manual",
+  "frase": "Pratico natação.",
+  "esperado": [
+   [
+    "salvar",
+    "esporte",
+    "natação"
+   ]
+  ]
+ },
+ {
+  "id": "dev-057",
+  "origem": "manual",
+  "frase": "Agora eu pratico natação.",
+  "esperado": [
+   [
+    "salvar",
+    "esporte",
+    "natação"
+   ]
+  ]
+ },
+ {
+  "id": "dev-058",
+  "origem": "manual",
+  "frase": "Troquei a corrida pela natação.",
+  "esperado": [
+   [
+    "salvar",
+    "esporte",
+    "natação"
+   ]
+  ]
+ },
+ {
+  "id": "dev-059",
+  "origem": "manual",
+  "frase": "Jogo futebol aos domingos.",
+  "esperado": [
+   [
+    "salvar",
+    "esporte",
+    "futebol"
+   ]
+  ]
+ },
+ {
+  "id": "dev-060",
+  "origem": "manual",
+  "frase": "Não pratico mais corrida.",
+  "esperado": [
+   [
+    "esquecer",
+    "esporte",
+    "corrida"
+   ]
+  ]
+ },
+ {
+  "id": "dev-061",
+  "origem": "manual",
+  "frase": "Faço compras todo sábado.",
+  "esperado": []
+ },
+ {
+  "id": "dev-062",
+  "origem": "manual",
+  "frase": "Meu carro é um Gol azul.",
+  "esperado": [
+   [
+    "salvar",
+    "carro",
+    "Gol azul"
+   ]
+  ]
+ },
+ {
+  "id": "dev-063",
+  "origem": "manual",
+  "frase": "Agora meu carro é um Onix branco.",
+  "esperado": [
+   [
+    "salvar",
+    "carro",
+    "Onix branco"
+   ]
+  ]
+ },
+ {
+  "id": "dev-064",
+  "origem": "manual",
+  "frase": "Dirijo um Fusca.",
+  "esperado": [
+   [
+    "salvar",
+    "carro",
+    "Fusca"
+   ]
+  ]
+ },
+ {
+  "id": "dev-065",
+  "origem": "manual",
+  "frase": "Meu carro quebrou ontem.",
+  "esperado": []
+ },
+ {
+  "id": "dev-066",
+  "origem": "manual",
+  "frase": "Tenho dois filhos.",
+  "esperado": [
+   [
+    "salvar",
+    "filhos",
+    "2"
+   ]
+  ]
+ },
+ {
+  "id": "dev-067",
+  "origem": "manual",
+  "frase": "Agora tenho três filhos, nasceu a Bia.",
+  "esperado": [
+   [
+    "salvar",
+    "filhos",
+    "3"
+   ]
+  ]
+ },
+ {
+  "id": "dev-068",
+  "origem": "manual",
+  "frase": "Tenho uma filha.",
+  "esperado": [
+   [
+    "salvar",
+    "filhos",
+    "1"
+   ]
+  ]
+ },
+ {
+  "id": "dev-069",
+  "origem": "manual",
+  "frase": "Não tenho filhos.",
+  "esperado": [
+   [
+    "salvar",
+    "filhos",
+    "0"
+   ]
+  ]
+ },
+ {
+  "id": "dev-070",
+  "origem": "manual",
+  "frase": "Tenho 4 filhos.",
+  "esperado": [
+   [
+    "salvar",
+    "filhos",
+    "4"
+   ]
+  ]
+ },
+ {
+  "id": "dev-071",
+  "origem": "manual",
+  "frase": "Quantos filhos eu tenho?",
+  "esperado": []
+ },
+ {
+  "id": "dev-072",
+  "origem": "manual",
+  "frase": "Tenho dois gatos.",
+  "esperado": []
+ },
+ {
+  "id": "dev-073",
+  "origem": "manual",
+  "frase": "Torço pelo Corinthians.",
+  "esperado": [
+   [
+    "salvar",
+    "time",
+    "Corinthians"
+   ]
+  ]
+ },
+ {
+  "id": "dev-074",
+  "origem": "manual",
+  "frase": "Torço para o Palmeiras.",
+  "esperado": [
+   [
+    "salvar",
+    "time",
+    "Palmeiras"
+   ]
+  ]
+ },
+ {
+  "id": "dev-075",
+  "origem": "manual",
+  "frase": "Meu time é o Santos.",
+  "esperado": [
+   [
+    "salvar",
+    "time",
+    "Santos"
+   ]
+  ]
+ },
+ {
+  "id": "dev-076",
+  "origem": "manual",
+  "frase": "Não torço mais pelo Flamengo.",
+  "esperado": [
+   [
+    "esquecer",
+    "time",
+    "Flamengo"
+   ]
+  ]
+ },
+ {
+  "id": "dev-077",
+  "origem": "manual",
+  "frase": "Torço pela Ponte Preta.",
+  "esperado": [
+   [
+    "salvar",
+    "time",
+    "Ponte Preta"
+   ]
+  ]
+ },
+ {
+  "id": "dev-078",
+  "origem": "manual",
+  "frase": "Minha comida favorita é lasanha.",
+  "esperado": [
+   [
+    "salvar",
+    "favorito:comida",
+    "lasanha"
+   ]
+  ]
+ },
+ {
+  "id": "dev-079",
+  "origem": "manual",
+  "frase": "Meu filme favorito é Interestelar.",
+  "esperado": [
+   [
+    "salvar",
+    "favorito:filme",
+    "Interestelar"
+   ]
+  ]
+ },
+ {
+  "id": "dev-080",
+  "origem": "manual",
+  "frase": "Minha cor favorita é azul.",
+  "esperado": [
+   [
+    "salvar",
+    "favorito:cor",
+    "azul"
+   ]
+  ]
+ },
+ {
+  "id": "dev-081",
+  "origem": "manual",
+  "frase": "Meu livro favorito é o Pequeno Príncipe.",
+  "esperado": [
+   [
+    "salvar",
+    "favorito:livro",
+    "Pequeno Príncipe"
+   ]
+  ]
+ },
+ {
+  "id": "dev-082",
+  "origem": "manual",
+  "frase": "Gosto de fotografia.",
+  "esperado": [
+   [
+    "salvar",
+    "gosto:fotografia",
+    "fotografia"
+   ]
+  ]
+ },
+ {
+  "id": "dev-083",
+  "origem": "manual",
+  "frase": "Gosto muito de café.",
+  "esperado": [
+   [
+    "salvar",
+    "gosto:cafe",
+    "café"
+   ]
+  ]
+ },
+ {
+  "id": "dev-084",
+  "origem": "manual",
+  "frase": "Não gosto mais de café.",
+  "esperado": [
+   [
+    "esquecer",
+    "gosto:cafe",
+    "café"
+   ]
+  ]
+ },
+ {
+  "id": "dev-085",
+  "origem": "manual",
+  "frase": "Quero viajar para o Japão em dezembro.",
+  "esperado": [
+   [
+    "salvar",
+    "viagem",
+    "Japão em dezembro"
+   ]
+  ]
+ },
+ {
+  "id": "dev-086",
+  "origem": "manual",
+  "frase": "Vou viajar para Portugal em dezembro.",
+  "esperado": [
+   [
+    "salvar",
+    "viagem",
+    "Portugal em dezembro"
+   ]
+  ]
+ },
+ {
+  "id": "dev-087",
+  "origem": "manual",
+  "frase": "Troquei o destino: vou para Portugal em dezembro.",
+  "esperado": [
+   [
+    "salvar",
+    "viagem",
+    "Portugal em dezembro"
+   ]
+  ]
+ },
+ {
+  "id": "dev-088",
+  "origem": "manual",
+  "frase": "Esqueça tudo sobre mim.",
+  "esperado": [
+   [
+    "apagar_usuario",
+    null,
+    null
+   ]
+  ]
+ },
+ {
+  "id": "dev-089",
+  "origem": "manual",
+  "frase": "Apague todos os meus dados.",
+  "esperado": [
+   [
+    "apagar_usuario",
+    null,
+    null
+   ]
+  ]
+ },
+ {
+  "id": "dev-090",
+  "origem": "manual",
+  "frase": "Quero que você esqueça tudo.",
+  "esperado": [
+   [
+    "apagar_usuario",
+    null,
+    null
+   ]
+  ]
+ },
+ {
+  "id": "dev-091",
+  "origem": "manual",
+  "frase": "Esqueça o que eu disse sobre o carro.",
+  "esperado": [
+   [
+    "esquecer",
+    "carro",
+    null
+   ]
+  ]
+ },
+ {
+  "id": "dev-092",
+  "origem": "manual",
+  "frase": "Apague meu endereço.",
+  "esperado": [
+   [
+    "esquecer",
+    "cidade",
+    null
+   ]
+  ]
+ },
+ {
+  "id": "dev-093",
+  "origem": "manual",
+  "frase": "Esqueça meu time.",
+  "esperado": [
+   [
+    "esquecer",
+    "time",
+    null
+   ]
+  ]
+ },
+ {
+  "id": "dev-094",
+  "origem": "manual",
+  "frase": "Esqueça meu carro e meu time.",
+  "esperado": [
+   [
+    "esquecer",
+    "carro",
+    null
+   ],
+   [
+    "esquecer",
+    "time",
+    null
+   ]
+  ]
+ },
+ {
+  "id": "dev-095",
+  "origem": "manual",
+  "frase": "Apague meus gatos.",
+  "esperado": [
+   [
+    "esquecer",
+    "pet:gato:",
+    null
+   ]
+  ]
+ },
+ {
+  "id": "dev-096",
+  "origem": "manual",
+  "frase": "Não esqueça meu nome.",
+  "esperado": []
+ },
+ {
+  "id": "dev-097",
+  "origem": "manual",
+  "frase": "Pode apagar o que eu disse sobre minha profissão.",
+  "esperado": [
+   [
+    "esquecer",
+    "profissao",
+    null
+   ]
+  ]
+ },
+ {
+  "id": "dev-098",
+  "origem": "manual",
+  "frase": "Esquece isso.",
+  "esperado": []
+ },
+ {
+  "id": "dev-099",
+  "origem": "manual",
+  "frase": "Delete tudo que você sabe sobre mim.",
+  "esperado": [
+   [
+    "apagar_usuario",
+    null,
+    null
+   ]
+  ]
+ },
+ {
+  "id": "dev-100",
+  "origem": "manual",
+  "frase": "Esqueça o que eu disse sobre meu trabalho.",
+  "esperado": [
+   [
+    "esquecer",
+    "profissao",
+    null
+   ]
+  ]
+ },
+ {
+  "id": "dev-101",
+  "origem": "manual",
+  "frase": "Remova meu nome da sua memória.",
+  "esperado": [
+   [
+    "esquecer",
+    "nome",
+    null
+   ]
+  ]
+ },
+ {
+  "id": "dev-102",
+  "origem": "manual",
+  "frase": "Esqueça minha cidade.",
+  "esperado": [
+   [
+    "esquecer",
+    "cidade",
+    null
+   ]
+  ]
+ },
+ {
+  "id": "dev-103",
+  "origem": "manual",
+  "frase": "Esqueça tudo o que eu disse sobre o meu carro.",
+  "esperado": [
+   [
+    "esquecer",
+    "carro",
+    null
+   ]
+  ]
+ },
+ {
+  "id": "dev-104",
+  "origem": "manual",
+  "frase": "Bom dia!",
+  "esperado": []
+ },
+ {
+  "id": "dev-105",
+  "origem": "manual",
+  "frase": "Obrigado pela ajuda.",
+  "esperado": []
+ },
+ {
+  "id": "dev-106",
+  "origem": "manual",
+  "frase": "Qual é a capital da França?",
+  "esperado": []
+ },
+ {
+  "id": "dev-107",
+  "origem": "manual",
+  "frase": "Hoje estou cansado.",
+  "esperado": []
+ },
+ {
+  "id": "dev-108",
+  "origem": "manual",
+  "frase": "Pode me ajudar com um texto?",
+  "esperado": []
+ },
+ {
+  "id": "dev-109",
+  "origem": "gerado",
+  "frase": "Moro em Osasco.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Osasco"
+   ]
+  ]
+ },
+ {
+  "id": "dev-110",
+  "origem": "gerado",
+  "frase": "Mudei para Osasco.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Osasco"
+   ]
+  ]
+ },
+ {
+  "id": "dev-111",
+  "origem": "gerado",
+  "frase": "Agora moro em Osasco.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Osasco"
+   ]
+  ]
+ },
+ {
+  "id": "dev-112",
+  "origem": "gerado",
+  "frase": "Moro em Guarulhos.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Guarulhos"
+   ]
+  ]
+ },
+ {
+  "id": "dev-113",
+  "origem": "gerado",
+  "frase": "Mudei para Guarulhos.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Guarulhos"
+   ]
+  ]
+ },
+ {
+  "id": "dev-114",
+  "origem": "gerado",
+  "frase": "Agora moro em Guarulhos.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Guarulhos"
+   ]
+  ]
+ },
+ {
+  "id": "dev-115",
+  "origem": "gerado",
+  "frase": "Moro em Campinas.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Campinas"
+   ]
+  ]
+ },
+ {
+  "id": "dev-116",
+  "origem": "gerado",
+  "frase": "Mudei para Campinas.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Campinas"
+   ]
+  ]
+ },
+ {
+  "id": "dev-117",
+  "origem": "gerado",
+  "frase": "Agora moro em Campinas.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Campinas"
+   ]
+  ]
+ },
+ {
+  "id": "dev-118",
+  "origem": "gerado",
+  "frase": "Moro em Belém.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Belém"
+   ]
+  ]
+ },
+ {
+  "id": "dev-119",
+  "origem": "gerado",
+  "frase": "Mudei para Belém.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Belém"
+   ]
+  ]
+ },
+ {
+  "id": "dev-120",
+  "origem": "gerado",
+  "frase": "Agora moro em Belém.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Belém"
+   ]
+  ]
+ },
+ {
+  "id": "dev-121",
+  "origem": "gerado",
+  "frase": "Moro em Natal.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Natal"
+   ]
+  ]
+ },
+ {
+  "id": "dev-122",
+  "origem": "gerado",
+  "frase": "Mudei para Natal.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Natal"
+   ]
+  ]
+ },
+ {
+  "id": "dev-123",
+  "origem": "gerado",
+  "frase": "Agora moro em Natal.",
+  "esperado": [
+   [
+    "salvar",
+    "cidade",
+    "Natal"
+   ]
+  ]
+ },
+ {
+  "id": "dev-124",
+  "origem": "gerado",
+  "frase": "Trabalho como professora.",
+  "esperado": [
+   [
+    "salvar",
+    "profissao",
+    "professora"
+   ]
+  ]
+ },
+ {
+  "id": "dev-125",
+  "origem": "gerado",
+  "frase": "Sou professora.",
+  "esperado": [
+   [
+    "salvar",
+    "profissao",
+    "professora"
+   ]
+  ]
+ },
+ {
+  "id": "dev-126",
+  "origem": "gerado",
+  "frase": "Trabalho como médico.",
+  "esperado": [
+   [
+    "salvar",
+    "profissao",
+    "médico"
+   ]
+  ]
+ },
+ {
+  "id": "dev-127",
+  "origem": "gerado",
+  "frase": "Sou médico.",
+  "esperado": [
+   [
+    "salvar",
+    "profissao",
+    "médico"
+   ]
+  ]
+ },
+ {
+  "id": "dev-128",
+  "origem": "gerado",
+  "frase": "Trabalho como engenheira.",
+  "esperado": [
+   [
+    "salvar",
+    "profissao",
+    "engenheira"
+   ]
+  ]
+ },
+ {
+  "id": "dev-129",
+  "origem": "gerado",
+  "frase": "Sou engenheira.",
+  "esperado": [
+   [
+    "salvar",
+    "profissao",
+    "engenheira"
+   ]
+  ]
+ },
+ {
+  "id": "dev-130",
+  "origem": "gerado",
+  "frase": "Trabalho como advogado.",
+  "esperado": [
+   [
+    "salvar",
+    "profissao",
+    "advogado"
+   ]
+  ]
+ },
+ {
+  "id": "dev-131",
+  "origem": "gerado",
+  "frase": "Sou advogado.",
+  "esperado": [
+   [
+    "salvar",
+    "profissao",
+    "advogado"
+   ]
+  ]
+ },
+ {
+  "id": "dev-132",
+  "origem": "gerado",
+  "frase": "Trabalho como dentista.",
+  "esperado": [
+   [
+    "salvar",
+    "profissao",
+    "dentista"
+   ]
+  ]
+ },
+ {
+  "id": "dev-133",
+  "origem": "gerado",
+  "frase": "Sou dentista.",
+  "esperado": [
+   [
+    "salvar",
+    "profissao",
+    "dentista"
+   ]
+  ]
+ },
+ {
+  "id": "dev-134",
+  "origem": "gerado",
+  "frase": "Trabalho como jornalista.",
+  "esperado": [
+   [
+    "salvar",
+    "profissao",
+    "jornalista"
+   ]
+  ]
+ },
+ {
+  "id": "dev-135",
+  "origem": "gerado",
+  "frase": "Sou jornalista.",
+  "esperado": [
+   [
+    "salvar",
+    "profissao",
+    "jornalista"
+   ]
+  ]
+ },
+ {
+  "id": "dev-136",
+  "origem": "gerado",
+  "frase": "Trabalho como arquiteta.",
+  "esperado": [
+   [
+    "salvar",
+    "profissao",
+    "arquiteta"
+   ]
+  ]
+ },
+ {
+  "id": "dev-137",
+  "origem": "gerado",
+  "frase": "Sou arquiteta.",
+  "esperado": [
+   [
+    "salvar",
+    "profissao",
+    "arquiteta"
+   ]
+  ]
+ },
+ {
+  "id": "dev-138",
+  "origem": "gerado",
+  "frase": "Trabalho como contador.",
+  "esperado": [
+   [
+    "salvar",
+    "profissao",
+    "contador"
+   ]
+  ]
+ },
+ {
+  "id": "dev-139",
+  "origem": "gerado",
+  "frase": "Sou contador.",
+  "esperado": [
+   [
+    "salvar",
+    "profissao",
+    "contador"
+   ]
+  ]
+ },
+ {
+  "id": "dev-140",
+  "origem": "gerado",
+  "frase": "Meu cachorro se chama Rex.",
+  "esperado": [
+   [
+    "salvar",
+    "pet:cachorro:rex",
+    "Rex"
+   ]
+  ]
+ },
+ {
+  "id": "dev-141",
+  "origem": "gerado",
+  "frase": "Meu gato se chama Mingau.",
+  "esperado": [
+   [
+    "salvar",
+    "pet:gato:mingau",
+    "Mingau"
+   ]
+  ]
+ },
+ {
+  "id": "dev-142",
+  "origem": "gerado",
+  "frase": "Meu coelho se chama Pipoca.",
+  "esperado": [
+   [
+    "salvar",
+    "pet:coelho:pipoca",
+    "Pipoca"
+   ]
+  ]
+ },
+ {
+  "id": "dev-143",
+  "origem": "gerado",
+  "frase": "Esqueça meu carro.",
+  "esperado": [
+   [
+    "esquecer",
+    "carro",
+    null
+   ]
+  ]
+ },
+ {
+  "id": "dev-144",
+  "origem": "gerado",
+  "frase": "Esqueça meu time.",
+  "esperado": [
+   [
+    "esquecer",
+    "time",
+    null
+   ]
+  ]
+ },
+ {
+  "id": "dev-145",
+  "origem": "gerado",
+  "frase": "Esqueça meu nome.",
+  "esperado": [
+   [
+    "esquecer",
+    "nome",
+    null
+   ]
+  ]
+ },
+ {
+  "id": "dev-146",
+  "origem": "gerado",
+  "frase": "Esqueça meu esporte.",
+  "esperado": [
+   [
+    "esquecer",
+    "esporte",
+    null
+   ]
+  ]
+ },
+ {
+  "id": "dev-147",
+  "origem": "gerado",
+  "frase": "Torço pelo Corinthians.",
+  "esperado": [
+   [
+    "salvar",
+    "time",
+    "Corinthians"
+   ]
+  ]
+ },
+ {
+  "id": "dev-148",
+  "origem": "gerado",
+  "frase": "Torço pelo Palmeiras.",
+  "esperado": [
+   [
+    "salvar",
+    "time",
+    "Palmeiras"
+   ]
+  ]
+ },
+ {
+  "id": "dev-149",
+  "origem": "gerado",
+  "frase": "Torço pelo Grêmio.",
+  "esperado": [
+   [
+    "salvar",
+    "time",
+    "Grêmio"
+   ]
+  ]
+ }
+]

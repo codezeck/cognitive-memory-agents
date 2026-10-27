@@ -1,0 +1,309 @@
+{
+  "dev": {
+    "frases": {
+      "casos": 149,
+      "exatidao_por_frase": 1.0,
+      "precisao": 1.0,
+      "revocacao": 1.0,
+      "f1": 1.0,
+      "falhas": []
+    },
+    "conversas": {
+      "conversas": 6,
+      "pontos_de_verificacao": 17,
+      "pontos_corretos": 17,
+      "taxa_pontos_corretos": 1.0,
+      "falhas": []
+    }
+  },
+  "avaliacao": {
+    "frases": {
+      "casos": 50,
+      "exatidao_por_frase": 0.62,
+      "precisao": 0.8929,
+      "revocacao": 0.5814,
+      "f1": 0.7042,
+      "falhas": [
+        {
+          "id": "aval-002",
+          "frase": "Acabei de me mudar para Brasília.",
+          "esperado": [
+            [
+              "salvar",
+              "cidade",
+              "brasilia"
+            ]
+          ],
+          "obtido": []
+        },
+        {
+          "id": "aval-003",
+          "frase": "Estou morando em Fortaleza desde março.",
+          "esperado": [
+            [
+              "salvar",
+              "cidade",
+              "fortaleza"
+            ]
+          ],
+          "obtido": []
+        },
+        {
+          "id": "aval-005",
+          "frase": "Minha profissão atual é médica.",
+          "esperado": [
+            [
+              "salvar",
+              "profissao",
+              "medica"
+            ]
+          ],
+          "obtido": []
+        },
+        {
+          "id": "aval-006",
+          "frase": "Atuo como dentista.",
+          "esperado": [
+            [
+              "salvar",
+              "profissao",
+              "dentista"
+            ]
+          ],
+          "obtido": []
+        },
+        {
+          "id": "aval-007",
+          "frase": "Eu trabalho como arquiteta há cinco anos.",
+          "esperado": [
+            [
+              "salvar",
+              "profissao",
+              "arquiteta"
+            ]
+          ],
+          "obtido": [
+            [
+              "salvar",
+              "profissao",
+              "arquiteta ha cinco anos"
+            ]
+          ]
+        },
+        {
+          "id": "aval-010",
+          "frase": "Todos me chamam de Duda.",
+          "esperado": [
+            [
+              "salvar",
+              "apelido",
+              "duda"
+            ]
+          ],
+          "obtido": []
+        },
+        {
+          "id": "aval-011",
+          "frase": "Tenho um cachorro chamado Bob.",
+          "esperado": [
+            [
+              "salvar",
+              "pet:cachorro:bob",
+              "bob"
+            ]
+          ],
+          "obtido": []
+        },
+        {
+          "id": "aval-015",
+          "frase": "Comecei a praticar yoga.",
+          "esperado": [
+            [
+              "salvar",
+              "esporte",
+              "yoga"
+            ]
+          ],
+          "obtido": []
+        },
+        {
+          "id": "aval-018",
+          "frase": "Comprei um Corolla novo.",
+          "esperado": [
+            [
+              "salvar",
+              "carro",
+              "corolla novo"
+            ]
+          ],
+          "obtido": []
+        },
+        {
+          "id": "aval-021",
+          "frase": "Sou torcedor do Vasco.",
+          "esperado": [
+            [
+              "salvar",
+              "time",
+              "vasco"
+            ]
+          ],
+          "obtido": []
+        },
+        {
+          "id": "aval-024",
+          "frase": "Adoro chocolate.",
+          "esperado": [
+            [
+              "salvar",
+              "gosto:chocolate",
+              "chocolate"
+            ]
+          ],
+          "obtido": []
+        },
+        {
+          "id": "aval-031",
+          "frase": "Não quero mais que você guarde meu carro.",
+          "esperado": [
+            [
+              "esquecer",
+              "carro",
+              null
+            ]
+          ],
+          "obtido": []
+        },
+        {
+          "id": "aval-033",
+          "frase": "Deixei de morar em Osasco.",
+          "esperado": [
+            [
+              "esquecer",
+              "cidade",
+              "osasco"
+            ]
+          ],
+          "obtido": []
+        },
+        {
+          "id": "aval-034",
+          "frase": "Já não trabalho como enfermeira.",
+          "esperado": [
+            [
+              "esquecer",
+              "profissao",
+              "enfermeira"
+            ]
+          ],
+          "obtido": []
+        },
+        {
+          "id": "aval-038",
+          "frase": "Se eu ganhar na loteria, moro em Paris.",
+          "esperado": [],
+          "obtido": [
+            [
+              "salvar",
+              "cidade",
+              "paris"
+            ]
+          ]
+        },
+        {
+          "id": "aval-040",
+          "frase": "Meu cachorro se chama Thor e o gato se chama Tom.",
+          "esperado": [
+            [
+              "salvar",
+              "pet:cachorro:thor",
+              "thor"
+            ],
+            [
+              "salvar",
+              "pet:gato:tom",
+              "tom"
+            ]
+          ],
+          "obtido": []
+        },
+        {
+          "id": "aval-041",
+          "frase": "Eu tenho uma gata, a Nina.",
+          "esperado": [
+            [
+              "salvar",
+              "pet:gato:nina",
+              "nina"
+            ]
+          ],
+          "obtido": []
+        },
+        {
+          "id": "aval-046",
+          "frase": "Eu gosto de você.",
+          "esperado": [],
+          "obtido": [
+            [
+              "salvar",
+              "gosto:voce",
+              "voce"
+            ]
+          ]
+        },
+        {
+          "id": "aval-049",
+          "frase": "Estou trabalhando como professora agora.",
+          "esperado": [
+            [
+              "salvar",
+              "profissao",
+              "professora"
+            ]
+          ],
+          "obtido": []
+        }
+      ]
+    },
+    "conversas": {
+      "conversas": 4,
+      "pontos_de_verificacao": 13,
+      "pontos_corretos": 9,
+      "taxa_pontos_corretos": 0.6923,
+      "falhas": [
+        {
+          "conversa": "aval-c03",
+          "apos_turno": 2,
+          "mensagem": "Torço pelo Fluminense desde criança.",
+          "problemas": [
+            "esperava time='Fluminense', obtido 'Fluminense desde criança'"
+          ]
+        },
+        {
+          "conversa": "aval-c03",
+          "apos_turno": 3,
+          "mensagem": "Não torço mais pelo Fluminense.",
+          "problemas": [
+            "time deveria ter sumido (ainda é 'Fluminense desde criança')"
+          ]
+        },
+        {
+          "conversa": "aval-c04",
+          "apos_turno": 3,
+          "mensagem": "Moro em Osasco de novo.",
+          "problemas": [
+            "esperava cidade='Osasco', obtido 'Osasco de novo'"
+          ]
+        },
+        {
+          "conversa": "aval-c04",
+          "apos_turno": 4,
+          "mensagem": "Meu carro é um Polo.",
+          "problemas": [
+            "esperava cidade='Osasco', obtido 'Osasco de novo'"
+          ]
+        }
+      ]
+    }
+  }
+}
