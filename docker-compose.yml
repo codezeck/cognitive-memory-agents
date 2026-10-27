@@ -1,0 +1,21 @@
+﻿services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cognitive-memory-api
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      DB_PATH: /app/dados/memorias.db
+      LLM_PROVIDER: ${LLM_PROVIDER:-ollama}
+      LLM_MODEL: ${LLM_MODEL:-qwen2.5-coder:3b}
+      MODELOS_PERMITIDOS: ${MODELOS_PERMITIDOS:-ollama:qwen2.5-coder:3b,openai:gpt-4.1-mini}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OLLAMA_HOST: ${OLLAMA_HOST:-http://host.docker.internal:11434}
+    volumes:
+      - memoria_dados:/app/dados
+    restart: unless-stopped
+
+volumes:
+  memoria_dados:
