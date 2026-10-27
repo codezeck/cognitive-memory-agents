@@ -5,6 +5,8 @@ from src.modelos.ollama_adapter import (
     RespostaModeloVaziaError,
 )
 
+from src.modelos.base import ModeloLLM
+
 MODEL = "qwen2.5-coder:3b"
 
 modelo_ia = OllamaAdapter(MODEL)
@@ -86,6 +88,7 @@ def responder(
     mensagem: str,
     usuario_id: str,
     memorias: list | None = None,
+    adaptador: ModeloLLM | None = None,
 ) -> str:
     """
     Responde usando o histórico do usuário e as memórias
@@ -114,7 +117,8 @@ def responder(
     mensagens.extend(historico[1:])
     mensagens.append({"role": "user", "content": mensagem})
 
-    texto = modelo_ia.gerar(mensagens)
+    modelo = adaptador or modelo_ia
+    texto = modelo.gerar(mensagens)
 
     historico.extend([
         {"role": "user", "content": mensagem},

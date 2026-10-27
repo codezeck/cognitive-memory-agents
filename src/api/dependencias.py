@@ -19,10 +19,8 @@ def get_catalogo(config: Configuracao = Depends(get_config)) -> Catalogo:
 
 @lru_cache
 def get_memoria():
-    # Hoje: memória em RAM do Vinicius. Quando houver a versão persistente
-    # (Postgres), é só trocar aqui.
-    from src.memoria.store_mem import MemoriaEmRam
-    return MemoriaEmRam()
+    from src.armazenamento.repositorio import MemoriaSQLite
+    return MemoriaSQLite()
 
 
 @lru_cache
