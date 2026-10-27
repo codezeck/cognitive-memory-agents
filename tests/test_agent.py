@@ -213,3 +213,57 @@ def test_responder_com_detalhes_retorna_metricas():
     assert resultado["resposta"] == "A memória registra apenas a frase de teste."
     assert resultado["tokens_entrada"] == 21
     assert resultado["tokens_saida"] == 9
+
+
+def test_historico_limita_a_dez_interacoes_e_preserva_prompt_sistema(monkeypatch):
+    chamadas = []
+    respostas = iter(f"Resposta {i}" for i in range(12))
+
+    def modelo_simulado(mensagens):
+        chamadas.append([dict(m) for m in mensagens])
+        return next(respostas)
+
+    monkeypatch.setattr(agent.modelo_ia, "gerar", modelo_simulado)
+
+    for indice in range(12):
+        agent.responder(
+            f"Pergunta {indice}",
+            usuario_id=USUARIO_TESTE,
+        )
+
+    historico = agent.obter_historico(USUARIO_TESTE)
+
+    assert len(historico) == 1 + 2 * agent.MAX_INTERACOES_HISTORICO
+    assert historico[0] == {
+        "role": "system",
+        "content": agent.SYSTEM_PROMPT,
+    }
+
+    perguntas_guardadas = [
+        m["content"] for m in historico if m["role"] == "user"
+    ]
+    respostas_guardadas = [
+        m["content"] for m in historico if m["role"] == "assistant"
+    ]
+
+    assert perguntas_guardadas == [f"Pergunta {i}" for i in range(2, 12)]
+    assert respostas_guardadas == [f"Resposta {i}" for i in range(2, 12)]
+
+    # A chamada mais recente recebe as 10 interacoes anteriores
+    # e a pergunta atual; o historico armazenado continua limitado.
+    ultima_chamada = chamadas[-1]
+    assert ultima_chamada[-1] == {
+        "role": "user",
+        "content": "Pergunta 11",
+    }
+    perguntas_enviadas = [
+        m["content"] for m in ultima_chamada if m["role"] == "user"
+    ]
+    respostas_enviadas = [
+        m["content"] for m in ultima_chamada if m["role"] == "assistant"
+    ]
+
+    assert perguntas_enviadas == [f"Pergunta {i}" for i in range(2, 12)]
+    assert respostas_enviadas == [f"Resposta {i}" for i in range(2, 11)]
+    assert len(perguntas_enviadas) == agent.MAX_INTERACOES_HISTORICO
+    assert len(respostas_enviadas) == agent.MAX_INTERACOES_HISTORICO - 1
