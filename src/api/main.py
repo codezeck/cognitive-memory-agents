@@ -5,12 +5,15 @@ from fastapi import Depends, FastAPI, Query, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 
+
 from src.api.dependencias import get_catalogo, get_conversador, get_memoria
 from src.api.erros import ErroDominio, MemoriaNaoEncontrada
 from src.api.schemas import (ApagadasSaida, ConversaEntrada, ConversaSaida,
                              MemoriaBuscaSaida, MemoriaCriadaSaida,
                              MemoriaEntrada, MemoriaIdPath, ProvedorSaida,
                              UsuarioIdPath)
+from src.api.seguranca import (autorizar_usuario, exigir_mesmo_usuario,
+                               usuario_autenticado)
 
 logging.basicConfig(level=logging.INFO,
                     format="%(asctime)s %(levelname)s %(name)s %(message)s")
@@ -67,7 +70,9 @@ def provedores(catalogo=Depends(get_catalogo)):
 
 @app.post("/conversas", response_model=ConversaSaida)
 def conversar(corpo: ConversaEntrada, conversador=Depends(get_conversador),
-              catalogo=Depends(get_catalogo)):
+              catalogo=Depends(get_catalogo),
+              autenticado: str = Depends(usuario_autenticado)):
+    exigir_mesmo_usuario(corpo.usuario_id, autenticado)
     selecao = catalogo.resolver(corpo.provedor, corpo.modelo)
     inicio = time.perf_counter()
     r = conversador.conversar(corpo.usuario_id, corpo.mensagem, selecao)
@@ -82,19 +87,19 @@ def conversar(corpo: ConversaEntrada, conversador=Depends(get_conversador),
                          tokens_saida=r.tokens_saida)
 
 
-@app.post("/usuarios/{usuario_id}/sessoes", status_code=204)
-def nova_sessao(usuario_id: UsuarioIdPath, conversador=Depends(get_conversador)):
-    conversador.nova_sessao(usuario_id)
+@app.post("/usuarios/{usuario_id}/sessoes", status_code=204,
+          dependencies=[Depends(autorizar_usuario)])
 
 
 @app.post("/usuarios/{usuario_id}/memorias", response_model=MemoriaCriadaSaida,
-          status_code=201)
+          status_code=201, dependencies=[Depends(autorizar_usuario)])
 def criar_memoria(usuario_id: UsuarioIdPath, corpo: MemoriaEntrada,
                   memoria=Depends(get_memoria)):
     return MemoriaCriadaSaida(id=memoria.salvar(usuario_id, corpo.texto, corpo.chave))
 
 
-@app.get("/usuarios/{usuario_id}/memorias", response_model=list[MemoriaBuscaSaida])
+@app.get("/usuarios/{usuario_id}/memorias", response_model=list[MemoriaBuscaSaida],
+         dependencies=[Depends(autorizar_usuario)])
 def buscar_memorias(usuario_id: UsuarioIdPath,
                     consulta: str = Query(min_length=1, max_length=500),
                     k: int = Query(default=5, ge=1, le=20),
@@ -102,13 +107,15 @@ def buscar_memorias(usuario_id: UsuarioIdPath,
     return [MemoriaBuscaSaida(**m) for m in memoria.buscar(usuario_id, consulta, k)]
 
 
-@app.delete("/usuarios/{usuario_id}/memorias/{memoria_id}", status_code=204)
+@app.delete("/usuarios/{usuario_id}/memorias/{memoria_id}", status_code=204,
+            dependencies=[Depends(autorizar_usuario)])
 def esquecer_uma(usuario_id: UsuarioIdPath, memoria_id: MemoriaIdPath,
                  memoria=Depends(get_memoria)):
     if not memoria.esquecer(usuario_id, memoria_id):
         raise MemoriaNaoEncontrada("Memória não encontrada para este usuário.")
 
 
-@app.delete("/usuarios/{usuario_id}/memorias", response_model=ApagadasSaida)
+@app.delete("/usuarios/{usuario_id}/memorias", response_model=ApagadasSaida,
+            dependencies=[Depends(autorizar_usuario)])
 def esquecer_usuario(usuario_id: UsuarioIdPath, conversador=Depends(get_conversador)):
     return ApagadasSaida(removidas=conversador.esquecer_usuario(usuario_id))
