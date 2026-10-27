@@ -4,6 +4,7 @@ import json
 import sys
 import re
 import time
+import unicodedata
 from pathlib import Path
 from statistics import mean
 
@@ -47,66 +48,87 @@ def executar_modelo(mensagens):
         "tempo_ms": round(tempo_ms, 2),
     }
 
-
+def _normalizar_texto(texto):
+    """Normaliza acentos e caixa para comparar respostas."""
+    texto = unicodedata.normalize("NFKD", str(texto).casefold())
+    return "".join(
+        caractere
+        for caractere in texto
+        if not unicodedata.combining(caractere)
+    )
 
 
 def avaliar_resposta(resposta, esperados):
-    texto = resposta.casefold().strip()
+    texto = _normalizar_texto(resposta).strip()
 
     if isinstance(esperados, str):
         termos = [esperados]
     else:
         termos = esperados
 
-    indicadores_desconhecido = [
-        "não sei",
-        "nao sei",
-        "não tenho essa informação",
-        "nao tenho essa informacao",
-        "não tenho informações",
-        "nao tenho informacoes",
-        "não há informações suficientes",
-        "nao ha informacoes suficientes",
-        "não tenho informação",
-        "nao tenho informacao",
-        "não tenho informações sobre",
-        "nao tenho informacoes sobre",
-        "não tenho acesso ao histórico",
-        "nao tenho acesso ao historico",
-        "não tenho acesso a essa informação",
-        "nao tenho acesso a essa informacao",
-        "não consigo determinar",
-        "nao consigo determinar",
-        "não é possível determinar",
-        "nao e possivel determinar",
+    termos_normalizados = [
+        _normalizar_texto(termo).strip()
+        for termo in termos
     ]
 
-    # Caso de avaliação de informação desconhecida.
+    # Caso em que a resposta correta é admitir desconhecimento.
     espera_desconhecimento = any(
-        termo.casefold().strip() in ("não sei", "nao sei")
-        for termo in termos
+        termo in ("nao sei", "nao sei.")
+        for termo in termos_normalizados
     )
 
     if espera_desconhecimento:
+        indicadores_desconhecido = [
+            "nao sei",
+            "nao tenho essa informacao",
+            "nao tenho informacao",
+            "nao tenho informacoes",
+            "nao ha informacoes suficientes",
+            "nao ha dados suficientes",
+            "nao tenho acesso ao historico",
+            "nao tenho acesso a essa informacao",
+            "nao consigo determinar",
+            "nao e possivel determinar",
+            "a memoria nao contem informacoes",
+            "a memoria nao contem informacao",
+            "a memoria nao possui informacoes",
+            "a memoria nao possui informacao",
+            "nao consta na memoria",
+            "nao encontrei informacao",
+            "nao encontrei dados",
+            "nao ha registro",
+            "nao foi informado",
+            "desconheco essa informacao",
+        ]
+
         admite_desconhecimento = any(
             indicador in texto
             for indicador in indicadores_desconhecido
         )
 
-        inventa_nome = (
-            "seu primeiro professor foi" in texto
-            or "o nome do seu primeiro professor foi" in texto
+        # Não aceitar uma afirmação concreta sobre o primeiro professor
+        # quando a resposta também admite que não sabe.
+        padrao_nome_inventado = (
+            r"\b(?:(?:o nome )?(?:do|de) (?:seu )?primeiro professor|"
+            r"(?:seu )?primeiro professor)"
+            r"(?: de programacao)?\s+"
+            r"(?:parece ser|deve ser|teria sido|foi|era|e)\s+"
+            r"(?!desconhecid[oa]\b|nao informado\b|"
+            r"incert[oa]\b|indisponivel\b)"
+            r"[a-z][a-z'-]+"
+        )
+
+        inventa_nome = bool(
+            re.search(padrao_nome_inventado, texto)
         )
 
         return admite_desconhecimento and not inventa_nome
 
     # Reprova quando o termo esperado aparece em uma negação direta.
-    for termo in termos:
-        termo_normalizado = termo.casefold().strip()
-
+    for termo in termos_normalizados:
         padrao_negacao = (
-            r"\bnão\b.{0,30}\b"
-            + re.escape(termo_normalizado)
+            r"\bnao\b.{0,30}\b"
+            + re.escape(termo)
             + r"\b"
         )
 
@@ -114,8 +136,8 @@ def avaliar_resposta(resposta, esperados):
             return False
 
     return all(
-        termo.casefold() in texto
-        for termo in termos
+        termo in texto
+        for termo in termos_normalizados
     )
 
 
