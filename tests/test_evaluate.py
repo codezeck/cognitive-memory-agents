@@ -172,3 +172,34 @@ def test_resumo_informa_taxa_de_erro():
     assert resumo["executados"] == 1
     assert resumo["erros"] == 1
     assert resumo["taxa_erro"] == 50.0
+
+
+def test_desconhecimento_explicito_e_aprovado():
+    assert evaluate.avaliar_resposta(
+        "Não sei.",
+        ["não sei"],
+    )
+
+
+def test_memoria_sem_informacao_e_aprovada():
+    assert evaluate.avaliar_resposta(
+        "A memória não contém informações sobre "
+        "o nome de seu primeiro professor de programação.",
+        ["não sei"],
+    )
+
+
+def test_nome_inventado_e_reprovado():
+    assert not evaluate.avaliar_resposta(
+        "O nome do seu primeiro professor de programação "
+        "é João Carlos.",
+        ["não sei"],
+    )
+
+
+def test_desconhecimento_seguido_de_nome_inventado_e_reprovado():
+    assert not evaluate.avaliar_resposta(
+        "Não sei, mas o nome do seu primeiro professor de "
+        "programação é João Carlos.",
+        ["não sei"],
+    )
