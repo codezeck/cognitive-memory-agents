@@ -23,3 +23,10 @@ class ProvedorTimeout(ErroDominio):
 
 class MemoriaNaoEncontrada(ErroDominio):
     codigo, status_http = "memoria_nao_encontrada", 404
+    
+
+class NaoAutenticado(ErroDominio):
+    codigo, status_http = "nao_autenticado", 401
+
+class AcessoNegado(ErroDominio):
+    codigo, status_http = "acesso_negado", 403
