@@ -14,7 +14,7 @@ class RespostaOpenAIVaziaError(RuntimeError):
 
 
 class OpenAIAdapter:
-    """Implementa o contrato ModeloLLM usando a API da OpenAI."""
+    """Implementa o contrato de modelo usando a API da OpenAI."""
 
     def __init__(
         self,
@@ -25,7 +25,12 @@ class OpenAIAdapter:
         self.modelo = modelo
         self.cliente = OpenAI(api_key=api_key, timeout=timeout)
 
-    def gerar(self, mensagens: list[dict[str, str]]) -> str:
+    def gerar_com_detalhes(
+        self,
+        mensagens: list[dict[str, str]],
+    ) -> dict:
+        """Retorna o texto e as métricas de tokens informadas pela API."""
+
         try:
             resposta = self.cliente.chat.completions.create(
                 model=self.modelo,
@@ -53,4 +58,14 @@ class OpenAIAdapter:
                 "A OpenAI retornou uma resposta vazia."
             )
 
-        return texto
+        uso = getattr(resposta, "usage", None)
+
+        return {
+            "resposta": texto,
+            "tokens_entrada": getattr(uso, "prompt_tokens", None),
+            "tokens_saida": getattr(uso, "completion_tokens", None),
+        }
+
+    def gerar(self, mensagens: list[dict[str, str]]) -> str:
+        """Mantém compatibilidade com chamadas que esperam apenas texto."""
+        return self.gerar_com_detalhes(mensagens)["resposta"]

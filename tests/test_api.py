@@ -51,6 +51,8 @@ def test_conversa_usa_o_modelo_padrao(ctx):
     assert r.status_code == 200
     assert r.json()["modelo"] == "qwen2.5-coder:3b"
     assert r.json()["latencia_ms"] >= 0
+    assert r.json()["tokens_entrada"] == 10
+    assert r.json()["tokens_saida"] == 5
     assert agente.chamadas[0]["selecao"].provedor == "ollama"
 
 

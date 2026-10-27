@@ -191,3 +191,25 @@ def test_limpar_historico_afeta_apenas_usuario_escolhido():
 
     assert len(agent.obter_historico("usuario_a")) == 1
     assert agent.obter_historico("usuario_b")[-1]["content"] == "Conversa B"
+
+
+def test_responder_com_detalhes_retorna_metricas():
+    class AdaptadorComMetricas:
+        def gerar_com_detalhes(self, mensagens):
+            return {
+                "resposta": "A memória registra apenas a frase de teste.",
+                "tokens_entrada": 21,
+                "tokens_saida": 9,
+            }
+
+    resultado = agent.responder(
+        "O que foi registrado?",
+        usuario_id=USUARIO_TESTE,
+        memorias=["Teste memoria persistente no Docker"],
+        adaptador=AdaptadorComMetricas(),
+        retornar_detalhes=True,
+    )
+
+    assert resultado["resposta"] == "A memória registra apenas a frase de teste."
+    assert resultado["tokens_entrada"] == 21
+    assert resultado["tokens_saida"] == 9
