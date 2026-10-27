@@ -8,6 +8,7 @@ from src.modelos.ollama_adapter import (
 from src.modelos.base import ModeloLLM
 
 MODEL = "qwen2.5-coder:3b"
+MAX_INTERACOES_HISTORICO = 10
 
 modelo_ia = OllamaAdapter(MODEL)
 
@@ -126,7 +127,16 @@ def responder(
             ),
         })
 
-    mensagens.extend(historico[1:])
+    # Reserva uma das 10 interacoes para a pergunta atual.
+    interacoes_anteriores = max(0, MAX_INTERACOES_HISTORICO - 1)
+    limite_mensagens_contexto = interacoes_anteriores * 2
+
+    historico_contexto = (
+        historico[1:][-limite_mensagens_contexto:]
+        if limite_mensagens_contexto
+        else []
+    )
+    mensagens.extend(historico_contexto)
     mensagens.append({"role": "user", "content": mensagem})
 
     modelo = adaptador or modelo_ia
@@ -151,6 +161,11 @@ def responder(
         {"role": "user", "content": mensagem},
         {"role": "assistant", "content": texto},
     ])
+
+    # Mantem somente as interacoes recentes na RAM.
+    # O prompt de sistema fica preservado na primeira posicao.
+    limite_mensagens = MAX_INTERACOES_HISTORICO * 2
+    historico[1:] = historico[1:][-limite_mensagens:]
 
     if retornar_detalhes:
         return {
