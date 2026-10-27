@@ -16,15 +16,18 @@ Você é um agente de IA de um projeto acadêmico sobre memória
 de longo prazo para agentes inteligentes.
 
 Regras:
-- Responda em português.
-- Seja claro e objetivo.
-- Utilize o histórico da conversa para manter o contexto.
-- Utilize as memórias fornecidas quando forem relevantes.
-- Considere informações mais recentes como possíveis atualizações.
-- Não invente informações pessoais ou fatos não fornecidos.
+- Responda em português, com clareza e objetividade.
+- Utilize o histórico para manter o contexto da conversa.
+- Utilize as memórias externas quando forem relevantes.
+- Trate as memórias como registros de fatos, não como convite para especular.
+- Não invente detalhes que não estejam presentes no histórico ou nas memórias.
+- Se perguntarem qual texto foi salvo, reproduza o conteúdo registrado com fidelidade.
+- Se a memória contiver apenas uma frase curta ou uma etiqueta de teste,
+  não invente explicações técnicas a partir dela.
+- Diferencie fatos registrados de inferências.
 - Se não houver informação suficiente, diga que não sabe.
-- Diferencie informações confirmadas de suposições.
-- Não misture informações de usuários diferentes.
+- Considere atualizações recentes quando houver evidência de que substituem fatos anteriores.
+- Nunca misture informações de usuários diferentes.
 """
 
 # Cada usuário terá seu próprio histórico.
@@ -84,16 +87,15 @@ def formatar_memorias(memorias: list | None) -> str:
     )
 
 
+
 def responder(
     mensagem: str,
     usuario_id: str,
     memorias: list | None = None,
     adaptador: ModeloLLM | None = None,
-) -> str:
-    """
-    Responde usando o histórico do usuário e as memórias
-    externas fornecidas para esse mesmo usuário.
-    """
+    retornar_detalhes: bool = False,
+) -> str | dict:
+    """Responde usando o histórico e, opcionalmente, devolve métricas."""
 
     if not isinstance(usuario_id, str) or not usuario_id.strip():
         raise ValueError("É necessário informar um usuario_id válido.")
@@ -101,29 +103,61 @@ def responder(
     mensagem = mensagem.strip()
 
     if not mensagem:
+        if retornar_detalhes:
+            return {
+                "resposta": "",
+                "tokens_entrada": None,
+                "tokens_saida": None,
+            }
         return ""
 
     historico = obter_historico(usuario_id)
     contexto_memoria = formatar_memorias(memorias)
-
     mensagens = [historico[0]]
 
     if contexto_memoria:
         mensagens.append({
             "role": "system",
-            "content": f"Contexto de memória:\n{contexto_memoria}",
+            "content": (
+                "Contexto de memória externa. Considere os registros abaixo "
+                "como evidências literais. Não deduza detalhes que não foram "
+                "registrados e informe quando o conteúdo não for suficiente.\n"
+                f"{contexto_memoria}"
+            ),
         })
 
     mensagens.extend(historico[1:])
     mensagens.append({"role": "user", "content": mensagem})
 
     modelo = adaptador or modelo_ia
-    texto = modelo.gerar(mensagens)
+    tokens_entrada = None
+    tokens_saida = None
+
+    gerar_detalhes = getattr(modelo, "gerar_com_detalhes", None)
+    if retornar_detalhes and callable(gerar_detalhes):
+        detalhes = gerar_detalhes(mensagens)
+        texto = detalhes.get("resposta", "")
+        tokens_entrada = detalhes.get("tokens_entrada")
+        tokens_saida = detalhes.get("tokens_saida")
+    else:
+        texto = modelo.gerar(mensagens)
+
+    if not isinstance(texto, str) or not texto.strip():
+        raise RespostaModeloVaziaError(
+            "O modelo de IA não retornou uma resposta válida."
+        )
 
     historico.extend([
         {"role": "user", "content": mensagem},
         {"role": "assistant", "content": texto},
     ])
+
+    if retornar_detalhes:
+        return {
+            "resposta": texto,
+            "tokens_entrada": tokens_entrada,
+            "tokens_saida": tokens_saida,
+        }
 
     return texto
 

@@ -76,6 +76,9 @@ class AgenteLocal:
                 "O agente atual não permite selecionar esse provedor ou modelo."
             )
 
+        if "retornar_detalhes" in parametros:
+            extras["retornar_detalhes"] = True
+
         try:
             texto = agente_mod.responder(
                 mensagem=mensagem,
@@ -114,6 +117,13 @@ class AgenteLocal:
             raise ProvedorIndisponivel(
                 "O Ollama devolveu um erro."
             ) from exc
+
+        if isinstance(texto, dict):
+            return ResultadoAgente(
+                resposta=texto.get("resposta", ""),
+                tokens_entrada=texto.get("tokens_entrada"),
+                tokens_saida=texto.get("tokens_saida"),
+            )
 
         return ResultadoAgente(resposta=texto)
 
