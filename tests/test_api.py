@@ -23,12 +23,16 @@ CONFIG = Configuracao(
 @pytest.fixture
 def ctx(monkeypatch):
     monkeypatch.delenv("HOSPEDADO_API_KEY", raising=False)
+    monkeypatch.setenv("API_TOKENS", "tok-u1:u1,tok-u2:u2")
+
+
+
     agente, memoria = AgenteFalso(), MemoriaEmRam()
     app.dependency_overrides[get_agente] = lambda: agente
     app.dependency_overrides[get_memoria] = lambda: memoria
     app.dependency_overrides[get_catalogo] = lambda: Catalogo(CONFIG)
-    yield TestClient(app, raise_server_exceptions=False), agente, memoria
-    app.dependency_overrides.clear()
+    yield TestClient(app, raise_server_exceptions=False,
+                     headers={"Authorization": "Bearer tok-u1"}), agente, memoria
 
 
 def conversa(client, **extra):
@@ -88,10 +92,10 @@ def test_conversa_recebe_as_memorias_do_usuario(ctx):
 def test_memorias_nao_vazam_entre_usuarios(ctx):
     client, _, memoria = ctx
     memoria.salvar("u1", "O usuário mora em Campinas", "cidade")
-    r = client.post("/conversas", json={"usuario_id": "u2",
-                                        "mensagem": "O usuário mora em Campinas"})
+    r = client.post("/conversas",
+                    json={"usuario_id": "u2", "mensagem": "O usuário mora em Campinas"},
+                    headers={"Authorization": "Bearer tok-u2"})
     assert r.json()["memorias_usadas"] == []
-
 
 def test_ollama_fora_do_ar_da_503(ctx):
     client, agente, _ = ctx
@@ -178,3 +182,33 @@ def test_agente_local_recusa_modelo_diferente_se_agente_nao_aceita(monkeypatch):
     monkeypatch.setattr(agente_mod, "responder", simples)
     with pytest.raises(ModeloNaoPermitido):
         AgenteLocal().responder("u1", "oi", [], SelecaoModelo("ollama", "outro-modelo:1b"))
+
+def test_sem_token_da_401(ctx):
+    sem_token = TestClient(app, raise_server_exceptions=False)
+    r = sem_token.get("/usuarios/u1/memorias", params={"consulta": "x"})
+    assert r.status_code == 401
+    assert r.json()["codigo"] == "nao_autenticado"
+
+
+def test_token_invalido_da_401(ctx):
+    r = ctx[0].get("/usuarios/u1/memorias", params={"consulta": "x"},
+                   headers={"Authorization": "Bearer errado"})
+    assert r.status_code == 401
+
+
+def test_usuario_nao_acessa_memorias_de_outro(ctx):
+    client, _, memoria = ctx   # o cliente está autenticado como u1
+    memoria.salvar("u2", "O usuário gosta de xadrez", "hobby")
+    r = client.get("/usuarios/u2/memorias",
+                   params={"consulta": "O usuário gosta de xadrez"})
+    assert r.status_code == 403 and r.json()["codigo"] == "acesso_negado"
+    r = client.post("/conversas", json={"usuario_id": "u2", "mensagem": "oi"})
+    assert r.status_code == 403
+    assert client.delete("/usuarios/u2/memorias").status_code == 403
+    assert memoria.buscar("u2", "O usuário gosta de xadrez")  # nada foi apagado
+
+
+def test_saude_e_provedores_sao_publicos(ctx):
+    sem_token = TestClient(app, raise_server_exceptions=False)
+    assert sem_token.get("/saude").status_code == 200
+    assert sem_token.get("/provedores").status_code == 200

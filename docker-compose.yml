@@ -13,6 +13,7 @@
       MODELOS_PERMITIDOS: ${MODELOS_PERMITIDOS:-ollama:qwen2.5-coder:3b,openai:gpt-4.1-mini}
       OPENAI_API_KEY: ${OPENAI_API_KEY:-}
       OLLAMA_HOST: ${OLLAMA_HOST:-http://host.docker.internal:11434}
+      API_TOKENS: ${API_TOKENS:-}
     volumes:
       - memoria_dados:/app/dados
     restart: unless-stopped
