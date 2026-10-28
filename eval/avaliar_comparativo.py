@@ -105,6 +105,15 @@ def iniciar_nova_sessao(cliente: httpx.Client) -> None:
     resposta.raise_for_status()
 
 
+def obter_estado_regras(cliente: httpx.Client) -> dict:
+    resposta = cliente.get(f"/usuarios/{USUARIO_ID}/estado-regras")
+    resposta.raise_for_status()
+    estado = resposta.json()
+    if not isinstance(estado, dict):
+        raise ValueError("Estado das regras retornado em formato inv?lido.")
+    return estado
+
+
 def criar_memoria(
     cliente: httpx.Client,
     texto: str,
@@ -123,6 +132,45 @@ def apagar_memoria(cliente: httpx.Client, memoria_id: str) -> None:
         f"/usuarios/{USUARIO_ID}/memorias/{memoria_id}"
     )
     resposta.raise_for_status()
+
+
+def normalizar_memoria_equivalente(texto: str) -> str:
+    """Normaliza apenas variantes conhecidas de fatos de memória."""
+    import re
+
+    texto_normalizado = normalizar(texto).strip()
+    texto_normalizado = re.sub(r"\\s+", " ", texto_normalizado)
+
+    padroes = [
+        (r"(?:moro em|mora em) (.+?)[.!]?", "cidade"),
+        (r"(?:pratico|pratica) (.+?)[.!]?", "esporte"),
+        (r"meu carro e um (.+?)[.!]?", "carro"),
+        (r"carro:\s*(.+?)[.!]?", "carro"),
+        (r"meu nome e (.+?)[.!]?", "nome"),
+        (r"chama[- ]se (.+?)[.!]?", "nome"),
+    ]
+
+    for padrao, categoria in padroes:
+        correspondencia = re.fullmatch(padrao, texto_normalizado)
+        if correspondencia:
+            valor = correspondencia.group(1).strip(" .!")
+            if valor:
+                return f"{categoria}:{valor}"
+
+    return texto_normalizado.strip(" .! ")
+
+
+def avaliar_recuperacao_equivalente(
+    esperadas: list[str], usadas: list[str]
+) -> bool:
+    """Compara fatos equivalentes sem ignorar extras ou duplicados."""
+    esperadas_normalizadas = sorted(
+        normalizar_memoria_equivalente(item) for item in esperadas
+    )
+    usadas_normalizadas = sorted(
+        normalizar_memoria_equivalente(item) for item in usadas
+    )
+    return esperadas_normalizadas == usadas_normalizadas
 
 
 def texto_memoria(chave: str, valor: str) -> str:
@@ -181,98 +229,86 @@ def avaliar_resposta_comparativo(
     resposta: str,
     caso: dict,
 ) -> bool:
-    """Rejeita fatos pessoais afirmados quando a resposta esperada é desconhecimento."""
+    """Avalia respostas desconhecidas sem aceitar vazamento de fatos."""
     esperado = caso["esperado"]
-    passou = avaliar_resposta(resposta, esperado)
 
     espera_desconhecimento = (
         isinstance(esperado, list)
-        and any(normalizar(str(t)).strip() == "nao sei" for t in esperado)
+        and any(
+            normalizar(str(item)).strip(" \t\r\n.,!?;:'\"`")
+            in {"nao sei", "desconhecido", "informacao desconhecida"}
+            for item in esperado
+        )
     )
 
     if not espera_desconhecimento:
-        return passou
+        return avaliar_resposta(resposta, esperado)
 
-    texto = normalizar(resposta)
+    texto = normalizar(resposta).strip()
     mensagens = caso.get("mensagens", [])
     contexto = normalizar(" ".join(mensagens))
+    mensagens_anteriores = [
+        normalizar(m) for m in mensagens[:-1]
+    ]
 
-    # Extrai fatos explícitos anteriores que deveriam ter sido esquecidos.
-    valores_esquecidos = set()
+    # Rejeita a divulga??o dos fatos expl?citos que deveriam ser esquecidos.
+    fatos_esquecidos = []
     padroes_fatos = (
         r"\b(?:moro|vivo|resido)\s+em\s+(.+?)(?:[.!?]|$)",
         r"\btorco\s+(?:pelo|pela|pro|para|por|pra)\s+(.+?)(?:[.!?]|$)",
     )
-
-    for mensagem in mensagens[:-1]:
-        mensagem_normalizada = normalizar(mensagem)
-
+    for mensagem in mensagens_anteriores:
         for padrao in padroes_fatos:
-            for correspondencia in re.finditer(
-                padrao, mensagem_normalizada
-            ):
-                valor = correspondencia.group(1).strip(" .,!?:;")
+            for match in re.finditer(padrao, mensagem):
+                valor = match.group(1).strip(" .,!?:;")
                 if valor:
-                    valores_esquecidos.add(valor)
+                    fatos_esquecidos.append(valor)
 
-    # Não aceita nem mesmo uma revelação acompanhada de "não sei".
-    for valor in valores_esquecidos:
+    for valor in fatos_esquecidos:
         if re.search(rf"\b{re.escape(valor)}\b", texto):
             return False
 
-    # Identifica o domínio perguntado para detectar afirmações inventadas.
-    padroes_por_dominio = {
-        "cidade": (
-            "cidade", "moro em", "mora em", "vivo em", "resido em",
-        ),
-        "time": ("time", "torc"),
-        "esporte": ("esporte", "pratico", "yoga"),
-        "carro": ("carro",),
-        "nome": ("nome",),
-    }
-
-    dominios = {
-        chave
-        for chave, termos in padroes_por_dominio.items()
-        if any(termo in contexto for termo in termos)
-    }
+    # Rejeita afirma??es de fatos pessoais, inclusive valores inventados.
+    dominios = set()
+    if any(t in contexto for t in ("cidade", "moro em", "mora em", "vivo em")):
+        dominios.add("cidade")
+    if "time" in contexto or "torc" in contexto:
+        dominios.add("time")
+    if any(t in contexto for t in ("esporte", "pratico", "yoga")):
+        dominios.add("esporte")
+    if "carro" in contexto:
+        dominios.add("carro")
+    if "nome" in contexto:
+        dominios.add("nome")
 
     afirmacoes = {
         "cidade": (
-            r"\b(?:(?:voce|eu)\s+)?"
-            r"(?:moro|mora|vivo|vive|resido|reside)\s+"
-            r"(?:(?:atualmente|agora)\s+)?"
-            r"(?:em|na|no|nos|nas)\s+"
+            r"\b(?:(?:voce|eu)\s+)?(?:moro|mora|vivo|vive|resido|reside)"
+            r"\s+(?:(?:atualmente|agora)\s+)?(?:em|na|no|nos|nas)\s+"
             r"[a-z][a-z-]*(?:\s+[a-z][a-z-]*){0,3}\b",
-            r"\b(?:(?:voce|eu)\s+)?"
-            r"(?:estou morando|esta morando|estou|esta)\s+"
-            r"(?:(?:atualmente|agora)\s+)?"
-            r"(?:em|na|no|nos|nas)\s+"
+            r"\b(?:(?:voce|eu)\s+)?(?:estou morando|esta morando|estou|esta)"
+            r"\s+(?:(?:atualmente|agora)\s+)?(?:em|na|no|nos|nas)\s+"
             r"[a-z][a-z-]*(?:\s+[a-z][a-z-]*){0,3}\b",
         ),
         "time": (
-            r"\b(?:(?:voce|eu)\s+)?"
-            r"(?:torco|torce|torcia)\s+"
+            r"\b(?:(?:voce|eu)\s+)?(?:torco|torce|torcia)\s+"
             r"(?:mais\s+)?(?:pelo|pela|pro|para|por|pra)\s+"
             r"(?:o\s+|a\s+)?[a-z][a-z-]*\b",
             r"\b(?:seu|meu)\s+time\s+(?:e|seria)\s+"
             r"(?:o\s+|a\s+)?[a-z][a-z-]*\b",
         ),
         "esporte": (
-            r"\b(?:(?:voce|eu)\s+)?"
-            r"(?:pratico|pratica|praticando)\s+"
+            r"\b(?:(?:voce|eu)\s+)?(?:pratico|pratica|praticando)\s+"
             r"(?:o\s+)?[a-z][a-z-]*\b",
             r"\bo esporte que (?:voce|eu)\s+pratica\s+"
             r"(?:e|seria)\s+(?:o\s+)?[a-z][a-z-]*\b",
         ),
         "carro": (
-            r"\b(?:seu|meu)\s+carro\s+(?:atual\s+)?"
-            r"(?:e|seria)\s+(?:um\s+)?"
-            r"[a-z][a-z0-9-]*(?:\s+[a-z0-9-]+){0,3}\b",
+            r"\b(?:seu|meu)\s+carro\s+(?:atual\s+)?(?:e|seria)\s+"
+            r"(?:um\s+)?[a-z][a-z0-9-]*(?:\s+[a-z0-9-]+){0,3}\b",
         ),
         "nome": (
-            r"\b(?:seu|meu)\s+nome\s+(?:e|seria)\s+"
-            r"[a-z][a-z-]*\b",
+            r"\b(?:seu|meu)\s+nome\s+(?:e|seria)\s+[a-z][a-z-]*\b",
         ),
     }
 
@@ -281,36 +317,29 @@ def avaliar_resposta_comparativo(
             if re.search(padrao, texto):
                 return False
 
-    # Aceita formas naturais de expressar desconhecimento.
+    # Respostas naturais que indicam falta de conhecimento.
     padroes_desconhecimento = (
         r"\bnao sei\b",
-        r"\bnao tenho (?:informacao|informacoes|dados|registro|"
-        r"capacidade|acesso)\b",
-        r"\bnao posso fornecer informacoes\b",
+        r"\bdesconhecido\b",
+        r"\b(?:nao tenho|nao ha|sem)\b.{0,100}"
+        r"\b(?:informacao|informacoes|dados|registro|historico|contexto|memoria)\b",
+        r"\bnao posso fornecer\b.{0,100}\b(?:informacao|informacoes|dados)\b",
         r"\bnao consigo determinar\b",
-        r"\bsem informacoes suficientes\b",
-        r"\bmemoria nao contem\b",
-        r"\binformacoes insuficientes\b",
-        r"\bnao tenho informacoes atualizadas\b",
-        r"\bnao ha informacoes\b",
-        r"\bnao tenho\b.{0,80}\b(?:informacao|informacoes|dados|registro|memoria|localizacao|cidade|preferencia|time|esporte|carro|nome)\b",
-        r"\bnao forneceu\b.{0,80}\b(?:informacao|informacoes|dados|historico|contexto)\b",
-        r"\bnao disponho de\b.{0,50}\b(?:informacao|informacoes|dados|contexto)\b",
-        r"\bnao forneceu\b.{0,80}\b(?:informacao|informacoes|dados|historico|contexto|local|cidade)\b",
-        r"\bnao me deixou\b.{0,80}\b(?:informacao|informacoes|dados|contexto)\b",
+        r"\b(?:informacoes|dados)\s+insuficientes\b",
         r"\b(?:historico|memoria)\b.{0,80}\bnao (?:contem|tem|possui)\b",
-        r"\bnao posso (?:reconhecer|identificar|determinar)\b.{0,80}\b(?:cidade|localizacao|nome|time|esporte|carro)\b",
-        r"\bnao tem\b.{0,80}\b(?:informacao|informacoes|dados|registro|memoria|localizacao|cidade|preferencia|time|esporte|carro|nome)\b",
-        r"\bnao posso lembrar\b.{0,50}\b(?:cidade|localizacao|nome|time|esporte|carro)\b",
+        r"\bnao posso (?:reconhecer|identificar|determinar|lembrar)\b",
+        r"\bnao forneceu\b.{0,100}\b(?:local|cidade|informacao|informacoes|dados|historico|contexto)\b",
+        r"\bnao posso lembrar\b",
+        r"\bnao (?:tenho|tem|ha)\b.{0,100}"
+        r"\b(?:informacoes|dados)\b.{0,50}\b(?:atualizadas|atualizados)\b",
+        r"\bnao posso fornecer informacoes pessoais\b",
+        r"\bnao me deixou\b.{0,80}\b(?:informacao|informacoes|dados|contexto)\b",
     )
 
-    resposta_desconhecida = any(
+    return any(
         re.search(padrao, texto)
         for padrao in padroes_desconhecimento
     )
-
-    return passou or resposta_desconhecida
-
 
 def metricas(chamadas: list[dict]) -> dict:
     entradas = [c.get("tokens_entrada") for c in chamadas]
@@ -413,9 +442,20 @@ def executar_cenario(
             caso_avaliacao["esperado"] = ["não sei"]
 
         recuperacao_ok = None
+        recuperacao_equivalente_ok = None
         if cenario in CENARIOS_MEMORIA:
-            # Exatidão estrita: todos os fatos esperados e nenhum extra.
+            # Métrica original: comparação textual estrita.
             recuperacao_ok = set(memorias_esperadas) == set(usadas)
+            # Métrica complementar: formatos conhecidos equivalentes.
+            recuperacao_equivalente_ok = avaliar_recuperacao_equivalente(
+                memorias_esperadas, usadas
+            )
+
+        if cenario == "memoria_regras_api":
+            estado_regras = obter_estado_regras(cliente)
+            estado_regras_ok = (
+                estado_regras == caso.get("estado_regras_esperado", {})
+            )
 
         registro = {
             "id": caso["id"],
@@ -431,6 +471,7 @@ def executar_cenario(
             "memorias_esperadas": memorias_esperadas,
             "memorias_usadas": usadas,
             "recuperacao_memoria_ok": recuperacao_ok,
+            "recuperacao_equivalente_ok": recuperacao_equivalente_ok,
             "estado_regras_esperado": (
                 caso["estado_regras_esperado"]
                 if cenario == "memoria_regras_api" else None
@@ -513,6 +554,20 @@ def resumir(resultados: list[dict]) -> dict:
                 round(
                     100 * sum(
                         r["recuperacao_memoria_ok"] is True
+                        for r in com_memoria
+                    ) / len(com_memoria),
+                    2,
+                )
+                if com_memoria else None
+            ),
+            "memorias_recuperadas_equivalentes": sum(
+                r.get("recuperacao_equivalente_ok") is True
+                for r in com_memoria
+            ),
+            "taxa_recuperacao_equivalente_pct": (
+                round(
+                    100 * sum(
+                        r.get("recuperacao_equivalente_ok") is True
                         for r in com_memoria
                     ) / len(com_memoria),
                     2,

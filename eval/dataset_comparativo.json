@@ -45,7 +45,10 @@
     "esperado": [
       "não sei"
     ],
-    "estado_regras_esperado": {}
+    "estado_regras_esperado": {},
+    "informacoes_esquecidas": [
+      "Osasco"
+    ]
   },
   {
     "id": "CMP004",
@@ -60,7 +63,10 @@
     "esperado": [
       "não sei"
     ],
-    "estado_regras_esperado": {}
+    "estado_regras_esperado": {},
+    "informacoes_esquecidas": [
+      "Vasco"
+    ]
   },
   {
     "id": "CMP005",
