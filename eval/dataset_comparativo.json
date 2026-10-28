@@ -1,0 +1,114 @@
+[
+  {
+    "id": "CMP001",
+    "categoria": "recuperacao",
+    "descricao": "Recuperar cidade atual",
+    "mensagens": [
+      "Moro em Osasco.",
+      "Em que cidade moro? Responda somente com o valor solicitado, sem explica??es. Se n?o houver informa??o suficiente nas informa??es v?lidas dispon?veis, responda exatamente DESCONHECIDO. N?o invente informa??es."
+    ],
+    "memorias": [
+      "Moro em Osasco."
+    ],
+    "esperado": "Osasco",
+    "estado_regras_esperado": {
+      "cidade": "Osasco"
+    }
+  },
+  {
+    "id": "CMP002",
+    "categoria": "atualizacao",
+    "descricao": "Substituir cidade anterior",
+    "mensagens": [
+      "Moro em Osasco.",
+      "Moro agora em Campinas.",
+      "Em que cidade moro atualmente? Responda somente com o valor solicitado, sem explica??es. Se n?o houver informa??o suficiente nas informa??es v?lidas dispon?veis, responda exatamente DESCONHECIDO. N?o invente informa??es."
+    ],
+    "memorias": [
+      "Moro em Campinas."
+    ],
+    "esperado": "Campinas",
+    "estado_regras_esperado": {
+      "cidade": "Campinas"
+    }
+  },
+  {
+    "id": "CMP003",
+    "categoria": "esquecimento",
+    "descricao": "Esquecer cidade informada",
+    "mensagens": [
+      "Moro em Osasco.",
+      "Esqueça minha cidade.",
+      "Em que cidade moro? Responda somente com o valor solicitado, sem explica??es. Se n?o houver informa??o suficiente nas informa??es v?lidas dispon?veis, responda exatamente DESCONHECIDO. N?o invente informa??es."
+    ],
+    "memorias": [],
+    "esperado": [
+      "não sei"
+    ],
+    "estado_regras_esperado": {}
+  },
+  {
+    "id": "CMP004",
+    "categoria": "esquecimento",
+    "descricao": "Remover time após negação",
+    "mensagens": [
+      "Torço pelo Vasco.",
+      "Não torço mais pelo Vasco.",
+      "Para qual time torço? Responda somente com o valor solicitado, sem explica??es. Se n?o houver informa??o suficiente nas informa??es v?lidas dispon?veis, responda exatamente DESCONHECIDO. N?o invente informa??es."
+    ],
+    "memorias": [],
+    "esperado": [
+      "não sei"
+    ],
+    "estado_regras_esperado": {}
+  },
+  {
+    "id": "CMP005",
+    "categoria": "recuperacao",
+    "descricao": "Recuperar esporte praticado",
+    "mensagens": [
+      "Pratico yoga.",
+      "Qual esporte pratico? Responda somente com o valor solicitado, sem explica??es. Se n?o houver informa??o suficiente nas informa??es v?lidas dispon?veis, responda exatamente DESCONHECIDO. N?o invente informa??es."
+    ],
+    "memorias": [
+      "Pratico yoga."
+    ],
+    "esperado": "yoga",
+    "estado_regras_esperado": {
+      "esporte": "yoga"
+    }
+  },
+  {
+    "id": "CMP006",
+    "categoria": "atualizacao",
+    "descricao": "Priorizar o carro atual",
+    "mensagens": [
+      "Meu carro é um Polo.",
+      "Meu carro agora é um Corolla.",
+      "Qual é meu carro atual? Responda somente com o valor solicitado, sem explica??es. Se n?o houver informa??o suficiente nas informa??es v?lidas dispon?veis, responda exatamente DESCONHECIDO. N?o invente informa??es."
+    ],
+    "memorias": [
+      "Meu carro é um Corolla."
+    ],
+    "esperado": "Corolla",
+    "estado_regras_esperado": {
+      "carro": "Corolla"
+    }
+  },
+  {
+    "id": "CMP007",
+    "categoria": "recuperacao",
+    "descricao": "Recuperar nome informado",
+    "mensagens": [
+      "Meu nome é Ezequiel.",
+      "Qual é meu nome? Responda somente com o valor solicitado, sem explica??es. Se n?o houver informa??o suficiente nas informa??es v?lidas dispon?veis, responda exatamente DESCONHECIDO. N?o invente informa??es."
+    ],
+    "memorias": [
+      "Meu nome é Ezequiel."
+    ],
+    "esperado": "Ezequiel",
+    "estado_regras_esperado": {
+      "nome": "Ezequiel"
+    }
+  }
+]
