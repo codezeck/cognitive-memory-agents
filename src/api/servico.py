@@ -56,6 +56,9 @@ class Conversador:
         self.agente.nova_sessao(usuario_id)
 
     def esquecer_usuario(self, usuario_id: str) -> int:
-        # limpa também a conversa guardada na RAM do agente (LGPD)
         self.agente.nova_sessao(usuario_id)
+
+        if self.gerenciador is not None:
+            return self.gerenciador.limpar_usuario(usuario_id)
+
         return self.memoria.esquecer_usuario(usuario_id)
