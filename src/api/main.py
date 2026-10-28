@@ -87,15 +87,32 @@ def conversar(corpo: ConversaEntrada, conversador=Depends(get_conversador),
                          tokens_saida=r.tokens_saida)
 
 
-@app.post("/usuarios/{usuario_id}/sessoes", status_code=204,
-          dependencies=[Depends(autorizar_usuario)])
+@app.post(
+    "/usuarios/{usuario_id}/sessoes",
+    status_code=204,
+    dependencies=[Depends(autorizar_usuario)],
+)
+def criar_sessao(
+    usuario_id: UsuarioIdPath,
+    conversador=Depends(get_conversador),
+):
+    conversador.nova_sessao(usuario_id)
 
 
-@app.post("/usuarios/{usuario_id}/memorias", response_model=MemoriaCriadaSaida,
-          status_code=201, dependencies=[Depends(autorizar_usuario)])
-def criar_memoria(usuario_id: UsuarioIdPath, corpo: MemoriaEntrada,
-                  memoria=Depends(get_memoria)):
-    return MemoriaCriadaSaida(id=memoria.salvar(usuario_id, corpo.texto, corpo.chave))
+@app.post(
+    "/usuarios/{usuario_id}/memorias",
+    response_model=MemoriaCriadaSaida,
+    status_code=201,
+    dependencies=[Depends(autorizar_usuario)],
+)
+def criar_memoria(
+    usuario_id: UsuarioIdPath,
+    corpo: MemoriaEntrada,
+    memoria=Depends(get_memoria),
+):
+    return MemoriaCriadaSaida(
+        id=memoria.salvar(usuario_id, corpo.texto, corpo.chave)
+    )
 
 
 @app.get("/usuarios/{usuario_id}/memorias", response_model=list[MemoriaBuscaSaida],
