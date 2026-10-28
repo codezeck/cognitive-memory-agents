@@ -26,6 +26,13 @@ class MemoriaLongoPrazo(Protocol):
         pela busca.
         """
 
+    def listar_por_usuario(self, usuario_id: str) -> list[dict]:
+        """Lista memórias do usuário, incluindo registros inativos,
+        para reconstruir o índice do gerenciador.
+        """
+        ...
+    
+
     def buscar(self, usuario_id: str, consulta: str, k: int = 5) -> list[dict]:
         """Devolve até k memórias ativas, da mais para a menos relevante.
 
