@@ -212,3 +212,45 @@ def test_saude_e_provedores_sao_publicos(ctx):
     sem_token = TestClient(app, raise_server_exceptions=False)
     assert sem_token.get("/saude").status_code == 200
     assert sem_token.get("/provedores").status_code == 200
+
+def test_nova_sessao_limpa_apenas_a_conversa(ctx):
+    client, agente, memoria = ctx
+    memoria.salvar("u1", "O usuário mora em Campinas", "cidade")
+    r = client.post("/usuarios/u1/sessoes")
+    assert r.status_code == 204
+    assert agente.sessoes_novas == ["u1"]
+    assert memoria.buscar("u1", "O usuário mora em Campinas")  # a memória continua    
+
+def test_atualizar_memoria(ctx):
+    client, _, memoria = ctx
+    mid = memoria.salvar("u1", "O usuário mora em Campinas", "cidade")
+    r = client.patch(f"/usuarios/u1/memorias/{mid}",
+                     json={"texto": "O usuário mora em Santos"})
+    assert r.status_code == 204
+    achadas = client.get("/usuarios/u1/memorias",
+                         params={"consulta": "O usuário mora em Santos"}).json()
+    assert achadas and achadas[0]["texto"] == "O usuário mora em Santos"
+
+
+def test_atualizar_memoria_inexistente_da_404(ctx):
+    r = ctx[0].patch("/usuarios/u1/memorias/nao-existe", json={"texto": "x"})
+    assert r.status_code == 404
+    assert r.json()["codigo"] == "memoria_nao_encontrada"
+
+
+def test_atualizar_memoria_de_outro_usuario_da_403(ctx):
+    client, _, memoria = ctx   # o cliente está autenticado como u1
+    mid = memoria.salvar("u2", "O usuário gosta de xadrez", "hobby")
+    r = client.patch(f"/usuarios/u2/memorias/{mid}", json={"texto": "invadido"})
+    assert r.status_code == 403
+    assert memoria.buscar("u2", "O usuário gosta de xadrez")[0]["texto"] == \
+        "O usuário gosta de xadrez"
+
+
+def test_atualizar_memoria_com_texto_invalido_da_422(ctx):
+    client, _, memoria = ctx
+    mid = memoria.salvar("u1", "O usuário mora em Campinas", "cidade")
+    r = client.patch(f"/usuarios/u1/memorias/{mid}", json={"texto": ""})
+    assert r.status_code == 422
+    r = client.patch(f"/usuarios/u1/memorias/{mid}", json={"texto": "   "})
+    assert r.status_code == 422
