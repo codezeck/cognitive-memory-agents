@@ -3,6 +3,7 @@ from eval.avaliar_comparativo import (
     texto_memoria,
     avaliar_resposta_controlada,
     resposta_esperada_cenario,
+    resumir,
 )
 
 
@@ -175,3 +176,28 @@ def test_memoria_persistente_preserva_fato_esperado():
         {"esperado": "Osasco"},
         "memoria_persistente_api",
     ) == "Osasco"
+
+
+def test_resumo_contabiliza_falhas_na_taxa_aprovacao():
+    resultados = [
+        {
+            "cenario": "sem_memoria",
+            "passou": True,
+            "tokens_total": 10,
+            "latencia_api_total_ms": 100,
+            "metricas_completas": True,
+        },
+        {
+            "cenario": "sem_memoria",
+            "passou": False,
+            "erro": "Timeout na API",
+        },
+    ]
+
+    resumo = resumir(resultados)["sem_memoria"]
+
+    assert resumo["casos"] == 2
+    assert resumo["executados"] == 1
+    assert resumo["falhas"] == 1
+    assert resumo["aprovados"] == 1
+    assert resumo["taxa_aprovacao_pct"] == 50.0

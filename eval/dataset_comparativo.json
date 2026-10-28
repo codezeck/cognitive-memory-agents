@@ -5,7 +5,7 @@
     "descricao": "Recuperar cidade atual",
     "mensagens": [
       "Moro em Osasco.",
-      "Em que cidade moro? Responda somente com o valor solicitado, sem explica??es. Se n?o houver informa??o suficiente nas informa??es v?lidas dispon?veis, responda exatamente DESCONHECIDO. N?o invente informa??es."
+      "Em que cidade moro? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente nas informações válidas disponíveis, responda exatamente DESCONHECIDO. Não invente informações."
     ],
     "memorias": [
       "Moro em Osasco."
@@ -22,7 +22,7 @@
     "mensagens": [
       "Moro em Osasco.",
       "Moro agora em Campinas.",
-      "Em que cidade moro atualmente? Responda somente com o valor solicitado, sem explica??es. Se n?o houver informa??o suficiente nas informa??es v?lidas dispon?veis, responda exatamente DESCONHECIDO. N?o invente informa??es."
+      "Em que cidade moro atualmente? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente nas informações válidas disponíveis, responda exatamente DESCONHECIDO. Não invente informações."
     ],
     "memorias": [
       "Moro em Campinas."
@@ -39,7 +39,7 @@
     "mensagens": [
       "Moro em Osasco.",
       "Esqueça minha cidade.",
-      "Em que cidade moro? Responda somente com o valor solicitado, sem explica??es. Se n?o houver informa??o suficiente nas informa??es v?lidas dispon?veis, responda exatamente DESCONHECIDO. N?o invente informa??es."
+      "Em que cidade moro? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente nas informações válidas disponíveis, responda exatamente DESCONHECIDO. Não invente informações."
     ],
     "memorias": [],
     "esperado": [
@@ -54,7 +54,7 @@
     "mensagens": [
       "Torço pelo Vasco.",
       "Não torço mais pelo Vasco.",
-      "Para qual time torço? Responda somente com o valor solicitado, sem explica??es. Se n?o houver informa??o suficiente nas informa??es v?lidas dispon?veis, responda exatamente DESCONHECIDO. N?o invente informa??es."
+      "Para qual time torço? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente nas informações válidas disponíveis, responda exatamente DESCONHECIDO. Não invente informações."
     ],
     "memorias": [],
     "esperado": [
@@ -68,7 +68,7 @@
     "descricao": "Recuperar esporte praticado",
     "mensagens": [
       "Pratico yoga.",
-      "Qual esporte pratico? Responda somente com o valor solicitado, sem explica??es. Se n?o houver informa??o suficiente nas informa??es v?lidas dispon?veis, responda exatamente DESCONHECIDO. N?o invente informa??es."
+      "Qual esporte pratico? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente nas informações válidas disponíveis, responda exatamente DESCONHECIDO. Não invente informações."
     ],
     "memorias": [
       "Pratico yoga."
@@ -85,7 +85,7 @@
     "mensagens": [
       "Meu carro é um Polo.",
       "Meu carro agora é um Corolla.",
-      "Qual é meu carro atual? Responda somente com o valor solicitado, sem explica??es. Se n?o houver informa??o suficiente nas informa??es v?lidas dispon?veis, responda exatamente DESCONHECIDO. N?o invente informa??es."
+      "Qual é meu carro atual? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente nas informações válidas disponíveis, responda exatamente DESCONHECIDO. Não invente informações."
     ],
     "memorias": [
       "Meu carro é um Corolla."
@@ -101,7 +101,7 @@
     "descricao": "Recuperar nome informado",
     "mensagens": [
       "Meu nome é Ezequiel.",
-      "Qual é meu nome? Responda somente com o valor solicitado, sem explica??es. Se n?o houver informa??o suficiente nas informa??es v?lidas dispon?veis, responda exatamente DESCONHECIDO. N?o invente informa??es."
+      "Qual é meu nome? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente nas informações válidas disponíveis, responda exatamente DESCONHECIDO. Não invente informações."
     ],
     "memorias": [
       "Meu nome é Ezequiel."

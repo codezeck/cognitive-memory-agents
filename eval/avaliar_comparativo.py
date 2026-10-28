@@ -16,8 +16,6 @@ ROOT_DIR = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT_DIR))
 
 from eval.evaluate import avaliar_resposta
-from src.memoria import MemoriaEmRam
-from src.memoria.gerenciador import GerenciadorMemoria
 
 USUARIO_ID = "eval_comparativo"
 DATASET = ROOT_DIR / "eval" / "dataset_comparativo.json"
@@ -70,11 +68,61 @@ def carregar_token() -> str:
     )
 
 
-def normalizar_estado(estado: dict) -> dict:
-    return {
-        str(chave): str(valor)
-        for chave, valor in estado.items()
-    }
+def limpar_usuario(cliente: httpx.Client) -> None:
+    """Limpa exclusivamente o usuário sintético dedicado ao benchmark."""
+    resposta = cliente.delete(
+        f"/usuarios/{USUARIO_ID}/memorias"
+    )
+    resposta.raise_for_status()
+
+    sessao = cliente.post(
+        f"/usuarios/{USUARIO_ID}/sessoes"
+    )
+    sessao.raise_for_status()
+
+
+def conversar(
+    cliente: httpx.Client,
+    mensagem: str,
+    provedor: str,
+    modelo: str,
+) -> dict:
+    resposta = cliente.post(
+        "/conversas",
+        json={
+            "usuario_id": USUARIO_ID,
+            "mensagem": mensagem,
+            "provedor": provedor,
+            "modelo": modelo,
+        },
+    )
+    resposta.raise_for_status()
+    return resposta.json()
+
+
+def iniciar_nova_sessao(cliente: httpx.Client) -> None:
+    resposta = cliente.post(f"/usuarios/{USUARIO_ID}/sessoes")
+    resposta.raise_for_status()
+
+
+def criar_memoria(
+    cliente: httpx.Client,
+    texto: str,
+    chave: str | None = None,
+) -> str:
+    resposta = cliente.post(
+        f"/usuarios/{USUARIO_ID}/memorias",
+        json={"texto": texto, "chave": chave},
+    )
+    resposta.raise_for_status()
+    return resposta.json()["id"]
+
+
+def apagar_memoria(cliente: httpx.Client, memoria_id: str) -> None:
+    resposta = cliente.delete(
+        f"/usuarios/{USUARIO_ID}/memorias/{memoria_id}"
+    )
+    resposta.raise_for_status()
 
 
 def texto_memoria(chave: str, valor: str) -> str:
@@ -108,94 +156,6 @@ def texto_memoria(chave: str, valor: str) -> str:
         return f"Meu favorito em {categoria} é {valor}."
 
     return f"Fato sobre {chave}: {valor}."
-
-
-def limpar_usuario(cliente: httpx.Client) -> None:
-    """Limpa exclusivamente o usuário sintético dedicado ao benchmark."""
-    resposta = cliente.delete(
-        f"/usuarios/{USUARIO_ID}/memorias"
-    )
-    resposta.raise_for_status()
-
-    sessao = cliente.post(
-        f"/usuarios/{USUARIO_ID}/sessoes"
-    )
-    sessao.raise_for_status()
-
-
-def conversar(
-    cliente: httpx.Client,
-    mensagem: str,
-    provedor: str,
-    modelo: str,
-) -> dict:
-    resposta = cliente.post(
-        "/conversas",
-        json={
-            "usuario_id": USUARIO_ID,
-            "mensagem": mensagem,
-            "provedor": provedor,
-            "modelo": modelo,
-        },
-    )
-    resposta.raise_for_status()
-    return resposta.json()
-
-
-def criar_memoria(
-    cliente: httpx.Client,
-    texto: str,
-    chave: str | None = None,
-) -> str:
-    resposta = cliente.post(
-        f"/usuarios/{USUARIO_ID}/memorias",
-        json={"texto": texto, "chave": chave},
-    )
-    resposta.raise_for_status()
-    return resposta.json()["id"]
-
-
-def apagar_memoria(cliente: httpx.Client, memoria_id: str) -> None:
-    resposta = cliente.delete(
-        f"/usuarios/{USUARIO_ID}/memorias/{memoria_id}"
-    )
-    resposta.raise_for_status()
-
-
-def sincronizar_estado_regras(
-    cliente: httpx.Client,
-    estado: dict[str, str],
-    espelhadas: dict[str, dict],
-) -> None:
-    """Espelha na API somente os fatos ativos produzidos pelas regras."""
-    estado = normalizar_estado(estado)
-
-    # Remove fatos esquecidos ou substituídos.
-    for chave in list(espelhadas):
-        antigo = espelhadas[chave]
-        mudou = estado.get(chave) != antigo["valor"]
-
-        if chave not in estado or mudou:
-            apagar_memoria(cliente, antigo["id"])
-            del espelhadas[chave]
-
-    # Insere fatos novos ou atualizados.
-    for chave, valor in estado.items():
-        if chave in espelhadas:
-            continue
-
-        texto = texto_memoria(chave, valor)
-        chave_api = f"comparativo_{chave}"[:50]
-        memoria_id = criar_memoria(
-            cliente,
-            texto,
-            chave=chave_api,
-        )
-        espelhadas[chave] = {
-            "id": memoria_id,
-            "valor": valor,
-            "texto": texto,
-        }
 
 
 def resposta_esperada_cenario(caso: dict, cenario: str) -> str:
@@ -420,32 +380,27 @@ def executar_cenario(
                 conversar(cliente, caso["mensagens"][-1], provedor, modelo)
             )
 
-        elif cenario == "memoria_regras_api":
-            memoria_local = MemoriaEmRam()
-            gerenciador = GerenciadorMemoria(memoria_local)
-            espelhadas = {}
 
-            # O extrator processa somente as mensagens anteriores à pergunta.
+        elif cenario == "memoria_regras_api":
+            # Processa mensagens anteriores pelo fluxo real da API.
+            # A própria rota /conversas aciona o gerenciador automático.
             for mensagem in caso["mensagens"][:-1]:
-                gerenciador.processar(USUARIO_ID, mensagem)
-                sincronizar_estado_regras(
-                    cliente,
-                    gerenciador.estado(USUARIO_ID),
-                    espelhadas,
+                chamadas.append(
+                    conversar(cliente, mensagem, provedor, modelo)
                 )
 
-            estado_regras = normalizar_estado(
-                gerenciador.estado(USUARIO_ID)
-            )
-            estado_esperado = normalizar_estado(
-                caso["estado_regras_esperado"]
-            )
-            estado_regras_ok = estado_regras == estado_esperado
+            # Limpa apenas o histórico do agente; preserva as memórias.
+            iniciar_nova_sessao(cliente)
 
+            # Faz a pergunta final sem o histórico conversacional anterior.
             chamadas.append(
-                conversar(cliente, caso["mensagens"][-1], provedor, modelo)
+                conversar(
+                    cliente,
+                    caso["mensagens"][-1],
+                    provedor,
+                    modelo,
+                )
             )
-
         else:
             raise ValueError(f"Cenário desconhecido: {cenario}")
 
@@ -467,9 +422,9 @@ def executar_cenario(
             "categoria": caso["categoria"],
             "cenario": cenario,
             "repeticao": None,
-            "passou": avaliar_resposta_controlada(
+            "passou": avaliar_resposta_comparativo(
                 final["resposta"],
-                esperado_cenario,
+                caso_avaliacao,
             ),
             "esperado": esperado_cenario,
             "resposta": final["resposta"],
@@ -497,12 +452,15 @@ def executar_cenario(
             print(f"AVISO: não foi possível limpar o usuário sintético: {erro}")
 
 
+
 def resumir(resultados: list[dict]) -> dict:
     resumo = {}
 
     for cenario in CENARIOS:
         grupo = [r for r in resultados if r["cenario"] == cenario]
         validos = [r for r in grupo if "erro" not in r]
+        falhas = [r for r in grupo if "erro" in r]
+
         com_memoria = [
             r for r in validos
             if r.get("memorias_esperadas")
@@ -514,7 +472,8 @@ def resumir(resultados: list[dict]) -> dict:
             and r.get("recuperacao_memoria_ok") is not None
         ]
         estados = [
-            r for r in validos if r.get("estado_regras_ok") is not None
+            r for r in validos
+            if r.get("estado_regras_ok") is not None
         ]
         tokens = [
             r["tokens_total"] for r in validos
@@ -522,31 +481,44 @@ def resumir(resultados: list[dict]) -> dict:
         ]
         latencias = [
             r["latencia_api_total_ms"] for r in validos
+            if r.get("latencia_api_total_ms") is not None
         ]
+
+        aprovados = sum(bool(r.get("passou")) for r in grupo)
 
         resumo[cenario] = {
             "casos": len(grupo),
             "executados": len(validos),
-            "aprovados": sum(bool(r.get("passou")) for r in validos),
-            "taxa_aprovacao_pct": round(
-                100 * sum(bool(r.get("passou")) for r in validos) / len(validos),
-                2,
-            ) if validos else None,
+            "falhas": len(falhas),
+            "aprovados": aprovados,
+            "taxa_aprovacao_pct": (
+                round(100 * aprovados / len(grupo), 2)
+                if grupo else None
+            ),
             "tokens_total": sum(tokens),
             "casos_com_metricas_incompletas": sum(
-                not r.get("metricas_completas", False) for r in validos
+                not r.get("metricas_completas", False)
+                for r in validos
             ),
-            "latencia_api_media_por_caso_ms": round(
-                mean(latencias), 2
-            ) if latencias else None,
+            "latencia_api_media_por_caso_ms": (
+                round(sum(latencias) / len(latencias), 2)
+                if latencias else None
+            ),
             "casos_com_memoria_esperada": len(com_memoria),
             "memorias_recuperadas_exatamente": sum(
-                r["recuperacao_memoria_ok"] is True for r in com_memoria
+                r["recuperacao_memoria_ok"] is True
+                for r in com_memoria
             ),
-            "taxa_recuperacao_exata_pct": round(
-                100 * sum(r["recuperacao_memoria_ok"] is True for r in com_memoria)
-                / len(com_memoria), 2
-            ) if com_memoria else None,
+            "taxa_recuperacao_exata_pct": (
+                round(
+                    100 * sum(
+                        r["recuperacao_memoria_ok"] is True
+                        for r in com_memoria
+                    ) / len(com_memoria),
+                    2,
+                )
+                if com_memoria else None
+            ),
             "casos_sem_memoria_esperada": len(sem_memoria_esperada),
             "casos_sem_residuos_memoria": sum(
                 r["recuperacao_memoria_ok"] is True
@@ -554,11 +526,14 @@ def resumir(resultados: list[dict]) -> dict:
             ),
             "estados_regras_verificados": len(estados),
             "estados_regras_corretos": sum(
-                r["estado_regras_ok"] is True for r in estados
+                r["estado_regras_ok"] is True
+                for r in estados
             ),
         }
 
     return resumo
+
+
 
 
 def main() -> int:
@@ -659,9 +634,12 @@ def main() -> int:
         "observacoes": [
             "Sem memória envia apenas a pergunta final.",
             "Histórico completo envia todas as mensagens pela API.",
+            "memoria_regras_api envia mensagens anteriores pela API, reinicia a sessão antes da pergunta final e preserva as memórias persistidas.",
+            "Por isso, historico_completo combina histórico conversacional e memória automática por regras; não é um controle de histórico isolado.",
+            "Na implementação atual, toda chamada a /conversas também processa as regras automáticas de memória.",
             "Memória persistente API é pré-carregada manualmente com o estado esperado do caso.",
-            "Memória por regras processa mensagens anteriores localmente e espelha o estado ativo na API.",
-            "A avaliação das regras usa apenas o dataset comparativo, não o conjunto final da baseline.",
+            "O cenário memoria_regras_api processa mensagens anteriores pela API e mantém as memórias persistidas ao reiniciar a sessão antes da pergunta final.",
+            "O cenário memoria_regras_api avalia a resposta final e a recuperação de memórias pela API; a correção do estado interno não é medida separadamente nesta execução.",
             "A limpeza remove os dados do usuário sintético ao terminar cada cenário.",
         ],
         "resultados": resultados,
