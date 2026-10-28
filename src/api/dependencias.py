@@ -24,6 +24,12 @@ def get_memoria():
 
 
 @lru_cache
+def get_gerenciador(memoria=Depends(get_memoria)):
+    from src.memoria.gerenciador import GerenciadorMemoria
+    return GerenciadorMemoria(memoria)
+
+
+@lru_cache
 def get_agente():
     if os.getenv("USAR_FALSOS") == "1":
         from src.api.falsos import AgenteFalso
@@ -32,6 +38,9 @@ def get_agente():
     return AgenteLocal()
 
 
-def get_conversador(agente=Depends(get_agente),
-                    memoria=Depends(get_memoria)) -> Conversador:
-    return Conversador(agente, memoria)
+def get_conversador(
+    agente=Depends(get_agente),
+    memoria=Depends(get_memoria),
+    gerenciador=Depends(get_gerenciador),
+) -> Conversador:
+    return Conversador(agente, memoria, gerenciador=gerenciador)

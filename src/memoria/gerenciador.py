@@ -41,6 +41,7 @@ class GerenciadorMemoria:
         self._extrator = extrator
         # usuario -> chave -> {"ids": [...], "valor": str, "norm": str}
         self._indice: dict[str, dict[str, dict]] = {}
+        self._usuarios_carregados: set[str] = set()
 
     @staticmethod
     def _usuario(usuario_id: str) -> str:
@@ -48,13 +49,74 @@ class GerenciadorMemoria:
             raise ValueError("É necessário informar um usuario_id válido.")
         return usuario_id.strip()
 
+    def _carregar_indice_usuario(self, uid: str) -> None:
+        if uid in self._usuarios_carregados:
+            return
+
+        registros = self.memoria.listar_por_usuario(uid)
+        reconstruido: dict[str, dict] = {}
+
+        for registro in registros:
+            metadados = registro.get("metadados") or {}
+
+            # Reconstruir somente fatos criados pelo extrator de regras.
+            if metadados.get("origem") != "regras":
+                continue
+
+            chave = registro.get("chave")
+            if not chave:
+                continue
+
+            entrada = reconstruido.setdefault(
+                chave,
+                {
+                    "ids": [],
+                    "valor": None,
+                    "norm": None,
+                    "ativo": False,
+                },
+            )
+
+            entrada["ids"].append(registro["id"])
+
+            if registro.get("ativa"):
+                valor = metadados.get("valor")
+
+                if valor is not None:
+                    valor = str(valor)
+                    entrada["valor"] = valor
+                    entrada["norm"] = normalizar(valor)
+                    entrada["ativo"] = True
+
+        self._indice[uid] = {
+            chave: {
+                "ids": entrada["ids"],
+                "valor": entrada["valor"],
+                "norm": entrada["norm"],
+            }
+            for chave, entrada in reconstruido.items()
+            if entrada["ativo"]
+        }
+
+        self._usuarios_carregados.add(uid)
+
     def processar(self, usuario_id: str, mensagem: str) -> list[Resultado]:
         uid = self._usuario(usuario_id)
-        return [Resultado(d, self._aplicar(uid, d)) for d in self._extrator(mensagem)]
+        self._carregar_indice_usuario(uid)
+
+        return [
+            Resultado(decisao, self._aplicar(uid, decisao))
+            for decisao in self._extrator(mensagem)
+        ]
 
     def estado(self, usuario_id: str) -> dict[str, str]:
         uid = self._usuario(usuario_id)
-        return {c: e["valor"] for c, e in self._indice.get(uid, {}).items()}
+        self._carregar_indice_usuario(uid)
+
+        return {
+            chave: entrada["valor"]
+            for chave, entrada in self._indice.get(uid, {}).items()
+        }
 
     def _aplicar(self, uid: str, d: Decisao) -> str:
         indice = self._indice.setdefault(uid, {})
