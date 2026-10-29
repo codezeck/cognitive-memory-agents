@@ -3,6 +3,8 @@ from eval.avaliar_comparativo import (
     texto_memoria,
     avaliar_resposta_controlada,
     resposta_esperada_cenario,
+    resumir,
+    avaliar_recuperacao_equivalente,
 )
 
 
@@ -175,3 +177,80 @@ def test_memoria_persistente_preserva_fato_esperado():
         {"esperado": "Osasco"},
         "memoria_persistente_api",
     ) == "Osasco"
+
+
+def test_resumo_contabiliza_falhas_na_taxa_aprovacao():
+    resultados = [
+        {
+            "cenario": "sem_memoria",
+            "passou": True,
+            "tokens_total": 10,
+            "latencia_api_total_ms": 100,
+            "metricas_completas": True,
+        },
+        {
+            "cenario": "sem_memoria",
+            "passou": False,
+            "erro": "Timeout na API",
+        },
+    ]
+
+    resumo = resumir(resultados)["sem_memoria"]
+
+    assert resumo["casos"] == 2
+    assert resumo["executados"] == 1
+    assert resumo["falhas"] == 1
+    assert resumo["aprovados"] == 1
+    assert resumo["taxa_aprovacao_pct"] == 50.0
+
+def test_recuperacao_equivalente_aceita_variantes_conhecidas():
+    assert avaliar_recuperacao_equivalente(
+        ["Moro em Osasco."], ["Mora em Osasco."]
+    )
+    assert avaliar_recuperacao_equivalente(
+        ["Pratico yoga."], ["Pratica yoga"]
+    )
+    assert avaliar_recuperacao_equivalente(
+        ["Meu carro é um Corolla."], ["Carro: Corolla."]
+    )
+    assert avaliar_recuperacao_equivalente(
+        ["Meu nome é Ezequiel."], ["Chama-se Ezequiel."]
+    )
+
+
+def test_recuperacao_equivalente_rejeita_valor_incorreto():
+    assert not avaliar_recuperacao_equivalente(
+        ["Moro em Osasco."], ["Mora em Campinas."]
+    )
+
+
+def test_recuperacao_equivalente_rejeita_fato_extra():
+    assert not avaliar_recuperacao_equivalente(
+        ["Moro em Osasco."],
+        ["Mora em Osasco.", "Pratica yoga."],
+    )
+
+
+def test_recuperacao_equivalente_rejeita_duplicados():
+    assert not avaliar_recuperacao_equivalente(
+        ["Moro em Osasco."],
+        ["Mora em Osasco.", "Moro em Osasco."],
+    )
+
+
+def test_recuperacao_equivalente_memoria_vazia():
+    assert avaliar_recuperacao_equivalente([], [])
+    assert not avaliar_recuperacao_equivalente(
+        [], ["Mora em Osasco."]
+    )
+
+
+def test_recuperacao_equivalente_preserva_fatos_desconhecidos():
+    assert avaliar_recuperacao_equivalente(
+        ["fato personalizado ABC"],
+        ["fato personalizado ABC"],
+    )
+    assert not avaliar_recuperacao_equivalente(
+        ["fato personalizado ABC"],
+        ["fato personalizado XYZ"],
+    )

@@ -149,3 +149,20 @@ def test_esquecer_fato_apos_recriar_gerenciador(tmp_path):
         assert banco.buscar("u1", "Mora em Jundiaí", k=10) == []
     finally:
         banco.fechar()
+
+def test_limpar_usuario_invalida_indice_e_permite_nova_memoria(g):
+    g.processar("u1", "Moro em Campinas.")
+
+    assert g.estado("u1") == {"cidade": "Campinas"}
+
+    g.limpar_usuario("u1")
+
+    assert g.estado("u1") == {}
+
+    g.processar("u1", "Moro em Jundiaí.")
+
+    assert g.estado("u1") == {"cidade": "Jundiaí"}
+
+    textos = _textos(g, "u1", "Mora em Campinas Jundiaí")
+    assert any("Jundiaí" in texto for texto in textos)
+    assert not any("Campinas" in texto for texto in textos)

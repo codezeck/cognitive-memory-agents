@@ -100,6 +100,16 @@ class GerenciadorMemoria:
 
         self._usuarios_carregados.add(uid)
 
+    def limpar_usuario(self, usuario_id: str) -> int:
+        uid = self._usuario(usuario_id)
+
+        removidas = self.memoria.esquecer_usuario(uid)
+
+        self._indice.pop(uid, None)
+        self._usuarios_carregados.discard(uid)
+
+        return removidas
+
     def processar(self, usuario_id: str, mensagem: str) -> list[Resultado]:
         uid = self._usuario(usuario_id)
         self._carregar_indice_usuario(uid)
@@ -122,8 +132,7 @@ class GerenciadorMemoria:
         indice = self._indice.setdefault(uid, {})
 
         if d.acao == APAGAR_USUARIO:
-            self.memoria.esquecer_usuario(uid)
-            indice.clear()
+            self.limpar_usuario(uid)
             return "usuario_apagado"
 
         if d.acao == SALVAR:
