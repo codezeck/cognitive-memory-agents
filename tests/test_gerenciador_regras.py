@@ -1,6 +1,7 @@
 import pytest
 
 from src.memoria import MemoriaEmRam
+from src.memoria.chaves import MemoriaEmRamComChaves
 from src.memoria.avaliacao_regras import avaliar_conversas, carregar
 from src.memoria.gerenciador import GerenciadorMemoria
 from src.memoria.regras import normalizar
@@ -10,7 +11,7 @@ CONVERSAS = carregar("conversas_dev.json")
 
 @pytest.fixture
 def g():
-    return GerenciadorMemoria(MemoriaEmRam())
+    return GerenciadorMemoria(MemoriaEmRamComChaves())
 
 
 def _textos(g, uid, consulta, k=10):
@@ -23,7 +24,7 @@ def test_ha_pelo_menos_5_conversas_sinteticas():
 
 @pytest.mark.parametrize("conversa", CONVERSAS, ids=[c["id"] for c in CONVERSAS])
 def test_conversa_de_desenvolvimento_chega_ao_estado_esperado(conversa):
-    resultado = avaliar_conversas([conversa], MemoriaEmRam)
+    resultado = avaliar_conversas([conversa], MemoriaEmRamComChaves)
     assert resultado["falhas"] == [], resultado["falhas"]
 
 
@@ -116,3 +117,39 @@ def test_apagar_um_usuario_nao_afeta_outro(g):
     g.processar("bia", "Moro em Osasco.")
     g.processar("ana", "Apague todos os meus dados.")
     assert _textos(g, "bia", "Mora em Osasco")
+
+
+# ---- o gerenciador não guarda estado (a API mexe na memória por outros caminhos)
+def test_outro_gerenciador_sobre_a_mesma_memoria_enxerga_o_estado(g):
+    g.processar("u1", "Meu carro é um Gol azul.")
+    outro = GerenciadorMemoria(g.memoria)
+    assert outro.estado("u1") == {"carro": "Gol azul"}
+    assert outro.processar("u1", "Esqueça meu carro.")[0].efeito == "esquecido"
+
+
+def test_apagar_direto_na_memoria_nao_deixa_estado_velho_no_gerenciador(g):
+    g.processar("u1", "Moro em Osasco.")
+    g.memoria.esquecer_usuario("u1")  # o que DELETE /usuarios/{id}/memorias faz
+    assert g.processar("u1", "Moro em Osasco.")[0].efeito == "salvo"
+
+
+def test_memoria_criada_a_mao_pela_api_e_substituida_pelas_regras(g):
+    g.memoria.salvar("u1", "Mora em Osasco.", chave="cidade")  # POST /usuarios/{id}/memorias
+    assert g.processar("u1", "Mudei para Campinas.")[0].efeito == "atualizado"
+    textos = _textos(g, "u1", "Mora em Osasco Campinas")
+    assert any("Campinas" in t for t in textos)
+    assert not any("Osasco" in t for t in textos)
+
+
+def test_esquecer_apaga_o_historico_mesmo_sem_fato_ativo(g):
+    g.memoria.salvar("u1", "Meu carro é um Gol", chave="carro")
+    ativo = g.memoria.salvar("u1", "Meu carro é um Onix", chave="carro")
+    g.memoria.esquecer("u1", ativo)  # a API apaga só a memória ativa
+    assert len(g.memoria._dados["u1"]) == 1  # sobrou o histórico escondido
+    assert g.processar("u1", "Esqueça meu carro.")[0].efeito == "esquecido"
+    assert g.memoria._dados.get("u1", []) == []
+
+
+def test_exige_memoria_com_listar_e_esquecer_por_chave():
+    with pytest.raises(TypeError):
+        GerenciadorMemoria(MemoriaEmRam())

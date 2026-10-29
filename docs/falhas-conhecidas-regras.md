@@ -35,7 +35,7 @@ Consequência em conversas: o valor errado impede detectar repetição ("duplica
 - Frases com `?` são ignoradas inteiras, inclusive `Moro em Osasco, certo?`.
 - Só considera 1ª pessoa no presente; passado ("morava") é ignorado de propósito.
 - `esporte`, `carro`, `time`, `profissao` e `cidade` aceitam um valor por vez: "Faço yoga e pilates" guarda só o primeiro.
-- O índice chave -> ids do `GerenciadorMemoria` fica em RAM. Com uma memória persistente, será preciso listar as memórias do usuário por chave (ou guardar a chave nos metadados e consultá-la) para esquecer por tópico depois de reiniciar.
+- O `GerenciadorMemoria` não guarda estado: o valor atual de cada chave e o apagamento por tópico vêm da própria memória (`listar` e `esquecer_por_chave`, em `src/memoria/chaves.py`). A `MemoriaSQLite` original não tem esses dois métodos; use `MemoriaSQLiteComChaves` (`src/memoria/sqlite_chaves.py`) ou incorpore os métodos ao repositório. Sem eles, o gerenciador recusa a memória com `TypeError`. Memórias criadas à mão pela API sem o metadado `valor` são comparadas pelo texto, então uma repetição só é detectada se o texto for igual.
 - Cobertura lexical em português; sem tratamento de gírias, erros de digitação ou outras línguas.
 
 ## Exemplos reproduzíveis

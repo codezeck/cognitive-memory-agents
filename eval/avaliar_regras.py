@@ -17,7 +17,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from src.memoria import MemoriaEmRam  # noqa: E402
+from src.memoria.chaves import MemoriaEmRamComChaves  # noqa: E402
 from src.memoria.avaliacao_regras import (  # noqa: E402
     avaliar_conversas, avaliar_frases, carregar, formatar,
 )
@@ -40,7 +40,7 @@ def main() -> None:
     for nome in nomes:
         arq_frases, arq_conversas = ARQUIVOS[nome]
         frases = avaliar_frases(carregar(arq_frases))
-        conversas = avaliar_conversas(carregar(arq_conversas), MemoriaEmRam)
+        conversas = avaliar_conversas(carregar(arq_conversas), MemoriaEmRamComChaves)
         resultados[nome] = {"frases": frases, "conversas": conversas}
         print(formatar(nome, frases, conversas, args.mostrar_falhas))
         print()

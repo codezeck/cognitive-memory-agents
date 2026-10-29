@@ -1,27 +1,28 @@
 """Contrato da memória de longo prazo, rodando nas duas implementações.
 
-- MemoriaEmRam (src/memoria): usada em testes e CI.
-- MemoriaSQLite (src/armazenamento): a que a API usa.
+- MemoriaEmRamComChaves (src/memoria): usada em testes e CI.
+- MemoriaSQLiteComChaves (src/memoria): a MemoriaSQLite da API (src/armazenamento)
+  com `listar` e `esquecer_por_chave`.
 
 Também prova que o baseline por regras (GerenciadorMemoria) se comporta igual
-nas duas, e documenta uma limitação conhecida: o índice do gerenciador fica
-em RAM e se perde quando o processo reinicia.
+nas duas, inclusive depois de reiniciar o processo.
 """
 
 import pytest
 
-from src.armazenamento.repositorio import MemoriaSQLite
-from src.memoria import MemoriaEmRam, MemoriaLongoPrazo
+from src.memoria import MemoriaLongoPrazo
 from src.memoria.avaliacao_regras import avaliar_conversas, carregar
+from src.memoria.chaves import MemoriaComChaves, MemoriaEmRamComChaves
 from src.memoria.gerenciador import GerenciadorMemoria
+from src.memoria.sqlite_chaves import MemoriaSQLiteComChaves
 
 
 @pytest.fixture(params=["ram", "sqlite"])
 def memoria(request, tmp_path):
     if request.param == "ram":
-        yield MemoriaEmRam()
+        yield MemoriaEmRamComChaves()
         return
-    banco = MemoriaSQLite(str(tmp_path / "memoria.db"))
+    banco = MemoriaSQLiteComChaves(str(tmp_path / "memoria.db"))
     yield banco
     banco.fechar()
 
@@ -31,8 +32,9 @@ def _textos(memoria, uid, consulta, k=10):
 
 
 # ---- contrato básico
-def test_implementa_a_interface(memoria):
+def test_implementa_as_interfaces(memoria):
     assert isinstance(memoria, MemoriaLongoPrazo)
+    assert isinstance(memoria, MemoriaComChaves)
 
 
 def test_salvar_e_buscar_devolve_id_texto_e_score(memoria):
@@ -95,16 +97,48 @@ def test_texto_vazio_e_rejeitado(memoria):
         memoria.salvar("ana", "   ")
 
 
+# ---- acesso por chave
+def test_listar_devolve_so_as_ativas_com_chave_e_metadados(memoria):
+    memoria.salvar("ana", "Ana mora em Osasco", chave="cidade", metadados={"valor": "Osasco"})
+    memoria.salvar("ana", "Ana mora em Campinas", chave="cidade", metadados={"valor": "Campinas"})
+    memoria.salvar("ana", "Ana gosta de futebol")
+    itens = memoria.listar("ana")
+    assert {i["texto"] for i in itens} == {"Ana mora em Campinas", "Ana gosta de futebol"}
+    cidade = next(i for i in itens if i["chave"] == "cidade")
+    assert {"id", "texto", "chave", "metadados"} <= cidade.keys()
+    assert cidade["metadados"] == {"valor": "Campinas"}
+    assert memoria.listar("bia") == []
+
+
+def test_esquecer_por_chave_apaga_ativa_e_historico(memoria):
+    memoria.salvar("ana", "Meu carro é um Gol", chave="carro")
+    memoria.salvar("ana", "Meu carro é um Onix", chave="carro")
+    memoria.salvar("ana", "Torço pelo Santos", chave="time")
+    memoria.salvar("bia", "Meu carro é um Fusca", chave="carro")
+    assert memoria.esquecer_por_chave("ana", "carro") == 2
+    assert [i["chave"] for i in memoria.listar("ana")] == ["time"]
+    assert memoria.esquecer_por_chave("ana", "carro") == 0
+    assert len(memoria.listar("bia")) == 1
+
+
+def test_esquecer_por_chave_com_prefixo(memoria):
+    memoria.salvar("ana", "Pet: gato chamado Luna", chave="pet:gato:luna")
+    memoria.salvar("ana", "Pet: gato chamado Simba", chave="pet:gato:simba")
+    memoria.salvar("ana", "Pet: cachorro chamado Thor", chave="pet:cachorro:thor")
+    assert memoria.esquecer_por_chave("ana", "pet:gato:") == 2
+    assert [i["chave"] for i in memoria.listar("ana")] == ["pet:cachorro:thor"]
+
+
 # ---- regras + memória: mesmo comportamento nas duas
 def test_conversas_de_desenvolvimento_passam_em_qualquer_implementacao(memoria):
     resultado = avaliar_conversas(carregar("conversas_dev.json"), lambda: memoria)
     assert resultado["falhas"] == [], resultado["falhas"]
 
 
-def test_regras_dao_o_mesmo_resultado_na_avaliacao_final_nas_duas(memoria, tmp_path):
+def test_regras_dao_o_mesmo_resultado_na_avaliacao_final_nas_duas(tmp_path):
     conversas = carregar("conversas_avaliacao.json")
-    em_ram = avaliar_conversas(conversas, MemoriaEmRam)
-    banco = MemoriaSQLite(str(tmp_path / "comparacao.db"))
+    em_ram = avaliar_conversas(conversas, MemoriaEmRamComChaves)
+    banco = MemoriaSQLiteComChaves(str(tmp_path / "comparacao.db"))
     try:
         no_banco = avaliar_conversas(conversas, lambda: banco)
     finally:
@@ -121,42 +155,45 @@ def test_fato_substituido_e_apagado_nao_voltam_pela_busca(memoria):
     assert _textos(memoria, "u1", "Mora em Osasco Campinas") == []
 
 
+def test_apagar_usuario_direto_na_memoria_e_salvar_de_novo_funciona(memoria):
+    g = GerenciadorMemoria(memoria)
+    g.processar("u1", "Moro em Osasco.")
+    memoria.esquecer_usuario("u1")  # o que a API faz em DELETE /usuarios/{id}/memorias
+    assert g.processar("u1", "Moro em Osasco.")[0].efeito == "salvo"
+    assert _textos(memoria, "u1", "Mora em Osasco") == ["Mora em Osasco."]
+
+
 # ---- persistência
 def test_dados_sobrevivem_ao_reinicio_no_sqlite(tmp_path):
     caminho = str(tmp_path / "persistente.db")
-    primeiro = MemoriaSQLite(caminho)
+    primeiro = MemoriaSQLiteComChaves(caminho)
     primeiro.salvar("ana", "Ana mora em Osasco")
     primeiro.fechar()
 
-    segundo = MemoriaSQLite(caminho)
+    segundo = MemoriaSQLiteComChaves(caminho)
     try:
         assert _textos(segundo, "ana", "Ana mora em Osasco") == ["Ana mora em Osasco"]
         segundo.esquecer_usuario("ana")
     finally:
         segundo.fechar()
 
-    terceiro = MemoriaSQLite(caminho)
+    terceiro = MemoriaSQLiteComChaves(caminho)
     try:
         assert terceiro.buscar("ana", "Ana mora em Osasco") == []
     finally:
         terceiro.fechar()
 
 
-# ---- limitação conhecida (documentada, ver docs/falhas-conhecidas-regras.md)
-@pytest.mark.xfail(
-    strict=True,
-    reason="o índice chave->ids do GerenciadorMemoria fica em RAM e se perde no reinício; "
-           "precisa de esquecer_por_chave/buscar_por_chave na memória persistente",
-)
 def test_esquecer_por_topico_depois_de_reiniciar(tmp_path):
     caminho = str(tmp_path / "reinicio.db")
-    banco = MemoriaSQLite(caminho)
+    banco = MemoriaSQLiteComChaves(caminho)
     GerenciadorMemoria(banco).processar("u1", "Meu carro é um Gol azul.")
     banco.fechar()
 
-    banco = MemoriaSQLite(caminho)  # processo reiniciado: gerenciador novo, índice vazio
+    banco = MemoriaSQLiteComChaves(caminho)  # processo reiniciado: gerenciador novo
     try:
-        GerenciadorMemoria(banco).processar("u1", "Esqueça meu carro.")
+        resultado = GerenciadorMemoria(banco).processar("u1", "Esqueça meu carro.")
+        assert resultado[0].efeito == "esquecido"
         assert _textos(banco, "u1", "Carro Gol azul") == []
     finally:
         banco.fechar()

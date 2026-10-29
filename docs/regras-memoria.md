@@ -12,7 +12,7 @@ Decidir, a partir do texto de uma mensagem do usuário, o que a memória de long
 mensagem -> extrair() -> [Decisao, ...] -> GerenciadorMemoria.processar() -> MemoriaLongoPrazo
 ```
 
-`extrair` só olha a mensagem. `GerenciadorMemoria` aplica as decisões usando a interface `MemoriaLongoPrazo` (`salvar`, `esquecer`, `esquecer_usuario`) e guarda um índice chave -> ids para poder esquecer por tópico.
+`extrair` só olha a mensagem. `GerenciadorMemoria` aplica as decisões usando `MemoriaComChaves` (a interface `MemoriaLongoPrazo` mais `listar` e `esquecer_por_chave`, em `src/memoria/chaves.py`). Ele não guarda estado próprio, então continua correto quando a API apaga um usuário, cria uma memória à mão ou o processo reinicia.
 
 ## Decisões possíveis
 
