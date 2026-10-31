@@ -138,7 +138,7 @@ Com Docker:
 docker compose up --build
 ```
 
-O `docker-compose.yml` lê as variáveis do `.env`. A API fica em `http://127.0.0.1:8000`. **[confirmar]** Escreva aqui quem validou o Docker e em qual computador (ou Codespaces).
+O `docker-compose.yml` lê as variáveis do `.env`. A API fica em `http://127.0.0.1:8000`. **Status:** o `docker compose up --build` ainda não foi validado em um computador com Docker (a validação está prevista para o Codespaces ou para o computador de um colega). Até lá, use a execução local descrita acima.
 
 ### Autenticação
 
@@ -204,6 +204,6 @@ Os testes da API não precisam do Ollama. Cobrem escolha de modelo, tradução d
 
 ### Limitações conhecidas
 
-- A memória usada pela API fica em RAM e **se perde ao reiniciar o servidor**, até a memória persistente ser integrada. **[confirmar]** Atualize esta linha quando o banco definitivo entrar.
+- A memória usada pela API fica em RAM e **se perde ao reiniciar o servidor**. A persistência em banco de dados está em definição com o grupo (SQLite ou PostgreSQL+pgvector) e será documentada aqui quando integrada.
 - O `PATCH` altera o texto, mas o índice de conflitos do gerenciador de memória não é atualizado.
 - Os tokens de uso (`tokens_entrada` e `tokens_saida`) só aparecem se o agente os devolver.
