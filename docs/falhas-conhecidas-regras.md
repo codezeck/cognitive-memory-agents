@@ -35,7 +35,7 @@ Consequência em conversas: o valor errado impede detectar repetição ("duplica
 - Frases com `?` são ignoradas inteiras, inclusive `Moro em Osasco, certo?`.
 - Só considera 1ª pessoa no presente; passado ("morava") é ignorado de propósito.
 - `esporte`, `carro`, `time`, `profissao` e `cidade` aceitam um valor por vez: "Faço yoga e pilates" guarda só o primeiro.
-- O índice chave -> ids do `GerenciadorMemoria` fica em RAM. Com uma memória persistente, será preciso listar as memórias do usuário por chave (ou guardar a chave nos metadados e consultá-la) para esquecer por tópico depois de reiniciar.
+- O índice chave -> ids do `GerenciadorMemoria` é reconstruído a partir de `listar_por_usuario` a cada mensagem (uma consulta por mensagem), o que cobre o reinício do processo e as alterações feitas pela API por outros caminhos (POST e DELETE de memórias). Limitações: com vários processos ou threads escrevendo ao mesmo tempo para o mesmo usuário pode haver corrida; uma memória criada à mão com chave é tratada como fato de valor desconhecido (nunca conta como repetição, e "não moro mais em X" não a apaga, mas "esqueça meu endereço" a apaga).
 - Cobertura lexical em português; sem tratamento de gírias, erros de digitação ou outras línguas.
 
 ## Exemplos reproduzíveis
