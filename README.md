@@ -204,6 +204,6 @@ Os testes da API não precisam do Ollama. Cobrem escolha de modelo, tradução d
 
 ### Limitações conhecidas
 
-- A memória usada pela API fica em RAM e **se perde ao reiniciar o servidor**. A persistência em banco de dados está em definição com o grupo (SQLite ou PostgreSQL+pgvector) e será documentada aqui quando integrada.
-- O `PATCH` altera o texto, mas o índice de conflitos do gerenciador de memória não é atualizado.
+- A memória da API é salva em SQLite (arquivo `dados/memorias.db`, ou o volume `memoria_dados` no Docker) e **sobrevive ao reiniciar o servidor**.
+- Memórias criadas ou apagadas diretamente por `POST`/`PATCH`/`DELETE` em `/memorias` não atualizam o índice de conflitos do gerenciador, que é carregado do banco uma vez por usuário e fica em memória enquanto o servidor roda. Isso só afeta memórias criadas pelo extrator de regras; reiniciar a API reconstrói o índice.
 - Os tokens de uso (`tokens_entrada` e `tokens_saida`) só aparecem se o agente os devolver.
