@@ -1,9 +1,11 @@
 import pytest
 
 from src.memoria import MemoriaEmRam
+from src.armazenamento.repositorio import MemoriaSQLite
 from src.memoria.avaliacao_regras import avaliar_conversas, carregar
 from src.memoria.gerenciador import GerenciadorMemoria
 from src.memoria.regras import normalizar
+
 
 CONVERSAS = carregar("conversas_dev.json")
 
@@ -116,3 +118,51 @@ def test_apagar_um_usuario_nao_afeta_outro(g):
     g.processar("bia", "Moro em Osasco.")
     g.processar("ana", "Apague todos os meus dados.")
     assert _textos(g, "bia", "Mora em Osasco")
+
+
+def test_esquecer_fato_apos_recriar_gerenciador(tmp_path):
+    caminho = str(tmp_path / "memoria_regras.db")
+
+    banco = MemoriaSQLite(caminho=caminho)
+    try:
+        gerenciador = GerenciadorMemoria(banco)
+
+        gerenciador.processar("u1", "Moro em Campinas.")
+        resultado = gerenciador.processar(
+            "u1", "Mudei para Jundiaí."
+        )
+
+        assert resultado[0].efeito == "atualizado"
+    finally:
+        banco.fechar()
+
+    # Simula o reinício: banco é reaberto e o gerenciador é recriado.
+    banco = MemoriaSQLite(caminho=caminho)
+    try:
+        gerenciador = GerenciadorMemoria(banco)
+
+        resultado = gerenciador.processar(
+            "u1", "Não moro mais em Jundiaí."
+        )
+
+        assert resultado[0].efeito == "esquecido"
+        assert banco.buscar("u1", "Mora em Jundiaí", k=10) == []
+    finally:
+        banco.fechar()
+
+def test_limpar_usuario_invalida_indice_e_permite_nova_memoria(g):
+    g.processar("u1", "Moro em Campinas.")
+
+    assert g.estado("u1") == {"cidade": "Campinas"}
+
+    g.limpar_usuario("u1")
+
+    assert g.estado("u1") == {}
+
+    g.processar("u1", "Moro em Jundiaí.")
+
+    assert g.estado("u1") == {"cidade": "Jundiaí"}
+
+    textos = _textos(g, "u1", "Mora em Campinas Jundiaí")
+    assert any("Jundiaí" in texto for texto in textos)
+    assert not any("Campinas" in texto for texto in textos)

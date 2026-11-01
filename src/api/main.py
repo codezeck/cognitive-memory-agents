@@ -7,6 +7,7 @@ from fastapi.responses import JSONResponse
 
 
 from src.api.dependencias import get_catalogo, get_conversador, get_memoria
+from src.api.dependencias import get_gerenciador
 from src.api.erros import ErroDominio, MemoriaNaoEncontrada
 from src.api.schemas import (ApagadasSaida, ConversaEntrada, ConversaSaida,
                              MemoriaBuscaSaida, MemoriaCriadaSaida,
@@ -97,6 +98,17 @@ def criar_sessao(
     conversador=Depends(get_conversador),
 ):
     conversador.nova_sessao(usuario_id)
+
+
+@app.get(
+    "/usuarios/{usuario_id}/estado-regras",
+    dependencies=[Depends(autorizar_usuario)],
+)
+def consultar_estado_regras(
+    usuario_id: UsuarioIdPath,
+    gerenciador=Depends(get_gerenciador),
+):
+    return gerenciador.estado(usuario_id)
 
 
 @app.post(

@@ -141,6 +141,35 @@ class MemoriaSQLite:
             for score, registro in pontuadas[:k]
         ]
 
+
+    def listar_por_usuario(self, usuario_id: str) -> list[dict]:
+        usuario_id = _validar_usuario(usuario_id)
+
+        with self._lock:
+            registros = self._con.execute(
+                """
+                SELECT id, texto, chave, metadados, ativa
+                FROM memorias
+                WHERE usuario_id = ?
+                ORDER BY criada_em ASC
+                """,
+                (usuario_id,),
+            ).fetchall()
+
+        return [
+            {
+                "id": registro["id"],
+                "texto": registro["texto"],
+                "chave": registro["chave"],
+                "metadados": json.loads(
+                    registro["metadados"] or "{}"
+                ),
+                "ativa": bool(registro["ativa"]),
+            }
+            for registro in registros
+        ]
+
+
     def atualizar(
         self, usuario_id: str, memoria_id: str, novo_texto: str
     ) -> bool:

@@ -79,6 +79,21 @@ class MemoriaEmRam:
             for s, r in pontuadas[:k]
         ]
 
+
+    def listar_por_usuario(self, usuario_id: str) -> list[dict]:
+        usuario_id = _validar_usuario(usuario_id)
+
+        return [
+            {
+                "id": registro.id,
+                "texto": registro.texto,
+                "chave": registro.chave,
+                "metadados": dict(registro.metadados),
+                "ativa": registro.ativa,
+            }
+            for registro in self._dados.get(usuario_id, [])
+        ]
+
     def atualizar(self, usuario_id: str, memoria_id: str, novo_texto: str) -> bool:
         usuario_id = _validar_usuario(usuario_id)
         novo_texto = novo_texto.strip()

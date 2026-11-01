@@ -89,6 +89,43 @@ def test_conversa_recebe_as_memorias_do_usuario(ctx):
     assert agente.chamadas[0]["memorias"][0]["texto"] == "O usuário mora em Campinas"
 
 
+def test_conversa_processa_fato_novo_automaticamente(ctx):
+    client, _, memoria = ctx
+
+    resposta = conversa(client, mensagem="Moro em Campinas.")
+
+    assert resposta.status_code == 200
+
+    memorias = memoria.buscar(
+        "u1",
+        "Mora em Campinas",
+        k=5,
+    )
+
+    assert any(
+        "Campinas" in item["texto"]
+        for item in memorias
+    ), f"Fato não encontrado no armazenamento: {memorias}"
+
+def test_esquecer_fato_na_conversa_limpa_historico(ctx):
+    client, agente, memoria = ctx
+
+    resposta_salvar = conversa(
+        client,
+        mensagem="Meu carro é um Gol azul.",
+    )
+    assert resposta_salvar.status_code == 200
+    assert memoria.buscar("u1", "Carro Gol", k=5)
+
+    resposta_esquecer = conversa(
+        client,
+        mensagem="Esqueça meu carro.",
+    )
+    assert resposta_esquecer.status_code == 200
+
+    assert memoria.buscar("u1", "Carro Gol", k=5) == []
+    assert agente.sessoes_novas == ["u1"]
+
 def test_memorias_nao_vazam_entre_usuarios(ctx):
     client, _, memoria = ctx
     memoria.salvar("u1", "O usuário mora em Campinas", "cidade")
