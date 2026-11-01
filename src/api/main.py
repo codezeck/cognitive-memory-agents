@@ -11,7 +11,7 @@ from src.api.dependencias import get_gerenciador
 from src.api.erros import ErroDominio, MemoriaNaoEncontrada
 from src.api.schemas import (ApagadasSaida, ConversaEntrada, ConversaSaida,
                              MemoriaBuscaSaida, MemoriaCriadaSaida,
-                             MemoriaEntrada, MemoriaIdPath, ProvedorSaida,
+                             MemoriaEntrada,MemoriaAtualizacao, MemoriaIdPath, ProvedorSaida,
                              UsuarioIdPath)
 from src.api.seguranca import (autorizar_usuario, exigir_mesmo_usuario,
                                usuario_autenticado)
@@ -148,3 +148,18 @@ def esquecer_uma(usuario_id: UsuarioIdPath, memoria_id: MemoriaIdPath,
             dependencies=[Depends(autorizar_usuario)])
 def esquecer_usuario(usuario_id: UsuarioIdPath, conversador=Depends(get_conversador)):
     return ApagadasSaida(removidas=conversador.esquecer_usuario(usuario_id))
+
+
+@app.patch(
+    "/usuarios/{usuario_id}/memorias/{memoria_id}",
+    status_code=204,
+    dependencies=[Depends(autorizar_usuario)],
+)
+def atualizar_memoria(
+    usuario_id: UsuarioIdPath,
+    memoria_id: MemoriaIdPath,
+    corpo: MemoriaAtualizacao,
+    memoria=Depends(get_memoria),
+):
+    if not memoria.atualizar(usuario_id, memoria_id, corpo.texto):
+        raise MemoriaNaoEncontrada("Memória não encontrada para este usuário.")

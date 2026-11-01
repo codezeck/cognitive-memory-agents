@@ -50,3 +50,8 @@ class MemoriaBuscaSaida(BaseModel):
 
 class ApagadasSaida(BaseModel):
     removidas: int
+
+    
+
+class MemoriaAtualizacao(BaseModel):
+    texto: str = Field(min_length=1, max_length=2000)
