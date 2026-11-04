@@ -71,7 +71,7 @@ Cada interação tem o prompt, o resumo da resposta e a decisão (aceito, corrig
 
 - **Prompt:** "preciso reavaliar o como o projeto está muitas mudanças foram realizadas e temos esses problemas preciso resolver e ver o que mudou para finalizarmos", com dois prints de conflito.
 - **Resposta:** simulou o merge de todas as branches no master atual. Só a `feature/memoria-regras` (Vinicius) conflita, porque ela e o master resolveram o mesmo problema do índice de memória de formas diferentes. Recomendou que o Vinicius resolva.
-- **Decisão:** aceito. O conflito está em `src/memoria/`, que é escopo dele. A mensagem ao Vinicius ainda não foi enviada.
+- **Decisão:** aceito. O conflito está em `src/memoria/`, que é escopo dele. Desfecho: o PR foi fechado, pois o Vinicius já havia corrigido o problema em outro PR (#24). A mensagem ao Vinicius ainda não foi enviada.
 
 ### 11. Reescrita do avaliador (ChatGPT, 28/10/2026)
 
