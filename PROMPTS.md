@@ -6,7 +6,6 @@ Escopo: agente e avaliação (`src/agent.py`, `src/modelos/`, `eval/`).
 
 - Claude (chat).
 - ChatGPT (versão gratuita).
-- GitHub Copilot (painel de chat do VS Code): [confirmar se usou e registrar abaixo].
 
 Cada interação tem o prompt, o resumo da resposta e a decisão (aceito, corrigido ou descartado), com o motivo.
 
@@ -62,7 +61,7 @@ Cada interação tem o prompt, o resumo da resposta e a decisão (aceito, corrig
 - **Resposta:** formas de exportar o histórico e uma tabela de 3 linhas para o `PROMPTS.md`.
 - **Decisão:** corrigido. A tabela não cumpria a regra de pelo menos 10 interações com prompt, resposta e decisão; foi substituída por este formato, com um bloco por interação.
 
-### 9. Escopo completo e próximos passos (Claude, [confirmar data])
+### 9. Escopo completo e próximos passos (Claude, entre 28/10 e 04/11/2026)
 
 - **Prompt:** "me de um escopo completto sobre o projeto, e quais serão os proxiimos passos" e "liste o que cada um tem que executar para concluir esse marco".
 - **Resposta:** leu o enunciado e montou o escopo, o cronograma por marco e a lista por integrante para o Marco 2.
@@ -72,23 +71,23 @@ Cada interação tem o prompt, o resumo da resposta e a decisão (aceito, corrig
 
 - **Prompt:** "preciso reavaliar o como o projeto está muitas mudanças foram realizadas e temos esses problemas preciso resolver e ver o que mudou para finalizarmos", com dois prints de conflito.
 - **Resposta:** simulou o merge de todas as branches no master atual. Só a `feature/memoria-regras` (Vinicius) conflita, porque ela e o master resolveram o mesmo problema do índice de memória de formas diferentes. Recomendou que o Vinicius resolva.
-- **Decisão:** aceito. O conflito está em `src/memoria/`, que é escopo dele. [confirmar se a mensagem foi enviada ao Vinicius]
+- **Decisão:** aceito. O conflito está em `src/memoria/`, que é escopo dele. A mensagem ao Vinicius ainda não foi enviada.
 
 ### 11. Reescrita do avaliador (ChatGPT, 28/10/2026)
 
-- **Prompt:** [copiar o texto original do histórico do ChatGPT]. Pedido: melhorar a avaliação de respostas "desconhecido" e evitar vazamento de fatos que deveriam ser esquecidos.
+- **Prompt:** Texto original não recuperado (histórico do chat truncado). Pedido: melhorar a avaliação de respostas "desconhecido" e evitar vazamento de fatos que deveriam ser esquecidos.
 - **Resposta:** reescreveu `avaliar_resposta_comparativo` (normalização, rejeição de fatos esquecidos, expressões de desconhecimento aceitas).
 - **Decisão:** aceito na época, descartado como evidência. O avaliador foi ajustado várias vezes e os resultados dessa fase (0/21 sem memória, 13/21 histórico, 14/21 persistente, 0/21 regras, estado das regras em 0/0) foram substituídos pela avaliação oficial com avaliador congelado.
 
 ### 12. Métrica de recuperação equivalente (ChatGPT, 28/10/2026)
 
-- **Prompt:** [copiar o texto original do histórico do ChatGPT].
+- **Prompt:** Texto original não recuperado (histórico truncado). Pedido reconstruído pelo contexto: criar a métrica de recuperação equivalente de memórias, com testes.
 - **Resposta:** script que adiciona `avaliar_recuperacao_equivalente`, campos no resumo e testes.
 - **Decisão:** corrigido. O script gravou `\n` literal no final do arquivo de testes (erro de sintaxe) e o padrão do carro falhou no teste; ambos foram refeitos com novos scripts. A métrica ficou como complementar, pois só reconhece formatos previstos no código; não faz parte da avaliação oficial.
 
 ### 13. Métrica de esquecimento efetivo (ChatGPT, 28/10/2026)
 
-- **Prompt:** [copiar o texto original do histórico do ChatGPT].
+- **Prompt:** Texto original não recuperado (histórico truncado). Pedido reconstruído pelo contexto: criar a métrica de esquecimento efetivo, em que fatos esquecidos não podem aparecer na resposta.
 - **Resposta:** propôs `avaliar_esquecimento` e deixar de calcular a recuperação exata quando não há memória esperada.
 - **Decisão:** descartado. O script foi cancelado porque um trecho não foi encontrado (os acentos se perdem quando o texto vai pelo PowerShell para `python -`). A proposta de ignorar listas vazias foi rejeitada: "casos sem resíduos" (6/6) é uma verificação válida de que nada sobrou após o esquecimento.
 
