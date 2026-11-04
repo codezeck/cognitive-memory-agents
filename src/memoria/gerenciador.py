@@ -50,54 +50,41 @@ class GerenciadorMemoria:
         return usuario_id.strip()
 
     def _carregar_indice_usuario(self, uid: str) -> None:
-        if uid in self._usuarios_carregados:
-            return
-
+        # Reconstrói a cada chamada: a API também mexe na memória por outros
+        # caminhos (POST, PATCH e DELETE de memórias, DELETE do usuário) e o
+        # processo pode reiniciar; um índice guardado em RAM ficaria velho.
         registros = self.memoria.listar_por_usuario(uid)
         reconstruido: dict[str, dict] = {}
 
         for registro in registros:
-            metadados = registro.get("metadados") or {}
-
-            # Reconstruir somente fatos criados pelo extrator de regras.
-            if metadados.get("origem") != "regras":
-                continue
-
             chave = registro.get("chave")
             if not chave:
                 continue
 
+            metadados = registro.get("metadados") or {}
             entrada = reconstruido.setdefault(
                 chave,
-                {
-                    "ids": [],
-                    "valor": None,
-                    "norm": None,
-                    "ativo": False,
-                },
+                {"ids": [], "valor": None, "norm": None, "ativo": False},
             )
-
+            # Guarda os ids de TODAS as linhas da chave (ativa e substituídas),
+            # para que esquecer apague também o histórico.
             entrada["ids"].append(registro["id"])
 
             if registro.get("ativa"):
+                entrada["ativo"] = True
                 valor = metadados.get("valor")
 
                 if valor is not None:
-                    valor = str(valor)
-                    entrada["valor"] = valor
-                    entrada["norm"] = normalizar(valor)
-                    entrada["ativo"] = True
+                    # fato criado pelas regras
+                    entrada["valor"] = str(valor)
+                    entrada["norm"] = normalizar(str(valor))
+                else:
+                    # memória criada à mão, com chave: o valor é desconhecido,
+                    # então nunca conta como repetição e uma negação não a apaga
+                    entrada["valor"] = registro["texto"]
+                    entrada["norm"] = None
 
-        self._indice[uid] = {
-            chave: {
-                "ids": entrada["ids"],
-                "valor": entrada["valor"],
-                "norm": entrada["norm"],
-            }
-            for chave, entrada in reconstruido.items()
-            if entrada["ativo"]
-        }
-
+        self._indice[uid] = reconstruido
         self._usuarios_carregados.add(uid)
 
     def limpar_usuario(self, usuario_id: str) -> int:
@@ -126,8 +113,8 @@ class GerenciadorMemoria:
         return {
             chave: entrada["valor"]
             for chave, entrada in self._indice.get(uid, {}).items()
+            if entrada.get("ativo", True)
         }
-
     def _aplicar(self, uid: str, d: Decisao) -> str:
         indice = self._indice.setdefault(uid, {})
 
