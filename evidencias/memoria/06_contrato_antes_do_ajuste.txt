@@ -1,0 +1,229 @@
+# Gerado em: 2026-11-04 19:00:55
+# Código avaliado: 69ba7c5
+# Comando: worktree em 69ba7c5 + tests/test_contrato_memoria.py de origin/master; python -m pytest tests/test_contrato_memoria.py -v
+
+============================= test session starts =============================
+platform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.7.0 -- C:\Projeto Integrador\.venv312\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: %USERPROFILE%\AppData\Local\Temp\_evidencia_antes
+configfile: pytest.ini
+plugins: anyio-4.15.1
+collecting ... collected 45 items
+
+tests/test_contrato_memoria.py::test_implementa_a_interface[ram] PASSED  [  2%]
+tests/test_contrato_memoria.py::test_implementa_a_interface[sqlite] PASSED [  4%]
+tests/test_contrato_memoria.py::test_salvar_e_buscar_devolve_id_texto_e_score[ram] PASSED [  6%]
+tests/test_contrato_memoria.py::test_salvar_e_buscar_devolve_id_texto_e_score[sqlite] PASSED [  8%]
+tests/test_contrato_memoria.py::test_memorias_sao_isoladas_por_usuario[ram] PASSED [ 11%]
+tests/test_contrato_memoria.py::test_memorias_sao_isoladas_por_usuario[sqlite] PASSED [ 13%]
+tests/test_contrato_memoria.py::test_chave_igual_substitui_e_o_antigo_nao_e_recuperado[ram] PASSED [ 15%]
+tests/test_contrato_memoria.py::test_chave_igual_substitui_e_o_antigo_nao_e_recuperado[sqlite] PASSED [ 17%]
+tests/test_contrato_memoria.py::test_atualizar_so_vale_para_o_dono[ram] PASSED [ 20%]
+tests/test_contrato_memoria.py::test_atualizar_so_vale_para_o_dono[sqlite] PASSED [ 22%]
+tests/test_contrato_memoria.py::test_esquecer_remove_e_a_segunda_vez_devolve_false[ram] PASSED [ 24%]
+tests/test_contrato_memoria.py::test_esquecer_remove_e_a_segunda_vez_devolve_false[sqlite] PASSED [ 26%]
+tests/test_contrato_memoria.py::test_esquecer_apaga_tambem_uma_memoria_ja_substituida[ram] PASSED [ 28%]
+tests/test_contrato_memoria.py::test_esquecer_apaga_tambem_uma_memoria_ja_substituida[sqlite] PASSED [ 31%]
+tests/test_contrato_memoria.py::test_esquecer_usuario_conta_tudo_e_nao_afeta_outros[ram] PASSED [ 33%]
+tests/test_contrato_memoria.py::test_esquecer_usuario_conta_tudo_e_nao_afeta_outros[sqlite] PASSED [ 35%]
+tests/test_contrato_memoria.py::test_usuario_id_invalido[ram-] PASSED    [ 37%]
+tests/test_contrato_memoria.py::test_usuario_id_invalido[ram-   ] PASSED [ 40%]
+tests/test_contrato_memoria.py::test_usuario_id_invalido[ram-None] PASSED [ 42%]
+tests/test_contrato_memoria.py::test_usuario_id_invalido[sqlite-] PASSED [ 44%]
+tests/test_contrato_memoria.py::test_usuario_id_invalido[sqlite-   ] PASSED [ 46%]
+tests/test_contrato_memoria.py::test_usuario_id_invalido[sqlite-None] PASSED [ 48%]
+tests/test_contrato_memoria.py::test_texto_vazio_e_rejeitado[ram] PASSED [ 51%]
+tests/test_contrato_memoria.py::test_texto_vazio_e_rejeitado[sqlite] PASSED [ 53%]
+tests/test_contrato_memoria.py::test_listar_por_usuario_inclui_ativas_e_substituidas[ram] PASSED [ 55%]
+tests/test_contrato_memoria.py::test_listar_por_usuario_inclui_ativas_e_substituidas[sqlite] PASSED [ 57%]
+tests/test_contrato_memoria.py::test_conversas_de_desenvolvimento_passam_em_qualquer_implementacao[ram] PASSED [ 60%]
+tests/test_contrato_memoria.py::test_conversas_de_desenvolvimento_passam_em_qualquer_implementacao[sqlite] PASSED [ 62%]
+tests/test_contrato_memoria.py::test_regras_dao_o_mesmo_resultado_na_avaliacao_final_nas_duas PASSED [ 64%]
+tests/test_contrato_memoria.py::test_fato_substituido_e_apagado_nao_voltam_pela_busca[ram] PASSED [ 66%]
+tests/test_contrato_memoria.py::test_fato_substituido_e_apagado_nao_voltam_pela_busca[sqlite] PASSED [ 68%]
+tests/test_contrato_memoria.py::test_apagar_o_usuario_direto_na_memoria_e_salvar_de_novo_funciona[ram] FAILED [ 71%]
+tests/test_contrato_memoria.py::test_apagar_o_usuario_direto_na_memoria_e_salvar_de_novo_funciona[sqlite] FAILED [ 73%]
+tests/test_contrato_memoria.py::test_apagar_uma_memoria_pela_api_e_repetir_o_fato_funciona[ram] FAILED [ 75%]
+tests/test_contrato_memoria.py::test_apagar_uma_memoria_pela_api_e_repetir_o_fato_funciona[sqlite] FAILED [ 77%]
+tests/test_contrato_memoria.py::test_memoria_criada_a_mao_com_chave_e_esquecida_pelo_chat[ram] FAILED [ 80%]
+tests/test_contrato_memoria.py::test_memoria_criada_a_mao_com_chave_e_esquecida_pelo_chat[sqlite] FAILED [ 82%]
+tests/test_contrato_memoria.py::test_memoria_criada_a_mao_com_chave_e_substituida_pelas_regras[ram] PASSED [ 84%]
+tests/test_contrato_memoria.py::test_memoria_criada_a_mao_com_chave_e_substituida_pelas_regras[sqlite] PASSED [ 86%]
+tests/test_contrato_memoria.py::test_esquecer_apaga_o_historico_escondido_depois_que_a_api_apagou_so_a_ativa[ram] PASSED [ 88%]
+tests/test_contrato_memoria.py::test_esquecer_apaga_o_historico_escondido_depois_que_a_api_apagou_so_a_ativa[sqlite] PASSED [ 91%]
+tests/test_contrato_memoria.py::test_estado_nao_mostra_chave_sem_memoria_ativa[ram] FAILED [ 93%]
+tests/test_contrato_memoria.py::test_estado_nao_mostra_chave_sem_memoria_ativa[sqlite] FAILED [ 95%]
+tests/test_contrato_memoria.py::test_dados_sobrevivem_ao_reinicio_no_sqlite PASSED [ 97%]
+tests/test_contrato_memoria.py::test_esquecer_por_topico_depois_de_reiniciar PASSED [100%]
+
+================================== FAILURES ===================================
+___ test_apagar_o_usuario_direto_na_memoria_e_salvar_de_novo_funciona[ram] ____
+
+memoria = <src.memoria.store_mem.MemoriaEmRam object at 0x0000026AF24DDF40>
+
+    def test_apagar_o_usuario_direto_na_memoria_e_salvar_de_novo_funciona(memoria):
+        g = GerenciadorMemoria(memoria)
+        g.processar("u1", "Moro em Osasco.")
+        memoria.esquecer_usuario("u1")  # DELETE /usuarios/{id}/memorias sem passar pelo gerenciador
+        g.processar("u1", "Moro em Osasco.")
+>       assert _textos(memoria, "u1", "Mora em Osasco") == ["Mora em Osasco."]
+E       AssertionError: assert [] == ['Mora em Osasco.']
+E         
+E         Right contains one more item: 'Mora em Osasco.'
+E         
+E         Full diff:
+E         + []
+E         - [
+E         -     'Mora em Osasco.',
+E         - ]
+
+tests\test_contrato_memoria.py:143: AssertionError
+__ test_apagar_o_usuario_direto_na_memoria_e_salvar_de_novo_funciona[sqlite] __
+
+memoria = <src.armazenamento.repositorio.MemoriaSQLite object at 0x0000026AF256D970>
+
+    def test_apagar_o_usuario_direto_na_memoria_e_salvar_de_novo_funciona(memoria):
+        g = GerenciadorMemoria(memoria)
+        g.processar("u1", "Moro em Osasco.")
+        memoria.esquecer_usuario("u1")  # DELETE /usuarios/{id}/memorias sem passar pelo gerenciador
+        g.processar("u1", "Moro em Osasco.")
+>       assert _textos(memoria, "u1", "Mora em Osasco") == ["Mora em Osasco."]
+E       AssertionError: assert [] == ['Mora em Osasco.']
+E         
+E         Right contains one more item: 'Mora em Osasco.'
+E         
+E         Full diff:
+E         + []
+E         - [
+E         -     'Mora em Osasco.',
+E         - ]
+
+tests\test_contrato_memoria.py:143: AssertionError
+_______ test_apagar_uma_memoria_pela_api_e_repetir_o_fato_funciona[ram] _______
+
+memoria = <src.memoria.store_mem.MemoriaEmRam object at 0x0000026AF256E2D0>
+
+    def test_apagar_uma_memoria_pela_api_e_repetir_o_fato_funciona(memoria):
+        g = GerenciadorMemoria(memoria)
+        g.processar("u1", "Moro em Osasco.")
+        (ativa,) = [i for i in memoria.listar_por_usuario("u1") if i["ativa"]]
+        memoria.esquecer("u1", ativa["id"])  # DELETE /usuarios/{id}/memorias/{id}
+        g.processar("u1", "Moro em Osasco.")
+>       assert _textos(memoria, "u1", "Mora em Osasco") == ["Mora em Osasco."]
+E       AssertionError: assert [] == ['Mora em Osasco.']
+E         
+E         Right contains one more item: 'Mora em Osasco.'
+E         
+E         Full diff:
+E         + []
+E         - [
+E         -     'Mora em Osasco.',
+E         - ]
+
+tests\test_contrato_memoria.py:152: AssertionError
+_____ test_apagar_uma_memoria_pela_api_e_repetir_o_fato_funciona[sqlite] ______
+
+memoria = <src.armazenamento.repositorio.MemoriaSQLite object at 0x0000026AF256DAF0>
+
+    def test_apagar_uma_memoria_pela_api_e_repetir_o_fato_funciona(memoria):
+        g = GerenciadorMemoria(memoria)
+        g.processar("u1", "Moro em Osasco.")
+        (ativa,) = [i for i in memoria.listar_por_usuario("u1") if i["ativa"]]
+        memoria.esquecer("u1", ativa["id"])  # DELETE /usuarios/{id}/memorias/{id}
+        g.processar("u1", "Moro em Osasco.")
+>       assert _textos(memoria, "u1", "Mora em Osasco") == ["Mora em Osasco."]
+E       AssertionError: assert [] == ['Mora em Osasco.']
+E         
+E         Right contains one more item: 'Mora em Osasco.'
+E         
+E         Full diff:
+E         + []
+E         - [
+E         -     'Mora em Osasco.',
+E         - ]
+
+tests\test_contrato_memoria.py:152: AssertionError
+_______ test_memoria_criada_a_mao_com_chave_e_esquecida_pelo_chat[ram] ________
+
+memoria = <src.memoria.store_mem.MemoriaEmRam object at 0x0000026AF256D0A0>
+
+    def test_memoria_criada_a_mao_com_chave_e_esquecida_pelo_chat(memoria):
+        g = GerenciadorMemoria(memoria)
+        memoria.salvar("u1", "Mora em Osasco.", chave="cidade")  # POST /usuarios/{id}/memorias
+        g.processar("u1", "Esqueça meu endereço.")
+>       assert _textos(memoria, "u1", "Mora em Osasco") == []
+E       AssertionError: assert ['Mora em Osasco.'] == []
+E         
+E         Left contains one more item: 'Mora em Osasco.'
+E         
+E         Full diff:
+E         - []
+E         + [
+E         +     'Mora em Osasco.',
+E         + ]
+
+tests\test_contrato_memoria.py:159: AssertionError
+______ test_memoria_criada_a_mao_com_chave_e_esquecida_pelo_chat[sqlite] ______
+
+memoria = <src.armazenamento.repositorio.MemoriaSQLite object at 0x0000026AF24DD4F0>
+
+    def test_memoria_criada_a_mao_com_chave_e_esquecida_pelo_chat(memoria):
+        g = GerenciadorMemoria(memoria)
+        memoria.salvar("u1", "Mora em Osasco.", chave="cidade")  # POST /usuarios/{id}/memorias
+        g.processar("u1", "Esqueça meu endereço.")
+>       assert _textos(memoria, "u1", "Mora em Osasco") == []
+E       AssertionError: assert ['Mora em Osasco.'] == []
+E         
+E         Left contains one more item: 'Mora em Osasco.'
+E         
+E         Full diff:
+E         - []
+E         + [
+E         +     'Mora em Osasco.',
+E         + ]
+
+tests\test_contrato_memoria.py:159: AssertionError
+_____________ test_estado_nao_mostra_chave_sem_memoria_ativa[ram] _____________
+
+memoria = <src.memoria.store_mem.MemoriaEmRam object at 0x0000026AF24DC0B0>
+
+    def test_estado_nao_mostra_chave_sem_memoria_ativa(memoria):
+        g = GerenciadorMemoria(memoria)
+        g.processar("u1", "Meu carro é um Gol azul.")
+        g.processar("u1", "Agora meu carro é um Onix branco.")
+        (ativa,) = [i for i in memoria.listar_por_usuario("u1") if i["ativa"]]
+        memoria.esquecer("u1", ativa["id"])
+>       assert "carro" not in g.estado("u1")
+E       AssertionError: assert 'carro' not in {'carro': 'Onix branco'}
+E        +  where {'carro': 'Onix branco'} = estado('u1')
+E        +    where estado = <src.memoria.gerenciador.GerenciadorMemoria object at 0x0000026AF24DEA80>.estado
+
+tests\test_contrato_memoria.py:189: AssertionError
+___________ test_estado_nao_mostra_chave_sem_memoria_ativa[sqlite] ____________
+
+memoria = <src.armazenamento.repositorio.MemoriaSQLite object at 0x0000026AF24DFC50>
+
+    def test_estado_nao_mostra_chave_sem_memoria_ativa(memoria):
+        g = GerenciadorMemoria(memoria)
+        g.processar("u1", "Meu carro é um Gol azul.")
+        g.processar("u1", "Agora meu carro é um Onix branco.")
+        (ativa,) = [i for i in memoria.listar_por_usuario("u1") if i["ativa"]]
+        memoria.esquecer("u1", ativa["id"])
+>       assert "carro" not in g.estado("u1")
+E       AssertionError: assert 'carro' not in {'carro': 'Onix branco'}
+E        +  where {'carro': 'Onix branco'} = estado('u1')
+E        +    where estado = <src.memoria.gerenciador.GerenciadorMemoria object at 0x0000026AF24DED50>.estado
+
+tests\test_contrato_memoria.py:189: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_contrato_memoria.py::test_apagar_o_usuario_direto_na_memoria_e_salvar_de_novo_funciona[ram]
+FAILED tests/test_contrato_memoria.py::test_apagar_o_usuario_direto_na_memoria_e_salvar_de_novo_funciona[sqlite]
+FAILED tests/test_contrato_memoria.py::test_apagar_uma_memoria_pela_api_e_repetir_o_fato_funciona[ram]
+FAILED tests/test_contrato_memoria.py::test_apagar_uma_memoria_pela_api_e_repetir_o_fato_funciona[sqlite]
+FAILED tests/test_contrato_memoria.py::test_memoria_criada_a_mao_com_chave_e_esquecida_pelo_chat[ram]
+FAILED tests/test_contrato_memoria.py::test_memoria_criada_a_mao_com_chave_e_esquecida_pelo_chat[sqlite]
+FAILED tests/test_contrato_memoria.py::test_estado_nao_mostra_chave_sem_memoria_ativa[ram]
+FAILED tests/test_contrato_memoria.py::test_estado_nao_mostra_chave_sem_memoria_ativa[sqlite]
+======================== 8 failed, 37 passed in 1.72s =========================
+
+# Código de saída: 1

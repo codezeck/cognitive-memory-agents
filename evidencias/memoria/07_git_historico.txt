@@ -1,0 +1,123 @@
+# Gerado em: 2026-11-04 19:00:55
+# Commit: 9c5afd3 (feature/evidencias-memoria)
+# Comando: git log --all --date=short --format='%h %ad %an %s'  e  git shortlog -sn --all
+
+7aa5f8a 2026-11-04 codezeck docs: registra desfecho da interação 10
+670db6a 2026-11-04 codezeck docs: completa prompts originais no PROMPTS.md
+c678d96 2026-11-04 codezeck docs: registra uso de IA no PROMPTS.md
+9c5afd3 2026-11-04 Ezequiel Silva Merge pull request #24 from codezeck/feature/memoria-indice-e-contrato
+13e2fcf 2026-11-01 vinicius000011 fix: rebuild rules index on every message; add memory contract tests
+69ba7c5 2026-11-01 Vinicius000011 Merge pull request #23 from codezeck/feature/api-patch-persistencia
+a2d5c87 2026-10-31 palomalimaa README: persistência em SQLite e limitação do índice
+cd5c9c0 2026-10-31 palomalimaa Merge remote-tracking branch 'origin/master' into feature/api-patch-persistencia
+77399c5 2026-10-31 palomalimaa README: registra status do Docker e da persistência
+4c97d13 2026-10-29 vinicius000011 refactor: make rules manager stateless via listar/esquecer_por_chave
+2f13670 2026-10-29 Vinicius000011 Merge pull request #20 from codezeck/feature/comparativo-memoria
+0c4a5b5 2026-10-29 Vinicius000011 Merge pull request #21 from codezeck/fix/encoding-dataset-comparativo
+0a847f8 2026-10-28 codezeck fix: corrige acentos do dataset comparativo e adiciona evidências da avaliação
+b16a82e 2026-10-28 codezeck Add equivalent memory retrieval metrics
+50eba83 2026-10-28 codezeck Improve comparative memory benchmark evaluation
+7fc38e8 2026-10-28 codezeck Fix memory index cleanup and persistence
+58aa03e 2026-10-28 Vinicius000011 Merge pull request #19 from codezeck/feature/comparativo-memoria
+43d198b 2026-10-28 codezeck Integrate rule-based memory processing into conversations
+0281699 2026-10-28 palomalimaa Documenta a API no README
+bc535f7 2026-10-28 palomalimaa Adiciona endpoint PATCH para atualizar memória
+94ecbc6 2026-10-27 Paloma Lima. Merge pull request #18 from codezeck/feature/comparativo-memoria
+c214d1c 2026-10-27 codezeck feat: add comparative memory benchmark
+9455cd4 2026-10-27 vinicius000011 test: run memory contract and rules against RAM and SQLite stores
+0d93595 2026-10-27 Ezequiel Silva Merge pull request #17 from codezeck/feature/memoria-regras
+23fb24b 2026-10-27 vinicius000011 feat: add rule-based memory baseline with conflict handling and evaluation
+af52086 2026-10-27 Paloma Lima. Merge pull request #16 from codezeck/feature/avaliacao-api-real
+751816f 2026-10-27 codezeck merge: sync origin/master into feature/avaliacao-api-real
+eae8d9c 2026-10-27 Ezequiel Silva Merge pull request #15 from codezeck/feature/api-docker-banco
+23fd4c8 2026-10-27 codezeck test: improve unknown information evaluation
+587a9a1 2026-10-27 Paloma Lima. Merge pull request #14 from codezeck/feature/limite-historico-agente
+b3eedb3 2026-10-27 palomalimaa Declara API_TOKENS na configuração
+ce32510 2026-10-27 palomalimaa Adiciona autenticação por token e bloqueio de acesso entre usuários
+b362412 2026-10-27 codezeck feat: limit agent conversation history
+fbf112c 2026-10-27 Vinicius000011 Merge pull request #13 from codezeck/feature/agent-memory-integration
+b1a93c5 2026-10-27 Vinicius000011 Merge pull request #12 from codezeck/feature/docker-api
+7050fdc 2026-10-26 codezeck feat: propagate token metrics through agent API
+59bf127 2026-10-26 codezeck feat: add Docker setup for API
+1ba3508 2026-10-26 Paloma Lima. Merge pull request #11 from codezeck/feature/provider-agnostic-api
+ebf107a 2026-10-26 codezeck docs: add environment configuration example
+e6c9d94 2026-10-26 codezeck feat: add persistent memory repository
+3d6b6ff 2026-10-26 codezeck feat: add provider-agnostic LLM support
+b50dd0a 2026-10-26 codezeck Merge pull request #10 from codezeck/feature/memoria-avaliacao
+02d9522 2026-10-26 vinicius000011 fix: remove forbidden terms from updated benchmark facts
+4db3d01 2026-10-26 vinicius000011 fix: remove forbidden terms from updated benchmark facts
+1960f26 2026-10-26 codezeck Revise project overview and functionalities in README
+e2ec11f 2026-10-26 vinicius000011 Merge remote-tracking branch 'origin/master' into feature/memoria-avaliacao
+0f65292 2026-10-26 vinicius000011 Merge remote-tracking branch 'origin/master' into feature/memoria-avaliacao
+479be1d 2026-10-26 vinicius000011 feat: add optional semantic embedder (fastembed)
+def2a91 2026-10-26 vinicius000011 feat: add optional semantic embedder (fastembed)
+49c5627 2026-10-26 Vinicius000011 Merge pull request #9 from codezeck/feature/api-integracao
+070a960 2026-10-26 Vinicius000011 Merge pull request #9 from codezeck/feature/api-integracao
+c8a366b 2026-10-26 Vinicius000011 Merge pull request #8 from codezeck/feature/tratamento-erros-agente
+93d2a42 2026-10-26 Vinicius000011 Merge pull request #8 from codezeck/feature/tratamento-erros-agente
+0e912e8 2026-10-26 palomalimaa Adiciona testes automáticos da API e mensagem clara para JSON inválido
+bb3c718 2026-10-26 palomalimaa Adiciona testes automáticos da API e mensagem clara para JSON inválido
+420bbb9 2026-10-26 palomalimaa Adiciona endpoints, serviço de conversa e adaptador do agente na API
+55d8ad4 2026-10-26 palomalimaa Adiciona endpoints, serviço de conversa e adaptador do agente na API
+9eba8ca 2026-10-26 palomalimaa Adiciona erros, configuração, catálogo e schemas da API
+6920618 2026-10-26 palomalimaa Adiciona erros, configuração, catálogo e schemas da API
+599438c 2026-10-25 Ezequiel test: valida historico em resposta vazia
+4b51529 2026-10-25 codezeck test: valida historico em resposta vazia
+aeddaf3 2026-10-25 Ezequiel feat: adiciona timeout ao cliente Ollama
+cb11dfa 2026-10-25 codezeck feat: adiciona timeout ao cliente Ollama
+78fa014 2026-10-25 Ezequiel feat: adiciona tratamento de erros no agente
+6b17c98 2026-10-25 codezeck feat: adiciona tratamento de erros no agente
+e0ce492 2026-10-25 codezeck Merge pull request #7 from codezeck/feature/memoria-avaliacao
+7e1f3dd 2026-10-25 Ezequiel Silva Merge pull request #7 from codezeck/feature/memoria-avaliacao
+15c937d 2026-10-25 vinicius000011 feat: add memory benchmark runner and metrics
+c2b0997 2026-10-25 vinicius000011 feat: add memory benchmark runner and metrics
+dc9fa92 2026-10-25 codezeck Merge pull request #6 from codezeck/feature/memoria-benchmark
+e184643 2026-10-25 Ezequiel Silva Merge pull request #6 from codezeck/feature/memoria-benchmark
+2d98abd 2026-10-25 vinicius000011 feat: complete synthetic benchmark with 20 sessions
+a72c8aa 2026-10-25 vinicius000011 feat: complete synthetic benchmark with 20 sessions
+835c6f6 2026-10-25 vinicius000011 feat: add synthetic memory benchmark (sessions and questions)
+b7e3e83 2026-10-25 vinicius000011 feat: add synthetic memory benchmark (sessions and questions)
+6bbc739 2026-10-25 codezeck Merge pull request #5 from codezeck/feature/memoria-longo-prazo
+6241dea 2026-10-25 Ezequiel Silva Merge pull request #5 from codezeck/feature/memoria-longo-prazo
+7b2ea81 2026-10-25 Vinicius000011 Merge pull request #4 from codezeck/feature/camada-modelos
+834b5a4 2026-10-25 Vinicius000011 Merge pull request #3 from codezeck/docs/readme-projeto
+21de9cc 2026-10-25 Vinicius000011 Merge pull request #3 from codezeck/docs/readme-projeto
+02f115b 2026-10-25 codezeck Merge pull request #2 from codezeck/feature/agente-ollama
+155d81d 2026-10-25 Ezequiel Silva Merge pull request #2 from codezeck/feature/agente-ollama
+cfc6c01 2026-10-25 vinicius000011 feat: add long-term memory interface and in-memory store
+2efe335 2026-10-25 vinicius000011 feat: add long-term memory interface and in-memory store
+fbded2a 2026-10-25 Ezequiel refactor: decouple agent from Ollama
+6ddc862 2026-10-25 codezeck refactor: decouple agent from Ollama
+823dd64 2026-10-25 Ezequiel docs: add project README and architecture decisions
+aade80e 2026-10-25 codezeck docs: add project README and architecture decisions
+bd065fd 2026-10-25 Ezequiel test: improve agent evaluation and error metrics
+cdf31dd 2026-10-25 codezeck test: improve agent evaluation and error metrics
+29a378e 2026-10-25 Ezequiel feat: isolate agent conversation history by user
+92e34a0 2026-10-25 codezeck feat: isolate agent conversation history by user
+26fe5d5 2026-10-24 Ezequiel feat: improve agent memory evaluation
+623349b 2026-10-24 codezeck feat: improve agent memory evaluation
+9d76045 2026-10-24 codezeck Merge pull request #1 from codezeck/feature/api-armazenamento
+d1ea535 2026-10-24 Ezequiel Silva Merge pull request #1 from codezeck/feature/api-armazenamento
+e459eff 2026-10-24 palomalimaa Adiciona banco SQLite e ignora pasta dados
+f18e5cd 2026-10-24 palomalimaa Adiciona banco SQLite e ignora pasta dados
+361fba3 2026-10-24 Ezequiel feat: add agent evaluation framework
+3ee21df 2026-10-24 codezeck feat: add agent evaluation framework
+5c362f7 2026-10-24 Ezequiel ci: run tests on feature branches
+fecb596 2026-10-24 codezeck ci: run tests on feature branches
+e2d4ce6 2026-10-24 Ezequiel test: cover Ollama error handling
+602db37 2026-10-24 codezeck test: cover Ollama error handling
+bb2a244 2026-10-24 Ezequiel refactor: organize Ollama agent
+58d64ab 2026-10-24 codezeck refactor: organize Ollama agent
+c8b6521 2026-10-24 Ezequiel feat: adicionar agente Ollama com historico de conversa
+f967773 2026-10-24 codezeck feat: adicionar agente Ollama com historico de conversa
+d00bafb 2026-10-23 codezeck chore: configurar estrutura inicial e testes
+a6107da 2026-10-23 Ezequiel chore: configurar estrutura inicial e testes
+
+# Commits por pessoa
+    38	codezeck
+    18	vinicius000011
+    15	palomalimaa
+    14	Ezequiel
+    13	Vinicius000011
+     8	Ezequiel Silva
+     4	Paloma Lima.

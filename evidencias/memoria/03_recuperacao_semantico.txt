@@ -1,0 +1,30 @@
+# Gerado em: 2026-11-04 19:00:55
+# Commit: 9c5afd3 (feature/evidencias-memoria)
+# Comando: python eval/avaliar_memoria.py --embedder semantico --saida evidencias/memoria/resultados_recuperacao_semantico.json
+
+Embedder: semantico | k = 3 | perguntas: 21
+Taxa de acerto geral:              100.0%
+Lembranças corretas:               100.0%
+Informação desatualizada devolvida: 0.0%
+Esquecimento correto:              100.0%
+Tokens médios (memória):           17.9
+Tokens médios (histórico completo): 40.6
+Redução de tokens:                 55.9%
+
+Por tipo de pergunta (acertos/total):
+  antes_da_mudanca             1/1
+  atualizado                   4/4
+  atualizado_duas_vezes        1/1
+  atualizado_parafrase         4/4
+  esquecido                    1/1
+  esquecido_usuario            3/3
+  estavel                      1/1
+  estavel_antigo               2/2
+  isolamento_entre_usuarios    1/1
+  multiplas_memorias           1/1
+  parafrase                    1/1
+  recomeco_apos_apagar         1/1
+
+Resultados salvos em C:\Projeto Integrador\evidencias\memoria\resultados_recuperacao_semantico.json
+
+# Código de saída: 0
