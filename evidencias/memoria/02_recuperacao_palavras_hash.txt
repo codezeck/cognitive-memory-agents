@@ -1,0 +1,30 @@
+# Gerado em: 2026-11-04 19:00:55
+# Commit: 9c5afd3 (feature/evidencias-memoria)
+# Comando: python eval/avaliar_memoria.py --embedder hash --saida evidencias/memoria/resultados_recuperacao_hash.json
+
+Embedder: hash | k = 3 | perguntas: 21
+Taxa de acerto geral:              71.4%
+Lembranças corretas:               64.7%
+Informação desatualizada devolvida: 0.0%
+Esquecimento correto:              100.0%
+Tokens médios (memória):           10.3
+Tokens médios (histórico completo): 40.6
+Redução de tokens:                 74.5%
+
+Por tipo de pergunta (acertos/total):
+  antes_da_mudanca             1/1
+  atualizado                   3/4
+  atualizado_duas_vezes        0/1
+  atualizado_parafrase         2/4
+  esquecido                    1/1
+  esquecido_usuario            3/3
+  estavel                      0/1
+  estavel_antigo               2/2
+  isolamento_entre_usuarios    1/1
+  multiplas_memorias           0/1
+  parafrase                    1/1
+  recomeco_apos_apagar         1/1
+
+Resultados salvos em C:\Projeto Integrador\evidencias\memoria\resultados_recuperacao_hash.json
+
+# Código de saída: 0

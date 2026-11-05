@@ -1,0 +1,78 @@
+# Gerado em: 2026-11-04 19:00:55
+# Commit: 9c5afd3 (feature/evidencias-memoria)
+# Comando: python eval/avaliar_regras.py --conjunto ambos --mostrar-falhas --saida evidencias/memoria/resultados_regras.json
+
+=== Conjunto: dev ===
+Frases: 149 | exatidão por frase: 100.0%
+  precisão 100.0% | revocação 100.0% | F1 100.0%
+Conversas: 6 | pontos de verificação corretos: 17/17 (100.0%)
+
+=== Conjunto: avaliacao ===
+Frases: 50 | exatidão por frase: 62.0%
+  precisão 89.3% | revocação 58.1% | F1 70.4%
+Conversas: 4 | pontos de verificação corretos: 9/13 (69.2%)
+  [frase] aval-002: Acabei de me mudar para Brasília.
+      esperado: [('salvar', 'cidade', 'brasilia')]
+      obtido:   []
+  [frase] aval-003: Estou morando em Fortaleza desde março.
+      esperado: [('salvar', 'cidade', 'fortaleza')]
+      obtido:   []
+  [frase] aval-005: Minha profissão atual é médica.
+      esperado: [('salvar', 'profissao', 'medica')]
+      obtido:   []
+  [frase] aval-006: Atuo como dentista.
+      esperado: [('salvar', 'profissao', 'dentista')]
+      obtido:   []
+  [frase] aval-007: Eu trabalho como arquiteta há cinco anos.
+      esperado: [('salvar', 'profissao', 'arquiteta')]
+      obtido:   [('salvar', 'profissao', 'arquiteta ha cinco anos')]
+  [frase] aval-010: Todos me chamam de Duda.
+      esperado: [('salvar', 'apelido', 'duda')]
+      obtido:   []
+  [frase] aval-011: Tenho um cachorro chamado Bob.
+      esperado: [('salvar', 'pet:cachorro:bob', 'bob')]
+      obtido:   []
+  [frase] aval-015: Comecei a praticar yoga.
+      esperado: [('salvar', 'esporte', 'yoga')]
+      obtido:   []
+  [frase] aval-018: Comprei um Corolla novo.
+      esperado: [('salvar', 'carro', 'corolla novo')]
+      obtido:   []
+  [frase] aval-021: Sou torcedor do Vasco.
+      esperado: [('salvar', 'time', 'vasco')]
+      obtido:   []
+  [frase] aval-024: Adoro chocolate.
+      esperado: [('salvar', 'gosto:chocolate', 'chocolate')]
+      obtido:   []
+  [frase] aval-031: Não quero mais que você guarde meu carro.
+      esperado: [('esquecer', 'carro', None)]
+      obtido:   []
+  [frase] aval-033: Deixei de morar em Osasco.
+      esperado: [('esquecer', 'cidade', 'osasco')]
+      obtido:   []
+  [frase] aval-034: Já não trabalho como enfermeira.
+      esperado: [('esquecer', 'profissao', 'enfermeira')]
+      obtido:   []
+  [frase] aval-038: Se eu ganhar na loteria, moro em Paris.
+      esperado: []
+      obtido:   [('salvar', 'cidade', 'paris')]
+  [frase] aval-040: Meu cachorro se chama Thor e o gato se chama Tom.
+      esperado: [('salvar', 'pet:cachorro:thor', 'thor'), ('salvar', 'pet:gato:tom', 'tom')]
+      obtido:   []
+  [frase] aval-041: Eu tenho uma gata, a Nina.
+      esperado: [('salvar', 'pet:gato:nina', 'nina')]
+      obtido:   []
+  [frase] aval-046: Eu gosto de você.
+      esperado: []
+      obtido:   [('salvar', 'gosto:voce', 'voce')]
+  [frase] aval-049: Estou trabalhando como professora agora.
+      esperado: [('salvar', 'profissao', 'professora')]
+      obtido:   []
+  [conversa] aval-c03 após o turno 2 ('Torço pelo Fluminense desde criança.'): esperava time='Fluminense', obtido 'Fluminense desde criança'
+  [conversa] aval-c03 após o turno 3 ('Não torço mais pelo Fluminense.'): time deveria ter sumido (ainda é 'Fluminense desde criança')
+  [conversa] aval-c04 após o turno 3 ('Moro em Osasco de novo.'): esperava cidade='Osasco', obtido 'Osasco de novo'
+  [conversa] aval-c04 após o turno 4 ('Meu carro é um Polo.'): esperava cidade='Osasco', obtido 'Osasco de novo'
+
+Resultados salvos em C:\Projeto Integrador\evidencias\memoria\resultados_regras.json
+
+# Código de saída: 0
