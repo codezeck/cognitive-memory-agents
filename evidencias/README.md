@@ -13,10 +13,10 @@ Cada afirmação do trabalho de pesquisa aponta para uma evidência desta pasta 
 | 1 | O agente com memória responde com menos tokens por pergunta que o histórico completo, e mantém o acerto. | `comparativo_oficial_3rep.json` | Ver "Reproduzir a avaliação oficial" abaixo | Disponível |
 | 2 | Corrigir acentos corrompidos no dataset melhorou a avaliação (antes e depois). | `comparativo_antes_correcao_encoding.json` e `comparativo_oficial_3rep.json` | Comparar o campo `resumo` dos dois arquivos | Disponível |
 | 3 | O modelo inventa informação quando não há memória, e os erros das estratégias de memória se concentram nos casos de esquecimento. | Campo `resultados` de `comparativo_oficial_3rep.json` (respostas por caso e cenário) e `PROMPTS.md` (análise de erros) | Filtrar `cenario` e `passou` no JSON | Disponível |
-| 4 | O fluxo lembrar, atualizar, persistir, esquecer e apagar o usuário funciona pela API, com `401` sem token e `403` para outro usuário. | Testes de `tests/test_api.py` em `memoria/01_testes_pytest.txt`; log de execução manual | `python -m pytest tests/test_api.py -v` | Testes disponíveis; log manual a adicionar |
+| 4 | O fluxo lembrar, atualizar, persistir, esquecer e apagar o usuário funciona pela API, com `401` sem token e `403` para outro usuário. | Testes de `tests/test_api.py` em `memoria/01_testes_pytest.txt`; `agente/fluxo-memoria-docker-2026-11-05.txt` (execução real, API no Docker) | `python -m pytest tests/test_api.py -v` | Disponível |
 | 5 | Uso crítico da IA registrado (prompts, resposta, decisão e motivo). | `../PROMPTS.md` | Ler o arquivo | Pendente de mesclagem (PR `docs/prompts-md`) |
 | 6 | A integração contínua passa. | Captura e link do run na tag `v1.0` | Página Actions do repositório | Pendente (tag `v1.0`) |
-| 7 | O projeto sobe com `docker compose up`. | Vídeo da demonstração (3 a 5 minutos) | `docker compose up` do zero | Pendente (Docker não validado) |
+| 7 | O projeto sobe com `docker compose up`. | Log em `agente/fluxo-memoria-docker-2026-11-05.txt`; vídeo da demonstração (3 a 5 minutos), pendente | `docker compose up` do zero | Parcial: subida validada em 05/11; vídeo pendente |
 | 8 | Resultados da avaliação final, congelada e reproduzível. | `comparativo_final_3rep.json` | Comando do `docs/guia-avaliacao.md` | Pendente (rodada final, até 21/11) |
 
 ### Reproduzir a avaliação oficial
@@ -40,7 +40,7 @@ Ver [`memoria/README.md`](memoria/README.md): testes, recuperação em 20 sessõ
 
 | # | Afirmação | Evidência | Status |
 |---|---|---|---|
-| 9 | A API e o banco sobem do zero com `docker compose up` e as memórias persistem em volume. | Log da execução e vídeo | Pendente (responsável: Paloma) |
+| 9 | A API e o banco sobem do zero com `docker compose up` e as memórias persistem em volume. | Log da execução e vídeo | Parcial: subida e persistência no volume validadas em 05/11 (item 7); vídeo pendente |
 | 10 | Documentação da API e instruções de instalação. | `../README.md` e documentação dos endpoints | Verificar com a responsável |
 
 ## Capturas de tela e logs
@@ -48,5 +48,5 @@ Ver [`memoria/README.md`](memoria/README.md): testes, recuperação em 20 sessõ
 | Item | Status |
 |---|---|
 | Captura do CI verde na tag `v1.0` | Pendente |
-| Log de execução completa com data e hora (`agente/`) | Pendente |
+| Log de execução com data e hora (`agente/`) | Parcial: fluxo de memória no Docker de 05/11; falta o log da avaliação final |
 | Pelo menos 5 capturas de tela do sistema funcionando | Pendente |

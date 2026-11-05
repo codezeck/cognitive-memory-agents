@@ -38,7 +38,7 @@ Get-Content .env | ForEach-Object { if ($_ -match '^\s*([^#=]+)=(.*)$') { Set-It
 uvicorn src.api.main:app --port 8000
 ```
 
-A API também pode subir por `docker compose up` (ver o README; a validação do Docker ainda está pendente).
+A API também pode subir por `docker compose up` (ver o README; subida validada em 05/11, ver `evidencias/agente/`).
 
 2. Rodar a avaliação (terminal 2, com o `.venv` ativo):
 

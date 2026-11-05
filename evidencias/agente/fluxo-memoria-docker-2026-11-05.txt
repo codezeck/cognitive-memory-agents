@@ -1,0 +1,20 @@
+=== Fluxo de memoria no Docker: 2026-11-05 18:43:22 ===
+commit: c7451fe
+1. LEMBRAR
+
+  resposta: Osasco | memorias usadas: Mora em Osasco.
+2. ATUALIZAR
+
+  resposta: CAMPINAS | memorias usadas: Mora em Campinas.
+  busca 'Osasco': 0 memoria(s) 
+  busca 'Campinas': 1 memoria(s) Mora em Campinas.
+3. PERSISTIR (reinicio do conteiner)
+  busca 'Campinas': 1 memoria(s) Mora em Campinas.
+4. ESQUECER
+  busca 'Campinas': 0 memoria(s) 
+5. APAGAR USUARIO
+  removidas: 1
+  busca 'Osasco': 0 memoria(s) 
+6. SEGURANCA
+  outro usuario: HTTP 403
+  sem token: HTTP 401
