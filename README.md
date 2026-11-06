@@ -138,8 +138,7 @@ Com Docker:
 docker compose up --build
 ```
 
-O `docker-compose.yml` lê as variáveis do `.env`. A API fica em `http://127.0.0.1:8000`. **Status:** o `docker compose up --build` ainda não foi validado em um computador com Docker (a validação está prevista para o Codespaces ou para o computador de um colega). Até lá, use a execução local descrita acima.
-
+O `docker-compose.yml` lê as variáveis do `.env`. A API fica em `http://127.0.0.1:8000`. **Status:** o fluxo completo (lembrar, atualizar, persistir após reiniciar o contêiner, esquecer, apagar usuário e segurança 401/403) foi executado em Docker em 05/11/2026; o log está em `evidencias/agente/fluxo-memoria-docker-2026-11-05.txt`.
 ### Autenticação
 
 Todas as rotas, exceto `/saude` e `/provedores`, exigem o cabeçalho:
@@ -206,4 +205,4 @@ Os testes da API não precisam do Ollama. Cobrem escolha de modelo, tradução d
 
 - A memória da API é salva em SQLite (arquivo `dados/memorias.db`, ou o volume `memoria_dados` no Docker) e **sobrevive ao reiniciar o servidor**.
 - Memórias criadas ou apagadas diretamente por `POST`/`PATCH`/`DELETE` em `/memorias` não atualizam o índice de conflitos do gerenciador, que é carregado do banco uma vez por usuário e fica em memória enquanto o servidor roda. Isso só afeta memórias criadas pelo extrator de regras; reiniciar a API reconstrói o índice.
-- Os tokens de uso (`tokens_entrada` e `tokens_saida`) só aparecem se o agente os devolver.
+- O `PATCH` altera o texto da memória (e a busca passa a usar o texto novo), mas não altera o `valor` guardado nos metadados, que é o que as regras de conflito do gerenciador comparam. Para trocar um fato pela conversa (por exemplo, "agora moro em Campinas"), use `POST /conversas`.

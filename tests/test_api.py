@@ -10,6 +10,7 @@ from src.api.erros import (ModeloNaoPermitido, ProvedorIndisponivel,
 from src.api.falsos import AgenteFalso
 from src.api.main import app
 from src.memoria.store_mem import MemoriaEmRam
+from src.armazenamento.repositorio import MemoriaSQLite
 
 CONFIG = Configuracao(
     provedor_padrao="ollama",
@@ -291,3 +292,50 @@ def test_atualizar_memoria_com_texto_invalido_da_422(ctx):
     assert r.status_code == 422
     r = client.patch(f"/usuarios/u1/memorias/{mid}", json={"texto": "   "})
     assert r.status_code == 422
+
+
+    # ---------- persistência e esquecimento de ponta a ponta (SQLite real) ----------
+
+def _cliente_sqlite(caminho):
+    """Simula 'ligar a API' com o banco SQLite em `caminho`."""
+    banco = MemoriaSQLite(caminho=caminho)
+    app.dependency_overrides[get_agente] = lambda: AgenteFalso()
+    app.dependency_overrides[get_memoria] = lambda: banco
+    app.dependency_overrides[get_catalogo] = lambda: Catalogo(CONFIG)
+    client = TestClient(app, raise_server_exceptions=False,
+                        headers={"Authorization": "Bearer tok-u1"})
+    return client, banco
+
+
+def test_memoria_persiste_apos_reiniciar_e_esquecida_nao_volta(monkeypatch, tmp_path):
+    monkeypatch.setenv("API_TOKENS", "tok-u1:u1,tok-u2:u2")
+    caminho = str(tmp_path / "api.db")
+    consulta = {"consulta": "O usuário mora em Campinas"}
+    try:
+        # 1ª execução: cria a memória e "desliga" a API
+        client, banco = _cliente_sqlite(caminho)
+        r = client.post("/usuarios/u1/memorias",
+                        json={"texto": "O usuário mora em Campinas", "chave": "cidade"})
+        assert r.status_code == 201
+        memoria_id = r.json()["id"]
+        banco.fechar()
+
+        # 2ª execução: a memória continua lá e o outro usuário não a vê
+        client, banco = _cliente_sqlite(caminho)
+        achadas = client.get("/usuarios/u1/memorias", params=consulta).json()
+        assert [m["id"] for m in achadas] == [memoria_id]
+        assert banco.buscar("u2", "O usuário mora em Campinas") == []
+
+        # esquecer: some da busca e do armazenamento
+        assert client.delete(f"/usuarios/u1/memorias/{memoria_id}").status_code == 204
+        assert client.get("/usuarios/u1/memorias", params=consulta).json() == []
+        assert banco.listar_por_usuario("u1") == []
+        banco.fechar()
+
+        # 3ª execução: depois de reiniciar, a memória esquecida não reaparece
+        client, banco = _cliente_sqlite(caminho)
+        assert client.get("/usuarios/u1/memorias", params=consulta).json() == []
+        assert banco.listar_por_usuario("u1") == []
+        banco.fechar()
+    finally:
+        app.dependency_overrides.clear()
