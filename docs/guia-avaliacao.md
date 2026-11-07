@@ -107,6 +107,40 @@ No controle `sem_memoria`, somente os critérios efetivos da resposta mudam para
 
 O resumo separa as quatro dimensões, com casos considerados, verificados, aprovados, não aplicáveis e não verificados. As taxas por dimensão usam apenas decisões verificadas; a cobertura deve ser lida junto. A taxa de proibições considera casos com termos proibidos e casos de política desconhecida, expondo os não verificados; listas explicitamente vazias são excluídas. `protocolo_ok` no resumo é uma contagem, com denominador em `casos_tentados`. Falhas de execução não são interpretadas como respostas textuais incorretas: ficam não verificadas nas dimensões aplicáveis, mas não aprovam o caso global.
 
+### Métricas separadas de resposta P5
+
+O JSON identifica `versao_metricas_resposta: p5-v1`. Cada cenário contém `metricas_resposta`, separado dos indicadores globais e das taxas de recuperação de memórias. A P5 reutiliza a P4 sem mudar suas regras: não mistura formato, proibições adicionais ou aprovação global com o acerto factual da resposta.
+
+| Campo em `metricas_resposta` | Tentativas elegíveis | Numerador | Denominador da taxa |
+|---|---|---|---|
+| `recuperacao_factual` | O critério efetivo do cenário exige resposta factual. | `acerto_factual` aprovado pela P4. | Julgamentos factuais aprovados + reprovados. |
+| `abstencao_correta` | O critério efetivo exige abstenção. | `abstencao_correta` aprovada pela P4. | Julgamentos de abstenção aprovados + reprovados. |
+| `vazamento_esquecidos` | Há alvos esquecidos explícitos; casos declarados de esquecimento com anotação ausente ou inválida também contam como tentativas, mas ficam não verificados. | Respostas com pelo menos uma ocorrência de alvo esquecido ou alias anotado. | Respostas verificadas quanto aos alvos esquecidos. |
+
+Cada métrica apresenta `tentativas_elegiveis`, `julgamentos_verificados`, `numerador`, `denominador`, `nao_verificados`, `nao_aplicaveis`, `aplicabilidade_desconhecida`, `cobertura_pct` e `taxa_pct`.
+
+- `taxa_pct = 100 * numerador / denominador`, sendo o denominador o número de julgamentos verificados. Na métrica de vazamento, menor é melhor; nas outras duas, maior é melhor.
+- `cobertura_pct = 100 * julgamentos_verificados / tentativas_elegiveis`. Taxa e cobertura aparecem juntas no terminal. Um acerto e uma tentativa sem resposta dão taxa `1/1 = 100%`, cobertura `1/2 = 50%` e um não verificado, não dois julgamentos concluídos.
+- Sem julgamentos verificados, a taxa é `null`. Sem tentativas elegíveis, a cobertura também é `null`. Cobertura zero com tentativas é conhecida, mas não transforma a taxa desconhecida em zero.
+- Falhas sem resposta entram nas tentativas elegíveis e nos não verificados. Não contam como ausência comprovada de vazamento. A porcentagem global antiga continua usando todas as tentativas, com seu significado composto original.
+- A dimensão oposta ao critério efetivo é não aplicável. Listas de alvos esquecidos explicitamente vazias também são não aplicáveis. Sem anotação de esquecimento e sem evento declarado, não há alvos para essa taxa. Caso declarado de esquecimento sem alvos identificáveis fica não verificado.
+- Resultados antigos sem informações suficientes para determinar o escopo são contados em `aplicabilidade_desconhecida`, fora do denominador de elegíveis. Não se reconstituem alvos a partir das respostas, mensagens ou memórias utilizadas. Nas métricas, elegíveis + não aplicáveis + aplicabilidade desconhecida recompõem o total de tentativas do cenário.
+
+Cada resultado novo contém `vazamento_esquecidos`, com aplicabilidade, status, `vazou`, ocorrências e motivo. A projeção filtra `ocorrencias_proibidas` da P4 por `informacoes_esquecidas` e seus aliases anotados. Proibições adicionais continuam afetando o julgamento P4 e a aprovação global, mas não viram vazamento de esquecidos. Valores antigos não são proibidos automaticamente. Várias ocorrências na mesma resposta contam como uma resposta com vazamento. Uma ocorrência confirmada pode ser preservada mesmo com política incompleta; a ausência exige julgamento suficiente. O escopo é a resposta final, sem medir vazamentos em turnos intermediários.
+
+No desenvolvimento atual, por repetição:
+
+| Cenário | Factuais elegíveis | Abstenções elegíveis | Casos com alvos esquecidos |
+|---|---:|---:|---:|
+| `sem_memoria` | 0 | 7 | 2 |
+| `historico_completo` | 5 | 2 | 2 |
+| `memoria_persistente_api` | 5 | 2 | 2 |
+| `memoria_regras_api` | 5 | 2 | 2 |
+
+São quantidades de casos, não resultados experimentais. Repetições contam como novas tentativas e não como casos independentes; as taxas usam somas de contagens, não médias de percentuais. Compare cenários em casos, repetições, provedor e modelo equivalentes. No controle sem memória, factual é não aplicável, porque todas as respostas esperadas são abstenções.
+
+Nos casos de esquecimento atuais, os controles `sem_memoria` e `memoria_persistente_api` não recebem os fatos apagados; taxa zero de vazamento nesses controles não comprova esquecimento. O histórico completo conserva os turnos e avalia obediência à instrução; o cenário automático percorre aquisição e esquecimento pela API. A métrica cobre apenas os termos e aliases anotados segundo a P4, não todos os vazamentos semânticos possíveis nem exclusão completa no armazenamento. O dataset final continua sujeito à validação antecipada e à revisão dos metadados; a P5 não os preenche automaticamente.
+
 ### Respostas previamente rotuladas
 
 `eval/julgamento/respostas_dev.json` contém 26 respostas de desenvolvimento; `respostas_validacao.json` contém 20 respostas separadas. Cada resposta tem quatro rótulos, aprovação de conteúdo/protocolo e justificativa. Os testes verificam que não há repetição de textos normalizados entre os conjuntos. A separação é de respostas, não de todos os fatos ou casos de conversa usados como referência.

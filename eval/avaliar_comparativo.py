@@ -27,6 +27,7 @@ from src.api.catalogo import SelecaoModelo
 USUARIO_ID = "eval_comparativo"
 USUARIO_HISTORICO = f"{USUARIO_ID}_historico"
 DATASET = ROOT_DIR / "eval" / "dataset_comparativo.json"
+VERSAO_METRICAS_RESPOSTA = "p5-v1"
 
 CENARIOS = (
     "sem_memoria",
@@ -367,6 +368,89 @@ def executar_historico(caso: dict, provedor: str, modelo: str) -> list[dict]:
         agente.nova_sessao(USUARIO_HISTORICO)
 
 
+def avaliar_vazamento_esquecidos(caso: dict, julgamento: dict) -> dict:
+    """Projeta as ocorrências P4 somente nos alvos esquecidos explícitos."""
+    medida = {
+        "aplicavel": True, "status": "nao_verificado", "vazou": None,
+        "ocorrencias": [], "motivo": "anotacao_ou_julgamento_insuficiente",
+    }
+    if "informacoes_esquecidas" not in caso:
+        if caso.get("categoria") == "esquecimento":
+            return medida
+        esquecidas = []
+    else:
+        esquecidas = caso["informacoes_esquecidas"]
+    if not isinstance(esquecidas, list) or not all(
+        isinstance(v, str) and v.strip() for v in esquecidas
+    ):
+        return medida
+    if not esquecidas:
+        return {**medida, "aplicavel": False, "status": "nao_aplicavel",
+                "motivo": "sem_alvos_esquecidos_anotados"}
+
+    alvos = set(esquecidas)
+    avaliacao = caso.get("avaliacao", {})
+    aliases = avaliacao.get("aliases_proibidos", {}) if isinstance(avaliacao, dict) else {}
+    if isinstance(aliases, dict):
+        for alvo in esquecidas:
+            valores = aliases.get(alvo, [])
+            if isinstance(valores, list) and all(isinstance(v, str) and v.strip() for v in valores):
+                alvos.update(valores)
+    ocorrencias = julgamento.get("ocorrencias_proibidas")
+    if not isinstance(ocorrencias, list) or not all(isinstance(v, str) for v in ocorrencias):
+        return medida
+    encontradas = sorted(alvos.intersection(ocorrencias))
+    if encontradas:
+        return {**medida, "status": "verificado", "vazou": True,
+                "ocorrencias": encontradas, "motivo": "alvo_esquecido_presente"}
+    criterio = julgamento.get("sem_informacao_proibida", {})
+    if (julgamento.get("proibicao_aplicavel") is True
+            and criterio.get("status") in {"aprovado", "reprovado"}):
+        return {**medida, "status": "verificado", "vazou": False,
+                "motivo": "sem_ocorrencia_dos_alvos_esquecidos"}
+    return medida
+
+
+def resumir_metricas_resposta(registros: list[dict]) -> dict:
+    """Taxas condicionais à verificação, sempre acompanhadas da cobertura."""
+    medidas = {
+        "recuperacao_factual": [], "abstencao_correta": [], "vazamento_esquecidos": [],
+    }
+    for registro in registros:
+        julgamento = registro.get("julgamento", {})
+        modo = julgamento.get("tipo_resposta")
+        for nome, criterio, tipo in (
+            ("recuperacao_factual", "acerto_factual", "factual"),
+            ("abstencao_correta", "abstencao_correta", "abstencao"),
+        ):
+            aplicavel = modo == tipo if modo in ("factual", "abstencao") else None
+            decisao = julgamento.get(criterio, {})
+            valor = (True if decisao.get("status") == "aprovado" and decisao.get("valor") is True
+                     else False if decisao.get("status") == "reprovado" and decisao.get("valor") is False
+                     else None)
+            medidas[nome].append((aplicavel, valor))
+        esquecimento = registro.get("vazamento_esquecidos", {})
+        valor = esquecimento.get("vazou") if esquecimento.get("status") == "verificado" else None
+        medidas["vazamento_esquecidos"].append((esquecimento.get("aplicavel"), valor))
+
+    resumo = {}
+    for nome, valores in medidas.items():
+        elegiveis = [v for aplicavel, v in valores if aplicavel is True]
+        verificados = [v for v in elegiveis if type(v) is bool]
+        numerador = sum(v is True for v in verificados)
+        resumo[nome] = {
+            "tentativas_elegiveis": len(elegiveis),
+            "julgamentos_verificados": len(verificados),
+            "numerador": numerador, "denominador": len(verificados),
+            "nao_verificados": len(elegiveis) - len(verificados),
+            "nao_aplicaveis": sum(a is False for a, _ in valores),
+            "aplicabilidade_desconhecida": sum(a is not True and a is not False for a, _ in valores),
+            "cobertura_pct": round(100 * len(verificados) / len(elegiveis), 2) if elegiveis else None,
+            "taxa_pct": round(100 * numerador / len(verificados), 2) if verificados else None,
+        }
+    return resumo
+
+
 def executar_cenario(
     cliente: httpx.Client,
     caso: dict,
@@ -468,6 +552,7 @@ def executar_cenario(
             "repeticao": None,
             "passou": julgamento["passou"],
             "julgamento": julgamento,
+            "vazamento_esquecidos": avaliar_vazamento_esquecidos(caso, julgamento),
             "protocolo_ok": julgamento["protocolo_ok"],
             "esperado": esperado_cenario,
             "resposta": final["resposta"],
@@ -645,6 +730,7 @@ def resumir(resultados: list[dict]) -> dict:
             "tokens_total": tokens["sessao"]["tokens_total"],
             "tokens_por_etapa": tokens,
             "julgamento": resumir_julgamentos(grupo),
+            "metricas_resposta": resumir_metricas_resposta(grupo),
             "casos_com_metricas_incompletas": sum(
                 not r.get("metricas_completas", False)
                 for r in validos
@@ -874,6 +960,7 @@ def main() -> int:
                         )
                     except Exception as erro:
                         etapas = observacao_tokens or tokens_tentativa(caso, cenario, [])
+                        julgamento = julgar_resposta(None, caso_para_julgamento(caso, cenario))
                         registro = {
                             "id": caso["id"],
                             "categoria": caso["categoria"],
@@ -881,7 +968,8 @@ def main() -> int:
                             "repeticao": repeticao,
                             "passou": False,
                             "erro": str(erro)[:500],
-                            "julgamento": julgar_resposta(None, caso_para_julgamento(caso, cenario)),
+                            "julgamento": julgamento,
+                            "vazamento_esquecidos": avaliar_vazamento_esquecidos(caso, julgamento),
                             "protocolo_ok": False,
                             "provedor": args.provedor.lower(),
                             "modelo": args.modelo,
@@ -898,6 +986,7 @@ def main() -> int:
         "dataset": dataset_relatorio,
         "usuario_sintetico": USUARIO_ID,
         "versao_julgador": VERSAO_JULGADOR,
+        "versao_metricas_resposta": VERSAO_METRICAS_RESPOSTA,
         "observacoes": [
             "Sem memória envia apenas a pergunta final.",
             "historico_completo usa AgenteLocal.responder com memorias=[], sem /conversas, extração ou busca de memórias; limpa o histórico local antes e depois de cada caso, inclusive em erro.",
@@ -916,6 +1005,8 @@ def main() -> int:
             "O cenário memoria_regras_api processa mensagens anteriores pela API e mantém as memórias persistidas ao reiniciar a sessão antes da pergunta final.",
             "O cenário memoria_regras_api avalia a resposta final e a recuperação de memórias pela API; a correção do estado interno não é medida separadamente nesta execução.",
             "A limpeza remove os dados do usuário sintético ao terminar cada cenário.",
+            "P5 separa recuperação factual da resposta, abstenção e vazamento de alvos esquecidos explícitos; taxas usam julgamentos verificados, com cobertura e não verificados reportados à parte.",
+            "Ausência de vazamento nos controles sem fatos anteriores ou com estado-ouro não comprova aquisição e esquecimento; ocorrências na resposta não medem exclusão completa no armazenamento.",
         ],
         "resultados": resultados,
         "resumo": resumir(resultados),
@@ -938,6 +1029,20 @@ def main() -> int:
             f"tokens={dados['tokens_total'] if dados['tokens_total'] is not None else 'desconhecido'} | "
             f"latência média/caso={dados['latencia_api_media_por_caso_ms']} ms"
         )
+
+        for nome, medida in dados["metricas_resposta"].items():
+            taxa_metrica = medida["taxa_pct"]
+            cobertura = medida["cobertura_pct"]
+            print(
+                f"  {nome}: {medida['numerador']}/{medida['denominador']} verificados "
+                f"(taxa={str(taxa_metrica) + '%' if taxa_metrica is not None else 'n/d'}) | "
+                f"elegíveis={medida['tentativas_elegiveis']}; "
+                f"cobertura={medida['julgamentos_verificados']}/{medida['tentativas_elegiveis']} "
+                f"({str(cobertura) + '%' if cobertura is not None else 'n/d'}); "
+                f"não verificados={medida['nao_verificados']}; "
+                f"não aplicáveis={medida['nao_aplicaveis']}; "
+                f"aplicabilidade desconhecida={medida['aplicabilidade_desconhecida']}"
+            )
 
         for etapa, medida in dados["tokens_por_etapa"].items():
             canais = ", ".join(

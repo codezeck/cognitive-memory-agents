@@ -132,6 +132,7 @@ def test_dataset_e_timeout_juntos_preservam_p1_p4_e_campos_do_relatorio(cli, tmp
     assert cli.worker.call_count == 2
     documento = json.loads(cli.saida.read_text(encoding="utf-8"))
     assert documento["versao_julgador"] == "p4-v2"
+    assert documento["versao_metricas_resposta"] == "p5-v1"
     assert {"gerado_em", "dataset", "usuario_sintetico", "observacoes", "resumo",
             "comparacoes_tokens", "resultados"} <= documento.keys()
     assert len(documento["resultados"]) == 8
@@ -144,6 +145,7 @@ def test_dataset_e_timeout_juntos_preservam_p1_p4_e_campos_do_relatorio(cli, tmp
             assert registro["memorias_usadas"] == []
         assert registro["passou"] is registro["protocolo_ok"] is True
         assert registro["julgamento"]["versao"] == "p4-v2"
+        assert registro["vazamento_esquecidos"]["status"] == "nao_aplicavel"
         assert registro["provedor"] == "ollama"
         assert registro["modelo"] == "modelo-simulado"
         assert registro["repeticao"] in {1, 2}
@@ -161,6 +163,37 @@ def test_dataset_e_timeout_juntos_preservam_p1_p4_e_campos_do_relatorio(cli, tmp
     assert pares["pares_medidos"] == 2
     assert pares["reducao_pct"] == 0
     assert all(r["aprovados"] == r["casos"] == 2 for r in documento["resumo"].values())
+    for cenario, resumo in documento["resumo"].items():
+        medidas = resumo["metricas_resposta"]
+        factual = medidas["recuperacao_factual"]
+        assert factual["tentativas_elegiveis"] == (0 if cenario == "sem_memoria" else 2)
+        assert factual["taxa_pct"] == (None if cenario == "sem_memoria" else 100.0)
+        assert medidas["abstencao_correta"]["tentativas_elegiveis"] == (2 if cenario == "sem_memoria" else 0)
+        assert medidas["vazamento_esquecidos"]["nao_aplicaveis"] == 2
+        assert medidas["vazamento_esquecidos"]["taxa_pct"] is None
+
+
+def test_cli_preserva_falhas_como_nao_verificadas_e_exibe_denominadores_p5(cli, tmp_path, monkeypatch, capsys):
+    esquecimento = copy.deepcopy(caso_valido())
+    esquecimento.update(id="ESQUECIMENTO", categoria="esquecimento", esperado=["não sei"],
+                        informacoes_esquecidas=["Osasco"])
+    esquecimento["avaliacao"]["tipo_resposta"] = "abstencao"
+    dataset = gravar_dataset(tmp_path / "simulado.json", [caso_valido(), esquecimento])
+    monkeypatch.setattr(comparativo, "executar_cenario", Mock(side_effect=TimeoutError("simulado")))
+    assert cli.executar("--dataset", dataset, "--timeout-historico", 42) == 0
+    documento = json.loads(cli.saida.read_text(encoding="utf-8"))
+    for resumo in documento["resumo"].values():
+        medida = resumo["metricas_resposta"]["vazamento_esquecidos"]
+        assert medida["tentativas_elegiveis"] == medida["nao_verificados"] == 1
+        assert medida["numerador"] == medida["denominador"] == 0
+        assert medida["nao_aplicaveis"] == 1
+        assert medida["cobertura_pct"] == 0.0
+        assert medida["taxa_pct"] is None
+        assert resumo["tokens_total"] is None
+    terminal = capsys.readouterr().out
+    assert "vazamento_esquecidos: 0/0 verificados (taxa=n/d) | elegíveis=1; cobertura=0/1 (0.0%); não verificados=1; não aplicáveis=1" in terminal
+    assert "recuperacao_factual:" in terminal
+    assert "abstencao_correta:" in terminal
 
 
 @pytest.mark.parametrize("campo,valor", [
