@@ -25,6 +25,7 @@ class Transporte(Protocol):
     simulado: bool
 
     def validar(self, eventos: tuple[Evento, ...]) -> None: ...
+    def verificar_inicio(self, eventos, *, execucao_id, provedor, modelo) -> dict: ...
     def executar(self, evento: Evento, *, provedor: str, modelo: str) -> dict: ...
     def fechar(self) -> None: ...
 
@@ -61,8 +62,60 @@ class TransporteHTTP:
         self.credenciais = credenciais
         self.contratos = contratos or {}
         self.verificar_checkpoint = verificar_checkpoint
+        self._pronto = False
+
+    def identificar(self):
+        return {"api_url": str(self.cliente.base_url),
+                "usuarios": {u: c.usuario_id for u, c in self.credenciais.items()},
+                "configuracao_efetiva_declarada": None}
+
+    def verificar_inicio(self, eventos, *, execucao_id, provedor, modelo):
+        """Só GETs autenticados; nenhuma resposta/fato antes da barreira global."""
+        self._pronto = False
+        falhas = []
+        for uid, credencial in self.credenciais.items():
+            evento = Evento(f"{uid}/s1/preflight", uid, 1, "preflight")
+            try:
+                estado = self._pedido(evento, "GET", f"/usuarios/{credencial.usuario_id}/estado-regras")
+                if not isinstance(estado, dict) or estado:
+                    raise ValueError("estado inicial incompatível")
+            except Exception as erro:
+                # Não copiar mensagens HTTP potencialmente contendo tokens.
+                status = getattr(getattr(erro, "response", None), "status_code", None)
+                falhas.append(f"{uid}: {type(erro).__name__}" + (f" HTTP {status}" if status is not None else ""))
+        if falhas:
+            raise ValueError("Preflight de autenticação/estado recusado: " + "; ".join(falhas))
+        verificador = self.verificar_checkpoint
+        if not all(callable(getattr(verificador, k, None)) for k in ("preparar", "proveniencia")):
+            raise ValueError("P6 bloqueada: evidência inicial aprovada de banco e histórico limpos é obrigatória (Paloma).")
+        verificador.preparar(
+            execucao_id=execucao_id, api_url=str(self.cliente.base_url),
+            usuarios={u: c.usuario_id for u, c in self.credenciais.items()},
+            provedor=provedor, modelo=modelo,
+        )
+        evidencias = {}
+        for uid in self.credenciais:
+            evidencia = verificador(Evento(f"{uid}/s1/preflight", uid, 1, "preflight"))
+            if (evidencia.get("evidencia_status") != "compativel"
+                    or not all(type(evidencia.get(k)) is int and evidencia[k] == 0
+                               for k in ("alvos_ativos", "alvos_substituidos", "alvos_no_historico"))):
+                raise ValueError(f"{uid}: falta evidência inicial compatível de ativos, inativos e histórico vazios.")
+            evidencias[uid] = evidencia
+        catalogo = self._pedido(evento, "GET", "/provedores")
+        selecionado = next((p for p in catalogo if isinstance(p, dict)
+                            and p.get("provedor") == provedor and p.get("modelo") == modelo
+                            and p.get("configurado") is True), None) if isinstance(catalogo, list) else None
+        if selecionado is None:
+            raise ValueError("Preflight recusado: modelo/provedor não permitido ou não configurado em GET /provedores.")
+        self._pronto = True
+        self._provedor, self._modelo = provedor, modelo
+        return {**verificador.proveniencia(), "autenticados": list(self.credenciais),
+                "evidencias_iniciais": evidencias,
+                "catalogo_api_selecao": {k: selecionado.get(k) for k in ("provedor", "modelo", "local", "configurado", "padrao")}}
 
     def validar(self, eventos):
+        if self.cliente.base_url.username or self.cliente.base_url.password or self.cliente.base_url.query or self.cliente.base_url.fragment:
+            raise ValueError("Base URL deve identificar a API sem credenciais, consulta ou fragmento.")
         usuarios = {e.usuario_id for e in eventos}
         if usuarios != self.credenciais.keys():
             raise ValueError("É necessário mapear exatamente os quatro usuários para credenciais dedicadas.")
@@ -90,16 +143,27 @@ class TransporteHTTP:
         return resposta.json() if resposta.content else {}
 
     def executar(self, evento, *, provedor, modelo):
+        if not self._pronto:
+            raise ValueError("Verificação operacional inicial obrigatória antes dos eventos HTTP.")
+        if (provedor, modelo) != (self._provedor, self._modelo):
+            raise ValueError("Seleção de provedor/modelo mudou após a verificação inicial.")
         uid = self.credenciais[evento.usuario_id].usuario_id
         base = f"/usuarios/{uid}"
+        if evento.tipo in {"fato", "pergunta", "esquecer_chaves", "apagar_usuario"}:
+            marcar = getattr(self.verificar_checkpoint, "marcar_acao", None)
+            if marcar:
+                marcar(evento)
         if evento.tipo in {"fato", "pergunta", "esquecer_chaves"}:
-            return self._pedido(evento, "POST", "/conversas", json={
+            resposta = self._pedido(evento, "POST", "/conversas", json={
                 "usuario_id": uid, "mensagem": mensagem_aprovada(evento, self.contratos),
                 "provedor": provedor, "modelo": modelo,
             })
+            resposta["configuracao_compativel"] = None if any(
+                resposta.get(k) is None for k in ("provedor", "modelo")) else not any(
+                resposta.get(k) is not None and resposta[k] != esperado
+                for k, esperado in (("provedor", provedor), ("modelo", modelo)))
+            return resposta
         if evento.tipo == "iniciar_sessao":
-            if evento.sessao == 1 and self._pedido(evento, "GET", base + "/estado-regras"):
-                raise ValueError("Usuário dedicado já possui estado; prepare um ambiente limpo antes da execução.")
             return self._pedido(evento, "POST", base + "/sessoes")
         if evento.tipo == "apagar_usuario":
             return self._pedido(evento, "DELETE", base + "/memorias")
@@ -112,6 +176,7 @@ class TransporteHTTP:
         raise ValueError(f"Tipo de evento não suportado: {evento.tipo}")
 
     def fechar(self):
+        self._pronto = False
         self.cliente.close()
 
 
@@ -172,6 +237,10 @@ class TransporteHistorico:
         if isinstance(resultado, Exception):
             raise RuntimeError("Falha no lote de histórico; consumo não recebido é desconhecido.") from resultado
         return {**resultado[posicao], "origem": "lote_spawn", "memorias_usadas": []}
+
+    def verificar_inicio(self, eventos, *, execucao_id, provedor, modelo):
+        return {"isolamento": "processos_spawn_por_episodio", "memorias": [],
+                "provedor_solicitado": provedor, "modelo_solicitado": modelo}
 
     def fechar(self):
         self._resultados.clear()
