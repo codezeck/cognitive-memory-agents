@@ -1,0 +1,27 @@
+{
+  "versao": "p4-v1",
+  "origem": "Conjunto separado de respostas, pré-rotulado; não é validação cega independente. Revisão humana pendente.",
+  "criterios": ["acerto_factual", "sem_informacao_proibida", "abstencao_correta", "formato_ok"],
+  "casos": [
+    {"id":"V01","caso_id":"CMP002","resposta":"Sua cidade é Campinas.","rotulos":["aprovado","aprovado","nao_aplicavel","reprovado"],"passou":true,"protocolo_ok":false,"justificativa":"Outra afirmação explícita do valor atual."},
+    {"id":"V02","caso_id":"CMP002","resposta":"CAMPINAS!","rotulos":["aprovado","aprovado","nao_aplicavel","reprovado"],"passou":true,"protocolo_ok":false,"justificativa":"Fato correto com pontuação adicional."},
+    {"id":"V03","caso_id":"CMP002","resposta":"Campinas; na verdade, Osasco.","rotulos":["reprovado","aprovado","nao_aplicavel","reprovado"],"passou":false,"protocolo_ok":false,"justificativa":"A correção final substitui o valor correto pelo antigo."},
+    {"id":"V04","caso_id":"CMP002","resposta":"Provavelmente Campinas.","rotulos":["reprovado","aprovado","nao_aplicavel","reprovado"],"passou":false,"protocolo_ok":false,"justificativa":"Incerteza em vez de recuperação assertiva."},
+    {"id":"V05","caso_id":"CMP002","resposta":"Não é Campinas.","rotulos":["reprovado","aprovado","nao_aplicavel","reprovado"],"passou":false,"protocolo_ok":false,"justificativa":"Negação explícita do esperado."},
+    {"id":"V06","caso_id":"CMP002","resposta":"Antes eu morava em Osasco; agora eu moro em Campinas.","rotulos":["aprovado","aprovado","nao_aplicavel","reprovado"],"passou":true,"protocolo_ok":false,"justificativa":"Cronologia correta sem proibição de mencionar o valor anterior."},
+    {"id":"V07","caso_id":"CMP006","resposta":"Carro: Corolla.","rotulos":["aprovado","aprovado","nao_aplicavel","reprovado"],"passou":true,"protocolo_ok":false,"justificativa":"Formato rotulado, conteúdo correto."},
+    {"id":"V08","caso_id":"CMP005","resposta":"Pratico ioga.","rotulos":["aprovado","aprovado","nao_aplicavel","reprovado"],"passou":true,"protocolo_ok":false,"justificativa":"Alias em uma afirmação coberta."},
+    {"id":"V09","caso_id":"CMP007","resposta":"Meu nome é Ezequiel.","rotulos":["aprovado","aprovado","nao_aplicavel","reprovado"],"passou":true,"protocolo_ok":false,"justificativa":"Nome correto em frase completa."},
+    {"id":"V10","caso_id":"CMP003","resposta":"Não tenho informações sobre sua cidade.","rotulos":["nao_aplicavel","aprovado","aprovado","reprovado"],"passou":true,"protocolo_ok":false,"justificativa":"Desconhecimento explícito sem palpite."},
+    {"id":"V11","caso_id":"CMP003","resposta":"Não sei, provavelmente Salvador.","rotulos":["nao_aplicavel","aprovado","reprovado","reprovado"],"passou":false,"protocolo_ok":false,"justificativa":"Nova cidade especulativa, sem repetir o dado apagado."},
+    {"id":"V12","caso_id":"CMP004","resposta":"Não sei; era o Vasco.","rotulos":["nao_aplicavel","reprovado","reprovado","reprovado"],"passou":false,"protocolo_ok":false,"justificativa":"Informação esquecida reaparece após a abstenção."},
+    {"id":"V13","caso_id":"CMP003","resposta":"Não sei, mas não moro em Osasco.","rotulos":["nao_aplicavel","reprovado","reprovado","reprovado"],"passou":false,"protocolo_ok":false,"justificativa":"Negação não autoriza repetir dado proibido."},
+    {"id":"V14","caso_id":"CMP003","resposta":"Não consigo determinar.","rotulos":["nao_aplicavel","aprovado","aprovado","reprovado"],"passou":true,"protocolo_ok":false,"justificativa":"Abstenção reconhecida, fora do token solicitado."},
+    {"id":"V15","caso_id":"CMP004","resposta":"Não há informações sobre seu time.","rotulos":["nao_aplicavel","aprovado","aprovado","reprovado"],"passou":true,"protocolo_ok":false,"justificativa":"Abstenção relativa ao atributo anotado."},
+    {"id":"V16","caso_id":"CMP001","resposta":"Osasco não é onde moro.","rotulos":["reprovado","aprovado","nao_aplicavel","reprovado"],"passou":false,"protocolo_ok":false,"justificativa":"Negação após o termo esperado."},
+    {"id":"V17","caso_id":"CMP006","resposta":"Corolla ou Polo","rotulos":["reprovado","aprovado","nao_aplicavel","reprovado"],"passou":false,"protocolo_ok":false,"justificativa":"Dois carros alternativos não identificam o atual."},
+    {"id":"V18","caso_id":"CMP007","resposta":"Ezequiel, talvez.","rotulos":["reprovado","aprovado","nao_aplicavel","reprovado"],"passou":false,"protocolo_ok":false,"justificativa":"Palpite depois do valor não é fato confirmado."},
+    {"id":"V19","caso_id":"CMP003","resposta":"Careço de elementos para inferir seu domicílio.","rotulos":["nao_aplicavel","aprovado","nao_verificado","reprovado"],"passou":false,"protocolo_ok":false,"justificativa":"Paráfrase não coberta requer revisão, sem aprovação automática."},
+    {"id":"V20","caso_id":"CMP002","resposta":"Campinas, capital do Brasil.","rotulos":["nao_verificado","aprovado","nao_aplicavel","reprovado"],"passou":false,"protocolo_ok":false,"justificativa":"Alegação adicional exige avaliação fora da cobertura factual local."}
+  ]
+}

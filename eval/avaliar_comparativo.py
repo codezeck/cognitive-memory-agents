@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import re
 import sys
 import time
@@ -15,9 +16,15 @@ import httpx
 ROOT_DIR = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT_DIR))
 
-from eval.evaluate import avaliar_resposta
+from eval.historico_processo import executar_historico_em_processo
+from eval.julgamento_respostas import (
+    VERSAO as VERSAO_JULGADOR, caso_para_julgamento, julgar_resposta, resumir_julgamentos,
+)
+from src.api.agente_local import AgenteLocal
+from src.api.catalogo import SelecaoModelo
 
 USUARIO_ID = "eval_comparativo"
+USUARIO_HISTORICO = f"{USUARIO_ID}_historico"
 DATASET = ROOT_DIR / "eval" / "dataset_comparativo.json"
 
 CENARIOS = (
@@ -212,7 +219,11 @@ def resposta_esperada_cenario(caso: dict, cenario: str) -> str:
 
     esperado = caso["esperado"]
 
-    if isinstance(esperado, list):
+    avaliacao = caso.get("avaliacao", {})
+    if isinstance(avaliacao, dict) and avaliacao.get("tipo_resposta") == "abstencao":
+        return "DESCONHECIDO"
+    # Compatibilidade de exibição dos casos legados, sem inferir o julgamento.
+    if isinstance(esperado, list) and esperado == ["não sei"]:
         return "DESCONHECIDO"
 
     return str(esperado)
@@ -229,142 +240,130 @@ def avaliar_resposta_comparativo(
     resposta: str,
     caso: dict,
 ) -> bool:
-    """Avalia respostas desconhecidas sem aceitar vazamento de fatos."""
-    esperado = caso["esperado"]
+    """Compatibilidade booleana: conteúdo correto e ausência de proibidos."""
+    return julgar_resposta(resposta, caso)["passou"]
 
-    espera_desconhecimento = (
-        isinstance(esperado, list)
-        and any(
-            normalizar(str(item)).strip(" \t\r\n.,!?;:'\"`")
-            in {"nao sei", "desconhecido", "informacao desconhecida"}
-            for item in esperado
+ETAPAS_TOKENS = ("ingestao", "pergunta_final", "sessao")
+CAMPOS_TOKENS = ("tokens_entrada", "tokens_saida", "tokens_total")
+
+
+def _contagem_conhecida(valor):
+    return type(valor) is int and valor >= 0
+
+
+def tokens_etapa(chamadas: list[dict] | None) -> dict:
+    """None indica medição desconhecida; [] indica zero chamadas realizadas."""
+    quantidade = None if chamadas is None else len(chamadas)
+    dados = {"chamadas_modelo": quantidade}
+    for canal in ("entrada", "saida"):
+        campo = f"tokens_{canal}"
+        valores = [c.get(campo) for c in chamadas or []]
+        # Os adaptadores não expõem a origem de zeros em chamadas realizadas.
+        # Sem chamadas, o zero da etapa é comprovado; nas demais, é desconhecido.
+        conhecidos = [v for v in valores if _contagem_conhecida(v) and v > 0]
+        dados[f"chamadas_com_{canal}_zero_nao_verificado"] = sum(
+            _contagem_conhecida(v) and v == 0 for v in valores
         )
+        dados[campo] = (
+            sum(conhecidos)
+            if quantidade is not None and len(conhecidos) == quantidade else None
+        )
+        dados[f"{campo}_observados"] = (
+            sum(conhecidos) if conhecidos else (0 if quantidade == 0 else None)
+        )
+        dados[f"chamadas_com_{canal}"] = len(conhecidos)
+    dados["metricas_completas"] = all(
+        dados[c] is not None for c in CAMPOS_TOKENS[:2]
     )
-
-    if not espera_desconhecimento:
-        return avaliar_resposta(resposta, esperado)
-
-    texto = normalizar(resposta).strip()
-    mensagens = caso.get("mensagens", [])
-    contexto = normalizar(" ".join(mensagens))
-    mensagens_anteriores = [
-        normalizar(m) for m in mensagens[:-1]
-    ]
-
-    # Rejeita a divulga??o dos fatos expl?citos que deveriam ser esquecidos.
-    fatos_esquecidos = []
-    padroes_fatos = (
-        r"\b(?:moro|vivo|resido)\s+em\s+(.+?)(?:[.!?]|$)",
-        r"\btorco\s+(?:pelo|pela|pro|para|por|pra)\s+(.+?)(?:[.!?]|$)",
+    dados["tokens_total"] = (
+        dados["tokens_entrada"] + dados["tokens_saida"]
+        if dados["metricas_completas"] else None
     )
-    for mensagem in mensagens_anteriores:
-        for padrao in padroes_fatos:
-            for match in re.finditer(padrao, mensagem):
-                valor = match.group(1).strip(" .,!?:;")
-                if valor:
-                    fatos_esquecidos.append(valor)
+    parcelas = [dados[f"{c}_observados"] for c in CAMPOS_TOKENS[:2]
+                if dados[f"{c}_observados"] is not None]
+    dados["tokens_total_observados"] = sum(parcelas) if parcelas else None
+    dados["chamadas_com_tokens_zero"] = sum(
+        any(_contagem_conhecida(c.get(k)) and c[k] == 0
+            for k in CAMPOS_TOKENS[:2]) for c in chamadas or []
+    )
+    return dados
 
-    for valor in fatos_esquecidos:
-        if re.search(rf"\b{re.escape(valor)}\b", texto):
-            return False
 
-    # Rejeita afirma??es de fatos pessoais, inclusive valores inventados.
-    dominios = set()
-    if any(t in contexto for t in ("cidade", "moro em", "mora em", "vivo em")):
-        dominios.add("cidade")
-    if "time" in contexto or "torc" in contexto:
-        dominios.add("time")
-    if any(t in contexto for t in ("esporte", "pratico", "yoga")):
-        dominios.add("esporte")
-    if "carro" in contexto:
-        dominios.add("carro")
-    if "nome" in contexto:
-        dominios.add("nome")
-
-    afirmacoes = {
-        "cidade": (
-            r"\b(?:(?:voce|eu)\s+)?(?:moro|mora|vivo|vive|resido|reside)"
-            r"\s+(?:(?:atualmente|agora)\s+)?(?:em|na|no|nos|nas)\s+"
-            r"[a-z][a-z-]*(?:\s+[a-z][a-z-]*){0,3}\b",
-            r"\b(?:(?:voce|eu)\s+)?(?:estou morando|esta morando|estou|esta)"
-            r"\s+(?:(?:atualmente|agora)\s+)?(?:em|na|no|nos|nas)\s+"
-            r"[a-z][a-z-]*(?:\s+[a-z][a-z-]*){0,3}\b",
-        ),
-        "time": (
-            r"\b(?:(?:voce|eu)\s+)?(?:torco|torce|torcia)\s+"
-            r"(?:mais\s+)?(?:pelo|pela|pro|para|por|pra)\s+"
-            r"(?:o\s+|a\s+)?[a-z][a-z-]*\b",
-            r"\b(?:seu|meu)\s+time\s+(?:e|seria)\s+"
-            r"(?:o\s+|a\s+)?[a-z][a-z-]*\b",
-        ),
-        "esporte": (
-            r"\b(?:(?:voce|eu)\s+)?(?:pratico|pratica|praticando)\s+"
-            r"(?:o\s+)?[a-z][a-z-]*\b",
-            r"\bo esporte que (?:voce|eu)\s+pratica\s+"
-            r"(?:e|seria)\s+(?:o\s+)?[a-z][a-z-]*\b",
-        ),
-        "carro": (
-            r"\b(?:seu|meu)\s+carro\s+(?:atual\s+)?(?:e|seria)\s+"
-            r"(?:um\s+)?[a-z][a-z0-9-]*(?:\s+[a-z0-9-]+){0,3}\b",
-        ),
-        "nome": (
-            r"\b(?:seu|meu)\s+nome\s+(?:e|seria)\s+[a-z][a-z-]*\b",
-        ),
+def tokens_por_etapa(chamadas: list[dict] | None) -> dict:
+    return {
+        "ingestao": tokens_etapa(chamadas[:-1] if chamadas else None),
+        "pergunta_final": tokens_etapa(chamadas[-1:] if chamadas else None),
+        "sessao": tokens_etapa(chamadas if chamadas else None),
     }
 
-    for dominio in dominios:
-        for padrao in afirmacoes.get(dominio, ()):
-            if re.search(padrao, texto):
-                return False
 
-    # Respostas naturais que indicam falta de conhecimento.
-    padroes_desconhecimento = (
-        r"\bnao sei\b",
-        r"\bdesconhecido\b",
-        r"\b(?:nao tenho|nao ha|sem)\b.{0,100}"
-        r"\b(?:informacao|informacoes|dados|registro|historico|contexto|memoria)\b",
-        r"\bnao posso fornecer\b.{0,100}\b(?:informacao|informacoes|dados)\b",
-        r"\bnao consigo determinar\b",
-        r"\b(?:informacoes|dados)\s+insuficientes\b",
-        r"\b(?:historico|memoria)\b.{0,80}\bnao (?:contem|tem|possui)\b",
-        r"\bnao posso (?:reconhecer|identificar|determinar|lembrar)\b",
-        r"\bnao forneceu\b.{0,100}\b(?:local|cidade|informacao|informacoes|dados|historico|contexto)\b",
-        r"\bnao posso lembrar\b",
-        r"\bnao (?:tenho|tem|ha)\b.{0,100}"
-        r"\b(?:informacoes|dados)\b.{0,50}\b(?:atualizadas|atualizados)\b",
-        r"\bnao posso fornecer informacoes pessoais\b",
-        r"\bnao me deixou\b.{0,80}\b(?:informacao|informacoes|dados|contexto)\b",
-    )
+def tokens_tentativa(caso: dict, cenario: str, chamadas: list[dict]) -> dict:
+    """Conserva parcelas recebidas sem supor que chamadas faltantes custaram zero."""
+    previstas = (len(caso["mensagens"])
+                 if cenario in {"historico_completo", "memoria_regras_api"} else 1)
+    etapas = tokens_por_etapa(chamadas + [{} for _ in range(previstas - len(chamadas))])
+    quantidades = {
+        "ingestao": (previstas - 1, min(len(chamadas), previstas - 1)),
+        "pergunta_final": (1, int(len(chamadas) == previstas)),
+        "sessao": (previstas, len(chamadas)),
+    }
+    for etapa, (esperadas, observadas) in quantidades.items():
+        etapas[etapa]["chamadas_previstas"] = esperadas
+        etapas[etapa]["chamadas_observadas"] = observadas
+        if observadas < esperadas:
+            etapas[etapa]["chamadas_modelo"] = None
+    return etapas
 
-    return any(
-        re.search(padrao, texto)
-        for padrao in padroes_desconhecimento
-    )
+
+def preparacao_cenario(cenario: str, caso: dict) -> dict:
+    manual = cenario == "memoria_persistente_api"
+    return {
+        "tipo": "estado_ouro_pre_carregado" if manual else (
+            "conversacional" if cenario in {"historico_completo", "memoria_regras_api"}
+            else "sem_fatos_anteriores"
+        ),
+        "memorias_previstas": len(caso.get("memorias", [])) if manual else 0,
+        "custo_obtencao_estado_ouro": "nao_medido" if manual else "nao_aplicavel",
+        "custo_total_sistema_medido": False,
+    }
+
 
 def metricas(chamadas: list[dict]) -> dict:
-    entradas = [c.get("tokens_entrada") for c in chamadas]
-    saidas = [c.get("tokens_saida") for c in chamadas]
-    completas = bool(chamadas) and all(
-        valor is not None for valor in entradas + saidas
-    )
     latencias = [int(c.get("latencia_ms") or 0) for c in chamadas]
 
     return {
-        "tokens_entrada": (
-            sum(int(v) for v in entradas) if completas else None
-        ),
-        "tokens_saida": (
-            sum(int(v) for v in saidas) if completas else None
-        ),
-        "tokens_total": (
-            sum(int(v) for v in entradas + saidas)
-            if completas else None
-        ),
-        "metricas_completas": completas,
+        **tokens_etapa(chamadas),
         "latencia_api_total_ms": sum(latencias),
         "latencia_api_media_ms": round(mean(latencias), 2) if latencias else 0,
-        "chamadas_modelo": len(chamadas),
     }
+
+
+def executar_historico(caso: dict, provedor: str, modelo: str) -> list[dict]:
+    """Executa o controle pelo agente, sem extração ou busca de memórias."""
+    agente = AgenteLocal()
+    selecao = SelecaoModelo(provedor.lower(), modelo)
+    chamadas = []
+
+    try:
+        agente.nova_sessao(USUARIO_HISTORICO)
+        for mensagem in caso["mensagens"]:
+            inicio = time.perf_counter()
+            resultado = agente.responder(
+                usuario_id=USUARIO_HISTORICO,
+                mensagem=mensagem,
+                memorias=[],
+                selecao=selecao,
+            )
+            chamadas.append({
+                "resposta": resultado.resposta,
+                "memorias_usadas": [],
+                "tokens_entrada": resultado.tokens_entrada,
+                "tokens_saida": resultado.tokens_saida,
+                "latencia_ms": int((time.perf_counter() - inicio) * 1000),
+            })
+        return chamadas
+    finally:
+        agente.nova_sessao(USUARIO_HISTORICO)
 
 
 def executar_cenario(
@@ -373,6 +372,9 @@ def executar_cenario(
     cenario: str,
     provedor: str,
     modelo: str,
+    *,
+    timeout_historico: float | None = None,
+    observacao_tokens: dict | None = None,
 ) -> dict:
     inicio = time.perf_counter()
     chamadas = []
@@ -382,7 +384,8 @@ def executar_cenario(
     esperado_cenario = resposta_esperada_cenario(caso, cenario)
 
     try:
-        limpar_usuario(cliente)
+        if cenario != "historico_completo":
+            limpar_usuario(cliente)
 
         if cenario == "sem_memoria":
             # Não envia fatos anteriores nem mantém histórico entre casos.
@@ -391,10 +394,9 @@ def executar_cenario(
             )
 
         elif cenario == "historico_completo":
-            for mensagem in caso["mensagens"]:
-                chamadas.append(
-                    conversar(cliente, mensagem, provedor, modelo)
-                )
+            chamadas = executar_historico_em_processo(
+                caso, provedor, modelo, timeout=timeout_historico,
+            )
 
         elif cenario == "memoria_persistente_api":
             # Insere o estado-ouro do caso manualmente pela API.
@@ -436,10 +438,8 @@ def executar_cenario(
         final = chamadas[-1]
         usadas = final.get("memorias_usadas", [])
 
-        caso_avaliacao = dict(caso)
-
-        if cenario == "sem_memoria":
-            caso_avaliacao["esperado"] = ["não sei"]
+        caso_avaliacao = caso_para_julgamento(caso, cenario)
+        julgamento = julgar_resposta(final["resposta"], caso_avaliacao)
 
         recuperacao_ok = None
         recuperacao_equivalente_ok = None
@@ -461,11 +461,13 @@ def executar_cenario(
             "id": caso["id"],
             "categoria": caso["categoria"],
             "cenario": cenario,
+            "via": "agente_local" if cenario == "historico_completo" else "api",
+            "provedor": provedor.lower(),
+            "modelo": modelo,
             "repeticao": None,
-            "passou": avaliar_resposta_comparativo(
-                final["resposta"],
-                caso_avaliacao,
-            ),
+            "passou": julgamento["passou"],
+            "julgamento": julgamento,
+            "protocolo_ok": julgamento["protocolo_ok"],
             "esperado": esperado_cenario,
             "resposta": final["resposta"],
             "memorias_esperadas": memorias_esperadas,
@@ -482,16 +484,120 @@ def executar_cenario(
                 (time.perf_counter() - inicio) * 1000, 2
             ),
             **metricas(chamadas),
+            "tokens_por_etapa": tokens_por_etapa(chamadas),
+            "preparacao": preparacao_cenario(cenario, caso),
         }
         return registro
 
+    except Exception:
+        if observacao_tokens is not None:
+            observacao_tokens.update(tokens_tentativa(caso, cenario, chamadas))
+        raise
     finally:
-        # O usuário é dedicado ao benchmark; a limpeza limita-se a ele.
-        try:
-            limpar_usuario(cliente)
-        except Exception as erro:
-            print(f"AVISO: não foi possível limpar o usuário sintético: {erro}")
+        # O filho reutiliza a limpeza local de executar_historico (P1).
+        if cenario != "historico_completo":
+            try:
+                limpar_usuario(cliente)
+            except Exception as erro:
+                print(f"AVISO: não foi possível limpar o usuário sintético: {erro}")
 
+
+
+def _resumir_tokens(grupo: list[dict], etapa: str) -> dict:
+    # Resultados antigos só permitem recuperar o total da sessão, não suas fases.
+    medidas = [r.get("tokens_por_etapa", {}).get(
+        etapa, r if etapa == "sessao" else {}
+    ) for r in grupo]
+    dados = {"casos_tentados": len(grupo)}
+    for campo in CAMPOS_TOKENS:
+        conhecidos = [m.get(campo) for m in medidas
+                      if _contagem_conhecida(m.get(campo))]
+        observados = [m.get(f"{campo}_observados", m.get(campo)) for m in medidas]
+        observados = [v for v in observados if _contagem_conhecida(v)]
+        dados[campo] = (
+            sum(conhecidos) if grupo and len(conhecidos) == len(grupo) else None
+        )
+        dados[f"{campo}_observados"] = sum(observados) if observados else None
+        dados[f"casos_com_{campo}"] = len(conhecidos)
+    medidos = dados["casos_com_tokens_total"]
+    dados["casos_medidos"] = medidos
+    dados["casos_desconhecidos"] = len(grupo) - medidos
+    totais = [m["tokens_total"] for m in medidas
+              if _contagem_conhecida(m.get("tokens_total"))]
+    dados["media_tokens_total_por_caso_medido"] = (
+        round(sum(totais) / medidos, 2) if medidos else None
+    )
+    dados["casos_com_tokens_zero"] = sum(
+        m.get("chamadas_com_tokens_zero", 0) > 0 for m in medidas
+    )
+    return dados
+
+
+def _tokens_comparaveis(medida: dict, campo: str) -> bool:
+    valor = medida.get(campo)
+    if not _contagem_conhecida(valor):
+        return False
+    if valor == 0:
+        return (type(medida.get("chamadas_modelo")) is int
+                and medida["chamadas_modelo"] == 0
+                and medida.get("metricas_completas") is True)
+    # Protege também a leitura de resultados anteriores à quarentena de zeros.
+    if campo == "tokens_total":
+        return not medida.get("chamadas_com_tokens_zero", 0)
+    canal = campo.removeprefix("tokens_")
+    return not medida.get(
+        f"chamadas_com_{canal}_zero_nao_verificado",
+        medida.get("chamadas_com_tokens_zero", 0),
+    )
+
+
+def comparar_tokens(resultados: list[dict]) -> dict:
+    """Compara pares únicos de caso/repetição/provedor/modelo, por etapa e canal."""
+    indices = {c: {} for c in CENARIOS}
+    for r in resultados:
+        chave = (r.get("id"), r.get("repeticao"), r.get("provedor"), r.get("modelo"))
+        if (r.get("cenario") not in indices or type(chave[1]) is not int
+                or chave[1] < 1 or not all(isinstance(v, str) and v for v in
+                                          (chave[0], chave[2], chave[3]))):
+            continue
+        indices[r["cenario"]].setdefault(chave, []).append(r)
+
+    historico = indices["historico_completo"]
+    comparacoes = {}
+    for cenario in CENARIOS:
+        if cenario == "historico_completo":
+            continue
+        candidato = indices[cenario]
+        comuns = sorted(historico.keys() & candidato.keys())
+        unicos = [k for k in comuns if len(historico[k]) == len(candidato[k]) == 1]
+        etapas = ETAPAS_TOKENS if cenario == "memoria_regras_api" else ("pergunta_final",)
+        comparacoes[cenario] = {}
+        for etapa in etapas:
+            comparacoes[cenario][etapa] = {}
+            for campo in CAMPOS_TOKENS:
+                pares = []
+                for chave in unicos:
+                    registros = (historico[chave][0], candidato[chave][0])
+                    medidas = [r.get("tokens_por_etapa", {}).get(etapa, {})
+                               for r in registros]
+                    if all(_tokens_comparaveis(m, campo) for m in medidas):
+                        pares.append((chave, *(m[campo] for m in medidas)))
+                base = sum(p[1] for p in pares) if pares else None
+                valor = sum(p[2] for p in pares) if pares else None
+                comparacoes[cenario][etapa][campo] = {
+                    "pares_identificados": len(comuns),
+                    "chaves_duplicadas_descartadas": len(comuns) - len(unicos),
+                    "pares_medidos": len(pares),
+                    "pares_sem_medicao": len(unicos) - len(pares),
+                    "casos_repeticoes": [
+                        {"id": p[0][0], "repeticao": p[0][1],
+                         "provedor": p[0][2], "modelo": p[0][3]} for p in pares
+                    ],
+                    "tokens_historico": base,
+                    "tokens_cenario": valor,
+                    "reducao_pct": round(100 * (1 - valor / base), 2) if base else None,
+                }
+    return comparacoes
 
 
 def resumir(resultados: list[dict]) -> dict:
@@ -516,10 +622,7 @@ def resumir(resultados: list[dict]) -> dict:
             r for r in validos
             if r.get("estado_regras_ok") is not None
         ]
-        tokens = [
-            r["tokens_total"] for r in validos
-            if r.get("tokens_total") is not None
-        ]
+        tokens = {etapa: _resumir_tokens(grupo, etapa) for etapa in ETAPAS_TOKENS}
         latencias = [
             r["latencia_api_total_ms"] for r in validos
             if r.get("latencia_api_total_ms") is not None
@@ -536,7 +639,11 @@ def resumir(resultados: list[dict]) -> dict:
                 round(100 * aprovados / len(grupo), 2)
                 if grupo else None
             ),
-            "tokens_total": sum(tokens),
+            "tokens_entrada": tokens["sessao"]["tokens_entrada"],
+            "tokens_saida": tokens["sessao"]["tokens_saida"],
+            "tokens_total": tokens["sessao"]["tokens_total"],
+            "tokens_por_etapa": tokens,
+            "julgamento": resumir_julgamentos(grupo),
             "casos_com_metricas_incompletas": sum(
                 not r.get("metricas_completas", False)
                 for r in validos
@@ -600,6 +707,10 @@ def main() -> int:
     parser.add_argument("--modelo", default="qwen2.5-coder:3b")
     parser.add_argument("--repeticoes", type=int, default=1)
     parser.add_argument(
+        "--timeout-historico", type=float, default=None,
+        help="Prazo total em segundos por caso de histórico (padrão: 30 + 60 por turno).",
+    )
+    parser.add_argument(
         "--saida",
         default="eval/results_comparativo_api.json",
         help="Arquivo novo de saída; não sobrescreve resultados existentes.",
@@ -608,6 +719,10 @@ def main() -> int:
 
     if args.repeticoes < 1:
         parser.error("--repeticoes precisa ser pelo menos 1.")
+    if args.timeout_historico is not None and (
+        not math.isfinite(args.timeout_historico) or args.timeout_historico <= 0
+    ):
+        parser.error("--timeout-historico precisa ser positivo e finito.")
 
     saida = Path(args.saida)
     if not saida.is_absolute():
@@ -647,6 +762,7 @@ def main() -> int:
                         f"\nRepetição {repeticao}/{args.repeticoes} | "
                         f"{caso['id']} | {cenario}"
                     )
+                    observacao_tokens = {}
                     try:
                         registro = executar_cenario(
                             cliente,
@@ -654,6 +770,8 @@ def main() -> int:
                             cenario,
                             args.provedor,
                             args.modelo,
+                            timeout_historico=args.timeout_historico,
+                            observacao_tokens=observacao_tokens,
                         )
                         registro["repeticao"] = repeticao
                         print(
@@ -666,10 +784,11 @@ def main() -> int:
                                 f"{'CORRETO' if registro['estado_regras_ok'] else 'INCORRETO'}"
                             )
                         print(
-                            f"Tokens: {registro['tokens_total']} | "
+                            f"Tokens: {registro['tokens_total'] if registro['tokens_total'] is not None else 'desconhecido'} | "
                             f"latência API: {registro['latencia_api_total_ms']} ms"
                         )
                     except Exception as erro:
+                        etapas = observacao_tokens or tokens_tentativa(caso, cenario, [])
                         registro = {
                             "id": caso["id"],
                             "categoria": caso["categoria"],
@@ -677,6 +796,13 @@ def main() -> int:
                             "repeticao": repeticao,
                             "passou": False,
                             "erro": str(erro)[:500],
+                            "julgamento": julgar_resposta(None, caso_para_julgamento(caso, cenario)),
+                            "protocolo_ok": False,
+                            "provedor": args.provedor.lower(),
+                            "modelo": args.modelo,
+                            **etapas["sessao"],
+                            "tokens_por_etapa": etapas,
+                            "preparacao": preparacao_cenario(cenario, caso),
                         }
                         print(f"ERRO: {erro}")
 
@@ -686,19 +812,29 @@ def main() -> int:
         "gerado_em": datetime.now(timezone.utc).isoformat(),
         "dataset": str(DATASET.relative_to(ROOT_DIR)),
         "usuario_sintetico": USUARIO_ID,
+        "versao_julgador": VERSAO_JULGADOR,
         "observacoes": [
             "Sem memória envia apenas a pergunta final.",
-            "Histórico completo envia todas as mensagens pela API.",
+            "historico_completo usa AgenteLocal.responder com memorias=[], sem /conversas, extração ou busca de memórias; limpa o histórico local antes e depois de cada caso, inclusive em erro.",
+            "Cada caso de historico_completo executa em processo spawn independente; o limite de histórico é ampliado apenas no filho para preservar todos os turnos do caso.",
+            f"Timeout do histórico: {args.timeout_historico if args.timeout_historico is not None else 'automático: 30 + 60 segundos por turno'}; a supervisão encerra o filho em erro ou timeout.",
             "memoria_regras_api envia mensagens anteriores pela API, reinicia a sessão antes da pergunta final e preserva as memórias persistidas.",
-            "Por isso, historico_completo combina histórico conversacional e memória automática por regras; não é um controle de histórico isolado.",
-            "Na implementação atual, toda chamada a /conversas também processa as regras automáticas de memória.",
+            "Os cenários via API continuam processando as regras automáticas de memória em toda chamada a /conversas.",
+            "No histórico local, os campos legados de latência medem a chamada direta ao agente, sem o percurso HTTP da API; essas latências não são equivalentes.",
             "Memória persistente API é pré-carregada manualmente com o estado esperado do caso.",
+            "Tokens são separados em ingestão conversacional, pergunta final e sessão; entrada, saída e total são reportados independentemente quando conhecidos.",
+            "Valores null são desconhecidos. Subtotais observados não representam custos completos; falhas e timeouts podem ter consumido tokens não recuperáveis pela P1/P2.",
+            "Parcelas já recebidas pelo avaliador são preservadas mesmo em erro; chamadas não devolvidas pelo filho continuam desconhecidas.",
+            "A preparação do estado-ouro, embeddings, regras, armazenamento e infraestrutura não têm seu custo medido em tokens de geração; zero chamadas de ingestão não significa preparação gratuita.",
+            "Comparações usam pares únicos de caso, repetição, provedor e modelo; pré-carregada e sem memória são controles comparados apenas na pergunta final.",
+            "Zeros reportados em chamadas são sinalizados e tratados como desconhecidos, sem economia calculada; zero de ingestão só é conhecido quando não houve chamadas nessa etapa.",
             "O cenário memoria_regras_api processa mensagens anteriores pela API e mantém as memórias persistidas ao reiniciar a sessão antes da pergunta final.",
             "O cenário memoria_regras_api avalia a resposta final e a recuperação de memórias pela API; a correção do estado interno não é medida separadamente nesta execução.",
             "A limpeza remove os dados do usuário sintético ao terminar cada cenário.",
         ],
         "resultados": resultados,
         "resumo": resumir(resultados),
+        "comparacoes_tokens": comparar_tokens(resultados),
     }
 
     saida.parent.mkdir(parents=True, exist_ok=True)
@@ -711,11 +847,20 @@ def main() -> int:
     for cenario, dados in documento["resumo"].items():
         taxa = dados["taxa_aprovacao_pct"]
         print(
-            f"{cenario}: {dados['aprovados']}/{dados['executados']} acertos "
+            f"{cenario}: {dados['aprovados']}/{dados['casos']} acertos "
             f"({taxa if taxa is not None else 'n/d'}%) | "
-            f"tokens={dados['tokens_total']} | "
+            f"execuções concluídas={dados['executados']}; falhas={dados['falhas']} | "
+            f"tokens={dados['tokens_total'] if dados['tokens_total'] is not None else 'desconhecido'} | "
             f"latência média/caso={dados['latencia_api_media_por_caso_ms']} ms"
         )
+
+        for etapa, medida in dados["tokens_por_etapa"].items():
+            canais = ", ".join(
+                f"{c}={medida[c] if medida[c] is not None else 'desconhecido'}"
+                for c in CAMPOS_TOKENS
+            )
+            print(f"  {etapa}: {canais}; casos medidos="
+                  f"{medida['casos_medidos']}/{medida['casos_tentados']}")
 
         if cenario in CENARIOS_MEMORIA:
             print(

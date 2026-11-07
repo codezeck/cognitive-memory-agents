@@ -11,6 +11,13 @@
       "Moro em Osasco."
     ],
     "esperado": "Osasco",
+    "avaliacao": {
+      "tipo_resposta": "factual",
+      "atributo": "cidade",
+      "aliases_aceitos": [],
+      "valores_antigos": [],
+      "informacoes_proibidas": []
+    },
     "estado_regras_esperado": {
       "cidade": "Osasco"
     }
@@ -28,6 +35,13 @@
       "Moro em Campinas."
     ],
     "esperado": "Campinas",
+    "avaliacao": {
+      "tipo_resposta": "factual",
+      "atributo": "cidade",
+      "aliases_aceitos": [],
+      "valores_antigos": ["Osasco"],
+      "informacoes_proibidas": []
+    },
     "estado_regras_esperado": {
       "cidade": "Campinas"
     }
@@ -36,6 +50,11 @@
     "id": "CMP003",
     "categoria": "esquecimento",
     "descricao": "Esquecer cidade informada",
+    "avaliacao": {
+      "tipo_resposta": "abstencao",
+      "atributo": "cidade",
+      "informacoes_proibidas": []
+    },
     "mensagens": [
       "Moro em Osasco.",
       "Esqueça minha cidade.",
@@ -54,6 +73,11 @@
     "id": "CMP004",
     "categoria": "esquecimento",
     "descricao": "Remover time após negação",
+    "avaliacao": {
+      "tipo_resposta": "abstencao",
+      "atributo": "time",
+      "informacoes_proibidas": []
+    },
     "mensagens": [
       "Torço pelo Vasco.",
       "Não torço mais pelo Vasco.",
@@ -80,6 +104,13 @@
       "Pratico yoga."
     ],
     "esperado": "yoga",
+    "avaliacao": {
+      "tipo_resposta": "factual",
+      "atributo": "esporte",
+      "aliases_aceitos": ["ioga"],
+      "valores_antigos": [],
+      "informacoes_proibidas": []
+    },
     "estado_regras_esperado": {
       "esporte": "yoga"
     }
@@ -97,6 +128,13 @@
       "Meu carro é um Corolla."
     ],
     "esperado": "Corolla",
+    "avaliacao": {
+      "tipo_resposta": "factual",
+      "atributo": "carro",
+      "aliases_aceitos": [],
+      "valores_antigos": ["Polo"],
+      "informacoes_proibidas": []
+    },
     "estado_regras_esperado": {
       "carro": "Corolla"
     }
@@ -113,6 +151,13 @@
       "Meu nome é Ezequiel."
     ],
     "esperado": "Ezequiel",
+    "avaliacao": {
+      "tipo_resposta": "factual",
+      "atributo": "nome",
+      "aliases_aceitos": [],
+      "valores_antigos": [],
+      "informacoes_proibidas": []
+    },
     "estado_regras_esperado": {
       "nome": "Ezequiel"
     }

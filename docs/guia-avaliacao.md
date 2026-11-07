@@ -40,40 +40,122 @@ uvicorn src.api.main:app --port 8000
 
 A API também pode subir por `docker compose up` (ver o README; subida validada em 05/11, ver `evidencias/agente/`).
 
-2. Rodar a avaliação (terminal 2, com o `.venv` ativo):
+2. Rodar a avaliação (terminal 2, com o `.venv` ativo). Carregue também neste terminal as variáveis de configuração usadas pela API, pois o controle de histórico chama o agente diretamente:
 
 ```powershell
+Get-Content .env | ForEach-Object { if ($_ -match '^\s*([^#=]+)=(.*)$') { Set-Item "env:$($matches[1].Trim())" $matches[2].Trim() } }
 python eval/avaliar_comparativo.py --repeticoes 3 --saida evidencias/comparativo_NOME.json
 ```
 
 Parâmetros: `--base-url` (padrão `http://127.0.0.1:8000`), `--provedor` (padrão `ollama`), `--modelo` (padrão `qwen2.5-coder:3b`), `--repeticoes` e `--saida`. O script não sobrescreve um arquivo de saída existente. Ao final ele imprime o bloco `===== RESUMO =====` e grava os resultados completos em JSON.
+
+`--timeout-historico SEGUNDOS` define um prazo positivo e finito por caso do controle de histórico. Sem esse argumento, o prazo é 30 segundos mais 60 segundos por turno (mínimo de um turno). Inclui a inicialização, o recebimento do resultado e a saída do processo filho. Em timeout ou falha, o supervisor recolhe o filho; se necessário, usa encerramento forçado, com até duas esperas adicionais de dois segundos. O prazo não muda os timeouts nem os parâmetros dos adaptadores.
 
 ### Cenários
 
 | Cenário | O que faz |
 |---|---|
 | `sem_memoria` | Envia só a pergunta final. Mostra o que o modelo inventa sem contexto. |
-| `historico_completo` | Envia todas as mensagens do caso na mesma conversa (baseline). |
+| `historico_completo` | Executa cada caso em um processo filho independente com `spawn` (compatível com Windows), reutilizando `AgenteLocal.responder` com `memorias=[]`, sem `/conversas` ou regras e busca de memórias. O filho amplia o limite para preservar todos os turnos do caso e limpa seu histórico antes e depois, inclusive em erro. |
 | `memoria_persistente_api` | Grava o estado esperado como memórias e envia só a pergunta final. É um teto ideal, pois o estado é inserido à mão. |
 | `memoria_regras_api` | Envia as mensagens anteriores pela API, deixando as regras extraírem os fatos; reinicia a sessão e faz a pergunta final sem histórico. |
 
 Os casos estão em `eval/dataset_comparativo.json` (CMP001 a CMP007: recuperação, atualização, esquecimento e variações).
 
+O controle de histórico reutiliza o mesmo agente, `SYSTEM_PROMPT`, adaptadores e critérios de resposta, com o provedor e modelo selecionados nos argumentos. Para uma comparação válida, configure o avaliador e a API para a mesma instância do modelo e os mesmos parâmetros efetivos. Em Docker ou API remota, o endereço acessível ao avaliador pode ser diferente do endereço dentro do contêiner: confira `OLLAMA_HOST` e as configurações do provedor em ambos os ambientes. O filho herda o ambiente do avaliador. O limite de dez interações permanece no produto e no processo principal; somente o filho usa um limite suficiente para o caso. Pedidos de esquecimento no controle são mensagens ao modelo, sem reset automático por regras.
+
+Processos independentes isolam o `USUARIO_HISTORICO` e o estado em RAM, inclusive em execuções concorrentes desse controle. Isso não torna os demais cenários da API seguros para execução concorrente: eles ainda usam o usuário remoto compartilhado do benchmark. O contexto completo é montado pelo agente, mas a janela de contexto do modelo continua sendo um limite externo; não há garantia de que o runtime processe um prompt maior do que sua capacidade. Em encerramento forçado, o `finally` do filho pode não executar; o fim do processo descarta seu histórico em RAM.
+
+Cada resultado identifica `via` como `agente_local` ou `api`. Os campos legados de latência do histórico medem a execução direta do agente, enquanto os demais medem o serviço da API; não devem ser interpretados como medições equivalentes. Os tokens são separados por etapa conforme a seção abaixo.
+
+O tempo de criação e comunicação com o processo filho entra em `tempo_execucao_ms` do caso, sem ser acrescentado às latências individuais das chamadas. O isolamento por processo não é uma medição de custo computacional ou monetário.
+
 ### Métricas
 
 | Métrica | Como é calculada |
 |---|---|
-| Acertos (`taxa_aprovacao_pct`) | Resposta final aceita pelo avaliador. Casos de esquecimento esperam "não sei" ou equivalente. |
+| Acertos (`taxa_aprovacao_pct`) | Conteúdo factual correto ou abstenção adequada, sem informação proibida. Usa todos os casos tentados como denominador. Formato é reportado separadamente. |
 | Recuperação exata | Conjunto de memórias usadas igual ao esperado, texto por texto. |
 | Recuperação equivalente | Igual à exata, mas reconhecendo variantes conhecidas de redação (por exemplo "Moro em X" e "Mora em X"). Complementar: cobre só os formatos previstos no código (cidade, esporte, carro, nome). |
 | Estado das regras | Estado estruturado obtido pela API comparado ao esperado (`estado_regras_esperado`). |
 | Sem resíduos | Em casos sem memória esperada, nenhuma memória foi usada. |
-| Tokens | `tokens_total` do caso: soma das chamadas ao modelo (entrada e saída). |
+| Tokens | `tokens_por_etapa`: entrada, saída e total de ingestão, pergunta final e sessão. Os campos legados do caso representam a sessão observada. Valores desconhecidos são `null`. |
 | Latência | Soma das latências das chamadas à API no caso. |
+
+### Julgamento determinístico P4
+
+`eval/julgamento_respostas.py` é um módulo puro: não chama LLM, API, agente ou memória. O comparativo registra `versao_julgador: p4-v2` e um objeto `julgamento` em cada resultado. A revisão v2 corrige frases curtas sem reescrever os conjuntos rotulados v1. `eval/evaluate.py` e os outros scripts que o utilizam não foram migrados; seus resultados históricos têm outra política e não são diretamente comparáveis à P4.
+
+| Critério | Significado |
+|---|---|
+| `acerto_factual` | Recupera o valor esperado ou alias anotado, sem negá-lo, especular ou apresentar alternativas. Aceita apenas formas explícitas cobertas. |
+| `sem_informacao_proibida` | Não contém termos explicitamente proibidos ou seus aliases anotados. Isso verifica a política anotada, não garante ausência de todo vazamento semântico possível. |
+| `abstencao_correta` | Expressa desconhecimento por uma forma coberta, sem palpite ou alegação pessoal adicional. Recusa genérica não comprova desconhecimento. |
+| `formato_ok` | Valor isolado sem explicação/pontuação adicional no caso factual; token literal `DESCONHECIDO` no caso de abstenção. Espaços externos são tolerados. |
+
+Cada critério contém `status`, `valor` e `motivo`. Os estados são `aprovado` (true), `reprovado` (false), `nao_aplicavel` (null) e `nao_verificado` (null). Não aplicável significa que a dimensão não é pedida, como acerto factual num caso de abstenção; não verificado significa anotação insuficiente, ausência de resposta ou conteúdo fora da cobertura. Esses estados não são intercambiáveis. Respostas ambíguas ou não verificadas não recebem aprovação automática.
+
+`passou` exige a aprovação do critério primário (factual ou abstenção) e de ausência de informação proibida. `protocolo_ok` também exige formato aprovado. Assim, “Você mora em Campinas.” pode acertar o conteúdo e falhar no formato; “Não sei.” pode ser uma boa abstenção e falhar no token literal. Caixa e acentos são normalizados para conteúdo e aliases, sem alterar o texto original; a abstenção estrita exige `DESCONHECIDO` com essa grafia, sem ponto final. A gramática de valor isolado é limitada a até quatro palavras e não equivale a reconhecimento geral de entidades. Valores compostos anotados são reconhecidos; textos compostos sem essa evidência podem ter formato não verificado.
+
+Confirmações explícitas como “Campinas com certeza” ou “Certamente Campinas” acertam o conteúdo, mas falham no formato de valor isolado. Frases curtas fora da cobertura, como “Campinas encantadora” ou “Cidade desconhecida”, não são automaticamente tratadas como valores incorretos: ficam não verificadas na dimensão de conteúdo. Isso é diferente de um palpite ou alternativa explícita, que continua reprovando o critério de resposta sem especulação. As regressões v2 estão nos testes, sem alterações nos rótulos separados de desenvolvimento e validação.
+
+O dataset recebe apenas o objeto `avaliacao`: tipo de resposta, atributo consultado, aliases aceitos, valores antigos e informações proibidas adicionais. Mensagens, memórias, valores esperados e demais campos originais permanecem intactos. `informacoes_esquecidas` é usado explicitamente, mesmo quando o texto não pode ser reextraído por regras de cidade/time. Uma informação apagada é proibida mesmo em negação ou citação. Já `valores_antigos` representa fatos desatualizados: pode ser correto negar ou contextualizar um valor antigo, e isso não o transforma em dado proibido.
+
+As listas vazias de proibições são explícitas: permitem julgar o conteúdo sem inventar restrições, mas não entram na taxa específica de ausência de informação proibida. Casos sem política completa não são aprovados silenciosamente. Aliases de proibições podem ser anotados em `aliases_proibidos`, por valor canônico; a correspondência considera limites de palavras e espaços normalizados. Repetir “Gol” não é o mesmo que conter a palavra “golfinho”.
+
+No controle `sem_memoria`, somente os critérios efetivos da resposta mudam para abstenção. O dataset e os prompts não são reescritos; o fato originalmente esperado não é aceito como um palpite sem contexto. P1/P2 continuam com os mesmos percursos e histórico, e P3 contabiliza os mesmos tokens sem filtrar por aprovação.
+
+O resumo separa as quatro dimensões, com casos considerados, verificados, aprovados, não aplicáveis e não verificados. As taxas por dimensão usam apenas decisões verificadas; a cobertura deve ser lida junto. A taxa de proibições considera casos com termos proibidos e casos de política desconhecida, expondo os não verificados; listas explicitamente vazias são excluídas. `protocolo_ok` no resumo é uma contagem, com denominador em `casos_tentados`. Falhas de execução não são interpretadas como respostas textuais incorretas: ficam não verificadas nas dimensões aplicáveis, mas não aprovam o caso global.
+
+### Respostas previamente rotuladas
+
+`eval/julgamento/respostas_dev.json` contém 26 respostas de desenvolvimento; `respostas_validacao.json` contém 20 respostas separadas. Cada resposta tem quatro rótulos, aprovação de conteúdo/protocolo e justificativa. Os testes verificam que não há repetição de textos normalizados entre os conjuntos. A separação é de respostas, não de todos os fatos ou casos de conversa usados como referência.
+
+Os rótulos foram preparados como artefatos de engenharia antes da execução dos testes. Exigem revisão humana, especialmente por quem cuida dos dados. A validação foi escrita no mesmo trabalho e não constitui avaliação cega independente nem prova de compreensão geral de português. O julgador não lê esses arquivos para escolher respostas: eles são referências exclusivas dos testes. Não ajuste os rótulos de validação para fazer o código passar; mudanças de política exigem justificativa, versão e nova validação.
+
+Testes simulados, sem LLM real:
+
+```powershell
+python -m pytest tests/test_julgamento_respostas.py tests/test_avaliar_comparativo.py -q
+```
 
 ### Como ler os tokens
 
-O `tokens_total` soma todas as chamadas do caso. No `historico_completo` e no `memoria_regras_api` isso inclui o envio das mensagens anteriores. No `memoria_persistente_api` mede apenas a pergunta final. Por isso, a comparação de custo por pergunta em sessão nova deve usar `memoria_persistente_api` contra `historico_completo`, e o `memoria_regras_api` deve ser lido como custo total do fluxo.
+Uma sessão experimental corresponde aos turnos de um caso do comparativo. Isso não representa uma medição integrada das vinte sessões do benchmark de recuperação.
+
+| Etapa em `tokens_por_etapa` | Escopo |
+|---|---|
+| `ingestao` | Chamadas anteriores à última, incluindo prompts, histórico reenviado e respostas intermediárias. É preparação conversacional, não o custo isolado do extrator. |
+| `pergunta_final` | Somente a última chamada, com seu contexto e sua resposta. |
+| `sessao` | Todas as chamadas de geração observadas no caso. Com contagens completas, equivale à soma das duas etapas anteriores, por canal. |
+
+Cada etapa contém `tokens_entrada`, `tokens_saida`, `tokens_total`, `chamadas_modelo` e `metricas_completas`. Entrada e saída são calculadas independentemente; o total só é conhecido quando ambas estão completas. Metadados ausentes ou inválidos produzem `null`, sem serem substituídos por zero. Em chamadas realizadas, somente contagens inteiras positivas são verificáveis pelo contrato atual; zeros reportados ficam desconhecidos, pois o avaliador não recebe sua origem.
+
+Os campos `tokens_entrada_observados`, `tokens_saida_observados` e `tokens_total_observados` preservam as parcelas positivas disponíveis, mesmo que falte outra chamada ou canal. São subtotais, não custos completos. Zero é conhecido quando uma etapa comprovadamente não realizou chamadas, inclusive ingestão sem turnos anteriores quando a pergunta final falha. `chamadas_com_tokens_zero` sinaliza zeros reportados por chamadas; os campos `chamadas_com_entrada_zero_nao_verificado` e `chamadas_com_saida_zero_nao_verificado` identificam os canais afetados. O adaptador Ollama pode converter metadados ausentes em zero; esses valores não entram como parcelas conhecidas e não sustentam economia. Uma contagem positiva do outro canal permanece utilizável. Essa política conservadora também descarta zeros que poderiam ser legítimos, pois sua origem não é distinguível sem mudar o contrato dos adaptadores.
+
+No resumo por cenário, cada etapa informa casos tentados, medidos, desconhecidos e quantos possuem cada canal conhecido. A soma completa fica `null` se algum caso não tiver a contagem necessária; os subtotais observados continuam disponíveis. A média por caso medido usa apenas os casos com total conhecido e explicita seu denominador. Respostas reprovadas pelo avaliador também entram nos custos quando medidas. Essa média condicional não é a média de todos os casos tentados.
+
+Em erro ou timeout, o consumo pode ter ocorrido sem retornar metadados. Chamadas já recebidas pelo avaliador são preservadas: etapas incompletas mantêm seus subtotais observados, com `chamadas_previstas`, `chamadas_observadas` (respostas recebidas) e `chamadas_modelo: null` quando não se conhece o total efetivo de chamadas. Uma etapa totalmente medida antes de outro erro continua utilizável. A P1/P2 não devolve contagens parciais do filho em falha; parcelas não recebidas são desconhecidas, não zero. Tentativas internas do provedor/SDK também não são rastreadas separadamente. Nenhum consumo é estimado a partir do tamanho da resposta.
+
+### Comparações pareadas
+
+`comparacoes_tokens` compara cada cenário com `historico_completo`, usando pares únicos de `(id, repeticao, provedor, modelo)` na mesma rodada. Registros sem essa identificação não são pareados. Chaves duplicadas são descartadas, sem escolher o resultado mais favorável. Para cada canal e etapa entram apenas os pares com ambas as contagens conhecidas; a lista `casos_repeticoes`, os pares identificados, medidos, sem medição e as duplicatas descartadas ficam no JSON.
+
+- `memoria_regras_api`: comparação de ingestão, pergunta final e sessão observada.
+- `memoria_persistente_api`: somente pergunta final, condicionada ao estado correto fornecido.
+- `sem_memoria`: somente pergunta final, como controle sem fatos anteriores. Seus critérios de resposta esperam abstenção, portanto menor consumo não comprova melhor recuperação factual.
+
+A redução percentual é `100 * (1 - soma_cenario / soma_historico)` nos mesmos pares. Não é a média de percentuais de casos com pesos diferentes. Sem pares ou com denominador zero, a redução é `null`. Contagens com zeros de origem não verificável são excluídas do pareamento no canal afetado; resultados legados que sinalizam zeros sem distinguir os canais são descartados conservadoramente. Zero de uma etapa comprovadamente sem chamadas continua comparável. Cada canal pode ter um conjunto diferente de pares, explicitado no relatório. Para economia de contexto, examine primeiro a entrada da pergunta final; o total também varia com o tamanho das respostas. Quantidade de tokens e qualidade devem ser lidas juntas, sem filtrar os custos apenas pelas respostas aprovadas.
+
+O resumo do terminal usa todos os casos tentados tanto na fração de acertos quanto na porcentagem, e informa separadamente execuções concluídas e falhas. Um acerto e uma falha operacional são apresentados como `1/2 acertos (50.0%)`, com uma execução concluída e uma falha.
+
+Os campos de provedor/modelo identificam a seleção solicitada. O mesmo runtime, parâmetros e significado das contagens continuam sendo condições externas da comparação. Os números não demonstram economia monetária, e repetições do mesmo caso não são casos independentes. Resultados antigos sem etapas não permitem reconstruir a pergunta final; não são usados nessas comparações.
+
+### Preparação manual e custos não medidos
+
+`preparacao` identifica o estado-ouro fornecido pelo dataset em `memoria_persistente_api`, o número de memórias previstas e `custo_obtencao_estado_ouro: nao_medido`. A inserção é feita pelo script, mas a informação correta foi preparada previamente: esse cenário não mede aquisição automática. Sua ingestão de geração tem zero chamadas; isso não significa preparação gratuita nem custo completo menor.
+
+Regras, hashing/embeddings, gravação, busca, operações HTTP e infraestrutura realizam trabalho fora dos tokens do LLM gerador. Na configuração atual, a API usa hashing local para os vetores. A criação dos processos da P2 também tem custo fora dessa unidade. Esses recursos e a preparação do estado-ouro não recebem valores fictícios em tokens; `custo_total_sistema_medido` é `false`. Não compare o total observado da pré-carregada com a sessão completa do histórico para alegar economia de aquisição e uso.
 
 ## Outras avaliações
 
@@ -117,12 +199,12 @@ O modelo local não é determinístico: o mesmo caso pode passar numa repetiçã
 ## Limitações conhecidas
 
 - O conjunto de desenvolvimento tem 7 casos e o de teste tem 10. O de teste ainda não foi executado.
-- O avaliador compara texto: respostas corretas com formato diferente podem ser reprovadas, e o modelo de 3 bilhões de parâmetros costuma deformar a palavra DESCONHECIDO.
+- A P4 separa conteúdo e formato, mas cobre somente construções determinísticas e aliases anotados. Paráfrases fora dessa cobertura ficam não verificadas, mesmo quando um humano as consideraria corretas. Resultados anteriores precisam ser identificados pela política antiga.
 - Os dados são sintéticos e pequenos; os números são preliminares.
 - O `memoria_persistente_api` é pré-carregado com o estado esperado.
 
 ## Pendências do protocolo (a fechar antes do congelamento, em 21/11)
 
-1. Registrar separadamente o custo em tokens da pergunta final e o custo de ensinar os fatos.
+1. Separação de tokens implementada na P3; ainda é necessária uma rodada experimental no código congelado. Custos locais, preparação do estado-ouro e consumo perdido em falhas permanecem não medidos.
 2. Avaliar o cenário de regras pelo estado estruturado e pela recuperação equivalente, mantendo a exata só como informação.
 3. Rodar a avaliação oficial final com 3 repetições, no commit congelado, e registrar commit, data e hora.

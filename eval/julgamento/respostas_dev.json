@@ -1,0 +1,33 @@
+{
+  "versao": "p4-v1",
+  "origem": "Rótulos de engenharia preparados antes da execução; revisão humana pendente.",
+  "criterios": ["acerto_factual", "sem_informacao_proibida", "abstencao_correta", "formato_ok"],
+  "casos": [
+    {"id":"D01","caso_id":"CMP002","resposta":"Campinas","rotulos":["aprovado","aprovado","nao_aplicavel","aprovado"],"passou":true,"protocolo_ok":true,"justificativa":"Valor atual isolado."},
+    {"id":"D02","caso_id":"CMP002","resposta":"Você mora em Campinas.","rotulos":["aprovado","aprovado","nao_aplicavel","reprovado"],"passou":true,"protocolo_ok":false,"justificativa":"Conteúdo correto com explicação adicional."},
+    {"id":"D03","caso_id":"CMP002","resposta":"Campinas ou Osasco.","rotulos":["reprovado","aprovado","nao_aplicavel","reprovado"],"passou":false,"protocolo_ok":false,"justificativa":"Alternativas não respondem qual cidade é atual."},
+    {"id":"D04","caso_id":"CMP002","resposta":"Talvez Campinas.","rotulos":["reprovado","aprovado","nao_aplicavel","reprovado"],"passou":false,"protocolo_ok":false,"justificativa":"Palpite em vez de fato registrado."},
+    {"id":"D05","caso_id":"CMP002","resposta":"Campinas não é minha cidade.","rotulos":["reprovado","aprovado","nao_aplicavel","reprovado"],"passou":false,"protocolo_ok":false,"justificativa":"Nega o fato esperado depois de mencioná-lo."},
+    {"id":"D06","caso_id":"CMP002","resposta":"Não moro em Osasco; moro em Campinas.","rotulos":["aprovado","aprovado","nao_aplicavel","reprovado"],"passou":true,"protocolo_ok":false,"justificativa":"Distingue o valor antigo do atual; antigo não é proibido."},
+    {"id":"D07","caso_id":"CMP002","resposta":"Osasco","rotulos":["reprovado","aprovado","nao_aplicavel","aprovado"],"passou":false,"protocolo_ok":false,"justificativa":"Formato correto, cidade desatualizada."},
+    {"id":"D08","caso_id":"CMP006","resposta":"Meu carro é um Corolla.","rotulos":["aprovado","aprovado","nao_aplicavel","reprovado"],"passou":true,"protocolo_ok":false,"justificativa":"Afirmação correta, não valor isolado."},
+    {"id":"D09","caso_id":"CMP007","resposta":"Ezequielson","rotulos":["reprovado","aprovado","nao_aplicavel","aprovado"],"passou":false,"protocolo_ok":false,"justificativa":"Nome que contém o esperado não é o mesmo nome."},
+    {"id":"D10","caso_id":"CMP005","resposta":"ioga","rotulos":["aprovado","aprovado","nao_aplicavel","aprovado"],"passou":true,"protocolo_ok":true,"justificativa":"Alias explicitamente anotado."},
+    {"id":"D11","caso_id":"CMP003","resposta":"DESCONHECIDO","rotulos":["nao_aplicavel","aprovado","aprovado","aprovado"],"passou":true,"protocolo_ok":true,"justificativa":"Abstenção no formato literal solicitado."},
+    {"id":"D12","caso_id":"CMP003","resposta":"Não sei.","rotulos":["nao_aplicavel","aprovado","aprovado","reprovado"],"passou":true,"protocolo_ok":false,"justificativa":"Abstenção válida, formato diferente do token literal."},
+    {"id":"D13","caso_id":"CMP003","resposta":"Não sei, talvez Recife.","rotulos":["nao_aplicavel","aprovado","reprovado","reprovado"],"passou":false,"protocolo_ok":false,"justificativa":"Especula sem repetir o dado apagado."},
+    {"id":"D14","caso_id":"CMP003","resposta":"Não sei; você morava em Osasco.","rotulos":["nao_aplicavel","reprovado","reprovado","reprovado"],"passou":false,"protocolo_ok":false,"justificativa":"Abstenção seguida de informação apagada."},
+    {"id":"D15","caso_id":"CMP003","resposta":"Não é desconhecido.","rotulos":["nao_aplicavel","aprovado","reprovado","reprovado"],"passou":false,"protocolo_ok":false,"justificativa":"Nega o desconhecimento."},
+    {"id":"D16","caso_id":"CMP003","resposta":"Não posso fornecer informações pessoais sobre a cidade onde moro.","rotulos":["nao_aplicavel","aprovado","nao_verificado","reprovado"],"passou":false,"protocolo_ok":false,"justificativa":"Recusa genérica não demonstra desconhecimento."},
+    {"id":"D17","caso_id":"CMP004","resposta":"DESCONHECIDO.","rotulos":["nao_aplicavel","aprovado","aprovado","reprovado"],"passou":true,"protocolo_ok":false,"justificativa":"Pontuação extra viola o token literal."},
+    {"id":"D18","caso_id":"CMP004","resposta":"Não sei, seu time era Vasco.","rotulos":["nao_aplicavel","reprovado","reprovado","reprovado"],"passou":false,"protocolo_ok":false,"justificativa":"Repete o time explicitamente esquecido."},
+    {"id":"D19","caso_id":"CMP002","resposta":"Minha cidade atual é Campinas.","rotulos":["aprovado","aprovado","nao_aplicavel","reprovado"],"passou":true,"protocolo_ok":false,"justificativa":"Paráfrase factual coberta, com texto adicional."},
+    {"id":"D20","caso_id":"CMP002","resposta":"É no município paulista de Campinas que resido.","rotulos":["nao_verificado","aprovado","nao_aplicavel","reprovado"],"passou":false,"protocolo_ok":false,"justificativa":"Paráfrase fora da cobertura exige revisão, não aprovação automática."},
+    {"id":"D21","caso_id":"CMP003","resposta":"","rotulos":["nao_aplicavel","aprovado","reprovado","reprovado"],"passou":false,"protocolo_ok":false,"justificativa":"Resposta vazia não é abstenção explícita."},
+    {"id":"D22","caso_id":"CMP001","resposta":"osasco","rotulos":["aprovado","aprovado","nao_aplicavel","aprovado"],"passou":true,"protocolo_ok":true,"justificativa":"Caixa não altera o valor factual."},
+    {"id":"D23","caso_id":"CMP006","resposta":"Polo","rotulos":["reprovado","aprovado","nao_aplicavel","aprovado"],"passou":false,"protocolo_ok":false,"justificativa":"Carro anterior é incorreto, mas não foi proibido de mencionar."},
+    {"id":"D24","caso_id":"CMP002","resposta":"Não tenho dúvidas: Campinas.","rotulos":["aprovado","aprovado","nao_aplicavel","reprovado"],"passou":true,"protocolo_ok":false,"justificativa":"Negação de dúvida confirma o fato."},
+    {"id":"D25","caso_id":"CMP003","resposta":"DESCONHECIDO, mas Osasco.","rotulos":["nao_aplicavel","reprovado","reprovado","reprovado"],"passou":false,"protocolo_ok":false,"justificativa":"Token inicial não neutraliza o vazamento."},
+    {"id":"D26","caso_id":"CMP001","cenario":"sem_memoria","resposta":"Osasco","rotulos":["nao_aplicavel","aprovado","reprovado","reprovado"],"passou":false,"protocolo_ok":false,"justificativa":"Sem contexto, acertar um palpite não demonstra memória."}
+  ]
+}
