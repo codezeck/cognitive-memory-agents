@@ -191,6 +191,39 @@ Os campos de provedor/modelo identificam a seleção solicitada. O mesmo runtime
 
 Regras, hashing/embeddings, gravação, busca, operações HTTP e infraestrutura realizam trabalho fora dos tokens do LLM gerador. Na configuração atual, a API usa hashing local para os vetores. A criação dos processos da P2 também tem custo fora dessa unidade. Esses recursos e a preparação do estado-ouro não recebem valores fictícios em tokens; `custo_total_sistema_medido` é `false`. Não compare o total observado da pré-carregada com a sessão completa do histórico para alegar economia de aquisição e uso.
 
+## P6 — primeira etapa do experimento integrado
+
+`eval/avaliar_sessoes_integradas.py` acrescenta um executor independente; não substitui P1–P5. Ele lê `eval/memoria/sessoes.json` sem modificá-lo: quatro usuários, cinco sessões por usuário, 31 fatos e 21 perguntas. As sessões são intercaladas por número para que os usuários coexistam no mesmo experimento. Sessões sem perguntas também geram evidência e custo. São 20 sessões por cenário, 40 registros de sessão ao comparar memória automática e histórico completo.
+
+Inspecionar o plano, sem API, modelo ou arquivo de saída:
+
+```powershell
+python eval/avaliar_sessoes_integradas.py --dataset eval/memoria/sessoes.json
+```
+
+A orquestração recebe dois transportes independentes. O contrato `Transporte` e as implementações HTTP/histórico ficam em `eval/sessoes_transporte.py`; os clientes falsos existem somente nos testes. O transporte HTTP usa `/conversas` para fatos e perguntas, inicia sessões sem apagar memórias, e usa `DELETE /usuarios/{id}/memorias` para a ação explícita `apagar_usuario`. Não cadastra o estado esperado por `POST /memorias`. IDs de destino precisam ser distintos e dedicados, com prefixo `p6_`, mapeados a tokens provisionados por Paloma. Usuário com estado de regras não vazio na primeira sessão é recusado; isso não substitui a preparação de ambiente limpo, inclusive registros inativos, pela responsável pelo armazenamento.
+
+**A execução HTTP do dataset atual permanece bloqueada sem contrato aprovado de esquecimento.** `esquecer_chaves` é estruturado e não contém mensagem textual. A API não possui exclusão por chave. O executor não inventa uma frase nem substitui silenciosamente a ação por outra operação. Um arquivo externo em `--contratos-acoes` deve fornecer, para `u02/s5/esquecer_chaves`, os campos `mensagem` (texto literal revisado), `aprovado: true` e `referencia` (identificação da revisão). Essa aprovação é declarada externamente, não certificada pelo programa. Vinícius revisa o conteúdo; Paloma valida o contrato. Ambos os cenários precisam receber a mesma mensagem. A estrutura dos contratos e do mapeamento de credenciais é validada antes da primeira requisição ou chamada de modelo; a autenticidade dos tokens depende das respostas da API.
+
+A CLI só executa quando recebe `--executar`, `--saida` e `--credenciais`. O arquivo externo de credenciais contém um objeto por ID original (`u01` a `u04`), com `usuario_id` dedicado e `token`. Não versione esse arquivo nem exponha os tokens no terminal. `--base-url`, `--provedor`, `--modelo` e `--timeout-historico` configuram a execução. Não foi realizada uma execução real nesta etapa; os testes usam clientes falsos, `httpx.MockTransport` e um executor de histórico simulado.
+
+O histórico completo reutiliza P1/P2 com `memorias=[]`: um lote por trajetória/episódio do usuário, sem repetir prefixos a cada pergunta, preservando os turnos de sessões anteriores. `apagar_usuario` encerra o episódio; perguntas posteriores não recebem o histórico apagado. O filho devolve o lote completo antes de seus resultados serem registrados individualmente. A criação/processamento do lote afeta o tempo de orquestração do primeiro evento; não compare esse tempo diretamente com latência HTTP. Em falha do filho, os consumos não devolvidos continuam desconhecidos, sem repetir o lote automaticamente.
+
+O arquivo JSONL é criado exclusivamente, sem sobrescrever evidências. Cabeçalho, tentativa anterior à operação, resultado e resumo de sessão são gravados e descarregados incrementalmente. O cabeçalho inclui commit, hashes do código, dataset/anotações, seleção do modelo, repetição e identificação explícita de simulação. Contratos usados são registrados sem credenciais. Interrupções preservam o log parcial e fecham os transportes; ausência do registro `fim` indica execução incompleta. Falhas não provocam novas tentativas automáticas de operações com efeitos. Uma trajetória com falha fica sinalizada; julgamentos factuais posteriores não são promovidos a resultados válidos de um protocolo completo. Vazamentos observados continuam preservados quando há anotação compatível.
+
+Tokens são separados em `ingestao`, `perguntas` e `sessao`, usando P3. Com várias perguntas na sessão, nenhuma pergunta anterior é reclassificada como ingestão. Operações administrativas não são chamadas de modelo. Falhas preservam parcelas conhecidas e totais desconhecidos como `null`; zeros sem origem verificável não sustentam economia. Comparações pareiam usuário e sessão na mesma execução, modelo, provedor e repetição, explicitando os pares medidos por canal. Latência das chamadas e duração da orquestração são registradas separadamente.
+
+As referências `esperado`/`proibido` do benchmark são de recuperação, não gabaritos automáticos da resposta. Por padrão, todas as respostas ficam não verificadas pelo julgador P4, com aplicabilidade desconhecida nos resumos P5. Um arquivo externo opcional `--anotacoes`, indexado pelo ID de pergunta (por exemplo `u01/s2/pergunta1`), pode fornecer `categoria`, `esperado` e `avaliacao` compatíveis com P4, além de alvos esquecidos explícitos quando pertinentes. Ele é validado antes da execução e nunca é enviado ao modelo. Os domínios ainda não cobertos pela P4 exigem revisão de política antes de uma avaliação oficial. Não se reinterpretam nomes de animais, contagens ou valores antigos para fabricar acertos.
+
+Checkpoints são observações, não provas presumidas:
+
+- Persistência exige reinício confirmado e estados observáveis não vazios e iguais antes/depois. Nova sessão ou leitura de estado não comprova reinício.
+- Exclusão exige contagens zero dos alvos ativos, substituídos e presentes no histórico, além de preservação dos não alvos. Estado de regras ou busca vazios não bastam.
+- O HTTP padrão registra o estado disponível e mantém o checkpoint como `nao_verificado`. Uma função verificadora externa pode fornecer evidência adicional, coordenada com Paloma. O executor não reinicia Docker nem inspeciona ou altera o banco por conta própria.
+- Evidência obtida com cliente falso é `verificado_simulado`; nunca vira comprovação real. Checkpoints de armazenamento são não aplicáveis ao baseline de histórico.
+
+Testes simulados da etapa: `python -m pytest tests/test_sessoes_integradas.py -q`. A rodada real, a revisão das anotações por Vinícius e a validação de persistência/exclusão por Paloma continuam pendentes.
+
 ## Outras avaliações
 
 ```powershell
