@@ -85,13 +85,38 @@ python eval/avaliar_regras.py --conjunto ambos --mostrar-falhas
 
 O benchmark de recuperação usa `eval/memoria/sessoes.json` (4 usuários fictícios, 5 sessões cada, 20 sessões). As regras são avaliadas em dois conjuntos separados: desenvolvimento (149 frases) e avaliação final (50 frases), que não deve ser usado para ajustar as regras. Os resultados e a análise estão em `evidencias/memoria/`.
 
+## Conjuntos de desenvolvimento e teste
+
+| Conjunto | Arquivo | Casos | Uso |
+|---|---|---|---|
+| Desenvolvimento | `eval/dataset_comparativo.json` | CMP001 a CMP007 | Pode ser usado para ajustar regras e prompts. |
+| Teste | `eval/dataset_teste.json` | TST001 a TST010 | Não é usado para ajustar nada. Roda uma vez, na versão final, com 3 repetições. |
+
+Comando do conjunto de teste (API e Ollama abertos, como na avaliação comparativa):
+
+```powershell
+python eval/avaliar_comparativo.py --dataset eval/dataset_teste.json --repeticoes 3 --saida evidencias/comparativo_teste_3rep.json
+```
+
+O baseline é o cenário `historico_completo`. Os casos de teste usam nomes fictícios e redações que as regras podem não cobrir, então falhas neles são resultado e não defeito. Para as regras de memória, os conjuntos de desenvolvimento (149 frases) e de avaliação (50 frases) já são separados.
+
+### Métricas do benchmark de 20 sessões
+
+| Métrica | Como é calculada |
+|---|---|
+| Taxa de acerto (`taxa_acerto`) | Perguntas respondidas corretamente sobre o total. |
+| Lembranças corretas (`taxa_lembranca_correta`) | Perguntas em que a memória esperada foi recuperada. |
+| Informação desatualizada (`taxa_informacao_desatualizada`) | Perguntas em que a recuperação trouxe um valor da lista `proibido`, ou seja, um fato antigo já substituído. |
+| Esquecimento correto (`taxa_esquecimento_correto`) | Perguntas sobre fatos apagados em que nada foi devolvido. |
+| Redução de tokens (`reducao_tokens_percentual`) | Tokens médios de contexto com memória contra o histórico completo, por pergunta. Não é a mesma medida do `tokens_total` do comparativo. |
+
 ## Repetições e variação
 
 O modelo local não é determinístico: o mesmo caso pode passar numa repetição e falhar na outra. Por isso os resultados oficiais usam 3 repetições, e diferenças de uma ou duas respostas não são conclusivas.
 
 ## Limitações conhecidas
 
-- O conjunto comparativo tem 7 casos e não tem separação entre desenvolvimento e teste.
+- O conjunto de desenvolvimento tem 7 casos e o de teste tem 10. O de teste ainda não foi executado.
 - O avaliador compara texto: respostas corretas com formato diferente podem ser reprovadas, e o modelo de 3 bilhões de parâmetros costuma deformar a palavra DESCONHECIDO.
 - Os dados são sintéticos e pequenos; os números são preliminares.
 - O `memoria_persistente_api` é pré-carregado com o estado esperado.
@@ -100,5 +125,4 @@ O modelo local não é determinístico: o mesmo caso pode passar numa repetiçã
 
 1. Registrar separadamente o custo em tokens da pergunta final e o custo de ensinar os fatos.
 2. Avaliar o cenário de regras pelo estado estruturado e pela recuperação equivalente, mantendo a exata só como informação.
-3. Ampliar os casos comparativos e separar desenvolvimento e teste.
-4. Rodar a avaliação oficial final com 3 repetições, no commit congelado, e registrar commit, data e hora.
+3. Rodar a avaliação oficial final com 3 repetições, no commit congelado, e registrar commit, data e hora.
