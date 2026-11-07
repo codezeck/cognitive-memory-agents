@@ -600,6 +600,11 @@ def main() -> int:
     parser.add_argument("--modelo", default="qwen2.5-coder:3b")
     parser.add_argument("--repeticoes", type=int, default=1)
     parser.add_argument(
+        "--dataset",
+        default="eval/dataset_comparativo.json",
+        help="Arquivo JSON com os casos (padrão: conjunto de desenvolvimento).",
+    )
+    parser.add_argument(
         "--saida",
         default="eval/results_comparativo_api.json",
         help="Arquivo novo de saída; não sobrescreve resultados existentes.",
@@ -617,7 +622,10 @@ def main() -> int:
             f"O arquivo {saida} já existe. Escolha outro caminho com --saida."
         )
 
-    casos = json.loads(DATASET.read_text(encoding="utf-8"))
+    dataset = Path(args.dataset)
+    if not dataset.is_absolute():
+        dataset = ROOT_DIR / dataset
+    casos = json.loads(dataset.read_text(encoding="utf-8"))
     token = carregar_token()
     resultados = []
 
@@ -684,7 +692,7 @@ def main() -> int:
 
     documento = {
         "gerado_em": datetime.now(timezone.utc).isoformat(),
-        "dataset": str(DATASET.relative_to(ROOT_DIR)),
+        "dataset": str(dataset.relative_to(ROOT_DIR)),
         "usuario_sintetico": USUARIO_ID,
         "observacoes": [
             "Sem memória envia apenas a pergunta final.",
