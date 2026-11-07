@@ -27,8 +27,8 @@ Casos em que o sistema errou, com a análise da causa e como reproduzir. Os dado
 
 - **Esperado:** recuperar o fato correto.
 - **Obtido:** a memória esperada não foi recuperada em 5 desses casos (`recuperou_esperado: false`) e nenhum devolveu informação antiga (`devolveu_proibido: false`).
-- **Causa (a confirmar):** em todos os casos a pergunta e o fato não têm nenhuma palavra em comum. Isso é compatível com um embedder de hash de palavras, que só aproxima textos que repetem termos. Confirmar lendo `src/memoria/embeddings.py`.
-- **Impacto:** a API usa `EmbedderHash` por padrão (`src/armazenamento/repositorio.py` e `src/memoria/store_mem.py`), então este é o comportamento do sistema como entregue. O embedder semântico só foi usado no benchmark.
+- **Causa:** em todos os casos a pergunta e o fato não têm nenhuma palavra em comum. O `EmbedderHash` (`src/memoria/embeddings.py`) transforma cada palavra, em minúsculas e sem acento, em uma posição de um vetor, então só aproxima textos que repetem as mesmas palavras. Pares como "profissão" e "coordenadora", ou "hobby" e "fotografia", não se aproximam.
+- **Impacto:** a API usa `EmbedderHash` por padrão (`src/armazenamento/repositorio.py` e `src/memoria/store_mem.py`), então este é o comportamento do sistema como entregue. O embedder semântico só foi usado no benchmark. O comentário do próprio `EmbedderHash` diz que ele serve para testes e CI e que a avaliação final deve usar um embedder semântico.
 - **Como reproduzir:** `python eval/avaliar_memoria.py --embedder hash --saida evidencias/memoria/reproducao_hash.json` e depois com `--embedder semantico` para comparar.
 
 ## Caso 3: pergunta que depende de mais de uma memória
@@ -37,7 +37,7 @@ Casos em que o sistema errou, com a análise da causa e como reproduzir. Os dado
 - **Entrada:** fatos "Minha gata se chama Luna." (sessão 1) e "Adotei um segundo gato, o Simba." (sessão 4). Pergunta: "Quantos gatos eu tenho?"
 - **Esperado:** recuperar as duas memórias (Luna e Simba).
 - **Obtido:** nenhuma das esperadas foi recuperada (`recuperou_esperado: false`).
-- **Causa (a confirmar):** a pergunta usa "gatos" e os fatos usam "gata" e "gato". Com hash de palavras, as variações de forma não coincidem. A pergunta também exige combinar duas memórias, o que o benchmark cobre com um único caso.
+- **Causa:** o `EmbedderHash` compara palavras inteiras, sem reduzir à raiz. "gatos", "gata" e "gato" são palavras diferentes e não se aproximam. A pergunta também exige combinar duas memórias, o que o benchmark cobre com um único caso.
 - **Como reproduzir:** o mesmo comando do Caso 2.
 
 ## Observações
