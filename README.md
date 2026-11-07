@@ -8,6 +8,8 @@
 - Vinícius Silva Dos Santos — RA: 2412504
 - Paloma Quimbely de Lima Silva — RA: 2411659
 
+Este projeto corresponde ao Tema 11 de um conjunto de 16 temas propostos para a disciplina e representa o primeiro trabalho desenvolvido para a construção do portfólio da equipe. Os demais temas serão explorados posteriormente, com foco no aprendizado contínuo, na troca de experiências e na diversificação dos papéis e responsabilidades entre os integrantes.
+
 ---
 
 ## 1. Sobre o projeto

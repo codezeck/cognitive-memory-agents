@@ -268,19 +268,19 @@ def test_cenarios_registram_etapas_e_preparacao_sem_alterar_execucao(monkeypatch
 
 def test_main_registra_falhas_como_custo_desconhecido(monkeypatch, tmp_path, capsys):
     caso = {"id": "P3", "categoria": "recuperacao", "mensagens": ["Pergunta"],
-            "esperado": "Osasco", "memorias": []}
-    dataset = Mock()
-    dataset.read_text.return_value = json.dumps([caso])
-    dataset.relative_to.return_value = Path("eval/dataset_simulado.json")
+            "esperado": "Osasco", "memorias": [],
+            "avaliacao": {"tipo_resposta": "factual", "atributo": "cidade", "informacoes_proibidas": []}}
+    dataset = tmp_path / "dataset_simulado.json"
+    dataset.write_text(json.dumps([caso]), encoding="utf-8")
     cliente = MagicMock()
     cliente.__enter__.return_value = cliente
     cliente.get.return_value.json.return_value = {"status": "ok"}
     monkeypatch.setattr(comparativo.httpx, "Client", lambda **kwargs: cliente)
-    monkeypatch.setattr(comparativo, "DATASET", dataset)
     monkeypatch.setattr(comparativo, "carregar_token", lambda: "token-simulado")
     monkeypatch.setattr(comparativo, "executar_cenario", Mock(side_effect=TimeoutError("simulado")))
     saida = tmp_path / "resultado.json"
-    monkeypatch.setattr(comparativo.sys, "argv", ["avaliar_comparativo", "--saida", str(saida)])
+    monkeypatch.setattr(comparativo.sys, "argv", ["avaliar_comparativo", "--dataset", str(dataset),
+                                                "--saida", str(saida)])
 
     assert comparativo.main() == 0
     documento = json.loads(saida.read_text(encoding="utf-8"))
@@ -383,15 +383,14 @@ def test_ingestao_vazia_continua_sendo_medicao_comparavel():
 
 def test_terminal_usa_mesmo_denominador_da_taxa_com_falhas(monkeypatch, tmp_path, capsys):
     caso = {"id": "SIMULADO", "categoria": "recuperacao", "mensagens": ["Pergunta"],
-            "esperado": "Osasco", "memorias": []}
-    dataset = Mock()
-    dataset.read_text.return_value = json.dumps([caso])
-    dataset.relative_to.return_value = Path("eval/dataset_simulado.json")
+            "esperado": "Osasco", "memorias": [],
+            "avaliacao": {"tipo_resposta": "factual", "atributo": "cidade", "informacoes_proibidas": []}}
+    dataset = tmp_path / "dataset_simulado.json"
+    dataset.write_text(json.dumps([caso]), encoding="utf-8")
     cliente = MagicMock()
     cliente.__enter__.return_value = cliente
     cliente.get.return_value.json.return_value = {"status": "ok"}
     monkeypatch.setattr(comparativo.httpx, "Client", lambda **kwargs: cliente)
-    monkeypatch.setattr(comparativo, "DATASET", dataset)
     monkeypatch.setattr(comparativo, "carregar_token", lambda: "token-simulado")
     tentativas = {}
 
@@ -403,7 +402,7 @@ def test_terminal_usa_mesmo_denominador_da_taxa_com_falhas(monkeypatch, tmp_path
 
     monkeypatch.setattr(comparativo, "executar_cenario", executar)
     saida = tmp_path / "resultado.json"
-    monkeypatch.setattr(comparativo.sys, "argv", ["avaliar_comparativo", "--repeticoes", "2",
+    monkeypatch.setattr(comparativo.sys, "argv", ["avaliar_comparativo", "--dataset", str(dataset), "--repeticoes", "2",
                                                 "--saida", str(saida)])
     assert comparativo.main() == 0
     terminal = capsys.readouterr().out

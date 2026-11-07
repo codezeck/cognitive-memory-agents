@@ -18,7 +18,8 @@ sys.path.insert(0, str(ROOT_DIR))
 
 from eval.historico_processo import executar_historico_em_processo
 from eval.julgamento_respostas import (
-    VERSAO as VERSAO_JULGADOR, caso_para_julgamento, julgar_resposta, resumir_julgamentos,
+    ATRIBUTOS, VERSAO as VERSAO_JULGADOR,
+    caso_para_julgamento, julgar_resposta, resumir_julgamentos,
 )
 from src.api.agente_local import AgenteLocal
 from src.api.catalogo import SelecaoModelo
@@ -698,6 +699,67 @@ def resumir(resultados: list[dict]) -> dict:
 
 
 
+def validar_dataset_p4(casos) -> None:
+    """Valida anotações explícitas, sem inferir fatos ou alterar o dataset."""
+    if not isinstance(casos, list) or not casos:
+        raise ValueError("o dataset deve ser uma lista não vazia de casos")
+
+    def textos(valor):
+        return isinstance(valor, list) and all(
+            isinstance(v, str) and v.strip() for v in valor
+        )
+
+    erros = []
+    ids = set()
+    for indice, caso in enumerate(casos, 1):
+        if not isinstance(caso, dict):
+            erros.append(f"caso {indice}: deve ser um objeto")
+            continue
+        identificador = caso.get("id")
+        nome = identificador if isinstance(identificador, str) and identificador.strip() else f"caso {indice}"
+        if not isinstance(identificador, str) or not identificador.strip():
+            erros.append(f"{nome}: id obrigatório")
+        elif identificador in ids:
+            erros.append(f"{nome}: id duplicado")
+        else:
+            ids.add(identificador)
+        if not textos(caso.get("mensagens")) or not caso.get("mensagens"):
+            erros.append(f"{nome}: mensagens deve conter textos não vazios")
+        if not isinstance(caso.get("categoria"), str) or not caso["categoria"].strip():
+            erros.append(f"{nome}: categoria obrigatória")
+        avaliacao = caso.get("avaliacao")
+        if not isinstance(avaliacao, dict):
+            erros.append(f"{nome}: avaliacao ausente ou inválida; informe os metadados P4 explícitos")
+            continue
+        modo = avaliacao.get("tipo_resposta")
+        atributo = avaliacao.get("atributo")
+        if not isinstance(modo, str) or modo not in {"factual", "abstencao"}:
+            erros.append(f"{nome}: avaliacao.tipo_resposta deve ser factual ou abstencao")
+        if not isinstance(atributo, str) or atributo not in ATRIBUTOS:
+            erros.append(f"{nome}: avaliacao.atributo ausente ou não suportado pelo julgador")
+        if not textos(avaliacao.get("informacoes_proibidas")):
+            erros.append(f"{nome}: avaliacao.informacoes_proibidas deve ser lista explícita (pode ser vazia)")
+        if not textos(caso.get("informacoes_esquecidas", [])):
+            erros.append(f"{nome}: informacoes_esquecidas inválidas")
+        aliases = avaliacao.get("aliases_proibidos", {})
+        if not isinstance(aliases, dict) or not all(
+            isinstance(k, str) and k.strip() and textos(v) for k, v in aliases.items()
+        ):
+            erros.append(f"{nome}: avaliacao.aliases_proibidos inválidos")
+        esperado = caso.get("esperado")
+        if modo == "factual":
+            if not isinstance(esperado, str) or not esperado.strip():
+                erros.append(f"{nome}: esperado factual deve ser texto não vazio")
+            for campo in ("aliases_aceitos", "valores_antigos"):
+                if not textos(avaliacao.get(campo, [])):
+                    erros.append(f"{nome}: avaliacao.{campo} inválidos")
+        elif not ((isinstance(esperado, str) and esperado.strip())
+                  or (textos(esperado) and esperado)):
+            erros.append(f"{nome}: esperado ausente ou inválido")
+    if erros:
+        raise ValueError("; ".join(erros))
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(
         description="Compara quatro estratégias de memória pela API autenticada."
@@ -709,6 +771,11 @@ def main() -> int:
     parser.add_argument(
         "--timeout-historico", type=float, default=None,
         help="Prazo total em segundos por caso de histórico (padrão: 30 + 60 por turno).",
+    )
+    parser.add_argument(
+        "--dataset",
+        default="eval/dataset_comparativo.json",
+        help="Arquivo JSON com os casos (padrão: conjunto de desenvolvimento).",
     )
     parser.add_argument(
         "--saida",
@@ -732,7 +799,25 @@ def main() -> int:
             f"O arquivo {saida} já existe. Escolha outro caminho com --saida."
         )
 
-    casos = json.loads(DATASET.read_text(encoding="utf-8"))
+    dataset = Path(args.dataset)
+    if not dataset.is_absolute():
+        dataset = ROOT_DIR / dataset
+    dataset = dataset.resolve()
+    try:
+        casos = json.loads(dataset.read_text(encoding="utf-8"))
+    except (OSError, UnicodeError, json.JSONDecodeError) as erro:
+        parser.error(f"Não foi possível ler o dataset {dataset}: {erro}")
+    try:
+        validar_dataset_p4(casos)
+    except ValueError as erro:
+        parser.error(
+            f"Dataset incompatível com P4: {erro}. "
+            "Revise os metadados antes de executar a avaliação; nenhuma chamada à API ou ao modelo foi iniciada."
+        )
+    try:
+        dataset_relatorio = str(dataset.relative_to(ROOT_DIR))
+    except ValueError:
+        dataset_relatorio = str(dataset)
     token = carregar_token()
     resultados = []
 
@@ -810,7 +895,7 @@ def main() -> int:
 
     documento = {
         "gerado_em": datetime.now(timezone.utc).isoformat(),
-        "dataset": str(DATASET.relative_to(ROOT_DIR)),
+        "dataset": dataset_relatorio,
         "usuario_sintetico": USUARIO_ID,
         "versao_julgador": VERSAO_JULGADOR,
         "observacoes": [
