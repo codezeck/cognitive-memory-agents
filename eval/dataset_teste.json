@@ -1,0 +1,177 @@
+[
+  {
+    "id": "TST001",
+    "categoria": "recuperacao",
+    "descricao": "Recuperar cidade com a pergunta em outras palavras",
+    "mensagens": [
+      "Moro em Curitiba.",
+      "Qual é a cidade onde resido? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente nas informações válidas disponíveis, responda exatamente DESCONHECIDO. Não invente informações."
+    ],
+    "memorias": [
+      "Moro em Curitiba."
+    ],
+    "esperado": "Curitiba",
+    "estado_regras_esperado": {
+      "cidade": "Curitiba"
+    }
+  },
+  {
+    "id": "TST002",
+    "categoria": "atualizacao",
+    "descricao": "Cidade atualizada duas vezes",
+    "mensagens": [
+      "Moro em Recife.",
+      "Mudei para Salvador.",
+      "Agora moro em Fortaleza.",
+      "Em que cidade moro atualmente? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente nas informações válidas disponíveis, responda exatamente DESCONHECIDO. Não invente informações."
+    ],
+    "memorias": [
+      "Moro em Fortaleza."
+    ],
+    "esperado": "Fortaleza",
+    "estado_regras_esperado": {
+      "cidade": "Fortaleza"
+    }
+  },
+  {
+    "id": "TST003",
+    "categoria": "esquecimento",
+    "descricao": "Esquecer esporte informado",
+    "mensagens": [
+      "Pratico escalada.",
+      "Esqueça meu esporte.",
+      "Qual esporte pratico? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente nas informações válidas disponíveis, responda exatamente DESCONHECIDO. Não invente informações."
+    ],
+    "memorias": [],
+    "esperado": [
+      "não sei"
+    ],
+    "estado_regras_esperado": {},
+    "informacoes_esquecidas": [
+      "escalada"
+    ]
+  },
+  {
+    "id": "TST004",
+    "categoria": "esquecimento",
+    "descricao": "Remover carro após negação",
+    "mensagens": [
+      "Meu carro é um Gol.",
+      "Não tenho mais o Gol.",
+      "Qual é meu carro? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente nas informações válidas disponíveis, responda exatamente DESCONHECIDO. Não invente informações."
+    ],
+    "memorias": [],
+    "esperado": [
+      "não sei"
+    ],
+    "estado_regras_esperado": {},
+    "informacoes_esquecidas": [
+      "Gol"
+    ]
+  },
+  {
+    "id": "TST005",
+    "categoria": "esquecimento",
+    "descricao": "Apagar o nome a pedido do usuário",
+    "mensagens": [
+      "Meu nome é Rafael.",
+      "Apague meu nome.",
+      "Qual é meu nome? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente nas informações válidas disponíveis, responda exatamente DESCONHECIDO. Não invente informações."
+    ],
+    "memorias": [],
+    "esperado": [
+      "não sei"
+    ],
+    "estado_regras_esperado": {},
+    "informacoes_esquecidas": [
+      "Rafael"
+    ]
+  },
+  {
+    "id": "TST006",
+    "categoria": "recuperacao",
+    "descricao": "Escolher a memória certa entre duas guardadas",
+    "mensagens": [
+      "Moro em Belém.",
+      "Meu carro é um Onix.",
+      "Qual é meu carro? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente nas informações válidas disponíveis, responda exatamente DESCONHECIDO. Não invente informações."
+    ],
+    "memorias": [
+      "Meu carro é um Onix."
+    ],
+    "esperado": "Onix",
+    "estado_regras_esperado": {
+      "cidade": "Belém",
+      "carro": "Onix"
+    }
+  },
+  {
+    "id": "TST007",
+    "categoria": "recuperacao",
+    "descricao": "Recuperar esporte com outro fato guardado",
+    "mensagens": [
+      "Meu nome é Lucas.",
+      "Pratico corrida.",
+      "Qual esporte pratico? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente nas informações válidas disponíveis, responda exatamente DESCONHECIDO. Não invente informações."
+    ],
+    "memorias": [
+      "Pratico corrida."
+    ],
+    "esperado": "corrida",
+    "estado_regras_esperado": {
+      "nome": "Lucas",
+      "esporte": "corrida"
+    }
+  },
+  {
+    "id": "TST008",
+    "categoria": "atualizacao",
+    "descricao": "Carro atualizado com a pergunta em outras palavras",
+    "mensagens": [
+      "Meu carro é um Uno.",
+      "Meu carro agora é um Argo.",
+      "Qual veículo eu uso hoje? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente nas informações válidas disponíveis, responda exatamente DESCONHECIDO. Não invente informações."
+    ],
+    "memorias": [
+      "Meu carro é um Argo."
+    ],
+    "esperado": "Argo",
+    "estado_regras_esperado": {
+      "carro": "Argo"
+    }
+  },
+  {
+    "id": "TST009",
+    "categoria": "sem_resposta",
+    "descricao": "Pergunta sobre algo que nunca foi informado",
+    "mensagens": [
+      "Moro em Manaus.",
+      "Qual esporte pratico? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente nas informações válidas disponíveis, responda exatamente DESCONHECIDO. Não invente informações."
+    ],
+    "memorias": [],
+    "esperado": [
+      "não sei"
+    ],
+    "estado_regras_esperado": {
+      "cidade": "Manaus"
+    }
+  },
+  {
+    "id": "TST010",
+    "categoria": "atualizacao",
+    "descricao": "Carro atualizado três vezes",
+    "mensagens": [
+      "Meu carro é um Gol.",
+      "Meu carro agora é um Palio.",
+      "Meu carro agora é um HB20.",
+      "Qual é meu carro atual? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente nas informações válidas disponíveis, responda exatamente DESCONHECIDO. Não invente informações."
+    ],
+    "memorias": [
+      "Meu carro é um HB20."
+    ],
+    "esperado": "HB20",
+    "estado_regras_esperado": {
+      "carro": "HB20"
+    }
+  }
+]
