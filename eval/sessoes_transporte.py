@@ -26,6 +26,7 @@ class Transporte(Protocol):
 
     def validar(self, eventos: tuple[Evento, ...]) -> None: ...
     def verificar_inicio(self, eventos, *, execucao_id, provedor, modelo) -> dict: ...
+    def aguardar_checkpoint(self, evento: Evento, *, timeout, intervalo) -> dict: ...
     def executar(self, evento: Evento, *, provedor: str, modelo: str) -> dict: ...
     def fechar(self) -> None: ...
 
@@ -63,6 +64,7 @@ class TransporteHTTP:
         self.contratos = contratos or {}
         self.verificar_checkpoint = verificar_checkpoint
         self._pronto = False
+        self._evidencias_prontas = {}
 
     def identificar(self):
         return {"api_url": str(self.cliente.base_url),
@@ -72,6 +74,7 @@ class TransporteHTTP:
     def verificar_inicio(self, eventos, *, execucao_id, provedor, modelo):
         """Só GETs autenticados; nenhuma resposta/fato antes da barreira global."""
         self._pronto = False
+        self._evidencias_prontas.clear()
         falhas = []
         for uid, credencial in self.credenciais.items():
             evento = Evento(f"{uid}/s1/preflight", uid, 1, "preflight")
@@ -142,6 +145,18 @@ class TransporteHTTP:
         resposta.raise_for_status()
         return resposta.json() if resposta.content else {}
 
+    def aguardar_checkpoint(self, evento, *, timeout, intervalo):
+        if not self._pronto:
+            raise ValueError("Verificação operacional inicial obrigatória antes da espera.")
+        if not evento.tipo.startswith("checkpoint_"):
+            raise ValueError("Espera permitida somente para checkpoints.")
+        aguardar = getattr(self.verificar_checkpoint, "aguardar", None)
+        if not callable(aguardar):
+            raise ValueError("Verificador não oferece espera de evidências.")
+        observacao = aguardar(evento, timeout=timeout, intervalo=intervalo)
+        self._evidencias_prontas[evento.id] = observacao
+        return observacao
+
     def executar(self, evento, *, provedor, modelo):
         if not self._pronto:
             raise ValueError("Verificação operacional inicial obrigatória antes dos eventos HTTP.")
@@ -170,13 +185,16 @@ class TransporteHTTP:
         if evento.tipo.startswith("checkpoint_"):
             estado = self._pedido(evento, "GET", base + "/estado-regras")
             observacao = {"estado_regras": estado}
-            if self.verificar_checkpoint is not None:
+            if evento.id in self._evidencias_prontas:
+                observacao.update(self._evidencias_prontas.pop(evento.id))
+            elif self.verificar_checkpoint is not None:
                 observacao.update(self.verificar_checkpoint(evento))
             return observacao
         raise ValueError(f"Tipo de evento não suportado: {evento.tipo}")
 
     def fechar(self):
         self._pronto = False
+        self._evidencias_prontas.clear()
         self.cliente.close()
 
 

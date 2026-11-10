@@ -28,7 +28,10 @@ from eval.avaliar_comparativo import (
     tokens_etapa, validar_dataset_p4,
 )
 from eval.julgamento_respostas import julgar_resposta
-from eval.sessoes_evidencias import VerificadorEvidencias
+from eval.sessoes_evidencias import (
+    EvidenciaIncompativel, TimeoutEvidencia, VerificadorEvidencias,
+    campos_checkpoint, medicao_completa, validar_prazos,
+)
 from eval.sessoes_transporte import (
     Credencial, Evento, TransporteHTTP, TransporteHistorico, mensagem_aprovada,
 )
@@ -265,12 +268,18 @@ def comparar_sessoes(sessoes):
 
 
 def executar(dados, transportes, saida, *, provedor="ollama", modelo="qwen2.5-coder:3b",
-             anotacoes=None, repeticao=1, execucao_id=None):
+             anotacoes=None, repeticao=1, execucao_id=None, aguardar_evidencias=False,
+             timeout_evidencia=300.0, intervalo_evidencia=1.0):
+    validar_prazos(timeout_evidencia, intervalo_evidencia)
+    if type(aguardar_evidencias) is not bool:
+        raise ValueError("aguardar_evidencias deve ser booleano.")
     eventos = planejar(dados)
     if (set(transportes) != set(CENARIOS) or len({id(t) for t in transportes.values()}) != 2
             or any(t.cenario != c or type(t.simulado) is not bool for c, t in transportes.items())
             or len({t.simulado for t in transportes.values()}) != 1):
         raise ValueError("Forneça dois transportes independentes, identificados e do mesmo modo real/simulado.")
+    if aguardar_evidencias and not callable(getattr(transportes["memoria_automatica"], "aguardar_checkpoint", None)):
+        raise ValueError("Transporte de memória automática não oferece espera de evidências.")
     if type(repeticao) is not int or repeticao < 1:
         raise ValueError("Repetição deve ser inteiro positivo.")
     anotacoes = {} if anotacoes is None else anotacoes
@@ -296,6 +305,7 @@ def executar(dados, transportes, saida, *, provedor="ollama", modelo="qwen2.5-co
 
     sessoes, resultados, falhas_fechamento, falhas_inicio = [], [], [], []
     proveniencia = {}
+    motivo_interrupcao = None
     agrupados = defaultdict(list)
     integridade = defaultdict(lambda: True)
     simulado = next(iter(transportes.values())).simulado
@@ -312,7 +322,7 @@ def executar(dados, transportes, saida, *, provedor="ollama", modelo="qwen2.5-co
         except (OSError, subprocess.CalledProcessError):
             commit = None
         registrar({
-            "tipo": "inicio", "versao": "p6-etapa2", "execucao_id": execucao_id,
+            "tipo": "inicio", "versao": "p6-etapa3", "execucao_id": execucao_id,
             "gerado_em": datetime.now(timezone.utc).isoformat(), "simulado": simulado,
             "provedor": provedor, "modelo": modelo, "repeticao": repeticao,
             "commit": commit,
@@ -326,6 +336,9 @@ def executar(dados, transportes, saida, *, provedor="ollama", modelo="qwen2.5-co
             "anotacoes_sha256_canonico": hashlib.sha256(json.dumps(anotacoes, ensure_ascii=True, sort_keys=True).encode()).hexdigest(),
             "usuarios": 4, "sessoes_por_cenario": 20, "perguntas_por_cenario": 21,
             "cobertura_anotacoes": cobertura,
+            "espera_evidencias": {"habilitada": aguardar_evidencias,
+                                  "timeout_segundos": timeout_evidencia,
+                                  "intervalo_segundos": intervalo_evidencia},
             "persistencia": "depende de evidência de reinício; nova sessão não é reinício",
         })
         try:
@@ -350,6 +363,33 @@ def executar(dados, transportes, saida, *, provedor="ollama", modelo="qwen2.5-co
                     inicio = time.perf_counter()
                     registro = {"tipo": "resultado", "cenario": cenario, "evento": asdict(evento)}
                     try:
+                        if aguardar_evidencias and cenario == "memoria_automatica" and evento.tipo.startswith("checkpoint_"):
+                            identidade = proveniencia.get(cenario, {})
+                            registrar({"tipo": "aguardando_evidencia", "cenario": cenario,
+                                       "evento": asdict(evento), "execucao_id": execucao_id,
+                                       "simulado": simulado,
+                                       "aguardando_desde": datetime.now(timezone.utc).isoformat(),
+                                       "ambiente_id": identidade.get("ambiente_id"),
+                                       "usuario_api_id": identidade.get("usuarios", {}).get(evento.usuario_id),
+                                       "campos_necessarios": campos_checkpoint(evento),
+                                       "timeout_segundos": timeout_evidencia,
+                                       "intervalo_segundos": intervalo_evidencia})
+                            try:
+                                evidencia = transporte.aguardar_checkpoint(
+                                    evento, timeout=timeout_evidencia, intervalo=intervalo_evidencia,
+                                )
+                            except (TimeoutEvidencia, EvidenciaIncompativel):
+                                raise
+                            except Exception as erro:
+                                raise EvidenciaIncompativel(
+                                    f"{evento.id}: falha na espera ({type(erro).__name__})."
+                                ) from erro
+                            if not isinstance(evidencia, dict) or not medicao_completa(evento, evidencia):
+                                raise EvidenciaIncompativel(f"{evento.id}: transporte liberou evidência incompleta.")
+                            registrar({"tipo": "evidencia_recebida", "cenario": cenario,
+                                       "evento_id": evento.id, "simulado": simulado,
+                                       "observacao": evidencia,
+                                       "tempo_espera_ms": round((time.perf_counter() - inicio) * 1000, 2)})
                         resposta = transporte.executar(evento, provedor=provedor, modelo=modelo)
                         if not isinstance(resposta, dict):
                             raise ValueError("Transporte deve devolver objeto JSON.")
@@ -368,6 +408,9 @@ def executar(dados, transportes, saida, *, provedor="ollama", modelo="qwen2.5-co
                         registro.update(estado="erro", erro={"tipo": type(erro).__name__, "mensagem": str(erro)[:500]})
                         if evento.tipo.startswith("checkpoint_"):
                             registro["checkpoint"] = "nao_verificado"
+                        if isinstance(erro, (TimeoutEvidencia, EvidenciaIncompativel)):
+                            motivo_interrupcao = {"cenario": cenario, "evento_id": evento.id,
+                                                   "erro": registro["erro"]}
                     registro["duracao_ms"] = round((time.perf_counter() - inicio) * 1000, 2)
                     registro["trajetoria_integra"] = integridade[(cenario, evento.usuario_id)]
                     if evento.tipo == "pergunta":
@@ -393,6 +436,11 @@ def executar(dados, transportes, saida, *, provedor="ollama", modelo="qwen2.5-co
                                          agrupados[(cenario, evento.usuario_id, evento.sessao)])
                         sessoes.append(sessao)
                         registrar(sessao)
+                    if motivo_interrupcao is not None:
+                        break
+                if motivo_interrupcao is not None:
+                    registrar({"tipo": "rodada_interrompida", **motivo_interrupcao})
+                    break
         except BaseException as erro:
             registrar({"tipo": "interrupcao", "erro": type(erro).__name__})
             raise
@@ -439,6 +487,7 @@ def executar(dados, transportes, saida, *, provedor="ollama", modelo="qwen2.5-co
                 r["estado"] == "erro" for r in resultados) else "concluida",
             "falhas": len(falhas_inicio) + sum(r["estado"] == "erro" for r in resultados),
             "falhas_inicio": falhas_inicio, "proveniencia": proveniencia,
+            "motivo_interrupcao": motivo_interrupcao,
             "cobertura_anotacoes": cobertura,
             "avaliacao_respostas_completa": cobertura["compativeis"] == 21 and all(
                 len([r for r in resultados if r["cenario"] == c and r["evento"]["tipo"] == "pergunta"
@@ -469,9 +518,14 @@ def main():
     parser.add_argument("--provedor", default="ollama")
     parser.add_argument("--modelo", default="qwen2.5-coder:3b")
     parser.add_argument("--timeout-historico", type=float)
+    parser.add_argument("--aguardar-evidencias", action="store_true",
+                        help="Pausa nos checkpoints de memória automática até evidência completa ou timeout.")
+    parser.add_argument("--timeout-evidencia", type=float, default=300.0)
+    parser.add_argument("--intervalo-evidencia", type=float, default=1.0)
     parser.add_argument("--executar", action="store_true", help="Sem este argumento, somente inspeciona o plano.")
     args = parser.parse_args()
     try:
+        validar_prazos(args.timeout_evidencia, args.intervalo_evidencia)
         dados = json.loads(args.dataset.read_text(encoding="utf-8"))
         eventos = planejar(dados)
         if not args.executar:
@@ -479,6 +533,9 @@ def main():
             _, cobertura = cobertura_anotacoes(eventos, anotacoes)
             print(json.dumps({"usuarios": 4, "sessoes": 20, "perguntas": 21,
                               "cobertura_anotacoes": cobertura,
+                              "espera_evidencias": {"habilitada": args.aguardar_evidencias,
+                                                    "timeout_segundos": args.timeout_evidencia,
+                                                    "intervalo_segundos": args.intervalo_evidencia},
                               "acoes_que_exigem_contrato": [e.id for e in eventos if e.tipo == "esquecer_chaves"]}))
             return 0
         if not args.saida or not args.credenciais:
@@ -495,7 +552,9 @@ def main():
         }
         try:
             resumo = executar(dados, transportes, args.saida, provedor=args.provedor,
-                              modelo=args.modelo, anotacoes=anotacoes, execucao_id=args.execucao_id)
+                              modelo=args.modelo, anotacoes=anotacoes, execucao_id=args.execucao_id,
+                              aguardar_evidencias=args.aguardar_evidencias,
+                              timeout_evidencia=args.timeout_evidencia, intervalo_evidencia=args.intervalo_evidencia)
         finally:
             cliente.close()
         return 1 if resumo["estado_orquestracao"] == "incompleta" else 0
