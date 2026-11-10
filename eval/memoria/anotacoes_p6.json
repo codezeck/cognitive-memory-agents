@@ -1,0 +1,370 @@
+{
+    "u01/s2/pergunta1":  {
+                             "categoria":  "recuperacao",
+                             "esperado":  "Osasco",
+                             "avaliacao":  {
+                                               "tipo_resposta":  "factual",
+                                               "atributo":  "cidade",
+                                               "aliases_aceitos":  [
+
+                                                                   ],
+                                               "valores_antigos":  [
+
+                                                                   ],
+                                               "informacoes_proibidas":  [
+
+                                                                         ]
+                                           }
+                         },
+    "u01/s3/pergunta2":  {
+                             "categoria":  "atualizacao",
+                             "esperado":  "Campinas",
+                             "avaliacao":  {
+                                               "tipo_resposta":  "factual",
+                                               "atributo":  "cidade",
+                                               "aliases_aceitos":  [
+
+                                                                   ],
+                                               "valores_antigos":  [
+                                                                       "Osasco"
+                                                                   ],
+                                               "informacoes_proibidas":  [
+
+                                                                         ]
+                                           }
+                         },
+    "u01/s4/pergunta3":  {
+                             "categoria":  "atualizacao",
+                             "esperado":  "coordenadora de enfermagem",
+                             "avaliacao":  {
+                                               "tipo_resposta":  "factual",
+                                               "atributo":  "profissao",
+                                               "aliases_aceitos":  [
+                                                                       "coordenadora"
+                                                                   ],
+                                               "valores_antigos":  [
+                                                                       "enfermeira"
+                                                                   ],
+                                               "informacoes_proibidas":  [
+
+                                                                         ]
+                                           }
+                         },
+    "u01/s5/pergunta4":  {
+                             "categoria":  "atualizacao",
+                             "esperado":  "Santos",
+                             "avaliacao":  {
+                                               "tipo_resposta":  "factual",
+                                               "atributo":  "cidade",
+                                               "aliases_aceitos":  [
+
+                                                                   ],
+                                               "valores_antigos":  [
+                                                                       "Osasco",
+                                                                       "Campinas"
+                                                                   ],
+                                               "informacoes_proibidas":  [
+
+                                                                         ]
+                                           }
+                         },
+    "u01/s5/pergunta5":  {
+                             "categoria":  "recuperacao",
+                             "esperado":  "Thor",
+                             "avaliacao":  {
+                                               "tipo_resposta":  "factual",
+                                               "atributo":  "pet",
+                                               "aliases_aceitos":  [
+
+                                                                   ],
+                                               "valores_antigos":  [
+
+                                                                   ],
+                                               "informacoes_proibidas":  [
+
+                                                                         ]
+                                           }
+                         },
+    "u01/s5/pergunta6":  {
+                             "categoria":  "atualizacao",
+                             "esperado":  "natação",
+                             "avaliacao":  {
+                                               "tipo_resposta":  "factual",
+                                               "atributo":  "esporte",
+                                               "aliases_aceitos":  [
+
+                                                                   ],
+                                               "valores_antigos":  [
+                                                                       "corrida"
+                                                                   ],
+                                               "informacoes_proibidas":  [
+
+                                                                         ]
+                                           }
+                         },
+    "u02/s3/pergunta1":  {
+                             "categoria":  "atualizacao",
+                             "esperado":  "três",
+                             "avaliacao":  {
+                                               "tipo_resposta":  "factual",
+                                               "atributo":  "filhos",
+                                               "aliases_aceitos":  [
+                                                                       "3"
+                                                                   ],
+                                               "valores_antigos":  [
+                                                                       "dois"
+                                                                   ],
+                                               "informacoes_proibidas":  [
+
+                                                                         ]
+                                           }
+                         },
+    "u02/s4/pergunta2":  {
+                             "categoria":  "atualizacao",
+                             "esperado":  "Onix",
+                             "avaliacao":  {
+                                               "tipo_resposta":  "factual",
+                                               "atributo":  "carro",
+                                               "aliases_aceitos":  [
+                                                                       "Onix branco"
+                                                                   ],
+                                               "valores_antigos":  [
+                                                                       "Gol",
+                                                                       "Gol azul"
+                                                                   ],
+                                               "informacoes_proibidas":  [
+
+                                                                         ]
+                                           }
+                         },
+    "u02/s5/pergunta3":  {
+                             "categoria":  "esquecimento",
+                             "esperado":  [
+                                              "DESCONHECIDO",
+                                              "não sei"
+                                          ],
+                             "informacoes_esquecidas":  [
+                                                            "Onix",
+                                                            "Gol"
+                                                        ],
+                             "avaliacao":  {
+                                               "tipo_resposta":  "abstencao",
+                                               "atributo":  "carro",
+                                               "informacoes_proibidas":  [
+
+                                                                         ]
+                                           }
+                         },
+    "u02/s5/pergunta4":  {
+                             "categoria":  "recuperacao",
+                             "esperado":  "Coritiba",
+                             "avaliacao":  {
+                                               "tipo_resposta":  "factual",
+                                               "atributo":  "time",
+                                               "aliases_aceitos":  [
+
+                                                                   ],
+                                               "valores_antigos":  [
+
+                                                                   ],
+                                               "informacoes_proibidas":  [
+
+                                                                         ]
+                                           }
+                         },
+    "u02/s5/pergunta5":  {
+                             "categoria":  "recuperacao",
+                             "esperado":  "matemática",
+                             "avaliacao":  {
+                                               "tipo_resposta":  "factual",
+                                               "atributo":  "disciplina",
+                                               "aliases_aceitos":  [
+
+                                                                   ],
+                                               "valores_antigos":  [
+
+                                                                   ],
+                                               "informacoes_proibidas":  [
+
+                                                                         ]
+                                           }
+                         },
+    "u03/s2/pergunta1":  {
+                             "categoria":  "recuperacao",
+                             "esperado":  "fotografia",
+                             "avaliacao":  {
+                                               "tipo_resposta":  "factual",
+                                               "atributo":  "hobby",
+                                               "aliases_aceitos":  [
+
+                                                                   ],
+                                               "valores_antigos":  [
+
+                                                                   ],
+                                               "informacoes_proibidas":  [
+
+                                                                         ]
+                                           }
+                         },
+    "u03/s3/pergunta2":  {
+                             "categoria":  "atualizacao",
+                             "esperado":  "Portugal",
+                             "avaliacao":  {
+                                               "tipo_resposta":  "factual",
+                                               "atributo":  "viagem",
+                                               "aliases_aceitos":  [
+
+                                                                   ],
+                                               "valores_antigos":  [
+                                                                       "Japão"
+                                                                   ],
+                                               "informacoes_proibidas":  [
+
+                                                                         ]
+                                           }
+                         },
+    "u03/s4/pergunta3":  {
+                             "categoria":  "recuperacao",
+                             "esperado":  "dois",
+                             "avaliacao":  {
+                                               "tipo_resposta":  "factual",
+                                               "atributo":  "quantidade_pets",
+                                               "aliases_aceitos":  [
+                                                                       "2"
+                                                                   ],
+                                               "valores_antigos":  [
+
+                                                                   ],
+                                               "informacoes_proibidas":  [
+
+                                                                         ]
+                                           }
+                         },
+    "u03/s5/pergunta4":  {
+                             "categoria":  "atualizacao",
+                             "esperado":  "diretora de arte",
+                             "avaliacao":  {
+                                               "tipo_resposta":  "factual",
+                                               "atributo":  "profissao",
+                                               "aliases_aceitos":  [
+                                                                       "diretora"
+                                                                   ],
+                                               "valores_antigos":  [
+                                                                       "designer gráfica"
+                                                                   ],
+                                               "informacoes_proibidas":  [
+
+                                                                         ]
+                                           }
+                         },
+    "u03/s5/pergunta5":  {
+                             "categoria":  "isolamento",
+                             "esperado":  "Recife",
+                             "avaliacao":  {
+                                               "tipo_resposta":  "factual",
+                                               "atributo":  "cidade",
+                                               "aliases_aceitos":  [
+
+                                                                   ],
+                                               "valores_antigos":  [
+
+                                                                   ],
+                                               "informacoes_proibidas":  [
+                                                                             "Osasco",
+                                                                             "Campinas",
+                                                                             "Santos",
+                                                                             "Curitiba",
+                                                                             "Porto Alegre",
+                                                                             "Florianópolis"
+                                                                         ]
+                                           }
+                         },
+    "u04/s3/pergunta1":  {
+                             "categoria":  "atualizacao",
+                             "esperado":  "analista de dados",
+                             "avaliacao":  {
+                                               "tipo_resposta":  "factual",
+                                               "atributo":  "profissao",
+                                               "aliases_aceitos":  [
+                                                                       "analista"
+                                                                   ],
+                                               "valores_antigos":  [
+                                                                       "programador"
+                                                                   ],
+                                               "informacoes_proibidas":  [
+
+                                                                         ]
+                                           }
+                         },
+    "u04/s4/pergunta2":  {
+                             "categoria":  "exclusao",
+                             "esperado":  [
+                                              "DESCONHECIDO",
+                                              "não sei"
+                                          ],
+                             "informacoes_esquecidas":  [
+                                                            "Florianópolis",
+                                                            "Porto Alegre"
+                                                        ],
+                             "avaliacao":  {
+                                               "tipo_resposta":  "abstencao",
+                                               "atributo":  "cidade",
+                                               "informacoes_proibidas":  [
+
+                                                                         ]
+                                           }
+                         },
+    "u04/s4/pergunta3":  {
+                             "categoria":  "exclusao",
+                             "esperado":  [
+                                              "DESCONHECIDO",
+                                              "não sei"
+                                          ],
+                             "informacoes_esquecidas":  [
+                                                            "violão"
+                                                        ],
+                             "avaliacao":  {
+                                               "tipo_resposta":  "abstencao",
+                                               "atributo":  "instrumento",
+                                               "informacoes_proibidas":  [
+
+                                                                         ]
+                                           }
+                         },
+    "u04/s5/pergunta4":  {
+                             "categoria":  "reaprendizado",
+                             "esperado":  "Belém",
+                             "avaliacao":  {
+                                               "tipo_resposta":  "factual",
+                                               "atributo":  "cidade",
+                                               "aliases_aceitos":  [
+
+                                                                   ],
+                                               "valores_antigos":  [
+
+                                                                   ],
+                                               "informacoes_proibidas":  [
+                                                                             "Florianópolis",
+                                                                             "Porto Alegre"
+                                                                         ]
+                                           }
+                         },
+    "u04/s5/pergunta5":  {
+                             "categoria":  "exclusao",
+                             "esperado":  [
+                                              "DESCONHECIDO",
+                                              "não sei"
+                                          ],
+                             "informacoes_esquecidas":  [
+                                                            "analista de dados",
+                                                            "programador"
+                                                        ],
+                             "avaliacao":  {
+                                               "tipo_resposta":  "abstencao",
+                                               "atributo":  "profissao",
+                                               "informacoes_proibidas":  [
+
+                                                                         ]
+                                           }
+                         }
+}
