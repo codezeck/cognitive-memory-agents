@@ -768,3 +768,358 @@ def test_catalogo_incompativel_impede_liberacao_do_transporte(dados, tmp_path, c
         with pytest.raises(ValueError, match="operacional inicial"):
             t.executar(next(e for e in integrado.planejar(dados) if e.tipo == "fato"),
                        provedor="ollama", modelo="simulado")
+
+
+# P6 Etapa 3: relógio e transportes inteiramente simulados, sem rede/modelo real.
+@pytest.fixture
+def relogio_evidencia(monkeypatch):
+    from eval import sessoes_evidencias as evidencias
+
+    class Relogio:
+        agora = 0.0
+
+        def __init__(self):
+            self.pausas = []
+            self.publicar = lambda: None
+
+        def dormir(self, segundos):
+            self.pausas.append(segundos)
+            self.agora += segundos
+            self.publicar()
+
+    relogio = Relogio()
+    monkeypatch.setattr(evidencias.time, "monotonic", lambda: relogio.agora)
+    monkeypatch.setattr(evidencias.time, "sleep", relogio.dormir)
+    return relogio
+
+
+@pytest.fixture
+def evidencia_local(dados, tmp_path):
+    cs = {u["usuario_id"]: Credencial("p6_" + u["usuario_id"], "token-falso") for u in dados["usuarios"]}
+    doc = documento_fixture(cs)
+    caminho = tmp_path / "evidencias-espera.json"
+
+    def salvar():
+        caminho.write_text(json.dumps(doc), encoding="utf-8")
+
+    salvar()
+    v = VerificadorEvidencias(caminho)
+    v.preparar(execucao_id="execucao-simulada", api_url="http://teste", usuarios=doc["usuarios"],
+               provedor="ollama", modelo="simulado")
+    return v, doc, salvar
+
+
+def test_espera_documento_aparece_e_liga_proveniencia(evidencia_local, relogio_evidencia):
+    import hashlib
+    v, doc, salvar = evidencia_local
+    e = Evento("u01/s1/checkpoint_persistencia", "u01", 1, "checkpoint_persistencia")
+
+    def publicar():
+        doc["eventos"][e.id] = evidencia_fixture(doc, e, {
+            "reinicio_confirmado": True, "estado_antes": {"simulado": 1}, "estado_depois": {"simulado": 1}})
+        salvar()
+
+    # Mesmo o arquivo inteiro pode estar temporariamente ausente.
+    v.caminho.unlink()
+    relogio_evidencia.publicar = publicar
+    r = v.aguardar(e, timeout=3, intervalo=1)
+    assert relogio_evidencia.pausas == [1]
+    assert r["evidencia"]["execucao_id"] == doc["execucao_id"]
+    assert r["evidencia"]["documento_sha256"] == hashlib.sha256(v.caminho.read_bytes()).hexdigest()
+
+
+@pytest.mark.parametrize("campo,valor", [
+    ("execucao_id", "outra"), ("ambiente_id", "outro"), ("usuario_id", "u01"),
+    ("usuario_api_id", "p6_outro"), ("sessao", 2), ("evento_id", "outro"),
+    ("tipo", "checkpoint_persistencia"), ("chaves", []), ("aprovado", False),
+    ("coletado_em", "2000-01-01T00:00:00+00:00"),
+])
+def test_espera_rejeita_incompativel_sem_nova_consulta(evidencia_local, relogio_evidencia, campo, valor):
+    from eval.sessoes_evidencias import EvidenciaIncompativel
+    v, doc, salvar = evidencia_local
+    e = Evento("u02/s5/checkpoint_exclusao_chaves", "u02", 5, "checkpoint_exclusao", chaves=("carro",))
+    doc["eventos"][e.id] = evidencia_fixture(doc, e, {
+        "alvos_antes": 1, "alvos_ativos": 0, "alvos_substituidos": 0,
+        "alvos_no_historico": 0, "nao_alvos_preservados": True})
+    doc["eventos"][e.id][campo] = valor
+    salvar()
+    with pytest.raises(EvidenciaIncompativel):
+        v.aguardar(e, timeout=3, intervalo=1)
+    assert relogio_evidencia.pausas == []
+
+
+@pytest.mark.parametrize("invalida", [None, [], "texto"])
+def test_entrada_presente_invalida_nao_e_ausencia(evidencia_local, relogio_evidencia, invalida):
+    from eval.sessoes_evidencias import EvidenciaIncompativel
+    v, doc, salvar = evidencia_local
+    e = Evento("u01/s1/checkpoint_persistencia", "u01", 1, "checkpoint_persistencia")
+    doc["eventos"][e.id] = invalida
+    salvar()
+    with pytest.raises(EvidenciaIncompativel):
+        v.aguardar(e, timeout=2, intervalo=1)
+    assert not relogio_evidencia.pausas
+
+
+@pytest.mark.parametrize("ram", [None, "ausente"])
+def test_sqlite_limpo_com_ram_desconhecida_nao_aprova(evidencia_local, relogio_evidencia, ram):
+    from eval.sessoes_evidencias import TimeoutEvidencia
+    v, doc, salvar = evidencia_local
+    e = Evento("u04/s4/checkpoint_exclusao", "u04", 4, "checkpoint_exclusao")
+    observacao = {"alvos_antes": 2, "alvos_ativos": 0, "alvos_substituidos": 0,
+                  "nao_alvos_preservados": True}
+    if ram is None:
+        observacao["alvos_no_historico"] = None
+    doc["eventos"][e.id] = evidencia_fixture(doc, e, observacao)
+    salvar()
+    assert integrado.classificar_checkpoint(e, v(e), cenario="memoria_automatica", simulado=False) == "nao_verificado"
+    with pytest.raises(TimeoutEvidencia):
+        v.aguardar(e, timeout=2.5, intervalo=1)
+    assert relogio_evidencia.pausas == [1, 1, .5]
+    assert v(e).get("alvos_no_historico") is None
+
+
+def test_medicao_contraditoria_libera_espera_e_reprova(evidencia_local, relogio_evidencia):
+    v, doc, salvar = evidencia_local
+    e = Evento("u04/s4/checkpoint_exclusao", "u04", 4, "checkpoint_exclusao")
+    doc["eventos"][e.id] = evidencia_fixture(doc, e, {
+        "alvos_antes": 2, "alvos_ativos": 0, "alvos_substituidos": 1,
+        "alvos_no_historico": 0, "nao_alvos_preservados": False})
+    salvar()
+    r = v.aguardar(e, timeout=3, intervalo=1)
+    assert integrado.classificar_checkpoint(e, r, cenario="memoria_automatica", simulado=False) == "reprovado"
+    assert not relogio_evidencia.pausas
+
+
+@pytest.mark.parametrize("valor", [-1, True, "0", 0.0])
+def test_medicao_invalida_e_rejeitada(evidencia_local, relogio_evidencia, valor):
+    from eval.sessoes_evidencias import EvidenciaIncompativel
+    v, doc, salvar = evidencia_local
+    e = Evento("u04/s4/checkpoint_exclusao", "u04", 4, "checkpoint_exclusao")
+    doc["eventos"][e.id] = evidencia_fixture(doc, e, {
+        "alvos_antes": 2, "alvos_ativos": 0, "alvos_substituidos": 0,
+        "alvos_no_historico": valor, "nao_alvos_preservados": True})
+    salvar()
+    with pytest.raises(EvidenciaIncompativel):
+        v.aguardar(e, timeout=3, intervalo=1)
+    assert not relogio_evidencia.pausas
+
+
+@pytest.mark.parametrize("campo", ["timeout", "intervalo"])
+@pytest.mark.parametrize("valor", [0, -1, float("nan"), float("inf"), float("-inf"), True, "1"])
+def test_prazos_positivos_finitos(evidencia_local, campo, valor):
+    v, _, _ = evidencia_local
+    prazos = {"timeout": 2, "intervalo": 1, campo: valor}
+    with pytest.raises(ValueError, match="positivo e finito"):
+        v.aguardar(Evento("p", "u01", 1, "checkpoint_persistencia"), **prazos)
+
+
+def test_leitura_concluida_fora_do_prazo_nao_e_aceita(evidencia_local, relogio_evidencia, monkeypatch):
+    from eval.sessoes_evidencias import TimeoutEvidencia
+    v, doc, salvar = evidencia_local
+    e = Evento("u01/s1/checkpoint_persistencia", "u01", 1, "checkpoint_persistencia")
+    doc["eventos"][e.id] = evidencia_fixture(doc, e, {
+        "reinicio_confirmado": True, "estado_antes": [1], "estado_depois": [1]})
+    salvar()
+    ler = v._ler
+
+    def leitura_lenta():
+        relogio_evidencia.agora += 3
+        return ler()
+
+    monkeypatch.setattr(v, "_ler", leitura_lenta)
+    with pytest.raises(TimeoutEvidencia):
+        v.aguardar(e, timeout=2, intervalo=1)
+
+
+@pytest.mark.parametrize("modo", ["sucesso", "timeout", "incompativel"])
+def test_espera_integrada_audita_para_e_nao_repete_efeitos(dados, tmp_path, relogio_evidencia, modo):
+    eventos = integrado.planejar(dados)
+    cs = {u["usuario_id"]: Credencial("p6_" + u["usuario_id"], "segredo-nao-registrar") for u in dados["usuarios"]}
+    doc = documento_fixture(cs)
+    caminho = tmp_path / "externo.json"
+    caminho.write_text(json.dumps(doc), encoding="utf-8")
+    log = tmp_path / "rodada.jsonl"
+    pedidos = []
+
+    def responder(r):
+        pedidos.append((r.method, r.url.path, r.content))
+        if r.url.path == "/provedores":
+            return httpx.Response(200, json=[{"provedor": "ollama", "modelo": "simulado", "configurado": True}])
+        if r.url.path.endswith("/sessoes"):
+            return httpx.Response(204)
+        if r.url.path == "/conversas":
+            return httpx.Response(200, json={"resposta": "simulado", "provedor": "ollama", "modelo": "simulado",
+                                           "tokens_entrada": 1, "tokens_saida": 1, "memorias_usadas": []})
+        return httpx.Response(200, json={})
+
+    cliente = httpx.Client(base_url="http://teste", transport=httpx.MockTransport(responder))
+    v = VerificadorEvidencias(caminho)
+    automatico = TransporteHTTP(cliente, cs, contratos=contrato_fixture(eventos), verificar_checkpoint=v)
+    automatico.simulado = True
+    historico = ClienteFalso("historico_completo")
+    excluir = next(e for e in eventos if e.tipo == "checkpoint_exclusao")
+    aguardar = v.aguardar
+    consultas = []
+
+    def esperar(e, **kwargs):
+        antes = list(pedidos)
+
+        def publicar():
+            assert pedidos == antes  # nenhuma operação HTTP durante as consultas
+            linhas = ler_log(log)
+            assert linhas[-1]["tipo"] == "aguardando_evidencia"
+            assert linhas[-1]["evento"]["id"] == e.id
+            consultas.append(e.id)
+            if modo == "timeout" and e.id == excluir.id:
+                return
+            obs = ({"alvos_antes": 2, "alvos_ativos": 0, "alvos_substituidos": 0,
+                    "alvos_no_historico": 0, "nao_alvos_preservados": True}
+                   if e.tipo == "checkpoint_exclusao" else
+                   {"reinicio_confirmado": True, "estado_antes": ["simulado"], "estado_depois": ["simulado"]})
+            doc["eventos"][e.id] = evidencia_fixture(doc, e, obs)
+            if modo == "incompativel" and e.id == excluir.id:
+                doc["eventos"][e.id]["ambiente_id"] = "outro"
+            caminho.write_text(json.dumps(doc), encoding="utf-8")
+
+        relogio_evidencia.publicar = publicar
+        return aguardar(e, **kwargs)
+
+    v.aguardar = esperar
+    r = integrado.executar(dados, {"memoria_automatica": automatico, "historico_completo": historico},
+                          log, modelo="simulado", execucao_id="execucao-simulada", aguardar_evidencias=True,
+                          timeout_evidencia=2.5, intervalo_evidencia=1)
+    linhas = ler_log(log)
+    assert linhas[-1]["tipo"] == "fim"
+    assert cliente.is_closed and historico.fechar_chamadas == 1
+    assert "segredo-nao-registrar" not in log.read_text(encoding="utf-8")
+    assert sum(m == "DELETE" for m, _, _ in pedidos) == 1
+    assert len({e.id for e in historico.eventos}) == len(historico.eventos)
+    recebidas = [l for l in linhas if l["tipo"] == "evidencia_recebida"]
+    assert recebidas and all(l["simulado"] is True for l in recebidas)
+    assert all(l["observacao"]["evidencia"]["documento_sha256"] for l in recebidas)
+    # A fonte pode repetir o mesmo texto em sessões distintas: contar por evento.
+    efeitos = [(m, p, b) for m, p, b in pedidos if m != "GET"]
+    previstos = [l for l in linhas if l["tipo"] == "resultado"
+                 and l["cenario"] == "memoria_automatica"
+                 and l["evento"]["tipo"] in integrado.MODELO_EVENTOS | {"iniciar_sessao", "apagar_usuario"}]
+    assert len(efeitos) == len(previstos)
+    tentativas = [(l["cenario"], l["evento"]["id"]) for l in linhas if l["tipo"] == "tentativa"]
+    assert len(tentativas) == len(set(tentativas))
+    if modo == "sucesso":
+        assert r["estado_orquestracao"] == "concluida"
+        assert len(recebidas) == len(consultas) == 22
+        assert sum(p == "/conversas" for _, p, _ in pedidos) == 53
+        assert all(l.get("checkpoint") != "verificado" for l in linhas)
+        assert any(l.get("checkpoint") == "verificado_simulado" for l in linhas)
+    else:
+        assert r["estado_orquestracao"] == "incompleta"
+        assert r["motivo_interrupcao"]["evento_id"] == excluir.id
+        esperado = "TimeoutEvidencia" if modo == "timeout" else "EvidenciaIncompativel"
+        assert r["motivo_interrupcao"]["erro"]["tipo"] == esperado
+        assert r["resultados"][-1]["evento"]["id"] == excluir.id
+        assert r["resultados"][-1]["checkpoint"] == "nao_verificado"
+        assert any(l["tipo"] == "rodada_interrompida" for l in linhas)
+        assert all(e.id != excluir.id for e in historico.eventos)
+        assert not r["avaliacao_respostas_completa"]
+    # JSONL liberado e preservado; outra rodada não pode sobrescrevê-lo.
+    with log.open("r+", encoding="utf-8") as f:
+        assert f.readline()
+    with pytest.raises(FileExistsError):
+        integrado.executar(dados, clientes(), log)
+
+
+@pytest.mark.parametrize("erro", ["timeout", "incompativel", "inesperado"])
+def test_cli_espera_falha_retorna_um_e_fecha(dados, tmp_path, monkeypatch, erro):
+    from eval.sessoes_evidencias import EvidenciaIncompativel, TimeoutEvidencia
+    cs = tmp_path / "credenciais.json"
+    cs.write_text("{}", encoding="utf-8")
+    log = tmp_path / "cli.jsonl"
+    ts = clientes()
+    ts["memoria_automatica"].verificar_inicio = lambda *a, **kw: {
+        "ambiente_id": "simulado", "usuarios": {u["usuario_id"]: "p6_" + u["usuario_id"] for u in dados["usuarios"]}}
+    falha = {"timeout": TimeoutEvidencia, "incompativel": EvidenciaIncompativel, "inesperado": RuntimeError}[erro]
+    ts["memoria_automatica"].aguardar_checkpoint = Mock(side_effect=falha("simulado"))
+    monkeypatch.setattr(integrado, "TransporteHTTP", lambda *a, **kw: ts["memoria_automatica"])
+    monkeypatch.setattr(integrado, "TransporteHistorico", lambda **kw: ts["historico_completo"])
+    cliente = httpx.Client(transport=httpx.MockTransport(Mock(side_effect=AssertionError("Rede proibida"))))
+    monkeypatch.setattr(httpx, "Client", lambda **kw: cliente)
+    monkeypatch.setattr(integrado.sys, "argv", ["p6", "--executar", "--aguardar-evidencias",
+                                              "--credenciais", str(cs), "--saida", str(log),
+                                              "--timeout-evidencia", "2", "--intervalo-evidencia", "1"])
+    assert integrado.main() == 1
+    assert cliente.is_closed
+    assert all(t.fechar_chamadas == 1 for t in ts.values())
+    assert ler_log(log)[-1]["estado_orquestracao"] == "incompleta"
+    ts["memoria_automatica"].aguardar_checkpoint.assert_called_once()
+
+
+def test_inspecao_com_espera_nao_abre_transportes(monkeypatch, capsys):
+    monkeypatch.setattr(integrado, "TransporteHTTP", Mock(side_effect=AssertionError("Transporte proibido")))
+    monkeypatch.setattr(integrado.sys, "argv", ["p6", "--aguardar-evidencias", "--timeout-evidencia", "4",
+                                              "--intervalo-evidencia", "0.5"])
+    assert integrado.main() == 0
+    assert json.loads(capsys.readouterr().out)["espera_evidencias"] == {
+        "habilitada": True, "timeout_segundos": 4, "intervalo_segundos": .5}
+
+
+@pytest.mark.parametrize("argumento,valor", [("--timeout-evidencia", "0"), ("--intervalo-evidencia", "nan"),
+                                          ("--timeout-evidencia", "inf"), ("--intervalo-evidencia", "-1")])
+def test_cli_recusa_prazos_invalidos(monkeypatch, argumento, valor):
+    monkeypatch.setattr(integrado.sys, "argv", ["p6", argumento, valor])
+    with pytest.raises(SystemExit) as erro:
+        integrado.main()
+    assert erro.value.code == 2
+
+
+
+@pytest.mark.parametrize("alteracao", ["json", "ambiente", "api", "usuarios", "configuracao"])
+def test_espera_rejeita_documento_incompativel(evidencia_local, relogio_evidencia, alteracao):
+    from eval.sessoes_evidencias import EvidenciaIncompativel
+    v, doc, salvar = evidencia_local
+    if alteracao == "ambiente":
+        doc["ambiente_id"] = "outro"
+    elif alteracao == "api":
+        doc["api_url"] = "http://outro"
+    elif alteracao == "usuarios":
+        doc["usuarios"]["u01"] = "p6_outro"
+    elif alteracao == "configuracao":
+        doc["configuracao_efetiva"]["modelo"] = "outro"
+    salvar()
+    if alteracao == "json":
+        v.caminho.write_text("{", encoding="utf-8")
+    with pytest.raises(EvidenciaIncompativel):
+        v.aguardar(Evento("u01/s1/checkpoint_persistencia", "u01", 1, "checkpoint_persistencia"),
+                   timeout=2, intervalo=1)
+    assert not relogio_evidencia.pausas
+
+
+def test_checkpoint_consume_snapshot_aceito_sem_reler_documento(evidencia_local, relogio_evidencia):
+    v, doc, salvar = evidencia_local
+    e = Evento("u01/s1/checkpoint_persistencia", "u01", 1, "checkpoint_persistencia")
+    doc["eventos"][e.id] = evidencia_fixture(doc, e, {
+        "reinicio_confirmado": True, "estado_antes": ["simulado"], "estado_depois": ["simulado"]})
+    salvar()
+    pedidos = []
+
+    def responder(r):
+        pedidos.append(r)
+        return httpx.Response(200, json={})
+
+    cliente = httpx.Client(base_url="http://teste", transport=httpx.MockTransport(responder))
+    t = TransporteHTTP(cliente, {u: Credencial(uid, "token-falso") for u, uid in doc["usuarios"].items()},
+                       verificar_checkpoint=v)
+    # Barreira já exercitada pelos testes integrados; isola a fronteira de espera/consumo.
+    t._pronto = True
+    t._provedor, t._modelo = "ollama", "simulado"
+    try:
+        aceita = t.aguardar_checkpoint(e, timeout=2, intervalo=1)
+        assert not pedidos
+        v.caminho.write_text("{", encoding="utf-8")
+        r = t.executar(e, provedor="ollama", modelo="simulado")
+        assert r["evidencia"] == aceita["evidencia"]
+        assert r["estado_antes"] == ["simulado"]
+        assert len(pedidos) == 1 and pedidos[0].method == "GET"
+        assert not t._evidencias_prontas
+    finally:
+        t.fechar()
+    assert cliente.is_closed
