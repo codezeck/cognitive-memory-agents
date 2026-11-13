@@ -596,6 +596,38 @@ def test_anotacoes_parciais_incompativeis_nao_inventam_politicas(dados, tmp_path
     assert all(m["nao_aplicaveis"] == 21 for m in r["metricas_recuperacao_lexical"]["historico_completo"].values())
 
 
+def test_anotacoes_oficiais_p6_tem_cobertura_estrutural_completa(dados):
+    from eval.julgamento_respostas import julgar_resposta
+
+    caminho = RAIZ / "eval/memoria/anotacoes_p6.json"
+    bytes_antes = caminho.read_bytes()
+    anotacoes = json.loads(bytes_antes)
+    eventos = integrado.planejar(dados)
+    validas, cobertura = integrado.cobertura_anotacoes(eventos, anotacoes)
+    assert len(validas) == 21
+    assert (cobertura["compativeis"], cobertura["incompativeis"], cobertura["ausentes"]) == (21, 0, 0)
+    assert cobertura["cobertura_pct"] == 100
+    assert set(validas) == {e.id for e in eventos if e.tipo == "pergunta"}
+    # Julga respostas de referência, não respostas observadas de um chatbot real.
+    for qid, caso in validas.items():
+        resposta = caso["esperado"] if caso["avaliacao"]["tipo_resposta"] == "factual" else "DESCONHECIDO"
+        assert julgar_resposta(resposta, caso)["protocolo_ok"] is True, qid
+    assert caminho.read_bytes() == bytes_antes
+
+
+def test_gatos_preserva_gabaritos_distintos_aguardando_revisao_semantica(dados):
+    anotacoes = json.loads((RAIZ / "eval/memoria/anotacoes_p6.json").read_text(encoding="utf-8"))
+    usuario = next(u for u in dados["usuarios"] if u["usuario_id"] == "u03")
+    pergunta = usuario["perguntas"][2]
+    assert pergunta["pergunta"] == "Quantos gatos eu tenho?"
+    assert pergunta["esperado"] == ["Luna", "Simba"]  # alvos de recuperação
+    anotacao = anotacoes["u03/s4/pergunta3"]
+    assert anotacao["avaliacao"]["atributo"] == "quantidade_pets"
+    assert anotacao["esperado"] == "dois"  # gabarito de resposta proposto por Vinicius
+    assert anotacao["avaliacao"]["aliases_aceitos"] == ["2"]
+    # Compatibilidade estrutural não certifica a revisão humana dessa interpretação.
+
+
 @pytest.mark.parametrize("estado,codigo", [("concluida", 0), ("incompleta", 1)])
 def test_cli_retorna_estado_orquestracao_preservando_jsonl(dados, monkeypatch, tmp_path, estado, codigo):
     cs = tmp_path / "credenciais.json"

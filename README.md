@@ -99,6 +99,14 @@ O projeto poderá evoluir com novos adaptadores de modelos, melhorias na recuper
 
 Toda evolução deve preservar a modularidade, a segurança e o comportamento já validado por testes.
 
+## Agente, provedores e avaliação
+
+- [Agente e provedores](docs/agente-provedores.md): execução da CLI, configuração local, histórico, contexto, timeout e erros. Ollama e OpenAI têm testes simulados; isso não comprova disponibilidade de um serviço real.
+- [Guia de avaliação](docs/guia-avaliacao.md): instalação do ambiente Python 3.13, carregamento do `.env`, testes e reprodução dos experimentos P4/P5/P6.
+- [Arquitetura](docs/decisoes-arquitetura.md) e [evidências](evidencias/README.md).
+
+O julgador `p4-v3` reconhece os treze atributos usados pela avaliação. As 21 anotações oficiais P6 são estruturalmente compatíveis; a interpretação de `u03/s4/pergunta3` ainda exige revisão de Vinicius. Isso não comprova 21 respostas corretas do chatbot. A rodada real depende do contrato de esquecimento e das evidências operacionais descritos no guia.
+
 ## API
 
 API em FastAPI que recebe as conversas, escolhe o modelo, busca as memórias do usuário e chama o agente. Documentação interativa em `http://127.0.0.1:8000/docs` com a API no ar.

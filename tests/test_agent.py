@@ -267,3 +267,35 @@ def test_historico_limita_a_dez_interacoes_e_preserva_prompt_sistema(monkeypatch
     assert respostas_enviadas == [f"Resposta {i}" for i in range(2, 11)]
     assert len(perguntas_enviadas) == agent.MAX_INTERACOES_HISTORICO
     assert len(respostas_enviadas) == agent.MAX_INTERACOES_HISTORICO - 1
+
+
+def test_retirar_memoria_da_busca_nao_e_sinal_de_exclusao_do_historico(monkeypatch):
+    chamadas = []
+
+    def gerar(mensagens):
+        chamadas.append([dict(m) for m in mensagens])
+        return "Você mora em Osasco."
+
+    monkeypatch.setattr(agent.modelo_ia, "gerar", gerar)
+    agent.responder("Onde eu moro?", "u1", memorias=[{"texto": "Mora em Osasco."}])
+    agent.responder("E agora?", "u1", memorias=[])
+    # Uma busca vazia não distingue exclusão, irrelevância e falha de recuperação.
+    assert any(m["role"] == "assistant" and "Osasco" in m["content"] for m in chamadas[-1])
+    assert not any(m["role"] == "system" and "Mora em Osasco." in m["content"] for m in chamadas[-1])
+
+
+def test_reset_explicito_remove_residuos_das_mensagens_do_usuario_e_assistente(monkeypatch):
+    chamadas = []
+
+    def gerar(mensagens):
+        chamadas.append([dict(m) for m in mensagens])
+        return "Osasco" if len(chamadas) == 1 else "DESCONHECIDO"
+
+    monkeypatch.setattr(agent.modelo_ia, "gerar", gerar)
+    agent.responder("Moro em Osasco.", "u1")
+    agent.obter_historico("u2").append({"role": "user", "content": "Outro usuário"})
+    agent.limpar_historico("u1")  # mecanismo que a API pode acionar após exclusão aprovada
+    agent.responder("Onde eu moro?", "u1", memorias=[])
+    assert all("Osasco" not in m["content"] for m in chamadas[-1])
+    assert all("Osasco" not in m["content"] for m in agent.obter_historico("u1"))
+    assert agent.obter_historico("u2")[-1]["content"] == "Outro usuário"

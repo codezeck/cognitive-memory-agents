@@ -2,6 +2,14 @@
 from typing import Protocol
 
 
+class ErroModelo(RuntimeError):
+    """Falha na geração de uma resposta pelo modelo."""
+
+
+class RespostaModeloVaziaError(ErroModelo):
+    """O modelo não retornou conteúdo textual utilizável."""
+
+
 class ModeloLLM(Protocol):
     """Contrato que qualquer integração de modelo deve seguir."""
 

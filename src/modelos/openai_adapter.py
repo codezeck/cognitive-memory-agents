@@ -7,9 +7,10 @@ from openai import (
 )
 
 from src.api.erros import ProvedorIndisponivel, ProvedorTimeout
+from src.modelos.base import RespostaModeloVaziaError
 
 
-class RespostaOpenAIVaziaError(RuntimeError):
+class RespostaOpenAIVaziaError(RespostaModeloVaziaError):
     """Indica que a OpenAI retornou uma resposta vazia ou inválida."""
 
 

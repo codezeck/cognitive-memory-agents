@@ -12,6 +12,7 @@ from src.api.erros import (
     ProvedorTimeout,
 )
 from src.api.servico import ResultadoAgente
+from src.modelos.base import RespostaModeloVaziaError
 from src.modelos.ollama_adapter import (
     ModeloIndisponivelError,
     OllamaAdapter,
@@ -26,6 +27,12 @@ class AgenteLocal:
         self._adaptadores: dict[tuple[str, str], object] = {}
 
     def _adaptador(self, provedor: str, modelo: str):
+        # A allowlist é responsabilidade do catálogo da API. Aqui validamos
+        # também os chamadores locais do avaliador, antes de criar um cliente.
+        if not isinstance(provedor, str) or provedor not in {"ollama", "openai"}:
+            raise ModeloNaoPermitido("O provedor selecionado ainda não tem adaptador.")
+        if not isinstance(modelo, str) or not modelo.strip() or modelo != modelo.strip():
+            raise ModeloNaoPermitido("Informe um identificador de modelo não vazio, sem espaços externos.")
         chave = (provedor, modelo)
 
         if chave in self._adaptadores:
@@ -44,11 +51,6 @@ class AgenteLocal:
                 )
 
             adaptador = OpenAIAdapter(modelo, api_key)
-
-        else:
-            raise ModeloNaoPermitido(
-                f"O provedor '{provedor}' ainda não tem adaptador."
-            )
 
         self._adaptadores[chave] = adaptador
         return adaptador
@@ -88,6 +90,12 @@ class AgenteLocal:
             )
         except (ProvedorTimeout, ProvedorIndisponivel):
             raise
+        except RespostaModeloVaziaError as exc:
+            # Reutiliza o contrato 503 existente, sem alterar endpoints.
+            # Nunca devolve conteúdo ou detalhes do erro do provedor ao cliente.
+            raise ProvedorIndisponivel(
+                "O provedor não retornou uma resposta válida."
+            ) from exc
         except ModeloIndisponivelError as exc:
             causa = exc.__cause__
 
