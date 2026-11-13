@@ -139,9 +139,13 @@ def buscar_memorias(usuario_id: UsuarioIdPath,
 @app.delete("/usuarios/{usuario_id}/memorias/{memoria_id}", status_code=204,
             dependencies=[Depends(autorizar_usuario)])
 def esquecer_uma(usuario_id: UsuarioIdPath, memoria_id: MemoriaIdPath,
-                 memoria=Depends(get_memoria)):
+                 memoria=Depends(get_memoria),
+                 conversador=Depends(get_conversador)):
     if not memoria.esquecer(usuario_id, memoria_id):
         raise MemoriaNaoEncontrada("Memória não encontrada para este usuário.")
+    # O histórico da conversa (em RAM) pode conter o fato apagado; zera como nos
+    # outros caminhos de esquecimento.
+    conversador.nova_sessao(usuario_id)
 
 
 @app.delete("/usuarios/{usuario_id}/memorias", response_model=ApagadasSaida,

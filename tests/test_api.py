@@ -339,3 +339,11 @@ def test_memoria_persiste_apos_reiniciar_e_esquecida_nao_volta(monkeypatch, tmp_
         banco.fechar()
     finally:
         app.dependency_overrides.clear()
+
+def test_esquecer_uma_memoria_tambem_limpa_o_historico_da_conversa(ctx):
+    client, agente, memoria = ctx
+    mid = memoria.salvar("u1", "O usuário mora em Campinas", "cidade")
+    assert client.delete(f"/usuarios/u1/memorias/{mid}").status_code == 204
+    # o histórico em RAM do agente também precisa ser zerado, como nos outros
+    # caminhos de esquecimento (apagar usuário e "esqueça..." na conversa)
+    assert agente.sessoes_novas == ["u1"]       
