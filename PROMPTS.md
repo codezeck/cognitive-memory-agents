@@ -93,6 +93,12 @@ Cada interação tem o prompt, o resumo da resposta e a decisão (aceito, corrig
 
 ---
 
+### 14. Preparação acadêmica e apresentação (Codex, 12/11/2026)
+
+- **Pedido:** consultar o enunciado, preparar a contribuição de agente/provedores/avaliação para a pesquisa, organizar evidências históricas, elaborar roteiro de 3–5 minutos e plano das 20 sessões P6, somente com documentação, sem execução real, commit ou publicação.
+- **Resposta produzida:** quatro documentos em `docs/`, com texto acadêmico, oito fontes primárias verificadas, tabelas derivadas dos arquivos existentes, especificações de figuras, roteiro de 4min30s e plano P6 com pré-requisitos/checkpoints. O guia e o índice de avaliações receberam referências aos materiais. Os números foram mantidos com política/data/origem, distinguindo resultados históricos, simulação e entregas da PR #41 em revisão.
+- **Revisão necessária:** Zeck e a equipe ainda precisam aceitar/corrigir o texto, conferir as referências para o PDF coletivo e aprovar contratos/gabaritos. Não foi registrada aprovação humana antecipada. A ausência de resultado atual P3/P4/P5, os metadados finais e o checkpoint de persistência após banco vazio foram explicitados, sem preencher valores ou alterar dados para obter sucesso.
+
 ## Evidências
 
 - `evidencias/comparativo_oficial_3rep.json`: avaliação oficial.
