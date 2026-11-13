@@ -2,6 +2,8 @@
 
 Como reproduzir as avaliações do projeto e como ler as métricas. Comandos para Windows (PowerShell), na raiz do repositório.
 
+Para a preparação da entrega, consulte a [contribuição acadêmica de Zeck](contribuicao-academica-zeck.md), o [inventário de resultados e figuras](resultados-avaliacoes-agente.md), o [roteiro da demonstração](roteiro-demonstracao.md) e o [plano operacional P6](plano-execucao-p6.md). São documentos de preparação: preservam os resultados históricos e distinguem a master da PR #41 ainda em revisão. Os contratos e as fórmulas de referência permanecem neste guia.
+
 ## O que é avaliado
 
 | Avaliação | Pergunta que responde | Script | Responsável |

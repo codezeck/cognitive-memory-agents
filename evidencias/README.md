@@ -10,8 +10,8 @@ Cada afirmação do trabalho de pesquisa aponta para uma evidência desta pasta 
 
 | # | Afirmação | Evidência | Como conferir | Status |
 |---|---|---|---|---|
-| 1 | O agente com memória responde com menos tokens por pergunta que o histórico completo, e mantém o acerto. | `comparativo_oficial_3rep.json` | Ver "Reproduzir a avaliação oficial" abaixo | Disponível |
-| 2 | Corrigir acentos corrompidos no dataset melhorou a avaliação (antes e depois). | `comparativo_antes_correcao_encoding.json` e `comparativo_oficial_3rep.json` | Comparar o campo `resumo` dos dois arquivos | Disponível |
+| 1 | O comparativo histórico registra tokens e aprovação de quatro estratégias; os cenários de memória têm menor total registrado e também menos aprovações que o histórico completo. | `comparativo_oficial_3rep.json` | Ver "Reproduzir a avaliação oficial" abaixo e as tabelas em `../docs/resultados-avaliacoes-agente.md` | Disponível, com política/percurso históricos; não demonstra manutenção do acerto |
+| 2 | Há rodadas registradas antes e depois da correção de encoding, com variação entre cenários. | `comparativo_antes_correcao_encoding.json` e `comparativo_oficial_3rep.json` | Comparar `resumo`; tabela e ressalvas no inventário | Disponível; não isola o efeito causal do encoding nem mostra melhora universal |
 | 3 | O modelo inventa informação quando não há memória, e os erros das estratégias de memória se concentram nos casos de esquecimento. | Campo `resultados` de `comparativo_oficial_3rep.json` (respostas por caso e cenário) e `PROMPTS.md` (análise de erros) | Filtrar `cenario` e `passou` no JSON | Disponível |
 | 4 | O fluxo lembrar, atualizar, persistir, esquecer e apagar o usuário funciona pela API, com `401` sem token e `403` para outro usuário. | Testes de `tests/test_api.py` em `memoria/01_testes_pytest.txt`; `agente/fluxo-memoria-docker-2026-11-05.txt` (execução real, API no Docker) | `python -m pytest tests/test_api.py -v` | Disponível |
 | 5 | Uso crítico da IA registrado (prompts, resposta, decisão e motivo). | `../PROMPTS.md` | Ler o arquivo | Disponível (mesclado no PR #27; revisão posterior pedida) |
@@ -20,6 +20,8 @@ Cada afirmação do trabalho de pesquisa aponta para uma evidência desta pasta 
 | 8 | Resultados da avaliação final, congelada e reproduzível. | `comparativo_final_3rep.json` | Comando do `docs/guia-avaliacao.md` | Pendente (rodada final, até 21/11) |
 
 ### Reproduzir a avaliação oficial
+
+Material preparado para a pesquisa e apresentação: [tabelas e figuras](../docs/resultados-avaliacoes-agente.md), [texto acadêmico](../docs/contribuicao-academica-zeck.md), [roteiro do vídeo](../docs/roteiro-demonstracao.md) e [plano P6](../docs/plano-execucao-p6.md). Esses documentos não são novos resultados, vídeo gravado ou evidência de execução real P6. Os JSON existentes não possuem as etapas/julgamentos do protocolo P3/P4/P5 atual; as lacunas estão identificadas nas tabelas. A compatibilidade 21/21 pertence à PR #41 em revisão; a master desta preparação ainda usa P4-v2 (10/21).
 
 A avaliação oficial (`comparativo_oficial_3rep.json`, gerada em 28/10/2026 com `qwen2.5-coder:3b`, 3 repetições) foi executada com o avaliador do commit `0a847f8`, anterior ao PR #20, que depois mudou o cenário `memoria_regras_api` (passou a enviar as mensagens anteriores pela API real). Para reproduzir exatamente esses números:
 
