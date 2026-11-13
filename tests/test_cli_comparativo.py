@@ -131,7 +131,7 @@ def test_dataset_e_timeout_juntos_preservam_p1_p4_e_campos_do_relatorio(cli, tmp
     cli.worker.assert_has_calls([call(caso, "ollama", "modelo-simulado", timeout=42)] * 2)
     assert cli.worker.call_count == 2
     documento = json.loads(cli.saida.read_text(encoding="utf-8"))
-    assert documento["versao_julgador"] == "p4-v2"
+    assert documento["versao_julgador"] == "p4-v3"
     assert documento["versao_metricas_resposta"] == "p5-v1"
     assert {"gerado_em", "dataset", "usuario_sintetico", "observacoes", "resumo",
             "comparacoes_tokens", "resultados"} <= documento.keys()
@@ -144,7 +144,7 @@ def test_dataset_e_timeout_juntos_preservam_p1_p4_e_campos_do_relatorio(cli, tmp
         if historico:
             assert registro["memorias_usadas"] == []
         assert registro["passou"] is registro["protocolo_ok"] is True
-        assert registro["julgamento"]["versao"] == "p4-v2"
+        assert registro["julgamento"]["versao"] == "p4-v3"
         assert registro["vazamento_esquecidos"]["status"] == "nao_aplicavel"
         assert registro["provedor"] == "ollama"
         assert registro["modelo"] == "modelo-simulado"
@@ -199,7 +199,7 @@ def test_cli_preserva_falhas_como_nao_verificadas_e_exibe_denominadores_p5(cli, 
 @pytest.mark.parametrize("campo,valor", [
     ("avaliacao", None), ("avaliacao", {}),
     ("avaliacao.tipo_resposta", "palpite"), ("avaliacao.tipo_resposta", []),
-    ("avaliacao.atributo", "profissao"), ("avaliacao.atributo", []),
+    ("avaliacao.atributo", "atributo_desconhecido"), ("avaliacao.atributo", []),
     ("avaliacao.informacoes_proibidas", None), ("avaliacao.informacoes_proibidas", [""]),
     ("avaliacao.aliases_proibidos", []), ("avaliacao.aliases_proibidos", {"x": [False]}),
     ("avaliacao.aliases_aceitos", "alias"), ("avaliacao.valores_antigos", [None]),
@@ -218,6 +218,23 @@ def test_metadados_invalidos_sao_rejeitados_antes_de_api_ou_modelo(cli, tmp_path
     assert "Dataset incompatível com P4" in mensagem
     assert "CLI:" in mensagem
     cli.sem_chamadas()
+
+
+def test_dataset_final_oficial_sem_metadados_p4_bloqueia_antes_de_rede(cli, capsys):
+    # Teste do bloqueio atual, não avaliação de respostas do conjunto reservado.
+    dataset = Path(__file__).resolve().parents[1] / "eval/dataset_teste.json"
+    antes = dataset.read_bytes()
+    casos = json.loads(antes)
+    assert len(casos) == 10
+    assert all("avaliacao" not in caso for caso in casos)
+    with pytest.raises(SystemExit) as captura:
+        cli.executar("--dataset", dataset)
+    assert captura.value.code == 2
+    mensagem = capsys.readouterr().err
+    for caso in casos:
+        assert f"{caso['id']}: avaliacao ausente" in mensagem
+    cli.sem_chamadas()
+    assert dataset.read_bytes() == antes
 
 
 def test_conjunto_sem_anotacoes_nao_recebe_metadados_automaticamente(cli, tmp_path, capsys):

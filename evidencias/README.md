@@ -18,6 +18,10 @@ Cada afirmação do trabalho de pesquisa aponta para uma evidência desta pasta 
 | 6 | A integração contínua passa. | Captura e link do run na tag `v1.0` | Página Actions do repositório | Pendente (tag `v1.0`) |
 | 7 | O projeto sobe com `docker compose up`. | Log em `agente/fluxo-memoria-docker-2026-11-05.txt`; vídeo da demonstração (3 a 5 minutos), pendente | `docker compose up` do zero | Parcial: subida validada em 05/11; vídeo pendente |
 | 8 | Resultados da avaliação final, congelada e reproduzível. | `comparativo_final_3rep.json` | Comando do `docs/guia-avaliacao.md` | Pendente (rodada final, até 21/11) |
+| P4 | O julgador reconhece treze atributos, com regressão dos cinco antigos. | `../tests/test_julgamento_respostas.py` | Testes específicos no guia de avaliação | Validado por testes simulados; política `p4-v3` |
+| P6 | As 21 anotações oficiais são estruturalmente compatíveis com o julgador. | `../eval/memoria/anotacoes_p6.json` e `../tests/test_sessoes_integradas.py` | Inspeção sem `--executar`, conforme guia | 21 compatíveis, 0 incompatíveis, 0 ausentes; revisão semântica dos gatos pendente |
+
+As duas últimas linhas são evidências de engenharia, sem nova rodada de LLM. Não comprovam 21 respostas corretas nem execução real das 20 sessões. Contrato de esquecimento, observação da RAM e evidências operacionais continuam necessários. Os JSON históricos acima não foram alterados e não representam resultados da política P4-v3.
 
 ### Reproduzir a avaliação oficial
 

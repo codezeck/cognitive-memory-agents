@@ -8,7 +8,8 @@ import pytest
 
 from eval import avaliar_comparativo as comparativo
 from eval.julgamento_respostas import (
-    CRITERIOS, caso_para_julgamento, julgar_resposta, normalizar, resumir_julgamentos,
+    ATRIBUTOS, CRITERIOS, caso_para_julgamento, julgar_resposta, normalizar,
+    resumir_julgamentos,
 )
 
 RAIZ = Path(__file__).resolve().parents[1]
@@ -233,3 +234,157 @@ def test_integracao_registra_dimensoes_sem_alterar_tokens_ou_despacho(monkeypatc
     resumo = comparativo.resumir([resultado])["historico_completo"]
     assert resumo["tokens_total"] == 42
     assert resumo["julgamento"]["acerto_factual"]["verificados"] == 1
+
+
+# Exemplos sintéticos de engenharia; não substituem os gabaritos oficiais P6.
+NOVOS_ATRIBUTOS = [
+    ("profissao", "coordenadora de enfermagem", "coordenadora", "enfermeira",
+     ["Você trabalha como coordenadora de enfermagem.", "Sou coordenadora.",
+      "Sua profissão atual é coordenadora de enfermagem."],
+     "Você trabalha como médica.", "sua profissão"),
+    ("pet", "Thor", "Thorzinho", "Luna",
+     ["Meu pet se chama Thor.", "O nome do seu pet é Thor.", "Seu pet é Thorzinho."],
+     "Seu pet se chama Nina.", "o nome do seu cachorro"),
+    ("filhos", "três", "3", "dois",
+     ["Você tem três filhos.", "Tenho 3 filhos.", "O número de seus filhos é três."],
+     "Tenho quatro filhos.", "a quantidade de seus filhos"),
+    ("disciplina", "matemática", "Matemática", "física",
+     ["Você leciona matemática.", "Sou professor de matemática.", "Sua disciplina é matemática."],
+     "Você ensina história.", "sua disciplina"),
+    ("hobby", "fotografia", "fotografar", "pintura",
+     ["Meu hobby é fotografia.", "Você gosta de fotografar."],
+     "Seu hobby é dança.", "seu hobby"),
+    ("viagem", "Portugal", "República Portuguesa", "Japão",
+     ["Você vai viajar para Portugal.", "Vou para Portugal.",
+      "Seu destino de viagem atual é República Portuguesa."],
+     "Você viajará para Chile.", "seu destino de viagem"),
+    ("quantidade_pets", "dois", "2", "um",
+     ["Você tem dois pets.", "São 2 pets.", "A quantidade de seus animais de estimação é dois."],
+     "Tenho três pets.", "a quantidade de seus gatos"),
+    ("instrumento", "violão", "guitarra acústica", "piano",
+     ["Você toca violão.", "Toco guitarra acústica.", "Meu instrumento musical é violão."],
+     "Seu instrumento é flauta.", "seu instrumento musical"),
+]
+
+
+@pytest.fixture(params=NOVOS_ATRIBUTOS, ids=lambda v: v[0])
+def atributo_p6(request):
+    atributo, esperado, alias, antigo, frases, incorreta, topico = request.param
+    caso = {
+        "id": "sintetico-" + atributo, "categoria": "atualizacao",
+        "mensagens": ["Pergunta sintética sobre o atributo anotado."],
+        "esperado": esperado,
+        "avaliacao": {"atributo": atributo, "tipo_resposta": "factual",
+                      "aliases_aceitos": [alias], "valores_antigos": [antigo],
+                      "informacoes_proibidas": []},
+    }
+    return caso, frases, incorreta, topico
+
+
+def test_novos_atributos_aceitam_valor_alias_e_variacoes(atributo_p6):
+    caso, frases, _, _ = atributo_p6
+    assert caso["avaliacao"]["atributo"] in ATRIBUTOS
+    comparativo.validar_dataset_p4([caso])
+    antes = copy.deepcopy(caso)
+    for resposta in [caso["esperado"], *caso["avaliacao"]["aliases_aceitos"], *frases]:
+        r = julgar_resposta(resposta, caso)
+        assert r["acerto_factual"]["valor"] is True, resposta
+        assert r["passou"] is True, resposta
+    assert caso == antes
+
+
+def test_novos_atributos_reprovam_fato_incorreto_e_desatualizado(atributo_p6):
+    caso, _, incorreta, _ = atributo_p6
+    for resposta in [incorreta, *caso["avaliacao"]["valores_antigos"]]:
+        r = julgar_resposta(resposta, caso)
+        assert r["acerto_factual"]["valor"] is False, resposta
+        assert r["passou"] is False
+
+
+@pytest.mark.parametrize("modelo", ["Talvez {v}.", "Acho que {v}.", "{v} ou outro.",
+                                   "Não é {v}.", "{v}?", "{v} e mais um fato."])
+def test_novos_atributos_nao_aprovam_incerteza_negacao_ou_detalhes(atributo_p6, modelo):
+    caso, _, _, _ = atributo_p6
+    r = julgar_resposta(modelo.format(v=caso["esperado"]), caso)
+    assert r["acerto_factual"]["valor"] is not True
+    assert r["passou"] is False
+
+
+def test_novos_atributos_abstencao_e_especulacao(atributo_p6):
+    caso, frases, _, topico = atributo_p6
+    caso["avaliacao"]["tipo_resposta"] = "abstencao"
+    caso["esperado"] = ["DESCONHECIDO", "não sei"]
+    for resposta in ["DESCONHECIDO", "Não sei.", f"Não tenho informações sobre {topico}.",
+                     f"Seu histórico não contém informações sobre {topico}."]:
+        r = julgar_resposta(resposta, caso)
+        assert r["abstencao_correta"]["valor"] is True, resposta
+        assert r["acerto_factual"]["status"] == "nao_aplicavel"
+        assert r["protocolo_ok"] is (resposta == "DESCONHECIDO")
+    for resposta in [frases[0], "Não sei, talvez outro valor.", "Não sei ou talvez sim."]:
+        r = julgar_resposta(resposta, caso)
+        assert r["abstencao_correta"]["valor"] is False, resposta
+        assert r["passou"] is False
+
+
+def test_novos_atributos_proibicao_independe_do_acerto(atributo_p6):
+    caso, _, _, _ = atributo_p6
+    caso["informacoes_esquecidas"] = [caso["esperado"]]
+    caso["avaliacao"]["aliases_proibidos"] = {
+        caso["esperado"]: caso["avaliacao"]["aliases_aceitos"],
+    }
+    for resposta in [caso["esperado"], *caso["avaliacao"]["aliases_aceitos"]]:
+        r = julgar_resposta(resposta, caso)
+        assert r["acerto_factual"]["valor"] is True
+        assert r["sem_informacao_proibida"]["valor"] is False
+        assert r["passou"] is False
+    caso["avaliacao"]["tipo_resposta"] = "abstencao"
+    for resposta in [f"Não sei; antes era {caso['esperado']}.",
+                     f"Não é {caso['avaliacao']['aliases_aceitos'][0]}."]:
+        assert julgar_resposta(resposta, caso)["sem_informacao_proibida"]["valor"] is False
+
+
+def test_novos_atributos_distinguem_valor_antigo_de_proibicao(atributo_p6):
+    caso, _, _, _ = atributo_p6
+    antigo = caso["avaliacao"]["valores_antigos"][0]
+    r = julgar_resposta(f"Antes {antigo}; agora {caso['esperado']}.", caso)
+    assert r["acerto_factual"]["valor"] is True
+    assert r["sem_informacao_proibida"]["valor"] is True
+    assert r["formato_ok"]["valor"] is False
+
+
+@pytest.mark.parametrize("atributo,valor,frase,topico", [
+    ("cidade", "Campinas", "Você mora em Campinas.", "sua cidade"),
+    ("esporte", "natação", "Você pratica natação.", "seu esporte"),
+    ("carro", "Onix", "Seu carro é um Onix.", "seu carro"),
+    ("nome", "Ana", "Seu nome é Ana.", "seu nome"),
+    ("time", "Coritiba", "Você torce pelo Coritiba.", "seu time"),
+])
+def test_regressao_dos_cinco_atributos_originais(atributo, valor, frase, topico):
+    caso = {"esperado": valor, "avaliacao": {"atributo": atributo,
+            "tipo_resposta": "factual", "informacoes_proibidas": []}}
+    assert julgar_resposta(frase, caso)["passou"] is True
+    caso["avaliacao"]["tipo_resposta"] = "abstencao"
+    assert julgar_resposta(f"Não há informações sobre {topico}.", caso)["passou"] is True
+    assert julgar_resposta(frase, caso)["passou"] is False
+
+
+def test_aliases_numericos_nao_sao_inventados():
+    caso = {"esperado": "três", "avaliacao": {"atributo": "filhos",
+            "tipo_resposta": "factual", "informacoes_proibidas": []}}
+    assert julgar_resposta("3", caso)["passou"] is False
+    caso["avaliacao"]["aliases_aceitos"] = ["3"]
+    assert julgar_resposta("3", caso)["passou"] is True
+
+
+@pytest.mark.parametrize("atributo,esperado,resposta", [
+    ("pet", "Thor", "Seu gato se chama Thor."),
+    ("quantidade_pets", "dois", "Você tem dois gatos."),
+    ("quantidade_pets", "dois", "Você tem dois gatos e um cachorro."),
+    ("filhos", "três", "Você tem três filhas."),
+])
+def test_qualificacoes_e_subtotais_sem_escopo_anotado_exigem_revisao(atributo, esperado, resposta):
+    caso = {"esperado": esperado, "avaliacao": {"atributo": atributo,
+            "tipo_resposta": "factual", "informacoes_proibidas": []}}
+    r = julgar_resposta(resposta, caso)
+    assert r["acerto_factual"]["status"] == "nao_verificado"
+    assert r["passou"] is False

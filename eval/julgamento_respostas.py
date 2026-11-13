@@ -3,9 +3,12 @@
 import re
 import unicodedata
 
-VERSAO = "p4-v2"
+VERSAO = "p4-v3"
 CRITERIOS = ("acerto_factual", "sem_informacao_proibida", "abstencao_correta", "formato_ok")
-ATRIBUTOS = {"cidade", "esporte", "carro", "nome", "time"}
+ATRIBUTOS = {
+    "cidade", "esporte", "carro", "nome", "time", "profissao", "pet",
+    "filhos", "disciplina", "hobby", "viagem", "quantidade_pets", "instrumento",
+}
 
 
 def normalizar(texto):
@@ -47,12 +50,24 @@ def _valor_isolado(texto):
 
 def _padrao_factual(atributo, valor):
     sujeito = r"(?:(?:eu|voce) )?"
+    # As anotações identificam nome/quantidade, mas não a espécie ou o sexo.
+    # Não aceitar um subtotal de gatos como contagem total de pets, por exemplo.
+    animal = r"(?:pet|animal de estimacao)"
+    animais = r"(?:pets|animais de estimacao)"
     return {
         "cidade": rf"(?:{sujeito}(?:moro|mora|vivo|vive|resido|reside)(?: atualmente| agora)? em |(?:minha|sua) cidade(?: atual)? e |cidade: ){valor}",
         "esporte": rf"(?:{sujeito}(?:pratico|pratica) |(?:meu|seu) esporte(?: atual)? e |esporte: ){valor}",
         "carro": rf"(?:(?:meu|seu) carro(?: atual)? e (?:um )?|{sujeito}(?:dirijo|dirige) (?:um )?|carro: ){valor}",
         "nome": rf"(?:(?:meu|seu) nome e |(?:eu )?me chamo |(?:voce )?se chama |chama-se |nome: ){valor}",
         "time": rf"(?:{sujeito}(?:torco|torce) (?:pelo|pela) |(?:meu|seu) time e |time: ){valor}",
+        "profissao": rf"(?:{sujeito}(?:trabalho|trabalha|atuo|atua) como |{sujeito}(?:sou|e) |(?:minha|sua) profissao(?: atual)? e |(?:meu|seu) cargo(?: atual)? e |profissao: ){valor}",
+        "pet": rf"(?:(?:meu|seu) {animal} (?:se chama|e) |o nome (?:do seu|do meu) {animal} e |pet: ){valor}",
+        "filhos": rf"(?:{sujeito}(?:tenho|tem) {valor} filhos?|(?:o numero|a quantidade) de (?:seus |meus )?filhos e {valor}|filhos: {valor})",
+        "disciplina": rf"(?:{sujeito}(?:ensino|ensina|leciono|leciona) |{sujeito}(?:sou|e) professor(?:a)? de |(?:minha|sua) disciplina e |disciplina: ){valor}",
+        "hobby": rf"(?:(?:meu|seu) hobby e |{sujeito}(?:gosto|gosta) de |hobby: ){valor}",
+        "viagem": rf"(?:{sujeito}(?:vou|vai) (?:viajar )?para |{sujeito}(?:viajarei|viajara) para |(?:meu|seu) destino(?: de viagem)?(?: atual)? e |viagem: ){valor}",
+        "quantidade_pets": rf"(?:{sujeito}(?:tenho|tem) {valor} {animais}|sao {valor} {animais}|a quantidade de (?:seus |meus )?{animais} e {valor}|quantidade de pets: {valor})",
+        "instrumento": rf"(?:{sujeito}(?:toco|toca) |(?:meu|seu) instrumento(?: musical)? e |instrumento: ){valor}",
     }[atributo]
 
 
@@ -78,8 +93,10 @@ def _factual(texto, atributo, aceitos, antigos):
                         rf"antes (?:eu )?morava em {antigo}; agora (?:eu )?moro em {valor}"]
         if any(re.fullmatch(p, sem_ponto) for p in padroes):
             return _criterio(True, "distincao_temporal_reconhecida")
-    afirmacao = re.fullmatch(_padrao_factual(atributo, r"(?P<valor>.+)"), sem_ponto)
-    if ((afirmacao and _valor_isolado(afirmacao.group("valor")))
+    # Contagens podem aparecer antes ou depois do tópico. Capturas posicionais
+    # permitem alternativas sem redefinir um grupo nomeado na mesma regex.
+    afirmacao = re.fullmatch(_padrao_factual(atributo, r"(.+)"), sem_ponto)
+    if ((afirmacao and any(_valor_isolado(v) for v in afirmacao.groups() if v is not None))
             or sem_ponto in {normalizar(v) for v in antigos}
             or (_valor_isolado(sem_ponto) and " " not in sem_ponto)):
         return _criterio(False, "valor_incorreto_ou_afirmacao_nao_sustentada")
@@ -102,6 +119,14 @@ def _abstencao(texto, atributo):
         "carro": r"(?:(?:seu|meu) carro|o carro que voce dirige)",
         "nome": r"(?:(?:seu|meu) nome|o nome do usuario)",
         "time": r"(?:(?:seu|meu) time|o time para o qual voce torce)",
+        "profissao": r"(?:(?:sua|minha) profissao|(?:seu|meu) cargo|a profissao do usuario)",
+        "pet": r"(?:(?:seu|meu) (?:pet|animal de estimacao)|o nome (?:do seu|do meu) (?:pet|cachorro|gato)|o nome (?:da sua|da minha) (?:gata|cachorra))",
+        "filhos": r"(?:(?:seus|meus) filhos|(?:o numero|a quantidade) de (?:seus |meus )?filhos)",
+        "disciplina": r"(?:(?:sua|minha) disciplina|a disciplina que (?:voce ensina|voce leciona|ensino|leciono))",
+        "hobby": r"(?:(?:seu|meu) hobby|o hobby do usuario)",
+        "viagem": r"(?:(?:sua|minha) viagem|(?:seu|meu) destino(?: de viagem)?)",
+        "quantidade_pets": r"(?:a quantidade de (?:seus |meus )?(?:pets|animais de estimacao|gatos|cachorros)|(?:seus|meus) (?:pets|gatos|cachorros))",
+        "instrumento": r"(?:(?:seu|meu) instrumento(?: musical)?|o instrumento que (?:voce toca|toco))",
     }
     topico = topicos[atributo]
     padroes = [

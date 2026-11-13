@@ -4,9 +4,9 @@
 
 O projeto Cognitive Memory Agents iniciou sua implementação com um agente baseado em Ollama. Entretanto, o objetivo de longo prazo é permitir que a camada de memória seja reutilizada com diferentes modelos de linguagem, sem dependência obrigatória de um único fornecedor ou runtime.
 
-## Decisão proposta
+## Decisão implementada e extensões propostas
 
-A arquitetura deverá permitir o uso de:
+A arquitetura usa adaptadores para permitir:
 
 - Modelos hospedados, acessados por APIs de provedores compatíveis.
 - Modelos locais, executados por runtimes ou ferramentas compatíveis.
@@ -31,24 +31,39 @@ O Ollama será uma das integrações possíveis, e não um requisito obrigatóri
 - Preservar o isolamento entre usuários e o controle de acesso às memórias.
 - Avaliar qualidade das respostas, consumo de tokens e latência por modelo.
 
-## Estado atual
+## Estado atual (revisão de 12/11/2026)
 
-A implementação existente utiliza Ollama e mantém o histórico de conversa em memória durante a execução. A integração completa com memória persistente, API e múltiplos provedores ainda precisa ser desenvolvida e validada.
+`ModeloLLM.gerar()` define o contrato textual; `gerar_com_detalhes()` é uma capacidade opcional utilizada para métricas. Ollama e OpenAI possuem adaptadores implementados. `AgenteLocal` seleciona e reutiliza adaptadores por provedor/modelo e traduz falhas para os erros de domínio já existentes. Respostas vazias de ambos os provedores compartilham `RespostaModeloVaziaError` (a classe específica OpenAI permanece compatível) e resultam em `503 provedor_indisponivel`. Não há fallback automático.
+
+```mermaid
+flowchart LR
+    API[API /conversas] --> S[Conversador]
+    S --> G[Gerenciador de regras]
+    G --> M[Memória SQLite + EmbedderHash]
+    S --> M
+    S --> A[AgenteLocal]
+    A --> C[Agente: prompt + memória recuperada + histórico por usuário]
+    C --> L[Adaptador Ollama ou OpenAI]
+```
+
+A API processa as regras, busca memórias persistentes e entrega o contexto ao agente. O histórico de conversa fica em RAM por processo e é limitado a dez interações; memórias recuperadas são inseridas como contexto somente na chamada atual, mas respostas e mensagens podem conservar fatos. A CLI é uma demonstração Ollama com usuário fixo e não conecta a persistência. A memória semântica existe para benchmarks; não é o embedder padrão da API.
+
+Testes simulados validam agente, seleção, adaptadores e erros. Testes com SQLite temporário validam persistência; existe evidência histórica do fluxo Docker. Isso não substitui execução atual dos serviços nem os checkpoints reais P6. A P4-v3 reconhece os treze atributos; a compatibilidade estrutural das anotações é independente da revisão semântica e da avaliação real.
 
 ## Pontos para alinhamento da equipe
 
-- Definir o contrato de comunicação entre API, agente e memória.
-- Escolher quais modelos e provedores serão suportados inicialmente.
-- Definir quem gerencia a configuração e as credenciais dos provedores.
-- Determinar como serão realizados os testes de integração entre os componentes.
+- Concluir contrato aprovado de esquecimento P6 e evidências de início/reinício/exclusão.
+- Definir observação real da RAM da API e a invalidação do histórico após exclusão individual.
+- Alinhar o catálogo anunciado pela API aos adaptadores implementados; a configuração de uma chave não implementa um adaptador.
+- Validar em execução real os serviços e produzir a avaliação final, preservando a execução local a custo zero.
 
-Esta decisão é uma proposta arquitetural e deverá ser validada pela equipe antes da implementação integrada.
+A integração descrita acima já existe. Os pontos de alinhamento são dependências compartilhadas; endpoints, armazenamento e regras não foram alterados nesta revisão. Detalhes: [agente e provedores](agente-provedores.md) e [guia de avaliação](guia-avaliacao.md).
 
-## Responsabilidades propostas da equipe
+## Responsabilidades da equipe
 
-Esta divisão registra o entendimento atual e deve ser validada pelos integrantes.
+Esta divisão segue os escopos informados pela equipe para esta implementação. Mudanças em contratos compartilhados precisam ser alinhadas com os responsáveis.
 
-### Agente e integração com modelos — responsável pelo agente
+### Agente e integração com modelos — Zeck
 
 - Manter a lógica do agente independente de um provedor específico.
 - Preparar prompts e organizar o contexto recebido da memória.
@@ -58,19 +73,20 @@ Esta divisão registra o entendimento atual e deve ser validada pelos integrante
 
 ### Memória de longo prazo — Vinicius
 
-- Implementar a memória persistente.
+- Manter a lógica de memória de longo prazo, extração e esquecimento.
 - Desenvolver a recuperação de memórias relevantes.
 - Tratar atualização e contradições conforme os requisitos.
 - Preparar os dados sintéticos para avaliação.
 
-### API e integração — Paloma
+### API, armazenamento e integração — Paloma
 
 - Alinhar como a API receberá as solicitações e se comunicará com o agente.
 - Avaliar como selecionar e configurar o modelo ou provedor utilizado.
 - Definir o contrato de comunicação entre API, agente e memória.
+- Manter armazenamento, persistência, Docker e infraestrutura.
 - Planejar o tratamento de credenciais, erros e particularidades dos provedores.
 
-Os itens atribuídos à API são propostas de alinhamento e precisam ser confirmados com a responsável.
+O agente participa dos contratos de integração, sem alterar unilateralmente endpoints, armazenamento ou regras de memória.
 
 ## Critérios para a arquitetura multimodelo
 

@@ -2,17 +2,11 @@
 import httpx
 import ollama
 
-
-class ErroModelo(RuntimeError):
-    """Erro base para falhas na comunicação com o modelo."""
+from src.modelos.base import ErroModelo, RespostaModeloVaziaError
 
 
 class ModeloIndisponivelError(ErroModelo):
     """O modelo não pôde ser consultado."""
-
-
-class RespostaModeloVaziaError(ErroModelo):
-    """O modelo não retornou conteúdo utilizável."""
 
 
 class OllamaAdapter:

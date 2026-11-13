@@ -14,7 +14,7 @@ Para a preparação da entrega, consulte a [contribuição acadêmica de Zeck](c
 
 ## Pré-requisitos
 
-1. Ambiente Python:
+1. Ambiente Python 3.13 (versão local registrada em `.python-version`):
 
 ```powershell
 python -m venv .venv
@@ -30,6 +30,23 @@ Para o embedder semântico (`avaliar_memoria.py --embedder semantico`): `pip ins
 ```
 API_TOKENS=troque-por-um-token-longo:eval_comparativo
 ```
+
+## Verificação local de engenharia — 12/11/2026
+
+A base foi reexecutada antes das alterações: **695 aprovados, 1 módulo ignorado, nenhuma falha**. Após a revisão P4-v3, testes dos provedores e teste de bloqueio do conjunto final: **826 aprovados, 1 módulo ignorado, nenhuma falha** (15,81 segundos nesta máquina). São resultados de testes, não novas métricas experimentais P3/P4/P5/P6. O módulo semântico foi ignorado porque sua ativação explícita pode baixar um modelo.
+
+Comando usado, no `.venv` ativo, evitando bytecode, cache e conflito com a pasta temporária padrão:
+
+```powershell
+$env:PYTHONDONTWRITEBYTECODE="1"
+$env:PYTEST_DISABLE_PLUGIN_AUTOLOAD="1"
+Remove-Item Env:TESTAR_EMBEDDER_SEMANTICO -ErrorAction SilentlyContinue
+$pastaTestesZeck = Join-Path $env:TEMP ("cma-zeck-" + [guid]::NewGuid().ToString("N"))
+python -B -m pytest tests -q -ra --tb=short -p no:cacheprovider --basetemp $pastaTestesZeck
+git diff --check
+```
+
+As gravações dos testes ficam em temporários ou RAM; não executar os avaliadores completos como substituto dessa verificação. `pip check` não encontrou dependências quebradas. `git diff --check` passou. Docker não pôde ser conectado e Ollama recusou conexão na verificação local; OpenAI real não foi chamada. A rodada real P6 permanece bloqueada pelas dependências detalhadas abaixo, e os dez casos finais continuam sem metadados P4. Esses limites não são resolvidos pelos testes verdes.
 
 ## Avaliação comparativa do agente (um comando)
 
@@ -86,7 +103,9 @@ O tempo de criação e comunicação com o processo filho entra em `tempo_execuc
 
 ### Julgamento determinístico P4
 
-`eval/julgamento_respostas.py` é um módulo puro: não chama LLM, API, agente ou memória. O comparativo registra `versao_julgador: p4-v2` e um objeto `julgamento` em cada resultado. A revisão v2 corrige frases curtas sem reescrever os conjuntos rotulados v1. `eval/evaluate.py` e os outros scripts que o utilizam não foram migrados; seus resultados históricos têm outra política e não são diretamente comparáveis à P4.
+`eval/julgamento_respostas.py` é um módulo puro: não chama LLM, API, agente ou memória. O comparativo registra `versao_julgador: p4-v3` e um objeto `julgamento` em cada resultado. A revisão v3 acrescenta padrões factuais e de abstenção para os oito atributos P6, preservando as regressões v2 e os conjuntos rotulados v1. Resultados históricos não foram reescritos. `eval/evaluate.py` e os outros scripts que o utilizam não foram migrados; seus resultados históricos têm outra política e não são diretamente comparáveis à P4.
+
+**Atributos suportados:** `cidade`, `esporte`, `carro`, `nome`, `time`, `profissao`, `pet`, `filhos`, `disciplina`, `hobby`, `viagem`, `quantidade_pets` e `instrumento`. São reconhecidos valores literais e aliases explicitamente anotados, além de frases completas cobertas pela gramática (por exemplo, “Você trabalha como coordenadora”, “Você tem três filhos” e “São dois pets”). Números por extenso e algarismos só são equivalentes quando anotados como aliases; nomes de animais não são convertidos em quantidade pelo julgador. Sem escopo de espécie/sexo nas anotações, frases como “Seu gato se chama Thor”, “Você tem dois gatos” ou “Você tem três filhas” ficam não verificadas nos atributos genéricos correspondentes: acertar um nome/subtotal não comprova a espécie nem o total pedido. Valores isolados anotados continuam reconhecidos. A lista de atributos não implica compreensão geral do domínio.
 
 | Critério | Significado |
 |---|---|
@@ -155,6 +174,18 @@ Testes simulados, sem LLM real:
 python -m pytest tests/test_julgamento_respostas.py tests/test_avaliar_comparativo.py -q
 ```
 
+Para julgar uma resposta isolada, sem rede nem gravação, use a função pura com uma anotação oficial. Exemplo em PowerShell:
+
+```powershell
+@'
+import json
+from pathlib import Path
+from eval.julgamento_respostas import julgar_resposta
+anotacoes = json.loads(Path("eval/memoria/anotacoes_p6.json").read_text(encoding="utf-8"))
+print(json.dumps(julgar_resposta("Osasco", anotacoes["u01/s2/pergunta1"]), indent=2))
+'@ | python -B -
+```
+
 ### Como ler os tokens
 
 Uma sessão experimental corresponde aos turnos de um caso do comparativo. Isso não representa uma medição integrada das vinte sessões do benchmark de recuperação.
@@ -202,6 +233,36 @@ Inspecionar o plano, sem API, modelo ou arquivo de saída:
 ```powershell
 python eval/avaliar_sessoes_integradas.py --dataset eval/memoria/sessoes.json
 ```
+
+### Compatibilidade atual P4/P6 e revisão semântica
+
+O arquivo `eval/memoria/anotacoes_p6.json` foi trazido sem alterações do commit remoto `fc759f31f47ca4fb8dc6b28e5b4f5491cddda986` (blob Git `4ceb37705b0c3ac681a12bd95ca36d06a182303d`). O relatório histórico daquela revisão registrou 10 compatíveis e 11 incompatíveis com P4-v2; esse resultado permanece histórico. Com P4-v3, a inspeção estrutural deve produzir **21 compatíveis, 0 incompatíveis e 0 ausentes**:
+
+```powershell
+python -B eval/avaliar_sessoes_integradas.py --anotacoes eval/memoria/anotacoes_p6.json
+python -B -m pytest tests/test_julgamento_respostas.py tests/test_sessoes_integradas.py -q
+```
+
+O primeiro comando não usa `--executar`: não abre transportes, não chama modelos e não cria resultado. Os testes consomem as anotações oficiais e o dataset de sessões sem alterá-los. As respostas de referência usadas nos testes são artificiais; sua aprovação não mede o chatbot.
+
+**Revisão de Vinicius ainda pendente: `u03/s4/pergunta3`.** A pergunta “Quantos gatos eu tenho?” tem `esperado: ["Luna", "Simba"]` no benchmark de recuperação e `esperado: "dois"`, alias `"2"`, na anotação de resposta. A hipótese é que recuperar os dois nomes fornece a evidência para responder à quantidade. O teste preserva ambos os gabaritos e a diferença de finalidade, sem certificar essa interpretação nem inferir automaticamente a contagem. Vinicius precisa confirmar e registrar a revisão. Portanto, 21/21 significa apenas compatibilidade estrutural; validade semântica integral e aprovação funcional continuam não verificadas.
+
+Para cada novo atributo, os testes verificam fatos corretos/incorretos, aliases, abstenção, incerteza, proibições e valores antigos. Respostas ambíguas não ganham aprovação automática. A revisão dos cinco atributos antigos continua coberta sem alterar os rótulos históricos.
+
+### Condições para liberar a rodada real
+
+O avaliador já planeja 20 sessões por cenário, captura tokens por etapa, compara pares equivalentes, preserva JSONL incremental e recusa arquivo de saída existente. A barreira operacional e a espera com timeout permanecem cobertas por testes simulados. Não executar a rodada apenas porque a compatibilidade chegou a 21/21.
+
+| Dependência | Entrega necessária | Responsabilidade |
+|---|---|---|
+| Esquecimento `u02/s5/esquecer_chaves` | Mensagem literal, `aprovado: true` e referência da revisão; mesma mensagem nos dois cenários | Vinicius revisa o conteúdo, Paloma valida o contrato |
+| Anotações | Revisão semântica dos 21 casos, principalmente a quantidade de gatos e aliases explícitos | Vinicius, com Zeck no julgador |
+| Ambiente inicial | Quatro IDs dedicados `p6_`, credenciais externas e evidência aprovada de ativos/substituídos/histórico vazios | Paloma |
+| RAM real da API | Observação somente leitura no processo que atende as chamadas, com identificação do worker e cobertura de todos os processos relevantes | Solução compartilhada Paloma/Zeck, ainda não implementada |
+| Reinício e exclusão | Snapshots e medições vinculados ao evento, incluindo alvos anteriores, ativos, substituídos e resíduos no histórico | Paloma, com revisão de Zeck |
+| Serviços/configuração | API real, modelo disponível e mesmo backend/configuração efetiva no baseline e na API | Paloma/Zeck |
+
+Com as entregas revisadas, usar os argumentos de execução, credenciais, contratos e evidências descritos nas etapas abaixo, sempre com `--saida` novo e `--execucao-id` exclusivo. Não versionar tokens. O executor não prepara o banco, não reinicia infraestrutura e não inventa aprovação ou evidência de RAM. Resultados antigos P3/P4/P5 e o conjunto de teste final devem permanecer preservados.
 
 A orquestração recebe dois transportes independentes. O contrato `Transporte` e as implementações HTTP/histórico ficam em `eval/sessoes_transporte.py`; os clientes falsos existem somente nos testes. O transporte HTTP usa `/conversas` para fatos e perguntas, inicia sessões sem apagar memórias, e usa `DELETE /usuarios/{id}/memorias` para a ação explícita `apagar_usuario`. Não cadastra o estado esperado por `POST /memorias`. IDs de destino precisam ser distintos e dedicados, com prefixo `p6_`, mapeados a tokens provisionados por Paloma. Usuário com estado de regras não vazio na primeira sessão é recusado; isso não substitui a preparação de ambiente limpo, inclusive registros inativos, pela responsável pelo armazenamento.
 
@@ -320,7 +381,11 @@ O benchmark de recuperação usa `eval/memoria/sessoes.json` (4 usuários fictí
 | Desenvolvimento | `eval/dataset_comparativo.json` | CMP001 a CMP007 | Pode ser usado para ajustar regras e prompts. |
 | Teste | `eval/dataset_teste.json` | TST001 a TST010 | Não é usado para ajustar nada. Roda uma vez, na versão final, com 3 repetições. |
 
-Comando do conjunto de teste (API e Ollama abertos, como na avaliação comparativa):
+**Bloqueio verificado em 12/11/2026:** os dez casos TST001–TST010 ainda não possuem o objeto `avaliacao` exigido pelo P4. O comparativo recusa o arquivo antes de carregar token, abrir HTTP, chamar modelo ou criar resultado. O teste `test_dataset_final_oficial_sem_metadados_p4_bloqueia_antes_de_rede` lê o dataset oficial e comprova esse bloqueio sem modificá-lo ou executar respostas reservadas.
+
+Vinicius precisa preparar/revisar os metadados explícitos (tipo de resposta, atributo, aliases, valores antigos e proibições) com Zeck na política de julgamento. Não inferir nem preencher esses campos automaticamente e não ajustar gabaritos olhando respostas do conjunto final. Quando os metadados forem entregues, atualizar o teste de bloqueio para exigir validação positiva dos dados revisados. Esse bloqueio é independente das 21 anotações do benchmark P6.
+
+Comando reservado para depois dessa revisão (API e Ollama abertos, como na avaliação comparativa):
 
 ```powershell
 python eval/avaliar_comparativo.py --dataset eval/dataset_teste.json --repeticoes 3 --saida evidencias/comparativo_teste_3rep.json
@@ -352,5 +417,6 @@ O modelo local não é determinístico: o mesmo caso pode passar numa repetiçã
 ## Pendências do protocolo (a fechar antes do congelamento, em 21/11)
 
 1. Separação de tokens implementada na P3; ainda é necessária uma rodada experimental no código congelado. Custos locais, preparação do estado-ouro e consumo perdido em falhas permanecem não medidos.
-2. Avaliar o cenário de regras pelo estado estruturado e pela recuperação equivalente, mantendo a exata só como informação.
+2. Estado estruturado e recuperação equivalente já estão implementados e testados; falta produzir a evidência experimental atual, mantendo a exata como informação complementar.
 3. Rodar a avaliação oficial final com 3 repetições, no commit congelado, e registrar commit, data e hora.
+4. Revisar com Vinicius os metadados P4 ausentes dos dez casos de teste, antes da rodada reservada.
