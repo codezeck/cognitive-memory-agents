@@ -1,0 +1,2 @@
+# Teste opt-in com navegador real, sem alterar o caminho Docker do professor.
+playwright==1.65.2

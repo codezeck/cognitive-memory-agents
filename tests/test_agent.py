@@ -295,7 +295,9 @@ def test_reset_explicito_remove_residuos_das_mensagens_do_usuario_e_assistente(m
     agent.responder("Moro em Osasco.", "u1")
     agent.obter_historico("u2").append({"role": "user", "content": "Outro usuário"})
     agent.limpar_historico("u1")  # mecanismo que a API pode acionar após exclusão aprovada
-    agent.responder("Onde eu moro?", "u1", memorias=[])
-    assert all("Osasco" not in m["content"] for m in chamadas[-1])
+    resposta = agent.responder("Onde eu moro?", "u1", memorias=[])
+    # A consulta pessoal sem suporte agora termina antes de chamar o modelo.
+    assert resposta == "DESCONHECIDO"
+    assert len(chamadas) == 1
     assert all("Osasco" not in m["content"] for m in agent.obter_historico("u1"))
     assert agent.obter_historico("u2")[-1]["content"] == "Outro usuário"

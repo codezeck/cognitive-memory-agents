@@ -1,4 +1,4 @@
-from typing import Annotated
+from typing import Annotated, Literal
 
 from fastapi import Path
 from pydantic import BaseModel, Field
@@ -23,6 +23,8 @@ class ConversaSaida(BaseModel):
     latencia_ms: int
     tokens_entrada: int | None = None   # preenchidos quando o agente repassar
     tokens_saida: int | None = None
+    origem_uso: Literal["politica_local", "provedor", "provedor_com_abstencao_local"] | None = None
+    chamadas_modelo_observadas: int | None = Field(default=None, ge=0, le=1)
 
 
 class ProvedorSaida(BaseModel):

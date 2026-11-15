@@ -9,9 +9,10 @@ COPY requirements.txt .
 RUN python -m pip install --no-cache-dir -r requirements.txt
 
 COPY src ./src
+COPY eval ./eval
 
 RUN mkdir -p /app/dados
 
 EXPOSE 8000
 
-CMD ["uvicorn", "src.api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["python", "-m", "src.inicializacao", "servir"]

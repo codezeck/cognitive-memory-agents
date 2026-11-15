@@ -1,8 +1,8 @@
 # Contribuição de Zeck para a pesquisa acadêmica
 
-Preparação em 12/11/2026. Responsabilidade: agente, provedores, contexto, julgador e avaliação. Este é um texto para integração ao trabalho coletivo, não o PDF ABNT final nem uma nova execução experimental.
+Preparação em 12/11/2026, atualizada em 14/11. Responsabilidade: agente, provedores, contexto, julgador e avaliação. Este texto alimenta o [rascunho PDF](pesquisa-abnt.pdf), junto ao [complemento](pesquisa-complemento.md) e ao [ensaio de desenvolvimento](ensaio-desenvolvimento-20261114.md). Revisão coletiva, metadados institucionais e P6 ainda pendem; não é submissão final.
 
-Base desta documentação: `master` em `fc759f31f47ca4fb8dc6b28e5b4f5491cddda986`. A [PR #41](https://github.com/codezeck/cognitive-memory-agents/pull/41), commit `29d1255`, continua aberta: `p4-v3`, 21/21 anotações compatíveis e tratamento público de resposta vazia são entregas em revisão, não funcionalidades já integradas nesta base. A PR documenta 826 testes aprovados; não os reexecutei nem os atribuí à master nesta preparação documental.
+Base inicial de 12/11: `master` em `fc759f31f47ca4fb8dc6b28e5b4f5491cddda986`. Estado conferido em 14/11: `2be5d51`, com as PRs #41/#42/#43 integradas. P4-v3, compatibilidade estrutural 21/21, resposta vazia tratada como erro e reset após DELETE individual estão integrados. A suíte desta base teve 827 aprovados e 1 ignorado; a [sondagem real Docker/Ollama](validacao-entrega-docker.md) comprovou o fluxo de armazenamento, mas registrou falhas de abstenção após exclusão. Nenhum desses resultados equivale à P6 final.
 
 Documentos complementares: [resultados e figuras](resultados-avaliacoes-agente.md), [roteiro do vídeo](roteiro-demonstracao.md), [plano P6](plano-execucao-p6.md). Comandos e contratos detalhados continuam no [guia de avaliação](guia-avaliacao.md); limitações concretas já descritas em [casos de falha](casos-de-falha.md) devem ser referenciadas, não reescritas.
 
@@ -95,7 +95,7 @@ Os números históricos mostram menor total registrado nos cenários de memória
 
 A avaliação de recuperação de Vinicius registra acerto geral de 71,43% com hash e 100% com o embedder semântico em 21 perguntas. Não há geração de respostas nesse benchmark, e seus tokens são estimados por caracteres. O resultado é útil para discutir a busca, mas não comprova 100% de acerto do chatbot. Os detalhes pertencem ao [índice da memória](../evidencias/memoria/README.md).
 
-Não há resultado real versionado da P6 nem rodada final P3/P4/P5 no protocolo atual. A master tem 10/21 anotações estruturalmente compatíveis; a PR #41 registra 21/21 em revisão. Essa melhoria de cobertura é evidência de engenharia, não aprovação funcional das 21 respostas.
+Não há resultado real versionado da P6 nem rodada confirmatória final. Há agora um comparativo exploratório P3/P4/P5 nos sete casos de desenvolvimento: 17/21 aprovações e 17.094 tokens de sessão na memória automática, frente a 12/21 e 16.017 no histórico. O aumento de 6,72% não atende à meta de economia. As 22 falhas de conteúdo dos quatro cenários estão preservadas no relatório próprio; há respostas inventadas e abstenção indevida. A inspeção estrutural P6 continua sendo 21/21 compatíveis, sem implicar aprovação semântica ou funcional. A sondagem operacional Docker é outro ensaio, sem baseline, e não deve ser somada a essas taxas.
 
 ## 7. Texto proposto — limitações, validade e conclusão provisória
 
@@ -103,7 +103,7 @@ O conjunto é pequeno, sintético e elaborado pela própria equipe. Três repeti
 
 Há limites de instrumentação: os registros históricos não preservam todas as versões, parâmetros ou etapas; o backend pode realizar tentativas internas não observadas; hashing, regras, busca, armazenamento e preparação do estado-ouro não são medidos em tokens do gerador. Latência de API, execução direta e orquestração por processo são unidades distintas. Não se deve extrapolar os dados para economia monetária, superioridade de um provedor ou generalização a usuários reais.
 
-A exclusão exige coerência entre memória persistente e contexto ativo. O DELETE individual não notifica o agente nesta base; o fato pode permanecer em mensagens do usuário ou do assistente. Os checkpoints P6 ainda dependem de observação da RAM real. Dados sintéticos e isolamento são cuidados do projeto, mas não constituem certificação jurídica de conformidade com a LGPD nem prova de ausência de todo vazamento semântico.
+A exclusão exige coerência entre memória persistente e contexto ativo. Desde a PR #43, o DELETE individual bem-sucedido aciona `nova_sessao` do usuário. Ele remove o ID solicitado; outras versões da chave podem permanecer inativas até a exclusão total. O observador RAM opt-in foi validado no processo real, em um worker, no ensaio da interface; não substitui evidências vinculadas aos eventos da P6. Na primeira sondagem, SQLite foi esvaziado, mas o modelo inventou cidades diferentes das apagadas: falha de abstenção não equivale a vazamento comprovado do fato eliminado. A guarda posterior corrigiu essas formas de cidade no ensaio, mas o comparativo mostrou outras perguntas pessoais sem suporte e abstenções indevidas. Dados sintéticos e observação literal delimitada não certificam conformidade jurídica nem ausência de todo vazamento semântico.
 
 Até aqui, a contribuição é uma integração modular e um protocolo que separa resposta, contexto recuperado, tokens e evidências operacionais. A conclusão experimental sobre ganho de qualidade e custo por sessão fica condicionada à rodada final, aos contratos de esquecimento e à revisão dos gabaritos. Resultados negativos devem permanecer visíveis e analisados.
 

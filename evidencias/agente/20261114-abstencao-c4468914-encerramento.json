@@ -1,0 +1,43 @@
+{
+  "execucao": "20261114-abstencao-c4468914",
+  "etapas": {
+    "base": {
+      "sqlite_somente_leitura_antes_encerrar": [],
+      "comando_sem_credenciais": "docker compose <env/projeto base> down",
+      "saida_real_down": " Container cma-professor-20261114-abstencao-c4468914-base-api Stopping \n Container cma-professor-20261114-abstencao-c4468914-base-api Stopped \n Container cma-professor-20261114-abstencao-c4468914-base-api Removing \n Container cma-professor-20261114-abstencao-c4468914-base-api Removed \n Network cma-professor-20261114-abstencao-c4468914-base_default Removing \n Network cma-professor-20261114-abstencao-c4468914-base_default Removed \n"
+    },
+    "correcao": {
+      "sqlite_somente_leitura_antes_encerrar": [],
+      "comando_sem_credenciais": "docker compose <env/projeto correcao> down",
+      "saida_real_down": " Container cma-professor-20261114-abstencao-c4468914-correcao-api Stopping \n Container cma-professor-20261114-abstencao-c4468914-correcao-api Stopped \n Container cma-professor-20261114-abstencao-c4468914-correcao-api Removing \n Container cma-professor-20261114-abstencao-c4468914-correcao-api Removed \n Network cma-professor-20261114-abstencao-c4468914-correcao_default Removing \n Network cma-professor-20261114-abstencao-c4468914-correcao_default Removed \n"
+    },
+    "correcao-v2": {
+      "sqlite_somente_leitura_antes_encerrar": [],
+      "comando_sem_credenciais": "docker compose <env/projeto correcao-v2> down",
+      "saida_real_down": " Container cma-professor-20261114-abstencao-c4468914-correcao-v2-api Stopping \n Container cma-professor-20261114-abstencao-c4468914-correcao-v2-api Stopped \n Container cma-professor-20261114-abstencao-c4468914-correcao-v2-api Removing \n Container cma-professor-20261114-abstencao-c4468914-correcao-v2-api Removed \n Network cma-professor-20261114-abstencao-c4468914-correcao-v2_default Removing \n Network cma-professor-20261114-abstencao-c4468914-correcao-v2_default Removed \n"
+    },
+    "correcao-final": {
+      "sqlite_somente_leitura_antes_encerrar": [],
+      "comando_sem_credenciais": "docker compose <env/projeto correcao-final> down",
+      "saida_real_down": " Container cma-professor-20261114-abstencao-c4468914-correcao-final-api Stopping \n Container cma-professor-20261114-abstencao-c4468914-correcao-final-api Stopped \n Container cma-professor-20261114-abstencao-c4468914-correcao-final-api Removing \n Container cma-professor-20261114-abstencao-c4468914-correcao-final-api Removed \n Network cma-professor-20261114-abstencao-c4468914-correcao-final_default Removing \n Network cma-professor-20261114-abstencao-c4468914-correcao-final_default Removed \n"
+    }
+  },
+  "down_v_utilizado": false,
+  "ram_observada_diretamente": false,
+  "instante_utc": "2026-11-14T17:29:15.725839+00:00",
+  "volumes_anteriores_preservados": [
+    "cma-interface-install-qa_memoria_dados",
+    "cma-professor-20261114-07701ee5-dados",
+    "cma-professor-manual-a0c6833c-dados",
+    "cognitive-memory-agents_memoria_dados"
+  ],
+  "volumes_dedicados_preservados": [
+    "cma-professor-20261114-abstencao-c4468914-base-dados",
+    "cma-professor-20261114-abstencao-c4468914-correcao-dados",
+    "cma-professor-20261114-abstencao-c4468914-correcao-v2-dados",
+    "cma-professor-20261114-abstencao-c4468914-correcao-final-dados"
+  ],
+  "api_original_em_execucao": true,
+  "started_at_original_inalterado": "2026-11-13T02:09:57.274452153Z",
+  "somente_conteineres_e_redes_de_ensaio_removidos": true
+}

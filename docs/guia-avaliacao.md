@@ -2,7 +2,13 @@
 
 Como reproduzir as avaliações do projeto e como ler as métricas. Comandos para Windows (PowerShell), na raiz do repositório.
 
-Para a preparação da entrega, consulte a [contribuição acadêmica de Zeck](contribuicao-academica-zeck.md), o [inventário de resultados e figuras](resultados-avaliacoes-agente.md), o [roteiro da demonstração](roteiro-demonstracao.md) e o [plano operacional P6](plano-execucao-p6.md). São documentos de preparação: preservam os resultados históricos e distinguem a master da PR #41 ainda em revisão. Os contratos e as fórmulas de referência permanecem neste guia.
+OpenAI opcional: [preparação do chat e comparativo por API](openai-opcional.md), sem pesos Ollama no modo remoto. O wrapper aceita `--provedor openai`; exige chave/créditos no servidor. ChatGPT Free não fornece essa credencial. Integração preparada e testada com SDK simulado, sem rodada real OpenAI nem liberação de P6.
+
+Para a preparação da entrega, consulte a [contribuição acadêmica de Zeck](contribuicao-academica-zeck.md), o [inventário de resultados e figuras](resultados-avaliacoes-agente.md), o [roteiro da demonstração](roteiro-demonstracao.md) e o [plano operacional P6](plano-execucao-p6.md). Os resultados históricos foram preservados. Em 14/11, as PRs #41/#42/#43 já estão integradas na base `2be5d51`; P4-v3 e o reset após DELETE individual pertencem a essa versão. Os contratos e as fórmulas de referência permanecem neste guia.
+
+Para instalar e conferir o fluxo inicial sem executar os experimentos, usar o [manual do professor](manual-professor.md), agora com chat e preparo Docker automáticos. A [validação real](validacao-entrega-docker.md) preserva falhas iniciais e ensaios posteriores. O [comparativo de desenvolvimento](ensaio-desenvolvimento-20261114.md) é uma nova rodada P3/P4/P5, separada da P6 e dos resultados históricos.
+
+Extensão autorizada: [origem e contagem local](proposta-contagem-local.md), versão `p3-uso-local-v1`. Resposta `politica_local` com inteiro zero explícito e tokens compatíveis permite derivar zero de geração; campos antigos não mudam. Sem metadados, o comportamento legado permanece; inconsistências e zero do provedor continuam desconhecidos. [Critérios prévios](criterios-avaliacao-final.md) não liberam a [revisão P6](revisao-experimental/README.md).
 
 ## O que é avaliado
 
@@ -47,6 +53,8 @@ git diff --check
 ```
 
 As gravações dos testes ficam em temporários ou RAM; não executar os avaliadores completos como substituto dessa verificação. `pip check` não encontrou dependências quebradas. `git diff --check` passou. Docker não pôde ser conectado e Ollama recusou conexão na verificação local; OpenAI real não foi chamada. A rodada real P6 permanece bloqueada pelas dependências detalhadas abaixo, e os dez casos finais continuam sem metadados P4. Esses limites não são resolvidos pelos testes verdes.
+
+**Atualização de 14/11/2026:** a indisponibilidade acima descreve a verificação de 12/11. Docker e Ollama foram acessados e o fluxo real foi executado em ambiente dedicado, conforme relatório vinculado. Na base `2be5d51`, a suíte atual passou com **827 aprovados e 1 ignorado em 18,00 s** (sem o módulo semântico que baixa modelo). A inspeção P6, sem `--executar`, retornou 4 usuários, 20 sessões, 21 perguntas e **21 compatíveis, 0 incompatíveis, 0 ausentes**; o contrato `u02/s5/esquecer_chaves` continua exigido. Testes e compatibilidade estrutural não resolvem as falhas do modelo nem liberam a rodada final.
 
 ## Avaliação comparativa do agente (um comando)
 
@@ -196,9 +204,9 @@ Uma sessão experimental corresponde aos turnos de um caso do comparativo. Isso 
 | `pergunta_final` | Somente a última chamada, com seu contexto e sua resposta. |
 | `sessao` | Todas as chamadas de geração observadas no caso. Com contagens completas, equivale à soma das duas etapas anteriores, por canal. |
 
-Cada etapa contém `tokens_entrada`, `tokens_saida`, `tokens_total`, `chamadas_modelo` e `metricas_completas`. Entrada e saída são calculadas independentemente; o total só é conhecido quando ambas estão completas. Metadados ausentes ou inválidos produzem `null`, sem serem substituídos por zero. Em chamadas realizadas, somente contagens inteiras positivas são verificáveis pelo contrato atual; zeros reportados ficam desconhecidos, pois o avaliador não recebe sua origem.
+Cada etapa contém `tokens_entrada`, `tokens_saida`, `tokens_total`, `chamadas_modelo` e `metricas_completas`. Entrada e saída são calculadas independentemente; o total só é conhecido quando ambas estão completas. Metadados ausentes ou inválidos produzem `null`. Em respostas geradas pelo provedor, somente contagens inteiras positivas são verificáveis; zeros reportados continuam desconhecidos. Desde `p3-uso-local-v1`, o par opcional explícito `politica_local`/inteiro 0 permite derivar zero local quando os tokens são compatíveis. Sem esse par, mantém-se o tratamento legado.
 
-Os campos `tokens_entrada_observados`, `tokens_saida_observados` e `tokens_total_observados` preservam as parcelas positivas disponíveis, mesmo que falte outra chamada ou canal. São subtotais, não custos completos. Zero é conhecido quando uma etapa comprovadamente não realizou chamadas, inclusive ingestão sem turnos anteriores quando a pergunta final falha. `chamadas_com_tokens_zero` sinaliza zeros reportados por chamadas; os campos `chamadas_com_entrada_zero_nao_verificado` e `chamadas_com_saida_zero_nao_verificado` identificam os canais afetados. O adaptador Ollama pode converter metadados ausentes em zero; esses valores não entram como parcelas conhecidas e não sustentam economia. Uma contagem positiva do outro canal permanece utilizável. Essa política conservadora também descarta zeros que poderiam ser legítimos, pois sua origem não é distinguível sem mudar o contrato dos adaptadores.
+Os campos `tokens_entrada_observados`, `tokens_saida_observados` e `tokens_total_observados` preservam parcelas conhecidas, mesmo que falte outro canal. São subtotais, não custos completos. Zero é conhecido em etapa sem chamadas ou por política local explícita coerente. `respostas_locais_confirmadas` registra esta segunda origem. `chamadas_com_tokens_zero` e os sinalizadores por canal continuam indicando zeros não verificados do provedor. O adaptador Ollama pode converter metadados ausentes em zero; esses valores não sustentam economia. Uma contagem positiva do outro canal permanece utilizável. Origem ausente mantém tratamento legado; origem contraditória permanece desconhecida. Campos de chamadas com entrada/saída representam eventos com medição, incluindo respostas locais, enquanto `chamadas_modelo` conta invocações observadas do adaptador.
 
 No resumo por cenário, cada etapa informa casos tentados, medidos, desconhecidos e quantos possuem cada canal conhecido. A soma completa fica `null` se algum caso não tiver a contagem necessária; os subtotais observados continuam disponíveis. A média por caso medido usa apenas os casos com total conhecido e explicita seu denominador. Respostas reprovadas pelo avaliador também entram nos custos quando medidas. Essa média condicional não é a média de todos os casos tentados.
 

@@ -1,22 +1,66 @@
-﻿services:
+name: cma-demonstracao
+
+services:
+  ollama:
+    image: ollama/ollama:0.40.12@sha256:20d1bbfbabe1c97ba4b16301f08a20d8484bcf77047742a3cb71c613d8e12d0b
+    volumes:
+      - modelos_ollama:/root/.ollama
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 3s
+      timeout: 5s
+      retries: 40
+    restart: unless-stopped
+
+  preparar:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["python", "-m", "src.inicializacao", "preparar"]
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+      LLM_MODEL: ${CMA_MODELO:-qwen2.5-coder:3b}
+      API_TOKENS_FILE: /segredos/usuarios.json
+    volumes:
+      - credenciais_demo:/segredos
+    depends_on:
+      ollama:
+        condition: service_healthy
+    restart: "no"
+
   api:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: cognitive-memory-api
     ports:
-      - "127.0.0.1:8000:8000"
+      - "127.0.0.1:${CMA_PORT:-8001}:8000"
     environment:
       DB_PATH: /app/dados/memorias.db
-      LLM_PROVIDER: ${LLM_PROVIDER:-ollama}
-      LLM_MODEL: ${LLM_MODEL:-qwen2.5-coder:3b}
-      MODELOS_PERMITIDOS: ${MODELOS_PERMITIDOS:-ollama:qwen2.5-coder:3b,openai:gpt-4.1-mini}
-      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
-      OLLAMA_HOST: ${OLLAMA_HOST:-http://host.docker.internal:11434}
-      API_TOKENS: ${API_TOKENS:-}
+      LLM_PROVIDER: ollama
+      LLM_MODEL: ${CMA_MODELO:-qwen2.5-coder:3b}
+      MODELOS_PERMITIDOS: ollama:${CMA_MODELO:-qwen2.5-coder:3b}
+      OPENAI_API_KEY: ""
+      OLLAMA_HOST: http://ollama:11434
+      API_TOKENS: ""
+      API_TOKENS_FILE: /segredos/usuarios.json
+      MODO_DEMONSTRACAO: "1"
+      CMA_PORT: ${CMA_PORT:-8001}
+      USAR_FALSOS: "0"
+      HABILITAR_COMPARATIVO_INTERFACE: "0"
     volumes:
       - memoria_dados:/app/dados
+      - credenciais_demo:/segredos:ro
+    depends_on:
+      preparar:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/saude', timeout=3)"]
+      interval: 5s
+      timeout: 4s
+      retries: 20
     restart: unless-stopped
 
 volumes:
   memoria_dados:
+  modelos_ollama:
+  credenciais_demo:

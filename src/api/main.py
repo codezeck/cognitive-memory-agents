@@ -1,9 +1,15 @@
+from contextlib import asynccontextmanager
 import logging
 import time
 
 from fastapi import Depends, FastAPI, Query, Request
 from fastapi.exceptions import RequestValidationError
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, FileResponse
+from fastapi.staticfiles import StaticFiles
+
+from src.interface.rotas import router as interface_router, PASTA as PASTA_INTERFACE
+from src.interface.avaliacoes import encerrar_avaliacoes
+from src.observabilidade import router as observabilidade_router
 
 
 from src.api.dependencias import get_catalogo, get_conversador, get_memoria
@@ -20,7 +26,37 @@ logging.basicConfig(level=logging.INFO,
                     format="%(asctime)s %(levelname)s %(name)s %(message)s")
 log = logging.getLogger("api")
 
-app = FastAPI(title="API de Memória de Longo Prazo", version="0.1.0")
+@asynccontextmanager
+async def ciclo_interface(app):
+    try:
+        yield
+    finally:
+        encerrar_avaliacoes()
+
+
+app = FastAPI(title="API de Memória de Longo Prazo", version="0.1.0", lifespan=ciclo_interface)
+app.include_router(interface_router)
+app.include_router(observabilidade_router)
+app.mount("/interface/arquivos", StaticFiles(directory=PASTA_INTERFACE), name="interface-arquivos")
+
+
+@app.get("/", include_in_schema=False)
+def abrir_interface():
+    return FileResponse(PASTA_INTERFACE / "index.html")
+
+
+@app.middleware("http")
+async def proteger_interface(request: Request, call_next):
+    resposta = await call_next(request)
+    if request.url.path == "/" or request.url.path.startswith("/interface"):
+        resposta.headers["Content-Security-Policy"] = (
+            "default-src 'self'; script-src 'self'; style-src 'self'; "
+            "img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; "
+            "base-uri 'none'; form-action 'self'"
+        )
+        resposta.headers["X-Content-Type-Options"] = "nosniff"
+        resposta.headers["Referrer-Policy"] = "no-referrer"
+    return resposta
 
 
 # ---------- erros: todos saem no mesmo formato {codigo, mensagem} ----------
@@ -85,7 +121,8 @@ def conversar(corpo: ConversaEntrada, conversador=Depends(get_conversador),
     return ConversaSaida(resposta=r.resposta, memorias_usadas=r.memorias_usadas,
                          provedor=selecao.provedor, modelo=selecao.modelo,
                          latencia_ms=latencia, tokens_entrada=r.tokens_entrada,
-                         tokens_saida=r.tokens_saida)
+                         tokens_saida=r.tokens_saida, origem_uso=r.origem_uso,
+                         chamadas_modelo_observadas=r.chamadas_modelo_observadas)
 
 
 @app.post(

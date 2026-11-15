@@ -1,0 +1,649 @@
+2026-11-14T16:57:31.005902277Z Traceback (most recent call last):
+2026-11-14T16:57:31.005998969Z   File "/observador.py", line 9, in <module>
+2026-11-14T16:57:31.006005115Z     from src.modelos.ollama_adapter import OllamaAdapter
+2026-11-14T16:57:31.006006561Z ModuleNotFoundError: No module named 'src'
+2026-11-14T17:01:09.110777823Z INFO:     Started server process [1]
+2026-11-14T17:01:09.110806957Z INFO:     Waiting for application startup.
+2026-11-14T17:01:09.111112662Z INFO:     Application startup complete.
+2026-11-14T17:01:09.111978464Z INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-11-14T17:01:34.327846171Z INFO:     172.20.0.1:38222 - "GET /saude HTTP/1.1" 200 OK
+2026-11-14T17:01:34.737539687Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:01:34.742405492Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:01:42.014277310Z 2026-11-14 17:01:42,013 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:01:42.015033357Z 2026-11-14 17:01:42,014 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=7267
+2026-11-14T17:01:42.016106293Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:01:42.021381473Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:01:42.589358953Z 2026-11-14 17:01:42,588 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:01:42.589691204Z 2026-11-14 17:01:42,589 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=563
+2026-11-14T17:01:42.590320007Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:01:42.601360597Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:01:42.606099022Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:01:43.147836733Z 2026-11-14 17:01:43,147 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:01:43.148147603Z 2026-11-14 17:01:43,147 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=537
+2026-11-14T17:01:43.148667550Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:01:43.152739204Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:01:43.729997220Z 2026-11-14 17:01:43,729 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:01:43.730217026Z 2026-11-14 17:01:43,730 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=573
+2026-11-14T17:01:43.730812961Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:01:43.741300248Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:01:43.745995038Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:01:45.028337474Z 2026-11-14 17:01:45,028 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:01:45.028692736Z 2026-11-14 17:01:45,028 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1278
+2026-11-14T17:01:45.029400054Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:01:45.034112628Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:01:45.600046946Z 2026-11-14 17:01:45,599 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:01:45.600407531Z 2026-11-14 17:01:45,600 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=561
+2026-11-14T17:01:45.600979833Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:01:45.612511642Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:01:45.617506075Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:01:46.400748669Z 2026-11-14 17:01:46,400 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:01:46.401048608Z 2026-11-14 17:01:46,400 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=779
+2026-11-14T17:01:46.401641352Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:01:46.406067520Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:01:46.975187225Z 2026-11-14 17:01:46,974 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:01:46.975631267Z 2026-11-14 17:01:46,975 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=564
+2026-11-14T17:01:46.976168417Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:01:47.003039153Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:01:47.008310353Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:01:47.580461496Z 2026-11-14 17:01:47,580 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:01:47.580800637Z 2026-11-14 17:01:47,580 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=568
+2026-11-14T17:01:47.581359360Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:01:47.585813363Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:01:48.139143726Z 2026-11-14 17:01:48,138 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:01:48.139403722Z 2026-11-14 17:01:48,139 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=552
+2026-11-14T17:01:48.140056902Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:01:48.150750254Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:01:48.155742035Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:01:49.477883433Z 2026-11-14 17:01:49,477 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:01:49.478284970Z 2026-11-14 17:01:49,478 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1318
+2026-11-14T17:01:49.479063160Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:01:49.484667886Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:01:50.126925781Z 2026-11-14 17:01:50,126 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:01:50.127356233Z 2026-11-14 17:01:50,127 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=636
+2026-11-14T17:01:50.128018935Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:01:51.239819832Z 2026-11-14 17:01:51,239 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:01:51.240111667Z 2026-11-14 17:01:51,239 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1106
+2026-11-14T17:01:51.240664078Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:01:51.881320914Z 2026-11-14 17:01:51,881 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:01:51.881867056Z 2026-11-14 17:01:51,881 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=636
+2026-11-14T17:01:51.882564972Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:01:51.893169090Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:01:51.897973819Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:01:52.852156272Z 2026-11-14 17:01:52,851 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:01:52.852624386Z 2026-11-14 17:01:52,852 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=950
+2026-11-14T17:01:52.853519165Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:01:52.857595099Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:01:53.496577215Z 2026-11-14 17:01:53,496 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:01:53.497009608Z 2026-11-14 17:01:53,496 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=634
+2026-11-14T17:01:53.497747501Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:01:54.975452599Z 2026-11-14 17:01:54,975 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:01:54.975995048Z 2026-11-14 17:01:54,975 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1473
+2026-11-14T17:01:54.976786976Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:01:55.606817299Z 2026-11-14 17:01:55,606 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:01:55.607110203Z 2026-11-14 17:01:55,606 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=624
+2026-11-14T17:01:55.607606471Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:01:55.619533978Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:01:55.624882195Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:01:56.314236414Z 2026-11-14 17:01:56,313 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:01:56.314573825Z 2026-11-14 17:01:56,314 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=684
+2026-11-14T17:01:56.315227121Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:01:56.319778768Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:01:56.860676657Z 2026-11-14 17:01:56,860 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:01:56.861063586Z 2026-11-14 17:01:56,860 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=536
+2026-11-14T17:01:56.861545990Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:01:58.609479926Z 2026-11-14 17:01:58,609 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:01:58.609848468Z 2026-11-14 17:01:58,609 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1744
+2026-11-14T17:01:58.610413925Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:01:59.271920821Z 2026-11-14 17:01:59,271 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:01:59.272311029Z 2026-11-14 17:01:59,272 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=657
+2026-11-14T17:01:59.272934538Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:01:59.298774915Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:01:59.303838039Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:00.062563253Z 2026-11-14 17:02:00,062 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:00.062964967Z 2026-11-14 17:02:00,062 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=754
+2026-11-14T17:02:00.063699115Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:00.068700204Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:02:00.678542663Z 2026-11-14 17:02:00,678 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:00.678989545Z 2026-11-14 17:02:00,678 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=606
+2026-11-14T17:02:00.679737121Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:01.629731579Z 2026-11-14 17:02:01,629 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:01.630016865Z 2026-11-14 17:02:01,629 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=942
+2026-11-14T17:02:01.630830448Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:02.283022817Z 2026-11-14 17:02:02,282 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:02.283308073Z 2026-11-14 17:02:02,283 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=647
+2026-11-14T17:02:02.283954894Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:02.311451014Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:02.331222266Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:03.144028453Z 2026-11-14 17:02:03,143 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:03.144381125Z 2026-11-14 17:02:03,144 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=795
+2026-11-14T17:02:03.144995425Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:03.149268410Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:02:03.716900016Z 2026-11-14 17:02:03,716 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:03.717248206Z 2026-11-14 17:02:03,717 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=564
+2026-11-14T17:02:03.717816566Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:05.517597163Z 2026-11-14 17:02:05,517 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:05.518046520Z 2026-11-14 17:02:05,517 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1795
+2026-11-14T17:02:05.518695075Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:06.170773911Z 2026-11-14 17:02:06,170 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:06.171167053Z 2026-11-14 17:02:06,170 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=646
+2026-11-14T17:02:06.171615186Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:06.181867929Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:06.186029854Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:06.190375199Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:02:06.817813614Z 2026-11-14 17:02:06,817 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:06.818246928Z 2026-11-14 17:02:06,817 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=623
+2026-11-14T17:02:06.818688004Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:06.882990486Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:06.887588680Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:06.891283671Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:02:07.230752739Z 2026-11-14 17:02:07,230 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:07.231232751Z 2026-11-14 17:02:07,230 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=334
+2026-11-14T17:02:07.231784926Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:07.238364302Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:07.242112851Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:07.248015842Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:02:07.496947082Z 2026-11-14 17:02:07,496 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:07.497216937Z 2026-11-14 17:02:07,497 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=245
+2026-11-14T17:02:07.497859851Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:07.507738661Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:07.512883521Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:07.517386730Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:02:07.844850325Z 2026-11-14 17:02:07,844 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:07.845227771Z 2026-11-14 17:02:07,845 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=323
+2026-11-14T17:02:07.845877014Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:07.851394479Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:07.855959806Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:07.860563508Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:02:08.189003746Z 2026-11-14 17:02:08,188 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:08.189399194Z 2026-11-14 17:02:08,189 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=325
+2026-11-14T17:02:08.190136787Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:08.198016236Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:08.202012161Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:09.837932347Z 2026-11-14 17:02:09,837 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:09.838280072Z 2026-11-14 17:02:09,838 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1632
+2026-11-14T17:02:09.839115655Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:09.847735865Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:02:10.429091206Z 2026-11-14 17:02:10,428 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:10.429397192Z 2026-11-14 17:02:10,429 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=577
+2026-11-14T17:02:10.429934834Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:10.434468568Z INFO:     172.20.0.1:38222 - "GET /usuarios/professor_a/memorias?consulta=Niteroi HTTP/1.1" 200 OK
+2026-11-14T17:02:10.458980346Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias/6a7cd4a7a52249fd8790527ee7189dd9 HTTP/1.1" 204 No Content
+2026-11-14T17:02:11.080931218Z 2026-11-14 17:02:11,080 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:11.081361084Z 2026-11-14 17:02:11,081 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=618
+2026-11-14T17:02:11.082007385Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:11.093205197Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:11.098131723Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:13.310261867Z 2026-11-14 17:02:13,309 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:13.310645698Z 2026-11-14 17:02:13,310 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=2203
+2026-11-14T17:02:13.311259800Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:13.315348527Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:02:13.913710336Z 2026-11-14 17:02:13,913 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:13.914023204Z 2026-11-14 17:02:13,913 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=593
+2026-11-14T17:02:13.914875643Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:13.919134358Z INFO:     172.20.0.1:38222 - "GET /usuarios/professor_a/memorias?consulta=Niteroi HTTP/1.1" 200 OK
+2026-11-14T17:02:13.942302305Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias/dcceb0809e2b48e9be687d75c22f6c60 HTTP/1.1" 204 No Content
+2026-11-14T17:02:14.545656133Z 2026-11-14 17:02:14,545 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:14.546045425Z 2026-11-14 17:02:14,545 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=599
+2026-11-14T17:02:14.546687391Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:14.556763197Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:14.561490648Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:16.149970523Z 2026-11-14 17:02:16,149 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:16.150233266Z 2026-11-14 17:02:16,150 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1583
+2026-11-14T17:02:16.150814628Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:16.154739262Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:02:16.725604973Z 2026-11-14 17:02:16,725 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:16.725967415Z 2026-11-14 17:02:16,725 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=567
+2026-11-14T17:02:16.726497503Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:16.731241860Z INFO:     172.20.0.1:38222 - "GET /usuarios/professor_a/memorias?consulta=Niteroi HTTP/1.1" 200 OK
+2026-11-14T17:02:16.752763198Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias/0fc6a9e5137d413eabf815fd144e4dc2 HTTP/1.1" 204 No Content
+2026-11-14T17:02:17.454473611Z 2026-11-14 17:02:17,454 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:17.454880351Z 2026-11-14 17:02:17,454 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=698
+2026-11-14T17:02:17.455517788Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:17.463246685Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:17.478080590Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:18.981298399Z 2026-11-14 17:02:18,981 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:18.982166413Z 2026-11-14 17:02:18,981 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1497
+2026-11-14T17:02:18.982781940Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:18.986664441Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:02:19.589535106Z 2026-11-14 17:02:19,589 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:19.589783021Z 2026-11-14 17:02:19,589 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=598
+2026-11-14T17:02:19.590494897Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:19.595086146Z INFO:     172.20.0.1:38222 - "GET /usuarios/professor_a/memorias?consulta=Niteroi HTTP/1.1" 200 OK
+2026-11-14T17:02:19.620511451Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias/1d20af74868548ee8f109e2611801788 HTTP/1.1" 204 No Content
+2026-11-14T17:02:20.577752206Z 2026-11-14 17:02:20,577 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:20.577974293Z 2026-11-14 17:02:20,577 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=953
+2026-11-14T17:02:20.578502415Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:20.590135312Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:20.595712381Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:22.151267292Z 2026-11-14 17:02:22,150 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:22.151643469Z 2026-11-14 17:02:22,151 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1550
+2026-11-14T17:02:22.152166854Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:22.156565231Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:02:22.762138726Z 2026-11-14 17:02:22,761 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:22.762551312Z 2026-11-14 17:02:22,762 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=600
+2026-11-14T17:02:22.763017387Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:22.767659745Z INFO:     172.20.0.1:38222 - "GET /usuarios/professor_a/memorias?consulta=Niteroi HTTP/1.1" 200 OK
+2026-11-14T17:02:22.790758758Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias/08e400e2cb2e47968c09ca56f96bb1d6 HTTP/1.1" 204 No Content
+2026-11-14T17:02:23.567047149Z 2026-11-14 17:02:23,566 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:23.567339007Z 2026-11-14 17:02:23,567 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=772
+2026-11-14T17:02:23.568072880Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:23.578631443Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:23.584023505Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:25.055856639Z 2026-11-14 17:02:25,055 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:25.056325493Z 2026-11-14 17:02:25,056 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1467
+2026-11-14T17:02:25.056928384Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:25.062053705Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:02:25.699440715Z 2026-11-14 17:02:25,699 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:25.699817071Z 2026-11-14 17:02:25,699 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=632
+2026-11-14T17:02:25.700504390Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:25.710871937Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:26.442902265Z 2026-11-14 17:02:26,442 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:26.443566758Z 2026-11-14 17:02:26,443 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=727
+2026-11-14T17:02:26.444217901Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:26.455936070Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:26.462149089Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:28.054669539Z 2026-11-14 17:02:28,054 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:28.055191284Z 2026-11-14 17:02:28,054 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1587
+2026-11-14T17:02:28.055817896Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:28.060419086Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:02:28.675361832Z 2026-11-14 17:02:28,674 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:28.675714426Z 2026-11-14 17:02:28,675 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=610
+2026-11-14T17:02:28.676406356Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:28.686368268Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:29.495204025Z 2026-11-14 17:02:29,494 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:29.495650258Z 2026-11-14 17:02:29,495 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=804
+2026-11-14T17:02:29.496567284Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:29.510107871Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:29.516257969Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:31.514244905Z 2026-11-14 17:02:31,513 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:31.514918758Z 2026-11-14 17:02:31,514 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1993
+2026-11-14T17:02:31.515591308Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:31.520103954Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:02:32.125672218Z 2026-11-14 17:02:32,125 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:32.126391608Z 2026-11-14 17:02:32,126 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=600
+2026-11-14T17:02:32.127051318Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:32.151383055Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:32.816367913Z 2026-11-14 17:02:32,816 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:32.816835889Z 2026-11-14 17:02:32,816 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=660
+2026-11-14T17:02:32.817544664Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:32.829342177Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:32.834598821Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:34.470796697Z 2026-11-14 17:02:34,470 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:34.471154497Z 2026-11-14 17:02:34,470 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1632
+2026-11-14T17:02:34.471616253Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:34.475640065Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:02:35.062576219Z 2026-11-14 17:02:35,062 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:35.063226805Z 2026-11-14 17:02:35,063 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=583
+2026-11-14T17:02:35.064306993Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:35.087988489Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:35.819688859Z 2026-11-14 17:02:35,819 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:35.820046455Z 2026-11-14 17:02:35,819 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=727
+2026-11-14T17:02:35.820721760Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:35.827041660Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:35.832557404Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:37.284789005Z 2026-11-14 17:02:37,284 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:37.285056029Z 2026-11-14 17:02:37,284 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1448
+2026-11-14T17:02:37.285877788Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:37.290071372Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:02:37.853004668Z 2026-11-14 17:02:37,852 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:37.853329055Z 2026-11-14 17:02:37,853 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=558
+2026-11-14T17:02:37.853945433Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:37.878444489Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:38.545899583Z 2026-11-14 17:02:38,545 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:38.546194220Z 2026-11-14 17:02:38,545 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=662
+2026-11-14T17:02:38.546841304Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:38.556980780Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:38.561565399Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:40.136440968Z 2026-11-14 17:02:40,136 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:40.136926007Z 2026-11-14 17:02:40,136 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1571
+2026-11-14T17:02:40.137522414Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:40.141420327Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:02:40.714109076Z 2026-11-14 17:02:40,713 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:40.714356127Z 2026-11-14 17:02:40,714 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=568
+2026-11-14T17:02:40.714967930Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:40.725055282Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:40.728893669Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:02:41.408132228Z 2026-11-14 17:02:41,407 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:41.408439950Z 2026-11-14 17:02:41,408 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=676
+2026-11-14T17:02:41.409003863Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:41.423065181Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:41.433263836Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:43.113600813Z 2026-11-14 17:02:43,113 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:43.113948768Z 2026-11-14 17:02:43,113 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1674
+2026-11-14T17:02:43.114385541Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:43.119214603Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:02:43.681703396Z 2026-11-14 17:02:43,681 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:43.682019190Z 2026-11-14 17:02:43,681 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=558
+2026-11-14T17:02:43.682601111Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:43.707083146Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:43.711842740Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:02:44.697456072Z 2026-11-14 17:02:44,697 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:44.697584210Z 2026-11-14 17:02:44,697 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=982
+2026-11-14T17:02:44.698344709Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:44.707814705Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:44.712031092Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:46.178047059Z 2026-11-14 17:02:46,177 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:46.178383263Z 2026-11-14 17:02:46,178 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1462
+2026-11-14T17:02:46.179039739Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:46.183236740Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:02:46.818854234Z 2026-11-14 17:02:46,818 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:46.819195811Z 2026-11-14 17:02:46,819 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=631
+2026-11-14T17:02:46.819826043Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:46.846111686Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:46.849972629Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:02:47.495247821Z 2026-11-14 17:02:47,494 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:47.495599887Z 2026-11-14 17:02:47,495 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=642
+2026-11-14T17:02:47.496267261Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:47.507035778Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:47.512342480Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:49.604896415Z 2026-11-14 17:02:49,604 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:49.605328373Z 2026-11-14 17:02:49,605 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=2092
+2026-11-14T17:02:49.606042237Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:49.610798660Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:02:50.179357527Z 2026-11-14 17:02:50,179 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:50.179783378Z 2026-11-14 17:02:50,179 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=564
+2026-11-14T17:02:50.180291999Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:50.215702986Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:50.220128649Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:02:50.872620324Z 2026-11-14 17:02:50,872 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:50.873121518Z 2026-11-14 17:02:50,872 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=648
+2026-11-14T17:02:50.873744293Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:50.883922415Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:50.889249916Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:52.555910117Z 2026-11-14 17:02:52,555 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:52.556167032Z 2026-11-14 17:02:52,556 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1663
+2026-11-14T17:02:52.556909251Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:52.561142353Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:02:53.127787271Z 2026-11-14 17:02:53,127 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:53.128092500Z 2026-11-14 17:02:53,127 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=562
+2026-11-14T17:02:53.128593554Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:53.151192493Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:53.156580617Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:02:53.749903390Z 2026-11-14 17:02:53,749 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:53.750329143Z 2026-11-14 17:02:53,750 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=589
+2026-11-14T17:02:53.750924761Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:53.761885084Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:53.766349447Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:55.355974659Z 2026-11-14 17:02:55,355 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:55.356323912Z 2026-11-14 17:02:55,356 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1585
+2026-11-14T17:02:55.357186780Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:55.368511811Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:02:56.015867716Z 2026-11-14 17:02:56,015 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:56.016107806Z 2026-11-14 17:02:56,015 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=634
+2026-11-14T17:02:56.016829081Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:56.670165213Z 2026-11-14 17:02:56,669 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:56.670559913Z 2026-11-14 17:02:56,670 INFO api conversa usuario=professor_b provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=649
+2026-11-14T17:02:56.671193069Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:58.369621038Z 2026-11-14 17:02:58,369 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:58.370048415Z 2026-11-14 17:02:58,369 INFO api conversa usuario=professor_b provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1694
+2026-11-14T17:02:58.370581578Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:58.375115173Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_b/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:02:58.663597479Z 2026-11-14 17:02:58,663 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:58.663933781Z 2026-11-14 17:02:58,663 INFO api conversa usuario=professor_b provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=285
+2026-11-14T17:02:58.664594519Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:59.813944315Z 2026-11-14 17:02:59,813 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:02:59.814339138Z 2026-11-14 17:02:59,814 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1145
+2026-11-14T17:02:59.814838532Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:02:59.830364437Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:02:59.838859290Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:00.540830433Z 2026-11-14 17:03:00,540 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:00.541214984Z 2026-11-14 17:03:00,540 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=698
+2026-11-14T17:03:00.541916987Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:00.546993037Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:03:01.121976034Z 2026-11-14 17:03:01,121 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:01.122123987Z 2026-11-14 17:03:01,121 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=571
+2026-11-14T17:03:01.122795506Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:01.754887724Z 2026-11-14 17:03:01,754 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:01.755348361Z 2026-11-14 17:03:01,755 INFO api conversa usuario=professor_b provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=628
+2026-11-14T17:03:01.756069385Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:03.445385850Z 2026-11-14 17:03:03,445 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:03.445674601Z 2026-11-14 17:03:03,445 INFO api conversa usuario=professor_b provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1684
+2026-11-14T17:03:03.446143810Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:03.450725729Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_b/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:03:03.680370417Z 2026-11-14 17:03:03,680 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:03.681399753Z 2026-11-14 17:03:03,681 INFO api conversa usuario=professor_b provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=225
+2026-11-14T17:03:03.682051406Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:04.895933326Z 2026-11-14 17:03:04,895 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:04.896282787Z 2026-11-14 17:03:04,896 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1209
+2026-11-14T17:03:04.896996478Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:04.927486791Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:04.936236728Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:05.919770099Z 2026-11-14 17:03:05,919 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:05.920214662Z 2026-11-14 17:03:05,919 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=979
+2026-11-14T17:03:05.921009916Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:05.924376581Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:03:06.550587330Z 2026-11-14 17:03:06,550 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:06.551047585Z 2026-11-14 17:03:06,550 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=621
+2026-11-14T17:03:06.551769725Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:07.481936950Z 2026-11-14 17:03:07,481 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:07.482200913Z 2026-11-14 17:03:07,482 INFO api conversa usuario=professor_b provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=924
+2026-11-14T17:03:07.482995288Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:09.579029372Z 2026-11-14 17:03:09,578 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:09.579428861Z 2026-11-14 17:03:09,579 INFO api conversa usuario=professor_b provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=2091
+2026-11-14T17:03:09.580140357Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:09.585860516Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_b/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:03:09.854212486Z 2026-11-14 17:03:09,853 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:09.854704581Z 2026-11-14 17:03:09,854 INFO api conversa usuario=professor_b provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=263
+2026-11-14T17:03:09.855388826Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:11.041718855Z 2026-11-14 17:03:11,041 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:11.042249039Z 2026-11-14 17:03:11,041 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1182
+2026-11-14T17:03:11.042867597Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:11.072573903Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:11.083232615Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:12.135021088Z 2026-11-14 17:03:12,134 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:12.135311007Z 2026-11-14 17:03:12,135 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1048
+2026-11-14T17:03:12.135917181Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:12.140525243Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:03:12.730326258Z 2026-11-14 17:03:12,730 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:12.731261609Z 2026-11-14 17:03:12,731 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=586
+2026-11-14T17:03:12.731876239Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:13.425007927Z 2026-11-14 17:03:13,424 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:13.425567405Z 2026-11-14 17:03:13,425 INFO api conversa usuario=professor_b provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=688
+2026-11-14T17:03:13.426490102Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:15.226469204Z 2026-11-14 17:03:15,226 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:15.226917099Z 2026-11-14 17:03:15,226 INFO api conversa usuario=professor_b provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1795
+2026-11-14T17:03:15.227399400Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:15.231776389Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_b/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:03:15.504253903Z 2026-11-14 17:03:15,503 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:15.504702437Z 2026-11-14 17:03:15,504 INFO api conversa usuario=professor_b provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=268
+2026-11-14T17:03:15.505682223Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:16.615660377Z 2026-11-14 17:03:16,615 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:16.616040403Z 2026-11-14 17:03:16,615 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1105
+2026-11-14T17:03:16.616640072Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:16.647967775Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:16.656607553Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:17.257949240Z 2026-11-14 17:03:17,257 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:17.258496959Z 2026-11-14 17:03:17,258 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=597
+2026-11-14T17:03:17.259204548Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:17.263793965Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:03:17.862327868Z 2026-11-14 17:03:17,862 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:17.862783940Z 2026-11-14 17:03:17,862 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=594
+2026-11-14T17:03:17.863278488Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:18.548701016Z 2026-11-14 17:03:18,548 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:18.549043858Z 2026-11-14 17:03:18,548 INFO api conversa usuario=professor_b provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=683
+2026-11-14T17:03:18.549643812Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:20.290477122Z 2026-11-14 17:03:20,290 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:20.290887852Z 2026-11-14 17:03:20,290 INFO api conversa usuario=professor_b provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1736
+2026-11-14T17:03:20.291486801Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:20.296831997Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_b/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:03:20.635077528Z 2026-11-14 17:03:20,634 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:20.635468016Z 2026-11-14 17:03:20,635 INFO api conversa usuario=professor_b provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=334
+2026-11-14T17:03:20.636299895Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:21.845745919Z 2026-11-14 17:03:21,845 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:21.846241949Z 2026-11-14 17:03:21,846 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1205
+2026-11-14T17:03:21.846848887Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:21.876862791Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:21.886408415Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:22.294130882Z 2026-11-14 17:03:22,293 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:22.294738870Z 2026-11-14 17:03:22,294 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=403
+2026-11-14T17:03:22.295283684Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:22.301808319Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:22.306319809Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:22.436321859Z 2026-11-14 17:03:22,436 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:22.437007996Z 2026-11-14 17:03:22,436 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=125
+2026-11-14T17:03:22.437609389Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:22.444080349Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:22.448353186Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:22.586998646Z 2026-11-14 17:03:22,586 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:22.587351312Z 2026-11-14 17:03:22,587 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=134
+2026-11-14T17:03:22.587945656Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:22.594362202Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:22.599638071Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:22.727513780Z 2026-11-14 17:03:22,727 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:22.727891324Z 2026-11-14 17:03:22,727 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=123
+2026-11-14T17:03:22.728499035Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:22.734510421Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:22.738964213Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:22.865005083Z 2026-11-14 17:03:22,864 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:22.865211842Z 2026-11-14 17:03:22,865 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=121
+2026-11-14T17:03:22.865664098Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:22.871920210Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:22.876903934Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:23.428553750Z 2026-11-14 17:03:23,428 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:23.428925564Z 2026-11-14 17:03:23,428 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=546
+2026-11-14T17:03:23.429655299Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:23.435142877Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:23.439858045Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:23.666844668Z 2026-11-14 17:03:23,666 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:23.667261703Z 2026-11-14 17:03:23,667 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=222
+2026-11-14T17:03:23.667756376Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:23.672273945Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:23.676844141Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:23.896477951Z 2026-11-14 17:03:23,896 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:23.896940637Z 2026-11-14 17:03:23,896 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=215
+2026-11-14T17:03:23.897661615Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:23.903123604Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:23.908674321Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:24.152112845Z 2026-11-14 17:03:24,151 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:24.153094679Z 2026-11-14 17:03:24,152 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=240
+2026-11-14T17:03:24.153782225Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:24.161576679Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:24.167464698Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:24.427697443Z 2026-11-14 17:03:24,427 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:24.427985543Z 2026-11-14 17:03:24,427 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=255
+2026-11-14T17:03:24.428610628Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:24.435315343Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:24.440029151Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:40.551639026Z 2026-11-14 17:03:40,551 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:40.552260177Z 2026-11-14 17:03:40,552 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=16108
+2026-11-14T17:03:40.554975269Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:41.085177720Z 2026-11-14 17:03:41,084 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:41.085592361Z 2026-11-14 17:03:41,085 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=519
+2026-11-14T17:03:41.086348008Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:41.092699144Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:41.098065944Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:42.940336414Z 2026-11-14 17:03:42,939 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:42.940783554Z 2026-11-14 17:03:42,940 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=1838
+2026-11-14T17:03:42.941571219Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:43.518978199Z 2026-11-14 17:03:43,518 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:43.519772535Z 2026-11-14 17:03:43,519 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=572
+2026-11-14T17:03:43.520377920Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:43.534670493Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:43.541071830Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:50.353678768Z 2026-11-14 17:03:50,353 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:50.354123234Z 2026-11-14 17:03:50,353 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=6810
+2026-11-14T17:03:50.354776734Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:50.935704619Z 2026-11-14 17:03:50,935 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:50.936082484Z 2026-11-14 17:03:50,935 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=575
+2026-11-14T17:03:50.936744704Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:50.947522813Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:50.954278137Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:54.333921907Z 2026-11-14 17:03:54,332 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:54.334743691Z 2026-11-14 17:03:54,334 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=3374
+2026-11-14T17:03:54.336393730Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:54.953826909Z 2026-11-14 17:03:54,952 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:03:54.953850041Z 2026-11-14 17:03:54,952 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=610
+2026-11-14T17:03:54.953882752Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:03:54.969091952Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:03:54.975537252Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:04:03.009838839Z 2026-11-14 17:04:03,009 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:04:03.010569389Z 2026-11-14 17:04:03,010 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=8024
+2026-11-14T17:04:03.011913284Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:04:03.464977169Z 2026-11-14 17:04:03,464 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:04:03.465352970Z 2026-11-14 17:04:03,465 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=448
+2026-11-14T17:04:03.466020448Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:04:03.473143458Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:04:03.478402140Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:04:03.494992391Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/memorias HTTP/1.1" 201 Created
+2026-11-14T17:04:03.500493056Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:04:05.355857949Z 2026-11-14 17:04:05,355 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:04:05.356247544Z 2026-11-14 17:04:05,356 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1851
+2026-11-14T17:04:05.356922332Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:04:05.368233061Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:04:05.374053221Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:04:05.384424451Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/memorias HTTP/1.1" 201 Created
+2026-11-14T17:04:05.390124900Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:04:05.684963066Z 2026-11-14 17:04:05,684 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:04:05.685493761Z 2026-11-14 17:04:05,685 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=290
+2026-11-14T17:04:05.686130469Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:04:05.703014941Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:04:05.707898116Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:04:05.715997679Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/memorias HTTP/1.1" 201 Created
+2026-11-14T17:04:05.720814031Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:04:06.088469426Z 2026-11-14 17:04:06,088 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:04:06.088862653Z 2026-11-14 17:04:06,088 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=363
+2026-11-14T17:04:06.089574776Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:04:06.105309268Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:04:06.110258955Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:04:06.120105046Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/memorias HTTP/1.1" 201 Created
+2026-11-14T17:04:06.125367373Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:04:06.539617198Z 2026-11-14 17:04:06,539 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:04:06.539957279Z 2026-11-14 17:04:06,539 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=410
+2026-11-14T17:04:06.540483881Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:04:06.560084271Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:04:06.564880167Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:04:06.573749779Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/memorias HTTP/1.1" 201 Created
+2026-11-14T17:04:06.577951571Z INFO:     172.20.0.1:38222 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T17:04:06.927220436Z 2026-11-14 17:04:06,926 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:04:06.927554223Z 2026-11-14 17:04:06,927 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=344
+2026-11-14T17:04:06.928116319Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:04:06.939072689Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:04:06.943667582Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:04:11.014682746Z 2026-11-14 17:04:11,014 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:04:11.015146293Z 2026-11-14 17:04:11,014 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=4066
+2026-11-14T17:04:11.015886417Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:04:11.023382532Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:04:11.028848553Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:04:18.749563527Z 2026-11-14 17:04:18,748 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:04:18.750662258Z 2026-11-14 17:04:18,750 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=7720
+2026-11-14T17:04:18.753046875Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:04:18.761660308Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:04:18.767216573Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:04:24.064739053Z 2026-11-14 17:04:24,064 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:04:24.065613953Z 2026-11-14 17:04:24,065 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=5292
+2026-11-14T17:04:24.066490585Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:04:24.072568616Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:04:24.077205131Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:04:29.361573649Z 2026-11-14 17:04:29,361 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:04:29.377937187Z 2026-11-14 17:04:29,377 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=5296
+2026-11-14T17:04:29.378599661Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:04:29.385175274Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:04:29.390044867Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:04:52.491000140Z 2026-11-14 17:04:52,490 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:04:52.491507560Z 2026-11-14 17:04:52,491 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=23100
+2026-11-14T17:04:52.492108951Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:04:52.500536321Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:04:52.506576164Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:04:54.182722692Z 2026-11-14 17:04:54,182 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:04:54.183547253Z 2026-11-14 17:04:54,183 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=1670
+2026-11-14T17:04:54.184161534Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:04:54.208441397Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:04:54.230273281Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:04:55.697528704Z 2026-11-14 17:04:55,697 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:04:55.697834663Z 2026-11-14 17:04:55,697 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=1444
+2026-11-14T17:04:55.698719611Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:04:55.710652331Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:04:55.715466408Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:04:57.981411560Z 2026-11-14 17:04:57,981 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:04:57.981869234Z 2026-11-14 17:04:57,981 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=2261
+2026-11-14T17:04:57.982715091Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:04:57.995353543Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:04:58.000483145Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:04:58.664168753Z 2026-11-14 17:04:58,663 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:04:58.664418515Z 2026-11-14 17:04:58,664 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=656
+2026-11-14T17:04:58.664987936Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T17:04:58.678052147Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T17:04:58.683521147Z INFO:     172.20.0.1:38222 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 200 OK
+2026-11-14T17:04:59.937116453Z 2026-11-14 17:04:59,936 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T17:04:59.937513597Z 2026-11-14 17:04:59,937 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=1249
+2026-11-14T17:04:59.938434615Z INFO:     172.20.0.1:38222 - "POST /conversas HTTP/1.1" 200 OK

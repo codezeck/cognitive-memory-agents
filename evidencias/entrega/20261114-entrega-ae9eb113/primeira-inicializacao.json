@@ -1,0 +1,66 @@
+{
+  "api": {
+    "id": "60a6ab75b9a8224a9fa49fb9668df10f63d9698a18ad29b03272d8c689e23f72",
+    "image": "sha256:f34d68127f1d8ff4e34efac398c29a3beba12f1e036ba6605f77553cbf18c61f",
+    "started_at": "2026-11-14T21:10:23.50109825Z",
+    "state": "running",
+    "command": [
+      "python",
+      "-m",
+      "src.inicializacao",
+      "servir"
+    ],
+    "ports": {
+      "8000/tcp": [
+        {
+          "HostIp": "127.0.0.1",
+          "HostPort": "59059"
+        }
+      ]
+    }
+  },
+  "preparar": {
+    "id": "7735c1228e7a3e7e7da164efce8d8cd987892dc14a6bb1a7579b383e6a7966e0",
+    "image": "sha256:f15689d01749e26b76e66cb19f498a288e087c5bff1ba0babc981740ae823301",
+    "started_at": "2026-11-14T21:09:26.533461876Z",
+    "state": "exited",
+    "command": [
+      "python",
+      "-m",
+      "src.inicializacao",
+      "preparar"
+    ],
+    "ports": {}
+  },
+  "ollama": {
+    "id": "82544eaf582cf4f1ae2e5b9db9341e0b32e998078b00857eb371de1beaecc570",
+    "image": "sha256:20d1bbfbabe1c97ba4b16301f08a20d8484bcf77047742a3cb71c613d8e12d0b",
+    "started_at": "2026-11-14T21:09:22.75597607Z",
+    "state": "running",
+    "command": [
+      "serve"
+    ],
+    "ports": {
+      "11434/tcp": null
+    }
+  },
+  "servicos": {
+    "api": "disponivel",
+    "ollama": "disponivel",
+    "modelos_instalados": [
+      "qwen2.5-coder:3b"
+    ],
+    "modelos": [
+      {
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b",
+        "local": true,
+        "configurado": true,
+        "padrao": true
+      }
+    ],
+    "comparativo_liberado": false
+  },
+  "memoria_docker_bytes": 8164077568,
+  "imagem_ollama_bytes": 8472913432
+}

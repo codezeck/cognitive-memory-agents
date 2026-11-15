@@ -1,0 +1,36 @@
+{
+  "estado": "preparado_sem_validacao_real_openai",
+  "acesso_informado": "ChatGPT Free",
+  "chamadas_externas_openai": 0,
+  "openai_executada": false,
+  "p6_executada": false,
+  "reservado_executado": false,
+  "configuracao_validada": {
+    "metodo": "docker compose config com chave ficticia, sem up",
+    "servicos_ativos": [
+      "preparar",
+      "api"
+    ],
+    "provedor": "openai",
+    "modelo": "gpt-4.1-mini",
+    "porta": 8003,
+    "preparo": "preparar-acesso",
+    "ollama_iniciado": false
+  },
+  "testes": {
+    "python_aprovados": 903,
+    "python_ignorados": 66,
+    "javascript_aprovados": 8
+  },
+  "bloqueio": "Sem chave e creditos de API; login ChatGPT Free nao habilita o adaptador existente.",
+  "hashes": {
+    "docker-compose.openai.yml": "d65bea7221d54c41daf262aeda97c105731240135d35dc14ad73451d29515441",
+    "src/inicializacao.py": "e747d837730f5c3ce2c0b85efa2b2a7701ddbdd631cf8a0f921e4c0ca07ac377",
+    "src/interface/comparativo.py": "b8d16c2df5cd7cb7941148bdb76575a00fbff71f8915bfdc31418685eefd9c30",
+    "src/modelos/openai_adapter.py": "5d6d65b973e7d6a86f8d0740a4b75765722d13540f1863d3f833163caf2e1001",
+    "docs/openai-opcional.md": "c7b6045ed6437e629792e40cb45d61fcb3a609f03522b16802ce34dc7497f934",
+    "tests/test_inicializacao.py": "28cc6df570d99f22842349ad55db95235fdb44b288ba20583fd7075ca9e16c58",
+    "tests/test_interface_comparativo.py": "064ad1f02c3455d094d23001e1778847cb95908414f1efe1a55dcb22c6b65409",
+    "tests/test_openai_adapter.py": "4eae6251ff3fb966b014d6859721c623f1fb42e6760e5f2591ac66c4dc75c87b"
+  }
+}

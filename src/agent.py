@@ -6,6 +6,7 @@ from src.modelos.ollama_adapter import (
 )
 
 from src.modelos.base import ModeloLLM
+from src.evidencias_pessoais import consultar_suporte
 
 MODEL = "qwen2.5-coder:3b"
 MAX_INTERACOES_HISTORICO = 10
@@ -137,14 +138,24 @@ def responder(
         else []
     )
     mensagens.extend(historico_contexto)
-    mensagens.append({"role": "user", "content": mensagem})
+    suporte = consultar_suporte(mensagem, historico_contexto, memorias)
+    mensagem_modelo = suporte.restante if suporte.atributos else mensagem
+    mensagens.append({"role": "user", "content": mensagem_modelo})
 
     modelo = adaptador or modelo_ia
     tokens_entrada = None
     tokens_saida = None
+    origem_uso = "provedor_com_abstencao_local" if suporte.atributos else "provedor"
+    chamadas_modelo_observadas = 1
 
     gerar_detalhes = getattr(modelo, "gerar_com_detalhes", None)
-    if retornar_detalhes and callable(gerar_detalhes):
+    if suporte.atributos and not suporte.restante:
+        # Politica local de abstenção, nao uma resposta atribuida ao LLM.
+        # Metricas ficam indisponiveis (None); nao inventar consumo medido.
+        texto = "DESCONHECIDO"
+        origem_uso = "politica_local"
+        chamadas_modelo_observadas = 0
+    elif retornar_detalhes and callable(gerar_detalhes):
         detalhes = gerar_detalhes(mensagens)
         texto = detalhes.get("resposta", "")
         tokens_entrada = detalhes.get("tokens_entrada")
@@ -156,6 +167,9 @@ def responder(
         raise RespostaModeloVaziaError(
             "O modelo de IA não retornou uma resposta válida."
         )
+
+    if suporte.atributos and suporte.restante:
+        texto = "DESCONHECIDO (" + ", ".join(suporte.atributos) + ").\n" + texto
 
     historico.extend([
         {"role": "user", "content": mensagem},
@@ -172,6 +186,8 @@ def responder(
             "resposta": texto,
             "tokens_entrada": tokens_entrada,
             "tokens_saida": tokens_saida,
+            "origem_uso": origem_uso,
+            "chamadas_modelo_observadas": chamadas_modelo_observadas,
         }
 
     return texto

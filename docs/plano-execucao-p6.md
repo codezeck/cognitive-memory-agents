@@ -1,15 +1,18 @@
 # Plano operacional da P6 — 20 sessões
 
-Documento de preparação de Zeck, em 12/11/2026. **Não houve execução real, limpeza de banco, chamada de modelo ou geração de resultado experimental neste trabalho.** Foi feita somente inspeção do planejador e leitura dos dados/código.
+Atualização de 14/11: [pacote de revisão](revisao-experimental/README.md) preparado sem alterar dados oficiais. O usuário informou existir revisão e prometeu referência, ainda não recebida. [Critérios finais](criterios-avaliacao-final.md) definidos; [metadados opcionais de tokens](proposta-contagem-local.md) autorizados. A demonstração padrão tem chat/preparo Docker automático; avaliações técnicas usam credenciais e instâncias próprias. Nenhuma P6 executada nesta etapa.
+
+Documento de preparação de Zeck, em 12/11/2026, atualizado em 14/11. **A P6 real não foi executada.** O planejador foi inspecionado sem `--executar`. A [sondagem separada Docker/Ollama](validacao-entrega-docker.md) não utilizou as trajetórias P6 nem o conjunto reservado e não preenche resultados deste plano.
 
 Este plano organiza a sequência e as evidências. Os formatos completos de credenciais, contratos e observações continuam no [guia de avaliação — P6](guia-avaliacao.md#p6--primeira-etapa-do-experimento-integrado); não criar outro contrato concorrente. A análise acadêmica está em [contribuição](contribuicao-academica-zeck.md), e a classificação dos resultados existentes em [resultados](resultados-avaliacoes-agente.md).
 
 ## 1. Versão e condição de liberação
 
-| Referência em 12/11/2026 | Estado confirmado | Consequência |
+| Referência conferida em 14/11/2026 | Estado confirmado | Consequência |
 |---|---|---|
-| Master `fc759f3` | `p4-v2`; inspeção atual: 10 compatíveis, 11 incompatíveis, 0 ausentes | Não tratar como avaliação completa das respostas P6 |
-| [PR #41](https://github.com/codezeck/cognitive-memory-agents/pull/41), `29d1255` | P4-v3 e 21/21 compatíveis registrados nos testes da PR; ainda não integrada | Aguardar revisão e versão congelada; não copiar código para esta branch documental |
+| Master atual `2be5d51` | P4-v3; inspeção sem execução: 21 compatíveis, 0 incompatíveis, 0 ausentes | Cobertura estrutural integral; não significa respostas aprovadas |
+| PRs #41, #42 e #43 | Integradas; incluem materiais acadêmicos e reset do histórico após DELETE individual | Não aguardar integração já concluída; congelamento/revisão semântica e evidências ainda necessários |
+| Relatório histórico de `fc759f3` | P4-v2: 10 compatíveis e 11 incompatíveis | Preservar esse registro datado; não atribuí-lo à versão atual |
 | Anotações oficiais | 21 presentes; quantidade de gatos ainda depende de revisão | Compatibilidade não certifica validade semântica |
 | Execução real | Nenhum JSONL real P6 encontrado entre os artefatos versionados | Não há taxa funcional para preencher |
 
@@ -74,7 +77,7 @@ Na versão aprovada, com o ambiente Python do guia, executar apenas a inspeção
 python -B eval/avaliar_sessoes_integradas.py --dataset eval/memoria/sessoes.json --anotacoes eval/memoria/anotacoes_p6.json
 ```
 
-Na base desta branch, o retorno observado foi 4 usuários, 20 sessões, 21 perguntas, 10 compatíveis/11 incompatíveis e uma ação exigindo contrato: `u02/s5/esquecer_chaves`. A PR #41 registra a resolução estrutural para 21/21; conferir novamente após integração. Não executar com cobertura parcial e depois chamar a rodada de avaliação completa.
+Na inspeção de 14/11, sem `--executar`, o retorno observado foi 4 usuários, 20 sessões, 21 perguntas, **21 compatíveis/0 incompatíveis/0 ausentes** e uma ação exigindo contrato: `u02/s5/esquecer_chaves`. A inspeção de 12/11 com 10/21 permanece histórica. Não executar com cobertura parcial e depois chamar a rodada de avaliação completa; compatibilidade integral também não dispensa as demais condições deste plano.
 
 Antes de qualquer rodada oficial:
 

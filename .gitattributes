@@ -1,0 +1,7 @@
+# Preservar bytes/hashes dos brutos, incluindo CRLF e espacos de progresso.
+# Whitespace continua validado normalmente em codigo e documentacao.
+evidencias/agente/20261114-* -text -whitespace
+evidencias/agente/validacao-docker-20261114-* -text -whitespace
+evidencias/agente/preparacao-openai-20261115/** -text -whitespace
+evidencias/entrega/** -text -whitespace
+docs/pesquisa-abnt.pdf binary

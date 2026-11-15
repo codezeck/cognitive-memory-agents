@@ -1,0 +1,54 @@
+sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss....... [  8%]
+........................................................................ [ 16%]
+..............................FFF....................................... [ 24%]
+........................................................................ [ 32%]
+....................FF.................................................. [ 40%]
+........................................................................ [ 48%]
+........................................................................ [ 56%]
+........................................................................ [ 64%]
+........................................................................ [ 72%]
+........................................................................ [ 80%]
+........................................................................ [ 88%]
+........................................................................ [ 96%]
+..................................                                       [100%]
+================================== FAILURES ===================================
+_ test_historico_isola_memoria_e_preserva_agente_e_avaliador[ollama-modelo-local-teste-None] _
+tests\test_avaliar_comparativo.py:363: in test_historico_isola_memoria_e_preserva_agente_e_avaliador
+    assert estado.chamadas == [
+E   AssertionError: assert [[{'role': 's...dade moro?'}]] == [[{'role': 's...dade moro?'}]]
+E     
+E     At index 0 diff: [{'role': 'system', 'content': '\nVoc� � um agente de IA de um projeto acad�mico sobre mem�ria\nde longo prazo para agentes inteligentes.\n\nRegras:\n- Responda em portugu�s, com clareza e objetividade.\n- Utilize o hist�rico para manter o contexto da conversa.\n- Utilize as mem�rias externas quando forem relevantes.\n- Trate as mem�rias como registros de fatos, n�o como convite para especular.\n- N�o invente detalhes que n�o estejam presentes no hist�rico ou nas mem�rias.\n- Se perguntarem qual texto foi salvo, reproduza o conte�do registrado com fidel...
+E     
+E     ...Full output truncated (2 lines hidden), use '-vv' to show
+_ test_historico_isola_memoria_e_preserva_agente_e_avaliador[openai-modelo-hospedado-teste-chave-simulada] _
+tests\test_avaliar_comparativo.py:363: in test_historico_isola_memoria_e_preserva_agente_e_avaliador
+    assert estado.chamadas == [
+E   AssertionError: assert [[{'role': 's...dade moro?'}]] == [[{'role': 's...dade moro?'}]]
+E     
+E     At index 0 diff: [{'role': 'system', 'content': '\nVoc� � um agente de IA de um projeto acad�mico sobre mem�ria\nde longo prazo para agentes inteligentes.\n\nRegras:\n- Responda em portugu�s, com clareza e objetividade.\n- Utilize o hist�rico para manter o contexto da conversa.\n- Utilize as mem�rias externas quando forem relevantes.\n- Trate as mem�rias como registros de fatos, n�o como convite para especular.\n- N�o invente detalhes que n�o estejam presentes no hist�rico ou nas mem�rias.\n- Se perguntarem qual texto foi salvo, reproduza o conte�do registrado com fidel...
+E     
+E     ...Full output truncated (2 lines hidden), use '-vv' to show
+____ test_historico_isola_casos_e_nao_reinicia_por_pedido_de_esquecimento _____
+tests\test_avaliar_comparativo.py:399: in test_historico_isola_casos_e_nao_reinicia_por_pedido_de_esquecimento
+    assert len(estado.chamadas[inicio]) == 2
+E   AssertionError: assert 3 == 2
+E    +  where 3 = len([{'role': 'system', 'content': '\nVoc� � um agente de IA de um projeto acad�mico sobre mem�ria\nde longo prazo para ag... disponiveis nesta chamada:\nNenhuma memoria externa foi recuperada.'}, {'role': 'user', 'content': 'Moro em Osasco.'}])
+__ test_spawn_preserva_historico_longo_modelo_prompt_e_estado_do_pai[ollama] __
+tests\test_historico_processo.py:127: in test_spawn_preserva_historico_longo_modelo_prompt_e_estado_do_pai
+    assert len(contexto) == 2 * (indice + 1)
+E   AssertionError: assert 3 == (2 * (0 + 1))
+E    +  where 3 = len([{'role': 'system', 'content': '\nVoc� � um agente de IA de um projeto acad�mico sobre mem�ria\nde longo prazo para ag...xternas disponiveis nesta chamada:\nNenhuma memoria externa foi recuperada.'}, {'role': 'user', 'content': 'Fato A-0'}])
+__ test_spawn_preserva_historico_longo_modelo_prompt_e_estado_do_pai[openai] __
+tests\test_historico_processo.py:127: in test_spawn_preserva_historico_longo_modelo_prompt_e_estado_do_pai
+    assert len(contexto) == 2 * (indice + 1)
+E   AssertionError: assert 3 == (2 * (0 + 1))
+E    +  where 3 = len([{'role': 'system', 'content': '\nVoc� � um agente de IA de um projeto acad�mico sobre mem�ria\nde longo prazo para ag...xternas disponiveis nesta chamada:\nNenhuma memoria externa foi recuperada.'}, {'role': 'user', 'content': 'Fato A-0'}])
+=========================== short test summary info ===========================
+SKIPPED [1] tests\test_embeddings_semantico.py:8: defina TESTAR_EMBEDDER_SEMANTICO=1 (baixa o modelo na primeira vez)
+SKIPPED [65] tests\test_abstencao_docker_real.py:85: requer API/Ollama reais e ambiente isolado opt-in
+FAILED tests/test_avaliar_comparativo.py::test_historico_isola_memoria_e_preserva_agente_e_avaliador[ollama-modelo-local-teste-None]
+FAILED tests/test_avaliar_comparativo.py::test_historico_isola_memoria_e_preserva_agente_e_avaliador[openai-modelo-hospedado-teste-chave-simulada]
+FAILED tests/test_avaliar_comparativo.py::test_historico_isola_casos_e_nao_reinicia_por_pedido_de_esquecimento
+FAILED tests/test_historico_processo.py::test_spawn_preserva_historico_longo_modelo_prompt_e_estado_do_pai[ollama]
+FAILED tests/test_historico_processo.py::test_spawn_preserva_historico_longo_modelo_prompt_e_estado_do_pai[openai]
+5 failed, 828 passed, 66 skipped in 33.58s

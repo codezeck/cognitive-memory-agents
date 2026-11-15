@@ -1,0 +1,49 @@
+{
+  "estado": "proposta_nao_aprovada",
+  "aprovado": false,
+  "sha256_anotacoes_oficiais": "3143f17411b42f622192dde9f9dd450b299f19ce722d65511c3b76b979be81c6",
+  "contrato_esquecimento": {
+    "evento": "u02/s5/esquecer_chaves",
+    "chaves": [
+      "carro"
+    ],
+    "mensagem": "Esqueça tudo sobre meu carro.",
+    "aprovado": false,
+    "referencia": null,
+    "revisores_necessarios": [
+      "Vinicius",
+      "Paloma"
+    ],
+    "limite": "A forma das regras pode ser testada em desenvolvimento; isso nao aprova a mensagem oficial."
+  },
+  "quantidade_gatos": {
+    "evento": "u03/s4/pergunta3",
+    "recuperacao": [
+      "Luna",
+      "Simba"
+    ],
+    "resposta": "dois",
+    "aliases": [
+      "2"
+    ],
+    "aprovado": false,
+    "pergunta_revisao": "Os dois nomes representam exatamente dois gatos atuais nesta pergunta?"
+  },
+  "checkpoint_vazio": {
+    "evento": "u04/s4/checkpoint_persistencia",
+    "aprovado": false,
+    "proposta": "Separar consistencia de estado vazio de persistencia de fatos nao vazios.",
+    "evidencias_necessarias": [
+      "reinicio real e identidade da instancia",
+      "SQLite incluindo inativos antes/depois",
+      "mesmo volume/arquivo, ausencia de escritores concorrentes"
+    ],
+    "classificacao_atual": "nao_verificado; o executor nao foi alterado",
+    "decisao_necessaria": "Equipe decide aplicabilidade e formato versionado antes de executar P6."
+  },
+  "coleta_ram": {
+    "implementado": "POST /avaliacao/ram opt-in, um worker identificado",
+    "aprovado_para_p6": false,
+    "limite": "Alvos literais normalizados; contagem de mensagens pessoais separada de mensagens de sistema."
+  }
+}

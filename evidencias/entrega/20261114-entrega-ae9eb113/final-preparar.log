@@ -1,0 +1,28 @@
+2026-11-14T22:08:26.135769951Z Credenciais locais existentes preservadas.
+2026-11-14T22:08:26.149942814Z Preparando modelo qwen2.5-coder:3b. O primeiro download pode levar varios minutos.
+2026-11-14T22:08:26.152282339Z Modelo: pulling manifest
+2026-11-14T22:08:26.775346614Z Modelo: 100% — 1929903072 / 1929903072 bytes
+2026-11-14T22:08:26.775366918Z Modelo: 100% — 68 / 68 bytes
+2026-11-14T22:08:26.775368902Z Modelo: 100% — 1615 / 1615 bytes
+2026-11-14T22:08:26.775370107Z Modelo: 100% — 7384 / 7384 bytes
+2026-11-14T22:08:26.775371164Z Modelo: 100% — 487 / 487 bytes
+2026-11-14T22:08:26.775372267Z Modelo: verifying sha256 digest
+2026-11-14T22:08:26.775373462Z Modelo: writing manifest
+2026-11-14T22:08:26.778287995Z Modelo: removing unused layers
+2026-11-14T22:08:26.778296939Z Modelo: success
+2026-11-14T22:08:26.778559889Z Conferindo carregamento real do modelo...
+2026-11-14T22:08:29.573402085Z Modelo carregado e disponivel. A API pode iniciar.
+2026-11-14T22:10:06.707446093Z Credenciais locais existentes preservadas.
+2026-11-14T22:10:06.725811503Z Preparando modelo qwen2.5-coder:3b. O primeiro download pode levar varios minutos.
+2026-11-14T22:10:06.727999600Z Modelo: pulling manifest
+2026-11-14T22:10:07.427611328Z Modelo: 100% — 1929903072 / 1929903072 bytes
+2026-11-14T22:10:07.427649768Z Modelo: 100% — 68 / 68 bytes
+2026-11-14T22:10:07.427654509Z Modelo: 100% — 1615 / 1615 bytes
+2026-11-14T22:10:07.427657946Z Modelo: 100% — 7384 / 7384 bytes
+2026-11-14T22:10:07.427661674Z Modelo: 100% — 487 / 487 bytes
+2026-11-14T22:10:07.427665224Z Modelo: verifying sha256 digest
+2026-11-14T22:10:07.427879785Z Modelo: writing manifest
+2026-11-14T22:10:07.431823188Z Modelo: removing unused layers
+2026-11-14T22:10:07.431855153Z Modelo: success
+2026-11-14T22:10:07.431859941Z Conferindo carregamento real do modelo...
+2026-11-14T22:10:07.437137078Z Modelo carregado e disponivel. A API pode iniciar.

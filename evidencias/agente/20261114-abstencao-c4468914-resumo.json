@@ -1,0 +1,1422 @@
+{
+  "protocolo": "desenvolvimento, nao P6 nem comparativo oficial",
+  "rodadas": {
+    "base": {
+      "resultados_estritos": {
+        "true": 37,
+        "false": 28
+      },
+      "por_caso": {
+        "disponivel": {
+          "true": 5
+        },
+        "atualizado": {
+          "true": 5
+        },
+        "nunca_informado": {
+          "false": 2,
+          "true": 3
+        },
+        "exclusao_individual": {
+          "false": 4,
+          "true": 1
+        },
+        "exclusao_total": {
+          "false": 4,
+          "true": 1
+        },
+        "exclusao_nova_sessao": {
+          "false": 5
+        },
+        "isolamento": {
+          "false": 5
+        },
+        "geral": {
+          "true": 5
+        },
+        "mensagem_atual": {
+          "true": 5
+        },
+        "historico_usuario": {
+          "true": 4,
+          "false": 1
+        },
+        "memoria_sem_suporte": {
+          "true": 3,
+          "false": 2
+        },
+        "conselho": {
+          "true": 5
+        },
+        "pergunta_mista": {
+          "false": 5
+        }
+      },
+      "falhas_originais": [
+        {
+          "tipo": "resultado_caso",
+          "caso": "nunca_informado",
+          "repeticao": 1,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": {
+            "resposta": "São Paulo",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 623,
+            "tokens_entrada": 280,
+            "tokens_saida": 4
+          },
+          "erro": "assert 'sao paulo' == 'desconhecido'\n  \n  - desconhecido\n  + sao paulo",
+          "instante_utc": "2026-11-14T17:02:06.819936+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "nunca_informado",
+          "repeticao": 3,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": {
+            "resposta": "São Paulo",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 245,
+            "tokens_entrada": 280,
+            "tokens_saida": 4
+          },
+          "erro": "assert 'sao paulo' == 'desconhecido'\n  \n  - desconhecido\n  + sao paulo",
+          "instante_utc": "2026-11-14T17:02:07.498964+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "exclusao_individual",
+          "repeticao": 1,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": {
+            "resposta": "São Paulo",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 618,
+            "tokens_entrada": 280,
+            "tokens_saida": 4
+          },
+          "erro": "assert 'sao paulo' == 'desconhecido'\n  \n  - desconhecido\n  + sao paulo",
+          "instante_utc": "2026-11-14T17:02:11.083199+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "exclusao_individual",
+          "repeticao": 2,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": {
+            "resposta": "São Paulo",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 599,
+            "tokens_entrada": 280,
+            "tokens_saida": 4
+          },
+          "erro": "assert 'sao paulo' == 'desconhecido'\n  \n  - desconhecido\n  + sao paulo",
+          "instante_utc": "2026-11-14T17:02:14.546930+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "exclusao_individual",
+          "repeticao": 4,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": {
+            "resposta": "INFORMAÇÃO DESCONHECIDA",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 953,
+            "tokens_entrada": 280,
+            "tokens_saida": 9
+          },
+          "erro": "assert 'informacao desconhecida' == 'desconhecido'\n  \n  - desconhecido\n  + informacao desconhecida",
+          "instante_utc": "2026-11-14T17:02:20.580821+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "exclusao_individual",
+          "repeticao": 5,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": {
+            "resposta": "DECONHECIDO.",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 772,
+            "tokens_entrada": 280,
+            "tokens_saida": 7
+          },
+          "erro": "assert 'deconhecido' == 'desconhecido'\n  \n  - desconhecido\n  ?   -\n  + deconhecido",
+          "instante_utc": "2026-11-14T17:02:23.569942+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "exclusao_total",
+          "repeticao": 1,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": {
+            "resposta": "São Paulo",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 727,
+            "tokens_entrada": 280,
+            "tokens_saida": 4
+          },
+          "erro": "assert 'sao paulo' == 'desconhecido'\n  \n  - desconhecido\n  + sao paulo",
+          "instante_utc": "2026-11-14T17:02:26.445714+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "exclusao_total",
+          "repeticao": 2,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": {
+            "resposta": "DESBANCO",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 804,
+            "tokens_entrada": 280,
+            "tokens_saida": 5
+          },
+          "erro": "assert 'desbanco' == 'desconhecido'\n  \n  - desconhecido\n  + desbanco",
+          "instante_utc": "2026-11-14T17:02:29.498280+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "exclusao_total",
+          "repeticao": 3,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": {
+            "resposta": "São Paulo",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 660,
+            "tokens_entrada": 280,
+            "tokens_saida": 4
+          },
+          "erro": "assert 'sao paulo' == 'desconhecido'\n  \n  - desconhecido\n  + sao paulo",
+          "instante_utc": "2026-11-14T17:02:32.818102+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "exclusao_total",
+          "repeticao": 5,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": {
+            "resposta": "São Paulo.",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 662,
+            "tokens_entrada": 280,
+            "tokens_saida": 5
+          },
+          "erro": "assert 'sao paulo' == 'desconhecido'\n  \n  - desconhecido\n  + sao paulo",
+          "instante_utc": "2026-11-14T17:02:38.547061+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "exclusao_nova_sessao",
+          "repeticao": 1,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": {
+            "resposta": "DESAFIO",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 676,
+            "tokens_entrada": 280,
+            "tokens_saida": 5
+          },
+          "erro": "assert 'desafio' == 'desconhecido'\n  \n  - desconhecido\n  + desafio",
+          "instante_utc": "2026-11-14T17:02:41.408817+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "exclusao_nova_sessao",
+          "repeticao": 2,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": {
+            "resposta": "Minha cidade é Belo Horizonte.",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 982,
+            "tokens_entrada": 280,
+            "tokens_saida": 11
+          },
+          "erro": "assert 'minha cidade...elo horizonte' == 'desconhecido'\n  \n  - desconhecido\n  + minha cidade e belo horizonte",
+          "instante_utc": "2026-11-14T17:02:44.697920+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "exclusao_nova_sessao",
+          "repeticao": 3,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": {
+            "resposta": "São Paulo",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 642,
+            "tokens_entrada": 280,
+            "tokens_saida": 4
+          },
+          "erro": "assert 'sao paulo' == 'desconhecido'\n  \n  - desconhecido\n  + sao paulo",
+          "instante_utc": "2026-11-14T17:02:47.495316+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "exclusao_nova_sessao",
+          "repeticao": 4,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": {
+            "resposta": "São Paulo",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 648,
+            "tokens_entrada": 280,
+            "tokens_saida": 4
+          },
+          "erro": "assert 'sao paulo' == 'desconhecido'\n  \n  - desconhecido\n  + sao paulo",
+          "instante_utc": "2026-11-14T17:02:50.875655+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "exclusao_nova_sessao",
+          "repeticao": 5,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": {
+            "resposta": "São Paulo",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 589,
+            "tokens_entrada": 280,
+            "tokens_saida": 4
+          },
+          "erro": "assert 'sao paulo' == 'desconhecido'\n  \n  - desconhecido\n  + sao paulo",
+          "instante_utc": "2026-11-14T17:02:53.752911+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "isolamento",
+          "repeticao": 1,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": {
+            "resposta": "São Paulo",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 649,
+            "tokens_entrada": 280,
+            "tokens_saida": 4
+          },
+          "erro": "assert 'sao paulo' == 'desconhecido'\n  \n  - desconhecido\n  + sao paulo",
+          "instante_utc": "2026-11-14T17:02:59.816121+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "isolamento",
+          "repeticao": 2,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": {
+            "resposta": "São Paulo",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 628,
+            "tokens_entrada": 280,
+            "tokens_saida": 4
+          },
+          "erro": "assert 'sao paulo' == 'desconhecido'\n  \n  - desconhecido\n  + sao paulo",
+          "instante_utc": "2026-11-14T17:03:04.897801+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "isolamento",
+          "repeticao": 3,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": {
+            "resposta": "A cidade registrada é São Paulo.",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 924,
+            "tokens_entrada": 280,
+            "tokens_saida": 9
+          },
+          "erro": "assert 'a cidade reg...a e sao paulo' == 'desconhecido'\n  \n  - desconhecido\n  + a cidade registrada e sao paulo",
+          "instante_utc": "2026-11-14T17:03:11.042987+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "isolamento",
+          "repeticao": 4,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": {
+            "resposta": "São Paulo",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 688,
+            "tokens_entrada": 280,
+            "tokens_saida": 4
+          },
+          "erro": "assert 'sao paulo' == 'desconhecido'\n  \n  - desconhecido\n  + sao paulo",
+          "instante_utc": "2026-11-14T17:03:16.615955+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "isolamento",
+          "repeticao": 5,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": {
+            "resposta": "São Paulo",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 683,
+            "tokens_entrada": 280,
+            "tokens_saida": 4
+          },
+          "erro": "assert 'sao paulo' == 'desconhecido'\n  \n  - desconhecido\n  + sao paulo",
+          "instante_utc": "2026-11-14T17:03:21.848643+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "historico_usuario",
+          "repeticao": 2,
+          "aprovado": false,
+          "esperado": "brisa",
+          "resposta": {
+            "resposta": "ARQUIVO",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 572,
+            "tokens_entrada": 308,
+            "tokens_saida": 4
+          },
+          "erro": "assert 'arquivo' == 'brisa'\n  \n  - brisa\n  + arquivo",
+          "instante_utc": "2026-11-14T17:03:43.520364+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "memoria_sem_suporte",
+          "repeticao": 2,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": {
+            "resposta": "DESAFIO",
+            "memorias_usadas": [
+              "A cidade preferida para turismo e Natal. Este registro nao informa onde o usuario mora."
+            ],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 290,
+            "tokens_entrada": 383,
+            "tokens_saida": 5
+          },
+          "erro": "assert 'desafio' == 'desconhecido'\n  \n  - desconhecido\n  + desafio",
+          "instante_utc": "2026-11-14T17:04:05.686841+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "memoria_sem_suporte",
+          "repeticao": 4,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": {
+            "resposta": "DESHONHECIDO",
+            "memorias_usadas": [
+              "A cidade preferida para turismo e Natal. Este registro nao informa onde o usuario mora."
+            ],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 410,
+            "tokens_entrada": 383,
+            "tokens_saida": 7
+          },
+          "erro": "assert 'deshonhecido' == 'desconhecido'\n  \n  - desconhecido\n  ?    ^\n  + deshonhecido\n  ?    ^",
+          "instante_utc": "2026-11-14T17:04:06.540635+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "pergunta_mista",
+          "repeticao": 1,
+          "aprovado": false,
+          "esperado": "abstencao_e_cinco",
+          "resposta": {
+            "resposta": "Minha cidade de residência é Belo Horizonte.\n\n2 + 3 é 5.",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 1670,
+            "tokens_entrada": 292,
+            "tokens_saida": 22
+          },
+          "erro": "assert False\n +  where False = any(<generator object test_abstencao_docker_real.<locals>.<genexpr> at 0x000001890604AE90>)",
+          "instante_utc": "2026-11-14T17:04:54.194446+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "pergunta_mista",
+          "repeticao": 2,
+          "aprovado": false,
+          "esperado": "abstencao_e_cinco",
+          "resposta": {
+            "resposta": "Sua cidade de residência é [cidades de residência do usuário].\n\n2 + 3 é igual a 5.",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 1444,
+            "tokens_entrada": 292,
+            "tokens_saida": 27
+          },
+          "erro": "assert False\n +  where False = any(<generator object test_abstencao_docker_real.<locals>.<genexpr> at 0x0000018905F1B5E0>)",
+          "instante_utc": "2026-11-14T17:04:55.699906+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "pergunta_mista",
+          "repeticao": 3,
+          "aprovado": false,
+          "esperado": "abstencao_e_cinco",
+          "resposta": {
+            "resposta": "Sua cidade de residência é [Cidade do Usuário]. Não sei qual é o valor de 2 + 3, pois não há informação sobre esse cálculo em nosso histórico.",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 2261,
+            "tokens_entrada": 292,
+            "tokens_saida": 42
+          },
+          "erro": "assert ('5' in 'sua cidade de residencia e [cidade do usuario]. nao sei qual e o valor de 2 + 3, pois nao ha informacao sobre esse calculo em nosso historico' or 'cinco' in 'sua cidade de residencia e [cidade do usuario]. nao sei qual e o valor de 2 + 3, pois nao ha informacao sobre esse calculo em nosso historico')",
+          "instante_utc": "2026-11-14T17:04:57.983857+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "pergunta_mista",
+          "repeticao": 4,
+          "aprovado": false,
+          "esperado": "abstencao_e_cinco",
+          "resposta": {
+            "resposta": "A sua cidade de residência é Rio de Janeiro.",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 656,
+            "tokens_entrada": 292,
+            "tokens_saida": 12
+          },
+          "erro": "assert False\n +  where False = any(<generator object test_abstencao_docker_real.<locals>.<genexpr> at 0x0000018905FA6670>)",
+          "instante_utc": "2026-11-14T17:04:58.665836+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "pergunta_mista",
+          "repeticao": 5,
+          "aprovado": false,
+          "esperado": "abstencao_e_cinco",
+          "resposta": {
+            "resposta": "Sua cidade de residência é [Nome da Cidade]. \n\n2 + 3 é 5.",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 1249,
+            "tokens_entrada": 292,
+            "tokens_saida": 23
+          },
+          "erro": "assert False\n +  where False = any(<generator object test_abstencao_docker_real.<locals>.<genexpr> at 0x0000018905FF2F60>)",
+          "instante_utc": "2026-11-14T17:04:59.939313+00:00"
+        }
+      ],
+      "pedidos_modelo": 145,
+      "respostas_modelo": 145,
+      "conversas_http": 145,
+      "respostas_locais_sem_chamada_modelo": [],
+      "tokens_entrada_observados_soma": 49132,
+      "tokens_saida_observados_soma": 2333,
+      "sha256_agent_no_conteiner": "07756887c42230cc872ec3a137f4b58a4f75830d7c64e70357aaa8125a7d1d38"
+    },
+    "correcao": {
+      "resultados_estritos": {
+        "true": 45,
+        "false": 20
+      },
+      "por_caso": {
+        "disponivel": {
+          "true": 4,
+          "false": 1
+        },
+        "atualizado": {
+          "true": 1,
+          "false": 4
+        },
+        "nunca_informado": {
+          "true": 5
+        },
+        "exclusao_individual": {
+          "false": 4,
+          "true": 1
+        },
+        "exclusao_total": {
+          "true": 3,
+          "false": 2
+        },
+        "exclusao_nova_sessao": {
+          "true": 3,
+          "false": 2
+        },
+        "isolamento": {
+          "true": 3,
+          "false": 2
+        },
+        "geral": {
+          "true": 5
+        },
+        "mensagem_atual": {
+          "true": 5
+        },
+        "historico_usuario": {
+          "true": 5
+        },
+        "memoria_sem_suporte": {
+          "true": 5
+        },
+        "conselho": {
+          "true": 5
+        },
+        "pergunta_mista": {
+          "false": 5
+        }
+      },
+      "falhas_originais": [
+        {
+          "tipo": "resultado_caso",
+          "caso": "disponivel",
+          "repeticao": 2,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": null,
+          "erro": "assert 'descobri que...ra em niteroi' == 'niteroi'\n  \n  - niteroi\n  + descobri que voce mora em niteroi",
+          "instante_utc": "2026-11-14T17:06:02.400333+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "atualizado",
+          "repeticao": 2,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": null,
+          "erro": "assert 'desconhecido' == 'niteroi'\n  \n  - niteroi\n  + desconhecido",
+          "instante_utc": "2026-11-14T17:06:11.206129+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "atualizado",
+          "repeticao": 3,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": null,
+          "erro": "assert 'desconhecido' == 'niteroi'\n  \n  - niteroi\n  + desconhecido",
+          "instante_utc": "2026-11-14T17:06:16.287882+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "atualizado",
+          "repeticao": 4,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": null,
+          "erro": "assert 'mora em niteroi' == 'niteroi'\n  \n  - niteroi\n  + mora em niteroi",
+          "instante_utc": "2026-11-14T17:06:18.296280+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "atualizado",
+          "repeticao": 5,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": null,
+          "erro": "assert 'desconhecido' == 'niteroi'\n  \n  - niteroi\n  + desconhecido",
+          "instante_utc": "2026-11-14T17:06:20.760492+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "exclusao_individual",
+          "repeticao": 1,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": null,
+          "erro": "assert 'desconhecido' == 'niteroi'\n  \n  - niteroi\n  + desconhecido",
+          "instante_utc": "2026-11-14T17:06:26.024897+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "exclusao_individual",
+          "repeticao": 2,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": null,
+          "erro": "assert 'desconhecido' == 'niteroi'\n  \n  - niteroi\n  + desconhecido",
+          "instante_utc": "2026-11-14T17:06:29.899580+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "exclusao_individual",
+          "repeticao": 3,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": {
+            "resposta": "Descobri que você mora em São Paulo.",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 1243,
+            "tokens_entrada": 550,
+            "tokens_saida": 12
+          },
+          "erro": "assert 'descobri que... em sao paulo' == 'desconhecido'\n  \n  - desconhecido\n  + descobri que voce mora em sao paulo",
+          "instante_utc": "2026-11-14T17:06:32.716539+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "exclusao_individual",
+          "repeticao": 5,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": null,
+          "erro": "assert 'desconhecido' == 'niteroi'\n  \n  - niteroi\n  + desconhecido",
+          "instante_utc": "2026-11-14T17:06:39.589941+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "exclusao_total",
+          "repeticao": 2,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": null,
+          "erro": "assert 'descobri que...ra em niteroi' == 'niteroi'\n  \n  - niteroi\n  + descobri que voce mora em niteroi",
+          "instante_utc": "2026-11-14T17:06:46.210226+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "exclusao_total",
+          "repeticao": 3,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": null,
+          "erro": "assert 'mora em niteroi' == 'niteroi'\n  \n  - niteroi\n  + mora em niteroi",
+          "instante_utc": "2026-11-14T17:06:49.518037+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "exclusao_nova_sessao",
+          "repeticao": 3,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": null,
+          "erro": "assert 'mora em niteroi' == 'niteroi'\n  \n  - niteroi\n  + mora em niteroi",
+          "instante_utc": "2026-11-14T17:07:04.266838+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "exclusao_nova_sessao",
+          "repeticao": 5,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": null,
+          "erro": "assert 'desconhecido' == 'niteroi'\n  \n  - niteroi\n  + desconhecido",
+          "instante_utc": "2026-11-14T17:07:13.066351+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "isolamento",
+          "repeticao": 2,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": null,
+          "erro": "assert 'desculpe, ma...nde voce mora' == 'niteroi'\n  \n  - niteroi\n  + desculpe, mas a memoria externa associada a este usuario nao menciona onde voce mora",
+          "instante_utc": "2026-11-14T17:07:21.383456+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "isolamento",
+          "repeticao": 4,
+          "aprovado": false,
+          "esperado": "desconhecido",
+          "resposta": {
+            "resposta": "DESCONHECIDO.",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 950,
+            "tokens_entrada": 550,
+            "tokens_saida": 7
+          },
+          "erro": "assert 'desconhecido' == 'maceio'\n  \n  - maceio\n  + desconhecido",
+          "instante_utc": "2026-11-14T17:07:34.008722+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "pergunta_mista",
+          "repeticao": 1,
+          "aprovado": false,
+          "esperado": "abstencao_e_cinco",
+          "resposta": {
+            "resposta": "Desculpe, mas sua cidade de residência não está presente no histórico ou nas memórias externas. Sobre o cálculo, 2 + 3 é igual a 5.",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 3093,
+            "tokens_entrada": 562,
+            "tokens_saida": 42
+          },
+          "erro": "assert False\n +  where False = any(<generator object test_abstencao_docker_real.<locals>.<genexpr> at 0x0000025FCD8D5CB0>)",
+          "instante_utc": "2026-11-14T17:08:50.213626+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "pergunta_mista",
+          "repeticao": 2,
+          "aprovado": false,
+          "esperado": "abstencao_e_cinco",
+          "resposta": {
+            "resposta": "Sua cidade de residência é [insira sua cidade]. A soma de 2 e 3 é 5.",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 1607,
+            "tokens_entrada": 562,
+            "tokens_saida": 26
+          },
+          "erro": "assert False\n +  where False = any(<generator object test_abstencao_docker_real.<locals>.<genexpr> at 0x0000025FCD8DCD40>)",
+          "instante_utc": "2026-11-14T17:08:51.845402+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "pergunta_mista",
+          "repeticao": 3,
+          "aprovado": false,
+          "esperado": "abstencao_e_cinco",
+          "resposta": {
+            "resposta": "Desculpe, mas não tenho acesso a informações pessoais de você, como sua cidade de residência ou a resposta a uma soma simples. Por favor, forneça essas informações diretamente na sua mensagem.",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 2876,
+            "tokens_entrada": 562,
+            "tokens_saida": 46
+          },
+          "erro": "assert ('5' in 'desculpe, mas nao tenho acesso a informacoes pessoais de voce, como sua cidade de residencia ou a resposta a uma soma simples. por favor, forneca essas informacoes diretamente na sua mensagem' or 'cinco' in 'desculpe, mas nao tenho acesso a informacoes pessoais de voce, como sua cidade de residencia ou a resposta a uma soma simples. por favor, forneca essas informacoes diretamente na sua mensagem')",
+          "instante_utc": "2026-11-14T17:08:54.747344+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "pergunta_mista",
+          "repeticao": 4,
+          "aprovado": false,
+          "esperado": "abstencao_e_cinco",
+          "resposta": {
+            "resposta": "Desculpe, mas você não forneceu sua cidade de residência. Por favor, forneça informações pessoais para que eu possa ajudar com isso.",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 2251,
+            "tokens_entrada": 562,
+            "tokens_saida": 36
+          },
+          "erro": "assert False\n +  where False = any(<generator object test_abstencao_docker_real.<locals>.<genexpr> at 0x0000025FCCBA8C70>)",
+          "instante_utc": "2026-11-14T17:08:57.022056+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "pergunta_mista",
+          "repeticao": 5,
+          "aprovado": false,
+          "esperado": "abstencao_e_cinco",
+          "resposta": {
+            "resposta": "Sua cidade de residência é Desconhecida. O resultado de 2 + 3 é 5.",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 1587,
+            "tokens_entrada": 562,
+            "tokens_saida": 25
+          },
+          "erro": "assert False\n +  where False = any(<generator object test_abstencao_docker_real.<locals>.<genexpr> at 0x0000025FCD8D7B90>)",
+          "instante_utc": "2026-11-14T17:08:58.632136+00:00"
+        }
+      ],
+      "pedidos_modelo": 125,
+      "respostas_modelo": 125,
+      "conversas_http": 125,
+      "respostas_locais_sem_chamada_modelo": [],
+      "tokens_entrada_observados_soma": 71268,
+      "tokens_saida_observados_soma": 2415,
+      "sha256_agent_no_conteiner": "cd695683a35ae5906a960126db4e65a6a5a15349335227485d0c7c4f919f02fa"
+    },
+    "correcao-v2": {
+      "resultados_estritos": {
+        "true": 63,
+        "false": 2
+      },
+      "por_caso": {
+        "disponivel": {
+          "true": 5
+        },
+        "atualizado": {
+          "true": 5
+        },
+        "nunca_informado": {
+          "true": 5
+        },
+        "exclusao_individual": {
+          "true": 5
+        },
+        "exclusao_total": {
+          "true": 5
+        },
+        "exclusao_nova_sessao": {
+          "true": 5
+        },
+        "isolamento": {
+          "true": 5
+        },
+        "geral": {
+          "true": 5
+        },
+        "mensagem_atual": {
+          "true": 5
+        },
+        "historico_usuario": {
+          "false": 2,
+          "true": 3
+        },
+        "memoria_sem_suporte": {
+          "true": 5
+        },
+        "conselho": {
+          "true": 5
+        },
+        "pergunta_mista": {
+          "true": 5
+        }
+      },
+      "falhas_originais": [
+        {
+          "tipo": "resultado_caso",
+          "caso": "historico_usuario",
+          "repeticao": 1,
+          "aprovado": false,
+          "esperado": "brisa",
+          "resposta": {
+            "resposta": "Minha palavra de exemplo é BRISA.",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 792,
+            "tokens_entrada": 287,
+            "tokens_saida": 10
+          },
+          "erro": "assert 'minha palavr...emplo e brisa' == 'brisa'\n  \n  - brisa\n  + minha palavra de exemplo e brisa",
+          "instante_utc": "2026-11-14T17:17:48.591306+00:00"
+        },
+        {
+          "tipo": "resultado_caso",
+          "caso": "historico_usuario",
+          "repeticao": 5,
+          "aprovado": false,
+          "esperado": "brisa",
+          "resposta": {
+            "resposta": "Minha palavra de exemplo é BRISA.",
+            "memorias_usadas": [],
+            "provedor": "ollama",
+            "modelo": "qwen2.5-coder:3b",
+            "latencia_ms": 3328,
+            "tokens_entrada": 595,
+            "tokens_saida": 10
+          },
+          "erro": "assert 'minha palavr...emplo e brisa' == 'brisa'\n  \n  - brisa\n  + minha palavra de exemplo e brisa",
+          "instante_utc": "2026-11-14T17:18:28.006774+00:00"
+        }
+      ],
+      "pedidos_modelo": 115,
+      "respostas_modelo": 115,
+      "conversas_http": 145,
+      "respostas_locais_sem_chamada_modelo": [
+        {
+          "caso": "nunca_informado",
+          "repeticao": 1,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "nunca_informado",
+          "repeticao": 2,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "nunca_informado",
+          "repeticao": 3,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "nunca_informado",
+          "repeticao": 4,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "nunca_informado",
+          "repeticao": 5,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "exclusao_individual",
+          "repeticao": 1,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "exclusao_individual",
+          "repeticao": 2,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "exclusao_individual",
+          "repeticao": 3,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "exclusao_individual",
+          "repeticao": 4,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "exclusao_individual",
+          "repeticao": 5,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "exclusao_total",
+          "repeticao": 1,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "exclusao_total",
+          "repeticao": 2,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "exclusao_total",
+          "repeticao": 3,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "exclusao_total",
+          "repeticao": 4,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "exclusao_total",
+          "repeticao": 5,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "exclusao_nova_sessao",
+          "repeticao": 1,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "exclusao_nova_sessao",
+          "repeticao": 2,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "exclusao_nova_sessao",
+          "repeticao": 3,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "exclusao_nova_sessao",
+          "repeticao": 4,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "exclusao_nova_sessao",
+          "repeticao": 5,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "isolamento",
+          "repeticao": 1,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "isolamento",
+          "repeticao": 2,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "isolamento",
+          "repeticao": 3,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "isolamento",
+          "repeticao": 4,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "isolamento",
+          "repeticao": 5,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "memoria_sem_suporte",
+          "repeticao": 1,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": [
+            "A cidade preferida para turismo e Natal. Este registro nao informa onde o usuario mora."
+          ]
+        },
+        {
+          "caso": "memoria_sem_suporte",
+          "repeticao": 2,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": [
+            "A cidade preferida para turismo e Natal. Este registro nao informa onde o usuario mora."
+          ]
+        },
+        {
+          "caso": "memoria_sem_suporte",
+          "repeticao": 3,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": [
+            "A cidade preferida para turismo e Natal. Este registro nao informa onde o usuario mora."
+          ]
+        },
+        {
+          "caso": "memoria_sem_suporte",
+          "repeticao": 4,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": [
+            "A cidade preferida para turismo e Natal. Este registro nao informa onde o usuario mora."
+          ]
+        },
+        {
+          "caso": "memoria_sem_suporte",
+          "repeticao": 5,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": [
+            "A cidade preferida para turismo e Natal. Este registro nao informa onde o usuario mora."
+          ]
+        }
+      ],
+      "tokens_entrada_observados_soma": 40238,
+      "tokens_saida_observados_soma": 2242,
+      "sha256_agent_no_conteiner": "2dfcc96f990aec02ac0ebf0f2dd67854740aa862eb33fed29d269a52b837f070"
+    },
+    "correcao-final": {
+      "resultados_estritos": {
+        "true": 65
+      },
+      "por_caso": {
+        "disponivel": {
+          "true": 5
+        },
+        "atualizado": {
+          "true": 5
+        },
+        "nunca_informado": {
+          "true": 5
+        },
+        "exclusao_individual": {
+          "true": 5
+        },
+        "exclusao_total": {
+          "true": 5
+        },
+        "exclusao_nova_sessao": {
+          "true": 5
+        },
+        "isolamento": {
+          "true": 5
+        },
+        "geral": {
+          "true": 5
+        },
+        "mensagem_atual": {
+          "true": 5
+        },
+        "historico_usuario": {
+          "true": 5
+        },
+        "memoria_sem_suporte": {
+          "true": 5
+        },
+        "conselho": {
+          "true": 5
+        },
+        "pergunta_mista": {
+          "true": 5
+        }
+      },
+      "falhas_originais": [],
+      "pedidos_modelo": 115,
+      "respostas_modelo": 115,
+      "conversas_http": 145,
+      "respostas_locais_sem_chamada_modelo": [
+        {
+          "caso": "nunca_informado",
+          "repeticao": 1,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "nunca_informado",
+          "repeticao": 2,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "nunca_informado",
+          "repeticao": 3,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "nunca_informado",
+          "repeticao": 4,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "nunca_informado",
+          "repeticao": 5,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "exclusao_individual",
+          "repeticao": 1,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "exclusao_individual",
+          "repeticao": 2,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "exclusao_individual",
+          "repeticao": 3,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "exclusao_individual",
+          "repeticao": 4,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "exclusao_individual",
+          "repeticao": 5,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "exclusao_total",
+          "repeticao": 1,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "exclusao_total",
+          "repeticao": 2,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "exclusao_total",
+          "repeticao": 3,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "exclusao_total",
+          "repeticao": 4,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "exclusao_total",
+          "repeticao": 5,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "exclusao_nova_sessao",
+          "repeticao": 1,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "exclusao_nova_sessao",
+          "repeticao": 2,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "exclusao_nova_sessao",
+          "repeticao": 3,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "exclusao_nova_sessao",
+          "repeticao": 4,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "exclusao_nova_sessao",
+          "repeticao": 5,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "isolamento",
+          "repeticao": 1,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "isolamento",
+          "repeticao": 2,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "isolamento",
+          "repeticao": 3,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "isolamento",
+          "repeticao": 4,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "isolamento",
+          "repeticao": 5,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": []
+        },
+        {
+          "caso": "memoria_sem_suporte",
+          "repeticao": 1,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": [
+            "A cidade preferida para turismo e Natal. Este registro nao informa onde o usuario mora."
+          ]
+        },
+        {
+          "caso": "memoria_sem_suporte",
+          "repeticao": 2,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": [
+            "A cidade preferida para turismo e Natal. Este registro nao informa onde o usuario mora."
+          ]
+        },
+        {
+          "caso": "memoria_sem_suporte",
+          "repeticao": 3,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": [
+            "A cidade preferida para turismo e Natal. Este registro nao informa onde o usuario mora."
+          ]
+        },
+        {
+          "caso": "memoria_sem_suporte",
+          "repeticao": 4,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": [
+            "A cidade preferida para turismo e Natal. Este registro nao informa onde o usuario mora."
+          ]
+        },
+        {
+          "caso": "memoria_sem_suporte",
+          "repeticao": 5,
+          "resposta": "DESCONHECIDO",
+          "memorias_usadas": [
+            "A cidade preferida para turismo e Natal. Este registro nao informa onde o usuario mora."
+          ]
+        }
+      ],
+      "tokens_entrada_observados_soma": 39736,
+      "tokens_saida_observados_soma": 1888,
+      "sha256_agent_no_conteiner": "2dfcc96f990aec02ac0ebf0f2dd67854740aa862eb33fed29d269a52b837f070"
+    }
+  },
+  "taxas_globais_do_projeto_nao_estimadas": true
+}

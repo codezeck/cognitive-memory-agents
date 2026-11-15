@@ -2,7 +2,11 @@
 
 Inventário documental de 12/11/2026, sobre `master` `fc759f3`. Apenas leitura dos arquivos e agregação descritiva dos registros existentes; não houve geração por LLM, novo julgamento de respostas, alteração de datasets ou sobrescrita de resultados.
 
-Este arquivo concentra os números para a [contribuição acadêmica](contribuicao-academica-zeck.md). Fórmulas atuais, comandos e semântica dos indicadores permanecem no [guia de avaliação](guia-avaliacao.md). A política `p4-v3` e seus testes estão em revisão na [PR #41](https://github.com/codezeck/cognitive-memory-agents/pull/41); não foram trazidos para esta branch documental.
+**Atualização posterior, 14/11:** existe uma [rodada real exploratória de desenvolvimento](ensaio-desenvolvimento-20261114.md) com versões P3/P4/P5 atuais e figuras próprias. As seções abaixo permanecem inventário histórico de 12/11. Seus números não foram reprocessados. A rodada nova não é P6: automática 17/21, histórico 12/21, tokens de sessão 17.094/16.017; economia global não atingida.
+
+Este arquivo concentra os números para a [contribuição acadêmica](contribuicao-academica-zeck.md). Fórmulas atuais, comandos e semântica dos indicadores permanecem no [guia de avaliação](guia-avaliacao.md). Atualização de estado em 14/11: as PRs #41/#42/#43 já estão integradas em `2be5d51`, incluindo P4-v3. Os números e as tabelas históricos abaixo não foram recalculados com a nova política.
+
+A [sondagem Docker/Ollama de 14/11](validacao-entrega-docker.md) possui JSONL/log próprios, com armazenamento, persistência e segurança observados, e duas falhas reais de abstenção após exclusão. É uma conferência operacional sem baseline, não uma rodada P3/P4/P5/P6 nem uma fonte de taxas comparativas.
 
 ## 1. O que existe para P3/P4/P5
 
@@ -29,7 +33,7 @@ Não converter testes simulados em observações de modelo. Não reaplicar silen
 | [resultados_recuperacao_hash.json](../evidencias/memoria/resultados_recuperacao_hash.json), [semântico](../evidencias/memoria/resultados_recuperacao_semantico.json) | Recuperação em 20 sessões, sem LLM gerador | Contexto complementar de Vinicius; tokens estimados por caracteres |
 | [resultados_regras.json](../evidencias/memoria/resultados_regras.json) | Extração em desenvolvimento/avaliação e checkpoints de conversas | Evidência complementar de regras, sob revisão de Vinicius |
 | [fluxo Docker de 05/11](../evidencias/agente/fluxo-memoria-docker-2026-11-05.txt) | Lembrar, atualizar, reiniciar contêiner, esquecer, apagar usuário e 401/403; commit `c7451fe` | Log histórico, sem prova completa de todos os resíduos em RAM nem substituição da gravação final |
-| [revisão P6](../eval/memoria/relatorio_revisao_p6.md) | 21 anotações, 10 compatíveis/11 incompatíveis com P4-v2 | Compatibilidade estrutural da master; a PR #41 informa 21/21 em revisão |
+| [revisão P6](../eval/memoria/relatorio_revisao_p6.md) | Relatório histórico: 21 anotações, 10 compatíveis/11 incompatíveis com P4-v2 | Preservado; a inspeção de 14/11 na base integrada P4-v3 confirmou 21/21, sem avaliar respostas reais |
 
 O índice existente identifica a rodada oficial com o avaliador `0a847f8` e o modelo `qwen2.5-coder:3b`. O JSON não grava esses campos de versão/provedor/modelo por registro. Essa proveniência vem da documentação e deve ser descrita como tal; não acrescentar campos ao arquivo histórico.
 

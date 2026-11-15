@@ -1,0 +1,220 @@
+..........F.F..FF.FFFFF.FFFFFFFFFFF...........F....F.F......FFFFF        [100%]
+================================== FAILURES ===================================
+________________ test_abstencao_docker_real[nunca_informado-1] ________________
+tests\test_abstencao_docker_real.py:180: in test_abstencao_docker_real
+    assert texto == esperado
+E   AssertionError: assert 'sao paulo' == 'desconhecido'
+E     
+E     - desconhecido
+E     + sao paulo
+________________ test_abstencao_docker_real[nunca_informado-3] ________________
+tests\test_abstencao_docker_real.py:180: in test_abstencao_docker_real
+    assert texto == esperado
+E   AssertionError: assert 'sao paulo' == 'desconhecido'
+E     
+E     - desconhecido
+E     + sao paulo
+______________ test_abstencao_docker_real[exclusao_individual-1] ______________
+tests\test_abstencao_docker_real.py:180: in test_abstencao_docker_real
+    assert texto == esperado
+E   AssertionError: assert 'sao paulo' == 'desconhecido'
+E     
+E     - desconhecido
+E     + sao paulo
+______________ test_abstencao_docker_real[exclusao_individual-2] ______________
+tests\test_abstencao_docker_real.py:180: in test_abstencao_docker_real
+    assert texto == esperado
+E   AssertionError: assert 'sao paulo' == 'desconhecido'
+E     
+E     - desconhecido
+E     + sao paulo
+______________ test_abstencao_docker_real[exclusao_individual-4] ______________
+tests\test_abstencao_docker_real.py:180: in test_abstencao_docker_real
+    assert texto == esperado
+E   AssertionError: assert 'informacao desconhecida' == 'desconhecido'
+E     
+E     - desconhecido
+E     + informacao desconhecida
+______________ test_abstencao_docker_real[exclusao_individual-5] ______________
+tests\test_abstencao_docker_real.py:180: in test_abstencao_docker_real
+    assert texto == esperado
+E   AssertionError: assert 'deconhecido' == 'desconhecido'
+E     
+E     - desconhecido
+E     ?   -
+E     + deconhecido
+________________ test_abstencao_docker_real[exclusao_total-1] _________________
+tests\test_abstencao_docker_real.py:180: in test_abstencao_docker_real
+    assert texto == esperado
+E   AssertionError: assert 'sao paulo' == 'desconhecido'
+E     
+E     - desconhecido
+E     + sao paulo
+________________ test_abstencao_docker_real[exclusao_total-2] _________________
+tests\test_abstencao_docker_real.py:180: in test_abstencao_docker_real
+    assert texto == esperado
+E   AssertionError: assert 'desbanco' == 'desconhecido'
+E     
+E     - desconhecido
+E     + desbanco
+________________ test_abstencao_docker_real[exclusao_total-3] _________________
+tests\test_abstencao_docker_real.py:180: in test_abstencao_docker_real
+    assert texto == esperado
+E   AssertionError: assert 'sao paulo' == 'desconhecido'
+E     
+E     - desconhecido
+E     + sao paulo
+________________ test_abstencao_docker_real[exclusao_total-5] _________________
+tests\test_abstencao_docker_real.py:180: in test_abstencao_docker_real
+    assert texto == esperado
+E   AssertionError: assert 'sao paulo' == 'desconhecido'
+E     
+E     - desconhecido
+E     + sao paulo
+_____________ test_abstencao_docker_real[exclusao_nova_sessao-1] ______________
+tests\test_abstencao_docker_real.py:180: in test_abstencao_docker_real
+    assert texto == esperado
+E   AssertionError: assert 'desafio' == 'desconhecido'
+E     
+E     - desconhecido
+E     + desafio
+_____________ test_abstencao_docker_real[exclusao_nova_sessao-2] ______________
+tests\test_abstencao_docker_real.py:180: in test_abstencao_docker_real
+    assert texto == esperado
+E   AssertionError: assert 'minha cidade...elo horizonte' == 'desconhecido'
+E     
+E     - desconhecido
+E     + minha cidade e belo horizonte
+_____________ test_abstencao_docker_real[exclusao_nova_sessao-3] ______________
+tests\test_abstencao_docker_real.py:180: in test_abstencao_docker_real
+    assert texto == esperado
+E   AssertionError: assert 'sao paulo' == 'desconhecido'
+E     
+E     - desconhecido
+E     + sao paulo
+_____________ test_abstencao_docker_real[exclusao_nova_sessao-4] ______________
+tests\test_abstencao_docker_real.py:180: in test_abstencao_docker_real
+    assert texto == esperado
+E   AssertionError: assert 'sao paulo' == 'desconhecido'
+E     
+E     - desconhecido
+E     + sao paulo
+_____________ test_abstencao_docker_real[exclusao_nova_sessao-5] ______________
+tests\test_abstencao_docker_real.py:180: in test_abstencao_docker_real
+    assert texto == esperado
+E   AssertionError: assert 'sao paulo' == 'desconhecido'
+E     
+E     - desconhecido
+E     + sao paulo
+__________________ test_abstencao_docker_real[isolamento-1] ___________________
+tests\test_abstencao_docker_real.py:180: in test_abstencao_docker_real
+    assert texto == esperado
+E   AssertionError: assert 'sao paulo' == 'desconhecido'
+E     
+E     - desconhecido
+E     + sao paulo
+__________________ test_abstencao_docker_real[isolamento-2] ___________________
+tests\test_abstencao_docker_real.py:180: in test_abstencao_docker_real
+    assert texto == esperado
+E   AssertionError: assert 'sao paulo' == 'desconhecido'
+E     
+E     - desconhecido
+E     + sao paulo
+__________________ test_abstencao_docker_real[isolamento-3] ___________________
+tests\test_abstencao_docker_real.py:180: in test_abstencao_docker_real
+    assert texto == esperado
+E   AssertionError: assert 'a cidade reg...a e sao paulo' == 'desconhecido'
+E     
+E     - desconhecido
+E     + a cidade registrada e sao paulo
+__________________ test_abstencao_docker_real[isolamento-4] ___________________
+tests\test_abstencao_docker_real.py:180: in test_abstencao_docker_real
+    assert texto == esperado
+E   AssertionError: assert 'sao paulo' == 'desconhecido'
+E     
+E     - desconhecido
+E     + sao paulo
+__________________ test_abstencao_docker_real[isolamento-5] ___________________
+tests\test_abstencao_docker_real.py:180: in test_abstencao_docker_real
+    assert texto == esperado
+E   AssertionError: assert 'sao paulo' == 'desconhecido'
+E     
+E     - desconhecido
+E     + sao paulo
+_______________ test_abstencao_docker_real[historico_usuario-2] _______________
+tests\test_abstencao_docker_real.py:180: in test_abstencao_docker_real
+    assert texto == esperado
+E   AssertionError: assert 'arquivo' == 'brisa'
+E     
+E     - brisa
+E     + arquivo
+______________ test_abstencao_docker_real[memoria_sem_suporte-2] ______________
+tests\test_abstencao_docker_real.py:180: in test_abstencao_docker_real
+    assert texto == esperado
+E   AssertionError: assert 'desafio' == 'desconhecido'
+E     
+E     - desconhecido
+E     + desafio
+______________ test_abstencao_docker_real[memoria_sem_suporte-4] ______________
+tests\test_abstencao_docker_real.py:180: in test_abstencao_docker_real
+    assert texto == esperado
+E   AssertionError: assert 'deshonhecido' == 'desconhecido'
+E     
+E     - desconhecido
+E     ?    ^
+E     + deshonhecido
+E     ?    ^
+________________ test_abstencao_docker_real[pergunta_mista-1] _________________
+tests\test_abstencao_docker_real.py:177: in test_abstencao_docker_real
+    assert any(t in texto for t in ('desconhecido', 'nao sei', 'nao tenho', 'nao foi informad'))
+E   assert False
+E    +  where False = any(<generator object test_abstencao_docker_real.<locals>.<genexpr> at 0x000001890604AE90>)
+________________ test_abstencao_docker_real[pergunta_mista-2] _________________
+tests\test_abstencao_docker_real.py:177: in test_abstencao_docker_real
+    assert any(t in texto for t in ('desconhecido', 'nao sei', 'nao tenho', 'nao foi informad'))
+E   assert False
+E    +  where False = any(<generator object test_abstencao_docker_real.<locals>.<genexpr> at 0x0000018905F1B5E0>)
+________________ test_abstencao_docker_real[pergunta_mista-3] _________________
+tests\test_abstencao_docker_real.py:178: in test_abstencao_docker_real
+    assert '5' in texto or 'cinco' in texto
+E   AssertionError: assert ('5' in 'sua cidade de residencia e [cidade do usuario]. nao sei qual e o valor de 2 + 3, pois nao ha informacao sobre esse calculo em nosso historico' or 'cinco' in 'sua cidade de residencia e [cidade do usuario]. nao sei qual e o valor de 2 + 3, pois nao ha informacao sobre esse calculo em nosso historico')
+________________ test_abstencao_docker_real[pergunta_mista-4] _________________
+tests\test_abstencao_docker_real.py:177: in test_abstencao_docker_real
+    assert any(t in texto for t in ('desconhecido', 'nao sei', 'nao tenho', 'nao foi informad'))
+E   assert False
+E    +  where False = any(<generator object test_abstencao_docker_real.<locals>.<genexpr> at 0x0000018905FA6670>)
+________________ test_abstencao_docker_real[pergunta_mista-5] _________________
+tests\test_abstencao_docker_real.py:177: in test_abstencao_docker_real
+    assert any(t in texto for t in ('desconhecido', 'nao sei', 'nao tenho', 'nao foi informad'))
+E   assert False
+E    +  where False = any(<generator object test_abstencao_docker_real.<locals>.<genexpr> at 0x0000018905FF2F60>)
+=========================== short test summary info ===========================
+FAILED tests/test_abstencao_docker_real.py::test_abstencao_docker_real[nunca_informado-1]
+FAILED tests/test_abstencao_docker_real.py::test_abstencao_docker_real[nunca_informado-3]
+FAILED tests/test_abstencao_docker_real.py::test_abstencao_docker_real[exclusao_individual-1]
+FAILED tests/test_abstencao_docker_real.py::test_abstencao_docker_real[exclusao_individual-2]
+FAILED tests/test_abstencao_docker_real.py::test_abstencao_docker_real[exclusao_individual-4]
+FAILED tests/test_abstencao_docker_real.py::test_abstencao_docker_real[exclusao_individual-5]
+FAILED tests/test_abstencao_docker_real.py::test_abstencao_docker_real[exclusao_total-1]
+FAILED tests/test_abstencao_docker_real.py::test_abstencao_docker_real[exclusao_total-2]
+FAILED tests/test_abstencao_docker_real.py::test_abstencao_docker_real[exclusao_total-3]
+FAILED tests/test_abstencao_docker_real.py::test_abstencao_docker_real[exclusao_total-5]
+FAILED tests/test_abstencao_docker_real.py::test_abstencao_docker_real[exclusao_nova_sessao-1]
+FAILED tests/test_abstencao_docker_real.py::test_abstencao_docker_real[exclusao_nova_sessao-2]
+FAILED tests/test_abstencao_docker_real.py::test_abstencao_docker_real[exclusao_nova_sessao-3]
+FAILED tests/test_abstencao_docker_real.py::test_abstencao_docker_real[exclusao_nova_sessao-4]
+FAILED tests/test_abstencao_docker_real.py::test_abstencao_docker_real[exclusao_nova_sessao-5]
+FAILED tests/test_abstencao_docker_real.py::test_abstencao_docker_real[isolamento-1]
+FAILED tests/test_abstencao_docker_real.py::test_abstencao_docker_real[isolamento-2]
+FAILED tests/test_abstencao_docker_real.py::test_abstencao_docker_real[isolamento-3]
+FAILED tests/test_abstencao_docker_real.py::test_abstencao_docker_real[isolamento-4]
+FAILED tests/test_abstencao_docker_real.py::test_abstencao_docker_real[isolamento-5]
+FAILED tests/test_abstencao_docker_real.py::test_abstencao_docker_real[historico_usuario-2]
+FAILED tests/test_abstencao_docker_real.py::test_abstencao_docker_real[memoria_sem_suporte-2]
+FAILED tests/test_abstencao_docker_real.py::test_abstencao_docker_real[memoria_sem_suporte-4]
+FAILED tests/test_abstencao_docker_real.py::test_abstencao_docker_real[pergunta_mista-1]
+FAILED tests/test_abstencao_docker_real.py::test_abstencao_docker_real[pergunta_mista-2]
+FAILED tests/test_abstencao_docker_real.py::test_abstencao_docker_real[pergunta_mista-3]
+FAILED tests/test_abstencao_docker_real.py::test_abstencao_docker_real[pergunta_mista-4]
+FAILED tests/test_abstencao_docker_real.py::test_abstencao_docker_real[pergunta_mista-5]
+28 failed, 37 passed in 205.88s (0:03:25)

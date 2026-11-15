@@ -1,0 +1,459 @@
+2026-11-14T21:09:23.014525317Z Couldn't find '/root/.ollama/id_ed25519'. Generating new private key.
+2026-11-14T21:09:23.016444470Z Your new public key is: 
+2026-11-14T21:09:23.016466523Z 
+2026-11-14T21:09:23.016469845Z ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKLXvxDuzXXELHqerBzZBz4YkMIBvQ4eFbXr5a2pWtJw
+2026-11-14T21:09:23.016473937Z 
+2026-11-14T21:09:23.049067372Z time=2026-11-14T21:09:23.048Z level=INFO source=routes.go:2471 msg="server config" env="map[CUDA_VISIBLE_DEVICES: GGML_VK_VISIBLE_DEVICES: GPU_DEVICE_ORDINAL: HIP_VISIBLE_DEVICES: HSA_OVERRIDE_GFX_VERSION: HTTPS_PROXY: HTTP_PROXY: LLAMA_ARG_FIT: LLAMA_ARG_FIT_TARGET: NO_PROXY: OLLAMA_CONTEXT_LENGTH:0 OLLAMA_CREATE_REMOTE:false OLLAMA_DEBUG:INFO OLLAMA_DEBUG_LOG_REQUESTS:false OLLAMA_EDITOR: OLLAMA_FLASH_ATTENTION:false OLLAMA_GO_TEMPLATE:true OLLAMA_GPU_OVERHEAD:0 OLLAMA_HOST:http://0.0.0.0:11434 OLLAMA_IGPU_ENABLE: OLLAMA_KEEP_ALIVE:5m0s OLLAMA_KV_CACHE_TYPE: OLLAMA_LLM_LIBRARY: OLLAMA_LOAD_TIMEOUT:5m0s OLLAMA_MAX_LOADED_MODELS:0 OLLAMA_MAX_QUEUE:512 OLLAMA_MAX_TRANSFER_STREAMS:4 OLLAMA_MODELS:/root/.ollama/models OLLAMA_NOHISTORY:false OLLAMA_NOPRUNE:false OLLAMA_NO_CLOUD:false OLLAMA_NUM_PARALLEL:1 OLLAMA_ORIGINS:[http://localhost https://localhost http://localhost:* https://localhost:* http://127.0.0.1 https://127.0.0.1 http://127.0.0.1:* https://127.0.0.1:* http://0.0.0.0 https://0.0.0.0 http://0.0.0.0:* https://0.0.0.0:* app://* file://* tauri://* vscode-webview://* vscode-file://*] OLLAMA_REMOTES:[ollama.com] OLLAMA_SCHED_SPREAD:false OLLAMA_VULKAN:true ROCR_VISIBLE_DEVICES: http_proxy: https_proxy: no_proxy:]"
+2026-11-14T21:09:23.049079513Z time=2026-11-14T21:09:23.048Z level=INFO source=routes.go:2473 msg="Ollama cloud disabled: false"
+2026-11-14T21:09:23.049617259Z time=2026-11-14T21:09:23.049Z level=INFO source=images.go:1010 msg="total blobs: 0"
+2026-11-14T21:09:23.049625400Z time=2026-11-14T21:09:23.049Z level=INFO source=images.go:1019 msg="total unused blobs removed: 0"
+2026-11-14T21:09:23.049759600Z time=2026-11-14T21:09:23.049Z level=INFO source=routes.go:2533 msg="Listening on [::]:11434 (version 0.40.12)"
+2026-11-14T21:09:23.057664068Z time=2026-11-14T21:09:23.057Z level=INFO source=runner.go:60 msg="discovering available GPUs..."
+2026-11-14T21:09:23.295084448Z time=2026-11-14T21:09:23.294Z level=INFO source=model_recommendations.go:177 msg="model recommendations cache sleep scheduled" wait=4h5m35.635649532s consecutive_failures=0
+2026-11-14T21:09:23.578998210Z time=2026-11-14T21:09:23.578Z level=INFO source=types.go:50 msg="inference compute" id=cpu library=cpu compute="" name=cpu description=cpu libdirs=ollama driver="" pci_id="" type="" total="7.6 GiB" available="7.2 GiB"
+2026-11-14T21:09:23.579017014Z time=2026-11-14T21:09:23.578Z level=INFO source=routes.go:2583 msg="vram-based default context" total_vram="0 B" default_num_ctx=4096
+2026-11-14T21:09:25.994849296Z [GIN] 2026/11/14 - 21:09:25 | 200 | 29.788µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:09:25.995543407Z [GIN] 2026/11/14 - 21:09:25 | 200 | 327.747µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:09:26.967581044Z [GIN] 2026/11/14 - 21:09:26 | 200 | 67.988µs |      172.20.0.3 | GET      "/api/tags"
+2026-11-14T21:09:28.262798787Z time=2026-11-14T21:09:28.262Z level=INFO source=download.go:182 msg="downloading 4a188102020e in 16 120 MB part(s)"
+2026-11-14T21:09:29.042052410Z [GIN] 2026/11/14 - 21:09:29 | 200 | 69.487µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:09:29.042614538Z [GIN] 2026/11/14 - 21:09:29 | 200 | 74.235µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:09:32.090418958Z [GIN] 2026/11/14 - 21:09:32 | 200 | 18.779µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:09:32.090843663Z [GIN] 2026/11/14 - 21:09:32 | 200 | 61.765µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:09:35.141905205Z [GIN] 2026/11/14 - 21:09:35 | 200 | 18.174µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:09:35.142209310Z [GIN] 2026/11/14 - 21:09:35 | 200 | 53.884µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:09:38.191415462Z [GIN] 2026/11/14 - 21:09:38 | 200 | 23.011µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:09:38.191874884Z [GIN] 2026/11/14 - 21:09:38 | 200 | 95.423µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:09:41.241561313Z [GIN] 2026/11/14 - 21:09:41 | 200 | 19.388µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:09:41.242062942Z [GIN] 2026/11/14 - 21:09:41 | 200 | 91.894µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:09:44.291840251Z [GIN] 2026/11/14 - 21:09:44 | 200 | 20.247µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:09:44.292340820Z [GIN] 2026/11/14 - 21:09:44 | 200 | 57.565µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:09:47.339514669Z [GIN] 2026/11/14 - 21:09:47 | 200 | 25.611µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:09:47.340260214Z [GIN] 2026/11/14 - 21:09:47 | 200 | 65.425µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:09:50.383457719Z [GIN] 2026/11/14 - 21:09:50 | 200 | 19.079µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:09:50.383817501Z [GIN] 2026/11/14 - 21:09:50 | 200 | 59.796µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:09:53.427744599Z [GIN] 2026/11/14 - 21:09:53 | 200 | 18.706µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:09:53.428194238Z [GIN] 2026/11/14 - 21:09:53 | 200 |  58.64µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:09:56.486195955Z [GIN] 2026/11/14 - 21:09:56 | 200 | 85.749µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:09:56.486650781Z [GIN] 2026/11/14 - 21:09:56 | 200 | 63.457µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:09:59.551072918Z [GIN] 2026/11/14 - 21:09:59 | 200 | 24.391µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:09:59.551376489Z [GIN] 2026/11/14 - 21:09:59 | 200 | 92.567µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:10:02.602198024Z [GIN] 2026/11/14 - 21:10:02 | 200 | 20.175µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:10:02.602726518Z [GIN] 2026/11/14 - 21:10:02 | 200 | 71.111µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:10:05.659775656Z [GIN] 2026/11/14 - 21:10:05 | 200 | 27.337µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:10:05.660208641Z [GIN] 2026/11/14 - 21:10:05 | 200 | 99.958µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:10:08.703594287Z [GIN] 2026/11/14 - 21:10:08 | 200 | 19.431µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:10:08.704010873Z [GIN] 2026/11/14 - 21:10:08 | 200 |  55.21µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:10:11.750716850Z [GIN] 2026/11/14 - 21:10:11 | 200 | 19.468µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:10:11.751154884Z [GIN] 2026/11/14 - 21:10:11 | 200 | 53.353µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:10:13.060582390Z time=2026-11-14T21:10:13.060Z level=INFO source=download.go:182 msg="downloading 66b9ea09bd5b in 1 68 B part(s)"
+2026-11-14T21:10:13.646461574Z time=2026-11-14T21:10:13.646Z level=INFO source=download.go:182 msg="downloading 1e65450c3067 in 1 1.6 KB part(s)"
+2026-11-14T21:10:14.286210278Z time=2026-11-14T21:10:14.285Z level=INFO source=download.go:182 msg="downloading 45fc3ea7579a in 1 7.4 KB part(s)"
+2026-11-14T21:10:14.796102969Z [GIN] 2026/11/14 - 21:10:14 | 200 | 21.499µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:10:14.796549591Z [GIN] 2026/11/14 - 21:10:14 | 200 | 91.511µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:10:15.932518102Z [GIN] 2026/11/14 - 21:10:15 | 200 |   48.96s |      172.20.0.3 | POST     "/api/pull"
+2026-11-14T21:10:15.983222451Z time=2026-11-14T21:10:15.983Z level=INFO source=sched.go:1183 msg="disabling mmap for llama-server load by default" model=/root/.ollama/models/blobs/sha256-4a188102020e9c9530b687fd6400f775c45e90a0d7baafe65bd0a36963fbb7ba reason=cpu
+2026-11-14T21:10:15.983239429Z time=2026-11-14T21:10:15.983Z level=INFO source=server.go:107 msg="using llama-server for model" model=/root/.ollama/models/blobs/sha256-4a188102020e9c9530b687fd6400f775c45e90a0d7baafe65bd0a36963fbb7ba
+2026-11-14T21:10:15.984485892Z time=2026-11-14T21:10:15.984Z level=INFO source=llama_server.go:457 msg="starting llama-server" cmd="/usr/lib/ollama/llama-server --model /root/.ollama/models/blobs/sha256-4a188102020e9c9530b687fd6400f775c45e90a0d7baafe65bd0a36963fbb7ba --port 45191 --host 127.0.0.1 --no-webui --offline -c 4096 -np 1 --log-verbosity 4 --no-log-prefix --no-log-timestamps --no-jinja --chat-template chatml --load-mode none --flash-attn auto -b 512 -ub 512 --context-shift --keep 4"
+2026-11-14T21:10:15.987402700Z time=2026-11-14T21:10:15.987Z level=INFO source=sched.go:658 msg="system memory" total="7.6 GiB" free="5.4 GiB" free_swap="2.0 GiB"
+2026-11-14T21:10:15.987416855Z time=2026-11-14T21:10:15.987Z level=INFO source=llama_server.go:1088 msg="loading model via llama-server" model=/root/.ollama/models/blobs/sha256-4a188102020e9c9530b687fd6400f775c45e90a0d7baafe65bd0a36963fbb7ba
+2026-11-14T21:10:15.987418484Z time=2026-11-14T21:10:15.987Z level=INFO source=llama_server.go:1341 msg="waiting for llama-server to start responding"
+2026-11-14T21:10:15.988904330Z time=2026-11-14T21:10:15.988Z level=INFO source=llama_server.go:1396 msg="waiting for llama-server to become available" status="llm server not responding"
+2026-11-14T21:10:15.991277047Z srv  llama_server: initializing ...
+2026-11-14T21:10:15.995451540Z load_backend: loaded CPU backend from /usr/lib/ollama/libggml-cpu-alderlake.so
+2026-11-14T21:10:15.995472961Z cmn  common_param: common_params_print_info: build 1 (5320c87ff) with GNU 13.3.1 for Linux x86_64
+2026-11-14T21:10:15.995474406Z cmn  common_param: common_params_print_info: verbosity = 4 (adjust with the `-lv N` CLI arg)
+2026-11-14T21:10:15.995475343Z cmn  common_param: device_info:
+2026-11-14T21:10:15.995476540Z cmn  common_param:   - CPU     : 13th Gen Intel(R) Core(TM) i5-13450HX (7785 MiB, 7785 MiB free)
+2026-11-14T21:10:15.995477242Z cmn  common_param: system_info: n_threads = 8 (n_threads_batch = 8) / 16 | CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX_VNNI = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | REPACK = 1 | 
+2026-11-14T21:10:15.995478437Z srv  init_listene: The UI is disabled
+2026-11-14T21:10:15.995479605Z srv  init_listene: Use --ui/--no-ui (or deprecated --webui/--no-webui) to enable/disable
+2026-11-14T21:10:15.995480257Z srv          init: using 15 threads for HTTP server
+2026-11-14T21:10:15.995533828Z srv  server_setup: security: no API key is set and CORS allows all origins (see https://github.com/ggml-org/llama.cpp/pull/25655)
+2026-11-14T21:10:15.998079187Z srv    load_model: loading model '/root/.ollama/models/blobs/sha256-4a188102020e9c9530b687fd6400f775c45e90a0d7baafe65bd0a36963fbb7ba'
+2026-11-14T21:10:15.998088261Z srv    load_model: local path '/root/.ollama/models/blobs/sha256-4a188102020e9c9530b687fd6400f775c45e90a0d7baafe65bd0a36963fbb7ba'
+2026-11-14T21:10:15.998089078Z cmn  common_init_: fitting params to device memory ...
+2026-11-14T21:10:15.998090190Z cmn  common_init_: (for bugs during this step try to reproduce them with -fit off, or provide --verbose logs if the bug only occurs with -fit on)
+2026-11-14T21:10:15.998091353Z common_params_fit_impl: getting device memory data for initial parameters:
+2026-11-14T21:10:16.151862361Z common_memory_breakdown_print: | memory breakdown [MiB] | total   free    self   model   context   compute    unaccounted |
+2026-11-14T21:10:16.151882153Z common_memory_breakdown_print: |   - Host               |                  801 =   569 +     144 +      88                |
+2026-11-14T21:10:16.151883024Z common_memory_breakdown_print: |   - CPU_REPACK         |                 1265 =  1265 +       0 +       0                |
+2026-11-14T21:10:16.180396012Z common_params_fit_impl: projected to use 801 MiB of host memory vs. 7785 MiB of total host memory
+2026-11-14T21:10:16.180419070Z common_params_fit_impl: will leave 6984 >= 1024 MiB of system memory, no changes needed
+2026-11-14T21:10:16.180421098Z common_fit_params: successfully fit params to free device memory
+2026-11-14T21:10:16.180422448Z common_fit_params: fitting params to free memory took 0.18 seconds
+2026-11-14T21:10:16.203966541Z llama_model_loader: loaded meta data with 35 key-value pairs and 434 tensors from /root/.ollama/models/blobs/sha256-4a188102020e9c9530b687fd6400f775c45e90a0d7baafe65bd0a36963fbb7ba (version GGUF V3 (latest))
+2026-11-14T21:10:16.203999361Z llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+2026-11-14T21:10:16.204001762Z llama_model_loader: - kv   0:                       general.architecture str              = qwen2
+2026-11-14T21:10:16.204017316Z llama_model_loader: - kv   1:                               general.type str              = model
+2026-11-14T21:10:16.204018427Z llama_model_loader: - kv   2:                               general.name str              = Qwen2.5 Coder 3B Instruct
+2026-11-14T21:10:16.204019882Z llama_model_loader: - kv   3:                           general.finetune str              = Instruct
+2026-11-14T21:10:16.204020788Z llama_model_loader: - kv   4:                           general.basename str              = Qwen2.5-Coder
+2026-11-14T21:10:16.204021651Z llama_model_loader: - kv   5:                         general.size_label str              = 3B
+2026-11-14T21:10:16.204023135Z llama_model_loader: - kv   6:                            general.license str              = other
+2026-11-14T21:10:16.204024075Z llama_model_loader: - kv   7:                       general.license.name str              = qwen-research
+2026-11-14T21:10:16.204025080Z llama_model_loader: - kv   8:                       general.license.link str              = https://huggingface.co/Qwen/Qwen2.5-C...
+2026-11-14T21:10:16.204026589Z llama_model_loader: - kv   9:                   general.base_model.count u32              = 1
+2026-11-14T21:10:16.204027750Z llama_model_loader: - kv  10:                  general.base_model.0.name str              = Qwen2.5 Coder 3B
+2026-11-14T21:10:16.204028617Z llama_model_loader: - kv  11:          general.base_model.0.organization str              = Qwen
+2026-11-14T21:10:16.204029664Z llama_model_loader: - kv  12:              general.base_model.0.repo_url str              = https://huggingface.co/Qwen/Qwen2.5-C...
+2026-11-14T21:10:16.204030562Z llama_model_loader: - kv  13:                               general.tags arr[str,6]       = ["code", "codeqwen", "chat", "qwen", ...
+2026-11-14T21:10:16.204031540Z llama_model_loader: - kv  14:                          general.languages arr[str,1]       = ["en"]
+2026-11-14T21:10:16.204032500Z llama_model_loader: - kv  15:                          qwen2.block_count u32              = 36
+2026-11-14T21:10:16.204035372Z llama_model_loader: - kv  16:                       qwen2.context_length u32              = 32768
+2026-11-14T21:10:16.204036272Z llama_model_loader: - kv  17:                     qwen2.embedding_length u32              = 2048
+2026-11-14T21:10:16.204037039Z llama_model_loader: - kv  18:                  qwen2.feed_forward_length u32              = 11008
+2026-11-14T21:10:16.204037928Z llama_model_loader: - kv  19:                 qwen2.attention.head_count u32              = 16
+2026-11-14T21:10:16.204038876Z llama_model_loader: - kv  20:              qwen2.attention.head_count_kv u32              = 2
+2026-11-14T21:10:16.204108479Z llama_model_loader: - kv  21:                       qwen2.rope.freq_base f32              = 1000000.000000
+2026-11-14T21:10:16.204114968Z llama_model_loader: - kv  22:     qwen2.attention.layer_norm_rms_epsilon f32              = 0.000001
+2026-11-14T21:10:16.204115711Z llama_model_loader: - kv  23:                          general.file_type u32              = 15
+2026-11-14T21:10:16.204116680Z llama_model_loader: - kv  24:                       tokenizer.ggml.model str              = gpt2
+2026-11-14T21:10:16.204117349Z llama_model_loader: - kv  25:                         tokenizer.ggml.pre str              = qwen2
+2026-11-14T21:10:16.204117983Z llama_model_loader: - kv  26:                      tokenizer.ggml.tokens arr[str,151936]  = ["!", "\"", "#", "$", "%", "&", "'", ...
+2026-11-14T21:10:16.204119050Z llama_model_loader: - kv  27:                  tokenizer.ggml.token_type arr[i32,151936]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+2026-11-14T21:10:16.204119706Z llama_model_loader: - kv  28:                      tokenizer.ggml.merges arr[str,151387]  = ["Ġ Ġ", "ĠĠ ĠĠ", "i n", "Ġ t",...
+2026-11-14T21:10:16.204120320Z llama_model_loader: - kv  29:                tokenizer.ggml.eos_token_id u32              = 151645
+2026-11-14T21:10:16.204120912Z llama_model_loader: - kv  30:            tokenizer.ggml.padding_token_id u32              = 151643
+2026-11-14T21:10:16.204121486Z llama_model_loader: - kv  31:                tokenizer.ggml.bos_token_id u32              = 151643
+2026-11-14T21:10:16.204130938Z llama_model_loader: - kv  32:               tokenizer.ggml.add_bos_token bool             = false
+2026-11-14T21:10:16.204131613Z llama_model_loader: - kv  33:                    tokenizer.chat_template str              = {%- if tools %}\n    {{- '<|im_start|>...
+2026-11-14T21:10:16.204132244Z llama_model_loader: - kv  34:               general.quantization_version u32              = 2
+2026-11-14T21:10:16.204132873Z llama_model_loader: - type  f32:  181 tensors
+2026-11-14T21:10:16.204134154Z llama_model_loader: - type q4_K:  216 tensors
+2026-11-14T21:10:16.204134723Z llama_model_loader: - type q6_K:   37 tensors
+2026-11-14T21:10:16.204135303Z print_info: file format = GGUF V3 (latest)
+2026-11-14T21:10:16.204135893Z print_info: file type   = Q4_K - Medium
+2026-11-14T21:10:16.204136514Z print_info: file size   = 1.79 GiB (4.99 BPW) 
+2026-11-14T21:10:16.241549764Z time=2026-11-14T21:10:16.241Z level=INFO source=llama_server.go:1396 msg="waiting for llama-server to become available" status="llm server loading model"
+2026-11-14T21:10:16.264928968Z load: 0 unused tokens
+2026-11-14T21:10:16.265881880Z load: control-looking token: 128247 '</s>' was not control-type; this is probably a bug in the model. its type will be overridden
+2026-11-14T21:10:16.291291569Z load: printing all EOG tokens:
+2026-11-14T21:10:16.291310214Z load:   - 128247 ('</s>')
+2026-11-14T21:10:16.291311492Z load:   - 151643 ('<|endoftext|>')
+2026-11-14T21:10:16.291312971Z load:   - 151645 ('<|im_end|>')
+2026-11-14T21:10:16.291314024Z load:   - 151662 ('<|fim_pad|>')
+2026-11-14T21:10:16.291314672Z load:   - 151663 ('<|repo_name|>')
+2026-11-14T21:10:16.291318721Z load:   - 151664 ('<|file_sep|>')
+2026-11-14T21:10:16.291322994Z load: special tokens cache size = 23
+2026-11-14T21:10:16.321071657Z load: token to piece cache size = 0.9310 MB
+2026-11-14T21:10:16.321100419Z print_info: arch                  = qwen2
+2026-11-14T21:10:16.321101633Z print_info: vocab_only            = 0
+2026-11-14T21:10:16.321102325Z print_info: no_alloc              = 0
+2026-11-14T21:10:16.321103197Z print_info: n_ctx_train           = 32768
+2026-11-14T21:10:16.321103802Z print_info: n_embd_inp            = 2048
+2026-11-14T21:10:16.321104414Z print_info: n_embd                = 2048
+2026-11-14T21:10:16.321105026Z print_info: n_embd_out            = 2048
+2026-11-14T21:10:16.321105603Z print_info: n_layer               = 36
+2026-11-14T21:10:16.321106218Z print_info: n_layer_all           = 36
+2026-11-14T21:10:16.321106798Z print_info: n_head                = 16
+2026-11-14T21:10:16.321107438Z print_info: n_head_kv             = 2
+2026-11-14T21:10:16.321108174Z print_info: n_rot                 = 128
+2026-11-14T21:10:16.321108803Z print_info: n_swa                 = 0
+2026-11-14T21:10:16.321109387Z print_info: is_swa_any            = 0
+2026-11-14T21:10:16.321109958Z print_info: non_causal_type       = 0
+2026-11-14T21:10:16.321110527Z print_info: n_embd_head_k         = 128
+2026-11-14T21:10:16.321111138Z print_info: n_embd_head_v         = 128
+2026-11-14T21:10:16.321111710Z print_info: n_gqa                 = 8
+2026-11-14T21:10:16.321112279Z print_info: n_embd_k_gqa          = 256
+2026-11-14T21:10:16.321113174Z print_info: n_embd_v_gqa          = 256
+2026-11-14T21:10:16.321113774Z print_info: f_norm_eps            = 0.0e+00
+2026-11-14T21:10:16.321114354Z print_info: f_norm_rms_eps        = 1.0e-06
+2026-11-14T21:10:16.321114929Z print_info: f_clamp_kqv           = 0.0e+00
+2026-11-14T21:10:16.321115511Z print_info: f_max_alibi_bias      = 0.0e+00
+2026-11-14T21:10:16.321116085Z print_info: f_logit_scale         = 0.0e+00
+2026-11-14T21:10:16.321116654Z print_info: f_attn_scale          = 0.0e+00
+2026-11-14T21:10:16.321117229Z print_info: f_attn_value_scale    = 0.0000
+2026-11-14T21:10:16.321117798Z print_info: n_ff                  = 11008
+2026-11-14T21:10:16.321118369Z print_info: n_expert              = 0
+2026-11-14T21:10:16.321118952Z print_info: n_expert_used         = 0
+2026-11-14T21:10:16.321119535Z print_info: n_expert_groups       = 0
+2026-11-14T21:10:16.321120117Z print_info: n_group_used          = 0
+2026-11-14T21:10:16.321120709Z print_info: causal attn           = 1
+2026-11-14T21:10:16.321121298Z print_info: pooling type          = -1
+2026-11-14T21:10:16.321131125Z print_info: rope type             = 2
+2026-11-14T21:10:16.321131762Z print_info: rope scaling          = linear
+2026-11-14T21:10:16.321132350Z print_info: freq_base_train       = 1000000.0
+2026-11-14T21:10:16.321132967Z print_info: freq_scale_train      = 1
+2026-11-14T21:10:16.321133554Z print_info: n_ctx_orig_yarn       = 32768
+2026-11-14T21:10:16.321134149Z print_info: rope_yarn_log_mul     = 0.0000
+2026-11-14T21:10:16.321134778Z print_info: rope_finetuned        = unknown
+2026-11-14T21:10:16.321135360Z print_info: model type            = 3B
+2026-11-14T21:10:16.321135990Z print_info: model params          = 3.09 B
+2026-11-14T21:10:16.321136566Z print_info: general.name          = Qwen2.5 Coder 3B Instruct
+2026-11-14T21:10:16.321137770Z print_info: vocab type            = BPE
+2026-11-14T21:10:16.321138347Z print_info: n_vocab               = 151936
+2026-11-14T21:10:16.321138926Z print_info: n_merges              = 151387
+2026-11-14T21:10:16.321139519Z print_info: BOS token             = 151643 '<|endoftext|>'
+2026-11-14T21:10:16.321141158Z print_info: EOS token             = 151645 '<|im_end|>'
+2026-11-14T21:10:16.321141787Z print_info: EOT token             = 151645 '<|im_end|>'
+2026-11-14T21:10:16.321142374Z print_info: PAD token             = 151643 '<|endoftext|>'
+2026-11-14T21:10:16.321142984Z print_info: LF token              = 198 'Ċ'
+2026-11-14T21:10:16.321143569Z print_info: FIM PRE token         = 151659 '<|fim_prefix|>'
+2026-11-14T21:10:16.321144157Z print_info: FIM SUF token         = 151661 '<|fim_suffix|>'
+2026-11-14T21:10:16.321144736Z print_info: FIM MID token         = 151660 '<|fim_middle|>'
+2026-11-14T21:10:16.321145314Z print_info: FIM PAD token         = 151662 '<|fim_pad|>'
+2026-11-14T21:10:16.321145907Z print_info: FIM REP token         = 151663 '<|repo_name|>'
+2026-11-14T21:10:16.321146494Z print_info: FIM SEP token         = 151664 '<|file_sep|>'
+2026-11-14T21:10:16.321150786Z print_info: EOG token             = 128247 '</s>'
+2026-11-14T21:10:16.321151397Z print_info: EOG token             = 151643 '<|endoftext|>'
+2026-11-14T21:10:16.321151990Z print_info: EOG token             = 151645 '<|im_end|>'
+2026-11-14T21:10:16.321152573Z print_info: EOG token             = 151662 '<|fim_pad|>'
+2026-11-14T21:10:16.321153157Z print_info: EOG token             = 151663 '<|repo_name|>'
+2026-11-14T21:10:16.321153733Z print_info: EOG token             = 151664 '<|file_sep|>'
+2026-11-14T21:10:16.321154312Z print_info: max token length      = 256
+2026-11-14T21:10:16.321154956Z load_tensors: loading model tensors, this can take a while... (load_mode = none)
+2026-11-14T21:10:16.323119306Z load_tensors:          CPU model buffer size =   569.19 MiB
+2026-11-14T21:10:16.323130810Z load_tensors:   CPU_REPACK model buffer size =  1265.62 MiB
+2026-11-14T21:10:17.890381033Z [GIN] 2026/11/14 - 21:10:17 | 200 | 21.572µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:10:17.891316262Z [GIN] 2026/11/14 - 21:10:17 | 200 | 576.605µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:10:21.172979996Z [GIN] 2026/11/14 - 21:10:21 | 200 | 548.022µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:10:21.182162101Z [GIN] 2026/11/14 - 21:10:21 | 200 |   7.92ms |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:10:21.236447086Z cmn  common_init_: added </s> logit bias = -inf
+2026-11-14T21:10:21.236520197Z cmn  common_init_: added <|endoftext|> logit bias = -inf
+2026-11-14T21:10:21.236522037Z cmn  common_init_: added <|im_end|> logit bias = -inf
+2026-11-14T21:10:21.236522677Z cmn  common_init_: added <|fim_pad|> logit bias = -inf
+2026-11-14T21:10:21.236523284Z cmn  common_init_: added <|repo_name|> logit bias = -inf
+2026-11-14T21:10:21.236523899Z cmn  common_init_: added <|file_sep|> logit bias = -inf
+2026-11-14T21:10:21.236648083Z llama_context: constructing llama_context
+2026-11-14T21:10:21.236654839Z llama_context: n_seq_max             = 1
+2026-11-14T21:10:21.236655678Z llama_context: n_ctx                 = 4096
+2026-11-14T21:10:21.236656357Z llama_context: n_ctx_seq             = 4096
+2026-11-14T21:10:21.236683513Z llama_context: n_batch               = 512
+2026-11-14T21:10:21.236684719Z llama_context: n_ubatch              = 512
+2026-11-14T21:10:21.236859217Z llama_context: causal_attn           = 1
+2026-11-14T21:10:21.236860675Z llama_context: flash_attn            = auto
+2026-11-14T21:10:21.236861437Z llama_context: kv_unified            = false
+2026-11-14T21:10:21.236895697Z llama_context: freq_base             = 1000000.0
+2026-11-14T21:10:21.236929809Z llama_context: freq_scale            = 1
+2026-11-14T21:10:21.236930751Z llama_context: n_rs_seq              = 0
+2026-11-14T21:10:21.236931394Z llama_context: n_outputs_max         = 1
+2026-11-14T21:10:21.236932414Z llama_context: n_outputs_max_per_seq = 1
+2026-11-14T21:10:21.236933053Z llama_context: n_ctx_seq (4096) < n_ctx_train (32768) -- the full capacity of the model will not be utilized
+2026-11-14T21:10:21.238561208Z llama_context:        CPU  output buffer size =     0.58 MiB
+2026-11-14T21:10:21.239531442Z llama_kv_cache:        CPU KV buffer size =   144.00 MiB
+2026-11-14T21:10:21.382571294Z llama_kv_cache: size =  144.00 MiB (  4096 cells,  36 layers,  1/1 seqs), K (f16):   72.00 MiB, V (f16):   72.00 MiB
+2026-11-14T21:10:21.382593943Z llama_kv_cache: n_rot_k = 0, n_embd_head_k_all = 128
+2026-11-14T21:10:21.382595465Z llama_kv_cache: n_rot_v = 0, n_embd_head_k_all = 128
+2026-11-14T21:10:21.382596290Z sched_reserve: reserving ...
+2026-11-14T21:10:21.393782011Z resolve_fused_ops: Flash Attention enabled
+2026-11-14T21:10:21.393899219Z resolve_fused_ops: resolving fused DeepSeek V4 HC support:
+2026-11-14T21:10:21.394227517Z resolve_fused_ops: fused DeepSeek V4 HC pre enabled
+2026-11-14T21:10:21.394496905Z resolve_fused_ops: fused DeepSeek V4 HC comb enabled
+2026-11-14T21:10:21.394754333Z resolve_fused_ops: fused DeepSeek V4 HC post enabled
+2026-11-14T21:10:21.396359201Z sched_reserve:        CPU compute buffer size =    88.52 MiB
+2026-11-14T21:10:21.396365106Z sched_reserve: graph: nodes = 1233, splits = 1, input objects = 4, input tensors = 9
+2026-11-14T21:10:21.396366481Z sched_reserve: reserve took 13.99 ms, sched copies = 1
+2026-11-14T21:10:21.397609626Z cmn          init: llama threadpool init, n_threads = 8
+2026-11-14T21:10:21.400516441Z cmn  common_init_: warming up the model with an empty run - please wait ... (--no-warmup to disable)
+2026-11-14T21:10:22.222393674Z srv    load_model: initializing, n_slots = 1, n_ctx_slot = 4096, kv_unified = 'false'
+2026-11-14T21:10:22.222597098Z spec common_specu: no implementations specified for speculative decoding
+2026-11-14T21:10:22.222602382Z slot   load_model: id  0 | task -1 | new slot, n_ctx = 4096
+2026-11-14T21:10:22.222909256Z srv    load_model: prompt cache is enabled, size limit: 8192 MiB
+2026-11-14T21:10:22.222918062Z srv    load_model: use `--cache-ram 0` to disable the prompt cache
+2026-11-14T21:10:22.222920316Z srv    load_model: for more info see https://github.com/ggml-org/llama.cpp/pull/16391
+2026-11-14T21:10:22.222921870Z srv    load_model: context checkpoints enabled, max = 32, min spacing = 8192
+2026-11-14T21:10:22.223344168Z srv          init: idle slots will be saved to prompt cache upon starting a new task
+2026-11-14T21:10:22.231145203Z srv          init: init: chat template, example_format: '<|im_start|>system
+2026-11-14T21:10:22.231167344Z You are a helpful assistant<|im_end|>
+2026-11-14T21:10:22.231168781Z <|im_start|>user
+2026-11-14T21:10:22.231170559Z Hello<|im_end|>
+2026-11-14T21:10:22.231171458Z <|im_start|>assistant
+2026-11-14T21:10:22.231172679Z Hi there<|im_end|>
+2026-11-14T21:10:22.231173669Z <|im_start|>user
+2026-11-14T21:10:22.231174490Z How are you?<|im_end|>
+2026-11-14T21:10:22.231175337Z <|im_start|>assistant
+2026-11-14T21:10:22.231176189Z '
+2026-11-14T21:10:22.231177066Z srv          init: init: chat template, thinking = 0
+2026-11-14T21:10:22.231178179Z srv          init: preserve_reasoning kwarg: not supported by template
+2026-11-14T21:10:22.231495039Z srv  server_run_i: model loaded
+2026-11-14T21:10:22.231504743Z srv  server_on_li: listening on http://127.0.0.1:45191
+2026-11-14T21:10:22.232178441Z srv  update_slots: all slots are idle
+2026-11-14T21:10:22.312927855Z time=2026-11-14T21:10:22.312Z level=INFO source=llama_server.go:1408 msg="llama-server started in 6.33 seconds"
+2026-11-14T21:10:22.313639032Z time=2026-11-14T21:10:22.313Z level=INFO source=images.go:431 msg="template selection" model=registry.ollama.ai/library/qwen2.5-coder:3b selected=go_template renderer="" parser="" go_template="[completion tools insert]" chat_template="[tools completion]" harmony=null renderer_parser=null
+2026-11-14T21:10:22.314194850Z time=2026-11-14T21:10:22.314Z level=INFO source=sched.go:782 msg="loaded runners" count=1
+2026-11-14T21:10:22.314664863Z time=2026-11-14T21:10:22.314Z level=INFO source=llama_server.go:1341 msg="waiting for llama-server to start responding"
+2026-11-14T21:10:22.317559073Z time=2026-11-14T21:10:22.317Z level=INFO source=llama_server.go:1408 msg="llama-server started in 6.33 seconds"
+2026-11-14T21:10:22.320101874Z [GIN] 2026/11/14 - 21:10:22 | 200 |    6.38s |      172.20.0.3 | POST     "/api/generate"
+2026-11-14T21:10:24.311627686Z [GIN] 2026/11/14 - 21:10:24 | 200 | 20.599µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:10:24.314298941Z [GIN] 2026/11/14 - 21:10:24 | 200 |   2.14ms |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:10:27.368156805Z [GIN] 2026/11/14 - 21:10:27 | 200 |  17.65µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:10:27.378174516Z [GIN] 2026/11/14 - 21:10:27 | 200 |   9.59ms |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:10:30.437006030Z [GIN] 2026/11/14 - 21:10:30 | 200 | 31.255µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:10:30.438396747Z [GIN] 2026/11/14 - 21:10:30 | 200 | 977.131µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:10:33.499821425Z [GIN] 2026/11/14 - 21:10:33 | 200 | 23.729µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:10:33.501771896Z [GIN] 2026/11/14 - 21:10:33 | 200 |   1.43ms |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:10:36.562244109Z [GIN] 2026/11/14 - 21:10:36 | 200 | 94.781µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:10:36.565080719Z [GIN] 2026/11/14 - 21:10:36 | 200 |   1.09ms |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:10:39.614815448Z [GIN] 2026/11/14 - 21:10:39 | 200 | 16.735µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:10:39.616056016Z [GIN] 2026/11/14 - 21:10:39 | 200 | 954.376µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:10:42.677010408Z [GIN] 2026/11/14 - 21:10:42 | 200 | 17.026µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:10:42.678757096Z [GIN] 2026/11/14 - 21:10:42 | 200 |   1.04ms |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:10:45.725326302Z [GIN] 2026/11/14 - 21:10:45 | 200 |  16.97µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:10:45.726942246Z [GIN] 2026/11/14 - 21:10:45 | 200 | 888.662µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:10:48.776125431Z [GIN] 2026/11/14 - 21:10:48 | 200 | 16.438µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:10:48.781081692Z [GIN] 2026/11/14 - 21:10:48 | 200 | 840.11µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:10:51.816621055Z [GIN] 2026/11/14 - 21:10:51 | 200 | 18.155µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:10:51.819504573Z [GIN] 2026/11/14 - 21:10:51 | 200 | 767.518µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:10:54.856101794Z [GIN] 2026/11/14 - 21:10:54 | 200 | 18.196µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:10:54.857212822Z [GIN] 2026/11/14 - 21:10:54 | 200 | 810.713µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:10:57.903285616Z [GIN] 2026/11/14 - 21:10:57 | 200 | 18.422µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:10:57.904559772Z [GIN] 2026/11/14 - 21:10:57 | 200 | 930.182µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:11:00.950266111Z [GIN] 2026/11/14 - 21:11:00 | 200 | 39.367µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:11:00.951694252Z [GIN] 2026/11/14 - 21:11:00 | 200 |   1.04ms |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:11:03.994990684Z [GIN] 2026/11/14 - 21:11:03 | 200 |  39.54µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:11:03.996406435Z [GIN] 2026/11/14 - 21:11:03 | 200 |   1.01ms |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:11:07.038593029Z [GIN] 2026/11/14 - 21:11:07 | 200 | 41.913µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:11:07.041783104Z [GIN] 2026/11/14 - 21:11:07 | 200 |   1.88ms |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:11:10.080183860Z [GIN] 2026/11/14 - 21:11:10 | 200 | 18.849µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:11:10.081426466Z [GIN] 2026/11/14 - 21:11:10 | 200 | 681.05µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:11:13.118824753Z [GIN] 2026/11/14 - 21:11:13 | 200 |  17.88µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:11:13.120060834Z [GIN] 2026/11/14 - 21:11:13 | 200 |   1.01ms |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:11:16.168073996Z [GIN] 2026/11/14 - 21:11:16 | 200 | 41.451µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:11:16.170473525Z [GIN] 2026/11/14 - 21:11:16 | 200 | 871.288µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:11:19.216764035Z [GIN] 2026/11/14 - 21:11:19 | 200 | 18.405µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:11:19.217668107Z [GIN] 2026/11/14 - 21:11:19 | 200 | 588.907µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:11:22.245031759Z [GIN] 2026/11/14 - 21:11:22 | 200 | 23.591µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:11:22.247109213Z [GIN] 2026/11/14 - 21:11:22 | 200 | 729.614µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:11:25.303420161Z [GIN] 2026/11/14 - 21:11:25 | 200 |  15.48µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:11:25.304583602Z [GIN] 2026/11/14 - 21:11:25 | 200 | 806.658µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:11:28.351132676Z [GIN] 2026/11/14 - 21:11:28 | 200 | 18.801µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:11:28.352163522Z [GIN] 2026/11/14 - 21:11:28 | 200 | 698.771µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:11:31.397803570Z [GIN] 2026/11/14 - 21:11:31 | 200 | 18.208µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:11:31.398897513Z [GIN] 2026/11/14 - 21:11:31 | 200 | 707.91µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:11:34.466066254Z [GIN] 2026/11/14 - 21:11:34 | 200 | 114.328µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:11:34.467255697Z [GIN] 2026/11/14 - 21:11:34 | 200 | 753.62µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:11:37.511333554Z [GIN] 2026/11/14 - 21:11:37 | 200 | 29.291µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:11:37.512269196Z [GIN] 2026/11/14 - 21:11:37 | 200 | 602.756µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:11:40.560870903Z [GIN] 2026/11/14 - 21:11:40 | 200 | 16.597µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:11:40.562546386Z [GIN] 2026/11/14 - 21:11:40 | 200 |    1.1ms |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:11:43.600278072Z [GIN] 2026/11/14 - 21:11:43 | 200 | 16.795µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:11:43.602850089Z [GIN] 2026/11/14 - 21:11:43 | 200 |    2.1ms |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:11:46.649016820Z [GIN] 2026/11/14 - 21:11:46 | 200 | 32.222µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:11:46.650035931Z [GIN] 2026/11/14 - 21:11:46 | 200 | 668.564µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:11:49.695079474Z [GIN] 2026/11/14 - 21:11:49 | 200 | 16.927µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:11:49.695949871Z [GIN] 2026/11/14 - 21:11:49 | 200 | 608.397µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:11:52.754104803Z [GIN] 2026/11/14 - 21:11:52 | 200 | 19.371µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:11:52.755118461Z [GIN] 2026/11/14 - 21:11:52 | 200 | 717.63µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:11:55.793463583Z [GIN] 2026/11/14 - 21:11:55 | 200 | 17.292µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:11:55.794203148Z [GIN] 2026/11/14 - 21:11:55 | 200 | 547.702µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:11:58.833988137Z [GIN] 2026/11/14 - 21:11:58 | 200 | 19.692µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:11:58.835287038Z [GIN] 2026/11/14 - 21:11:58 | 200 |   1.01ms |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:12:01.879097152Z [GIN] 2026/11/14 - 21:12:01 | 200 | 17.893µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:12:01.880031623Z [GIN] 2026/11/14 - 21:12:01 | 200 |    506µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:12:04.943413740Z [GIN] 2026/11/14 - 21:12:04 | 200 | 20.712µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:12:04.944295669Z [GIN] 2026/11/14 - 21:12:04 | 200 | 626.215µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:12:07.992855220Z [GIN] 2026/11/14 - 21:12:07 | 200 | 34.777µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:12:07.994483253Z [GIN] 2026/11/14 - 21:12:07 | 200 | 635.153µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:12:11.040362270Z [GIN] 2026/11/14 - 21:12:11 | 200 | 18.488µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:12:11.041230460Z [GIN] 2026/11/14 - 21:12:11 | 200 | 606.906µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:12:14.088738657Z [GIN] 2026/11/14 - 21:12:14 | 200 | 21.503µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:12:14.091823340Z [GIN] 2026/11/14 - 21:12:14 | 200 |   2.77ms |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:12:14.248409684Z srv  server_strea: conv_id= (empty=1)
+2026-11-14T21:12:14.253793981Z slot get_availabl: id  0 | task -1 |  - skipping, slot is empty
+2026-11-14T21:12:14.254222088Z slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 0, t_last = -1
+2026-11-14T21:12:14.254231054Z srv  get_availabl: updating prompt cache
+2026-11-14T21:12:14.254858791Z srv          load:  - looking for better prompt, base f_keep = -1.000, f_sim = 0.000
+2026-11-14T21:12:14.254863554Z srv        update:  - cache state: 0 prompts, 0.000 MiB (limits: 8192.000 MiB, 4096 tokens, 8589934592 est)
+2026-11-14T21:12:14.254864879Z srv  get_availabl: prompt cache update took 0.75 ms
+2026-11-14T21:12:14.256207038Z slot launch_slot_: id  0 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> ?min-p -> ?xtc -> temp-ext -> dist 
+2026-11-14T21:12:14.256219765Z slot launch_slot_: id  0 | task -1 | sampler params: 
+2026-11-14T21:12:14.256221061Z 	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+2026-11-14T21:12:14.256222300Z 	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+2026-11-14T21:12:14.256246473Z 	top_k = 40, top_p = 0.900, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.800
+2026-11-14T21:12:14.256247778Z 	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+2026-11-14T21:12:14.256249046Z slot launch_slot_: id  0 | task 0 | processing task, is_child = 0
+2026-11-14T21:12:14.256250095Z slot   operator(): id  0 | task 0 | new prompt, n_ctx_slot = 4096, n_keep = 4, task.n_tokens = 345
+2026-11-14T21:12:14.256477826Z slot   operator(): id  0 | task 0 | cached n_tokens = 0, memory_seq_rm [0, end)
+2026-11-14T21:12:14.257084893Z slot init_sampler: id  0 | task 0 | init sampler, took 0.06 ms, tokens: text = 345, total = 345
+2026-11-14T21:12:17.166473598Z [GIN] 2026/11/14 - 21:12:17 | 200 | 24.526µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:12:17.169450816Z [GIN] 2026/11/14 - 21:12:17 | 200 |    1.5ms |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:12:18.534871627Z slot print_timing: id  0 | task 0 | prompt eval time =    3558.33 ms /   345 tokens (   10.31 ms per token,    96.96 tokens per second)
+2026-11-14T21:12:18.534894384Z slot print_timing: id  0 | task 0 |        eval time =     719.93 ms /    12 tokens (   65.45 ms per token,    15.28 tokens per second)
+2026-11-14T21:12:18.534895688Z slot print_timing: id  0 | task 0 |       total time =    4278.26 ms /   357 tokens
+2026-11-14T21:12:18.534897216Z slot print_timing: id  0 | task 0 |    graphs reused =         11
+2026-11-14T21:12:18.534898661Z slot print_timing: id  0 | task 0 |   graph reallocs =          0    /     0        (same size) / (changed size)
+2026-11-14T21:12:18.555471970Z slot      release: id  0 | task 0 | stop processing: n_tokens = 356, truncated = 0
+2026-11-14T21:12:18.555502602Z srv  update_slots: all slots are idle
+2026-11-14T21:12:18.556774426Z [GIN] 2026/11/14 - 21:12:18 | 200 |    4.41s |      172.20.0.3 | POST     "/api/chat"
+2026-11-14T21:12:20.244297809Z [GIN] 2026/11/14 - 21:12:20 | 200 | 19.755µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:12:20.245395348Z [GIN] 2026/11/14 - 21:12:20 | 200 | 729.293µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:12:23.288254115Z [GIN] 2026/11/14 - 21:12:23 | 200 | 39.267µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:12:23.289565809Z [GIN] 2026/11/14 - 21:12:23 | 200 | 659.834µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:12:26.336237551Z [GIN] 2026/11/14 - 21:12:26 | 200 |   18.7µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:12:26.337454773Z [GIN] 2026/11/14 - 21:12:26 | 200 | 643.336µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:12:29.379449903Z [GIN] 2026/11/14 - 21:12:29 | 200 |  17.31µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:12:29.382191032Z [GIN] 2026/11/14 - 21:12:29 | 200 |   2.47ms |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:12:32.435834541Z [GIN] 2026/11/14 - 21:12:32 | 200 | 18.328µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:12:32.436796232Z [GIN] 2026/11/14 - 21:12:32 | 200 | 606.277µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:12:35.485440409Z [GIN] 2026/11/14 - 21:12:35 | 200 | 18.213µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:12:35.486242937Z [GIN] 2026/11/14 - 21:12:35 | 200 | 519.047µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:12:38.530438732Z [GIN] 2026/11/14 - 21:12:38 | 200 | 17.208µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:12:38.532439927Z [GIN] 2026/11/14 - 21:12:38 | 200 | 963.045µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:12:41.580536672Z [GIN] 2026/11/14 - 21:12:41 | 200 | 18.356µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:12:41.581425411Z [GIN] 2026/11/14 - 21:12:41 | 200 | 626.059µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:12:44.621900289Z [GIN] 2026/11/14 - 21:12:44 | 200 | 18.562µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:12:44.623093872Z [GIN] 2026/11/14 - 21:12:44 | 200 | 775.759µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:12:47.668250597Z [GIN] 2026/11/14 - 21:12:47 | 200 | 19.278µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:12:47.669627529Z [GIN] 2026/11/14 - 21:12:47 | 200 | 887.97µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:12:50.709699132Z [GIN] 2026/11/14 - 21:12:50 | 200 | 18.975µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:12:50.710600387Z [GIN] 2026/11/14 - 21:12:50 | 200 | 635.004µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:12:53.750573739Z [GIN] 2026/11/14 - 21:12:53 | 200 | 17.275µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:12:53.751384603Z [GIN] 2026/11/14 - 21:12:53 | 200 | 496.585µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:12:56.791370182Z [GIN] 2026/11/14 - 21:12:56 | 200 | 17.117µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:12:56.792550450Z [GIN] 2026/11/14 - 21:12:56 | 200 | 594.256µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:12:59.837574760Z [GIN] 2026/11/14 - 21:12:59 | 200 | 17.105µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:12:59.839087725Z [GIN] 2026/11/14 - 21:12:59 | 200 |   1.01ms |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:13:02.876567472Z [GIN] 2026/11/14 - 21:13:02 | 200 |  21.02µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:13:02.878693328Z [GIN] 2026/11/14 - 21:13:02 | 200 |   1.69ms |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:13:05.919739750Z [GIN] 2026/11/14 - 21:13:05 | 200 | 19.161µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:13:05.920828436Z [GIN] 2026/11/14 - 21:13:05 | 200 | 550.658µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:13:08.960236333Z [GIN] 2026/11/14 - 21:13:08 | 200 | 16.696µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:13:08.961625572Z [GIN] 2026/11/14 - 21:13:08 | 200 | 555.683µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:13:11.999104663Z [GIN] 2026/11/14 - 21:13:11 | 200 | 24.588µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:13:11.999875448Z [GIN] 2026/11/14 - 21:13:11 | 200 | 503.27µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:13:15.042855646Z [GIN] 2026/11/14 - 21:13:15 | 200 | 16.311µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:13:15.043708147Z [GIN] 2026/11/14 - 21:13:15 | 200 | 519.492µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:13:18.083915029Z [GIN] 2026/11/14 - 21:13:18 | 200 | 16.955µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:13:18.084756336Z [GIN] 2026/11/14 - 21:13:18 | 200 | 527.096µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:13:21.128547767Z [GIN] 2026/11/14 - 21:13:21 | 200 |  55.15µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:13:21.129829392Z [GIN] 2026/11/14 - 21:13:21 | 200 | 764.836µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:13:24.171955953Z [GIN] 2026/11/14 - 21:13:24 | 200 | 20.695µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:13:24.173779685Z [GIN] 2026/11/14 - 21:13:24 | 200 | 695.165µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:13:27.214115908Z [GIN] 2026/11/14 - 21:13:27 | 200 | 17.129µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:13:27.214933490Z [GIN] 2026/11/14 - 21:13:27 | 200 | 560.741µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:13:30.258012864Z [GIN] 2026/11/14 - 21:13:30 | 200 | 17.987µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:13:30.258823785Z [GIN] 2026/11/14 - 21:13:30 | 200 | 514.388µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:13:33.302839148Z [GIN] 2026/11/14 - 21:13:33 | 200 | 17.507µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:13:33.303728049Z [GIN] 2026/11/14 - 21:13:33 | 200 | 559.97µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:13:36.351900755Z [GIN] 2026/11/14 - 21:13:36 | 200 | 17.047µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:13:36.355243161Z [GIN] 2026/11/14 - 21:13:36 | 200 |   2.93ms |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:13:39.390308149Z [GIN] 2026/11/14 - 21:13:39 | 200 | 15.208µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:13:39.391166495Z [GIN] 2026/11/14 - 21:13:39 | 200 | 521.027µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:13:42.431855400Z [GIN] 2026/11/14 - 21:13:42 | 200 | 16.246µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:13:42.432637045Z [GIN] 2026/11/14 - 21:13:42 | 200 | 522.631µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:13:45.486894858Z [GIN] 2026/11/14 - 21:13:45 | 200 | 17.896µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:13:45.487689262Z [GIN] 2026/11/14 - 21:13:45 | 200 | 560.542µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:13:48.523815297Z [GIN] 2026/11/14 - 21:13:48 | 200 | 18.069µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:13:48.525435548Z [GIN] 2026/11/14 - 21:13:48 | 200 |   1.45ms |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:13:51.557497463Z [GIN] 2026/11/14 - 21:13:51 | 200 |  46.03µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:13:51.558358391Z [GIN] 2026/11/14 - 21:13:51 | 200 | 485.158µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:13:54.597713571Z [GIN] 2026/11/14 - 21:13:54 | 200 | 17.771µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:13:54.598627308Z [GIN] 2026/11/14 - 21:13:54 | 200 | 591.287µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:13:57.634429651Z [GIN] 2026/11/14 - 21:13:57 | 200 | 17.744µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:13:57.635193702Z [GIN] 2026/11/14 - 21:13:57 | 200 | 481.455µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:14:00.674894603Z [GIN] 2026/11/14 - 21:14:00 | 200 | 17.388µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:14:00.675708804Z [GIN] 2026/11/14 - 21:14:00 | 200 | 535.757µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:14:03.710794359Z [GIN] 2026/11/14 - 21:14:03 | 200 | 17.687µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:14:03.711693401Z [GIN] 2026/11/14 - 21:14:03 | 200 | 580.211µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:14:06.751325671Z [GIN] 2026/11/14 - 21:14:06 | 200 | 16.704µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:14:06.752176610Z [GIN] 2026/11/14 - 21:14:06 | 200 | 527.098µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:14:09.790203768Z [GIN] 2026/11/14 - 21:14:09 | 200 | 17.566µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:14:09.790886763Z [GIN] 2026/11/14 - 21:14:09 | 200 | 492.445µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:14:12.827331325Z [GIN] 2026/11/14 - 21:14:12 | 200 | 16.285µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:14:12.828169673Z [GIN] 2026/11/14 - 21:14:12 | 200 | 497.208µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:14:12.861530446Z [GIN] 2026/11/14 - 21:14:12 | 200 |   1.18ms |      172.20.0.3 | GET      "/api/tags"
+2026-11-14T21:14:15.872082000Z [GIN] 2026/11/14 - 21:14:15 | 200 | 17.542µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:14:15.872899938Z [GIN] 2026/11/14 - 21:14:15 | 200 | 522.541µs |       127.0.0.1 | GET      "/api/tags"
+2026-11-14T21:14:18.914605098Z [GIN] 2026/11/14 - 21:14:18 | 200 | 21.587µs |       127.0.0.1 | HEAD     "/"
+2026-11-14T21:14:18.915699006Z [GIN] 2026/11/14 - 21:14:18 | 200 | 721.506µs |       127.0.0.1 | GET      "/api/tags"
