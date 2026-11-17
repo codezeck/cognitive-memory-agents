@@ -1,5 +1,7 @@
 # Casos de falha
 
+**Proveniência:** os três casos e números abaixo são históricos. A atualização de 14/11 está no [ensaio de desenvolvimento](ensaio-desenvolvimento-20261114.md) (todas as 22 falhas) e no [relatório Docker](validacao-entrega-docker.md), incluindo o erro aritmético r05 e as correções do iniciador. A guarda resolveu as formas pessoais de cidade ensaiadas; outras formas sem suporte e abstenções indevidas continuam reproduzíveis. Busca vazia não comprova exclusão no banco/RAM nem conformidade jurídica.
+
 Casos em que o sistema errou, com a análise da causa e como reproduzir. Os dados vêm das avaliações oficiais em `evidencias/` (ver `docs/guia-avaliacao.md`). Onde a causa ainda não foi confirmada no código, o texto diz "a confirmar".
 
 ## Caso 1: o modelo inventa um valor depois que a memória foi esquecida
@@ -8,8 +10,8 @@ Casos em que o sistema errou, com a análise da causa e como reproduzir. Os dado
 - **Entrada:** "Moro em Osasco." → "Esqueça minha cidade." → "Em que cidade moro? [...] Se não houver informação suficiente, responda exatamente DESCONHECIDO."
 - **Esperado:** `DESCONHECIDO` (ou equivalente a "não sei").
 - **Obtido:** em 9 das 21 respostas dos dois cenários com memória, o modelo respondeu outra coisa. Em 6 inventou um valor (Lisboa, Londres, São Paulo, Belo Horizonte, Internacional, Grêmio) e em 3 deformou a palavra (DENAH, DESAFIO, SPORTS-FOOTBALL).
-- **Causa:** o esquecimento funcionou. Nenhuma resposta errada trouxe o valor apagado (Osasco, Vasco), e os casos sem memória esperada tiveram 6 de 6 sem resíduos. O erro está no modelo local de 3 bilhões de parâmetros, que não obedece à instrução de responder `DESCONHECIDO`. Nos casos de esquecimento o estado de memória é vazio, então o cenário equivale a `sem_memoria`, que também inventa valores.
-- **Impacto:** a camada de memória cumpre o direito ao esquecimento, mas a resposta final depende do modelo. Um modelo maior ou uma verificação de formato na resposta reduziria o problema.
+- **Causa observável na rodada histórica:** nenhuma resposta errada trouxe os alvos Osasco/Vasco, e 6/6 buscas sem memória esperada não recuperaram resíduos. Isso mostra falha de abstenção na resposta, mas não comprova toda exclusão nem isola prompt, histórico e geração. O estado recuperado vazio se aproxima do controle sem memória; a equivalência do caminho completo não foi demonstrada por esse resultado.
+- **Impacto:** o usuário recebe um fato pessoal inventado. Não há certificação de direito ao esquecimento. A correção posterior verificou suporte no fluxo completo e introduziu guarda local limitada; a comparação atual preserva também seus falsos negativos e formas não cobertas.
 - **Como reproduzir:** subir a API (ver `docs/guia-avaliacao.md`) e rodar `python eval/avaliar_comparativo.py --repeticoes 3 --saida evidencias/comparativo_reproducao.json`. O modelo não é determinístico: o número exato varia entre execuções.
 
 ## Caso 2: a recuperação não encontra a memória quando a pergunta usa outras palavras

@@ -1,0 +1,157 @@
+﻿ M .github/workflows/tests.yml
+ M Dockerfile
+ M PROMPTS.md
+ M README.md
+ M docker-compose.yml
+ M docs/agente-provedores.md
+ M docs/casos-de-falha.md
+ M docs/contribuicao-academica-zeck.md
+ M docs/decisoes-arquitetura.md
+ M docs/guia-avaliacao.md
+ M docs/plano-execucao-p6.md
+ M docs/resultados-avaliacoes-agente.md
+ M docs/roteiro-demonstracao.md
+ M eval/avaliar_comparativo.py
+ M evidencias/README.md
+ M src/agent.py
+ M src/api/agente_local.py
+ M src/api/main.py
+ M src/api/schemas.py
+ M src/api/servico.py
+ M tests/test_agent.py
+ M tests/test_agente_provedores.py
+?? Iniciar.ps1
+?? docker-compose.professor.yml
+?? docs/andamento-entrega.md
+?? docs/checklist-entrega.md
+?? docs/criterios-avaliacao-final.md
+?? docs/dados-modelos.md
+?? docs/ensaio-desenvolvimento-20261114.md
+?? docs/manual-professor.md
+?? docs/pesquisa-abnt.pdf
+?? docs/pesquisa-complemento.md
+?? docs/proposta-contagem-local.md
+?? docs/revisao-experimental/README.md
+?? docs/revisao-experimental/metadados-reservados.proposta.json
+?? docs/revisao-experimental/p6.proposta.json
+?? docs/validacao-entrega-docker.md
+?? evidencias/agente/20261114-abstencao-c4468914-base-api.log
+?? evidencias/agente/20261114-abstencao-c4468914-base-http.jsonl
+?? evidencias/agente/20261114-abstencao-c4468914-base-modelo.jsonl
+?? evidencias/agente/20261114-abstencao-c4468914-base-pytest.log
+?? evidencias/agente/20261114-abstencao-c4468914-base-r02-http.jsonl
+?? evidencias/agente/20261114-abstencao-c4468914-base-r02-pytest.log
+?? evidencias/agente/20261114-abstencao-c4468914-configuracao-final.json
+?? evidencias/agente/20261114-abstencao-c4468914-configuracao-v2.json
+?? evidencias/agente/20261114-abstencao-c4468914-configuracao.json
+?? evidencias/agente/20261114-abstencao-c4468914-correcao-api.log
+?? evidencias/agente/20261114-abstencao-c4468914-correcao-final-api.log
+?? evidencias/agente/20261114-abstencao-c4468914-correcao-final-http.jsonl
+?? evidencias/agente/20261114-abstencao-c4468914-correcao-final-modelo.jsonl
+?? evidencias/agente/20261114-abstencao-c4468914-correcao-final-pytest.log
+?? evidencias/agente/20261114-abstencao-c4468914-correcao-http.jsonl
+?? evidencias/agente/20261114-abstencao-c4468914-correcao-modelo.jsonl
+?? evidencias/agente/20261114-abstencao-c4468914-correcao-pytest.log
+?? evidencias/agente/20261114-abstencao-c4468914-correcao-v2-api.log
+?? evidencias/agente/20261114-abstencao-c4468914-correcao-v2-http.jsonl
+?? evidencias/agente/20261114-abstencao-c4468914-correcao-v2-modelo.jsonl
+?? evidencias/agente/20261114-abstencao-c4468914-correcao-v2-pytest.log
+?? evidencias/agente/20261114-abstencao-c4468914-encerramento.json
+?? evidencias/agente/20261114-abstencao-c4468914-final-testes-locais.log
+?? evidencias/agente/20261114-abstencao-c4468914-observador.py
+?? evidencias/agente/20261114-abstencao-c4468914-resumo.json
+?? evidencias/agente/20261114-abstencao-c4468914-testes-locais-r02.log
+?? evidencias/agente/20261114-abstencao-c4468914-testes-locais.log
+?? evidencias/agente/20261114-abstencao-c4468914-v2-testes-locais.log
+?? evidencias/agente/validacao-docker-20261114-07701ee5-api.log
+?? evidencias/agente/validacao-docker-20261114-07701ee5-encerramento.json
+?? evidencias/agente/validacao-docker-20261114-07701ee5.jsonl
+?? evidencias/entrega/20261114-entrega-ae9eb113/01-primeiro-acesso.png
+?? evidencias/entrega/20261114-entrega-ae9eb113/build-frio-final.log
+?? evidencias/entrega/20261114-entrega-ae9eb113/comparativo-desenvolvimento.json
+?? evidencias/entrega/20261114-entrega-ae9eb113/comparativo-desenvolvimento.log
+?? evidencias/entrega/20261114-entrega-ae9eb113/configuracao-final.json
+?? evidencias/entrega/20261114-entrega-ae9eb113/configuracao-iniciador.json
+?? evidencias/entrega/20261114-entrega-ae9eb113/datasets-diff-final.log
+?? evidencias/entrega/20261114-entrega-ae9eb113/diff-check-final.log
+?? evidencias/entrega/20261114-entrega-ae9eb113/encerramento-compose.log
+?? evidencias/entrega/20261114-entrega-ae9eb113/encerramento-final.json
+?? evidencias/entrega/20261114-entrega-ae9eb113/falhas-desenvolvimento.csv
+?? evidencias/entrega/20261114-entrega-ae9eb113/figuras/desenvolvimento.png
+?? evidencias/entrega/20261114-entrega-ae9eb113/figuras/historico.png
+?? evidencias/entrega/20261114-entrega-ae9eb113/final-api.log
+?? evidencias/entrega/20261114-entrega-ae9eb113/final-ollama.log
+?? evidencias/entrega/20261114-entrega-ae9eb113/final-preparar.log
+?? evidencias/entrega/20261114-entrega-ae9eb113/iniciador-real-r02.log
+?? evidencias/entrega/20261114-entrega-ae9eb113/iniciador-real-r03.log
+?? evidencias/entrega/20261114-entrega-ae9eb113/iniciador-real.log
+?? evidencias/entrega/20261114-entrega-ae9eb113/inicial-api.log
+?? evidencias/entrega/20261114-entrega-ae9eb113/inicial-ollama.log
+?? evidencias/entrega/20261114-entrega-ae9eb113/inicial-preparar.log
+?? evidencias/entrega/20261114-entrega-ae9eb113/links-documentacao-final.json
+?? evidencias/entrega/20261114-entrega-ae9eb113/links-documentacao.json
+?? evidencias/entrega/20261114-entrega-ae9eb113/lint-final.log
+?? evidencias/entrega/20261114-entrega-ae9eb113/lint.log
+?? evidencias/entrega/20261114-entrega-ae9eb113/pesquisa-conferencia.json
+?? evidencias/entrega/20261114-entrega-ae9eb113/pesquisa-geracao.json
+?? evidencias/entrega/20261114-entrega-ae9eb113/primeira-inicializacao.json
+?? evidencias/entrega/20261114-entrega-ae9eb113/r01-interface.jsonl
+?? evidencias/entrega/20261114-entrega-ae9eb113/r02-01-acesso.png
+?? evidencias/entrega/20261114-entrega-ae9eb113/r02-02-recuperacao.png
+?? evidencias/entrega/20261114-entrega-ae9eb113/r02-03-atualizacao.png
+?? evidencias/entrega/20261114-entrega-ae9eb113/r02-04-isolamento.png
+?? evidencias/entrega/20261114-entrega-ae9eb113/r02-05-abstencao.png
+?? evidencias/entrega/20261114-entrega-ae9eb113/r02-06-falha-modelo.png
+?? evidencias/entrega/20261114-entrega-ae9eb113/r02-07-falha-conexao.png
+?? evidencias/entrega/20261114-entrega-ae9eb113/r02-08-acesso-expirado.png
+?? evidencias/entrega/20261114-entrega-ae9eb113/r02-09-mobile.png
+?? evidencias/entrega/20261114-entrega-ae9eb113/r02-interface.jsonl
+?? evidencias/entrega/20261114-entrega-ae9eb113/r03-api-indisponivel.png
+?? evidencias/entrega/20261114-entrega-ae9eb113/r03-conexao-api.json
+?? evidencias/entrega/20261114-entrega-ae9eb113/r04-01-acesso.png
+?? evidencias/entrega/20261114-entrega-ae9eb113/r04-02-recuperacao.png
+?? evidencias/entrega/20261114-entrega-ae9eb113/r04-03-atualizacao.png
+?? evidencias/entrega/20261114-entrega-ae9eb113/r04-04-isolamento.png
+?? evidencias/entrega/20261114-entrega-ae9eb113/r04-05-abstencao.png
+?? evidencias/entrega/20261114-entrega-ae9eb113/r04-06-falha-modelo.png
+?? evidencias/entrega/20261114-entrega-ae9eb113/r04-07-falha-conexao.png
+?? evidencias/entrega/20261114-entrega-ae9eb113/r04-08-acesso-expirado.png
+?? evidencias/entrega/20261114-entrega-ae9eb113/r04-09-mobile.png
+?? evidencias/entrega/20261114-entrega-ae9eb113/r04-interface.jsonl
+?? evidencias/entrega/20261114-entrega-ae9eb113/r05-iniciador-padrao.png
+?? evidencias/entrega/20261114-entrega-ae9eb113/r05-interrupcao.json
+?? evidencias/entrega/20261114-entrega-ae9eb113/r06-iniciador-padrao.json
+?? evidencias/entrega/20261114-entrega-ae9eb113/r06-iniciador-padrao.png
+?? evidencias/entrega/20261114-entrega-ae9eb113/testes-finais-r02.log
+?? evidencias/entrega/20261114-entrega-ae9eb113/testes-finais.log
+?? evidencias/entrega/20261114-entrega-ae9eb113/testes-integracao.log
+?? evidencias/entrega/20261114-entrega-ae9eb113/testes-javascript.log
+?? requirements-dev.txt
+?? requirements-documentacao.txt
+?? requirements-interface-teste.txt
+?? src/evidencias_pessoais.py
+?? src/inicializacao.py
+?? src/interface/__init__.py
+?? src/interface/avaliacoes.py
+?? src/interface/comparativo.py
+?? src/interface/rotas.py
+?? src/interface/static/app.mjs
+?? src/interface/static/estilo.css
+?? src/interface/static/index.html
+?? src/interface/static/relatorio.mjs
+?? src/observabilidade.py
+?? tests/test_abstencao_docker_real.py
+?? tests/test_evidencias_pessoais.py
+?? tests/test_inicializacao.py
+?? tests/test_interface.py
+?? tests/test_interface_comparativo.py
+?? tests/test_observabilidade.py
+?? tests/test_origem_uso.py
+?? tests/test_relatorio.mjs
+?? tools/encerrar_ensaio.py
+?? tools/ensaiar_interface.py
+?? tools/gerar_pesquisa.py
+?? tools/preparar_revisao_experimental.py
+?? tools/registrar_entrega.py
+?? tools/sumarizar_desenvolvimento.py
+?? tools/verificar_documentacao.py

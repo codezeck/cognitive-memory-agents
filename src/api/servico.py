@@ -9,6 +9,8 @@ class ResultadoAgente:
     resposta: str
     tokens_entrada: int | None = None
     tokens_saida: int | None = None
+    origem_uso: str | None = None
+    chamadas_modelo_observadas: int | None = None
 
 
 @dataclass
@@ -18,6 +20,8 @@ class ResultadoConversa:
     memorias_usadas: list[str]
     tokens_entrada: int | None
     tokens_saida: int | None
+    origem_uso: str | None = None
+    chamadas_modelo_observadas: int | None = None
 
 
 class Conversador:
@@ -50,6 +54,8 @@ class Conversador:
             memorias_usadas=[m["texto"] for m in memorias],
             tokens_entrada=r.tokens_entrada,
             tokens_saida=r.tokens_saida,
+            origem_uso=getattr(r, "origem_uso", None),
+            chamadas_modelo_observadas=getattr(r, "chamadas_modelo_observadas", None),
         )
 
     def nova_sessao(self, usuario_id: str) -> None:

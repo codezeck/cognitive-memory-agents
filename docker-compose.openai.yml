@@ -1,0 +1,17 @@
+# Opcional: nao inicia Ollama nem baixa pesos. Exige chave no processo local.
+services:
+  ollama:
+    profiles: [local]
+  preparar:
+    command: [python, -m, src.inicializacao, preparar-acesso]
+    depends_on: !reset {}
+  api:
+    ports: !override
+      - "127.0.0.1:${CMA_PORT_OPENAI:-8003}:8000"
+    environment:
+      LLM_PROVIDER: openai
+      LLM_MODEL: ${CMA_MODELO_OPENAI:-gpt-4.1-mini}
+      MODELOS_PERMITIDOS: openai:${CMA_MODELO_OPENAI:-gpt-4.1-mini}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:?Defina OPENAI_API_KEY apenas no ambiente local}
+      CMA_PORT: ${CMA_PORT_OPENAI:-8003}
+      HABILITAR_COMPARATIVO_INTERFACE: "0"

@@ -209,7 +209,7 @@ def test_falhas_dos_provedores_preservam_historico_e_retornam_erro_publico(
     chamada.side_effect = None
     chamada.return_value = resposta_ok
     resultado = agente.responder("u1", "Nova tentativa", [], SelecaoModelo(provedor, "modelo-teste"))
-    assert resultado == ResultadoAgente("Resposta válida", 12, 3)
+    assert resultado == ResultadoAgente("Resposta válida", 12, 3, "provedor", 1)
     assert len(agente_mod.historicos_por_usuario["u1"]) == len(antes["u1"]) + 2
     assert agente_mod.historicos_por_usuario["u2"] == antes["u2"]
 

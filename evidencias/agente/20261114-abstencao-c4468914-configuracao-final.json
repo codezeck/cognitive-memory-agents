@@ -1,0 +1,131 @@
+{
+  "execucao": "20261114-abstencao-c4468914",
+  "instante_utc": "2026-11-14T17:20:32.419300+00:00",
+  "base_git": "2be5d51bd3918bbbbd2c4b427cadf57c7acce6b6",
+  "correcao_sem_commit": true,
+  "stages": {
+    "correcao-final": {
+      "nome": "cma-professor-20261114-abstencao-c4468914-correcao-final-api",
+      "id": "6f04016fd3c73491c10846578587ed1a789f2a63ea79fe69b288b539c5224358",
+      "imagem": "sha256:ba024966dda615d84dfc153c1e9c6b47367283f26a889e94d875a287a2fee24b",
+      "iniciado_em": "2026-11-14T17:20:31.698990699Z",
+      "portas": {
+        "8000/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "62197"
+          }
+        ]
+      },
+      "volumes": [
+        {
+          "tipo": "bind",
+          "nome": null,
+          "destino": "/observador.py",
+          "escrita": false
+        },
+        {
+          "tipo": "volume",
+          "nome": "cma-professor-20261114-abstencao-c4468914-correcao-final-dados",
+          "destino": "/app/dados",
+          "escrita": true
+        }
+      ],
+      "ambiente_sem_segredos": {
+        "LLM_PROVIDER": "ollama",
+        "LLM_MODEL": "qwen2.5-coder:3b",
+        "MODELOS_PERMITIDOS": "ollama:qwen2.5-coder:3b",
+        "OLLAMA_HOST": "http://host.docker.internal:11434",
+        "DB_PATH": "/app/dados/memorias.db",
+        "USAR_FALSOS": "0"
+      },
+      "openai_desabilitada": true,
+      "tokens_sinteticos_configurados": 2,
+      "instrumentacao": "observador de passagem integral, um worker, sem alterar pedidos/respostas",
+      "sha256_observador": "3a59eb69c9a7ec58272e0424d495c94834ee213ee0909149c44507d2ada92a61"
+    }
+  },
+  "ollama_versao": {
+    "version": "0.40.12"
+  },
+  "modelo": {
+    "name": "qwen2.5-coder:3b",
+    "model": "qwen2.5-coder:3b",
+    "modified_at": "2026-11-14T13:52:19.7566595-03:00",
+    "size": 1929912626,
+    "digest": "f72c60cabf6237b07f6e632b2c48d533cef25eda2efbd34bed21c5e9c01e6225",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen2",
+      "families": [
+        "qwen2"
+      ],
+      "parameter_size": "3.1B",
+      "quantization_level": "Q4_K_M",
+      "context_length": 32768,
+      "embedding_length": 2048,
+      "runner": "ggml"
+    },
+    "capabilities": [
+      "completion",
+      "tools",
+      "insert"
+    ],
+    "parametros_modelfile": null,
+    "template_sha256": "1e65450c30670713aa47fe23e8b9662bdf4065e81cc8e3cbfaa98924fcc0d320",
+    "modelo_info": {
+      "general.architecture": "qwen2",
+      "general.base_model.0.name": "Qwen2.5 Coder 3B",
+      "general.base_model.0.organization": "Qwen",
+      "general.base_model.0.repo_url": "https://huggingface.co/Qwen/Qwen2.5-Coder-3B",
+      "general.base_model.count": 1,
+      "general.basename": "Qwen2.5-Coder",
+      "general.file_type": 15,
+      "general.finetune": "Instruct",
+      "general.languages": [
+        "en"
+      ],
+      "general.license": "other",
+      "general.license.link": "https://huggingface.co/Qwen/Qwen2.5-Coder-3B-Instruct/blob/main/LICENSE",
+      "general.license.name": "qwen-research",
+      "general.parameter_count": 3085938688,
+      "general.quantization_version": 2,
+      "general.size_label": "3B",
+      "general.tags": [
+        "code",
+        "codeqwen",
+        "chat",
+        "qwen",
+        "qwen-coder",
+        "text-generation"
+      ],
+      "general.type": "model",
+      "qwen2.attention.head_count": 16,
+      "qwen2.attention.head_count_kv": 2,
+      "qwen2.attention.layer_norm_rms_epsilon": 1e-06,
+      "qwen2.block_count": 36,
+      "qwen2.context_length": 32768,
+      "qwen2.embedding_length": 2048,
+      "qwen2.feed_forward_length": 11008,
+      "qwen2.rope.freq_base": 1000000,
+      "tokenizer.ggml.add_bos_token": false,
+      "tokenizer.ggml.bos_token_id": 151643,
+      "tokenizer.ggml.eos_token_id": 151645,
+      "tokenizer.ggml.merges": [],
+      "tokenizer.ggml.model": "gpt2",
+      "tokenizer.ggml.padding_token_id": 151643,
+      "tokenizer.ggml.pre": "qwen2",
+      "tokenizer.ggml.token_type": [],
+      "tokenizer.ggml.tokens": []
+    }
+  },
+  "options_por_chamada": null,
+  "nota_options": "defaults do servidor/modelo; nenhum seed/temperature forçado pelo ensaio",
+  "build_dependencias_cache": true,
+  "p6_executada": false,
+  "datasets_reservados_utilizados": false,
+  "sha256_teste": "75f778d54744bafb5a5b8d18980c10d1762cd6dea5b199cd746152e60fd7004b",
+  "sha256_agent_correcao": "2dfcc96f990aec02ac0ebf0f2dd67854740aa862eb33fed29d269a52b837f070",
+  "sha256_politica_local": "a7d5df2c13604f010a5250bd780ec634fe4d178249f2352aa6817cba444d408f"
+}

@@ -1,0 +1,116 @@
+{
+  "instante_utc": "2026-11-14T22:13:39.077645+00:00",
+  "url": "http://127.0.0.1:59059",
+  "usuario": "demo_professor",
+  "status": 200,
+  "respostas": [
+    {
+      "rodada": 1,
+      "mensagem": "Quanto e 2 + 3?",
+      "status": 200,
+      "resultado": {
+        "resposta": "2 + 3 é igual a 5.",
+        "memorias_usadas": [],
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b",
+        "latencia_ms": 534,
+        "tokens_entrada": 258,
+        "tokens_saida": 11,
+        "origem_uso": "provedor",
+        "chamadas_modelo_observadas": 1
+      },
+      "conteudo_esperado_presente": true
+    },
+    {
+      "rodada": 2,
+      "mensagem": "Quanto e 2 + 3?",
+      "status": 200,
+      "resultado": {
+        "resposta": "A soma de 2 e 3 é 5.",
+        "memorias_usadas": [],
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b",
+        "latencia_ms": 564,
+        "tokens_entrada": 258,
+        "tokens_saida": 13,
+        "origem_uso": "provedor",
+        "chamadas_modelo_observadas": 1
+      },
+      "conteudo_esperado_presente": true
+    },
+    {
+      "rodada": 3,
+      "mensagem": "Quanto e 2 + 3?",
+      "status": 200,
+      "resultado": {
+        "resposta": "O resultado de 2 + 3 é 5.",
+        "memorias_usadas": [],
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b",
+        "latencia_ms": 571,
+        "tokens_entrada": 258,
+        "tokens_saida": 13,
+        "origem_uso": "provedor",
+        "chamadas_modelo_observadas": 1
+      },
+      "conteudo_esperado_presente": true
+    },
+    {
+      "rodada": 4,
+      "mensagem": "Quanto e 2 + 3?",
+      "status": 200,
+      "resultado": {
+        "resposta": "2 + 3 é igual a 5.",
+        "memorias_usadas": [],
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b",
+        "latencia_ms": 469,
+        "tokens_entrada": 258,
+        "tokens_saida": 11,
+        "origem_uso": "provedor",
+        "chamadas_modelo_observadas": 1
+      },
+      "conteudo_esperado_presente": true
+    },
+    {
+      "rodada": 5,
+      "mensagem": "Quanto e 2 + 3?",
+      "status": 200,
+      "resultado": {
+        "resposta": "O resultado de 2 + 3 é 5.",
+        "memorias_usadas": [],
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b",
+        "latencia_ms": 584,
+        "tokens_entrada": 258,
+        "tokens_saida": 13,
+        "origem_uso": "provedor",
+        "chamadas_modelo_observadas": 1
+      },
+      "conteudo_esperado_presente": true
+    },
+    {
+      "rodada": 6,
+      "mensagem": "Qual e a capital da Franca?",
+      "status": 200,
+      "resultado": {
+        "resposta": "A capital da França é Paris.",
+        "memorias_usadas": [],
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b",
+        "latencia_ms": 513,
+        "tokens_entrada": 257,
+        "tokens_saida": 9,
+        "origem_uso": "provedor",
+        "chamadas_modelo_observadas": 1
+      },
+      "conteudo_esperado_presente": true
+    }
+  ],
+  "cookies_httponly": true,
+  "tokens_nos_artefatos": [],
+  "arquivos_inspecionados": 142,
+  "iniciador_saida": 0,
+  "cache_pesos": true,
+  "p6_executada": false
+}

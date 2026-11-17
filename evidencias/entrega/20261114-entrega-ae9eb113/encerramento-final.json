@@ -1,0 +1,39 @@
+{
+  "instante_utc": "2026-11-14T22:17:13.288296+00:00",
+  "projeto_encerrado": "cma-entrega-ae9eb113",
+  "sem_remocao_volumes": true,
+  "containers_ensaio_restantes": [],
+  "servicos_anteriores": [
+    {
+      "id": "433f8633806409fcbd39894a2c4628bfe4535809cc01da5d9a9933d3d1fa724e",
+      "nome": "/cma-professor-manual-a0c6833c-api",
+      "estado": "running",
+      "started_at": "2026-11-14T16:52:30.116618055Z",
+      "preservado": true
+    },
+    {
+      "id": "7cc15d3192865933cf0dc3e6595afef0ba6124d6e377b8d73326cd12394bcfd4",
+      "nome": "/cognitive-memory-api",
+      "estado": "running",
+      "started_at": "2026-11-13T02:09:57.274452153Z",
+      "preservado": true
+    }
+  ],
+  "volumes_anteriores_presentes": true,
+  "volumes_ensaio_preservados": [
+    "cma-entrega-ae9eb113_credenciais_demo",
+    "cma-entrega-ae9eb113_memoria_dados",
+    "cma-entrega-ae9eb113_modelos_ollama"
+  ],
+  "worktree_origem_preservado": true,
+  "arquivos_brutos_anteriores_preservados": true,
+  "hashes_brutos_anteriores": {
+    "evidencias/comparativo_oficial_3rep.json": "f247abd524075477f74b5f43511dc80313c67d7ec183d13f199e5962727bb5af",
+    "evidencias/agente/validacao-docker-20261114-07701ee5.jsonl": "240acd2a3c173fc622b61a65924d3a370f5418a27f83d50983ae71c7d106e01b",
+    "evidencias/agente/validacao-docker-20261114-07701ee5-api.log": "b2baa50600ec570278510241836ee2038c1d6b93d375bba1fddc855657230086",
+    "evidencias/agente/validacao-docker-20261114-07701ee5-encerramento.json": "1b0f18e1cfc87c69115af72f85166f8fdf911148ee46ef8a1148dc4feca302c2"
+  },
+  "indice_evidencias_atualizado_intencionalmente": true,
+  "p6_executada": false,
+  "reservado_executado": false
+}

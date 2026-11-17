@@ -1,0 +1,10 @@
+{
+  "rodada": "r05",
+  "estado": "interrompida_por_assert_de_conteudo",
+  "pedido": "Quanto e 2 + 3?",
+  "resposta_visivel_na_captura": "4",
+  "esperado": "5",
+  "fonte": "r05-iniciador-padrao.png",
+  "limite": "O JSON da resposta nao foi gravado antes do assert; nao reconstruido. A captura preserva o conteudo observado.",
+  "seguimento": "r06-iniciador-padrao.json: cinco repeticoes da conta e uma pergunta geral, todas corretas nessa rodada; nao apaga a falha r05."
+}

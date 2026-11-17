@@ -14,6 +14,8 @@ Este projeto corresponde ao Tema 11 de um conjunto de 16 temas propostos para a 
 
 ## 1. Sobre o projeto
 
+**Execução local atual:** com Docker Desktop aberto, execute `.\Iniciar.ps1` na raiz ou `docker compose --env-file .env.example up --build`. Acesse **http://127.0.0.1:8001/** para conversar. O preparo inicia Ollama, baixa `qwen2.5-coder:3b`, confirma carregamento e gera acesso local automaticamente, sem copiar tokens. Primeira execução exige internet/download; dados, pesos e identidade ficam em volumes. Não é necessário instalar Ollama/Python no host. Consulte o [manual com capturas](docs/manual-professor.md), a [matriz de requisitos](docs/andamento-entrega.md) e o [relatório real](docs/validacao-entrega-docker.md). A demonstração é local, com perfis sintéticos; não deve ser exposta na internet.
+
 O Cognitive Memory Agents é um projeto de desenvolvimento e avaliação de agentes inteligentes com foco em memória conversacional, recuperação de informações relevantes e otimização do contexto enviado a modelos de linguagem (LLMs).
 
 O projeto busca melhorar a continuidade das respostas, recuperar informações relevantes de conversas anteriores e reduzir o consumo desnecessário de contexto enviado aos modelos.
@@ -104,6 +106,8 @@ Toda evolução deve preservar a modularidade, a segurança e o comportamento j�
 - [Agente e provedores](docs/agente-provedores.md): execução da CLI, configuração local, histórico, contexto, timeout e erros. Ollama e OpenAI têm testes simulados; isso não comprova disponibilidade de um serviço real.
 - [Guia de avaliação](docs/guia-avaliacao.md): instalação do ambiente Python 3.13, carregamento do `.env`, testes e reprodução dos experimentos P4/P5/P6.
 - [Arquitetura](docs/decisoes-arquitetura.md) e [evidências](evidencias/README.md).
+- [Dados e modelo](docs/dados-modelos.md): origem, versão efetiva, licença e limites do ensaio local.
+- [Material opcional OpenAI, fora do escopo da entrega](docs/openai-opcional.md): configuração preservada, sem validação real. A decisão de 15/11 mantém Ollama para demonstração e avaliações, sem exigir assinatura ou créditos de API.
 
 O julgador `p4-v3` reconhece os treze atributos usados pela avaliação. As 21 anotações oficiais P6 são estruturalmente compatíveis; a interpretação de `u03/s4/pergunta3` ainda exige revisão de Vinicius. Isso não comprova 21 respostas corretas do chatbot. A rodada real depende do contrato de esquecimento e das evidências operacionais descritos no guia.
 
@@ -119,11 +123,11 @@ API em FastAPI que recebe as conversas, escolhe o modelo, busca as memórias do 
 | `LLM_PROVIDER` | Provedor padrão | `ollama` |
 | `LLM_MODEL` | Modelo padrão | `qwen2.5-coder:3b` |
 | `MODELOS_PERMITIDOS` | Combinações `provedor:modelo` aceitas, separadas por vírgula. Qualquer outra é recusada | só o padrão |
-| `OLLAMA_HOST` | Endereço do Ollama | `http://localhost:11434` (no Docker: `http://host.docker.internal:11434`) |
+| `OLLAMA_HOST` | Endereço do Ollama | local: `http://localhost:11434`; Compose padrão: `http://ollama:11434` |
 | `OPENAI_API_KEY` | Chave de um provedor hospedado (opcional; o projeto funciona só com o Ollama local) | vazio |
 | `USAR_FALSOS` | `1` troca o agente real por um agente de teste, sem Ollama. **Só para desenvolvimento** | desligado |
 
-Copie o `.env.example` para `.env` (que está no `.gitignore`) e preencha localmente. **Nunca coloque tokens ou chaves no repositório.**
+Para execução Python manual, configure as variáveis localmente. O iniciador Docker usa `.env.example` e gera credenciais em volume próprio; não exige copiar ou editar `.env`. **Nunca coloque tokens ou chaves no repositório.**
 
 Para gerar um token:
 
@@ -145,13 +149,18 @@ Sem o Ollama aberto, use `$env:USAR_FALSOS="1"` antes do `uvicorn` para testar a
 Com Docker:
 
 ```powershell
-docker compose up --build
+docker compose --env-file .env.example up --build
 ```
 
-O `docker-compose.yml` lê as variáveis do `.env`. A API fica em `http://127.0.0.1:8000`. **Status:** o fluxo completo (lembrar, atualizar, persistir após reiniciar o contêiner, esquecer, apagar usuário e segurança 401/403) foi executado em Docker em 05/11/2026; o log está em `evidencias/agente/fluxo-memoria-docker-2026-11-05.txt`.
+O Compose padrão prepara Ollama, modelo e acesso local e publica somente `127.0.0.1:8001`. A execução manual do uvicorn continua usando 8000. O log de 05/11 em `evidencias/agente/fluxo-memoria-docker-2026-11-05.txt` é histórico e não descreve esta instalação automática.
+
+Para conferir a entrega, siga o [manual do professor](docs/manual-professor.md). Não precisa preparar Ollama no host nem fornecer token. O override `docker-compose.professor.yml` permanece como caminho técnico legado para avaliações com Ollama externo, separado do padrão atual. A [validação de 14/11](docs/validacao-entrega-docker.md) preserva as falhas iniciais e os novos ensaios da correção; nenhuma dessas sondagens substitui P6.
+
+A interface de chat foi conciliada com a API atual e está disponível em **http://127.0.0.1:8001/**. O worktree original `feature/interface-instalacao` foi preservado. Swagger continua em `/docs`; usa Bearer manual para operações protegidas. O chat usa um intermediário autenticado no servidor, sem expor a credencial ao JavaScript.
+
 ### Autenticação
 
-Todas as rotas, exceto `/saude` e `/provedores`, exigem o cabeçalho:
+As operações de usuários exigem o cabeçalho abaixo. `/saude`, `/provedores`, `/docs` e o esquema `/openapi.json` são públicos:
 
 ```
 Authorization: Bearer <token>
@@ -167,11 +176,12 @@ Cada token pertence a um usuário. Se o `usuario_id` do pedido for de outra pess
 | `GET /provedores` | Não | Lista os modelos permitidos e o padrão | 200 |
 | `POST /conversas` | Sim | Envia uma mensagem. Corpo: `usuario_id`, `mensagem`, `provedor` e `modelo` (opcionais) | 200 |
 | `POST /usuarios/{usuario_id}/sessoes` | Sim | Começa uma sessão nova (limpa só a conversa em andamento, não as memórias) | 204 |
+| `GET /usuarios/{usuario_id}/estado-regras` | Sim | Consulta o estado ativo das regras para avaliação | 200 |
 | `POST /usuarios/{usuario_id}/memorias` | Sim | Cria uma memória. Corpo: `texto`, `chave` (opcional) | 201 com `id` |
 | `GET /usuarios/{usuario_id}/memorias?consulta=...&k=5` | Sim | Busca as memórias mais relevantes para a consulta | 200 |
 | `PATCH /usuarios/{usuario_id}/memorias/{memoria_id}` | Sim | Altera o texto de uma memória. Corpo: `texto` | 204 |
-| `DELETE /usuarios/{usuario_id}/memorias/{memoria_id}` | Sim | Apaga uma memória | 204 |
-| `DELETE /usuarios/{usuario_id}/memorias` | Sim | Apaga **todas** as memórias do usuário e a conversa em andamento (direito ao esquecimento, LGPD) | 200 com `removidas` |
+| `DELETE /usuarios/{usuario_id}/memorias/{memoria_id}` | Sim | Apaga o ID e limpa a conversa em andamento; não apaga outras versões da chave | 204 |
+| `DELETE /usuarios/{usuario_id}/memorias` | Sim | Apaga **todas** as memórias do usuário, inclusive inativas, e limpa sua conversa em andamento | 200 com `removidas` |
 
 Exemplo de conversa (PowerShell):
 
@@ -181,7 +191,7 @@ $corpo = '{"usuario_id": "u001", "mensagem": "Oi!"}'
 Invoke-RestMethod -Method Post -Uri http://127.0.0.1:8000/conversas -Headers $h -ContentType "application/json" -Body $corpo
 ```
 
-A resposta traz `resposta`, `memorias_usadas`, `provedor`, `modelo` e `latencia_ms`.
+A resposta traz `resposta`, `memorias_usadas`, `provedor`, `modelo`, `latencia_ms`, `tokens_entrada` e `tokens_saida` (estes podem ser `null` quando indisponíveis). A extensão opcional `origem_uso`/`chamadas_modelo_observadas` identifica respostas locais sem invocação do adaptador; os campos antigos são preservados. Consulte a [decisão de contagem](docs/proposta-contagem-local.md).
 
 ### Erros
 
@@ -214,5 +224,6 @@ Os testes da API não precisam do Ollama. Cobrem escolha de modelo, tradução d
 ### Limitações conhecidas
 
 - A memória da API é salva em SQLite (arquivo `dados/memorias.db`, ou o volume `memoria_dados` no Docker) e **sobrevive ao reiniciar o servidor**.
-- Memórias criadas ou apagadas diretamente por `POST`/`PATCH`/`DELETE` em `/memorias` não atualizam o índice de conflitos do gerenciador, que é carregado do banco uma vez por usuário e fica em memória enquanto o servidor roda. Isso só afeta memórias criadas pelo extrator de regras; reiniciar a API reconstrói o índice.
+- O gerenciador reconstrói seu índice de conflitos a partir das memórias ativas do usuário ao processar/consultar estado; não depende de reiniciar a API para refletir exclusões do banco.
 - O `PATCH` altera o texto da memória (e a busca passa a usar o texto novo), mas não altera o `valor` guardado nos metadados, que é o que as regras de conflito do gerenciador comparam. Para trocar um fato pela conversa (por exemplo, "agora moro em Campinas"), use `POST /conversas`.
+- Busca vazia não prova exclusão de registros inativos ou ausência na RAM. O DELETE individual aciona reset desde a PR #43; o observador opt-in foi ensaiado no processo real, com um worker e contagem literal, sem certificar toda a memória. Checkpoints P6 permanecem pendentes. A guarda corrigiu formas pessoais ensaiadas, mas o comparativo revelou outras respostas inventadas e abstenção indevida. A meta de economia global não foi atingida; estes testes não certificam conformidade jurídica.

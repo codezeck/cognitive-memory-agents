@@ -1,0 +1,23 @@
+# Ambiente opt-in para validar a entrega sem reutilizar porta, nome ou volume.
+# Use com docker-compose.yml, --env-file .env.example e projeto exclusivo (-p).
+services:
+  api:
+    container_name: "cma-professor-${CMA_EXECUCAO:?Defina CMA_EXECUCAO}-api"
+    image: "cma-professor-${CMA_EXECUCAO}-api:local"
+    ports: !override
+      - "127.0.0.1:${CMA_PORTA:-18000}:8000"
+    environment:
+      API_TOKENS_FILE: ""
+      MODO_DEMONSTRACAO: "0"
+      LLM_PROVIDER: ollama
+      LLM_MODEL: qwen2.5-coder:3b
+      MODELOS_PERMITIDOS: ollama:qwen2.5-coder:3b
+      OPENAI_API_KEY: ""
+      OLLAMA_HOST: "${CMA_OLLAMA_HOST:-http://host.docker.internal:11434}"
+      API_TOKENS: "${CMA_TOKEN_A:?Defina CMA_TOKEN_A}:professor_a,${CMA_TOKEN_B:?Defina CMA_TOKEN_B}:professor_b"
+      USAR_FALSOS: "0"
+    restart: "no"
+    depends_on: !reset {}
+volumes:
+  memoria_dados:
+    name: "cma-professor-${CMA_EXECUCAO}-dados"

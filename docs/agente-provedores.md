@@ -4,6 +4,8 @@ Responsável por agente, adaptadores, prompts e avaliação: Zeck. A referência
 
 ## Execução local
 
+Para o professor, o caminho principal é o [Docker automático com chat](manual-professor.md), sem Ollama/Python no host ou token manual. Os comandos abaixo são da CLI de desenvolvimento, com escopo distinto da aplicação persistente.
+
 Use Python 3.13 e o ambiente com `requirements.txt`, conforme o guia. Para a demonstração local, instale o Ollama, deixe o serviço disponível e prepare o modelo:
 
 ```powershell
@@ -49,17 +51,19 @@ Ambos os adaptadores configuram timeout de 60 segundos por requisição do clien
 
 Os tipos legados de conexão/timeout dos adaptadores foram preservados para compatibilidade. A ligação `AgenteLocal` normaliza a resposta pública; o contrato de endpoints e `src/api/erros.py` não precisaram mudar. Após falha, o histórico anterior permanece e uma nova tentativa pode funcionar; falha não é convertida em resposta textual nem aprovação experimental.
 
-## Exclusão individual: dependência compartilhada pendente
+## Exclusão individual: reset integrado e limites restantes
 
-`src/api/main.py:esquecer_uma()` chama diretamente `memoria.esquecer()`. Não notifica o agente. Uma memória pode desaparecer do armazenamento e continuar em mensagens anteriores do usuário ou do assistente. O agente não consegue inferir esse evento a partir de uma busca vazia: a mesma ausência pode indicar irrelevância ou falha de recuperação.
+Em 12/11, `src/api/main.py:esquecer_uma()` chamava apenas `memoria.esquecer()`, sem notificar o agente. A PR #43, integrada em `2be5d51`, acrescentou `conversador.nova_sessao(usuario_id)` após uma exclusão bem-sucedida. O histórico inteiro desse usuário é invalidado; um ID inexistente retorna 404 sem disparar reset. Não há invalidação seletiva de mensagens.
 
-Os testes isolados em `tests/test_agent.py` reproduzem o resíduo e comprovam que `limpar_historico(usuario_id)` remove as mensagens daquele usuário, preservando outros usuários. Isso valida o mecanismo de reset, não corrige o fluxo DELETE.
+Os testes isolados em `tests/test_agent.py` reproduzem o resíduo e comprovam que `limpar_historico(usuario_id)` remove as mensagens daquele usuário, preservando outros usuários. Os testes de API da #43 verificam o acionamento do reset na rota; não são observação da RAM da API em execução real.
 
-**Proposta para Paloma revisar com Zeck:** após uma exclusão individual bem-sucedida, coordenar a invalidação do histórico via mecanismo existente `nova_sessao(usuario_id)`, antes de permitir nova geração. A opção simples limpa toda a conversa daquele usuário; preservar mensagens não relacionadas exigiria um contrato seletivo que ainda não existe. É necessário definir também tratamento de registros substituídos e de múltiplos workers, com Vinicius na política de esquecimento. Sem essa decisão, não alterar endpoint nem armazenamento.
+Na sondagem inicial de 14/11, o ID foi removido do SQLite e a busca ficou sem contexto, mas a resposta inventou Belo Horizonte. Após exclusão total, inventou São Paulo. Nenhuma era o fato apagado. Na [continuação da validação](validacao-entrega-docker.md#continuação--correção-da-abstenção-14112026), foi implementada uma política local para consultas pessoais diretas reconhecidas: sem suporte na mensagem, histórico do usuário ou memória recuperada, responde `DESCONHECIDO` antes de consultar o modelo. Perguntas gerais e suporte disponível continuam na geração; perguntas mistas preservam a parte geral. A versão final passou nas 65 verificações reais, sem certificar toda formulação de linguagem natural ou a RAM. O candidato baseado apenas em instruções falhou e foi descartado.
+
+O DELETE individual não remove outras versões da mesma chave. A exclusão total removeu inclusive a linha substituída neste teste. Múltiplos workers e eventual invalidação seletiva exigem alinhamento de contrato/arquitetura com Paloma e Vinicius.
 
 Validação necessária: pelo endpoint real, guardar um fato, fazê-lo aparecer em resposta, excluir a memória e inspecionar o próximo contexto do agente, cobrindo mensagem do usuário, resposta do assistente, isolamento e registros substituídos. Observar somente busca/banco vazio não comprova ausência na RAM. A observação deve ocorrer no processo real da API; importar o módulo em outro processo não observa o mesmo histórico.
 
-Outra dependência de Paloma: `Catalogo.listar/resolver` verifica configuração de chave/allowlist, mas pode anunciar um provedor sem adaptador como configurado. `AgenteLocal` recusa a geração, porém a listagem precisa distinguir configuração e capacidade implementada. O catálogo não foi modificado. O README também conserva uma descrição antiga de carregamento único do índice de memória; sua atualização deve ser coordenada com Paloma/Vinicius. A limitação documentada do PATCH de metadados continua pertinente.
+Outra dependência de Paloma: `Catalogo.listar/resolver` verifica configuração de chave/allowlist, mas pode anunciar um provedor sem adaptador como configurado. `AgenteLocal` recusa a geração, porém a listagem precisa distinguir configuração e capacidade implementada. O catálogo não foi modificado. A descrição antiga de carregamento único do índice no README foi corrigida conforme `_carregar_indice_usuario`, que reconstrói o índice dos ativos. A limitação documentada do PATCH de metadados continua pertinente.
 
 ## Validação e limites
 

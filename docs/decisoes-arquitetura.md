@@ -1,5 +1,21 @@
 # Decisão de arquitetura: suporte a múltiplos modelos de IA
 
+## Escopo confirmado em 15/11/2026: entrega com Ollama
+
+O usuário reafirmou que a entrega precisa funcionar sem assinatura ou créditos de API. Ollama é o caminho da demonstração e das avaliações planejadas. A preparação OpenAI fica preservada como material opcional fora do escopo atual, sem ativação nem rodada real.
+
+O hardware do professor é desconhecido: manter caminho funcional em CPU e requisitos medidos documentados; GPU pode ser aceleração opcional, nunca requisito da entrega. Antes de trocar o modelo para reduzir peso/latência, comparar candidatos somente em desenvolvimento e registrar qualidade, tempos e recursos. O comparativo de memória deve manter o mesmo modelo e configuração nos cenários, medir ingestão e sessão completa e conservar os resultados anteriores. Esta decisão não libera P6/reservado nem altera seus critérios ou revisões pendentes.
+
+## Decisões locais da entrega de 14/11/2026
+
+1. **Reaproveitar chat e manter contratos:** conciliado o worktree existente com API atual, preservando reset de DELETE da PR #43. A UI usa intermediário no servidor e rotas reais autenticadas; não instancia agente falso nem substitui `main.py` pela base antiga.
+2. **Preparar runtime em serviço próprio:** Compose inicia Ollama, preparo que valida credenciais/modelo e API. Pesos, banco e segredos possuem volumes separados. Padrão local Ollama não restringe a arquitetura dos adaptadores. Um worker delimita observação do histórico.
+3. **Acesso local de demonstração:** credenciais aleatórias persistentes, cookie HttpOnly/SameSite, validação de origem e identidade definida no servidor. A/B são perfis sintéticos compartilhados. API Bearer permanece. Publicação exige outra configuração e revisão de autenticação.
+4. **Observar antes de afirmar esquecimento:** observador RAM somente leitura, desligado por padrão e restrito a usuários autorizados, devolve contagens e instância/processo, sem textos. SQLite é verificado separadamente. Não equivale a toda memória de máquina nem a certificação semântica/legal.
+5. **Separar política local de uso desconhecido:** extensão opcional autorizada `origem_uso`/`chamadas_modelo_observadas`; campos antigos preservados. Zero exige política local explícita e coerente. `p3-uso-local-v1` distingue resultados novos. Retries internos do SDK não são contados.
+
+Mudanças locais para revisão da equipe, sem aprovação atribuída automaticamente. A economia global não foi demonstrada: houve aumento de tokens completos no desenvolvimento. Uma futura revisão de orçamento de contexto é decisão separada, não implementada nesta etapa.
+
 ## Contexto
 
 O projeto Cognitive Memory Agents iniciou sua implementação com um agente baseado em Ollama. Entretanto, o objetivo de longo prazo é permitir que a camada de memória seja reutilizada com diferentes modelos de linguagem, sem dependência obrigatória de um único fornecedor ou runtime.
@@ -53,9 +69,10 @@ Testes simulados validam agente, seleção, adaptadores e erros. Testes com SQLi
 ## Pontos para alinhamento da equipe
 
 - Concluir contrato aprovado de esquecimento P6 e evidências de início/reinício/exclusão.
-- Definir observação real da RAM da API e a invalidação do histórico após exclusão individual.
+- Definir observação real da RAM da API; a invalidação após exclusão individual já foi integrada pela PR #43, sem comprovar por si só o estado do processo real.
+- Revisar os limites da política local de abstenção implementada na [continuação do ensaio](validacao-entrega-docker.md#continuação--correção-da-abstenção-14112026). Consultas pessoais diretas reconhecidas sem suporte terminam antes do LLM; suporte atual/histórico/memória e perguntas gerais preservam a geração. A gramática é limitada, sem mudança de endpoint ou armazenamento. A tentativa de corrigir apenas por instruções foi rejeitada na execução real.
 - Alinhar o catálogo anunciado pela API aos adaptadores implementados; a configuração de uma chave não implementa um adaptador.
-- Validar em execução real os serviços e produzir a avaliação final, preservando a execução local a custo zero.
+- Concluir a avaliação final, preservando a execução local a custo zero. O percurso inicial Docker/Ollama foi exercitado em 14/11, com falhas registradas; não substitui a P6.
 
 A integração descrita acima já existe. Os pontos de alinhamento são dependências compartilhadas; endpoints, armazenamento e regras não foram alterados nesta revisão. Detalhes: [agente e provedores](agente-provedores.md) e [guia de avaliação](guia-avaliacao.md).
 

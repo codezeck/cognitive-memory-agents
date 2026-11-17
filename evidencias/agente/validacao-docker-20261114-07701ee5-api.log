@@ -1,0 +1,65 @@
+2026-11-14T16:17:43.072591617Z INFO:     Started server process [1]
+2026-11-14T16:17:43.072644500Z INFO:     Waiting for application startup.
+2026-11-14T16:17:43.073927813Z INFO:     Application startup complete.
+2026-11-14T16:17:43.076317782Z INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-11-14T16:20:55.744470034Z INFO:     172.19.0.1:37104 - "GET /saude HTTP/1.1" 200 OK
+2026-11-14T16:20:55.749957698Z INFO:     172.19.0.1:37104 - "GET /saude HTTP/1.1" 200 OK
+2026-11-14T16:20:55.753028969Z INFO:     172.19.0.1:37104 - "GET /docs HTTP/1.1" 200 OK
+2026-11-14T16:20:55.784029991Z INFO:     172.19.0.1:37104 - "GET /openapi.json HTTP/1.1" 200 OK
+2026-11-14T16:20:55.794023333Z INFO:     172.19.0.1:37104 - "GET / HTTP/1.1" 404 Not Found
+2026-11-14T16:20:56.274820173Z INFO:     172.19.0.1:37104 - "GET /usuarios/professor_a/memorias?consulta=Niteroi&k=5 HTTP/1.1" 200 OK
+2026-11-14T16:20:56.457390494Z 2026-11-14 16:20:56,456 WARNING api erro nao_autenticado: Informe o cabeçalho Authorization: Bearer <token>.
+2026-11-14T16:20:56.457481209Z INFO:     172.19.0.1:37104 - "GET /usuarios/professor_a/memorias?consulta=cidade HTTP/1.1" 401 Unauthorized
+2026-11-14T16:21:05.452937325Z 2026-11-14 16:21:05,452 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T16:21:05.453419902Z 2026-11-14 16:21:05,453 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=8236
+2026-11-14T16:21:05.454788702Z INFO:     172.19.0.1:37104 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T16:21:05.623150664Z INFO:     172.19.0.1:37104 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T16:21:06.084363587Z 2026-11-14 16:21:06,083 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T16:21:06.084497060Z 2026-11-14 16:21:06,084 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=456
+2026-11-14T16:21:06.085169088Z INFO:     172.19.0.1:37104 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T16:21:06.628850445Z 2026-11-14 16:21:06,628 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T16:21:06.629330944Z 2026-11-14 16:21:06,629 INFO api conversa usuario=professor_b provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=538
+2026-11-14T16:21:06.629815428Z INFO:     172.19.0.1:37104 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T16:21:06.634924626Z INFO:     172.19.0.1:37104 - "POST /usuarios/professor_b/sessoes HTTP/1.1" 204 No Content
+2026-11-14T16:21:07.109844543Z 2026-11-14 16:21:07,109 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T16:21:07.109867552Z 2026-11-14 16:21:07,109 INFO api conversa usuario=professor_b provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=471
+2026-11-14T16:21:07.110438290Z INFO:     172.19.0.1:37104 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T16:21:07.280944525Z 2026-11-14 16:21:07,280 WARNING api erro acesso_negado: Você não tem acesso às memórias de outro usuário.
+2026-11-14T16:21:07.281022848Z INFO:     172.19.0.1:37104 - "GET /usuarios/professor_b/memorias?consulta=Maceio HTTP/1.1" 403 Forbidden
+2026-11-14T16:21:07.283746885Z INFO:     172.19.0.1:37104 - "DELETE /usuarios/professor_b/memorias HTTP/1.1" 403 Forbidden
+2026-11-14T16:21:07.283768255Z 2026-11-14 16:21:07,283 WARNING api erro acesso_negado: Você não tem acesso às memórias de outro usuário.
+2026-11-14T16:21:07.287567534Z 2026-11-14 16:21:07,287 WARNING api erro acesso_negado: Você não tem acesso às memórias de outro usuário.
+2026-11-14T16:21:07.287638529Z INFO:     172.19.0.1:37104 - "POST /conversas HTTP/1.1" 403 Forbidden
+2026-11-14T16:21:08.449459752Z 2026-11-14 16:21:08,449 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T16:21:08.449566795Z 2026-11-14 16:21:08,449 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=969
+2026-11-14T16:21:08.450262989Z INFO:     172.19.0.1:37104 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T16:21:08.650588134Z INFO:     172.19.0.1:37104 - "GET /usuarios/professor_a/memorias?consulta=Niteroi&k=5 HTTP/1.1" 200 OK
+2026-11-14T16:21:08.654944033Z INFO:     172.19.0.1:37104 - "GET /usuarios/professor_a/memorias?consulta=Vitoria&k=5 HTTP/1.1" 200 OK
+2026-11-14T16:21:08.658125029Z INFO:     172.19.0.1:37104 - "POST /usuarios/professor_a/sessoes HTTP/1.1" 204 No Content
+2026-11-14T16:21:08.865145094Z 2026-11-14 16:21:08,864 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T16:21:08.865162237Z 2026-11-14 16:21:08,864 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=203
+2026-11-14T16:21:08.865481792Z INFO:     172.19.0.1:37104 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T16:21:09.202399720Z INFO:     Shutting down
+2026-11-14T16:21:09.303557627Z INFO:     Waiting for application shutdown.
+2026-11-14T16:21:09.303583307Z INFO:     Application shutdown complete.
+2026-11-14T16:21:09.303930524Z INFO:     Finished server process [1]
+2026-11-14T16:21:10.412689977Z INFO:     Started server process [1]
+2026-11-14T16:21:10.412704335Z INFO:     Waiting for application startup.
+2026-11-14T16:21:10.412906411Z INFO:     Application startup complete.
+2026-11-14T16:21:10.413659175Z INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-11-14T16:21:10.921352316Z INFO:     172.19.0.1:51270 - "GET /saude HTTP/1.1" 200 OK
+2026-11-14T16:21:11.720338368Z INFO:     172.19.0.1:51270 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T16:21:11.719392413Z 2026-11-14 16:21:11,719 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T16:21:11.721592551Z 2026-11-14 16:21:11,719 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=226
+2026-11-14T16:21:11.745533027Z INFO:     172.19.0.1:51270 - "DELETE /usuarios/professor_a/memorias/0b286d76d47f4806842045225d183e21 HTTP/1.1" 204 No Content
+2026-11-14T16:21:12.790769074Z 2026-11-14 16:21:12,790 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T16:21:12.790858988Z 2026-11-14 16:21:12,790 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=865
+2026-11-14T16:21:12.791356217Z INFO:     172.19.0.1:51270 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T16:21:12.803150513Z INFO:     172.19.0.1:51270 - "DELETE /usuarios/professor_a/memorias HTTP/1.1" 200 OK
+2026-11-14T16:21:13.002328894Z INFO:     172.19.0.1:51270 - "GET /usuarios/professor_a/memorias?consulta=Niteroi+Vitoria&k=5 HTTP/1.1" 200 OK
+2026-11-14T16:21:13.377259520Z 2026-11-14 16:21:13,376 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T16:21:13.377440681Z 2026-11-14 16:21:13,377 INFO api conversa usuario=professor_a provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=371
+2026-11-14T16:21:13.377954837Z INFO:     172.19.0.1:51270 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-14T16:21:14.582453181Z 2026-11-14 16:21:14,582 INFO httpx HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-14T16:21:14.582566878Z 2026-11-14 16:21:14,582 INFO api conversa usuario=professor_b provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1201
+2026-11-14T16:21:14.583088010Z INFO:     172.19.0.1:51270 - "POST /conversas HTTP/1.1" 200 OK

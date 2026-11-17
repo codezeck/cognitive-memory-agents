@@ -1,0 +1,23 @@
+cenario,id,repeticao,resposta,esperado
+historico_completo,CMP003,1,Osasco,DESCONHECIDO
+memoria_regras_api,CMP004,1,Ferroviários,DESCONHECIDO
+sem_memoria,CMP005,1,Futebol,DESCONHECIDO
+historico_completo,CMP005,1,Desconhecido.,yoga
+historico_completo,CMP006,1,DESCONHECIDO,Corolla
+memoria_persistente_api,CMP006,1,DESCONHECIDO,Corolla
+memoria_regras_api,CMP006,1,DESCONHECIDO,Corolla
+historico_completo,CMP003,2,Osasco,DESCONHECIDO
+sem_memoria,CMP004,2,Sporting Clube,DESCONHECIDO
+memoria_persistente_api,CMP004,2,Manchester United,DESCONHECIDO
+sem_memoria,CMP005,2,Futebol,DESCONHECIDO
+historico_completo,CMP005,2,Futebol,yoga
+historico_completo,CMP006,2,DESCONHECIDO,Corolla
+memoria_persistente_api,CMP006,2,DESCONHECIDO,Corolla
+memoria_regras_api,CMP006,2,DESCONHECIDO,Corolla
+sem_memoria,CMP004,3,Portuguesesse,DESCONHECIDO
+historico_completo,CMP004,3,DESEJADO,DESCONHECIDO
+sem_memoria,CMP005,3,Basquete,DESCONHECIDO
+historico_completo,CMP005,3,Corrida,yoga
+historico_completo,CMP006,3,DESCONHECIDO,Corolla
+memoria_persistente_api,CMP006,3,DESCONHECIDO,Corolla
+memoria_regras_api,CMP006,3,DESCONHECIDO,Corolla

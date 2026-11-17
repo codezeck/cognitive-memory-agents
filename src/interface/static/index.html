@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Memória — laboratório de agentes</title>
+<link rel="icon" href="data:,"><link rel="stylesheet" href="/interface/arquivos/estilo.css">
+<script type="module" src="/interface/arquivos/app.mjs"></script>
+</head>
+<body>
+<div class="shell">
+<aside class="sidebar">
+<a class="brand" href="/"><span class="brand-mark" aria-hidden="true">m</span><span>memória<span class="brand-sub">LABORATÓRIO DE AGENTES</span></span></a>
+<p class="nav-label">ESPAÇO DE TESTE</p>
+<nav aria-label="Navegação principal">
+<button class="nav-item active" data-tab="conversa" aria-current="page"><span aria-hidden="true">↗</span> Conversa</button>
+<button class="nav-item" data-tab="avaliacao"><span aria-hidden="true">▥</span> Comparativo de tokens</button>
+<button class="nav-item" data-tab="guia"><span aria-hidden="true">☷</span> Como testar</button>
+</nav>
+<div class="sidebar-bottom"><span class="dot"></span> Execução local<p>Memória persistente.<br>Contexto na medida certa.</p><a href="/docs" target="_blank" rel="noopener">Documentação da API ↗</a></div>
+</aside>
+<main>
+<header class="topbar"><div><span class="eyebrow">COGNITIVE MEMORY AGENTS</span><div id="service-status" class="service-status" role="status">Conecte-se para verificar os serviços</div></div><div class="account"><span id="test-badge" class="badge warning" hidden>Modo de testes · sem LLM real</span><span class="avatar" aria-hidden="true">U</span><div><span class="small-label">USUÁRIO AUTENTICADO</span><strong id="user-name">Não conectado</strong><select id="demo-profile" aria-label="Perfil sintético da demonstração" hidden><option value="a">Perfil A</option><option value="b">Perfil B</option></select></div><button id="logout" class="text-button" hidden>Sair</button></div></header>
+<div id="notice" class="notice" role="status" hidden></div>
+<section id="tab-conversa" class="tab-page">
+<div class="page-heading"><div><span class="eyebrow">01 / CONVERSA</span><h1>O contexto continua.</h1><p>Converse, comece outra sessão e veja o que o agente lembra.</p></div><button id="new-session" class="secondary" disabled>↻ Nova sessão</button></div>
+<div class="workspace">
+<div class="chat-card">
+<div class="card-heading"><div><span class="dot"></span><strong>Conversa com memória</strong></div><select id="model" aria-label="Provedor e modelo" disabled><option>Conecte-se para escolher</option></select></div>
+<div id="messages" class="messages" aria-live="polite" aria-relevant="additions">
+<div id="welcome" class="welcome"><div class="memory-symbol" aria-hidden="true">m<span>·</span></div><h2>Uma informação hoje.<br>Uma lembrança depois.</h2><p>Comece com um fato de teste. Depois abra uma nova sessão e faça uma pergunta sobre ele.</p><div class="suggestions"><button data-prompt="Moro em Campinas.">Moro em Campinas. <span>↗</span></button><button data-prompt="Em qual cidade eu moro?">Em qual cidade eu moro? <span>↗</span></button></div></div>
+</div>
+<form id="message-form" class="composer"><label for="message" class="sr-only">Sua mensagem</label><textarea id="message" rows="2" maxlength="4000" placeholder="Escreva uma mensagem para o agente…" disabled></textarea><div class="composer-footer"><span>Use informações fictícias na demonstração.</span><button id="send" type="submit" class="primary" disabled>Enviar <span aria-hidden="true">↑</span></button></div></form>
+</div>
+<aside class="inspector">
+<div class="panel"><div class="panel-title"><h2>Memórias encontradas</h2><span class="badge">ATÉ 5</span></div><p class="panel-description">Busque um assunto ou veja as informações recuperadas após enviar uma mensagem.</p><form id="memory-form" class="search"><label for="memory-query" class="sr-only">Assunto para buscar memórias</label><input id="memory-query" maxlength="500" placeholder="Buscar um assunto…" disabled><button id="memory-search" aria-label="Buscar memórias" disabled>↗</button></form><div id="memories" class="memory-list"><p class="muted">As memórias aparecerão aqui.</p></div></div>
+<div class="panel"><div class="panel-title"><h2>Tokens da última resposta</h2><span class="badge">OBSERVADOS</span></div><div class="token-grid"><div><strong id="token-input">—</strong><span>Entrada</span></div><div><strong id="token-output">—</strong><span>Saída</span></div><div><strong id="token-total">—</strong><span>Total</span></div></div><div class="session-cost"><span>Interações nesta tela</span><strong id="session-total">—</strong></div><p class="fine-print">Contagens ausentes ficam sem medição. O comparativo de economia usa uma avaliação separada.</p></div>
+<div class="hint"><strong>Nova sessão, mesmas memórias.</strong><p>O botão limpa o histórico da conversa e mantém as informações persistidas.</p><button id="forget-all" type="button" class="secondary" disabled>Apagar todas as minhas memórias</button><p>A exclusão total inclui versões substituídas; excluir um item remove somente seu identificador.</p></div>
+</aside>
+</div>
+</section>
+<section id="tab-avaliacao" class="tab-page" hidden>
+<div class="page-heading"><div><span class="eyebrow">02 / AVALIAÇÃO</span><h1>Menos contexto. Qual resultado?</h1><p>Compare memória automática e histórico completo nos mesmos casos.</p></div></div>
+<div class="evaluation-controls panel"><div><h2>Gerar uma medição real</h2><p>Usa o Ollama, dados sintéticos e um banco temporário separado. Pode levar vários minutos. Sua conversa é preservada.</p><p class="fine-print">Este é o comparativo de desenvolvimento. Não substitui a avaliação integrada das 20 sessões.</p></div><div class="evaluation-actions"><label>Repetições<select id="repetitions"><option value="1">1 · conferência inicial</option><option value="3">3 · avaliação repetida</option></select></label><button id="run-evaluation" class="primary" disabled>Gerar comparativo ↗</button><label class="secondary file-label">Abrir relatório JSON<input type="file" id="report-file" accept=".json,application/json"></label></div><p id="evaluation-status" role="status" class="muted">Nenhuma avaliação iniciada.</p><a id="download-report" class="text-button" hidden>Baixar relatório completo ↓</a></div>
+<div id="report-empty" class="empty-report"><span aria-hidden="true">▥</span><h2>Uma comparação começa com medição.</h2><p>Gere uma avaliação ou abra um relatório do avaliador do projeto.<br>Nenhuma economia é presumida antes dos resultados.</p></div>
+<div id="report" hidden><div class="report-caption"><span class="badge" id="report-origin">RELATÓRIO</span><p id="report-date"></p></div><div class="report-grid"><div class="panel comparison-card"><span class="eyebrow">TOKENS POR SESSÃO</span><h2 id="reduction">Não medido</h2><p id="reduction-caption">Comparação pareada com o histórico completo.</p><div class="bar-label"><span>Histórico completo</span><strong id="baseline-value">—</strong></div><div class="bar-track"><div id="baseline-bar" class="bar baseline"></div></div><div class="bar-label"><span>Memória automática</span><strong id="memory-value">—</strong></div><div class="bar-track"><div id="memory-bar" class="bar memory"></div></div><p id="pairs" class="fine-print"></p></div><div class="panel"><span class="eyebrow">QUALIDADE E COBERTURA</span><h2>Tokens e respostas, lado a lado.</h2><div id="quality"></div><p class="fine-print">Falhas e respostas reprovadas também contam. Menos tokens, por si só, não comprova uma resposta melhor.</p></div></div><div class="panel table-panel"><h2>Detalhamento da medição</h2><div class="table-scroll"><table><thead><tr><th>Etapa / canal</th><th>Histórico</th><th>Memória</th><th>Redução</th><th>Pares medidos</th></tr></thead><tbody id="report-rows"></tbody></table></div><p class="fine-print">A porcentagem usa as somas dos mesmos pares válidos. Valores desconhecidos não viram zero. Tokens de geração não representam o custo total do sistema ou um valor em dinheiro.</p></div></div>
+</section>
+<section id="tab-guia" class="tab-page" hidden><div class="page-heading"><div><span class="eyebrow">03 / ROTEIRO</span><h1>Da conversa à evidência.</h1><p>Um caminho curto para conferir o funcionamento.</p></div></div><div class="guide-grid"><article class="panel"><span class="step">01</span><h2>Ensine um fato</h2><p>Confira o usuário no cabeçalho. Na conversa, envie “Moro em Campinas.” com o modelo local disponível.</p></article><article class="panel"><span class="step">02</span><h2>Confira a memória</h2><p>Busque “Campinas” no painel de memórias. O resultado deve conter o fato e seu identificador.</p></article><article class="panel"><span class="step">03</span><h2>Comece outra sessão</h2><p>Use Nova sessão e pergunte “Em qual cidade eu moro?”. Confira a resposta e as memórias usadas.</p></article><article class="panel"><span class="step">04</span><h2>Compare os tokens</h2><p>Abra relatórios existentes na aba Comparativo de tokens. Novas avaliações dependem do protocolo e das revisões; menos tokens não comprova manutenção do acerto.</p></article></div><div class="hint"><strong>Persistência exige um teste adicional.</strong><p>Reinicie o contêiner da API preservando o volume, entre novamente se necessário e pergunte pelo fato. A recuperação entre sessões e a recuperação após reinício são evidências distintas.</p></div></section>
+<footer><span>Projeto Integrador · Memória de longo prazo para agentes</span><span>Dados sintéticos. Evidências verificáveis.</span></footer>
+</main>
+</div>
+<dialog id="login"><form id="login-form"><span class="brand-mark" aria-hidden="true">m</span><span class="eyebrow">BEM-VINDO AO LABORATÓRIO</span><h1>Conecte seu usuário.</h1><p>Na demonstração padrão, o acesso é preparado automaticamente. Credenciais manuais são usadas apenas na configuração técnica externa.</p><label for="token">Credencial de acesso</label><input id="token" name="token" type="password" autocomplete="off" spellcheck="false" required placeholder="Cole sua credencial aqui"><p id="login-error" class="error" role="alert"></p><button id="login-button" class="primary" type="submit">Entrar no laboratório ↗</button><small>A credencial não é exibida no chat nem gravada no armazenamento da página. A sessão usa um cookie protegido contra leitura por scripts.</small></form><button id="reactivate-demo" type="button" class="primary" hidden>Retomar acesso local</button></dialog>
+</body></html>

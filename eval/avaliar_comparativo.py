@@ -247,24 +247,50 @@ def avaliar_resposta_comparativo(
 
 ETAPAS_TOKENS = ("ingestao", "pergunta_final", "sessao")
 CAMPOS_TOKENS = ("tokens_entrada", "tokens_saida", "tokens_total")
+VERSAO_METRICAS_TOKENS = "p3-uso-local-v1"
 
 
 def _contagem_conhecida(valor):
     return type(valor) is int and valor >= 0
 
 
+def _uso_local_confirmado(chamada):
+    return (chamada.get("origem_uso") == "politica_local"
+            and type(chamada.get("chamadas_modelo_observadas")) is int
+            and chamada["chamadas_modelo_observadas"] == 0
+            and all(chamada.get(c) is None or (type(chamada[c]) is int and chamada[c] == 0)
+                    for c in CAMPOS_TOKENS[:2]))
+
+
+def _uso_inconsistente(chamada):
+    origem, numero = chamada.get("origem_uso"), chamada.get("chamadas_modelo_observadas")
+    if origem is None and numero is None:
+        return False  # Contrato legado: conservar quarentena de zeros existente.
+    if _uso_local_confirmado(chamada):
+        return False
+    return not (origem in ("provedor", "provedor_com_abstencao_local")
+                and type(numero) is int and numero == 1)
+
+
 def tokens_etapa(chamadas: list[dict] | None) -> dict:
     """None indica medição desconhecida; [] indica zero chamadas realizadas."""
     quantidade = None if chamadas is None else len(chamadas)
-    dados = {"chamadas_modelo": quantidade}
+    dados = {"chamadas_modelo": (
+        None if chamadas is None or any(_uso_inconsistente(c) for c in chamadas)
+        else sum(not _uso_local_confirmado(c) for c in chamadas)),
+        "versao_metricas_tokens": VERSAO_METRICAS_TOKENS,
+        "respostas_locais_confirmadas": sum(_uso_local_confirmado(c) for c in chamadas or [])}
     for canal in ("entrada", "saida"):
         campo = f"tokens_{canal}"
-        valores = [c.get(campo) for c in chamadas or []]
+        valores = [0 if _uso_local_confirmado(c) else None if _uso_inconsistente(c) else c.get(campo)
+                   for c in chamadas or []]
         # Os adaptadores não expõem a origem de zeros em chamadas realizadas.
         # Sem chamadas, o zero da etapa é comprovado; nas demais, é desconhecido.
-        conhecidos = [v for v in valores if _contagem_conhecida(v) and v > 0]
+        conhecidos = [v for i, v in enumerate(valores) if _contagem_conhecida(v)
+                      and (v > 0 or _uso_local_confirmado(chamadas[i]))]
         dados[f"chamadas_com_{canal}_zero_nao_verificado"] = sum(
-            _contagem_conhecida(v) and v == 0 for v in valores
+            _contagem_conhecida(c.get(campo)) and c[campo] == 0 and not _uso_local_confirmado(c)
+            for c in chamadas or []
         )
         dados[campo] = (
             sum(conhecidos)
@@ -285,7 +311,7 @@ def tokens_etapa(chamadas: list[dict] | None) -> dict:
                 if dados[f"{c}_observados"] is not None]
     dados["tokens_total_observados"] = sum(parcelas) if parcelas else None
     dados["chamadas_com_tokens_zero"] = sum(
-        any(_contagem_conhecida(c.get(k)) and c[k] == 0
+        not _uso_local_confirmado(c) and any(_contagem_conhecida(c.get(k)) and c[k] == 0
             for k in CAMPOS_TOKENS[:2]) for c in chamadas or []
     )
     return dados
@@ -361,6 +387,9 @@ def executar_historico(caso: dict, provedor: str, modelo: str) -> list[dict]:
                 "memorias_usadas": [],
                 "tokens_entrada": resultado.tokens_entrada,
                 "tokens_saida": resultado.tokens_saida,
+                **({"origem_uso": resultado.origem_uso,
+                    "chamadas_modelo_observadas": resultado.chamadas_modelo_observadas}
+                   if getattr(resultado, "origem_uso", None) is not None else {}),
                 "latencia_ms": int((time.perf_counter() - inicio) * 1000),
             })
         return chamadas
@@ -983,6 +1012,7 @@ def main() -> int:
 
     documento = {
         "gerado_em": datetime.now(timezone.utc).isoformat(),
+        "versao_metricas_tokens": VERSAO_METRICAS_TOKENS,
         "dataset": dataset_relatorio,
         "usuario_sintetico": USUARIO_ID,
         "versao_julgador": VERSAO_JULGADOR,

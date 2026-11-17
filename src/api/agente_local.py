@@ -131,6 +131,8 @@ class AgenteLocal:
                 resposta=texto.get("resposta", ""),
                 tokens_entrada=texto.get("tokens_entrada"),
                 tokens_saida=texto.get("tokens_saida"),
+                origem_uso=texto.get("origem_uso"),
+                chamadas_modelo_observadas=texto.get("chamadas_modelo_observadas"),
             )
 
         return ResultadoAgente(resposta=texto)

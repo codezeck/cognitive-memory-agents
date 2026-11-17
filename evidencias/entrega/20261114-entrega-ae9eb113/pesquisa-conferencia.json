@@ -1,0 +1,16 @@
+{
+  "sha256_pdf": "1b8f2bf4739c0f49fca594707c48e84380a97bb845130f2ae874e30fca612be8",
+  "paginas_total": 22,
+  "paginas_textuais": 14,
+  "figuras": 2,
+  "tabelas": 1,
+  "referencias": 11,
+  "renderizadas_e_inspecionadas": 22,
+  "inspecao_visual": "Sem cortes, sobreposicoes ou glifos ausentes observados; listas, sumario, figuras e tabela conferidos. Rascunho aguarda dados institucionais e revisao coletiva.",
+  "hashes_fontes": {
+    "docs/contribuicao-academica-zeck.md": "7f1b1df2541b4d1e43b4f432e353fddf631cc5170d5a9f38479f7f66094dd2ee",
+    "docs/pesquisa-complemento.md": "1efaa6f350f4f313534b90ea76cbc1bf03a89c4c67f37aa67e8b7521c513cfa3",
+    "docs/ensaio-desenvolvimento-20261114.md": "cfad3698c2bbe33911c1b927437e02fda76c19d4b1c2e399935f7f54f6d96f9e",
+    "tools/gerar_pesquisa.py": "5f29ff9e527f903f61f690cb664aedd3f885e190a4448f6b78ea89847a8c7923"
+  }
+}

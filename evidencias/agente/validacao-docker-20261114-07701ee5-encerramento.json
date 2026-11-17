@@ -1,0 +1,15 @@
+{
+    "instante_utc":  "2026-11-14T16:38:41.4419130Z",
+    "execucao_id":  "20261114-07701ee5",
+    "comando":  "docker compose \u003cenv e projeto dedicados\u003e -f docker-compose.yml -f docker-compose.professor.yml down",
+    "teste_encerrado":  true,
+    "volume_teste_preservado":  "cma-professor-20261114-07701ee5-dados",
+    "servico_original":  "cognitive-memory-api",
+    "servico_original_em_execucao":  true,
+    "inicio_original_inalterado":  "2026-11-13T02:09:57.274452153Z",
+    "volumes_originais_preservados":  [
+                                          "cma-interface-install-qa_memoria_dados",
+                                          "cognitive-memory-agents_memoria_dados"
+                                      ],
+    "uso_de_down_v":  false
+}

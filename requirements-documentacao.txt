@@ -1,0 +1,5 @@
+# Somente para regenerar a pesquisa/figuras; nao entra na imagem da aplicacao.
+reportlab==5.1.0
+pypdf==7.1.0
+PyMuPDF==2.1
+matplotlib==3.11.2

@@ -54,6 +54,20 @@ def test_openai_retorna_texto_e_envia_modelo(monkeypatch):
     assert cliente.chamada["messages"] == mensagens
 
 
+@pytest.mark.parametrize('uso,entrada,saida',[
+    (SimpleNamespace(prompt_tokens=23,completion_tokens=5),23,5),
+    (None,None,None),
+    (SimpleNamespace(prompt_tokens=None,completion_tokens=5),None,5),
+])
+def test_openai_preserva_uso_reportado_sem_inventar_medicao(monkeypatch,uso,entrada,saida):
+    resposta=resposta_com('Resposta sintetica')
+    resposta.usage=uso
+    cliente=ClienteFalso(resposta)
+    monkeypatch.setattr('src.modelos.openai_adapter.OpenAI',lambda **kwargs:cliente)
+    r=OpenAIAdapter('gpt-test','chave-simulada').gerar_com_detalhes([{'role':'user','content':'Oi'}])
+    assert r=={'resposta':'Resposta sintetica','tokens_entrada':entrada,'tokens_saida':saida}
+
+
 def test_openai_resposta_vazia_gera_erro(monkeypatch):
     cliente = ClienteFalso(resposta_com("   "))
     monkeypatch.setattr(

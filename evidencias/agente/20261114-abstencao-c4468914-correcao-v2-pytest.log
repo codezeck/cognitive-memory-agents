@@ -1,0 +1,20 @@
+.............................................F...F...............        [100%]
+================================== FAILURES ===================================
+_______________ test_abstencao_docker_real[historico_usuario-1] _______________
+tests\test_abstencao_docker_real.py:180: in test_abstencao_docker_real
+    assert texto == esperado
+E   AssertionError: assert 'minha palavr...emplo e brisa' == 'brisa'
+E     
+E     - brisa
+E     + minha palavra de exemplo e brisa
+_______________ test_abstencao_docker_real[historico_usuario-5] _______________
+tests\test_abstencao_docker_real.py:180: in test_abstencao_docker_real
+    assert texto == esperado
+E   AssertionError: assert 'minha palavr...emplo e brisa' == 'brisa'
+E     
+E     - brisa
+E     + minha palavra de exemplo e brisa
+=========================== short test summary info ===========================
+FAILED tests/test_abstencao_docker_real.py::test_abstencao_docker_real[historico_usuario-1]
+FAILED tests/test_abstencao_docker_real.py::test_abstencao_docker_real[historico_usuario-5]
+2 failed, 63 passed in 168.93s (0:02:48)

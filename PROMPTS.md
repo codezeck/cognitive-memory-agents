@@ -2,6 +2,30 @@
 
 Escopo: agente e avaliação (`src/agent.py`, `src/modelos/`, `eval/`).
 
+## 15/11/2026: autorização de publicação para revisão
+
+O usuário solicitou publicar a última atualização em PR para aprovação e continuar em outro dia. Essa autorização substitui a proibição anterior de commit/push/PR somente para esta publicação; não autoriza merge, tag, envio final ou avaliações bloqueadas. Conferidos branch/base remota, alterações e candidatos novos, padrões de credenciais, datasets oficiais inalterados e testes. PR deve explicitar as falhas/limites, o caminho Ollama e a revisão de Paloma/Vinicius, sem declarar a entrega pronta. Evidências brutas preservadas e sem normalização de fins de linha nesta publicação.
+
+## 15/11/2026: confirmação do caminho gratuito
+
+Após conferir o bloqueio de acesso pelo ChatGPT Free, o usuário determinou manter Ollama para cumprir o requisito de execução sem assinatura/créditos. Registrado o escopo em arquitetura/README e marcada a preparação OpenAI como material preservado fora da entrega atual. Nenhum modelo, serviço, configuração Docker ou dado experimental foi alterado nesta confirmação. CPU deve continuar sendo caminho funcional para hardware desconhecido; GPU é opcional. Eventual troca de modelo exige ensaio de desenvolvimento e configuração identificada, mantendo o mesmo modelo nos cenários do comparativo. P6 e reservado continuam sujeitos às revisões pendentes.
+
+## 15/11/2026: opção OpenAI para chat e tokens
+
+Usuário pediu reaproveitar integração antiga para conversar e comparar tokens com modelos OpenAI; informou possuir somente ChatGPT Free. Identificada base existente no adaptador, catálogo e avaliador. Preparados override Docker opcional sem Ollama/pesos, modo de preparo somente de acesso e parâmetro de provedor no wrapper isolado. Login ChatGPT/OAuth não foi implementado; a chave/créditos exigidos pelo caminho de API continuam indisponíveis. Não foi solicitada chave no chat nem feita chamada externa OpenAI.
+
+Validação: Compose somente `config` com chave fictícia, 903 testes Python aprovados/66 ignorados, 8 JavaScript, lint e diff-check. Novas regressões conferem uso reportado/desconhecido, preparo sem Ollama, isolamento e recusa de OpenAI sem chave. São testes de engenharia; não representam respostas ou tokens reais da OpenAI. Serviço Ollama da porta 8002 preservado. [Caminho e bloqueio](docs/openai-opcional.md). Sem commit/push/PR/tag nem P6/reservado.
+
+## Continuação de 14/11/2026: entrega local revisável
+
+Solicitação: reaproveitar interface existente, automatizar Docker/modelo/autenticação, comprovar fluxo real e RAM, preparar revisões experimentais e artefatos acadêmicos. Base `2be5d51`, branch `fix/validacao-entrega-docker`; sem publicação. Uso de IA para conciliação de código, regressões, análise de logs, documentação e rascunho PDF; não representa revisão humana nem autoria exclusiva do chat reutilizado.
+
+Decisões do usuário: ≥30% de redução de tokens completos, perda ≤5 p.p., nenhum novo vazamento/desatualização; extensão opcional `origem_uso`/`chamadas_modelo_observadas` autorizada preservando resultados antigos. Usuário informou revisão de Vinicius/Paloma, mas ainda sem referência/escopo verificáveis; não liberar P6 automaticamente. Instituição/cidade/docente e composição 3×4 aguardam confirmação.
+
+Verificação: 897 testes Python aprovados/66 ignorados, 8 JavaScript e lint; 80 verificações de navegador com Docker/Ollama reais. Tentativa inicial da suíte teve erro de acesso a temporários; repetição com pasta própria passou. Tentativas intermediárias preservadas. Comparativo real de desenvolvimento: 84 tentativas, 22 falhas de conteúdo; automática 17/21 e 17.094 tokens, histórico 12/21 e 16.017. Aumento de 6,72%: meta global não atingida. Falhas fora da gramática pessoal e abstenção indevida continuam registradas. Nenhuma P6 nem conjunto reservado executados. Dados reservados lidos apenas para proposta estrutural de metadados, sem ajuste posterior de regras/prompts/modelo/gabaritos por seus resultados.
+
+Artefatos e limites: [matriz](docs/andamento-entrega.md), [evidências](evidencias/README.md), [revisão experimental](docs/revisao-experimental/README.md), [checklist](docs/checklist-entrega.md). Rascunho PDF, gráficos e roteiro preparados; vídeo oficial, CI remoto/tag, licença e revisão coletiva continuam pendentes. Não foram enviados avisos a terceiros nem feitos commits/push/PR/merge/tag/envio.
+
 ## Ferramentas usadas
 
 - Claude (chat).
@@ -98,6 +122,20 @@ Cada interação tem o prompt, o resumo da resposta e a decisão (aceito, corrig
 - **Pedido:** consultar o enunciado, preparar a contribuição de agente/provedores/avaliação para a pesquisa, organizar evidências históricas, elaborar roteiro de 3–5 minutos e plano das 20 sessões P6, somente com documentação, sem execução real, commit ou publicação.
 - **Resposta produzida:** quatro documentos em `docs/`, com texto acadêmico, oito fontes primárias verificadas, tabelas derivadas dos arquivos existentes, especificações de figuras, roteiro de 4min30s e plano P6 com pré-requisitos/checkpoints. O guia e o índice de avaliações receberam referências aos materiais. Os números foram mantidos com política/data/origem, distinguindo resultados históricos, simulação e entregas da PR #41 em revisão.
 - **Revisão necessária:** Zeck e a equipe ainda precisam aceitar/corrigir o texto, conferir as referências para o PDF coletivo e aprovar contratos/gabaritos. Não foi registrada aprovação humana antecipada. A ausência de resultado atual P3/P4/P5, os metadados finais e o checkpoint de persistência após banco vazio foram explicitados, sem preencher valores ou alterar dados para obter sucesso.
+
+### 15. Validação real da entrega Docker (Codex, 14/11/2026)
+
+- **Pedido:** conferir a implementação integrada, o enunciado original e o percurso do professor; testar Ollama real em ambiente isolado, corrigir lacunas dentro do escopo e documentar limites, sem publicar ou executar a P6 final.
+- **Resposta produzida:** enunciado local lido; PRs #41/#42/#43 confirmadas integradas; Swagger identificado como interface atual e chat de outro worktree identificado como não integrado. Override opcional com volume/porta/tokens próprios, manual e matriz produzidos. A conversa real armazenou, recuperou, atualizou e persistiu fatos; SQLite confirmou exclusão total, e 401/403 e isolamento foram observados. Após excluir, o modelo inventou duas cidades com contexto vazio; as falhas constam no JSONL/log, sem alteração dos resultados históricos. A suíte passou com 827 aprovados e 1 ignorado; inspeção P6 sem execução retornou 21/21 compatíveis.
+- **Decisão/revisão necessária:** não há aprovação humana antecipada. A equipe precisa decidir a política de abstenção para fatos pessoais sem evidência antes de uma mudança arquitetural ou de contrato. Não se adotou bloqueio genérico, troca de modelo, fallback nem ajuste seletivo de prompt. Observação direta da RAM, contratos/gabaritos P6, QA visual, vídeo e avaliação final continuam pendentes. Código, regras, datasets e artefatos históricos não foram alterados; nada foi publicado.
+- **Evidências:** [relatório e matriz](docs/validacao-entrega-docker.md), [JSONL real](evidencias/agente/validacao-docker-20261114-07701ee5.jsonl) e [log da API](evidencias/agente/validacao-docker-20261114-07701ee5-api.log).
+
+### 16. Correção da abstenção e repetição do ensaio (Codex, 14/11/2026)
+
+- **Pedido:** investigar regras, recuperação, contexto, histórico e geração; corrigir a falha sem bloquear conversa comum; criar regressões e ensaiar Docker/Ollama reais com repetições, preservando dados/serviços e sem P6/publicação.
+- **Investigação e decisão técnica:** rastreado o percurso e registrado o contexto efetivamente encaminhado ao SDK. Reset/exclusão já existiam; o gerador ainda inventava sem suporte. A tentativa só com instruções explícitas falhou e foi rejeitada. Implementada checagem local de suporte para consultas pessoais diretas, sem alterar armazenamento, aquisição de memória, contratos HTTP ou adaptadores. Fatos apoiados e perguntas gerais seguem no LLM; parte pessoal desconhecida de pergunta mista é separada. A gramática é conservadora e não universal.
+- **Evidências/resultados:** base reexecutada com 827 aprovados e 1 ignorado; suíte final com 855 aprovados e 66 ignorados (1 semântico e 65 reais opt-in). Bateria real separada: 65 aprovados, 115 chamadas efetivas a `qwen2.5-coder:3b` e 30 abstenções locais, sem atribuí-las ao modelo. Rodadas anteriores registram alucinações, abstenções indevidas do candidato de prompt e duas falhas de formato do candidato v2; nada foi sobrescrito. [Relatório](docs/validacao-entrega-docker.md) e [resumo bruto de todas as rodadas](evidencias/agente/20261114-abstencao-c4468914-resumo.json).
+- **Revisão/limites:** implementação feita dentro do pedido, sem registrar aprovação humana antecipada dos artefatos. Equipe ainda deve revisar a política e suas limitações; RAM direta, P6 e comparativo global não foram executados. Nenhum commit, push, PR, publicação ou merge.
 
 ## Evidências
 
