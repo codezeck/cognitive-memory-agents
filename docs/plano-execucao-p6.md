@@ -1,5 +1,7 @@
 # Plano operacional da P6 — 20 sessões
 
+**Atualização de 18/11:** a [decisão local autorizada pelo usuário](revisao-experimental/decisao-20261118.md) foi executada com API/SQLite próprios e coleta operacional automática. Foram observadas 20 sessões por cenário, 42 respostas, 19 persistências não vazias, dois checkpoints de exclusão e uma consistência de estado vazio, sem falhas técnicas. A classificação automática de conteúdo permanece incompleta; veja o [relatório](melhorias-avaliacao-20261118.md). As seções datadas de 14/11 abaixo são o plano histórico. Não atribuir a decisão de execução local à revisão dos colegas.
+
 Atualização de 14/11: [pacote de revisão](revisao-experimental/README.md) preparado sem alterar dados oficiais. O usuário informou existir revisão e prometeu referência, ainda não recebida. [Critérios finais](criterios-avaliacao-final.md) definidos; [metadados opcionais de tokens](proposta-contagem-local.md) autorizados. A demonstração padrão tem chat/preparo Docker automático; avaliações técnicas usam credenciais e instâncias próprias. Nenhuma P6 executada nesta etapa.
 
 Documento de preparação de Zeck, em 12/11/2026, atualizado em 14/11. **A P6 real não foi executada.** O planejador foi inspecionado sem `--executar`. A [sondagem separada Docker/Ollama](validacao-entrega-docker.md) não utilizou as trajetórias P6 nem o conjunto reservado e não preenche resultados deste plano.

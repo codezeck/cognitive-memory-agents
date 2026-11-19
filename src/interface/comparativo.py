@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import secrets
 import signal
@@ -19,6 +20,8 @@ def main() -> int:
     parser.add_argument("--saida", required=True)
     parser.add_argument("--provedor", choices=("ollama", "openai"), default="ollama")
     parser.add_argument("--modelo")
+    parser.add_argument("--dataset", type=Path,
+                        help="Conjunto anotado separado; validado antes de iniciar a API.")
     parser.add_argument("--repeticoes", type=int, default=1, choices=range(1, 4))
     args = parser.parse_args()
     if os.getenv("USAR_FALSOS") == "1":
@@ -29,6 +32,13 @@ def main() -> int:
     saida = Path(args.saida).resolve()
     if saida.exists():
         parser.error("O relatório já existe; escolha outro caminho.")
+    if args.dataset:
+        from eval.avaliar_comparativo import validar_dataset_p4
+        args.dataset = args.dataset.resolve()
+        try:
+            validar_dataset_p4(json.loads(args.dataset.read_text(encoding='utf-8')))
+        except (OSError, ValueError) as erro:
+            parser.error(str(erro))
     token = secrets.token_urlsafe(32)
     with tempfile.TemporaryDirectory(prefix="cma-comparativo-") as temporario:
         with socket.socket() as porta_livre:
@@ -75,6 +85,8 @@ def main() -> int:
                 "--modelo", args.modelo, "--repeticoes", str(args.repeticoes),
                 "--saida", str(saida),
             ]
+            if args.dataset:
+                sys.argv.extend(['--dataset', str(args.dataset)])
             return avaliador.main()
         finally:
             if api is not None and api.poll() is None:

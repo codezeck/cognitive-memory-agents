@@ -1,0 +1,266 @@
+{
+  "evento_id": "u04/s1/checkpoint_persistencia",
+  "coletado_em": "2026-11-19T00:46:47.461151+00:00",
+  "sqlite_antes": [
+    {
+      "id": "41d66edc343d49ee9cd009ce25ada53b",
+      "usuario_id": "p6_p6-e5aee4c942da_u01",
+      "texto": "Mora em Osasco.",
+      "chave": "cidade",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Osasco\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:45:51.868237+00:00",
+      "atualizada_em": "2026-11-19T00:45:51.868237+00:00"
+    },
+    {
+      "id": "9412d828830a40868f0d28ab05abc9eb",
+      "usuario_id": "p6_p6-e5aee4c942da_u01",
+      "texto": "Pet: cachorro chamado Thor.",
+      "chave": "pet:cachorro:thor",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Thor\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:05.465737+00:00",
+      "atualizada_em": "2026-11-19T00:46:05.465737+00:00"
+    },
+    {
+      "id": "f626c702dcc24fc0901d1175e07c2e35",
+      "usuario_id": "p6_p6-e5aee4c942da_u01",
+      "texto": "Profissão: enfermeira.",
+      "chave": "profissao",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"enfermeira\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:05.429777+00:00",
+      "atualizada_em": "2026-11-19T00:46:05.429777+00:00"
+    },
+    {
+      "id": "7e7497cb17d142caa1855d1732a6ba4e",
+      "usuario_id": "p6_p6-e5aee4c942da_u02",
+      "texto": "Tem 2 filhos.",
+      "chave": "filhos",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"2\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:20.131250+00:00",
+      "atualizada_em": "2026-11-19T00:46:20.131250+00:00"
+    },
+    {
+      "id": "9347f3634bcf4bada9916840802e0d3e",
+      "usuario_id": "p6_p6-e5aee4c942da_u02",
+      "texto": "Mora em Curitiba.",
+      "chave": "cidade",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Curitiba\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:07.195475+00:00",
+      "atualizada_em": "2026-11-19T00:46:07.195475+00:00"
+    },
+    {
+      "id": "fffd586beb3845b59be907c09d96946a",
+      "usuario_id": "p6_p6-e5aee4c942da_u02",
+      "texto": "Profissão: professor de matemática.",
+      "chave": "profissao",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"professor de matemática\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:20.105411+00:00",
+      "atualizada_em": "2026-11-19T00:46:20.105411+00:00"
+    },
+    {
+      "id": "0a8c5bd3b4e9461d9756612afe7643a1",
+      "usuario_id": "p6_p6-e5aee4c942da_u03",
+      "texto": "Profissão: designer gráfica.",
+      "chave": "profissao",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"designer gráfica\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:33.728810+00:00",
+      "atualizada_em": "2026-11-19T00:46:33.728810+00:00"
+    },
+    {
+      "id": "7e2cfe47e86a4527a567b0669b327b14",
+      "usuario_id": "p6_p6-e5aee4c942da_u03",
+      "texto": "Mora em Recife.",
+      "chave": "cidade",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Recife\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:21.843330+00:00",
+      "atualizada_em": "2026-11-19T00:46:21.843330+00:00"
+    },
+    {
+      "id": "f0f09f7fa0dd40f48f37a436f6dcfd7c",
+      "usuario_id": "p6_p6-e5aee4c942da_u03",
+      "texto": "Pet: gato chamado Luna.",
+      "chave": "pet:gato:luna",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Luna\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:33.706088+00:00",
+      "atualizada_em": "2026-11-19T00:46:33.706088+00:00"
+    },
+    {
+      "id": "253874fd211b47969711828fce1ce9f9",
+      "usuario_id": "p6_p6-e5aee4c942da_u04",
+      "texto": "Mora em Porto Alegre.",
+      "chave": "cidade",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Porto Alegre\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:35.502357+00:00",
+      "atualizada_em": "2026-11-19T00:46:35.502357+00:00"
+    },
+    {
+      "id": "64c9e62e88064f0ea7033d418af438f4",
+      "usuario_id": "p6_p6-e5aee4c942da_u04",
+      "texto": "Profissão: programador.",
+      "chave": "profissao",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"programador\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:45.120834+00:00",
+      "atualizada_em": "2026-11-19T00:46:45.120834+00:00"
+    }
+  ],
+  "sqlite_depois": [
+    {
+      "id": "41d66edc343d49ee9cd009ce25ada53b",
+      "usuario_id": "p6_p6-e5aee4c942da_u01",
+      "texto": "Mora em Osasco.",
+      "chave": "cidade",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Osasco\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:45:51.868237+00:00",
+      "atualizada_em": "2026-11-19T00:45:51.868237+00:00"
+    },
+    {
+      "id": "9412d828830a40868f0d28ab05abc9eb",
+      "usuario_id": "p6_p6-e5aee4c942da_u01",
+      "texto": "Pet: cachorro chamado Thor.",
+      "chave": "pet:cachorro:thor",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Thor\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:05.465737+00:00",
+      "atualizada_em": "2026-11-19T00:46:05.465737+00:00"
+    },
+    {
+      "id": "f626c702dcc24fc0901d1175e07c2e35",
+      "usuario_id": "p6_p6-e5aee4c942da_u01",
+      "texto": "Profissão: enfermeira.",
+      "chave": "profissao",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"enfermeira\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:05.429777+00:00",
+      "atualizada_em": "2026-11-19T00:46:05.429777+00:00"
+    },
+    {
+      "id": "7e7497cb17d142caa1855d1732a6ba4e",
+      "usuario_id": "p6_p6-e5aee4c942da_u02",
+      "texto": "Tem 2 filhos.",
+      "chave": "filhos",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"2\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:20.131250+00:00",
+      "atualizada_em": "2026-11-19T00:46:20.131250+00:00"
+    },
+    {
+      "id": "9347f3634bcf4bada9916840802e0d3e",
+      "usuario_id": "p6_p6-e5aee4c942da_u02",
+      "texto": "Mora em Curitiba.",
+      "chave": "cidade",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Curitiba\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:07.195475+00:00",
+      "atualizada_em": "2026-11-19T00:46:07.195475+00:00"
+    },
+    {
+      "id": "fffd586beb3845b59be907c09d96946a",
+      "usuario_id": "p6_p6-e5aee4c942da_u02",
+      "texto": "Profissão: professor de matemática.",
+      "chave": "profissao",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"professor de matemática\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:20.105411+00:00",
+      "atualizada_em": "2026-11-19T00:46:20.105411+00:00"
+    },
+    {
+      "id": "0a8c5bd3b4e9461d9756612afe7643a1",
+      "usuario_id": "p6_p6-e5aee4c942da_u03",
+      "texto": "Profissão: designer gráfica.",
+      "chave": "profissao",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"designer gráfica\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:33.728810+00:00",
+      "atualizada_em": "2026-11-19T00:46:33.728810+00:00"
+    },
+    {
+      "id": "7e2cfe47e86a4527a567b0669b327b14",
+      "usuario_id": "p6_p6-e5aee4c942da_u03",
+      "texto": "Mora em Recife.",
+      "chave": "cidade",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Recife\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:21.843330+00:00",
+      "atualizada_em": "2026-11-19T00:46:21.843330+00:00"
+    },
+    {
+      "id": "f0f09f7fa0dd40f48f37a436f6dcfd7c",
+      "usuario_id": "p6_p6-e5aee4c942da_u03",
+      "texto": "Pet: gato chamado Luna.",
+      "chave": "pet:gato:luna",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Luna\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:33.706088+00:00",
+      "atualizada_em": "2026-11-19T00:46:33.706088+00:00"
+    },
+    {
+      "id": "253874fd211b47969711828fce1ce9f9",
+      "usuario_id": "p6_p6-e5aee4c942da_u04",
+      "texto": "Mora em Porto Alegre.",
+      "chave": "cidade",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Porto Alegre\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:35.502357+00:00",
+      "atualizada_em": "2026-11-19T00:46:35.502357+00:00"
+    },
+    {
+      "id": "64c9e62e88064f0ea7033d418af438f4",
+      "usuario_id": "p6_p6-e5aee4c942da_u04",
+      "texto": "Profissão: programador.",
+      "chave": "profissao",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"programador\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:45.120834+00:00",
+      "atualizada_em": "2026-11-19T00:46:45.120834+00:00"
+    }
+  ],
+  "ram_antes": {
+    "versao_observador": "ram-v1",
+    "instancia_id": "565fba7b4959476c90c251336a7b4362",
+    "pid": 22,
+    "usuario_id": "p6_p6-e5aee4c942da_u04",
+    "coletado_em": "2026-11-19T00:46:46.146064+00:00",
+    "escopo": "historico_do_usuario_neste_processo",
+    "processos_cobertos": 1,
+    "historico_existe": true,
+    "mensagens_total": 7,
+    "mensagens_sistema": 1,
+    "mensagens_usuario": 3,
+    "mensagens_assistente": 3,
+    "mensagens_pessoais": 6,
+    "alvos_no_historico": 0,
+    "mensagens_pessoais_sem_alvo": 6,
+    "ocorrencias_por_rotulo": {},
+    "limitacao": "Correspondencias literais normalizadas; avaliar sem escritores concorrentes e cobrir todos os workers relevantes."
+  },
+  "ram_depois": {
+    "versao_observador": "ram-v1",
+    "instancia_id": "b5754a8b6e09495fa8b73aaca3f563a4",
+    "pid": 26,
+    "usuario_id": "p6_p6-e5aee4c942da_u04",
+    "coletado_em": "2026-11-19T00:46:47.453954+00:00",
+    "escopo": "historico_do_usuario_neste_processo",
+    "processos_cobertos": 1,
+    "historico_existe": false,
+    "mensagens_total": 0,
+    "mensagens_sistema": 0,
+    "mensagens_usuario": 0,
+    "mensagens_assistente": 0,
+    "mensagens_pessoais": 0,
+    "alvos_no_historico": 0,
+    "mensagens_pessoais_sem_alvo": 0,
+    "ocorrencias_por_rotulo": {},
+    "limitacao": "Correspondencias literais normalizadas; avaliar sem escritores concorrentes e cobrir todos os workers relevantes."
+  }
+}

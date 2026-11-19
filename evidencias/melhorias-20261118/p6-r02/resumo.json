@@ -1,0 +1,6024 @@
+{
+  "tipo": "fim",
+  "simulado": false,
+  "sessoes": [
+    {
+      "tipo": "sessao",
+      "cenario": "memoria_automatica",
+      "usuario_id": "u01",
+      "sessao": 1,
+      "estado": "concluida",
+      "perguntas": 0,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 3,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 1000,
+          "tokens_entrada_observados": 1000,
+          "chamadas_com_entrada": 3,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 36,
+          "tokens_saida_observados": 36,
+          "chamadas_com_saida": 3,
+          "metricas_completas": true,
+          "tokens_total": 1036,
+          "tokens_total_observados": 1036,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 3,
+          "chamadas_observadas": 3,
+          "cobertura": {
+            "entrada": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 0,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 0,
+          "tokens_entrada_observados": 0,
+          "chamadas_com_entrada": 0,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 0,
+          "tokens_saida_observados": 0,
+          "chamadas_com_saida": 0,
+          "metricas_completas": true,
+          "tokens_total": 0,
+          "tokens_total_observados": 0,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 0,
+          "chamadas_observadas": 0,
+          "cobertura": {
+            "entrada": {
+              "numerador": 0,
+              "denominador": 0,
+              "nao_verificados": 0,
+              "cobertura_pct": null
+            },
+            "saida": {
+              "numerador": 0,
+              "denominador": 0,
+              "nao_verificados": 0,
+              "cobertura_pct": null
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 3,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 1000,
+          "tokens_entrada_observados": 1000,
+          "chamadas_com_entrada": 3,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 36,
+          "tokens_saida_observados": 36,
+          "chamadas_com_saida": 3,
+          "metricas_completas": true,
+          "tokens_total": 1036,
+          "tokens_total_observados": 1036,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 3,
+          "chamadas_observadas": 3,
+          "cobertura": {
+            "entrada": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 4150,
+      "latencia_observada_ms": 4150,
+      "cobertura_latencia": {
+        "numerador": 3,
+        "denominador": 3,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 5943.03
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "historico_completo",
+      "usuario_id": "u01",
+      "sessao": 1,
+      "estado": "concluida",
+      "perguntas": 0,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 3,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 845,
+          "tokens_entrada_observados": 845,
+          "chamadas_com_entrada": 3,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 27,
+          "tokens_saida_observados": 27,
+          "chamadas_com_saida": 3,
+          "metricas_completas": true,
+          "tokens_total": 872,
+          "tokens_total_observados": 872,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 3,
+          "chamadas_observadas": 3,
+          "cobertura": {
+            "entrada": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 0,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 0,
+          "tokens_entrada_observados": 0,
+          "chamadas_com_entrada": 0,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 0,
+          "tokens_saida_observados": 0,
+          "chamadas_com_saida": 0,
+          "metricas_completas": true,
+          "tokens_total": 0,
+          "tokens_total_observados": 0,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 0,
+          "chamadas_observadas": 0,
+          "cobertura": {
+            "entrada": {
+              "numerador": 0,
+              "denominador": 0,
+              "nao_verificados": 0,
+              "cobertura_pct": null
+            },
+            "saida": {
+              "numerador": 0,
+              "denominador": 0,
+              "nao_verificados": 0,
+              "cobertura_pct": null
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 3,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 845,
+          "tokens_entrada_observados": 845,
+          "chamadas_com_entrada": 3,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 27,
+          "tokens_saida_observados": 27,
+          "chamadas_com_saida": 3,
+          "metricas_completas": true,
+          "tokens_total": 872,
+          "tokens_total_observados": 872,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 3,
+          "chamadas_observadas": 3,
+          "cobertura": {
+            "entrada": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 2073,
+      "latencia_observada_ms": 2073,
+      "cobertura_latencia": {
+        "numerador": 3,
+        "denominador": 3,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 12592.03
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "memoria_automatica",
+      "usuario_id": "u02",
+      "sessao": 1,
+      "estado": "concluida",
+      "perguntas": 0,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 3,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 995,
+          "tokens_entrada_observados": 995,
+          "chamadas_com_entrada": 3,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 38,
+          "tokens_saida_observados": 38,
+          "chamadas_com_saida": 3,
+          "metricas_completas": true,
+          "tokens_total": 1033,
+          "tokens_total_observados": 1033,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 3,
+          "chamadas_observadas": 3,
+          "cobertura": {
+            "entrada": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 0,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 0,
+          "tokens_entrada_observados": 0,
+          "chamadas_com_entrada": 0,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 0,
+          "tokens_saida_observados": 0,
+          "chamadas_com_saida": 0,
+          "metricas_completas": true,
+          "tokens_total": 0,
+          "tokens_total_observados": 0,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 0,
+          "chamadas_observadas": 0,
+          "cobertura": {
+            "entrada": {
+              "numerador": 0,
+              "denominador": 0,
+              "nao_verificados": 0,
+              "cobertura_pct": null
+            },
+            "saida": {
+              "numerador": 0,
+              "denominador": 0,
+              "nao_verificados": 0,
+              "cobertura_pct": null
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 3,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 995,
+          "tokens_entrada_observados": 995,
+          "chamadas_com_entrada": 3,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 38,
+          "tokens_saida_observados": 38,
+          "chamadas_com_saida": 3,
+          "metricas_completas": true,
+          "tokens_total": 1033,
+          "tokens_total_observados": 1033,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 3,
+          "chamadas_observadas": 3,
+          "cobertura": {
+            "entrada": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 4169,
+      "latencia_observada_ms": 4169,
+      "cobertura_latencia": {
+        "numerador": 3,
+        "denominador": 3,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 5891.31
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "historico_completo",
+      "usuario_id": "u02",
+      "sessao": 1,
+      "estado": "concluida",
+      "perguntas": 0,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 3,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 848,
+          "tokens_entrada_observados": 848,
+          "chamadas_com_entrada": 3,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 31,
+          "tokens_saida_observados": 31,
+          "chamadas_com_saida": 3,
+          "metricas_completas": true,
+          "tokens_total": 879,
+          "tokens_total_observados": 879,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 3,
+          "chamadas_observadas": 3,
+          "cobertura": {
+            "entrada": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 0,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 0,
+          "tokens_entrada_observados": 0,
+          "chamadas_com_entrada": 0,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 0,
+          "tokens_saida_observados": 0,
+          "chamadas_com_saida": 0,
+          "metricas_completas": true,
+          "tokens_total": 0,
+          "tokens_total_observados": 0,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 0,
+          "chamadas_observadas": 0,
+          "cobertura": {
+            "entrada": {
+              "numerador": 0,
+              "denominador": 0,
+              "nao_verificados": 0,
+              "cobertura_pct": null
+            },
+            "saida": {
+              "numerador": 0,
+              "denominador": 0,
+              "nao_verificados": 0,
+              "cobertura_pct": null
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 3,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 848,
+          "tokens_entrada_observados": 848,
+          "chamadas_com_entrada": 3,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 31,
+          "tokens_saida_observados": 31,
+          "chamadas_com_saida": 3,
+          "metricas_completas": true,
+          "tokens_total": 879,
+          "tokens_total_observados": 879,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 3,
+          "chamadas_observadas": 3,
+          "cobertura": {
+            "entrada": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 2069,
+      "latencia_observada_ms": 2069,
+      "cobertura_latencia": {
+        "numerador": 3,
+        "denominador": 3,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 12174.05
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "memoria_automatica",
+      "usuario_id": "u03",
+      "sessao": 1,
+      "estado": "concluida",
+      "perguntas": 0,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 3,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 989,
+          "tokens_entrada_observados": 989,
+          "chamadas_com_entrada": 3,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 35,
+          "tokens_saida_observados": 35,
+          "chamadas_com_saida": 3,
+          "metricas_completas": true,
+          "tokens_total": 1024,
+          "tokens_total_observados": 1024,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 3,
+          "chamadas_observadas": 3,
+          "cobertura": {
+            "entrada": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 0,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 0,
+          "tokens_entrada_observados": 0,
+          "chamadas_com_entrada": 0,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 0,
+          "tokens_saida_observados": 0,
+          "chamadas_com_saida": 0,
+          "metricas_completas": true,
+          "tokens_total": 0,
+          "tokens_total_observados": 0,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 0,
+          "chamadas_observadas": 0,
+          "cobertura": {
+            "entrada": {
+              "numerador": 0,
+              "denominador": 0,
+              "nao_verificados": 0,
+              "cobertura_pct": null
+            },
+            "saida": {
+              "numerador": 0,
+              "denominador": 0,
+              "nao_verificados": 0,
+              "cobertura_pct": null
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 3,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 989,
+          "tokens_entrada_observados": 989,
+          "chamadas_com_entrada": 3,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 35,
+          "tokens_saida_observados": 35,
+          "chamadas_com_saida": 3,
+          "metricas_completas": true,
+          "tokens_total": 1024,
+          "tokens_total_observados": 1024,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 3,
+          "chamadas_observadas": 3,
+          "cobertura": {
+            "entrada": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 3999,
+      "latencia_observada_ms": 3999,
+      "cobertura_latencia": {
+        "numerador": 3,
+        "denominador": 3,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 5807.76
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "historico_completo",
+      "usuario_id": "u03",
+      "sessao": 1,
+      "estado": "concluida",
+      "perguntas": 0,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 3,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 864,
+          "tokens_entrada_observados": 864,
+          "chamadas_com_entrada": 3,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 51,
+          "tokens_saida_observados": 51,
+          "chamadas_com_saida": 3,
+          "metricas_completas": true,
+          "tokens_total": 915,
+          "tokens_total_observados": 915,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 3,
+          "chamadas_observadas": 3,
+          "cobertura": {
+            "entrada": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 0,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 0,
+          "tokens_entrada_observados": 0,
+          "chamadas_com_entrada": 0,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 0,
+          "tokens_saida_observados": 0,
+          "chamadas_com_saida": 0,
+          "metricas_completas": true,
+          "tokens_total": 0,
+          "tokens_total_observados": 0,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 0,
+          "chamadas_observadas": 0,
+          "cobertura": {
+            "entrada": {
+              "numerador": 0,
+              "denominador": 0,
+              "nao_verificados": 0,
+              "cobertura_pct": null
+            },
+            "saida": {
+              "numerador": 0,
+              "denominador": 0,
+              "nao_verificados": 0,
+              "cobertura_pct": null
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 3,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 864,
+          "tokens_entrada_observados": 864,
+          "chamadas_com_entrada": 3,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 51,
+          "tokens_saida_observados": 51,
+          "chamadas_com_saida": 3,
+          "metricas_completas": true,
+          "tokens_total": 915,
+          "tokens_total_observados": 915,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 3,
+          "chamadas_observadas": 3,
+          "cobertura": {
+            "entrada": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 3905,
+      "latencia_observada_ms": 3905,
+      "cobertura_latencia": {
+        "numerador": 3,
+        "denominador": 3,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 27428.05
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "memoria_automatica",
+      "usuario_id": "u04",
+      "sessao": 1,
+      "estado": "concluida",
+      "perguntas": 0,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 3,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 942,
+          "tokens_entrada_observados": 942,
+          "chamadas_com_entrada": 3,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 27,
+          "tokens_saida_observados": 27,
+          "chamadas_com_saida": 3,
+          "metricas_completas": true,
+          "tokens_total": 969,
+          "tokens_total_observados": 969,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 3,
+          "chamadas_observadas": 3,
+          "cobertura": {
+            "entrada": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 0,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 0,
+          "tokens_entrada_observados": 0,
+          "chamadas_com_entrada": 0,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 0,
+          "tokens_saida_observados": 0,
+          "chamadas_com_saida": 0,
+          "metricas_completas": true,
+          "tokens_total": 0,
+          "tokens_total_observados": 0,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 0,
+          "chamadas_observadas": 0,
+          "cobertura": {
+            "entrada": {
+              "numerador": 0,
+              "denominador": 0,
+              "nao_verificados": 0,
+              "cobertura_pct": null
+            },
+            "saida": {
+              "numerador": 0,
+              "denominador": 0,
+              "nao_verificados": 0,
+              "cobertura_pct": null
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 3,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 942,
+          "tokens_entrada_observados": 942,
+          "chamadas_com_entrada": 3,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 27,
+          "tokens_saida_observados": 27,
+          "chamadas_com_saida": 3,
+          "metricas_completas": true,
+          "tokens_total": 969,
+          "tokens_total_observados": 969,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 3,
+          "chamadas_observadas": 3,
+          "cobertura": {
+            "entrada": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 3525,
+      "latencia_observada_ms": 3525,
+      "cobertura_latencia": {
+        "numerador": 3,
+        "denominador": 3,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 5228.77
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "historico_completo",
+      "usuario_id": "u04",
+      "sessao": 1,
+      "estado": "concluida",
+      "perguntas": 0,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 3,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 889,
+          "tokens_entrada_observados": 889,
+          "chamadas_com_entrada": 3,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 67,
+          "tokens_saida_observados": 67,
+          "chamadas_com_saida": 3,
+          "metricas_completas": true,
+          "tokens_total": 956,
+          "tokens_total_observados": 956,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 3,
+          "chamadas_observadas": 3,
+          "cobertura": {
+            "entrada": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 0,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 0,
+          "tokens_entrada_observados": 0,
+          "chamadas_com_entrada": 0,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 0,
+          "tokens_saida_observados": 0,
+          "chamadas_com_saida": 0,
+          "metricas_completas": true,
+          "tokens_total": 0,
+          "tokens_total_observados": 0,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 0,
+          "chamadas_observadas": 0,
+          "cobertura": {
+            "entrada": {
+              "numerador": 0,
+              "denominador": 0,
+              "nao_verificados": 0,
+              "cobertura_pct": null
+            },
+            "saida": {
+              "numerador": 0,
+              "denominador": 0,
+              "nao_verificados": 0,
+              "cobertura_pct": null
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 3,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 889,
+          "tokens_entrada_observados": 889,
+          "chamadas_com_entrada": 3,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 67,
+          "tokens_saida_observados": 67,
+          "chamadas_com_saida": 3,
+          "metricas_completas": true,
+          "tokens_total": 956,
+          "tokens_total_observados": 956,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 3,
+          "chamadas_observadas": 3,
+          "cobertura": {
+            "entrada": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 4178,
+      "latencia_observada_ms": 4178,
+      "cobertura_latencia": {
+        "numerador": 3,
+        "denominador": 3,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 11087.41
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "memoria_automatica",
+      "usuario_id": "u01",
+      "sessao": 2,
+      "estado": "concluida",
+      "perguntas": 1,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 2,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 671,
+          "tokens_entrada_observados": 671,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 39,
+          "tokens_saida_observados": 39,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 710,
+          "tokens_total_observados": 710,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 380,
+          "tokens_entrada_observados": 380,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 8,
+          "tokens_saida_observados": 8,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 388,
+          "tokens_total_observados": 388,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 3,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 1051,
+          "tokens_entrada_observados": 1051,
+          "chamadas_com_entrada": 3,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 47,
+          "tokens_saida_observados": 47,
+          "chamadas_com_saida": 3,
+          "metricas_completas": true,
+          "tokens_total": 1098,
+          "tokens_total_observados": 1098,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 3,
+          "chamadas_observadas": 3,
+          "cobertura": {
+            "entrada": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 5315,
+      "latencia_observada_ms": 5315,
+      "cobertura_latencia": {
+        "numerador": 3,
+        "denominador": 3,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 6779.58
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "historico_completo",
+      "usuario_id": "u01",
+      "sessao": 2,
+      "estado": "concluida",
+      "perguntas": 1,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 2,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 711,
+          "tokens_entrada_observados": 711,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 23,
+          "tokens_saida_observados": 23,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 734,
+          "tokens_total_observados": 734,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 397,
+          "tokens_entrada_observados": 397,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 8,
+          "tokens_saida_observados": 8,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 405,
+          "tokens_total_observados": 405,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 3,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 1108,
+          "tokens_entrada_observados": 1108,
+          "chamadas_com_entrada": 3,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 31,
+          "tokens_saida_observados": 31,
+          "chamadas_com_saida": 3,
+          "metricas_completas": true,
+          "tokens_total": 1139,
+          "tokens_total_observados": 1139,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 3,
+          "chamadas_observadas": 3,
+          "cobertura": {
+            "entrada": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 2211,
+      "latencia_observada_ms": 2211,
+      "cobertura_latencia": {
+        "numerador": 3,
+        "denominador": 3,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 0.26
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "memoria_automatica",
+      "usuario_id": "u02",
+      "sessao": 2,
+      "estado": "concluida",
+      "perguntas": 0,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 2,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 649,
+          "tokens_entrada_observados": 649,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 34,
+          "tokens_saida_observados": 34,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 683,
+          "tokens_total_observados": 683,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 0,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 0,
+          "tokens_entrada_observados": 0,
+          "chamadas_com_entrada": 0,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 0,
+          "tokens_saida_observados": 0,
+          "chamadas_com_saida": 0,
+          "metricas_completas": true,
+          "tokens_total": 0,
+          "tokens_total_observados": 0,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 0,
+          "chamadas_observadas": 0,
+          "cobertura": {
+            "entrada": {
+              "numerador": 0,
+              "denominador": 0,
+              "nao_verificados": 0,
+              "cobertura_pct": null
+            },
+            "saida": {
+              "numerador": 0,
+              "denominador": 0,
+              "nao_verificados": 0,
+              "cobertura_pct": null
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 2,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 649,
+          "tokens_entrada_observados": 649,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 34,
+          "tokens_saida_observados": 34,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 683,
+          "tokens_total_observados": 683,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 2804,
+      "latencia_observada_ms": 2804,
+      "cobertura_latencia": {
+        "numerador": 2,
+        "denominador": 2,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 4532.47
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "historico_completo",
+      "usuario_id": "u02",
+      "sessao": 2,
+      "estado": "concluida",
+      "perguntas": 0,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 2,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 699,
+          "tokens_entrada_observados": 699,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 22,
+          "tokens_saida_observados": 22,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 721,
+          "tokens_total_observados": 721,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 0,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 0,
+          "tokens_entrada_observados": 0,
+          "chamadas_com_entrada": 0,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 0,
+          "tokens_saida_observados": 0,
+          "chamadas_com_saida": 0,
+          "metricas_completas": true,
+          "tokens_total": 0,
+          "tokens_total_observados": 0,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 0,
+          "chamadas_observadas": 0,
+          "cobertura": {
+            "entrada": {
+              "numerador": 0,
+              "denominador": 0,
+              "nao_verificados": 0,
+              "cobertura_pct": null
+            },
+            "saida": {
+              "numerador": 0,
+              "denominador": 0,
+              "nao_verificados": 0,
+              "cobertura_pct": null
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 2,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 699,
+          "tokens_entrada_observados": 699,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 22,
+          "tokens_saida_observados": 22,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 721,
+          "tokens_total_observados": 721,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 1527,
+      "latencia_observada_ms": 1527,
+      "cobertura_latencia": {
+        "numerador": 2,
+        "denominador": 2,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 0.17
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "memoria_automatica",
+      "usuario_id": "u03",
+      "sessao": 2,
+      "estado": "concluida",
+      "perguntas": 1,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 2,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 668,
+          "tokens_entrada_observados": 668,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 34,
+          "tokens_saida_observados": 34,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 702,
+          "tokens_total_observados": 702,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 326,
+          "tokens_entrada_observados": 326,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 8,
+          "tokens_saida_observados": 8,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 334,
+          "tokens_total_observados": 334,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 3,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 994,
+          "tokens_entrada_observados": 994,
+          "chamadas_com_entrada": 3,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 42,
+          "tokens_saida_observados": 42,
+          "chamadas_com_saida": 3,
+          "metricas_completas": true,
+          "tokens_total": 1036,
+          "tokens_total_observados": 1036,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 3,
+          "chamadas_observadas": 3,
+          "cobertura": {
+            "entrada": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 4787,
+      "latencia_observada_ms": 4787,
+      "cobertura_latencia": {
+        "numerador": 3,
+        "denominador": 3,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 6426.98
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "historico_completo",
+      "usuario_id": "u03",
+      "sessao": 2,
+      "estado": "concluida",
+      "perguntas": 1,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 2,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 759,
+          "tokens_entrada_observados": 759,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 123,
+          "tokens_saida_observados": 123,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 882,
+          "tokens_total_observados": 882,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 513,
+          "tokens_entrada_observados": 513,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 44,
+          "tokens_saida_observados": 44,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 557,
+          "tokens_total_observados": 557,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 3,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 1272,
+          "tokens_entrada_observados": 1272,
+          "chamadas_com_entrada": 3,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 167,
+          "tokens_saida_observados": 167,
+          "chamadas_com_saida": 3,
+          "metricas_completas": true,
+          "tokens_total": 1439,
+          "tokens_total_observados": 1439,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 3,
+          "chamadas_observadas": 3,
+          "cobertura": {
+            "entrada": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 10054,
+      "latencia_observada_ms": 10054,
+      "cobertura_latencia": {
+        "numerador": 3,
+        "denominador": 3,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 0.24
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "memoria_automatica",
+      "usuario_id": "u04",
+      "sessao": 2,
+      "estado": "concluida",
+      "perguntas": 0,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 2,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 638,
+          "tokens_entrada_observados": 638,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 26,
+          "tokens_saida_observados": 26,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 664,
+          "tokens_total_observados": 664,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 0,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 0,
+          "tokens_entrada_observados": 0,
+          "chamadas_com_entrada": 0,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 0,
+          "tokens_saida_observados": 0,
+          "chamadas_com_saida": 0,
+          "metricas_completas": true,
+          "tokens_total": 0,
+          "tokens_total_observados": 0,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 0,
+          "chamadas_observadas": 0,
+          "cobertura": {
+            "entrada": {
+              "numerador": 0,
+              "denominador": 0,
+              "nao_verificados": 0,
+              "cobertura_pct": null
+            },
+            "saida": {
+              "numerador": 0,
+              "denominador": 0,
+              "nao_verificados": 0,
+              "cobertura_pct": null
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 2,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 638,
+          "tokens_entrada_observados": 638,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 26,
+          "tokens_saida_observados": 26,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 664,
+          "tokens_total_observados": 664,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 2200,
+      "latencia_observada_ms": 2200,
+      "cobertura_latencia": {
+        "numerador": 2,
+        "denominador": 2,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 4024.44
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "historico_completo",
+      "usuario_id": "u04",
+      "sessao": 2,
+      "estado": "concluida",
+      "perguntas": 0,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 2,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 786,
+          "tokens_entrada_observados": 786,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 44,
+          "tokens_saida_observados": 44,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 830,
+          "tokens_total_observados": 830,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 0,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 0,
+          "tokens_entrada_observados": 0,
+          "chamadas_com_entrada": 0,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 0,
+          "tokens_saida_observados": 0,
+          "chamadas_com_saida": 0,
+          "metricas_completas": true,
+          "tokens_total": 0,
+          "tokens_total_observados": 0,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 0,
+          "chamadas_observadas": 0,
+          "cobertura": {
+            "entrada": {
+              "numerador": 0,
+              "denominador": 0,
+              "nao_verificados": 0,
+              "cobertura_pct": null
+            },
+            "saida": {
+              "numerador": 0,
+              "denominador": 0,
+              "nao_verificados": 0,
+              "cobertura_pct": null
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 2,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 786,
+          "tokens_entrada_observados": 786,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 44,
+          "tokens_saida_observados": 44,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 830,
+          "tokens_total_observados": 830,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 2625,
+      "latencia_observada_ms": 2625,
+      "cobertura_latencia": {
+        "numerador": 2,
+        "denominador": 2,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 0.27
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "memoria_automatica",
+      "usuario_id": "u01",
+      "sessao": 3,
+      "estado": "concluida",
+      "perguntas": 1,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 309,
+          "tokens_entrada_observados": 309,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 11,
+          "tokens_saida_observados": 11,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 320,
+          "tokens_total_observados": 320,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 329,
+          "tokens_entrada_observados": 329,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 10,
+          "tokens_saida_observados": 10,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 339,
+          "tokens_total_observados": 339,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 2,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 638,
+          "tokens_entrada_observados": 638,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 21,
+          "tokens_saida_observados": 21,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 659,
+          "tokens_total_observados": 659,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 1871,
+      "latencia_observada_ms": 1871,
+      "cobertura_latencia": {
+        "numerador": 2,
+        "denominador": 2,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 3810.95
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "historico_completo",
+      "usuario_id": "u01",
+      "sessao": 3,
+      "estado": "concluida",
+      "perguntas": 1,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 421,
+          "tokens_entrada_observados": 421,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 9,
+          "tokens_saida_observados": 9,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 430,
+          "tokens_total_observados": 430,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 447,
+          "tokens_entrada_observados": 447,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 10,
+          "tokens_saida_observados": 10,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 457,
+          "tokens_total_observados": 457,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 2,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 868,
+          "tokens_entrada_observados": 868,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 19,
+          "tokens_saida_observados": 19,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 887,
+          "tokens_total_observados": 887,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 1339,
+      "latencia_observada_ms": 1339,
+      "cobertura_latencia": {
+        "numerador": 2,
+        "denominador": 2,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 0.22
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "memoria_automatica",
+      "usuario_id": "u02",
+      "sessao": 3,
+      "estado": "concluida",
+      "perguntas": 1,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 309,
+          "tokens_entrada_observados": 309,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 16,
+          "tokens_saida_observados": 16,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 325,
+          "tokens_total_observados": 325,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 342,
+          "tokens_entrada_observados": 342,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 7,
+          "tokens_saida_observados": 7,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 349,
+          "tokens_total_observados": 349,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 2,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 651,
+          "tokens_entrada_observados": 651,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 23,
+          "tokens_saida_observados": 23,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 674,
+          "tokens_total_observados": 674,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 1711,
+      "latencia_observada_ms": 1711,
+      "cobertura_latencia": {
+        "numerador": 2,
+        "denominador": 2,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 3346.22
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "historico_completo",
+      "usuario_id": "u02",
+      "sessao": 3,
+      "estado": "concluida",
+      "perguntas": 1,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 398,
+          "tokens_entrada_observados": 398,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 10,
+          "tokens_saida_observados": 10,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 408,
+          "tokens_total_observados": 408,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 425,
+          "tokens_entrada_observados": 425,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 7,
+          "tokens_saida_observados": 7,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 432,
+          "tokens_total_observados": 432,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 2,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 823,
+          "tokens_entrada_observados": 823,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 17,
+          "tokens_saida_observados": 17,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 840,
+          "tokens_total_observados": 840,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 1357,
+      "latencia_observada_ms": 1357,
+      "cobertura_latencia": {
+        "numerador": 2,
+        "denominador": 2,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 0.19
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "memoria_automatica",
+      "usuario_id": "u03",
+      "sessao": 3,
+      "estado": "concluida",
+      "perguntas": 1,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 325,
+          "tokens_entrada_observados": 325,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 16,
+          "tokens_saida_observados": 16,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 341,
+          "tokens_total_observados": 341,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 359,
+          "tokens_entrada_observados": 359,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 12,
+          "tokens_saida_observados": 12,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 371,
+          "tokens_total_observados": 371,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 2,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 684,
+          "tokens_entrada_observados": 684,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 28,
+          "tokens_saida_observados": 28,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 712,
+          "tokens_total_observados": 712,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 2779,
+      "latencia_observada_ms": 2779,
+      "cobertura_latencia": {
+        "numerador": 2,
+        "denominador": 2,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 4633.22
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "historico_completo",
+      "usuario_id": "u03",
+      "sessao": 3,
+      "estado": "concluida",
+      "perguntas": 1,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 579,
+          "tokens_entrada_observados": 579,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 97,
+          "tokens_saida_observados": 97,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 676,
+          "tokens_total_observados": 676,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 694,
+          "tokens_entrada_observados": 694,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 12,
+          "tokens_saida_observados": 12,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 706,
+          "tokens_total_observados": 706,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 2,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 1273,
+          "tokens_entrada_observados": 1273,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 109,
+          "tokens_saida_observados": 109,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 1382,
+          "tokens_total_observados": 1382,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 6268,
+      "latencia_observada_ms": 6268,
+      "cobertura_latencia": {
+        "numerador": 2,
+        "denominador": 2,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 0.18
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "memoria_automatica",
+      "usuario_id": "u04",
+      "sessao": 3,
+      "estado": "concluida",
+      "perguntas": 1,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 307,
+          "tokens_entrada_observados": 307,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 16,
+          "tokens_saida_observados": 16,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 323,
+          "tokens_total_observados": 323,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 338,
+          "tokens_entrada_observados": 338,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 9,
+          "tokens_saida_observados": 9,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 347,
+          "tokens_total_observados": 347,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 2,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 645,
+          "tokens_entrada_observados": 645,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 25,
+          "tokens_saida_observados": 25,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 670,
+          "tokens_total_observados": 670,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 1755,
+      "latencia_observada_ms": 1755,
+      "cobertura_latencia": {
+        "numerador": 2,
+        "denominador": 2,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 3352.04
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "historico_completo",
+      "usuario_id": "u04",
+      "sessao": 3,
+      "estado": "concluida",
+      "perguntas": 1,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 450,
+          "tokens_entrada_observados": 450,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 32,
+          "tokens_saida_observados": 32,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 482,
+          "tokens_total_observados": 482,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 497,
+          "tokens_entrada_observados": 497,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 20,
+          "tokens_saida_observados": 20,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 517,
+          "tokens_total_observados": 517,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 2,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 947,
+          "tokens_entrada_observados": 947,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 52,
+          "tokens_saida_observados": 52,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 999,
+          "tokens_total_observados": 999,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 3115,
+      "latencia_observada_ms": 3115,
+      "cobertura_latencia": {
+        "numerador": 2,
+        "denominador": 2,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 0.15
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "memoria_automatica",
+      "usuario_id": "u01",
+      "sessao": 4,
+      "estado": "concluida",
+      "perguntas": 1,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 318,
+          "tokens_entrada_observados": 318,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 21,
+          "tokens_saida_observados": 21,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 339,
+          "tokens_total_observados": 339,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 348,
+          "tokens_entrada_observados": 348,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 10,
+          "tokens_saida_observados": 10,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 358,
+          "tokens_total_observados": 358,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 2,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 666,
+          "tokens_entrada_observados": 666,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 31,
+          "tokens_saida_observados": 31,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 697,
+          "tokens_total_observados": 697,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 2805,
+      "latencia_observada_ms": 2805,
+      "cobertura_latencia": {
+        "numerador": 2,
+        "denominador": 2,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 4568.62
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "historico_completo",
+      "usuario_id": "u01",
+      "sessao": 4,
+      "estado": "concluida",
+      "perguntas": 1,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 477,
+          "tokens_entrada_observados": 477,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 13,
+          "tokens_saida_observados": 13,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 490,
+          "tokens_total_observados": 490,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 507,
+          "tokens_entrada_observados": 507,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 11,
+          "tokens_saida_observados": 11,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 518,
+          "tokens_total_observados": 518,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 2,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 984,
+          "tokens_entrada_observados": 984,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 24,
+          "tokens_saida_observados": 24,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 1008,
+          "tokens_total_observados": 1008,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 1789,
+      "latencia_observada_ms": 1789,
+      "cobertura_latencia": {
+        "numerador": 2,
+        "denominador": 2,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 0.2
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "memoria_automatica",
+      "usuario_id": "u02",
+      "sessao": 4,
+      "estado": "concluida",
+      "perguntas": 1,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 308,
+          "tokens_entrada_observados": 308,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 18,
+          "tokens_saida_observados": 18,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 326,
+          "tokens_total_observados": 326,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 341,
+          "tokens_entrada_observados": 341,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 10,
+          "tokens_saida_observados": 10,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 351,
+          "tokens_total_observados": 351,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 2,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 649,
+          "tokens_entrada_observados": 649,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 28,
+          "tokens_saida_observados": 28,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 677,
+          "tokens_total_observados": 677,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 1979,
+      "latencia_observada_ms": 1979,
+      "cobertura_latencia": {
+        "numerador": 2,
+        "denominador": 2,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 3595.78
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "historico_completo",
+      "usuario_id": "u02",
+      "sessao": 4,
+      "estado": "concluida",
+      "perguntas": 1,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 453,
+          "tokens_entrada_observados": 453,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 13,
+          "tokens_saida_observados": 13,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 466,
+          "tokens_total_observados": 466,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 481,
+          "tokens_entrada_observados": 481,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 10,
+          "tokens_saida_observados": 10,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 491,
+          "tokens_total_observados": 491,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 2,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 934,
+          "tokens_entrada_observados": 934,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 23,
+          "tokens_saida_observados": 23,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 957,
+          "tokens_total_observados": 957,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 1556,
+      "latencia_observada_ms": 1556,
+      "cobertura_latencia": {
+        "numerador": 2,
+        "denominador": 2,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 0.17
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "memoria_automatica",
+      "usuario_id": "u03",
+      "sessao": 4,
+      "estado": "concluida",
+      "perguntas": 1,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 325,
+          "tokens_entrada_observados": 325,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 50,
+          "tokens_saida_observados": 50,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 375,
+          "tokens_total_observados": 375,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 328,
+          "tokens_entrada_observados": 328,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 18,
+          "tokens_saida_observados": 18,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 346,
+          "tokens_total_observados": 346,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 2,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 653,
+          "tokens_entrada_observados": 653,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 68,
+          "tokens_saida_observados": 68,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 721,
+          "tokens_total_observados": 721,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 5215,
+      "latencia_observada_ms": 5215,
+      "cobertura_latencia": {
+        "numerador": 2,
+        "denominador": 2,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 7077.24
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "historico_completo",
+      "usuario_id": "u03",
+      "sessao": 4,
+      "estado": "concluida",
+      "perguntas": 1,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 727,
+          "tokens_entrada_observados": 727,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 42,
+          "tokens_saida_observados": 42,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 769,
+          "tokens_total_observados": 769,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 786,
+          "tokens_entrada_observados": 786,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 12,
+          "tokens_saida_observados": 12,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 798,
+          "tokens_total_observados": 798,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 2,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 1513,
+          "tokens_entrada_observados": 1513,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 54,
+          "tokens_saida_observados": 54,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 1567,
+          "tokens_total_observados": 1567,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 3616,
+      "latencia_observada_ms": 3616,
+      "cobertura_latencia": {
+        "numerador": 2,
+        "denominador": 2,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 0.3
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "memoria_automatica",
+      "usuario_id": "u04",
+      "sessao": 4,
+      "estado": "concluida",
+      "perguntas": 2,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 0,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 0,
+          "tokens_entrada_observados": 0,
+          "chamadas_com_entrada": 0,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 0,
+          "tokens_saida_observados": 0,
+          "chamadas_com_saida": 0,
+          "metricas_completas": true,
+          "tokens_total": 0,
+          "tokens_total_observados": 0,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 0,
+          "chamadas_observadas": 0,
+          "cobertura": {
+            "entrada": {
+              "numerador": 0,
+              "denominador": 0,
+              "nao_verificados": 0,
+              "cobertura_pct": null
+            },
+            "saida": {
+              "numerador": 0,
+              "denominador": 0,
+              "nao_verificados": 0,
+              "cobertura_pct": null
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 0,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 2,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 0,
+          "tokens_entrada_observados": 0,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 0,
+          "tokens_saida_observados": 0,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 0,
+          "tokens_total_observados": 0,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 0,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 2,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 0,
+          "tokens_entrada_observados": 0,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 0,
+          "tokens_saida_observados": 0,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 0,
+          "tokens_total_observados": 0,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 6,
+      "latencia_observada_ms": 6,
+      "cobertura_latencia": {
+        "numerador": 2,
+        "denominador": 2,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 1747.82
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "historico_completo",
+      "usuario_id": "u04",
+      "sessao": 4,
+      "estado": "concluida",
+      "perguntas": 2,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 0,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 0,
+          "tokens_entrada_observados": 0,
+          "chamadas_com_entrada": 0,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 0,
+          "tokens_saida_observados": 0,
+          "chamadas_com_saida": 0,
+          "metricas_completas": true,
+          "tokens_total": 0,
+          "tokens_total_observados": 0,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 0,
+          "chamadas_observadas": 0,
+          "cobertura": {
+            "entrada": {
+              "numerador": 0,
+              "denominador": 0,
+              "nao_verificados": 0,
+              "cobertura_pct": null
+            },
+            "saida": {
+              "numerador": 0,
+              "denominador": 0,
+              "nao_verificados": 0,
+              "cobertura_pct": null
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 0,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 2,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 0,
+          "tokens_entrada_observados": 0,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 0,
+          "tokens_saida_observados": 0,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 0,
+          "tokens_total_observados": 0,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 0,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 2,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 0,
+          "tokens_entrada_observados": 0,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 0,
+          "tokens_saida_observados": 0,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 0,
+          "tokens_total_observados": 0,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 4,
+      "latencia_observada_ms": 4,
+      "cobertura_latencia": {
+        "numerador": 2,
+        "denominador": 2,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 2276.14
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "memoria_automatica",
+      "usuario_id": "u01",
+      "sessao": 5,
+      "estado": "concluida",
+      "perguntas": 3,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 2,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 651,
+          "tokens_entrada_observados": 651,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 27,
+          "tokens_saida_observados": 27,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 678,
+          "tokens_total_observados": 678,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 3,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 1108,
+          "tokens_entrada_observados": 1108,
+          "chamadas_com_entrada": 3,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 27,
+          "tokens_saida_observados": 27,
+          "chamadas_com_saida": 3,
+          "metricas_completas": true,
+          "tokens_total": 1135,
+          "tokens_total_observados": 1135,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 3,
+          "chamadas_observadas": 3,
+          "cobertura": {
+            "entrada": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 5,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 1759,
+          "tokens_entrada_observados": 1759,
+          "chamadas_com_entrada": 5,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 54,
+          "tokens_saida_observados": 54,
+          "chamadas_com_saida": 5,
+          "metricas_completas": true,
+          "tokens_total": 1813,
+          "tokens_total_observados": 1813,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 5,
+          "chamadas_observadas": 5,
+          "cobertura": {
+            "entrada": {
+              "numerador": 5,
+              "denominador": 5,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 5,
+              "denominador": 5,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 8489,
+      "latencia_observada_ms": 8489,
+      "cobertura_latencia": {
+        "numerador": 5,
+        "denominador": 5,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 10319.67
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "historico_completo",
+      "usuario_id": "u01",
+      "sessao": 5,
+      "estado": "concluida",
+      "perguntas": 3,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 2,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 1101,
+          "tokens_entrada_observados": 1101,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 19,
+          "tokens_saida_observados": 19,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 1120,
+          "tokens_total_observados": 1120,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 3,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 1848,
+          "tokens_entrada_observados": 1848,
+          "chamadas_com_entrada": 3,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 26,
+          "tokens_saida_observados": 26,
+          "chamadas_com_saida": 3,
+          "metricas_completas": true,
+          "tokens_total": 1874,
+          "tokens_total_observados": 1874,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 3,
+          "chamadas_observadas": 3,
+          "cobertura": {
+            "entrada": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 5,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 2949,
+          "tokens_entrada_observados": 2949,
+          "chamadas_com_entrada": 5,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 45,
+          "tokens_saida_observados": 45,
+          "chamadas_com_saida": 5,
+          "metricas_completas": true,
+          "tokens_total": 2994,
+          "tokens_total_observados": 2994,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 5,
+          "chamadas_observadas": 5,
+          "cobertura": {
+            "entrada": {
+              "numerador": 5,
+              "denominador": 5,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 5,
+              "denominador": 5,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 3774,
+      "latencia_observada_ms": 3774,
+      "cobertura_latencia": {
+        "numerador": 5,
+        "denominador": 5,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 0.34
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "memoria_automatica",
+      "usuario_id": "u02",
+      "sessao": 5,
+      "estado": "concluida",
+      "perguntas": 3,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 257,
+          "tokens_entrada_observados": 257,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 11,
+          "tokens_saida_observados": 11,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 268,
+          "tokens_total_observados": 268,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 2,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 1,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 724,
+          "tokens_entrada_observados": 724,
+          "chamadas_com_entrada": 3,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 11,
+          "tokens_saida_observados": 11,
+          "chamadas_com_saida": 3,
+          "metricas_completas": true,
+          "tokens_total": 735,
+          "tokens_total_observados": 735,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 3,
+          "chamadas_observadas": 3,
+          "cobertura": {
+            "entrada": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 3,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 1,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 981,
+          "tokens_entrada_observados": 981,
+          "chamadas_com_entrada": 4,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 22,
+          "tokens_saida_observados": 22,
+          "chamadas_com_saida": 4,
+          "metricas_completas": true,
+          "tokens_total": 1003,
+          "tokens_total_observados": 1003,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 4,
+          "chamadas_observadas": 4,
+          "cobertura": {
+            "entrada": {
+              "numerador": 4,
+              "denominador": 4,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 4,
+              "denominador": 4,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 3479,
+      "latencia_observada_ms": 3479,
+      "cobertura_latencia": {
+        "numerador": 4,
+        "denominador": 4,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 5139.08
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "historico_completo",
+      "usuario_id": "u02",
+      "sessao": 5,
+      "estado": "concluida",
+      "perguntas": 3,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 508,
+          "tokens_entrada_observados": 508,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 21,
+          "tokens_saida_observados": 21,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 529,
+          "tokens_total_observados": 529,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 3,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 1752,
+          "tokens_entrada_observados": 1752,
+          "chamadas_com_entrada": 3,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 49,
+          "tokens_saida_observados": 49,
+          "chamadas_com_saida": 3,
+          "metricas_completas": true,
+          "tokens_total": 1801,
+          "tokens_total_observados": 1801,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 3,
+          "chamadas_observadas": 3,
+          "cobertura": {
+            "entrada": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 4,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 2260,
+          "tokens_entrada_observados": 2260,
+          "chamadas_com_entrada": 4,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 70,
+          "tokens_saida_observados": 70,
+          "chamadas_com_saida": 4,
+          "metricas_completas": true,
+          "tokens_total": 2330,
+          "tokens_total_observados": 2330,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 4,
+          "chamadas_observadas": 4,
+          "cobertura": {
+            "entrada": {
+              "numerador": 4,
+              "denominador": 4,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 4,
+              "denominador": 4,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 4344,
+      "latencia_observada_ms": 4344,
+      "cobertura_latencia": {
+        "numerador": 4,
+        "denominador": 4,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 0.4
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "memoria_automatica",
+      "usuario_id": "u03",
+      "sessao": 5,
+      "estado": "concluida",
+      "perguntas": 2,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 323,
+          "tokens_entrada_observados": 323,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 55,
+          "tokens_saida_observados": 55,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 378,
+          "tokens_total_observados": 378,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 2,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 771,
+          "tokens_entrada_observados": 771,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 17,
+          "tokens_saida_observados": 17,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 788,
+          "tokens_total_observados": 788,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 3,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 1094,
+          "tokens_entrada_observados": 1094,
+          "chamadas_com_entrada": 3,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 72,
+          "tokens_saida_observados": 72,
+          "chamadas_com_saida": 3,
+          "metricas_completas": true,
+          "tokens_total": 1166,
+          "tokens_total_observados": 1166,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 3,
+          "chamadas_observadas": 3,
+          "cobertura": {
+            "entrada": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 6896,
+      "latencia_observada_ms": 6896,
+      "cobertura_latencia": {
+        "numerador": 3,
+        "denominador": 3,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 8571.05
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "historico_completo",
+      "usuario_id": "u03",
+      "sessao": 5,
+      "estado": "concluida",
+      "perguntas": 2,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 815,
+          "tokens_entrada_observados": 815,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 21,
+          "tokens_saida_observados": 21,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 836,
+          "tokens_total_observados": 836,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 1,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 872,
+          "tokens_entrada_observados": 872,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 8,
+          "tokens_saida_observados": 8,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 880,
+          "tokens_total_observados": 880,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 2,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 1,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 1687,
+          "tokens_entrada_observados": 1687,
+          "chamadas_com_entrada": 3,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 29,
+          "tokens_saida_observados": 29,
+          "chamadas_com_saida": 3,
+          "metricas_completas": true,
+          "tokens_total": 1716,
+          "tokens_total_observados": 1716,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 3,
+          "chamadas_observadas": 3,
+          "cobertura": {
+            "entrada": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 2239,
+      "latencia_observada_ms": 2239,
+      "cobertura_latencia": {
+        "numerador": 3,
+        "denominador": 3,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 0.29
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "memoria_automatica",
+      "usuario_id": "u04",
+      "sessao": 5,
+      "estado": "concluida",
+      "perguntas": 2,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 310,
+          "tokens_entrada_observados": 310,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 12,
+          "tokens_saida_observados": 12,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 322,
+          "tokens_total_observados": 322,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 1,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 337,
+          "tokens_entrada_observados": 337,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 8,
+          "tokens_saida_observados": 8,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 345,
+          "tokens_total_observados": 345,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 2,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 1,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 647,
+          "tokens_entrada_observados": 647,
+          "chamadas_com_entrada": 3,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 20,
+          "tokens_saida_observados": 20,
+          "chamadas_com_saida": 3,
+          "metricas_completas": true,
+          "tokens_total": 667,
+          "tokens_total_observados": 667,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 3,
+          "chamadas_observadas": 3,
+          "cobertura": {
+            "entrada": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 1481,
+      "latencia_observada_ms": 1481,
+      "cobertura_latencia": {
+        "numerador": 3,
+        "denominador": 3,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 3218.65
+    },
+    {
+      "tipo": "sessao",
+      "cenario": "historico_completo",
+      "usuario_id": "u04",
+      "sessao": 5,
+      "estado": "concluida",
+      "perguntas": 2,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 308,
+          "tokens_entrada_observados": 308,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 12,
+          "tokens_saida_observados": 12,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 320,
+          "tokens_total_observados": 320,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 1,
+          "chamadas_observadas": 1,
+          "cobertura": {
+            "entrada": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 1,
+              "denominador": 1,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 0,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 2,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 0,
+          "tokens_entrada_observados": 0,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 0,
+          "tokens_saida_observados": 0,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 0,
+          "tokens_total_observados": 0,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 2,
+          "chamadas_observadas": 2,
+          "cobertura": {
+            "entrada": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 2,
+              "denominador": 2,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 2,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 308,
+          "tokens_entrada_observados": 308,
+          "chamadas_com_entrada": 3,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 12,
+          "tokens_saida_observados": 12,
+          "chamadas_com_saida": 3,
+          "metricas_completas": true,
+          "tokens_total": 320,
+          "tokens_total_observados": 320,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 3,
+          "chamadas_observadas": 3,
+          "cobertura": {
+            "entrada": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 1177,
+      "latencia_observada_ms": 1177,
+      "cobertura_latencia": {
+        "numerador": 3,
+        "denominador": 3,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 0.31
+    }
+  ],
+  "estado_orquestracao": "concluida",
+  "falhas": 0,
+  "falhas_inicio": [],
+  "proveniencia": {
+    "memoria_automatica": {
+      "api_url": "http://127.0.0.1:53911",
+      "ambiente_id": "p6-bdfc1179724f",
+      "usuarios": {
+        "u01": "p6_p6-bdfc1179724f_u01",
+        "u02": "p6_p6-bdfc1179724f_u02",
+        "u03": "p6_p6-bdfc1179724f_u03",
+        "u04": "p6_p6-bdfc1179724f_u04"
+      },
+      "configuracao_efetiva_declarada": {
+        "agente_real": true,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b",
+        "backend_id": "http://ollama:11434/f72c60cabf6237b07f6e632b2c48d533cef25eda2efbd34bed21c5e9c01e6225",
+        "backend_historico_id": "http://ollama:11434/f72c60cabf6237b07f6e632b2c48d533cef25eda2efbd34bed21c5e9c01e6225",
+        "commit_api": "b912ab6 + árvore identificada em configuracao.json"
+      },
+      "limite": "aprovação externa declarada; hash não autentica o produtor",
+      "autenticados": [
+        "u01",
+        "u02",
+        "u03",
+        "u04"
+      ],
+      "evidencias_iniciais": {
+        "u01": {
+          "alvos_ativos": 0,
+          "alvos_substituidos": 0,
+          "alvos_no_historico": 0,
+          "evidencia_status": "compativel",
+          "evidencia": {
+            "execucao_id": "p6-bdfc1179724f",
+            "ambiente_id": "p6-bdfc1179724f",
+            "usuario_id": "u01",
+            "usuario_api_id": "p6_p6-bdfc1179724f_u01",
+            "sessao": 1,
+            "evento_id": "u01/s1/preflight",
+            "tipo": "preflight",
+            "chaves": [],
+            "documento_sha256": "f2826c49b74f6b27f0dc76c4efc528ff66bfb5343340bd70bfbba5e2c55f66f5",
+            "responsavel": "coletor-local-v1 (automático)",
+            "referencia": "docs/revisao-experimental/decisao-20261118.md",
+            "origem": "u01-s1-preflight.json",
+            "coletado_em": "2026-11-19T00:12:42.095030+00:00"
+          }
+        },
+        "u02": {
+          "alvos_ativos": 0,
+          "alvos_substituidos": 0,
+          "alvos_no_historico": 0,
+          "evidencia_status": "compativel",
+          "evidencia": {
+            "execucao_id": "p6-bdfc1179724f",
+            "ambiente_id": "p6-bdfc1179724f",
+            "usuario_id": "u02",
+            "usuario_api_id": "p6_p6-bdfc1179724f_u02",
+            "sessao": 1,
+            "evento_id": "u02/s1/preflight",
+            "tipo": "preflight",
+            "chaves": [],
+            "documento_sha256": "f2826c49b74f6b27f0dc76c4efc528ff66bfb5343340bd70bfbba5e2c55f66f5",
+            "responsavel": "coletor-local-v1 (automático)",
+            "referencia": "docs/revisao-experimental/decisao-20261118.md",
+            "origem": "u02-s1-preflight.json",
+            "coletado_em": "2026-11-19T00:12:42.108343+00:00"
+          }
+        },
+        "u03": {
+          "alvos_ativos": 0,
+          "alvos_substituidos": 0,
+          "alvos_no_historico": 0,
+          "evidencia_status": "compativel",
+          "evidencia": {
+            "execucao_id": "p6-bdfc1179724f",
+            "ambiente_id": "p6-bdfc1179724f",
+            "usuario_id": "u03",
+            "usuario_api_id": "p6_p6-bdfc1179724f_u03",
+            "sessao": 1,
+            "evento_id": "u03/s1/preflight",
+            "tipo": "preflight",
+            "chaves": [],
+            "documento_sha256": "f2826c49b74f6b27f0dc76c4efc528ff66bfb5343340bd70bfbba5e2c55f66f5",
+            "responsavel": "coletor-local-v1 (automático)",
+            "referencia": "docs/revisao-experimental/decisao-20261118.md",
+            "origem": "u03-s1-preflight.json",
+            "coletado_em": "2026-11-19T00:12:42.120668+00:00"
+          }
+        },
+        "u04": {
+          "alvos_ativos": 0,
+          "alvos_substituidos": 0,
+          "alvos_no_historico": 0,
+          "evidencia_status": "compativel",
+          "evidencia": {
+            "execucao_id": "p6-bdfc1179724f",
+            "ambiente_id": "p6-bdfc1179724f",
+            "usuario_id": "u04",
+            "usuario_api_id": "p6_p6-bdfc1179724f_u04",
+            "sessao": 1,
+            "evento_id": "u04/s1/preflight",
+            "tipo": "preflight",
+            "chaves": [],
+            "documento_sha256": "f2826c49b74f6b27f0dc76c4efc528ff66bfb5343340bd70bfbba5e2c55f66f5",
+            "responsavel": "coletor-local-v1 (automático)",
+            "referencia": "docs/revisao-experimental/decisao-20261118.md",
+            "origem": "u04-s1-preflight.json",
+            "coletado_em": "2026-11-19T00:12:42.134033+00:00"
+          }
+        }
+      },
+      "catalogo_api_selecao": {
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b",
+        "local": true,
+        "configurado": true,
+        "padrao": true
+      }
+    },
+    "historico_completo": {
+      "isolamento": "processos_spawn_por_episodio",
+      "memorias": [],
+      "provedor_solicitado": "ollama",
+      "modelo_solicitado": "qwen2.5-coder:3b"
+    }
+  },
+  "motivo_interrupcao": null,
+  "cobertura_anotacoes": {
+    "perguntas_previstas": 21,
+    "compativeis": 21,
+    "ausentes": 0,
+    "incompativeis": 0,
+    "numerador": 21,
+    "denominador": 21,
+    "cobertura_pct": 100.0,
+    "perguntas": {
+      "u01/s2/pergunta1": {
+        "estado": "compativel"
+      },
+      "u03/s2/pergunta1": {
+        "estado": "compativel"
+      },
+      "u01/s3/pergunta2": {
+        "estado": "compativel"
+      },
+      "u02/s3/pergunta1": {
+        "estado": "compativel"
+      },
+      "u03/s3/pergunta2": {
+        "estado": "compativel"
+      },
+      "u04/s3/pergunta1": {
+        "estado": "compativel"
+      },
+      "u01/s4/pergunta3": {
+        "estado": "compativel"
+      },
+      "u02/s4/pergunta2": {
+        "estado": "compativel"
+      },
+      "u03/s4/pergunta3": {
+        "estado": "compativel"
+      },
+      "u04/s4/pergunta2": {
+        "estado": "compativel"
+      },
+      "u04/s4/pergunta3": {
+        "estado": "compativel"
+      },
+      "u01/s5/pergunta4": {
+        "estado": "compativel"
+      },
+      "u01/s5/pergunta5": {
+        "estado": "compativel"
+      },
+      "u01/s5/pergunta6": {
+        "estado": "compativel"
+      },
+      "u02/s5/pergunta3": {
+        "estado": "compativel"
+      },
+      "u02/s5/pergunta4": {
+        "estado": "compativel"
+      },
+      "u02/s5/pergunta5": {
+        "estado": "compativel"
+      },
+      "u03/s5/pergunta4": {
+        "estado": "compativel"
+      },
+      "u03/s5/pergunta5": {
+        "estado": "compativel"
+      },
+      "u04/s5/pergunta4": {
+        "estado": "compativel"
+      },
+      "u04/s5/pergunta5": {
+        "estado": "compativel"
+      }
+    }
+  },
+  "avaliacao_respostas_completa": false,
+  "perguntas_previstas_por_cenario": 21,
+  "perguntas_observadas": {
+    "memoria_automatica": 21,
+    "historico_completo": 21
+  },
+  "metricas_recuperacao_lexical": {
+    "memoria_automatica": {
+      "esperado_presente": {
+        "tentativas_previstas": 21,
+        "tentativas_elegiveis": 17,
+        "julgamentos_verificados": 17,
+        "numerador": 13,
+        "denominador": 17,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 4,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 76.47
+      },
+      "proibido_presente": {
+        "tentativas_previstas": 21,
+        "tentativas_elegiveis": 15,
+        "julgamentos_verificados": 15,
+        "numerador": 0,
+        "denominador": 15,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 6,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "contexto_vazio_sem_esperado": {
+        "tentativas_previstas": 21,
+        "tentativas_elegiveis": 4,
+        "julgamentos_verificados": 4,
+        "numerador": 4,
+        "denominador": 4,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 17,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 100.0
+      }
+    },
+    "historico_completo": {
+      "esperado_presente": {
+        "tentativas_previstas": 21,
+        "tentativas_elegiveis": 0,
+        "julgamentos_verificados": 0,
+        "numerador": 0,
+        "denominador": 0,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 21,
+        "cobertura_pct": null,
+        "taxa_pct": null
+      },
+      "proibido_presente": {
+        "tentativas_previstas": 21,
+        "tentativas_elegiveis": 0,
+        "julgamentos_verificados": 0,
+        "numerador": 0,
+        "denominador": 0,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 21,
+        "cobertura_pct": null,
+        "taxa_pct": null
+      },
+      "contexto_vazio_sem_esperado": {
+        "tentativas_previstas": 21,
+        "tentativas_elegiveis": 0,
+        "julgamentos_verificados": 0,
+        "numerador": 0,
+        "denominador": 0,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 21,
+        "cobertura_pct": null,
+        "taxa_pct": null
+      }
+    }
+  },
+  "metricas_checkpoints": {
+    "memoria_automatica": {
+      "checkpoint_persistencia": {
+        "tentativas_previstas": 20,
+        "tentativas_elegiveis": 19,
+        "julgamentos_verificados": 19,
+        "numerador": 19,
+        "denominador": 19,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 1,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 100.0
+      },
+      "checkpoint_exclusao": {
+        "tentativas_previstas": 2,
+        "tentativas_elegiveis": 2,
+        "julgamentos_verificados": 2,
+        "numerador": 2,
+        "denominador": 2,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 100.0
+      }
+    },
+    "historico_completo": {
+      "checkpoint_persistencia": {
+        "tentativas_previstas": 20,
+        "tentativas_elegiveis": 0,
+        "julgamentos_verificados": 0,
+        "numerador": 0,
+        "denominador": 0,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 20,
+        "cobertura_pct": null,
+        "taxa_pct": null
+      },
+      "checkpoint_exclusao": {
+        "tentativas_previstas": 2,
+        "tentativas_elegiveis": 0,
+        "julgamentos_verificados": 0,
+        "numerador": 0,
+        "denominador": 0,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 2,
+        "cobertura_pct": null,
+        "taxa_pct": null
+      }
+    }
+  },
+  "consistencia_estado_vazio": {
+    "memoria_automatica": {
+      "u04/s4/checkpoint_persistencia": "vazio_consistente"
+    },
+    "historico_completo": {
+      "u04/s4/checkpoint_persistencia": "nao_aplicavel"
+    }
+  },
+  "falhas_fechamento": [],
+  "metricas_resposta": {
+    "memoria_automatica": {
+      "recuperacao_factual": {
+        "tentativas_elegiveis": 17,
+        "julgamentos_verificados": 12,
+        "numerador": 10,
+        "denominador": 12,
+        "nao_verificados": 5,
+        "nao_aplicaveis": 4,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 70.59,
+        "taxa_pct": 83.33
+      },
+      "abstencao_correta": {
+        "tentativas_elegiveis": 4,
+        "julgamentos_verificados": 4,
+        "numerador": 4,
+        "denominador": 4,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 17,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 100.0
+      },
+      "vazamento_esquecidos": {
+        "tentativas_elegiveis": 4,
+        "julgamentos_verificados": 4,
+        "numerador": 0,
+        "denominador": 4,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 17,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      }
+    },
+    "historico_completo": {
+      "recuperacao_factual": {
+        "tentativas_elegiveis": 17,
+        "julgamentos_verificados": 11,
+        "numerador": 6,
+        "denominador": 11,
+        "nao_verificados": 6,
+        "nao_aplicaveis": 4,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 64.71,
+        "taxa_pct": 54.55
+      },
+      "abstencao_correta": {
+        "tentativas_elegiveis": 4,
+        "julgamentos_verificados": 4,
+        "numerador": 3,
+        "denominador": 4,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 17,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 75.0
+      },
+      "vazamento_esquecidos": {
+        "tentativas_elegiveis": 4,
+        "julgamentos_verificados": 4,
+        "numerador": 1,
+        "denominador": 4,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 17,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 25.0
+      }
+    }
+  },
+  "comparacoes_tokens": {
+    "ingestao": {
+      "tokens_entrada": {
+        "pares_previstos": 20,
+        "cobertura_pct": 100.0,
+        "pares_identificados": 20,
+        "pares_medidos": 20,
+        "chaves_duplicadas_descartadas": 0,
+        "pares_sem_medicao": 0,
+        "sessoes": [
+          {
+            "usuario_id": "u01",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 5
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 5
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 5
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 5
+          }
+        ],
+        "tokens_automaticos": 10294,
+        "tokens_historico": 12638,
+        "reducao_pct": 18.55
+      },
+      "tokens_saida": {
+        "pares_previstos": 20,
+        "cobertura_pct": 100.0,
+        "pares_identificados": 20,
+        "pares_medidos": 20,
+        "chaves_duplicadas_descartadas": 0,
+        "pares_sem_medicao": 0,
+        "sessoes": [
+          {
+            "usuario_id": "u01",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 5
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 5
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 5
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 5
+          }
+        ],
+        "tokens_automaticos": 522,
+        "tokens_historico": 677,
+        "reducao_pct": 22.9
+      },
+      "tokens_total": {
+        "pares_previstos": 20,
+        "cobertura_pct": 100.0,
+        "pares_identificados": 20,
+        "pares_medidos": 20,
+        "chaves_duplicadas_descartadas": 0,
+        "pares_sem_medicao": 0,
+        "sessoes": [
+          {
+            "usuario_id": "u01",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 5
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 5
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 5
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 5
+          }
+        ],
+        "tokens_automaticos": 10816,
+        "tokens_historico": 13315,
+        "reducao_pct": 18.77
+      }
+    },
+    "perguntas": {
+      "tokens_entrada": {
+        "pares_previstos": 20,
+        "cobertura_pct": 100.0,
+        "pares_identificados": 20,
+        "pares_medidos": 20,
+        "chaves_duplicadas_descartadas": 0,
+        "pares_sem_medicao": 0,
+        "sessoes": [
+          {
+            "usuario_id": "u01",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 5
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 5
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 5
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 5
+          }
+        ],
+        "tokens_automaticos": 6031,
+        "tokens_historico": 9219,
+        "reducao_pct": 34.58
+      },
+      "tokens_saida": {
+        "pares_previstos": 20,
+        "cobertura_pct": 100.0,
+        "pares_identificados": 20,
+        "pares_medidos": 20,
+        "chaves_duplicadas_descartadas": 0,
+        "pares_sem_medicao": 0,
+        "sessoes": [
+          {
+            "usuario_id": "u01",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 5
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 5
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 5
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 5
+          }
+        ],
+        "tokens_automaticos": 155,
+        "tokens_historico": 217,
+        "reducao_pct": 28.57
+      },
+      "tokens_total": {
+        "pares_previstos": 20,
+        "cobertura_pct": 100.0,
+        "pares_identificados": 20,
+        "pares_medidos": 20,
+        "chaves_duplicadas_descartadas": 0,
+        "pares_sem_medicao": 0,
+        "sessoes": [
+          {
+            "usuario_id": "u01",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 5
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 5
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 5
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 5
+          }
+        ],
+        "tokens_automaticos": 6186,
+        "tokens_historico": 9436,
+        "reducao_pct": 34.44
+      }
+    },
+    "sessao": {
+      "tokens_entrada": {
+        "pares_previstos": 20,
+        "cobertura_pct": 100.0,
+        "pares_identificados": 20,
+        "pares_medidos": 20,
+        "chaves_duplicadas_descartadas": 0,
+        "pares_sem_medicao": 0,
+        "sessoes": [
+          {
+            "usuario_id": "u01",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 5
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 5
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 5
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 5
+          }
+        ],
+        "tokens_automaticos": 16325,
+        "tokens_historico": 21857,
+        "reducao_pct": 25.31
+      },
+      "tokens_saida": {
+        "pares_previstos": 20,
+        "cobertura_pct": 100.0,
+        "pares_identificados": 20,
+        "pares_medidos": 20,
+        "chaves_duplicadas_descartadas": 0,
+        "pares_sem_medicao": 0,
+        "sessoes": [
+          {
+            "usuario_id": "u01",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 5
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 5
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 5
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 5
+          }
+        ],
+        "tokens_automaticos": 677,
+        "tokens_historico": 894,
+        "reducao_pct": 24.27
+      },
+      "tokens_total": {
+        "pares_previstos": 20,
+        "cobertura_pct": 100.0,
+        "pares_identificados": 20,
+        "pares_medidos": 20,
+        "chaves_duplicadas_descartadas": 0,
+        "pares_sem_medicao": 0,
+        "sessoes": [
+          {
+            "usuario_id": "u01",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u01",
+            "sessao": 5
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u02",
+            "sessao": 5
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u03",
+            "sessao": 5
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 1
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 2
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 3
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 4
+          },
+          {
+            "usuario_id": "u04",
+            "sessao": 5
+          }
+        ],
+        "tokens_automaticos": 17002,
+        "tokens_historico": 22751,
+        "reducao_pct": 25.27
+      }
+    }
+  }
+}

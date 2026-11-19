@@ -16,6 +16,23 @@ from eval.sessoes_transporte import (
 RAIZ = Path(__file__).resolve().parents[1]
 
 
+def test_vazio_esperado_e_separado_de_persistencia_de_fatos(dados):
+    eventos = integrado.planejar(dados)
+    vazios = [e for e in eventos if e.estado_vazio_esperado]
+    assert [e.id for e in vazios] == ['u04/s4/checkpoint_persistencia']
+    e = vazios[0]
+    resultado = {'evidencia_status': 'compativel', 'reinicio_confirmado': True,
+                 'estado_antes': {}, 'estado_depois': {}}
+    assert integrado.classificar_checkpoint(e, resultado, cenario='memoria_automatica',
+                                            simulado=False) == 'vazio_consistente'
+    resultado['estado_depois'] = {'residuo': 'indevido'}
+    assert integrado.classificar_checkpoint(e, resultado, cenario='memoria_automatica',
+                                            simulado=False) == 'reprovado'
+    resultado.pop('evidencia_status')
+    assert integrado.classificar_checkpoint(e, resultado, cenario='memoria_automatica',
+                                            simulado=False) == 'nao_verificado'
+
+
 @pytest.fixture
 def dados():
     return json.loads((RAIZ / "eval/memoria/sessoes.json").read_text(encoding="utf-8"))

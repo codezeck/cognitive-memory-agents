@@ -1,0 +1,456 @@
+INFO:     Started server process [8]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:53911 (Press CTRL+C to quit)
+INFO:     127.0.0.1:48028 - "GET /saude HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48040 - "GET /usuarios/p6_p6-bdfc1179724f_u01/estado-regras HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48040 - "GET /usuarios/p6_p6-bdfc1179724f_u02/estado-regras HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48040 - "GET /usuarios/p6_p6-bdfc1179724f_u03/estado-regras HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48040 - "GET /usuarios/p6_p6-bdfc1179724f_u04/estado-regras HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48048 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48054 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48068 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48082 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48090 - "GET /usuarios/p6_p6-bdfc1179724f_u01/estado-regras HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48090 - "GET /usuarios/p6_p6-bdfc1179724f_u02/estado-regras HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48090 - "GET /usuarios/p6_p6-bdfc1179724f_u03/estado-regras HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48090 - "GET /usuarios/p6_p6-bdfc1179724f_u04/estado-regras HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48090 - "GET /provedores HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48090 - "POST /usuarios/p6_p6-bdfc1179724f_u01/sessoes HTTP/1.1" 204 No Content
+2026-11-19 00:12:43,393 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:12:43,394 INFO api conversa usuario=p6_p6-bdfc1179724f_u01 provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=914
+INFO:     127.0.0.1:48090 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-19 00:12:57,641 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:12:57,642 INFO api conversa usuario=p6_p6-bdfc1179724f_u01 provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1647
+INFO:     127.0.0.1:42216 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-19 00:12:59,239 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:12:59,240 INFO api conversa usuario=p6_p6-bdfc1179724f_u01 provedor=ollama modelo=qwen2.5-coder:3b memorias=2 latencia_ms=1589
+INFO:     127.0.0.1:42216 - "POST /conversas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42216 - "GET /usuarios/p6_p6-bdfc1179724f_u01/estado-regras HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45208 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [8]
+INFO:     Started server process [14]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:53911 (Press CTRL+C to quit)
+INFO:     127.0.0.1:45270 - "GET /saude HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45276 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45280 - "POST /usuarios/p6_p6-bdfc1179724f_u02/sessoes HTTP/1.1" 204 No Content
+2026-11-19 00:13:02,182 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:13:02,183 INFO api conversa usuario=p6_p6-bdfc1179724f_u02 provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1014
+INFO:     127.0.0.1:45280 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-19 00:13:16,075 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:13:16,076 INFO api conversa usuario=p6_p6-bdfc1179724f_u02 provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1711
+INFO:     127.0.0.1:37914 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-19 00:13:17,529 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:13:17,530 INFO api conversa usuario=p6_p6-bdfc1179724f_u02 provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1444
+INFO:     127.0.0.1:37914 - "POST /conversas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37914 - "GET /usuarios/p6_p6-bdfc1179724f_u02/estado-regras HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37928 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [14]
+INFO:     Started server process [18]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:53911 (Press CTRL+C to quit)
+INFO:     127.0.0.1:37978 - "GET /saude HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37986 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38000 - "POST /usuarios/p6_p6-bdfc1179724f_u03/sessoes HTTP/1.1" 204 No Content
+2026-11-19 00:13:20,023 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:13:20,024 INFO api conversa usuario=p6_p6-bdfc1179724f_u03 provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=855
+INFO:     127.0.0.1:38000 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-19 00:13:49,101 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:13:49,102 INFO api conversa usuario=p6_p6-bdfc1179724f_u03 provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1644
+INFO:     127.0.0.1:54558 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-19 00:13:50,610 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:13:50,611 INFO api conversa usuario=p6_p6-bdfc1179724f_u03 provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1500
+INFO:     127.0.0.1:54558 - "POST /conversas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54558 - "GET /usuarios/p6_p6-bdfc1179724f_u03/estado-regras HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39330 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [18]
+INFO:     Started server process [22]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:53911 (Press CTRL+C to quit)
+INFO:     127.0.0.1:39404 - "GET /saude HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39416 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39420 - "POST /usuarios/p6_p6-bdfc1179724f_u04/sessoes HTTP/1.1" 204 No Content
+2026-11-19 00:13:53,454 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:13:53,456 INFO api conversa usuario=p6_p6-bdfc1179724f_u04 provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=992
+INFO:     127.0.0.1:39420 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-19 00:14:05,975 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:14:05,976 INFO api conversa usuario=p6_p6-bdfc1179724f_u04 provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1421
+INFO:     127.0.0.1:51292 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-19 00:14:07,102 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:14:07,103 INFO api conversa usuario=p6_p6-bdfc1179724f_u04 provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=1112
+INFO:     127.0.0.1:51292 - "POST /conversas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51292 - "GET /usuarios/p6_p6-bdfc1179724f_u04/estado-regras HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51296 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [22]
+INFO:     Started server process [26]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:53911 (Press CTRL+C to quit)
+INFO:     127.0.0.1:51344 - "GET /saude HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51346 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51358 - "POST /usuarios/p6_p6-bdfc1179724f_u01/sessoes HTTP/1.1" 204 No Content
+2026-11-19 00:14:10,826 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:14:10,827 INFO api conversa usuario=p6_p6-bdfc1179724f_u01 provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=2070
+INFO:     127.0.0.1:51358 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-19 00:14:12,564 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:14:12,565 INFO api conversa usuario=p6_p6-bdfc1179724f_u01 provedor=ollama modelo=qwen2.5-coder:3b memorias=2 latencia_ms=1729
+INFO:     127.0.0.1:51358 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-19 00:14:14,088 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:14:14,089 INFO api conversa usuario=p6_p6-bdfc1179724f_u01 provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1516
+INFO:     127.0.0.1:51358 - "POST /conversas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51358 - "GET /usuarios/p6_p6-bdfc1179724f_u01/estado-regras HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53782 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [26]
+INFO:     Started server process [28]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:53911 (Press CTRL+C to quit)
+INFO:     127.0.0.1:53814 - "GET /saude HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53820 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53832 - "POST /usuarios/p6_p6-bdfc1179724f_u02/sessoes HTTP/1.1" 204 No Content
+2026-11-19 00:14:16,860 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:14:16,863 INFO api conversa usuario=p6_p6-bdfc1179724f_u02 provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1183
+INFO:     127.0.0.1:53832 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-19 00:14:18,492 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:14:18,493 INFO api conversa usuario=p6_p6-bdfc1179724f_u02 provedor=ollama modelo=qwen2.5-coder:3b memorias=2 latencia_ms=1621
+INFO:     127.0.0.1:53832 - "POST /conversas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53832 - "GET /usuarios/p6_p6-bdfc1179724f_u02/estado-regras HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53834 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [28]
+INFO:     Started server process [30]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:53911 (Press CTRL+C to quit)
+INFO:     127.0.0.1:37076 - "GET /saude HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37092 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37096 - "POST /usuarios/p6_p6-bdfc1179724f_u03/sessoes HTTP/1.1" 204 No Content
+2026-11-19 00:14:21,450 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:14:21,451 INFO api conversa usuario=p6_p6-bdfc1179724f_u03 provedor=ollama modelo=qwen2.5-coder:3b memorias=2 latencia_ms=1320
+INFO:     127.0.0.1:37096 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-19 00:14:23,263 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:14:23,265 INFO api conversa usuario=p6_p6-bdfc1179724f_u03 provedor=ollama modelo=qwen2.5-coder:3b memorias=3 latencia_ms=1805
+INFO:     127.0.0.1:37096 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-19 00:14:24,938 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:14:24,939 INFO api conversa usuario=p6_p6-bdfc1179724f_u03 provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=1662
+INFO:     127.0.0.1:37096 - "POST /conversas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37096 - "GET /usuarios/p6_p6-bdfc1179724f_u03/estado-regras HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37098 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [30]
+INFO:     Started server process [32]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:53911 (Press CTRL+C to quit)
+INFO:     127.0.0.1:37176 - "GET /saude HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37190 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37198 - "POST /usuarios/p6_p6-bdfc1179724f_u04/sessoes HTTP/1.1" 204 No Content
+2026-11-19 00:14:28,002 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:14:28,003 INFO api conversa usuario=p6_p6-bdfc1179724f_u04 provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1400
+INFO:     127.0.0.1:37198 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-19 00:14:28,819 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:14:28,820 INFO api conversa usuario=p6_p6-bdfc1179724f_u04 provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=800
+INFO:     127.0.0.1:37198 - "POST /conversas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37198 - "GET /usuarios/p6_p6-bdfc1179724f_u04/estado-regras HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37202 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [32]
+INFO:     Started server process [34]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:53911 (Press CTRL+C to quit)
+INFO:     127.0.0.1:53922 - "GET /saude HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53930 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53944 - "POST /usuarios/p6_p6-bdfc1179724f_u01/sessoes HTTP/1.1" 204 No Content
+2026-11-19 00:14:31,541 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:14:31,542 INFO api conversa usuario=p6_p6-bdfc1179724f_u01 provedor=ollama modelo=qwen2.5-coder:3b memorias=2 latencia_ms=862
+INFO:     127.0.0.1:53944 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-19 00:14:32,559 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:14:32,560 INFO api conversa usuario=p6_p6-bdfc1179724f_u01 provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1009
+INFO:     127.0.0.1:53944 - "POST /conversas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53944 - "GET /usuarios/p6_p6-bdfc1179724f_u01/estado-regras HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53952 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [34]
+INFO:     Started server process [36]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:53911 (Press CTRL+C to quit)
+INFO:     127.0.0.1:54012 - "GET /saude HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54024 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54040 - "POST /usuarios/p6_p6-bdfc1179724f_u02/sessoes HTTP/1.1" 204 No Content
+2026-11-19 00:14:35,597 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:14:35,598 INFO api conversa usuario=p6_p6-bdfc1179724f_u02 provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1155
+INFO:     127.0.0.1:54040 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-19 00:14:36,163 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:14:36,164 INFO api conversa usuario=p6_p6-bdfc1179724f_u02 provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=556
+INFO:     127.0.0.1:54040 - "POST /conversas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54040 - "GET /usuarios/p6_p6-bdfc1179724f_u02/estado-regras HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54046 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [36]
+INFO:     Started server process [38]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:53911 (Press CTRL+C to quit)
+INFO:     127.0.0.1:54096 - "GET /saude HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54108 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54112 - "POST /usuarios/p6_p6-bdfc1179724f_u03/sessoes HTTP/1.1" 204 No Content
+2026-11-19 00:14:39,126 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:14:39,128 INFO api conversa usuario=p6_p6-bdfc1179724f_u03 provedor=ollama modelo=qwen2.5-coder:3b memorias=3 latencia_ms=1314
+INFO:     127.0.0.1:54112 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-19 00:14:40,610 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:14:40,611 INFO api conversa usuario=p6_p6-bdfc1179724f_u03 provedor=ollama modelo=qwen2.5-coder:3b memorias=3 latencia_ms=1465
+INFO:     127.0.0.1:54112 - "POST /conversas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54112 - "GET /usuarios/p6_p6-bdfc1179724f_u03/estado-regras HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51516 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [38]
+INFO:     Started server process [40]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:53911 (Press CTRL+C to quit)
+INFO:     127.0.0.1:51572 - "GET /saude HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51584 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51588 - "POST /usuarios/p6_p6-bdfc1179724f_u04/sessoes HTTP/1.1" 204 No Content
+2026-11-19 00:14:43,631 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:14:43,632 INFO api conversa usuario=p6_p6-bdfc1179724f_u04 provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1115
+INFO:     127.0.0.1:51588 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-19 00:14:44,281 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:14:44,282 INFO api conversa usuario=p6_p6-bdfc1179724f_u04 provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=640
+INFO:     127.0.0.1:51588 - "POST /conversas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51588 - "GET /usuarios/p6_p6-bdfc1179724f_u04/estado-regras HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51602 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [40]
+INFO:     Started server process [42]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:53911 (Press CTRL+C to quit)
+INFO:     127.0.0.1:51664 - "GET /saude HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51668 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51682 - "POST /usuarios/p6_p6-bdfc1179724f_u01/sessoes HTTP/1.1" 204 No Content
+2026-11-19 00:14:47,556 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:14:47,557 INFO api conversa usuario=p6_p6-bdfc1179724f_u01 provedor=ollama modelo=qwen2.5-coder:3b memorias=2 latencia_ms=1601
+INFO:     127.0.0.1:51682 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-19 00:14:48,769 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:14:48,770 INFO api conversa usuario=p6_p6-bdfc1179724f_u01 provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1204
+INFO:     127.0.0.1:51682 - "POST /conversas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51682 - "GET /usuarios/p6_p6-bdfc1179724f_u01/estado-regras HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51692 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [42]
+INFO:     Started server process [44]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:53911 (Press CTRL+C to quit)
+INFO:     127.0.0.1:60748 - "GET /saude HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60750 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60752 - "POST /usuarios/p6_p6-bdfc1179724f_u02/sessoes HTTP/1.1" 204 No Content
+2026-11-19 00:14:51,666 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:14:51,667 INFO api conversa usuario=p6_p6-bdfc1179724f_u02 provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1277
+INFO:     127.0.0.1:60752 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-19 00:14:52,376 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:14:52,377 INFO api conversa usuario=p6_p6-bdfc1179724f_u02 provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=702
+INFO:     127.0.0.1:60752 - "POST /conversas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60752 - "GET /usuarios/p6_p6-bdfc1179724f_u02/estado-regras HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60754 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [44]
+INFO:     Started server process [46]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:53911 (Press CTRL+C to quit)
+INFO:     127.0.0.1:60794 - "GET /saude HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60806 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60820 - "POST /usuarios/p6_p6-bdfc1179724f_u03/sessoes HTTP/1.1" 204 No Content
+2026-11-19 00:14:57,425 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:14:57,427 INFO api conversa usuario=p6_p6-bdfc1179724f_u03 provedor=ollama modelo=qwen2.5-coder:3b memorias=3 latencia_ms=3373
+INFO:     127.0.0.1:60820 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-19 00:14:59,281 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:14:59,282 INFO api conversa usuario=p6_p6-bdfc1179724f_u03 provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=1842
+INFO:     127.0.0.1:60820 - "POST /conversas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60820 - "GET /usuarios/p6_p6-bdfc1179724f_u03/estado-regras HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48568 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [46]
+INFO:     Started server process [48]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:53911 (Press CTRL+C to quit)
+INFO:     127.0.0.1:48640 - "GET /saude HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48650 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48654 - "POST /usuarios/p6_p6-bdfc1179724f_u04/sessoes HTTP/1.1" 204 No Content
+INFO:     127.0.0.1:48666 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48672 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48674 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48676 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48654 - "DELETE /usuarios/p6_p6-bdfc1179724f_u04/memorias HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48654 - "GET /usuarios/p6_p6-bdfc1179724f_u04/estado-regras HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48690 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48702 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48712 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48726 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+2026-11-19 00:15:01,319 INFO api conversa usuario=p6_p6-bdfc1179724f_u04 provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=6
+INFO:     127.0.0.1:48654 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-19 00:15:03,609 INFO api conversa usuario=p6_p6-bdfc1179724f_u04 provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=0
+INFO:     127.0.0.1:48654 - "POST /conversas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48654 - "GET /usuarios/p6_p6-bdfc1179724f_u04/estado-regras HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48734 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [48]
+INFO:     Started server process [52]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:53911 (Press CTRL+C to quit)
+INFO:     127.0.0.1:48772 - "GET /saude HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48788 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48796 - "POST /usuarios/p6_p6-bdfc1179724f_u01/sessoes HTTP/1.1" 204 No Content
+2026-11-19 00:15:06,658 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:15:06,660 INFO api conversa usuario=p6_p6-bdfc1179724f_u01 provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1496
+INFO:     127.0.0.1:48796 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-19 00:15:08,240 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:15:08,241 INFO api conversa usuario=p6_p6-bdfc1179724f_u01 provedor=ollama modelo=qwen2.5-coder:3b memorias=2 latencia_ms=1573
+INFO:     127.0.0.1:48796 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-19 00:15:09,687 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:15:09,688 INFO api conversa usuario=p6_p6-bdfc1179724f_u01 provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=1437
+INFO:     127.0.0.1:48796 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-19 00:15:12,126 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:15:12,127 INFO api conversa usuario=p6_p6-bdfc1179724f_u01 provedor=ollama modelo=qwen2.5-coder:3b memorias=2 latencia_ms=2429
+INFO:     127.0.0.1:48796 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-19 00:15:13,691 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:15:13,692 INFO api conversa usuario=p6_p6-bdfc1179724f_u01 provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1554
+INFO:     127.0.0.1:48796 - "POST /conversas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48796 - "GET /usuarios/p6_p6-bdfc1179724f_u01/estado-regras HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48908 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [52]
+INFO:     Started server process [54]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:53911 (Press CTRL+C to quit)
+INFO:     127.0.0.1:49010 - "GET /saude HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49020 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49022 - "POST /usuarios/p6_p6-bdfc1179724f_u02/sessoes HTTP/1.1" 204 No Content
+INFO:     127.0.0.1:49038 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49048 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49058 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49064 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+2026-11-19 00:15:16,368 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:15:16,370 INFO api conversa usuario=p6_p6-bdfc1179724f_u02 provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=824
+INFO:     127.0.0.1:49022 - "POST /conversas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49022 - "GET /usuarios/p6_p6-bdfc1179724f_u02/estado-regras HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49080 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49084 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49090 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49092 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+2026-11-19 00:15:16,432 INFO api conversa usuario=p6_p6-bdfc1179724f_u02 provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=0
+INFO:     127.0.0.1:49022 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-19 00:15:17,765 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:15:17,766 INFO api conversa usuario=p6_p6-bdfc1179724f_u02 provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1324
+INFO:     127.0.0.1:49022 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-19 00:15:19,108 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:15:19,109 INFO api conversa usuario=p6_p6-bdfc1179724f_u02 provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1331
+INFO:     127.0.0.1:49022 - "POST /conversas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49022 - "GET /usuarios/p6_p6-bdfc1179724f_u02/estado-regras HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55378 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [54]
+INFO:     Started server process [56]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:53911 (Press CTRL+C to quit)
+INFO:     127.0.0.1:55442 - "GET /saude HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55458 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55464 - "POST /usuarios/p6_p6-bdfc1179724f_u03/sessoes HTTP/1.1" 204 No Content
+2026-11-19 00:15:24,260 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:15:24,261 INFO api conversa usuario=p6_p6-bdfc1179724f_u03 provedor=ollama modelo=qwen2.5-coder:3b memorias=3 latencia_ms=3606
+INFO:     127.0.0.1:55464 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-19 00:15:25,839 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:15:25,840 INFO api conversa usuario=p6_p6-bdfc1179724f_u03 provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1569
+INFO:     127.0.0.1:55464 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-19 00:15:27,571 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:15:27,572 INFO api conversa usuario=p6_p6-bdfc1179724f_u03 provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=1721
+INFO:     127.0.0.1:55464 - "POST /conversas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55464 - "GET /usuarios/p6_p6-bdfc1179724f_u03/estado-regras HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55478 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [56]
+INFO:     Started server process [58]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:53911 (Press CTRL+C to quit)
+INFO:     127.0.0.1:55528 - "GET /saude HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55542 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46222 - "POST /usuarios/p6_p6-bdfc1179724f_u04/sessoes HTTP/1.1" 204 No Content
+2026-11-19 00:15:30,312 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:15:30,314 INFO api conversa usuario=p6_p6-bdfc1179724f_u04 provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=954
+INFO:     127.0.0.1:46222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-19 00:15:30,849 INFO httpx HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-19 00:15:30,850 INFO api conversa usuario=p6_p6-bdfc1179724f_u04 provedor=ollama modelo=qwen2.5-coder:3b memorias=1 latencia_ms=526
+INFO:     127.0.0.1:46222 - "POST /conversas HTTP/1.1" 200 OK
+2026-11-19 00:15:30,861 INFO api conversa usuario=p6_p6-bdfc1179724f_u04 provedor=ollama modelo=qwen2.5-coder:3b memorias=0 latencia_ms=1
+INFO:     127.0.0.1:46222 - "POST /conversas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46222 - "GET /usuarios/p6_p6-bdfc1179724f_u04/estado-regras HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46234 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [58]
+INFO:     Started server process [60]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:53911 (Press CTRL+C to quit)
+INFO:     127.0.0.1:46296 - "GET /saude HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46300 - "POST /avaliacao/ram HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [60]

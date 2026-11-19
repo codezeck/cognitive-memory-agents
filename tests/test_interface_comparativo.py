@@ -77,6 +77,19 @@ def test_wrapper_nao_sobrescreve_relatorio(monkeypatch, tmp_path):
     assert caminho.read_text(encoding="utf-8") == "original"
 
 
+def test_dataset_invalido_e_recusado_antes_de_iniciar_api(monkeypatch, tmp_path):
+    dataset = tmp_path / 'invalido.json'
+    dataset.write_text('[{"id":"sem-anotacoes"}]', encoding='utf-8')
+    monkeypatch.setattr(sys, 'argv', ['comparativo', '--dataset', str(dataset),
+                                    '--saida', str(tmp_path / 'resultado.json')])
+    def proibido(*args, **kwargs):
+        raise AssertionError('Não iniciar API nem modelo com dataset inválido')
+    monkeypatch.setattr(comparativo.subprocess, 'Popen', proibido)
+    with pytest.raises(SystemExit):
+        comparativo.main()
+    assert not (tmp_path / 'resultado.json').exists()
+
+
 def test_somente_uma_execucao_e_resultados_por_usuario(monkeypatch, tmp_path):
     monkeypatch.delenv("USAR_FALSOS", raising=False)
     monkeypatch.setenv("DB_PATH", str(tmp_path / "conversa.db"))

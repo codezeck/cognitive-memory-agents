@@ -1,5 +1,7 @@
 # Guia de avaliação
 
+**Rodadas de 18/11:** o [relatório atual](melhorias-avaliacao-20261118.md) documenta desenvolvimento, P6 real e conjunto separado de teste, com comandos, hashes, denominadores e resultados negativos. Para repetir a coleta operacional em nova instância, use `python -B -m tools.executar_p6_local` conforme a [decisão de protocolo](revisao-experimental/decisao-20261118.md). O wrapper `python -B -m src.interface.comparativo` agora aceita `--dataset CAMINHO` e valida as anotações antes de iniciar a API. O baseline desliga a política compacta. A pesquisa e as evidências continuam sujeitas à revisão humana e aos itens finais de entrega.
+
 Como reproduzir as avaliações do projeto e como ler as métricas. Comandos para Windows (PowerShell), na raiz do repositório.
 
 OpenAI opcional: [preparação do chat e comparativo por API](openai-opcional.md), sem pesos Ollama no modo remoto. O wrapper aceita `--provedor openai`; exige chave/créditos no servidor. ChatGPT Free não fornece essa credencial. Integração preparada e testada com SDK simulado, sem rodada real OpenAI nem liberação de P6.

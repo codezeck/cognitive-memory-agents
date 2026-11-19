@@ -5,3 +5,8 @@ evidencias/agente/validacao-docker-20261114-* -text -whitespace
 evidencias/agente/preparacao-openai-20261115/** -text -whitespace
 evidencias/entrega/** -text -whitespace
 docs/pesquisa-abnt.pdf binary
+
+evidencias/contexto-v3-20261118/** -text -whitespace
+evidencias/melhorias-20261118/** -text -whitespace
+evidencias/entrega-v3-20261118/*.log -text -whitespace
+third_party/licenses/** -text -whitespace

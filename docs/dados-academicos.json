@@ -1,0 +1,16 @@
+{
+  "instituicao": "Faculdade União Chinita",
+  "disciplina": "Projeto Integrador",
+  "curso_identificador": "EAD_PROINT_100.DD-ADS-PI-10-74.2026.74",
+  "integrantes": [
+    "Ezequiel da Silva Manço",
+    "Vinícius Silva Dos Santos",
+    "Paloma Quimbely de Lima Silva"
+  ],
+  "composicao_validada": true,
+  "composicao_fonte": "Confirmação explícita do usuário nesta sessão, em 18/11/2026.",
+  "cidade": null,
+  "professor": null,
+  "omitir_cidade_e_professor": true,
+  "observacao": "Instituição transcrita conforme informada pelo usuário. Cidade e professor omitidos por instrução expressa; não são pendências."
+}

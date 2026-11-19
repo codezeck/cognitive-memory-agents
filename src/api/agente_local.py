@@ -23,8 +23,9 @@ from src.modelos.openai_adapter import OpenAIAdapter
 class AgenteLocal:
     """Liga a API aos adaptadores de modelos disponíveis."""
 
-    def __init__(self):
+    def __init__(self, *, contexto_compacto=True):
         self._adaptadores: dict[tuple[str, str], object] = {}
+        self.contexto_compacto = contexto_compacto
 
     def _adaptador(self, provedor: str, modelo: str):
         # A allowlist é responsabilidade do catálogo da API. Aqui validamos
@@ -80,6 +81,8 @@ class AgenteLocal:
 
         if "retornar_detalhes" in parametros:
             extras["retornar_detalhes"] = True
+        if "contexto_compacto" in parametros:
+            extras["contexto_compacto"] = self.contexto_compacto
 
         try:
             texto = agente_mod.responder(
@@ -139,3 +142,25 @@ class AgenteLocal:
 
     def nova_sessao(self, usuario_id: str) -> None:
         agente_mod.limpar_historico(usuario_id)
+
+    def registrar_operacao(self, usuario_id, mensagem, resultados, selecao):
+        from src.memoria.regras import somente_operacoes
+        if not self.contexto_compacto or not somente_operacoes(mensagem):
+            return None
+        efeitos = {r.efeito for r in resultados}
+        if not efeitos:
+            return None
+        self._adaptador(selecao.provedor, selecao.modelo)  # valida seleção; não gera
+        if efeitos <= {'salvo', 'atualizado', 'duplicado'}:
+            resposta = 'Memória registrada.'
+            historico = agente_mod.obter_historico(usuario_id)
+            historico.extend([{'role': 'user', 'content': mensagem},
+                              {'role': 'assistant', 'content': resposta}])
+            historico[1:] = historico[1:][-agente_mod.MAX_INTERACOES_HISTORICO * 2:]
+        elif efeitos <= {'esquecido', 'usuario_apagado', 'inexistente', 'conflito_ignorado'}:
+            resposta = ('Memórias removidas.' if efeitos & {'esquecido', 'usuario_apagado'}
+                        else 'Nenhuma memória foi alterada.')
+            # Não recolocar um valor esquecido na RAM ao confirmar a operação.
+        else:
+            return None
+        return ResultadoAgente(resposta, origem_uso='politica_local', chamadas_modelo_observadas=0)

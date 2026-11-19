@@ -1,0 +1,25 @@
+cenario,id,repeticao,resposta,esperado
+sem_memoria,TST001,1,São Paulo,DESCONHECIDO
+memoria_persistente_api,TST001,1,São Paulo,Curitiba
+memoria_regras_api,TST001,1,SÃO PAULO,Curitiba
+historico_completo,TST003,1,Jogar basquete.,DESCONHECIDO
+memoria_regras_api,TST004,1,Gol,DESCONHECIDO
+historico_completo,TST005,1,Rafael,DESCONHECIDO
+historico_completo,TST007,1,NATUALMENTE,corrida
+sem_memoria,TST008,1,CARRO,DESCONHECIDO
+memoria_persistente_api,TST008,1,DESCONHECIDO,Argo
+memoria_regras_api,TST008,1,HONDA CRV,Argo
+memoria_persistente_api,TST001,2,Londres,Curitiba
+memoria_regras_api,TST001,2,São Paulo,Curitiba
+memoria_regras_api,TST004,2,Gol,DESCONHECIDO
+historico_completo,TST005,2,Rafael,DESCONHECIDO
+memoria_persistente_api,TST008,2,Fiat Uno,Argo
+memoria_regras_api,TST008,2,Carro,Argo
+sem_memoria,TST001,3,São Paulo,DESCONHECIDO
+memoria_persistente_api,TST001,3,São Paulo,Curitiba
+memoria_regras_api,TST001,3,São Paulo,Curitiba
+historico_completo,TST003,3,Natação,DESCONHECIDO
+memoria_regras_api,TST004,3,Gol,DESCONHECIDO
+historico_completo,TST005,3,RAFAEL,DESCONHECIDO
+memoria_persistente_api,TST008,3,Carro,Argo
+memoria_regras_api,TST008,3,Ferrari,Argo

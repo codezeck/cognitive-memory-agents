@@ -1,0 +1,326 @@
+[
+  {
+    "nome": "annotated-doc",
+    "versao_instalada": "0.0.5",
+    "versao_fixada": "0.0.5",
+    "licenca_declarada": "MIT",
+    "textos_incluidos": [
+      {
+        "arquivo": "third_party/licenses/python/annotated-doc/LICENSE",
+        "sha256": "fff170779a6acbf65abdb405c087f1cee1786691e4a96a4034517e4a504a0cdf"
+      }
+    ]
+  },
+  {
+    "nome": "annotated-types",
+    "versao_instalada": "0.8.0",
+    "versao_fixada": "0.8.0",
+    "licenca_declarada": "MIT",
+    "textos_incluidos": [
+      {
+        "arquivo": "third_party/licenses/python/annotated-types/LICENSE",
+        "sha256": "fe1049884b1a0d9342901e88e07f32925d24b3121d9972b6a6805fb9824b095d"
+      }
+    ]
+  },
+  {
+    "nome": "anyio",
+    "versao_instalada": "4.15.1",
+    "versao_fixada": "4.15.1",
+    "licenca_declarada": "MIT",
+    "textos_incluidos": [
+      {
+        "arquivo": "third_party/licenses/python/anyio/LICENSE",
+        "sha256": "5361ac9dc58f2ef5fd2e9b09c68297c17f04950909bbc8023bdb82eacf22c2b0"
+      }
+    ]
+  },
+  {
+    "nome": "certifi",
+    "versao_instalada": "2026.10.19",
+    "versao_fixada": "2026.10.19",
+    "licenca_declarada": "MPL-2.0",
+    "textos_incluidos": [
+      {
+        "arquivo": "third_party/licenses/python/certifi/LICENSE",
+        "sha256": "e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7"
+      }
+    ]
+  },
+  {
+    "nome": "click",
+    "versao_instalada": "8.5.0",
+    "versao_fixada": "8.5.0",
+    "licenca_declarada": "BSD-3-Clause",
+    "textos_incluidos": [
+      {
+        "arquivo": "third_party/licenses/python/click/LICENSE.txt",
+        "sha256": "9a8ad106a394e853bfe21f42f4e72d592819a22805d991b5f3275029292b658d"
+      }
+    ]
+  },
+  {
+    "nome": "colorama",
+    "versao_instalada": "0.4.6",
+    "versao_fixada": "0.4.6",
+    "licenca_declarada": "License :: OSI Approved :: BSD License",
+    "textos_incluidos": [
+      {
+        "arquivo": "third_party/licenses/python/colorama/LICENSE.txt",
+        "sha256": "cac35c02686e5d04a5a7140bfb3b36e73aed496656e891102e428886d7930318"
+      }
+    ]
+  },
+  {
+    "nome": "fastapi",
+    "versao_instalada": "0.162.0",
+    "versao_fixada": "0.162.0",
+    "licenca_declarada": "MIT",
+    "textos_incluidos": [
+      {
+        "arquivo": "third_party/licenses/python/fastapi/LICENSE",
+        "sha256": "4ec89ffc81485b97fec584b2d4a961032eeffe834453894fd9c1274906cc744e"
+      }
+    ]
+  },
+  {
+    "nome": "h11",
+    "versao_instalada": "0.16.0",
+    "versao_fixada": "0.16.0",
+    "licenca_declarada": "MIT",
+    "textos_incluidos": [
+      {
+        "arquivo": "third_party/licenses/python/h11/LICENSE.txt",
+        "sha256": "37db5bb85926db28a427a25867f10b1232003aea1be69ccb851138adb8e6f361"
+      }
+    ]
+  },
+  {
+    "nome": "httpcore",
+    "versao_instalada": "1.0.9",
+    "versao_fixada": "1.0.9",
+    "licenca_declarada": "BSD-3-Clause",
+    "textos_incluidos": [
+      {
+        "arquivo": "third_party/licenses/python/httpcore/LICENSE.md",
+        "sha256": "fdcb59154c74cbaba16a11242f7740bea9f23d6feb5547917d8c5f94a80392a5"
+      }
+    ]
+  },
+  {
+    "nome": "httpx",
+    "versao_instalada": "0.28.1",
+    "versao_fixada": "0.28.1",
+    "licenca_declarada": "BSD-3-Clause",
+    "textos_incluidos": [
+      {
+        "arquivo": "third_party/licenses/python/httpx/LICENSE.md",
+        "sha256": "4ec59d544f12b5f539a3a716fd321ac58ccd8030b465221f2c880200cdf28d8d"
+      }
+    ]
+  },
+  {
+    "nome": "idna",
+    "versao_instalada": "3.20",
+    "versao_fixada": "3.20",
+    "licenca_declarada": "BSD-3-Clause",
+    "textos_incluidos": [
+      {
+        "arquivo": "third_party/licenses/python/idna/LICENSE.md",
+        "sha256": "1a9a4f0e3d479a27240ddd59a9137a66ab4a0f9dfdc8ca6188cc0bfd85187f04"
+      }
+    ]
+  },
+  {
+    "nome": "iniconfig",
+    "versao_instalada": "2.3.1",
+    "versao_fixada": "2.3.1",
+    "licenca_declarada": "MIT",
+    "textos_incluidos": [
+      {
+        "arquivo": "third_party/licenses/python/iniconfig/LICENSE",
+        "sha256": "3409fa91f7ace557894632676656e32264fe5ef7581535725dc9a23774551bd4"
+      }
+    ]
+  },
+  {
+    "nome": "ollama",
+    "versao_instalada": "0.6.3",
+    "versao_fixada": "0.6.3",
+    "licenca_declarada": "MIT",
+    "textos_incluidos": [
+      {
+        "arquivo": "third_party/licenses/python/ollama/LICENSE",
+        "sha256": "5934ed2ce0d15154bcdb9c85203210abac0da4314af34081e36df4599f90b226"
+      }
+    ]
+  },
+  {
+    "nome": "openai",
+    "versao_instalada": "3.39.0",
+    "versao_fixada": "3.39.0",
+    "licenca_declarada": "Apache-2.0",
+    "textos_incluidos": [
+      {
+        "arquivo": "third_party/licenses/python/openai/LICENSE",
+        "sha256": "636eb7d79da9bb6d515a4b3fd417aa26679eb3cf16396ddab4bc55fa74e616e4"
+      }
+    ]
+  },
+  {
+    "nome": "opentelemetry-api",
+    "versao_instalada": "1.45.1",
+    "versao_fixada": "1.45.1",
+    "licenca_declarada": "Apache-2.0",
+    "textos_incluidos": [
+      {
+        "arquivo": "third_party/licenses/python/opentelemetry-api/LICENSE",
+        "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+      }
+    ]
+  },
+  {
+    "nome": "packaging",
+    "versao_instalada": "26.3",
+    "versao_fixada": "26.3",
+    "licenca_declarada": "Apache-2.0 OR BSD-2-Clause",
+    "textos_incluidos": [
+      {
+        "arquivo": "third_party/licenses/python/packaging/LICENSE",
+        "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48"
+      },
+      {
+        "arquivo": "third_party/licenses/python/packaging/LICENSE.APACHE",
+        "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+      },
+      {
+        "arquivo": "third_party/licenses/python/packaging/LICENSE.BSD",
+        "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5"
+      }
+    ]
+  },
+  {
+    "nome": "pluggy",
+    "versao_instalada": "1.7.0",
+    "versao_fixada": "1.7.0",
+    "licenca_declarada": "MIT",
+    "textos_incluidos": [
+      {
+        "arquivo": "third_party/licenses/python/pluggy/LICENSE",
+        "sha256": "d6b65e6c213a5d0b577911d34d6e5949b9f59d76c238c5071a2f3fc16cfb2606"
+      }
+    ]
+  },
+  {
+    "nome": "pydantic",
+    "versao_instalada": "2.14.1",
+    "versao_fixada": "2.14.1",
+    "licenca_declarada": "MIT",
+    "textos_incluidos": [
+      {
+        "arquivo": "third_party/licenses/python/pydantic/LICENSE",
+        "sha256": "a9e186f3ca16b5eef84318e7a701721351a00cb7b8ae3a4394b67b49e3529ef3"
+      }
+    ]
+  },
+  {
+    "nome": "pydantic_core",
+    "versao_instalada": "2.50.1",
+    "versao_fixada": "2.50.1",
+    "licenca_declarada": "MIT",
+    "textos_incluidos": [
+      {
+        "arquivo": "third_party/licenses/python/pydantic-core/LICENSE",
+        "sha256": "fbe7f615f18d135c07000e5a86325db27f42c7729699ef166ac1f7a3f4586bf4"
+      }
+    ]
+  },
+  {
+    "nome": "Pygments",
+    "versao_instalada": "2.21.0",
+    "versao_fixada": "2.21.0",
+    "licenca_declarada": "BSD-2-Clause",
+    "textos_incluidos": [
+      {
+        "arquivo": "third_party/licenses/python/pygments/AUTHORS",
+        "sha256": "71a83872ad82f57be692cf827e048e2cd51d45169cfa1ea3f28706d97a872c0f"
+      },
+      {
+        "arquivo": "third_party/licenses/python/pygments/LICENSE",
+        "sha256": "a9d66f1d526df02e29dce73436d34e56e8632f46c275bbdffc70569e882f9f17"
+      }
+    ]
+  },
+  {
+    "nome": "pytest",
+    "versao_instalada": "9.1.1",
+    "versao_fixada": "9.1.1",
+    "licenca_declarada": "MIT",
+    "textos_incluidos": [
+      {
+        "arquivo": "third_party/licenses/python/pytest/LICENSE",
+        "sha256": "ca836a5f9ecca3b2f350230faa20a48fb8b145653b5568d784862df864706b9b"
+      }
+    ]
+  },
+  {
+    "nome": "starlette",
+    "versao_instalada": "1.10.0",
+    "versao_fixada": "1.10.0",
+    "licenca_declarada": "BSD-3-Clause",
+    "textos_incluidos": [
+      {
+        "arquivo": "third_party/licenses/python/starlette/LICENSE.md",
+        "sha256": "dcb95677a02240243187e964f941847d19b17821cf99e5afae684fab328c19bf"
+      }
+    ]
+  },
+  {
+    "nome": "typing_extensions",
+    "versao_instalada": "4.16.0",
+    "versao_fixada": "4.16.0",
+    "licenca_declarada": "PSF-2.0",
+    "textos_incluidos": [
+      {
+        "arquivo": "third_party/licenses/python/typing-extensions/LICENSE",
+        "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf"
+      }
+    ]
+  },
+  {
+    "nome": "typing-inspection",
+    "versao_instalada": "0.4.4",
+    "versao_fixada": "0.4.4",
+    "licenca_declarada": "MIT",
+    "textos_incluidos": [
+      {
+        "arquivo": "third_party/licenses/python/typing-inspection/LICENSE",
+        "sha256": "804b59b25f2c31bd278f9202a19ae49a3945aa2664387e2d0a128c7cacc61ec3"
+      }
+    ]
+  },
+  {
+    "nome": "uvicorn",
+    "versao_instalada": "0.54.0",
+    "versao_fixada": "0.54.0",
+    "licenca_declarada": "BSD-3-Clause",
+    "textos_incluidos": [
+      {
+        "arquivo": "third_party/licenses/python/uvicorn/LICENSE.md",
+        "sha256": "efe1acf3e62fb99c288b0ec73e5a773b7268ef4320fe757ea994214e4b63c371"
+      }
+    ]
+  },
+  {
+    "nome": "ruff",
+    "versao_instalada": "0.14.5",
+    "versao_fixada": "0.14.5",
+    "licenca_declarada": "License :: OSI Approved :: MIT License",
+    "textos_incluidos": [
+      {
+        "arquivo": "third_party/licenses/python/ruff/LICENSE",
+        "sha256": "2597d854122b77ddc71971564ca2350a37608575ce324adc5650a2b2051c8f18"
+      }
+    ]
+  }
+]

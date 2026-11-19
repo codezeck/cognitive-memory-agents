@@ -1,6 +1,6 @@
 # Manual do professor: Docker e chat real
 
-Versão local de 14/11/2026, sem publicação. PRs #41/#42/#43 integradas na base `2be5d51`; alterações posteriores aguardam revisão. Usa Ollama e SQLite reais, sem chave paga.
+Versão candidata v3 de 18/11/2026. Publicação, instalação e revisão são registradas no [índice da candidata](../evidencias/entrega-v3-20261118/README.md). Usa Ollama e SQLite reais, sem chave paga.
 
 ## Preparação e acesso
 
@@ -49,6 +49,8 @@ docker compose --env-file .env.example restart api
 
 Se iniciou com outro projeto, acrescente `-p cma-professor` antes de `restart`. **Nova sessão** limpa o histórico transitório, preservando SQLite. **Reinício** substitui o processo, preservando banco e credenciais nos volumes. Fechar a aba não apaga memórias. Os perfis locais são compartilhados por quem acessar essa instalação.
 
+Capturas abaixo: ensaio histórico de 14/11; galeria atual no índice da candidata.
+
 ![Recuperação real](../evidencias/entrega/20261114-entrega-ae9eb113/r04-02-recuperacao.png)
 
 ![Abstenção após exclusão](../evidencias/entrega/20261114-entrega-ae9eb113/r04-05-abstencao.png)
@@ -71,4 +73,4 @@ docker compose --env-file .env.example down
 
 Use o mesmo `-p` se escolheu outro projeto. **Não acrescente `-v`**. Para ensaio novo, escolha outro projeto sem apagar volumes anteriores. Banco, pesos e credenciais têm volumes separados.
 
-Esta é uma demonstração local em loopback. Publicação na internet exige desligar `MODO_DEMONSTRACAO`, configurar identidades reais, transporte seguro e revisão de segurança. O modelo tem licença própria Qwen Research; conferir condições antes de outro uso. A guarda pessoal possui gramática limitada. O ensaio não substitui as 20 sessões P6 nem comprova economia global de tokens.
+Esta é uma demonstração local em loopback. Publicação na internet exige desligar `MODO_DEMONSTRACAO`, configurar identidades reais, transporte seguro e revisão de segurança. O modelo tem licença própria Qwen Research; conferir condições antes de outro uso. A guarda pessoal possui gramática limitada. A [P6 v3](acertos-tokens-contexto-v3.md) foi executada separadamente: o percurso do manual não a substitui nem demonstra economia universal de tokens.

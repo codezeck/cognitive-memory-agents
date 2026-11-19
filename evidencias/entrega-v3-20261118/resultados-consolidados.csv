@@ -1,0 +1,5 @@
+rodada,cenario,aprovados_p4,tentativas,tokens_pareados,pares_medidos,pares_previstos
+p6,memoria_automatica,21,21,3593,20,20
+p6,historico_completo,8,21,22228,20,20
+validacao_16x3,memoria_automatica,48,48,6025,47,48
+validacao_16x3,historico_completo,36,48,39844,47,48

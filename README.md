@@ -2,6 +2,7 @@
 
 **Curso:** EAD_PROINT_100.DD-ADS-PI-10-74.2026.74  
 **Disciplina:** Projeto Integrador
+**Instituição:** Faculdade União Chinita
 
 **Integrantes:**
 - Ezequiel da Silva Manço — RA: 2410701
@@ -13,6 +14,10 @@ Este projeto corresponde ao Tema 11 de um conjunto de 16 temas propostos para a 
 ---
 
 ## 1. Sobre o projeto
+
+**Versão atual em desenvolvimento — contexto v3:** confirmações de operações reconhecidas são locais; perguntas factuais continuam no modelo com contexto reduzido. Na nova validação sintética, a memória automática teve 48/48 aprovações P4 e economia de 84,88% em 47/48 pares medidos (um timeout do baseline). Na P6, teve 21/21 aprovações e usou 3.593 contra 22.228 tokens de sessão, economia de 83,84% nos 20 pares. São resultados dos casos medidos, sem garantia de generalização ou equivalência estatística. Consulte [acertos, tokens, uso local e limites da v3](docs/acertos-tokens-contexto-v3.md). O [PDF v3](docs/pesquisa-abnt.pdf) incorpora a avaliação atual (16 páginas textuais). Consulte o [checklist](docs/checklist-entrega.md) e o [índice de evidências](evidencias/entrega-v3-20261118/README.md). Código sob [MIT](LICENSE), com [licenças de terceiros](docs/licencas.md) separadas.
+
+**Registro histórico da v2, 18/11/2026:** melhorias de consulta, busca por chave e contexto compacto foram avaliadas com Ollama real. A P6 local executou 20 sessões por cenário, com persistência e exclusão observadas; houve redução de 25,27% dos tokens completos. No teste separado, porém, a memória automática aprovou 21/30 respostas contra 24/30 do histórico e teve economia de 2,40%. As metas adicionais não foram atingidas; permanecem falhas de paráfrase e negação. Veja o [relatório com resultados, cobertura e limitações](docs/melhorias-avaliacao-20261118.md) e a [decisão de protocolo](docs/revisao-experimental/decisao-20261118.md). Essa rodada foi sucedida pela v3 descrita acima; seus resultados negativos permanecem preservados.
 
 **Execução local atual:** com Docker Desktop aberto, execute `.\Iniciar.ps1` na raiz ou `docker compose --env-file .env.example up --build`. Acesse **http://127.0.0.1:8001/** para conversar. O preparo inicia Ollama, baixa `qwen2.5-coder:3b`, confirma carregamento e gera acesso local automaticamente, sem copiar tokens. Primeira execução exige internet/download; dados, pesos e identidade ficam em volumes. Não é necessário instalar Ollama/Python no host. Consulte o [manual com capturas](docs/manual-professor.md), a [matriz de requisitos](docs/andamento-entrega.md) e o [relatório real](docs/validacao-entrega-docker.md). A demonstração é local, com perfis sintéticos; não deve ser exposta na internet.
 
@@ -109,7 +114,7 @@ Toda evolução deve preservar a modularidade, a segurança e o comportamento j�
 - [Dados e modelo](docs/dados-modelos.md): origem, versão efetiva, licença e limites do ensaio local.
 - [Material opcional OpenAI, fora do escopo da entrega](docs/openai-opcional.md): configuração preservada, sem validação real. A decisão de 15/11 mantém Ollama para demonstração e avaliações, sem exigir assinatura ou créditos de API.
 
-O julgador `p4-v3` reconhece os treze atributos usados pela avaliação. As 21 anotações oficiais P6 são estruturalmente compatíveis; a interpretação de `u03/s4/pergunta3` ainda exige revisão de Vinicius. Isso não comprova 21 respostas corretas do chatbot. A rodada real depende do contrato de esquecimento e das evidências operacionais descritos no guia.
+O julgador `p4-v3` reconhece os treze atributos usados pela avaliação. A decisão local de 18/11 separou a recuperação de Luna/Simba da resposta de quantidade dois, preservando as 21 anotações oficiais. A rodada real coletou todas as respostas, mas onze julgamentos ficaram não verificados pelo P4. A análise textual assistida por IA é complementar e não substitui revisão humana; compatibilidade estrutural não significa respostas corretas.
 
 ## API
 

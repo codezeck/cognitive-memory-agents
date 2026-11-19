@@ -18,6 +18,7 @@ class Evento:
     tipo: str
     texto: str | None = None
     chaves: tuple[str, ...] = ()
+    estado_vazio_esperado: bool = False
 
 
 class Transporte(Protocol):

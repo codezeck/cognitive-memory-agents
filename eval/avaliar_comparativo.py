@@ -368,7 +368,7 @@ def metricas(chamadas: list[dict]) -> dict:
 
 def executar_historico(caso: dict, provedor: str, modelo: str) -> list[dict]:
     """Executa o controle pelo agente, sem extração ou busca de memórias."""
-    agente = AgenteLocal()
+    agente = AgenteLocal(contexto_compacto=False)
     selecao = SelecaoModelo(provedor.lower(), modelo)
     chamadas = []
 

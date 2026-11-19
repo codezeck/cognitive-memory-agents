@@ -20,7 +20,7 @@ from typing import Callable
 
 from src.memoria.base import MemoriaLongoPrazo
 from src.memoria.regras import (
-    APAGAR_USUARIO, ESQUECER, SALVAR, Decisao, extrair, normalizar,
+    APAGAR_USUARIO, ESQUECER, ESQUECER_VALOR, SALVAR, Decisao, extrair, normalizar,
 )
 
 
@@ -117,6 +117,16 @@ class GerenciadorMemoria:
         }
     def _aplicar(self, uid: str, d: Decisao) -> str:
         indice = self._indice.setdefault(uid, {})
+
+        if d.acao == ESQUECER_VALOR:
+            valor = normalizar(d.valor or '')
+            alvos = [chave for chave, entrada in indice.items()
+                     if entrada.get('ativo', True) and valor and
+                     (entrada.get('norm') == valor or (entrada.get('norm') or '').startswith(valor + ' '))]
+            if len(alvos) != 1:
+                return 'conflito_ignorado'
+            # O valor deve identificar uma única chave ATUAL do usuário.
+            return self._aplicar(uid, Decisao(ESQUECER, chave=alvos[0]))
 
         if d.acao == APAGAR_USUARIO:
             self.limpar_usuario(uid)

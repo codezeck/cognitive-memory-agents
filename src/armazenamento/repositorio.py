@@ -8,6 +8,7 @@ from datetime import datetime, timezone
 
 from src.armazenamento.banco import conectar
 from src.memoria.embeddings import Embedder, EmbedderHash
+from src.memoria.consultas import selecionar_por_chave
 
 
 def _agora() -> str:
@@ -99,17 +100,21 @@ class MemoriaSQLite:
         if not consulta.strip() or k <= 0:
             return []
 
-        consulta_vetor = self.embedder.embed([consulta])[0]
-
         with self._lock:
             registros = self._con.execute(
                 """
-                SELECT id, texto, vetor
+                SELECT id, texto, vetor, chave
                 FROM memorias
                 WHERE usuario_id = ? AND ativa = 1
                 """,
                 (usuario_id,),
             ).fetchall()
+
+        estruturadas = selecionar_por_chave(consulta, [dict(r) for r in registros], k)
+        if estruturadas is not None:
+            return estruturadas
+
+        consulta_vetor = self.embedder.embed([consulta])[0]
 
         pontuadas = []
 
