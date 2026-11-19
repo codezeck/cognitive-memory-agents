@@ -1,6 +1,8 @@
 # Agente e provedores
 
-Responsável por agente, adaptadores, prompts e avaliação: Zeck. A referência dos endpoints permanece no [README](../README.md#api); instalação e experimentos estão no [guia de avaliação](guia-avaliacao.md).
+**Estado v3:** [arquitetura atual](decisoes-arquitetura.md), [avaliação real](acertos-tokens-contexto-v3.md) e [reprodução com Docker](reproduzir-avaliacao-v3.md). Os ensaios datados abaixo são históricos.
+
+Responsável por agente, adaptadores, prompts e avaliação: Zeck. A referência dos endpoints permanece no [README](api.md); instalação e experimentos estão no [guia de avaliação](guia-avaliacao.md).
 
 ## Execução local
 

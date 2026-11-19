@@ -1,5 +1,7 @@
 # Resultados existentes do agente: tabelas, figuras e limites
 
+**Referência atual — v3:** P6 e validação sintética já executadas; resultados, denominadores e limites em [relatório v3](acertos-tokens-contexto-v3.md). Para repetir com Docker, use o [roteiro atual](reproduzir-avaliacao-v3.md). As seções datadas abaixo conservam protocolos e estados anteriores; pendências antigas não representam o estado atual.
+
 **18/11/2026:** há novas rodadas reais de desenvolvimento, P6 e teste separado no [relatório atualizado](melhorias-avaliacao-20261118.md). A redução P6 foi 25,27%, mas o teste separado teve perda de 10 pontos percentuais de aprovações e economia de 2,40%. Metas adicionais não atingidas. As seções abaixo permanecem um inventário histórico; não foram substituídas pelos números novos.
 
 Inventário documental de 12/11/2026, sobre `master` `fc759f3`. Apenas leitura dos arquivos e agregação descritiva dos registros existentes; não houve geração por LLM, novo julgamento de respostas, alteração de datasets ou sobrescrita de resultados.

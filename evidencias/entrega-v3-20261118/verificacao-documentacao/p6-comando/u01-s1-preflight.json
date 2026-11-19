@@ -1,0 +1,24 @@
+{
+  "evento_id": "u01/s1/preflight",
+  "coletado_em": "2026-11-19T02:17:10.693816+00:00",
+  "sqlite": [],
+  "ram": {
+    "versao_observador": "ram-v1",
+    "instancia_id": "bffa29364fa740c2a598c437959722f5",
+    "pid": 9,
+    "usuario_id": "p6_p6-fdc8cfdc5d63_u01",
+    "coletado_em": "2026-11-19T02:17:10.692093+00:00",
+    "escopo": "historico_do_usuario_neste_processo",
+    "processos_cobertos": 1,
+    "historico_existe": false,
+    "mensagens_total": 0,
+    "mensagens_sistema": 0,
+    "mensagens_usuario": 0,
+    "mensagens_assistente": 0,
+    "mensagens_pessoais": 0,
+    "alvos_no_historico": 0,
+    "mensagens_pessoais_sem_alvo": 0,
+    "ocorrencias_por_rotulo": {},
+    "limitacao": "Correspondencias literais normalizadas; avaliar sem escritores concorrentes e cobrir todos os workers relevantes."
+  }
+}

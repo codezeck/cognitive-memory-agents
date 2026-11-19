@@ -2,6 +2,20 @@
 
 Versão candidata v3 de 18/11/2026. Publicação, instalação e revisão são registradas no [índice da candidata](../evidencias/entrega-v3-20261118/README.md). Usa Ollama e SQLite reais, sem chave paga.
 
+## Baixar a versão correta pelo GitHub
+
+Enquanto o PR #45 não estiver integrado, a versão atual está na branch `fix/confiabilidade-contexto-memoria`; a `master` ainda contém a versão anterior. Instale Git somente se for clonar. Alternativa: selecionar essa branch no GitHub, clicar em **Code → Download ZIP**, extrair e abrir a pasta que contém `docker-compose.yml`.
+
+```powershell
+git clone --branch fix/confiabilidade-contexto-memoria https://github.com/codezeck/cognitive-memory-agents.git
+cd cognitive-memory-agents
+git rev-parse HEAD
+```
+
+Registre o SHA mostrado. Depois de publicada a tag `v1.0`, usar essa tag como versão de avaliação e conferir a correspondência entre código, vídeo e evidências. Quem já baixou a pasta deve começar a partir dela, sem clonar dentro de outra cópia.
+
+O percurso mínimo é: baixar a versão, iniciar Docker Desktop, executar o comando abaixo, aguardar o preparo do modelo, abrir o chat e conferir a tabela de ações. Python, Node e Ollama no host são necessários apenas nos caminhos opcionais de desenvolvimento, não no uso padrão do professor.
+
 ## Preparação e acesso
 
 Instale e inicie Docker Desktop com contêineres Linux e Compose. Abra PowerShell na raiz:
@@ -25,6 +39,16 @@ O comando preserva o `.env` existente. Se a porta estiver ocupada, não pare out
 ```
 
 Primeiro uso exige internet para imagens, dependências e pesos. A camada principal de `qwen2.5-coder:3b` teve **1.929.903.072 bytes**; o modelo completo informa 1.929.912.626 bytes. A imagem local Ollama informa **8.472.913.432 bytes** descomprimidos, além da imagem Python, dependências e banco; tamanho local não é o tráfego comprimido de download. O preparo aguarda Ollama saudável e confirma carregamento real; não há início instantâneo garantido. Foi ensaiado em CPU, com **8.164.077.568 bytes de RAM disponíveis ao Docker (7,60 GiB)**, sem GPU. Isso descreve o ambiente observado, não um mínimo universal. Reserve disco adicional para imagens, dependências, pesos e banco. Pesos e identidades são reutilizados nos próximos inícios; tags de modelos podem mudar no futuro, por isso a avaliação registra também o digest efetivo.
+
+## Conferir disponibilidade
+
+Após o log informar aplicação pronta, abra o chat no endereço mostrado pelo iniciador. Para conferir por PowerShell:
+
+```powershell
+Invoke-RestMethod http://127.0.0.1:8001/saude
+```
+
+Esperado: `status = ok`. Se iniciou em outra porta, use essa porta também no navegador e na consulta. `/docs` abre a referência OpenAPI; o chat em `/` prepara o acesso automaticamente.
 
 ## Ensaio sintético pela interface
 
@@ -64,6 +88,27 @@ Modelo ausente ou Ollama parado produz erro tratado. Falha de conexão com a API
 ![Erro real de modelo](../evidencias/entrega/20261114-entrega-ae9eb113/r04-06-falha-modelo.png)
 
 Busca vazia e abstenção não certificam exclusão completa. A validação inspecionou SQLite somente para leitura e contagens literais no processo real da API por observador opt-in, **desligado por padrão**. Consulte o [relatório](validacao-entrega-docker.md) e a [matriz](andamento-entrega.md).
+
+## Reproduzir testes e experimentos
+
+Para os testes de engenharia, seguir [testes e CI](testes-e-ci.md). Para medir qualidade e tokens com o modelo real em banco/API temporários, seguir [avaliação v3 com Docker](reproduzir-avaliacao-v3.md). Esse caminho não monta o banco do chat nem exige copiar suas credenciais. O [índice](../evidencias/entrega-v3-20261118/README.md) permite comparar fontes, versão, resultados e limites.
+
+## Problemas comuns
+
+| Sintoma | Conferência e ação |
+|---|---|
+| Docker não responde | Iniciar Docker Desktop e aguardar o mecanismo Linux |
+| Porta ocupada | Usar `Iniciar.ps1 -Porta 8002 -Projeto cma-professor`; não parar outro serviço |
+| Preparo demora | Acompanhar o download/carregamento; primeira execução não é instantânea |
+| Acesso expirou | Usar **Retomar acesso local**; não publicar cookies ou tokens |
+| Modelo indisponível ou timeout | Conferir logs do mesmo projeto e disponibilidade do Ollama; preservar o erro observado |
+| Resultado do LLM varia | Conferir modelo/digest e contexto; não substituir uma falha por resultado antigo |
+
+As capturas históricas abaixo complementam as anteriores, mostrando atualização e isolamento. Elas não são capturas novas da v3.
+
+![Atualização histórica do fato](../evidencias/entrega/20261114-entrega-ae9eb113/r04-03-atualizacao.png)
+
+![Isolamento histórico entre perfis](../evidencias/entrega/20261114-entrega-ae9eb113/r04-04-isolamento.png)
 
 ## Encerrar sem perder dados
 

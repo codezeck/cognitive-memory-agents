@@ -108,9 +108,9 @@ def main():
     elementos.append(PageBreak())
     p('COGNITIVE MEMORY AGENTS',centro)
     elementos.append(Spacer(1,3*cm))
-    p('Trabalho preparatório do Projeto Integrador sobre o Tema 11: memória de longo prazo para agentes. Consolida a contribuição de agente e avaliação com evidências operacionais da versão local. Não constitui submissão final.',corpo)
-    p('Grupo com três integrantes, composição validada pelo usuário em 18/11/2026. Instituição registrada conforme informada: '+academicos['instituicao']+'. Cidade e nome do professor foram omitidos por orientação expressa do usuário.',corpo)
-    p('Esta versão incorpora a avaliação v3, o inventário de evidências e a licença MIT autorizada pelo grupo. A P6 teve 21 respostas aprovadas da memória automática e redução de 83,84% dos tokens completos nos vinte pares medidos. A revisão humana e os registros finais de publicação são verificados separadamente no checklist.',corpo)
+    p('Trabalho de Projeto Integrador apresentado à '+academicos['instituicao']+' sobre o Tema 11: memória de longo prazo para agentes. O estudo documenta a arquitetura implementada, a avaliação experimental e as evidências operacionais de um chatbot com memória persistente.',corpo)
+    p('Autores: '+', '.join(academicos['integrantes'])+'. O projeto reúne as frentes de agente e avaliação, memória e conflitos, API e infraestrutura.',corpo)
+    p('A versão v3 incorpora resultados de qualidade e custo, limitações do julgador e rastreabilidade dos dados. A revisão final do grupo e os registros de publicação, demonstração e envio são acompanhados no checklist de entrega.',corpo)
     elementos.append(PageBreak());titulo('RESUMO')
     p('Este trabalho apresenta um agente conversacional com memória persistente por usuário, API, SQLite e Ollama. O objetivo é avaliar continuidade, atualização, esquecimento e custo em tokens, distinguindo geração de linguagem e evidências de armazenamento. A versão v3 confirma localmente operações inteiramente reconhecidas e usa contexto breve em consultas pessoais com suporte, mantendo o modelo nas respostas factuais e gerais. Na avaliação P6, vinte sessões por cenário produziram 42 respostas sem falhas técnicas. A memória automática teve 21 respostas aprovadas pelo P4; no histórico completo, oito foram aprovadas e doze ficaram sem julgamento conclusivo. O custo completo foi de 3.593 e 22.228 tokens, respectivamente, redução de 83,84% nos vinte pares medidos. Dezenove checkpoints de persistência após reinício e dois de exclusão foram verificados; a consistência de estado vazio foi analisada separadamente. Uma bateria sintética de dezesseis casos com três repetições teve 48 aprovações na memória automática e 36 no baseline, incluindo um timeout deste; a economia foi 84,88% nos 47 pares medidos. Os resultados anteriores negativos foram preservados. O estudo não é cego ou independente, não isola causalmente cada alteração e não comprova equivalência estatística, generalização irrestrita ou conformidade jurídica.')
     p('Palavras-chave: agentes de linguagem; memória contextual; avaliação; esquecimento; reprodutibilidade.',refs)
@@ -132,11 +132,12 @@ def main():
             if bloco.startswith('|'):continue
             if bloco.startswith('## '):p(bloco[3:],sub)
             else:p(' '.join(bloco.splitlines()))
+    secoes.update({2:blocos_v3['Introdução'],3:blocos_v3['Referencial teórico'],4:blocos_v3['Arquitetura v3'],5:blocos_v3['Protocolo e métricas']})
     for n,nome in [(2,'1 INTRODUÇÃO'),(3,'2 REFERENCIAL TEÓRICO'),(4,'3 METODOLOGIA')]:
         if n>2:elementos.append(PageBreak())
         titulo(nome);markdown(secoes[n])
     p('3.1 Protocolo e métricas',sub);markdown(secoes[5])
-    p('Os textos preparatórios a seguir registram a metodologia em 14/11. As pendências de execução mencionadas nesse registro foram tratadas pela decisão local de 18/11; a execução e os limites atuais constam da subseção 4.3. Não se atribui aprovação humana aos colegas.')
+    p('Os procedimentos operacionais a seguir foram desenvolvidos nos ensaios de integração e reutilizados no estudo. Os resultados históricos permanecem identificados por data; os resultados da v3 e seus limites constam das subseções 4.3 e 4.4.')
     suplemento=(ROOT/'docs/pesquisa-complemento.md').read_text(encoding='utf-8')
     markdown(suplemento[suplemento.index('## '):suplemento.index('## Resultado operacional')])
     p('3.2 Política de contexto e confirmação local v3',sub)
@@ -147,7 +148,7 @@ def main():
     markdown(secoes[6])
     p('4.2 Integração e ensaio de 14/11',sub)
     p('O ensaio de 14/11 validou o iniciador e o chat em Docker, incluindo erros tratados de modelo, conexão e autenticação. As capturas e os logs reais foram preservados. Esses ensaios operacionais não substituem as avaliações comparativas posteriores.')
-    elementos.append(KeepTogether([Paragraph('Figura 2 - Comparativo exploratório atual de desenvolvimento',figura),Image(str(FIG/'desenvolvimento.png'),width=15.5*cm,height=5.74*cm),Paragraph('Fonte: comparativo-desenvolvimento.json; P4-v3, P5-v1 e p3-uso-local-v1. Três repetições não são casos independentes.',legenda)]))
+    elementos.append(KeepTogether([Paragraph('Figura 2 - Comparativo exploratório de desenvolvimento (14/11)',figura),Image(str(FIG/'desenvolvimento.png'),width=15.5*cm,height=5.74*cm),Paragraph('Fonte: comparativo-desenvolvimento.json; P4-v3, P5-v1 e p3-uso-local-v1. Três repetições não são casos independentes.',legenda)]))
     dados=json.loads(arquivos['desenvolvimento'].read_text(encoding='utf-8'))
     celula=ParagraphStyle('Celula',parent=legenda,fontSize=10,leading=12,spaceAfter=0)
     linhas=[['Cenário','Conteúdo','Tokens da sessão','Cobertura']]
@@ -155,7 +156,7 @@ def main():
         s=dados['resumo'][c];linhas.append([nome,f"{s['aprovados']}/21",str(s['tokens_total']),'21/21'])
     tab=Table([[Paragraph(limpo(v),celula) for v in row] for row in linhas],colWidths=[5*cm,3*cm,4.5*cm,3.5*cm],repeatRows=1)
     tab.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),colors.HexColor('#e2e9e6')),('LINEBELOW',(0,0),(-1,0),0.6,colors.black),('LINEBELOW',(0,-1),(-1,-1),0.6,colors.black),('VALIGN',(0,0),(-1,-1),'TOP'),('TOPPADDING',(0,0),(-1,-1),7),('BOTTOMPADDING',(0,0),(-1,-1),7)]))
-    elementos.append(KeepTogether([Paragraph('Tabela 1 - Conteúdo e uso no desenvolvimento atual',tabela),tab,Spacer(1,6),Paragraph('Fonte: resumo bruto, sem novo julgamento; sessão inclui ingestão e pergunta final. Pré-carregada não mede aquisição.',legenda)]))
+    elementos.append(KeepTogether([Paragraph('Tabela 1 - Conteúdo e uso no desenvolvimento de 14/11',tabela),tab,Spacer(1,6),Paragraph('Fonte: resumo bruto, sem novo julgamento; sessão inclui ingestão e pergunta final. Pré-carregada não mede aquisição.',legenda)]))
     estudo=(ROOT/'docs/ensaio-desenvolvimento-20261114.md').read_text(encoding='utf-8')
     p('Na rodada exploratória de 14/11, a memória automática aprovou 17/21 respostas e consumiu 17.094 tokens, contra 12/21 e 16.017 no histórico: aumento de 6,72%, sem atingir a meta adicional. As 22 falhas de conteúdo dos quatro cenários foram mantidas. A pré-carregada não mede aquisição; repetir sete casos não produz 21 usuários independentes.')
     elementos.append(PageBreak())
@@ -174,15 +175,20 @@ def main():
     markdown(blocos_v3['Conclusão v3'])
     elementos.append(PageBreak());titulo('REFERÊNCIAS')
     referencias=secoes[8]
+    bibliografia=[]
     for linha in referencias.splitlines():
         if re.match(r'^\d+\. ',linha):
             texto=re.sub(r'\[([^]]+)\]\(([^)]+)\)',r'\2',linha)
-            p(re.sub(r'^\d+\. ','',texto),refs)
+            bibliografia.append(re.sub(r'^\d+\. ','',texto))
     for txt in [
         'DOCKER. Control startup and shutdown order in Compose. Documentação oficial. Disponível em: https://docs.docker.com/compose/how-tos/startup-order/. Acesso em: 14 nov. 2026.',
         'OLLAMA. Docker. Documentação oficial. Disponível em: https://docs.ollama.com/docker. Acesso em: 14 nov. 2026.',
         'QWEN. Qwen2.5-Coder-3B-Instruct. Model card e licença Qwen Research. Disponível em: https://huggingface.co/Qwen/Qwen2.5-Coder-3B-Instruct. Acesso em: 14 nov. 2026.',
-    ]:p(txt,refs)
+    ]:bibliografia.append(txt)
+    for txt in sorted(bibliografia,key=lambda t:t.casefold()):p(txt,refs)
+    elementos.append(PageBreak());titulo('APÊNDICE A - ROTEIRO E MATERIAIS DE REPRODUÇÃO')
+    apendice=ParagraphStyle('Apendice',parent=corpo,alignment=0)
+    for bloco in re.split(r'\n\s*\n',blocos_v3['Apêndice A'].strip()):p(' '.join(bloco.splitlines()),apendice)
     destino=ROOT/'docs/pesquisa-abnt.pdf'
     def pagina(canvas,doc):
         if doc.page>=getattr(doc,'primeira_textual',999):
@@ -199,8 +205,8 @@ def main():
     revisao=ROOT/'.env.pdf-revisao-v3-final';revisao.mkdir(exist_ok=True)
     for i,pg in enumerate(pdf):pg.get_pixmap(matrix=pymupdf.Matrix(0.8,0.8)).save(revisao/f'pagina-{i+1:02}.png')
     metadados={'paginas_total':len(pdf),'paginas_textuais':fim-inicio,'primeira_textual':inicio+1,'primeira_referencias':fim+1,'status':'candidata_v3_para_revisao_humana','sha256':hashlib.sha256(destino.read_bytes()).hexdigest(),'fontes':{str(a.relative_to(ROOT)):hashlib.sha256(a.read_bytes()).hexdigest() for a in arquivos.values()}}
-    metadados['fontes_atuais']={str(a.relative_to(ROOT)):hashlib.sha256(a.read_bytes()).hexdigest() for a in [ROOT/'docs/pesquisa-v3.md', ROOT/'docs/dados-academicos.json', ROOT/'evidencias/contexto-v3-20261118/p6-r01/resumo.json', ENTREGA3/'figuras/p6-v3.png', ENTREGA3/'figuras/validacao-v3.png']}
-    (ENTREGA3/'pesquisa-geracao.json').write_text(json.dumps(metadados,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    metadados['fontes_atuais']={str(a.relative_to(ROOT)):hashlib.sha256(a.read_bytes()).hexdigest() for a in [ROOT/'docs/pesquisa-v3.md', ROOT/'docs/dados-academicos.json', ROOT/'docs/contribuicao-academica-zeck.md', ROOT/'docs/pesquisa-complemento.md', ROOT/'tools/gerar_pesquisa.py', ROOT/'evidencias/contexto-v3-20261118/p6-r01/resumo.json', ENTREGA3/'figuras/p6-v3.png', ENTREGA3/'figuras/validacao-v3.png']}
+    (ENTREGA3/'pesquisa-geracao.json').write_text(json.dumps(metadados,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
     print(json.dumps(metadados,ensure_ascii=True))
 
 

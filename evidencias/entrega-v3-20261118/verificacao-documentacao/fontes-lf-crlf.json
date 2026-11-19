@@ -1,0 +1,17 @@
+{
+  "fontes": [
+    {
+      "arquivo": "eval/memoria/sessoes.json",
+      "sha256_blob_git_lf": "de79d1dd080d3bcd9f683fb35ef3ba8d6f1ac7d7343820e0fe34fe7d68495807",
+      "sha256_protocolo_historico_crlf": "0bf605bf03f4803dffc1ffac388a97140b6c60aa1fa144d10d8af84cc4a49ad8",
+      "conteudo_sem_alteracao": true
+    },
+    {
+      "arquivo": "eval/memoria/anotacoes_p6.json",
+      "sha256_blob_git_lf": "30f8e49832332ba95d09372784c31ad68d3fd0e2a350062ccfba276ff9e4f4d5",
+      "sha256_protocolo_historico_crlf": "3143f17411b42f622192dde9f9dd450b299f19ce722d65511c3b76b979be81c6",
+      "conteudo_sem_alteracao": true
+    }
+  ],
+  "validacao": "Blobs Git LF aceitos pelo mesmo congelamento histórico CRLF; alterações de conteúdo rejeitadas pelos testes."
+}

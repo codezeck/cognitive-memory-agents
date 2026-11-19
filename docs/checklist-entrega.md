@@ -7,11 +7,13 @@ Estado de 18/11/2026. O usuário autorizou publicação e confirmou MIT em nome 
 | Memória, atualização, esquecimento e contexto | Implementados; [relatório v3](acertos-tokens-contexto-v3.md) |
 | P6: 20 sessões por cenário | Modelo real; 21/21 respostas da automática aprovadas; 19/19 checkpoints não vazios de persistência e 2/2 de exclusão |
 | Acertos e tokens | P6: 3.593 contra 22.228 tokens, redução de 83,84% em 20/20 pares. Validação: 48/48 aprovações; 84,88% em 47/48 pares. Baseline com julgamentos não verificados e um timeout; sem equivalência estatística demonstrada |
-| Pesquisa PDF v3 | [PDF](pesquisa-abnt.pdf): 24 páginas totais, 16 textuais, 11 referências; todas as páginas renderizadas e conferidas |
+| Pesquisa PDF v3 | [PDF](pesquisa-abnt.pdf): 25 páginas totais, 16 textuais, 11 referências; todas as páginas renderizadas e conferidas; metodologia atual, referências ordenadas e apêndice de reprodução |
+| Documentação técnica | [Índice dos nove itens](README.md), [manual completo](manual-professor.md), [reprodução Docker](reproduzir-avaliacao-v3.md) e [cinco decisões](decisoes-arquitetura.md) consolidados |
+| Contextos de IA | [Síntese disponível e modelo](registro-ia/README.md) preparados; cada colega ainda precisa fornecer/conferir seus registros |
 | Dados acadêmicos | [Registro validado](dados-academicos.json); três autores |
 | Licenças | [MIT](../LICENSE) autorizada; [NOTICE](../NOTICE) e [terceiros](licencas.md) separados |
 | Tabelas, gráficos, JSON, logs e falhas | [Índice consolidado](../evidencias/entrega-v3-20261118/README.md), com fontes e denominadores |
-| Testes | 954 Python aprovados, 66 ignorados; 8 JavaScript e lint crítico aprovados na v3; [CI da candidata aprovado](https://github.com/codezeck/cognitive-memory-agents/actions/runs/44435946851) |
+| Testes | 960 Python aprovados, 66 ignorados; 8 JavaScript e lint crítico aprovados na v3; [CI da candidata aprovado](https://github.com/codezeck/cognitive-memory-agents/actions/runs/44435946851) |
 | Instalação em cópia limpa | [Manual](manual-professor.md) validado em checkout limpo: novo volume de pesos, API pronta e 19 verificações HTTP aprovadas; [registro](../evidencias/entrega-v3-20261118/instalacao-resumo.json) |
 | Vídeo de 3–5 minutos em tela inteira | Pendente; [roteiro atualizado](roteiro-demonstracao.md). Controle de tela encerrado por não confirmar URL no Windows |
 | Publicação e revisão de PR | [PR #45 publicado](https://github.com/codezeck/cognitive-memory-agents/pull/45); CI aprovado; revisão solicitada a Paloma/Vinícius, ainda sem parecer |

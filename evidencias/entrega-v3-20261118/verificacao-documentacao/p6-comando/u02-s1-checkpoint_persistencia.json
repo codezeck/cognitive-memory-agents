@@ -1,0 +1,166 @@
+{
+  "evento_id": "u02/s1/checkpoint_persistencia",
+  "coletado_em": "2026-11-19T02:17:40.487393+00:00",
+  "sqlite_antes": [
+    {
+      "id": "38a1cd1841e64457bb7a50ba0ce6d8fc",
+      "usuario_id": "p6_p6-fdc8cfdc5d63_u01",
+      "texto": "Mora em Osasco.",
+      "chave": "cidade",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Osasco\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T02:17:11.278081+00:00",
+      "atualizada_em": "2026-11-19T02:17:11.278081+00:00"
+    },
+    {
+      "id": "5da1b92994404d00a5517fc88be77d47",
+      "usuario_id": "p6_p6-fdc8cfdc5d63_u01",
+      "texto": "Profissão: enfermeira.",
+      "chave": "profissao",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"enfermeira\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T02:17:24.475876+00:00",
+      "atualizada_em": "2026-11-19T02:17:24.475876+00:00"
+    },
+    {
+      "id": "efe586dbd28049c5a198079759b265af",
+      "usuario_id": "p6_p6-fdc8cfdc5d63_u01",
+      "texto": "Pet: cachorro chamado Thor.",
+      "chave": "pet:cachorro:thor",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Thor\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T02:17:24.489793+00:00",
+      "atualizada_em": "2026-11-19T02:17:24.489793+00:00"
+    },
+    {
+      "id": "49612f7cd4b849628125df58f2ad9eb2",
+      "usuario_id": "p6_p6-fdc8cfdc5d63_u02",
+      "texto": "Mora em Curitiba.",
+      "chave": "cidade",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Curitiba\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T02:17:26.358436+00:00",
+      "atualizada_em": "2026-11-19T02:17:26.358436+00:00"
+    },
+    {
+      "id": "7361d3d618ea44e68105827adfa8d859",
+      "usuario_id": "p6_p6-fdc8cfdc5d63_u02",
+      "texto": "Profissão: professor de matemática.",
+      "chave": "profissao",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"professor de matemática\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T02:17:38.779909+00:00",
+      "atualizada_em": "2026-11-19T02:17:38.779909+00:00"
+    },
+    {
+      "id": "e9ba8987c3544c059e3b6dfaaa7e828f",
+      "usuario_id": "p6_p6-fdc8cfdc5d63_u02",
+      "texto": "Tem 2 filhos.",
+      "chave": "filhos",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"2\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T02:17:38.794995+00:00",
+      "atualizada_em": "2026-11-19T02:17:38.794995+00:00"
+    }
+  ],
+  "sqlite_depois": [
+    {
+      "id": "38a1cd1841e64457bb7a50ba0ce6d8fc",
+      "usuario_id": "p6_p6-fdc8cfdc5d63_u01",
+      "texto": "Mora em Osasco.",
+      "chave": "cidade",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Osasco\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T02:17:11.278081+00:00",
+      "atualizada_em": "2026-11-19T02:17:11.278081+00:00"
+    },
+    {
+      "id": "5da1b92994404d00a5517fc88be77d47",
+      "usuario_id": "p6_p6-fdc8cfdc5d63_u01",
+      "texto": "Profissão: enfermeira.",
+      "chave": "profissao",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"enfermeira\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T02:17:24.475876+00:00",
+      "atualizada_em": "2026-11-19T02:17:24.475876+00:00"
+    },
+    {
+      "id": "efe586dbd28049c5a198079759b265af",
+      "usuario_id": "p6_p6-fdc8cfdc5d63_u01",
+      "texto": "Pet: cachorro chamado Thor.",
+      "chave": "pet:cachorro:thor",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Thor\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T02:17:24.489793+00:00",
+      "atualizada_em": "2026-11-19T02:17:24.489793+00:00"
+    },
+    {
+      "id": "49612f7cd4b849628125df58f2ad9eb2",
+      "usuario_id": "p6_p6-fdc8cfdc5d63_u02",
+      "texto": "Mora em Curitiba.",
+      "chave": "cidade",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Curitiba\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T02:17:26.358436+00:00",
+      "atualizada_em": "2026-11-19T02:17:26.358436+00:00"
+    },
+    {
+      "id": "7361d3d618ea44e68105827adfa8d859",
+      "usuario_id": "p6_p6-fdc8cfdc5d63_u02",
+      "texto": "Profissão: professor de matemática.",
+      "chave": "profissao",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"professor de matemática\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T02:17:38.779909+00:00",
+      "atualizada_em": "2026-11-19T02:17:38.779909+00:00"
+    },
+    {
+      "id": "e9ba8987c3544c059e3b6dfaaa7e828f",
+      "usuario_id": "p6_p6-fdc8cfdc5d63_u02",
+      "texto": "Tem 2 filhos.",
+      "chave": "filhos",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"2\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T02:17:38.794995+00:00",
+      "atualizada_em": "2026-11-19T02:17:38.794995+00:00"
+    }
+  ],
+  "ram_antes": {
+    "versao_observador": "ram-v1",
+    "instancia_id": "6e2e431743b7482aa950cf864f068c66",
+    "pid": 15,
+    "usuario_id": "p6_p6-fdc8cfdc5d63_u02",
+    "coletado_em": "2026-11-19T02:17:38.815953+00:00",
+    "escopo": "historico_do_usuario_neste_processo",
+    "processos_cobertos": 1,
+    "historico_existe": true,
+    "mensagens_total": 7,
+    "mensagens_sistema": 1,
+    "mensagens_usuario": 3,
+    "mensagens_assistente": 3,
+    "mensagens_pessoais": 6,
+    "alvos_no_historico": 0,
+    "mensagens_pessoais_sem_alvo": 6,
+    "ocorrencias_por_rotulo": {},
+    "limitacao": "Correspondencias literais normalizadas; avaliar sem escritores concorrentes e cobrir todos os workers relevantes."
+  },
+  "ram_depois": {
+    "versao_observador": "ram-v1",
+    "instancia_id": "d9b397278f84453ea7a3c2f581f9232d",
+    "pid": 19,
+    "usuario_id": "p6_p6-fdc8cfdc5d63_u02",
+    "coletado_em": "2026-11-19T02:17:40.485835+00:00",
+    "escopo": "historico_do_usuario_neste_processo",
+    "processos_cobertos": 1,
+    "historico_existe": false,
+    "mensagens_total": 0,
+    "mensagens_sistema": 0,
+    "mensagens_usuario": 0,
+    "mensagens_assistente": 0,
+    "mensagens_pessoais": 0,
+    "alvos_no_historico": 0,
+    "mensagens_pessoais_sem_alvo": 0,
+    "ocorrencias_por_rotulo": {},
+    "limitacao": "Correspondencias literais normalizadas; avaliar sem escritores concorrentes e cobrir todos os workers relevantes."
+  }
+}

@@ -47,6 +47,8 @@ Artefatos e limites: [matriz](docs/andamento-entrega.md), [evidências](evidenci
 
 ## Ferramentas usadas
 
+Assistência desta etapa: Codex/ChatGPT para auditoria, integração e consolidação documental; sem presumir plano de assinatura ou revisão humana. Contextos disponíveis e coleta dos colegas: [registro de IA](docs/registro-ia/README.md).
+
 - Claude (chat).
 - ChatGPT (versão gratuita).
 
@@ -188,3 +190,14 @@ Resultado oficial (7 casos x 3 repetições = 21 por cenário, modelo `qwen2.5-c
 ## Fechamento da candidata v3 — 18/11/2026
 
 A assistência de IA ajudou a implementar busca por chave e contexto compacto, confirmações locais com proveniência explícita, tratamento limitado de negação, testes e executores de avaliação. Também consolidou o relatório v3, PDF, gráficos/CSV derivados dos brutos, checklist e inventário de licenças. O usuário confirmou a instituição conforme transcrita, composição de três integrantes e MIT com autorização do grupo, e autorizou a publicação. Resultados negativos e desconhecidos foram preservados. Revisão humana não foi atribuída à IA nem aos colegas. A tentativa de preparar vídeo pela ferramenta de controle de tela foi encerrada por falha na confirmação da URL; roteiro atualizado, sem vídeo fictício. Evidências e estado atual: `evidencias/entrega-v3-20261118/README.md`.
+
+
+## 18/11/2026 — Consolidação para validação e registro das conversas
+
+- **Pedido, resumido:** atualizar README/GitHub e documentos necessários, preservar nomes/RA e a mensagem do Tema 11 como primeiro dos 16 temas do portfólio, preparar prompt de continuidade e listar tarefas para os colegas; reunir o contexto disponível das conversas.
+- **Esclarecimento do usuário:** a prioridade citada como “font” era conferir e atualizar o README online.
+- **Decisão:** preservar integralmente o cabeçalho e a mensagem do portfólio; consolidar documentação corrente, cinco decisões de arquitetura, manual do GitHub até o chat e comandos Docker para avaliação isolada. Contextos dos colegas dependem de envio por eles.
+- **Correções e limites:** separar histórico da v3, manter as 12 respostas do baseline sem parecer até revisão humana e não converter a síntese desta conversa em transcrição integral ou aprovação dos colegas. Vídeo, captura real de CI, revisão humana e fechamento da tag continuam com critérios próprios.
+- **Artefatos:** [documentação técnica](docs/README.md), [prompt](docs/prompt-finalizacao.md), [contextos e modelo](docs/registro-ia/README.md), [pendências](docs/pendencias-equipe.md). Validação efetiva e publicação são registradas no índice de evidências depois da execução.
+
+Retomada em 19/11/2026: conferidos 960 testes Python aprovados/66 ignorados, oito JavaScript, lint e links locais; o comando Docker P6 completou 40 registros de sessão e 42 respostas sem falhas técnicas. Acrescentado preparo de protocolo que aceita apenas LF/CRLF, com seis regressões. A conferência operacional é separada dos resultados originais da pesquisa. Evidências em `evidencias/entrega-v3-20261118/verificacao-documentacao/`.

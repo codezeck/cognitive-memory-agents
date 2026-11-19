@@ -1,0 +1,27 @@
+{
+  "registrado_em_utc": "2026-11-19T10:28:55.561002+00:00",
+  "retomada_data_cliente": "2026-11-19",
+  "pytest_aprovados": 960,
+  "pytest_ignorados": 66,
+  "javascript_aprovados": 8,
+  "ruff_critico": "aprovado",
+  "produto_dados_e_brutos_historicos_sem_alteracao": true,
+  "comparativo_curto": {
+    "registros": 4,
+    "aprovados_p4": 4,
+    "falhas_tecnicas": 0,
+    "uso": "Validação do comando, não substitui a bateria original"
+  },
+  "p6_reproducao": {
+    "orquestracao": "concluida",
+    "sessoes_total": 40,
+    "respostas": 42,
+    "falhas_tecnicas": 0,
+    "avaliacao_respostas_completa": false,
+    "uso": "Conferência do caminho Docker e do preparo LF/CRLF; resultados originais da pesquisa permanecem separados"
+  },
+  "preservacao_readme": "preservacao-readme.json",
+  "compatibilidade_lf_crlf": "fontes-lf-crlf.json",
+  "video_oficial": false,
+  "revisao_humana": false
+}

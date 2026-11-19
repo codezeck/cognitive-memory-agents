@@ -1,5 +1,7 @@
 # Complemento da pesquisa: entrega e validade
 
+**Referência atual — v3:** P6 e validação sintética já executadas; resultados, denominadores e limites em [relatório v3](acertos-tokens-contexto-v3.md). Para repetir com Docker, use o [roteiro atual](reproduzir-avaliacao-v3.md). As seções datadas abaixo conservam protocolos e estados anteriores; pendências antigas não representam o estado atual.
+
 Este texto integra o rascunho PDF com a contribuição existente, sem substituir os documentos operacionais. As afirmações são limitadas às evidências datadas. Metadados institucionais e revisão coletiva ainda precisam ser confirmados.
 
 ## Execução reprodutível e unidade de observação

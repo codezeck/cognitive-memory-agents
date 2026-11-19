@@ -4,7 +4,7 @@ Estado de entrega: **candidata para revisão**, não enviada. Avaliações usam 
 
 | Afirmação/artefato | Fonte verificável |
 |---|---|
-| Pesquisa atual, 16 páginas textuais/24 totais e 11 referências | [PDF](../../docs/pesquisa-abnt.pdf), [metadados](pesquisa-geracao.json), [texto v3](../../docs/pesquisa-v3.md), [gerador](../../tools/gerar_pesquisa.py) |
+| Pesquisa atual, 16 páginas textuais/25 totais e 11 referências | [PDF](../../docs/pesquisa-abnt.pdf), [metadados](pesquisa-geracao.json), [texto v3](../../docs/pesquisa-v3.md), [gerador](../../tools/gerar_pesquisa.py) |
 | P6, 20 sessões por cenário | [JSONL evento a evento](../contexto-v3-20261118/p6-r01/eventos.jsonl), [resumo](../contexto-v3-20261118/p6-r01/resumo.json), [configuração](../contexto-v3-20261118/p6-r01/configuracao.json) |
 | Persistência após reinícios, exclusão SQLite/RAM delimitada | [Evidências operacionais](../contexto-v3-20261118/p6-r01/evidencias-operacionais.json); snapshots e logs na mesma pasta |
 | P6: 21/21 aprovações, tokens 3.593/22.228, 83,84% em 20/20 pares | [Respostas CSV](../contexto-v3-20261118/respostas-p6.csv), [tabela consolidada](resultados-consolidados.csv), [Figura P6](figuras/p6-v3.png) |
@@ -28,6 +28,12 @@ Estado de entrega: **candidata para revisão**, não enviada. Avaliações usam 
 [Relatório v3](../../docs/acertos-tokens-contexto-v3.md) contém comandos de avaliação e limites. Para regenerar somente os gráficos/CSV a partir dos brutos: instalar as dependências de documentação em ambiente separado e executar `python -m tools.gerar_figuras_v3`. Gerar PDF: `python tools/gerar_pesquisa.py`, com fontes Times disponíveis. Não sobrescrever brutos ao repetir experimentos: escolher outra pasta.
 
 P4 é automático e limitado. O baseline da P6 tem 8 aprovações, 1 reprovação verificada e 12 não verificados. Os resultados não comprovam equivalência estatística, generalização irrestrita ou conformidade jurídica. Zero local exige origem e contagem explícitas. A galeria de 14/11 é histórica, não captura nova da v3.
+
+## Consolidação documental
+
+O [README](../../README.md) preserva nomes/RA e o parágrafo do Tema 11/portfólio. O [índice técnico](../../docs/README.md) reúne os nove itens do enunciado. [Manual do professor](../../docs/manual-professor.md), [reprodução Docker](../../docs/reproduzir-avaliacao-v3.md), [prompt de continuidade](../../docs/prompt-finalizacao.md) e [contextos de IA](../../docs/registro-ia/README.md) preparados. A [revisão complementar](../../docs/revisao-experimental/revisao-humana-baseline-v3.csv) contém 12 respostas originais e campos humanos em branco. A pesquisa foi consolidada com metodologia v3, bibliografia ordenada e apêndice de reprodução.
+
+Validação desta consolidação (retomada em 19/11): **960 testes Python aprovados/66 ignorados**, oito JavaScript e lint crítico aprovados; [XML](verificacao-documentacao/testes.xml), [resumo](verificacao-documentacao/validacao.json). O [preflight Docker](verificacao-documentacao/preflight.log) confirmou modelo/digest e ausência do banco/segredos do host no contêiner. O [comparativo curto](verificacao-documentacao/comparativo-comando.json) teve quatro respostas sem falhas técnicas. A [reprodução P6](verificacao-documentacao/p6-comando/resumo.json) concluiu 40 registros de sessão e 42 respostas, sem falhas técnicas; essa conferência não substitui as medições originais do PDF. O [preparo LF/CRLF](verificacao-documentacao/fontes-lf-crlf.json) confere o congelamento preservando conteúdo. A [prova de preservação](verificacao-documentacao/preservacao-readme.json) verifica o cabeçalho, os nomes/RA e o texto do Tema 11/portfólio.
 
 ## Publicação e pendências
 

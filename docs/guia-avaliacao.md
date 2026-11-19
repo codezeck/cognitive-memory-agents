@@ -1,5 +1,7 @@
 # Guia de avaliação
 
+**Referência atual — v3:** P6 e validação sintética já executadas; resultados, denominadores e limites em [relatório v3](acertos-tokens-contexto-v3.md). Para repetir com Docker, use o [roteiro atual](reproduzir-avaliacao-v3.md). As seções datadas abaixo conservam protocolos e estados anteriores; pendências antigas não representam o estado atual.
+
 **Rodadas de 18/11:** o [relatório atual](melhorias-avaliacao-20261118.md) documenta desenvolvimento, P6 real e conjunto separado de teste, com comandos, hashes, denominadores e resultados negativos. Para repetir a coleta operacional em nova instância, use `python -B -m tools.executar_p6_local` conforme a [decisão de protocolo](revisao-experimental/decisao-20261118.md). O wrapper `python -B -m src.interface.comparativo` agora aceita `--dataset CAMINHO` e valida as anotações antes de iniciar a API. O baseline desliga a política compacta. A pesquisa e as evidências continuam sujeitas à revisão humana e aos itens finais de entrega.
 
 Como reproduzir as avaliações do projeto e como ler as métricas. Comandos para Windows (PowerShell), na raiz do repositório.
