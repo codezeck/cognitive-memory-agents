@@ -47,7 +47,8 @@ exato de cada versão, incluindo condições de atribuição e redistribuição.
 
 O inventário cobre `requirements.txt` e `requirements-dev.txt`; ferramentas
 opcionais de elaboração de PDF/vídeo não são dependências do aplicativo. O
-FFmpeg usado na gravação não é incluído no repositório, apenas o vídeo produzido.
+FFmpeg preparado para gravação não é incluído no repositório. Nenhum vídeo foi
+produzido nesta rodada devido ao bloqueio do controle da tela.
 Fontes Windows não são redistribuídas como arquivos de fonte pelo projeto.
 
 Reprodução: `python -B -m tools.inventariar_licencas`, usando os ambientes locais

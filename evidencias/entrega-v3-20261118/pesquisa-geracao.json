@@ -15,5 +15,10 @@
     "evidencias\\contexto-v3-20261118\\p6-r01\\resumo.json": "86f869cde814ba6c655067b39fe3660015e81b27f23616903bbdf862bcd127df",
     "evidencias\\entrega-v3-20261118\\figuras\\p6-v3.png": "470d4332c66e63d6a05377b1331bc2b17cd0d08aca3eae4b6c289015fbe49a27",
     "evidencias\\entrega-v3-20261118\\figuras\\validacao-v3.png": "77653bdc334eede95f0150a169fbde2ec47ecabff3f0bf12aafab9100b2f43a4"
+  },
+  "revisao_visual": {
+    "paginas_renderizadas": 24,
+    "paginas_inspecionadas": "Todas em painel; páginas 2 e 21 ampliadas; sem cortes ou sobreposições observados",
+    "resultado": "aprovado no escopo visual; não certifica todas as normas ABNT"
   }
 }

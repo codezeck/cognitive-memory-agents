@@ -11,10 +11,10 @@ Estado de 18/11/2026. O usuário autorizou publicação e confirmou MIT em nome 
 | Dados acadêmicos | [Registro validado](dados-academicos.json); três autores |
 | Licenças | [MIT](../LICENSE) autorizada; [NOTICE](../NOTICE) e [terceiros](licencas.md) separados |
 | Tabelas, gráficos, JSON, logs e falhas | [Índice consolidado](../evidencias/entrega-v3-20261118/README.md), com fontes e denominadores |
-| Testes | 954 Python aprovados, 66 ignorados; 8 JavaScript e lint crítico aprovados na v3; CI remoto será vinculado após publicação |
-| Instalação em cópia limpa | Seguir [manual](manual-professor.md); registrar resultado no índice |
-| Vídeo de 3–5 minutos em tela inteira | [Roteiro](roteiro-demonstracao.md); registrar após gravação e conferência reais |
-| Publicação e revisão de PR | Publicação autorizada; link e CI entram no índice. Revisão cruzada precisa ser feita por outra pessoa |
+| Testes | 954 Python aprovados, 66 ignorados; 8 JavaScript e lint crítico aprovados na v3; [CI da candidata aprovado](https://github.com/codezeck/cognitive-memory-agents/actions/runs/44435946851) |
+| Instalação em cópia limpa | [Manual](manual-professor.md) validado em checkout limpo: novo volume de pesos, API pronta e 19 verificações HTTP aprovadas; [registro](../evidencias/entrega-v3-20261118/instalacao-resumo.json) |
+| Vídeo de 3–5 minutos em tela inteira | Pendente; [roteiro atualizado](roteiro-demonstracao.md). Controle de tela encerrado por não confirmar URL no Windows |
+| Publicação e revisão de PR | [PR #45 publicado](https://github.com/codezeck/cognitive-memory-agents/pull/45); CI aprovado; revisão solicitada a Paloma/Vinícius, ainda sem parecer |
 | Fechamento e envio | Obter revisão humana, integrar versão aprovada, marcar `v1.0`, aguardar CI da tag e guardar link/captura. Conferir canal de envio com professor |
 
 ## O que significa o último passo

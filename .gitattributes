@@ -9,4 +9,5 @@ docs/pesquisa-abnt.pdf binary
 evidencias/contexto-v3-20261118/** -text -whitespace
 evidencias/melhorias-20261118/** -text -whitespace
 evidencias/entrega-v3-20261118/*.log -text -whitespace
+evidencias/entrega-v3-20261118/** -text
 third_party/licenses/** -text -whitespace
