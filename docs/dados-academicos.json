@@ -1,5 +1,5 @@
 {
-  "instituicao": "Faculdade União Chinita",
+  "instituicao": "Faculdade UniAnchieta",
   "disciplina": "Projeto Integrador",
   "curso_identificador": "EAD_PROINT_100.DD-ADS-PI-10-74.2026.74",
   "integrantes": [
@@ -12,5 +12,5 @@
   "cidade": null,
   "professor": null,
   "omitir_cidade_e_professor": true,
-  "observacao": "Instituição transcrita conforme informada pelo usuário. Cidade e professor omitidos por instrução expressa; não são pendências."
+  "observacao": "Nome da instituição corrigido explicitamente pelo usuário para Faculdade UniAnchieta em 18/11/2026. Cidade e professor omitidos por instrução expressa; não são pendências."
 }

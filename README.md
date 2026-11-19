@@ -2,7 +2,7 @@
 
 **Curso:** EAD_PROINT_100.DD-ADS-PI-10-74.2026.74  
 **Disciplina:** Projeto Integrador
-**Instituição:** Faculdade União Chinita
+**Instituição:** Faculdade UniAnchieta
 
 **Integrantes:**
 - Ezequiel da Silva Manço — RA: 2410701

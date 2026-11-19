@@ -1,6 +1,6 @@
 # Checklist de entrega — versão candidata v3
 
-Estado de 18/11/2026. O usuário autorizou publicação e confirmou MIT em nome do grupo. A composição de **três integrantes está validada**. Instituição: **Faculdade União Chinita**, conforme informada. Cidade e professor foram omitidos por orientação do usuário.
+Estado de 18/11/2026. O usuário autorizou publicação e confirmou MIT em nome do grupo. A composição de **três integrantes está validada**. Instituição: **Faculdade UniAnchieta**, conforme informada. Cidade e professor foram omitidos por orientação do usuário.
 
 | Item | Estado e evidência |
 |---|---|

@@ -4,21 +4,21 @@
   "primeira_textual": 8,
   "primeira_referencias": 24,
   "status": "candidata_v3_para_revisao_humana",
-  "sha256": "103c8ec3c2e1b5fcdf105eb3cea452e0922e59a811f8dcd8dace404220340eb7",
+  "sha256": "1d6b06c10aaf7a6d97e3b3fa2f3926692e2d84dd027646e0d34580e8b66b4c13",
   "fontes": {
     "evidencias\\comparativo_oficial_3rep.json": "f247abd524075477f74b5f43511dc80313c67d7ec183d13f199e5962727bb5af",
     "evidencias\\entrega\\20261114-entrega-ae9eb113\\comparativo-desenvolvimento.json": "ba3d6bed4f7fa085d830465ec256be82cece8181c5d987aa95f269872b0a7670"
   },
   "fontes_atuais": {
     "docs\\pesquisa-v3.md": "62b8595f607632938decc04cf7827d328e158513957f9bbf99e758757045e985",
-    "docs\\dados-academicos.json": "04f99d85d549a516440675c11106caff4c3f4063d9b385f4849ba28572c5b3f4",
+    "docs\\dados-academicos.json": "fbd584c39764ad11e042af329451aeb16a39443c75b8c8b7b774d2cda68605a6",
     "evidencias\\contexto-v3-20261118\\p6-r01\\resumo.json": "86f869cde814ba6c655067b39fe3660015e81b27f23616903bbdf862bcd127df",
     "evidencias\\entrega-v3-20261118\\figuras\\p6-v3.png": "470d4332c66e63d6a05377b1331bc2b17cd0d08aca3eae4b6c289015fbe49a27",
     "evidencias\\entrega-v3-20261118\\figuras\\validacao-v3.png": "77653bdc334eede95f0150a169fbde2ec47ecabff3f0bf12aafab9100b2f43a4"
   },
   "revisao_visual": {
     "paginas_renderizadas": 24,
-    "paginas_inspecionadas": "Todas em painel; páginas 2 e 21 ampliadas; sem cortes ou sobreposições observados",
-    "resultado": "aprovado no escopo visual; não certifica todas as normas ABNT"
+    "paginas_inspecionadas": "Conferência geral prévia; páginas 1 e 2 novamente ampliadas após correção da instituição. Texto das outras 22 páginas inalterado.",
+    "resultado": "Aprovado no escopo visual; nome Faculdade UniAnchieta corrigido conforme usuário; sem cortes ou sobreposições observados."
   }
 }
