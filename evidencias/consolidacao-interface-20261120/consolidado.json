@@ -1,0 +1,202 @@
+{
+  "grupos": [
+    {
+      "etapa": "Etapa 1",
+      "conjunto": "oficial",
+      "dataset": "d3d8469bde14a377da3f4767769e71cc72479877f63bffe5584edf869b6a9206",
+      "controle": "api_local_legado",
+      "modelo": "qwen2.5-coder:3b",
+      "nucleo": "295328a15acd2c50db52e6c7b301dbe2cab2035f73b7c4674132c6f08aedc73e",
+      "execucoes_completas": 2,
+      "execucoes_parciais": 0,
+      "tentativas_por_cenario": 64,
+      "reducao_consolidada_pct": 84.44269101429671,
+      "media_aritmetica_percentuais_rodadas_pct": 84.5295579338571,
+      "min_reducao_pct": 84.35279891167431,
+      "max_reducao_pct": 84.7063169560399,
+      "cenarios": {
+        "Histórico completo": {
+          "tokens": 53229,
+          "media_tokens_por_tentativa": 831.703125
+        },
+        "Memória automática": {
+          "tokens": 8281,
+          "media_tokens_por_tentativa": 129.390625
+        },
+        "Sem memória": {
+          "tokens": 0,
+          "media_tokens_por_tentativa": 0.0
+        },
+        "Memória pré-carregada": {
+          "tokens": 8282,
+          "media_tokens_por_tentativa": 129.40625
+        }
+      },
+      "execucoes": [
+        "9c8e1e285593479e9a64a565f06282d7",
+        "bea572b4fa954e13a03b2b808077c3bb"
+      ]
+    },
+    {
+      "etapa": "Etapa 2",
+      "conjunto": "oficial",
+      "dataset": "d3d8469bde14a377da3f4767769e71cc72479877f63bffe5584edf869b6a9206",
+      "controle": "api_local_legado",
+      "modelo": "qwen2.5-coder:3b",
+      "nucleo": "295328a15acd2c50db52e6c7b301dbe2cab2035f73b7c4674132c6f08aedc73e",
+      "execucoes_completas": 4,
+      "execucoes_parciais": 0,
+      "tentativas_por_cenario": 192,
+      "reducao_consolidada_pct": 84.86362334821891,
+      "media_aritmetica_percentuais_rodadas_pct": 84.85990479004136,
+      "min_reducao_pct": 84.55551411164987,
+      "max_reducao_pct": 85.21761892297076,
+      "cenarios": {
+        "Histórico completo": {
+          "tokens": 164141,
+          "media_tokens_por_tentativa": 854.9010416666666
+        },
+        "Memória automática": {
+          "tokens": 24845,
+          "media_tokens_por_tentativa": 129.40104166666666
+        },
+        "Sem memória": {
+          "tokens": 0,
+          "media_tokens_por_tentativa": 0.0
+        },
+        "Memória pré-carregada": {
+          "tokens": 24851,
+          "media_tokens_por_tentativa": 129.43229166666666
+        }
+      },
+      "execucoes": [
+        "74811af8dd3b482fb52fcfe5e5cd2d8f",
+        "a7b3a5398bd2477990526e418fe1ad47",
+        "a650e3e5b7a34612ad7f146b8a659931",
+        "825d6d43890b43abb4784ff24942793d"
+      ]
+    },
+    {
+      "etapa": "Etapa 3",
+      "conjunto": "oficial",
+      "dataset": "d3d8469bde14a377da3f4767769e71cc72479877f63bffe5584edf869b6a9206",
+      "controle": "modelo_direto",
+      "modelo": "qwen2.5-coder:3b",
+      "nucleo": "295328a15acd2c50db52e6c7b301dbe2cab2035f73b7c4674132c6f08aedc73e",
+      "execucoes_completas": 2,
+      "execucoes_parciais": 1,
+      "tentativas_por_cenario": 96,
+      "reducao_consolidada_pct": 84.86709061228468,
+      "media_aritmetica_percentuais_rodadas_pct": 84.86697538142161,
+      "min_reducao_pct": 84.82398065130823,
+      "max_reducao_pct": 84.909970111535,
+      "cenarios": {
+        "Histórico completo": {
+          "tokens": 82086,
+          "media_tokens_por_tentativa": 855.0625
+        },
+        "Memória automática": {
+          "tokens": 12422,
+          "media_tokens_por_tentativa": 129.39583333333334
+        },
+        "Sem memória": {
+          "tokens": 7399,
+          "media_tokens_por_tentativa": 77.07291666666667
+        },
+        "Memória pré-carregada": {
+          "tokens": 12424,
+          "media_tokens_por_tentativa": 129.41666666666666
+        }
+      },
+      "execucoes": [
+        "f7c3de6bb9564f3f8e7f4897fbf823e3",
+        "7a1add5bd6d745c1bd6508976b9462b1"
+      ]
+    },
+    {
+      "etapa": "Etapa 4",
+      "conjunto": "oficial",
+      "dataset": "d3d8469bde14a377da3f4767769e71cc72479877f63bffe5584edf869b6a9206",
+      "controle": "modelo_direto",
+      "modelo": "qwen2.5-coder:3b",
+      "nucleo": "295328a15acd2c50db52e6c7b301dbe2cab2035f73b7c4674132c6f08aedc73e",
+      "execucoes_completas": 1,
+      "execucoes_parciais": 0,
+      "tentativas_por_cenario": 48,
+      "reducao_consolidada_pct": 84.91280905425754,
+      "media_aritmetica_percentuais_rodadas_pct": 84.91280905425754,
+      "min_reducao_pct": 84.91280905425754,
+      "max_reducao_pct": 84.91280905425754,
+      "cenarios": {
+        "Histórico completo": {
+          "tokens": 41174,
+          "media_tokens_por_tentativa": 857.7916666666666
+        },
+        "Memória automática": {
+          "tokens": 6212,
+          "media_tokens_por_tentativa": 129.41666666666666
+        },
+        "Sem memória": {
+          "tokens": 3686,
+          "media_tokens_por_tentativa": 76.79166666666667
+        },
+        "Memória pré-carregada": {
+          "tokens": 6212,
+          "media_tokens_por_tentativa": 129.41666666666666
+        }
+      },
+      "execucoes": [
+        "f377808d9c414f90bd27543659d384e4"
+      ]
+    },
+    {
+      "etapa": "Etapa 4",
+      "conjunto": "próprio",
+      "dataset": "30a53f9b074fbc0d19c3b8ed27159d4dd8253716c6aa0ac114625808e873328e",
+      "controle": "modelo_direto",
+      "modelo": "qwen2.5-coder:3b",
+      "nucleo": "295328a15acd2c50db52e6c7b301dbe2cab2035f73b7c4674132c6f08aedc73e",
+      "execucoes_completas": 2,
+      "execucoes_parciais": 0,
+      "tentativas_por_cenario": 80,
+      "reducao_consolidada_pct": 74.13010101010101,
+      "media_aritmetica_percentuais_rodadas_pct": 74.16389398130733,
+      "min_reducao_pct": 74.09576077092606,
+      "max_reducao_pct": 74.23202719168857,
+      "cenarios": {
+        "Histórico completo": {
+          "tokens": 61875,
+          "media_tokens_por_tentativa": 773.4375
+        },
+        "Memória automática": {
+          "tokens": 16007,
+          "media_tokens_por_tentativa": 200.0875
+        },
+        "Sem memória": {
+          "tokens": 6260,
+          "media_tokens_por_tentativa": 78.25
+        },
+        "Memória pré-carregada": {
+          "tokens": 11460,
+          "media_tokens_por_tentativa": 143.25
+        }
+      },
+      "execucoes": [
+        "36193efda5304a95b807d1e49361b8c3",
+        "cf9d4a516d9a466bb196e0f8f6788276"
+      ]
+    }
+  ],
+  "oficial_historico_completo": {
+    "execucoes": 9,
+    "tentativas": 400,
+    "historico_tokens": 340630,
+    "automatica_tokens": 51760,
+    "reducao_pct": 84.80462672107565,
+    "nota": "Descritivo histórico de etapas diferentes; não é o resultado isolado da versão atual."
+  },
+  "total_relatorios": 14,
+  "comparativos": 12,
+  "p6_separados": 2,
+  "criterio": "Consolidados somente com quatro cenários completos, pares únicos completos e sem falhas. Incompletos preservados e descritos à parte. Nenhuma exclusão por reprovação semântica. Média por tentativa inclui ingestão e pergunta final; não significa tokens de uma única chamada. Redução consolidada=100*(1-soma automática/soma histórico). Versões do executor são agrupadas separadamente, mantendo dataset, controle, modelo e núcleo. Hashes não demonstram causalidade. Repetições do mesmo roteiro não são amostras independentes. Custos de embeddings, regras, banco e infraestrutura não estão incluídos."
+}

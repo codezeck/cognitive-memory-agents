@@ -1,0 +1,23 @@
+{
+  "testes_python_aprovados": 931,
+  "testes_python_ignorados": 66,
+  "testes_js_aprovados": 8,
+  "lint_critico": "aprovado",
+  "links_locais": 193,
+  "git_diff_check": "aprovado",
+  "p6_sessoes": 40,
+  "p6_falhas_tecnicas": 0,
+  "pdf_paginas_textuais": 17,
+  "pdf_inspecao": "25 paginas renderizadas; contato completo e novas paginas inspecionados",
+  "diferencas_fontes_apos_p6": [
+    "src/interface/comparativo.py",
+    "tools/gerar_pesquisa.py"
+  ],
+  "padroes_credenciais_encontrados": [],
+  "limite_varredura": "padroes conhecidos; nao e certificacao de ausencia de todo segredo",
+  "servicos_preexistentes": "preservados; containers descartaveis encerrados",
+  "observacao_diferencas_fontes": "Depois da P6, o wrapper recebeu --dataset e o gerador PDF foi atualizado; agente, contexto, regras e armazenamento permaneceram iguais aos avaliados.",
+  "fontes_novas_apos_p6": [
+    "tools/resumir_melhorias.py"
+  ]
+}

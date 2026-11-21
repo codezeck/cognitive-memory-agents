@@ -1,0 +1,27 @@
+{
+  "paginas_total": 25,
+  "paginas_textuais": 16,
+  "primeira_textual": 8,
+  "primeira_referencias": 24,
+  "status": "candidata_v3_para_revisao_humana",
+  "sha256": "fa9e4c363df2249b780bdf64953eb281731164279771cd82bd970e2aaf9f6697",
+  "fontes": {
+    "evidencias\\comparativo_oficial_3rep.json": "f247abd524075477f74b5f43511dc80313c67d7ec183d13f199e5962727bb5af",
+    "evidencias\\entrega\\20261114-entrega-ae9eb113\\comparativo-desenvolvimento.json": "ba3d6bed4f7fa085d830465ec256be82cece8181c5d987aa95f269872b0a7670"
+  },
+  "fontes_atuais": {
+    "docs\\pesquisa-v3.md": "671026d548079f9a02c91c2e52f4bc6df20440347bae2cf07a072b4c243ddbd0",
+    "docs\\dados-academicos.json": "fbd584c39764ad11e042af329451aeb16a39443c75b8c8b7b774d2cda68605a6",
+    "docs\\contribuicao-academica-zeck.md": "3d63f7a5fad0d68cbe604afbf099ad9b6b1674210152b19db860aa855c37eb6c",
+    "docs\\pesquisa-complemento.md": "41d47d3a91f41d13876c253436f3b9d730f667e79311b10cda9353dba90f65c5",
+    "tools\\gerar_pesquisa.py": "dd0d25b356a3be3f312b6879ecc277aa489b3ed77b69d99425029f638e6b16e2",
+    "evidencias\\contexto-v3-20261118\\p6-r01\\resumo.json": "86f869cde814ba6c655067b39fe3660015e81b27f23616903bbdf862bcd127df",
+    "evidencias\\entrega-v3-20261118\\figuras\\p6-v3.png": "470d4332c66e63d6a05377b1331bc2b17cd0d08aca3eae4b6c289015fbe49a27",
+    "evidencias\\entrega-v3-20261118\\figuras\\validacao-v3.png": "77653bdc334eede95f0150a169fbde2ec47ecabff3f0bf12aafab9100b2f43a4"
+  },
+  "revisao_visual": {
+    "paginas_renderizadas": 25,
+    "paginas_inspecionadas": "Painel de todas as páginas e ampliação das páginas 2, 9 e 25 após revisão do texto e do apêndice; gráficos da página 21 conservados.",
+    "resultado": "Sem cortes ou sobreposições observados; revisão humana acadêmica permanece pendente."
+  }
+}

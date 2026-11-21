@@ -17,6 +17,34 @@ TOKEN = "credencial-sintetica-do-teste-u1"
 OUTRO = "credencial-sintetica-do-teste-u2"
 
 
+def test_listagem_historico_autenticada_sem_cache_e_com_limites(ctx, monkeypatch):
+    cliente, _, _ = ctx
+    chamadas = []
+    monkeypatch.setattr(avaliacoes, 'listar', lambda *args: chamadas.append(args) or {'avaliacoes': [], 'total': 0, 'proximo_deslocamento': None})
+    assert cliente.get('/interface/avaliacoes').status_code == 401
+    entrar(cliente)
+    r = cliente.get('/interface/avaliacoes?limite=10&deslocamento=2')
+    assert r.status_code == 200 and r.headers['cache-control'] == 'no-store'
+    assert chamadas == [('u1', 2, 10)]
+    assert cliente.get('/interface/avaliacoes?limite=51').status_code == 422
+    assert cliente.get('/interface/avaliacoes?deslocamento=-1').status_code == 422
+    assert cliente.get('/interface/avaliacoes', headers={'Sec-Fetch-Site': 'cross-site'}).status_code == 403
+
+
+def test_analise_importada_autenticada_nao_persiste_nem_cria_processos(ctx, monkeypatch):
+    from src.interface.protocolos import fonte_v3
+    cliente, _, _ = ctx
+    monkeypatch.setattr(avaliacoes.subprocess, 'Popen', lambda *a, **k: pytest.fail('Análise não cria processo'))
+    caso = fonte_v3()[0]
+    doc = {'interface': {'casos': [caso]}, 'resultados': [{'id': caso['id'], 'cenario': 'sem_memoria', 'repeticao': 1, 'resposta': 'DESCONHECIDO'}]}
+    assert cliente.post('/interface/relatorios/analise', json={'documento': doc}).status_code == 401
+    entrar(cliente)
+    r = cliente.post('/interface/relatorios/analise', json={'documento': doc})
+    assert r.status_code == 200 and r.headers['cache-control'] == 'no-store'
+    assert r.json()['resultados'][0]['julgamento']['passou'] is False
+    assert cliente.post('/interface/relatorios/analise', json={'documento': []}).status_code == 422
+
+
 @pytest.fixture
 def ctx(monkeypatch):
     monkeypatch.setenv("HABILITAR_COMPARATIVO_INTERFACE", "1")
@@ -29,7 +57,7 @@ def ctx(monkeypatch):
         get_memoria: lambda: memoria, get_agente: lambda: agente,
         get_catalogo: lambda: Catalogo(config), get_gerenciador: lambda: gerente,
     })
-    with TestClient(app, raise_server_exceptions=False) as cliente:
+    with TestClient(app, base_url='http://127.0.0.1', raise_server_exceptions=False) as cliente:
         yield cliente, memoria, agente
     app.dependency_overrides.clear()
     app.dependency_overrides.update(anteriores)
@@ -130,7 +158,7 @@ def test_avaliacao_exige_login_e_modelo_permitido(ctx, monkeypatch):
     assert cliente.post("/interface/avaliacoes", json={"modelo": "nao-permitido"}).status_code == 400
     assert cliente.post("/interface/avaliacoes", json={"modelo": "qwen2.5-coder:3b", "repeticoes": 0}).status_code == 422
     assert cliente.post("/interface/avaliacoes", json={"modelo": "qwen2.5-coder:3b"}).status_code == 202
-    assert chamadas == [("u1", "qwen2.5-coder:3b", 1)]
+    assert chamadas == [("u1", "qwen2.5-coder:3b", 1, 'comparativo_v3', None)]
 
 
 def test_job_de_outro_usuario_nao_pode_ser_consultado(ctx, monkeypatch, tmp_path):
@@ -185,3 +213,72 @@ def test_assunto_da_busca_nao_aparece_nos_logs(ctx, caplog):
         assert cliente.post("/interface/memorias", json={"consulta": assunto}).status_code == 200
     assert assunto not in caplog.text
     assert "HTTP Request" in caplog.text
+
+
+def test_roteiros_e_exemplos_autenticados_sem_modelo(ctx, monkeypatch):
+    cliente, _, _ = ctx
+    def proibido(*args, **kwargs):
+        pytest.fail('Consultar arquivos não deve criar processo de avaliação')
+    monkeypatch.setattr(avaliacoes.subprocess, 'Popen', proibido)
+    assert cliente.get('/interface/roteiros').status_code == 401
+    assert cliente.get('/interface/conjuntos/oficial').status_code == 401
+    entrar(cliente)
+    roteiros = cliente.get('/interface/roteiros').json()['protocolos']
+    assert len(roteiros[0]['questoes']) == 16
+    assert len(roteiros[1]['sessoes']) == 20
+    assert len(roteiros[1]['questoes']) == 21
+    modelo = cliente.get('/interface/conjuntos/exemplo')
+    assert 'attachment' in modelo.headers['content-disposition']
+    assert len(modelo.json()) == 1
+    assert len(cliente.get('/interface/conjuntos/oficial').json()) == 16
+    assert cliente.post('/interface/conjuntos/validar', json={'casos': modelo.json()}).json()['valido']
+
+
+@pytest.mark.parametrize('alteracao', ['duplicado', 'sem_anotacao', 'tipo', 'mensagem_longa', 'muitos', 'caminho', 'estado'])
+def test_upload_invalido_nao_inicia_modelo(ctx, monkeypatch, alteracao):
+    import copy
+    from src.interface.protocolos import fonte_v3
+    cliente, _, _ = ctx
+    entrar(cliente)
+    casos = copy.deepcopy(fonte_v3()[:1])
+    if alteracao == 'duplicado': casos *= 2
+    elif alteracao == 'sem_anotacao': casos[0].pop('avaliacao')
+    elif alteracao == 'tipo': casos[0]['mensagens'] = 'texto'
+    elif alteracao == 'mensagem_longa': casos[0]['mensagens'][0] = 'x' * 2001
+    elif alteracao == 'muitos': casos *= 21
+    elif alteracao == 'caminho': casos[0]['dataset'] = '../../dados/memorias.db'
+    elif alteracao == 'estado': casos[0]['estado_regras_esperado'] = {'cidade': {'objeto': 'não é texto'}}
+    def proibido(*args, **kwargs): pytest.fail('Não executar arquivo inválido')
+    monkeypatch.setattr(avaliacoes.subprocess, 'Popen', proibido)
+    assert cliente.post('/interface/conjuntos/validar', json={'casos': casos}).status_code == 422
+    assert cliente.post('/interface/avaliacoes', json={'modelo': 'qwen2.5-coder:3b', 'casos': casos}).status_code == 422
+
+
+def test_limite_corpo_inclusive_sem_content_length(ctx, monkeypatch):
+    cliente, _, _ = ctx
+    entrar(cliente)
+    def proibido(*args, **kwargs): pytest.fail('Não executar corpo excessivo')
+    monkeypatch.setattr(avaliacoes.subprocess, 'Popen', proibido)
+    r = cliente.post('/interface/conjuntos/validar', content=iter([b' ' * 100000, b' ' * 100000]),
+                     headers={'Content-Type': 'application/json'})
+    assert r.status_code == 413
+
+
+def test_p6_nao_aceita_conjunto_generico_nem_repeticoes(ctx, monkeypatch):
+    from src.interface.protocolos import fonte_v3
+    cliente, _, _ = ctx
+    entrar(cliente)
+    def proibido(*args, **kwargs): pytest.fail('Não iniciar P6 incompatível')
+    monkeypatch.setattr(avaliacoes.subprocess, 'Popen', proibido)
+    for extra in ({'casos': fonte_v3()[:1]}, {'repeticoes': 3}):
+        assert cliente.post('/interface/avaliacoes', json={'modelo': 'qwen2.5-coder:3b', 'protocolo': 'p6', **extra}).status_code == 422
+
+
+def test_avaliacao_recusa_host_externo_e_origem_cruzada(ctx, monkeypatch):
+    cliente, _, _ = ctx
+    entrar(cliente)
+    def proibido(*args, **kwargs): pytest.fail('Não executar origem externa')
+    monkeypatch.setattr(avaliacoes, 'iniciar', proibido)
+    corpo = {'modelo': 'qwen2.5-coder:3b'}
+    assert cliente.post('/interface/avaliacoes', json=corpo, headers={'Host': 'outro.example'}).status_code == 403
+    assert cliente.post('/interface/avaliacoes', json=corpo, headers={'Origin': 'https://outro.example'}).status_code == 403

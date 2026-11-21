@@ -1,0 +1,406 @@
+[
+  {
+    "id": "V3T001",
+    "categoria": "recuperacao",
+    "descricao": "Validação sintética v3; valores novos e escopo congelado",
+    "mensagens": [
+      "Moro em Jacareí.",
+      "Em qual cidade eu vivo? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [
+      "Moro em Jacareí."
+    ],
+    "esperado": "Jacareí",
+    "estado_regras_esperado": {
+      "cidade": "Jacareí"
+    },
+    "informacoes_esquecidas": [],
+    "avaliacao": {
+      "tipo_resposta": "factual",
+      "atributo": "cidade",
+      "aliases_aceitos": [],
+      "valores_antigos": [],
+      "informacoes_proibidas": []
+    }
+  },
+  {
+    "id": "V3T002",
+    "categoria": "atualizacao",
+    "descricao": "Validação sintética v3; valores novos e escopo congelado",
+    "mensagens": [
+      "Moro em Taubaté.",
+      "Mudei para Maringá.",
+      "Qual é a minha cidade atual? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [
+      "Mora em Maringá."
+    ],
+    "esperado": "Maringá",
+    "estado_regras_esperado": {
+      "cidade": "Maringá"
+    },
+    "informacoes_esquecidas": [],
+    "avaliacao": {
+      "tipo_resposta": "factual",
+      "atributo": "cidade",
+      "aliases_aceitos": [],
+      "valores_antigos": [
+        "Taubaté"
+      ],
+      "informacoes_proibidas": []
+    }
+  },
+  {
+    "id": "V3T003",
+    "categoria": "atualizacao",
+    "descricao": "Validação sintética v3; valores novos e escopo congelado",
+    "mensagens": [
+      "Meu carro é um Siena.",
+      "Meu carro agora é um Duster.",
+      "Que automóvel dirijo hoje? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [
+      "Carro: Duster."
+    ],
+    "esperado": "Duster",
+    "estado_regras_esperado": {
+      "carro": "Duster"
+    },
+    "informacoes_esquecidas": [],
+    "avaliacao": {
+      "tipo_resposta": "factual",
+      "atributo": "carro",
+      "aliases_aceitos": [],
+      "valores_antigos": [
+        "Siena"
+      ],
+      "informacoes_proibidas": []
+    }
+  },
+  {
+    "id": "V3T004",
+    "categoria": "esquecimento",
+    "descricao": "Validação sintética v3; valores novos e escopo congelado",
+    "mensagens": [
+      "Meu carro é um Etios.",
+      "Não uso mais o Etios.",
+      "Qual é meu carro? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [],
+    "esperado": [
+      "não sei"
+    ],
+    "estado_regras_esperado": {},
+    "informacoes_esquecidas": [
+      "Etios"
+    ],
+    "avaliacao": {
+      "tipo_resposta": "abstencao",
+      "atributo": "carro",
+      "aliases_aceitos": [],
+      "valores_antigos": [],
+      "informacoes_proibidas": []
+    }
+  },
+  {
+    "id": "V3T005",
+    "categoria": "atualizacao",
+    "descricao": "Validação sintética v3; valores novos e escopo congelado",
+    "mensagens": [
+      "Meu carro é um Ka.",
+      "Meu carro agora é um Kicks.",
+      "Não tenho mais o Ka.",
+      "Qual é meu carro atual? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [
+      "Carro: Kicks."
+    ],
+    "esperado": "Kicks",
+    "estado_regras_esperado": {
+      "carro": "Kicks"
+    },
+    "informacoes_esquecidas": [],
+    "avaliacao": {
+      "tipo_resposta": "factual",
+      "atributo": "carro",
+      "aliases_aceitos": [],
+      "valores_antigos": [
+        "Ka"
+      ],
+      "informacoes_proibidas": []
+    }
+  },
+  {
+    "id": "V3T006",
+    "categoria": "recuperacao",
+    "descricao": "Validação sintética v3; valores novos e escopo congelado",
+    "mensagens": [
+      "Pratico pilates.",
+      "Qual atividade física eu pratico? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [
+      "Pratica pilates."
+    ],
+    "esperado": "pilates",
+    "estado_regras_esperado": {
+      "esporte": "pilates"
+    },
+    "informacoes_esquecidas": [],
+    "avaliacao": {
+      "tipo_resposta": "factual",
+      "atributo": "esporte",
+      "aliases_aceitos": [],
+      "valores_antigos": [],
+      "informacoes_proibidas": []
+    }
+  },
+  {
+    "id": "V3T007",
+    "categoria": "recuperacao",
+    "descricao": "Validação sintética v3; valores novos e escopo congelado",
+    "mensagens": [
+      "Meu nome é Beatriz.",
+      "Pratico tênis.",
+      "Qual esporte pratico? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [
+      "Pratica tênis."
+    ],
+    "esperado": "tênis",
+    "estado_regras_esperado": {
+      "nome": "Beatriz",
+      "esporte": "tênis"
+    },
+    "informacoes_esquecidas": [],
+    "avaliacao": {
+      "tipo_resposta": "factual",
+      "atributo": "esporte",
+      "aliases_aceitos": [],
+      "valores_antigos": [],
+      "informacoes_proibidas": []
+    }
+  },
+  {
+    "id": "V3T008",
+    "categoria": "recuperacao",
+    "descricao": "Validação sintética v3; valores novos e escopo congelado",
+    "mensagens": [
+      "Torço pelo Fortaleza.",
+      "Para qual time torço? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [
+      "Torce para Fortaleza."
+    ],
+    "esperado": "Fortaleza",
+    "estado_regras_esperado": {
+      "time": "Fortaleza"
+    },
+    "informacoes_esquecidas": [],
+    "avaliacao": {
+      "tipo_resposta": "factual",
+      "atributo": "time",
+      "aliases_aceitos": [],
+      "valores_antigos": [],
+      "informacoes_proibidas": []
+    }
+  },
+  {
+    "id": "V3T009",
+    "categoria": "esquecimento",
+    "descricao": "Validação sintética v3; valores novos e escopo congelado",
+    "mensagens": [
+      "Torço pelo Vitória.",
+      "Não torço mais pelo Vitória.",
+      "Para qual time eu torço? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [],
+    "esperado": [
+      "não sei"
+    ],
+    "estado_regras_esperado": {},
+    "informacoes_esquecidas": [
+      "Vitória"
+    ],
+    "avaliacao": {
+      "tipo_resposta": "abstencao",
+      "atributo": "time",
+      "aliases_aceitos": [],
+      "valores_antigos": [],
+      "informacoes_proibidas": []
+    }
+  },
+  {
+    "id": "V3T010",
+    "categoria": "recuperacao",
+    "descricao": "Validação sintética v3; valores novos e escopo congelado",
+    "mensagens": [
+      "Trabalho como arquiteta.",
+      "Qual é minha ocupação? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [
+      "Profissão: arquiteta."
+    ],
+    "esperado": "arquiteta",
+    "estado_regras_esperado": {
+      "profissao": "arquiteta"
+    },
+    "informacoes_esquecidas": [],
+    "avaliacao": {
+      "tipo_resposta": "factual",
+      "atributo": "profissao",
+      "aliases_aceitos": [],
+      "valores_antigos": [],
+      "informacoes_proibidas": []
+    }
+  },
+  {
+    "id": "V3T011",
+    "categoria": "recuperacao",
+    "descricao": "Validação sintética v3; valores novos e escopo congelado",
+    "mensagens": [
+      "Meu nome é Cecília.",
+      "Qual é meu nome? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [
+      "Chama-se Cecília."
+    ],
+    "esperado": "Cecília",
+    "estado_regras_esperado": {
+      "nome": "Cecília"
+    },
+    "informacoes_esquecidas": [],
+    "avaliacao": {
+      "tipo_resposta": "factual",
+      "atributo": "nome",
+      "aliases_aceitos": [],
+      "valores_antigos": [],
+      "informacoes_proibidas": []
+    }
+  },
+  {
+    "id": "V3T012",
+    "categoria": "esquecimento",
+    "descricao": "Validação sintética v3; valores novos e escopo congelado",
+    "mensagens": [
+      "Meu nome é Otávio.",
+      "Apague meu nome.",
+      "Como me chamo? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [],
+    "esperado": [
+      "não sei"
+    ],
+    "estado_regras_esperado": {},
+    "informacoes_esquecidas": [
+      "Otávio"
+    ],
+    "avaliacao": {
+      "tipo_resposta": "abstencao",
+      "atributo": "nome",
+      "aliases_aceitos": [],
+      "valores_antigos": [],
+      "informacoes_proibidas": []
+    }
+  },
+  {
+    "id": "V3T013",
+    "categoria": "recuperacao",
+    "descricao": "Validação sintética v3; valores novos e escopo congelado",
+    "mensagens": [
+      "Tenho quatro filhos.",
+      "Quantos filhos eu tenho? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [
+      "Tem 4 filhos."
+    ],
+    "esperado": "4",
+    "estado_regras_esperado": {
+      "filhos": "4"
+    },
+    "informacoes_esquecidas": [],
+    "avaliacao": {
+      "tipo_resposta": "factual",
+      "atributo": "filhos",
+      "aliases_aceitos": [],
+      "valores_antigos": [],
+      "informacoes_proibidas": []
+    }
+  },
+  {
+    "id": "V3T014",
+    "categoria": "sem_resposta",
+    "descricao": "Validação sintética v3; valores novos e escopo congelado",
+    "mensagens": [
+      "Moro em Blumenau.",
+      "Qual é meu nome? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [],
+    "esperado": [
+      "não sei"
+    ],
+    "estado_regras_esperado": {
+      "cidade": "Blumenau"
+    },
+    "informacoes_esquecidas": [],
+    "avaliacao": {
+      "tipo_resposta": "abstencao",
+      "atributo": "nome",
+      "aliases_aceitos": [],
+      "valores_antigos": [],
+      "informacoes_proibidas": []
+    }
+  },
+  {
+    "id": "V3T015",
+    "categoria": "esquecimento",
+    "descricao": "Validação sintética v3; valores novos e escopo congelado",
+    "mensagens": [
+      "Meu carro é um Fit.",
+      "Meu nome é Elisa.",
+      "Esqueça tudo sobre mim.",
+      "Qual é meu nome? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [],
+    "esperado": [
+      "não sei"
+    ],
+    "estado_regras_esperado": {},
+    "informacoes_esquecidas": [
+      "Elisa",
+      "Fit"
+    ],
+    "avaliacao": {
+      "tipo_resposta": "abstencao",
+      "atributo": "nome",
+      "aliases_aceitos": [],
+      "valores_antigos": [],
+      "informacoes_proibidas": []
+    }
+  },
+  {
+    "id": "V3T016",
+    "categoria": "recuperacao",
+    "descricao": "Validação sintética v3; valores novos e escopo congelado",
+    "mensagens": [
+      "Moro em Aracaju.",
+      "Meu carro é um Versa.",
+      "Qual é meu carro? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [
+      "Carro: Versa."
+    ],
+    "esperado": "Versa",
+    "estado_regras_esperado": {
+      "cidade": "Aracaju",
+      "carro": "Versa"
+    },
+    "informacoes_esquecidas": [],
+    "avaliacao": {
+      "tipo_resposta": "factual",
+      "atributo": "carro",
+      "aliases_aceitos": [],
+      "valores_antigos": [],
+      "informacoes_proibidas": []
+    }
+  }
+]

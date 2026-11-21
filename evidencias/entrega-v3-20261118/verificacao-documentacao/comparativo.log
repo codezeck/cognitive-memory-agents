@@ -1,0 +1,54 @@
+ Container cma-demonstracao-avaliacao-run-2f197c9ece64 Creating 
+ Container cma-demonstracao-avaliacao-run-2f197c9ece64 Created 
+
+Repetição 1/1 | V3T001 | sem_memoria
+PASSOU: DESCONHECIDO
+Tokens: 0 | latência API: 21 ms
+
+Repetição 1/1 | V3T001 | historico_completo
+PASSOU: Jacareí
+Tokens: 643 | latência API: 5757 ms
+
+Repetição 1/1 | V3T001 | memoria_persistente_api
+PASSOU: Jacareí
+Tokens: 189 | latência API: 2032 ms
+
+Repetição 1/1 | V3T001 | memoria_regras_api
+PASSOU: Jacareí
+Estado das regras: CORRETO
+Tokens: 189 | latência API: 797 ms
+
+===== RESUMO =====
+sem_memoria: 1/1 acertos (100.0%) | execuções concluídas=1; falhas=0 | tokens=0 | latência média/caso=21.0 ms
+  recuperacao_factual: 0/0 verificados (taxa=n/d) | elegíveis=0; cobertura=0/0 (n/d); não verificados=0; não aplicáveis=1; aplicabilidade desconhecida=0
+  abstencao_correta: 1/1 verificados (taxa=100.0%) | elegíveis=1; cobertura=1/1 (100.0%); não verificados=0; não aplicáveis=0; aplicabilidade desconhecida=0
+  vazamento_esquecidos: 0/0 verificados (taxa=n/d) | elegíveis=0; cobertura=0/0 (n/d); não verificados=0; não aplicáveis=1; aplicabilidade desconhecida=0
+  ingestao: tokens_entrada=0, tokens_saida=0, tokens_total=0; casos medidos=1/1
+  pergunta_final: tokens_entrada=0, tokens_saida=0, tokens_total=0; casos medidos=1/1
+  sessao: tokens_entrada=0, tokens_saida=0, tokens_total=0; casos medidos=1/1
+historico_completo: 1/1 acertos (100.0%) | execuções concluídas=1; falhas=0 | tokens=643 | latência média/caso=5757.0 ms
+  recuperacao_factual: 1/1 verificados (taxa=100.0%) | elegíveis=1; cobertura=1/1 (100.0%); não verificados=0; não aplicáveis=0; aplicabilidade desconhecida=0
+  abstencao_correta: 0/0 verificados (taxa=n/d) | elegíveis=0; cobertura=0/0 (n/d); não verificados=0; não aplicáveis=1; aplicabilidade desconhecida=0
+  vazamento_esquecidos: 0/0 verificados (taxa=n/d) | elegíveis=0; cobertura=0/0 (n/d); não verificados=0; não aplicáveis=1; aplicabilidade desconhecida=0
+  ingestao: tokens_entrada=256, tokens_saida=38, tokens_total=294; casos medidos=1/1
+  pergunta_final: tokens_entrada=345, tokens_saida=4, tokens_total=349; casos medidos=1/1
+  sessao: tokens_entrada=601, tokens_saida=42, tokens_total=643; casos medidos=1/1
+memoria_persistente_api: 1/1 acertos (100.0%) | execuções concluídas=1; falhas=0 | tokens=189 | latência média/caso=2032.0 ms
+  recuperacao_factual: 1/1 verificados (taxa=100.0%) | elegíveis=1; cobertura=1/1 (100.0%); não verificados=0; não aplicáveis=0; aplicabilidade desconhecida=0
+  abstencao_correta: 0/0 verificados (taxa=n/d) | elegíveis=0; cobertura=0/0 (n/d); não verificados=0; não aplicáveis=1; aplicabilidade desconhecida=0
+  vazamento_esquecidos: 0/0 verificados (taxa=n/d) | elegíveis=0; cobertura=0/0 (n/d); não verificados=0; não aplicáveis=1; aplicabilidade desconhecida=0
+  ingestao: tokens_entrada=0, tokens_saida=0, tokens_total=0; casos medidos=1/1
+  pergunta_final: tokens_entrada=185, tokens_saida=4, tokens_total=189; casos medidos=1/1
+  sessao: tokens_entrada=185, tokens_saida=4, tokens_total=189; casos medidos=1/1
+  recuperação exata: 1/1; casos sem memória esperada sem resíduos: 0/0
+memoria_regras_api: 1/1 acertos (100.0%) | execuções concluídas=1; falhas=0 | tokens=189 | latência média/caso=797.0 ms
+  recuperacao_factual: 1/1 verificados (taxa=100.0%) | elegíveis=1; cobertura=1/1 (100.0%); não verificados=0; não aplicáveis=0; aplicabilidade desconhecida=0
+  abstencao_correta: 0/0 verificados (taxa=n/d) | elegíveis=0; cobertura=0/0 (n/d); não verificados=0; não aplicáveis=1; aplicabilidade desconhecida=0
+  vazamento_esquecidos: 0/0 verificados (taxa=n/d) | elegíveis=0; cobertura=0/0 (n/d); não verificados=0; não aplicáveis=1; aplicabilidade desconhecida=0
+  ingestao: tokens_entrada=0, tokens_saida=0, tokens_total=0; casos medidos=1/1
+  pergunta_final: tokens_entrada=185, tokens_saida=4, tokens_total=189; casos medidos=1/1
+  sessao: tokens_entrada=185, tokens_saida=4, tokens_total=189; casos medidos=1/1
+  recuperação exata: 0/1; casos sem memória esperada sem resíduos: 0/0
+  estados das regras corretos: 1/1
+
+Relatório salvo em: /saida/verificacao-documental-comparativo.json

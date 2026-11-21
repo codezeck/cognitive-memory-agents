@@ -1,0 +1,144 @@
+{
+  "autor": "Codex; análise assistida por IA, sem aprovação humana atribuída",
+  "origem_sha256": "49a7ea908add5882140804e8737b5552e207b8d42865282adcdfd23185ad4719",
+  "criterio": "Gabaritos congelados, sem aceitar detalhes inventados ou contraditórios.",
+  "revisoes": [
+    {
+      "cenario": "historico_completo",
+      "evento_id": "u03/s2/pergunta1",
+      "resposta": "Desculpe, mas como uma inteligência artificial, não posso acessar informações pessoais ou personalizar detalhes como hobbies. Você gostaria de compartilhar mais sobre seus interesses ou interesses?",
+      "conteudo_aprovado_revisao_ia": false,
+      "motivo": "Recusa informar o hobby já declarado: fotografia."
+    },
+    {
+      "cenario": "memoria_automatica",
+      "evento_id": "u01/s3/pergunta2",
+      "resposta": "Hoje você mora em Campinas.",
+      "conteudo_aprovado_revisao_ia": true,
+      "motivo": "Afirma Campinas, valor atual anotado."
+    },
+    {
+      "cenario": "historico_completo",
+      "evento_id": "u01/s3/pergunta2",
+      "resposta": "Hoje você mora em Campinas.",
+      "conteudo_aprovado_revisao_ia": true,
+      "motivo": "Afirma Campinas, valor atual anotado."
+    },
+    {
+      "cenario": "memoria_automatica",
+      "evento_id": "u03/s3/pergunta2",
+      "resposta": "Você planeja viajar para Portugal em dezembro.",
+      "conteudo_aprovado_revisao_ia": true,
+      "motivo": "Afirma Portugal em dezembro, destino atual anotado."
+    },
+    {
+      "cenario": "historico_completo",
+      "evento_id": "u03/s3/pergunta2",
+      "resposta": "Você está viajando para Portugal em dezembro.",
+      "conteudo_aprovado_revisao_ia": true,
+      "motivo": "Afirma Portugal em dezembro, destino atual anotado."
+    },
+    {
+      "cenario": "memoria_automatica",
+      "evento_id": "u04/s3/pergunta1",
+      "resposta": "Você é um analista de dados.",
+      "conteudo_aprovado_revisao_ia": true,
+      "motivo": "Afirma analista de dados; o artigo um não muda o cargo."
+    },
+    {
+      "cenario": "historico_completo",
+      "evento_id": "u04/s3/pergunta1",
+      "resposta": "Atualmente, seu trabalho envolve desenvolvimento de projetos de inteligência artificial usando Python.",
+      "conteudo_aprovado_revisao_ia": false,
+      "motivo": "Descreve desenvolvimento com Python; não informa analista de dados."
+    },
+    {
+      "cenario": "historico_completo",
+      "evento_id": "u01/s4/pergunta3",
+      "resposta": "Sua profissão é enfermeira.",
+      "conteudo_aprovado_revisao_ia": false,
+      "motivo": "Retorna enfermeira, profissão antiga."
+    },
+    {
+      "cenario": "historico_completo",
+      "evento_id": "u02/s4/pergunta2",
+      "resposta": "Você dirige o Onix branco.",
+      "conteudo_aprovado_revisao_ia": true,
+      "motivo": "Afirma Onix branco; o artigo o não muda o carro."
+    },
+    {
+      "cenario": "memoria_automatica",
+      "evento_id": "u03/s4/pergunta3",
+      "resposta": "Você tem dois gatos: um chamado Leo e outro chamado Simba.",
+      "conteudo_aprovado_revisao_ia": false,
+      "motivo": "Quantidade dois correta, mas inventa Leo; o nome anotado é Luna."
+    },
+    {
+      "cenario": "historico_completo",
+      "evento_id": "u03/s4/pergunta3",
+      "resposta": "Você tem dois gatos: Luna e Simba.",
+      "conteudo_aprovado_revisao_ia": true,
+      "motivo": "Quantidade dois e nomes Luna e Simba coerentes com a trajetória."
+    },
+    {
+      "cenario": "memoria_automatica",
+      "evento_id": "u01/s5/pergunta4",
+      "resposta": "Sua residência atual é Santos.",
+      "conteudo_aprovado_revisao_ia": true,
+      "motivo": "Afirma residência atual em Santos."
+    },
+    {
+      "cenario": "historico_completo",
+      "evento_id": "u01/s5/pergunta4",
+      "resposta": "Sua casa atual é Santos.",
+      "conteudo_aprovado_revisao_ia": true,
+      "motivo": "Afirma residência atual em Santos."
+    },
+    {
+      "cenario": "memoria_automatica",
+      "evento_id": "u01/s5/pergunta5",
+      "resposta": "O nome do seu cachorro é Thor.",
+      "conteudo_aprovado_revisao_ia": true,
+      "motivo": "Afirma Thor como nome do cachorro."
+    },
+    {
+      "cenario": "historico_completo",
+      "evento_id": "u01/s5/pergunta5",
+      "resposta": "Seu cachorro se chama Thor.",
+      "conteudo_aprovado_revisao_ia": true,
+      "motivo": "Afirma Thor como nome do cachorro."
+    },
+    {
+      "cenario": "historico_completo",
+      "evento_id": "u02/s5/pergunta3",
+      "resposta": "Você dirige o Onix branco, mas agora que esqueci sobre isso, não tenho certeza de qual carro você dirige.",
+      "conteudo_aprovado_revisao_ia": false,
+      "motivo": "Expõe Onix branco após o pedido de esquecimento."
+    },
+    {
+      "cenario": "memoria_automatica",
+      "evento_id": "u03/s5/pergunta4",
+      "resposta": "Você é a diretora de arte.",
+      "conteudo_aprovado_revisao_ia": true,
+      "motivo": "Afirma diretora de arte; o artigo a não muda o cargo."
+    },
+    {
+      "cenario": "historico_completo",
+      "evento_id": "u03/s5/pergunta4",
+      "resposta": "DESCONHECIDO",
+      "conteudo_aprovado_revisao_ia": false,
+      "motivo": "Abstém apesar de a trajetória informar diretora de arte."
+    },
+    {
+      "cenario": "historico_completo",
+      "evento_id": "u04/s5/pergunta4",
+      "resposta": "DESCONHECIDO",
+      "conteudo_aprovado_revisao_ia": false,
+      "motivo": "Abstém apesar do reaprendizado da cidade Belém."
+    }
+  ],
+  "totais_complementares": {
+    "memoria_automatica": 20,
+    "historico_completo": 15
+  }
+}

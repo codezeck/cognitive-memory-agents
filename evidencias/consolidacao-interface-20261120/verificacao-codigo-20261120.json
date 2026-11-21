@@ -1,0 +1,34 @@
+{
+  "origem": "validação anterior à atualização documental; sem nova execução de suíte",
+  "testes": {
+    "python_aprovados": 1057,
+    "python_ignorados": 67,
+    "node_aprovados": 46,
+    "focados_python_aprovados": 125,
+    "navegador": [
+      "claro",
+      "escuro",
+      "celular",
+      "causa na faixa do histórico",
+      "subtotal e medição parcial",
+      "expansão de respostas sem modelo"
+    ]
+  },
+  "sha256_fontes": {
+    "eval/avaliar_comparativo.py": "a3a8fd81852edd8d1553155e20d99c2867e00f351af88f2e6e0408b94f2ab7dc",
+    "eval/historico_processo.py": "ca3768dcc6635af81e9c48de137cdffa190138434a18ab99023e4a3b8931bf97",
+    "src/interface/comparativo.py": "69fafb9429e72ef6e4670f0d3d5852ddec0cb8fa7629ca1d6f81b75d60aee8f5",
+    "src/interface/executar_avaliacao.py": "06ccfa1d86a50d58f3ead37fcaddd0fb486f64155d7f59dc8019c88dce9c57a7",
+    "src/interface/controle_modelo.py": "9ea56192edb46815c660f9190589fda7dbd1dd8f22d562245ab8aa3314343f32",
+    "src/interface/api_avaliacao.py": "900f770742131e5e3f37a308cee09c83b71cc4eb374984b13a6a3fe710c0a9cf",
+    "src/interface/static/relatorio.mjs": "d4b70f9b589fb39d271d924e979ea38b47997536dc85bd9e78fe190070a7ccf6",
+    "src/interface/static/app.mjs": "902262060853e94f3ed81f638930caede7b929b1002df0f038f195a2bd7a3ffc",
+    "src/interface/avaliacoes.py": "71c85c9861d12777718f49f60826ec5c968bc98ef4df48950244749ff1c8d129",
+    "tests/test_historico_processo.py": "717b3dcb82f10d6105479dc43b35d6777ffb8349c3a8d1e0f7be94b0ff816b6c",
+    "tests/test_interface_comparativo.py": "84de369efc3705b69e7e783d10924d44420c3367f023efbcb17392555c89d65e",
+    "tests/test_controle_modelo.py": "c49d17ffaab2df2e7920698955fdc65495f0cb9fb22227370906e399e158f044",
+    "tests/test_relatorio.mjs": "025d66bad958edab257debe4dbe4844750888b321d294c79069a192879d69e95",
+    "tests/test_limites_avaliacao.py": "0d930930d76f09a1b49081068d459ad74a372b3836dab32f7270aab3b2dc5944"
+  },
+  "git_diff_check_daquela_validacao": "aprovado no fonte e clone"
+}

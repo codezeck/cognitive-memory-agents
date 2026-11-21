@@ -16,6 +16,23 @@ from eval.sessoes_transporte import (
 RAIZ = Path(__file__).resolve().parents[1]
 
 
+def test_vazio_esperado_e_separado_de_persistencia_de_fatos(dados):
+    eventos = integrado.planejar(dados)
+    vazios = [e for e in eventos if e.estado_vazio_esperado]
+    assert [e.id for e in vazios] == ['u04/s4/checkpoint_persistencia']
+    e = vazios[0]
+    resultado = {'evidencia_status': 'compativel', 'reinicio_confirmado': True,
+                 'estado_antes': {}, 'estado_depois': {}}
+    assert integrado.classificar_checkpoint(e, resultado, cenario='memoria_automatica',
+                                            simulado=False) == 'vazio_consistente'
+    resultado['estado_depois'] = {'residuo': 'indevido'}
+    assert integrado.classificar_checkpoint(e, resultado, cenario='memoria_automatica',
+                                            simulado=False) == 'reprovado'
+    resultado.pop('evidencia_status')
+    assert integrado.classificar_checkpoint(e, resultado, cenario='memoria_automatica',
+                                            simulado=False) == 'nao_verificado'
+
+
 @pytest.fixture
 def dados():
     return json.loads((RAIZ / "eval/memoria/sessoes.json").read_text(encoding="utf-8"))
@@ -339,6 +356,23 @@ def test_historico_nao_reexecuta_lote_com_falha(dados):
     for e in fatos:
         with pytest.raises(RuntimeError, match="desconhecido"):
             t.executar(e, provedor="ollama", modelo="simulado")
+    assert executor.call_count == 1
+
+
+def test_historico_informa_causa_sem_payload_sensivel_e_sem_retry(dados):
+    from eval.historico_processo import FalhaProcessoHistorico
+    eventos = integrado.planejar(dados)
+    erro_original = FalhaProcessoHistorico('Bearer segredo-nao-expor', ['ProvedorTimeout', 'ReadTimeout'])
+    executor = Mock(side_effect=erro_original)
+    t = TransporteHistorico(contratos=contrato_fixture(eventos), executor=executor)
+    t.validar(eventos)
+    for e in [e for e in eventos if e.usuario_id == 'u01' and e.tipo == 'fato'][:2]:
+        with pytest.raises(RuntimeError) as erro:
+            t.executar(e, provedor='ollama', modelo='simulado')
+        assert 'excedeu o prazo' in str(erro.value)
+        assert 'ReadTimeout' in str(erro.value)
+        assert 'segredo' not in str(erro.value)
+        assert 'desconhecido' in str(erro.value)
     assert executor.call_count == 1
 
 

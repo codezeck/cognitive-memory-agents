@@ -1,0 +1,409 @@
+{
+  "metodo": "soma dos tokens pareados; mesma geração e anotações por hashes; qualidade derivada v2 congelada",
+  "limite": "Etapas da análise e da interface não isolam efeito causal sobre geração; rodadas não são usuários independentes.",
+  "rodadas": [
+    {
+      "id": "d8a44d6a71e549398649d16c737ab2a7",
+      "gerado_em": "2026-11-21T12:28:21.927390+00:00",
+      "etapa": "Sem análise P6 adicional",
+      "pares": 20,
+      "historico": 23016,
+      "automatica": 3572,
+      "reducao_pct": 84.48036148766076,
+      "qualidade_v2": {
+        "historico_completo": {
+          "acerto_factual": {
+            "aprovado": 8,
+            "nao_verificado": 9,
+            "nao_aplicavel": 4
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 17,
+            "aprovado": 4
+          },
+          "formato_ok": {
+            "reprovado": 18,
+            "aprovado": 3
+          }
+        },
+        "memoria_automatica": {
+          "acerto_factual": {
+            "aprovado": 17,
+            "nao_aplicavel": 4
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 17,
+            "aprovado": 4
+          },
+          "formato_ok": {
+            "aprovado": 9,
+            "reprovado": 12
+          }
+        }
+      }
+    },
+    {
+      "id": "489dae868fa043eda68d68c48ea7cb6f",
+      "gerado_em": "2026-11-21T14:08:36.355967+00:00",
+      "etapa": "Sem análise P6 adicional",
+      "pares": 20,
+      "historico": 25411,
+      "automatica": 3604,
+      "reducao_pct": 85.81716579434104,
+      "qualidade_v2": {
+        "historico_completo": {
+          "acerto_factual": {
+            "aprovado": 8,
+            "reprovado": 2,
+            "nao_verificado": 7,
+            "nao_aplicavel": 4
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 17,
+            "aprovado": 3,
+            "nao_verificado": 1
+          },
+          "formato_ok": {
+            "reprovado": 18,
+            "aprovado": 3
+          }
+        },
+        "memoria_automatica": {
+          "acerto_factual": {
+            "aprovado": 13,
+            "nao_verificado": 4,
+            "nao_aplicavel": 4
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 17,
+            "aprovado": 4
+          },
+          "formato_ok": {
+            "reprovado": 11,
+            "aprovado": 10
+          }
+        }
+      }
+    },
+    {
+      "id": "8aa34eb92b7d4e2bba88f71c43fb3895",
+      "gerado_em": "2026-11-21T14:27:05.590876+00:00",
+      "etapa": "Sem análise P6 adicional",
+      "pares": 20,
+      "historico": 22045,
+      "automatica": 3565,
+      "reducao_pct": 83.82853254706284,
+      "qualidade_v2": {
+        "historico_completo": {
+          "acerto_factual": {
+            "aprovado": 12,
+            "reprovado": 5,
+            "nao_aplicavel": 4
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 17,
+            "aprovado": 4
+          },
+          "formato_ok": {
+            "reprovado": 18,
+            "aprovado": 3
+          }
+        },
+        "memoria_automatica": {
+          "acerto_factual": {
+            "aprovado": 17,
+            "nao_aplicavel": 4
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 17,
+            "aprovado": 4
+          },
+          "formato_ok": {
+            "aprovado": 10,
+            "reprovado": 11
+          }
+        }
+      }
+    },
+    {
+      "id": "296d35d7afbb4630a3c02189e429ffda",
+      "gerado_em": "2026-11-21T15:20:23.068975+00:00",
+      "etapa": "Análise P6 v1",
+      "pares": 20,
+      "historico": 28125,
+      "automatica": 3566,
+      "reducao_pct": 87.32088888888889,
+      "qualidade_v2": {
+        "historico_completo": {
+          "acerto_factual": {
+            "aprovado": 13,
+            "reprovado": 2,
+            "nao_verificado": 2,
+            "nao_aplicavel": 4
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 17,
+            "aprovado": 4
+          },
+          "formato_ok": {
+            "reprovado": 18,
+            "aprovado": 3
+          }
+        },
+        "memoria_automatica": {
+          "acerto_factual": {
+            "aprovado": 16,
+            "reprovado": 1,
+            "nao_aplicavel": 4
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 17,
+            "aprovado": 4
+          },
+          "formato_ok": {
+            "reprovado": 11,
+            "aprovado": 10
+          }
+        }
+      }
+    },
+    {
+      "id": "a81327a4279b4a84a41cf964876c28de",
+      "gerado_em": "2026-11-21T15:38:53.246018+00:00",
+      "etapa": "Análise P6 v2",
+      "pares": 20,
+      "historico": 25747,
+      "automatica": 3576,
+      "reducao_pct": 86.11100322367655,
+      "qualidade_v2": {
+        "historico_completo": {
+          "acerto_factual": {
+            "aprovado": 9,
+            "nao_verificado": 4,
+            "reprovado": 4,
+            "nao_aplicavel": 4
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 17,
+            "aprovado": 3,
+            "reprovado": 1
+          },
+          "formato_ok": {
+            "reprovado": 18,
+            "aprovado": 3
+          }
+        },
+        "memoria_automatica": {
+          "acerto_factual": {
+            "aprovado": 16,
+            "nao_aplicavel": 4,
+            "nao_verificado": 1
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 17,
+            "aprovado": 4
+          },
+          "formato_ok": {
+            "aprovado": 12,
+            "reprovado": 9
+          }
+        }
+      }
+    }
+  ],
+  "grupos": {
+    "Sem análise P6 adicional": {
+      "rodadas": 3,
+      "pares": 60,
+      "historico": 70472,
+      "automatica": 10741,
+      "media_historico_por_rodada": 23490.666666666668,
+      "media_automatica_por_rodada": 3580.3333333333335,
+      "media_historico_por_sessao": 1174.5333333333333,
+      "media_automatica_por_sessao": 179.01666666666668,
+      "reducao_consolidada_pct": 84.75848563968668,
+      "media_aritmetica_reducoes_pct": 84.7086866096882,
+      "menor_reducao_pct": 83.82853254706284,
+      "maior_reducao_pct": 85.81716579434104,
+      "qualidade_v2": {
+        "historico_completo": {
+          "acerto_factual": {
+            "aprovado": 28,
+            "nao_verificado": 16,
+            "nao_aplicavel": 12,
+            "reprovado": 7
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 51,
+            "aprovado": 11,
+            "nao_verificado": 1
+          },
+          "formato_ok": {
+            "reprovado": 54,
+            "aprovado": 9
+          }
+        },
+        "memoria_automatica": {
+          "acerto_factual": {
+            "aprovado": 47,
+            "nao_aplicavel": 12,
+            "nao_verificado": 4
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 51,
+            "aprovado": 12
+          },
+          "formato_ok": {
+            "aprovado": 29,
+            "reprovado": 34
+          }
+        }
+      }
+    },
+    "Análise P6 v1": {
+      "rodadas": 1,
+      "pares": 20,
+      "historico": 28125,
+      "automatica": 3566,
+      "media_historico_por_rodada": 28125.0,
+      "media_automatica_por_rodada": 3566.0,
+      "media_historico_por_sessao": 1406.25,
+      "media_automatica_por_sessao": 178.3,
+      "reducao_consolidada_pct": 87.32088888888889,
+      "media_aritmetica_reducoes_pct": 87.32088888888889,
+      "menor_reducao_pct": 87.32088888888889,
+      "maior_reducao_pct": 87.32088888888889,
+      "qualidade_v2": {
+        "historico_completo": {
+          "acerto_factual": {
+            "aprovado": 13,
+            "reprovado": 2,
+            "nao_verificado": 2,
+            "nao_aplicavel": 4
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 17,
+            "aprovado": 4
+          },
+          "formato_ok": {
+            "reprovado": 18,
+            "aprovado": 3
+          }
+        },
+        "memoria_automatica": {
+          "acerto_factual": {
+            "aprovado": 16,
+            "reprovado": 1,
+            "nao_aplicavel": 4
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 17,
+            "aprovado": 4
+          },
+          "formato_ok": {
+            "reprovado": 11,
+            "aprovado": 10
+          }
+        }
+      }
+    },
+    "Análise P6 v2": {
+      "rodadas": 1,
+      "pares": 20,
+      "historico": 25747,
+      "automatica": 3576,
+      "media_historico_por_rodada": 25747.0,
+      "media_automatica_por_rodada": 3576.0,
+      "media_historico_por_sessao": 1287.35,
+      "media_automatica_por_sessao": 178.8,
+      "reducao_consolidada_pct": 86.11100322367655,
+      "media_aritmetica_reducoes_pct": 86.11100322367655,
+      "menor_reducao_pct": 86.11100322367655,
+      "maior_reducao_pct": 86.11100322367655,
+      "qualidade_v2": {
+        "historico_completo": {
+          "acerto_factual": {
+            "aprovado": 9,
+            "nao_verificado": 4,
+            "reprovado": 4,
+            "nao_aplicavel": 4
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 17,
+            "aprovado": 3,
+            "reprovado": 1
+          },
+          "formato_ok": {
+            "reprovado": 18,
+            "aprovado": 3
+          }
+        },
+        "memoria_automatica": {
+          "acerto_factual": {
+            "aprovado": 16,
+            "nao_aplicavel": 4,
+            "nao_verificado": 1
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 17,
+            "aprovado": 4
+          },
+          "formato_ok": {
+            "aprovado": 12,
+            "reprovado": 9
+          }
+        }
+      }
+    }
+  },
+  "consolidado_p6": {
+    "rodadas": 5,
+    "pares": 100,
+    "historico": 124344,
+    "automatica": 17883,
+    "media_historico_por_rodada": 24868.8,
+    "media_automatica_por_rodada": 3576.6,
+    "media_historico_por_sessao": 1243.44,
+    "media_automatica_por_sessao": 178.83,
+    "reducao_consolidada_pct": 85.61812391430226,
+    "media_aritmetica_reducoes_pct": 85.51159038832601,
+    "menor_reducao_pct": 83.82853254706284,
+    "maior_reducao_pct": 87.32088888888889,
+    "qualidade_v2": {
+      "historico_completo": {
+        "acerto_factual": {
+          "aprovado": 50,
+          "nao_verificado": 22,
+          "nao_aplicavel": 20,
+          "reprovado": 13
+        },
+        "abstencao_correta": {
+          "nao_aplicavel": 85,
+          "aprovado": 18,
+          "nao_verificado": 1,
+          "reprovado": 1
+        },
+        "formato_ok": {
+          "reprovado": 90,
+          "aprovado": 15
+        }
+      },
+      "memoria_automatica": {
+        "acerto_factual": {
+          "aprovado": 79,
+          "nao_aplicavel": 20,
+          "nao_verificado": 5,
+          "reprovado": 1
+        },
+        "abstencao_correta": {
+          "nao_aplicavel": 85,
+          "aprovado": 20
+        },
+        "formato_ok": {
+          "aprovado": 51,
+          "reprovado": 54
+        }
+      }
+    }
+  }
+}

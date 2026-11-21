@@ -1,5 +1,27 @@
 # Índice de evidências
 
+**21/11:** [análise adicional de informação antiga, derivados e testes](informacao-antiga-20261121/README.md); os originais e os números de tokens anteriores foram preservados.
+
+**Consolidação de 20/11:** [14 relatórios locais preservados, médias e recálculo](consolidacao-interface-20261120/README.md). Oficial e personalizado separados, P6 em unidade própria, qualidade e falhas mantidas.
+
+**Candidata v3 de 18/11:** [índice consolidado](entrega-v3-20261118/README.md), PDF, gráficos, CSV e fontes brutas; ver pendências atuais nesse índice.
+
+## Contexto v3 — acertos e tokens
+
+[Relatório atual](../docs/acertos-tokens-contexto-v3.md), [validação de 16 casos/3 repetições](contexto-v3-20261118/validacao-nova-r02-3rep.json), [P6 original](contexto-v3-20261118/p6-r01/eventos.jsonl) e [resumo P6](contexto-v3-20261118/p6-r01/resumo.json). A memória automática teve 48/48 aprovações na validação e 21/21 na P6; economia de 83,84% nos 20 pares P6. A comparação curta tem 47/48 pares medidos por um timeout do baseline. A tentativa inicial interrompida tem log separado; resultados da v2 permanecem preservados. Há [manifestos e testes](contexto-v3-20261118/); não é avaliação cega nem garantia de generalização.
+
+## Rodadas reais de 18/11/2026
+
+- [Relatório de melhorias e avaliação](../docs/melhorias-avaliacao-20261118.md): implementação, números, cobertura, análise de falhas e reprodução.
+- [Comparativo de desenvolvimento](melhorias-20261118/comparativo-r01.json): 84 tentativas; memória automática 20/21, histórico 16/21.
+- [P6 original JSONL](melhorias-20261118/p6-r02/eventos.jsonl), [resumo](melhorias-20261118/p6-r02/resumo.json) e [configuração/hash das fontes](melhorias-20261118/p6-r02/configuracao.json): 20 sessões por cenário, 42 respostas e observações de SQLite/RAM/reinício.
+- [Evidências operacionais por evento](melhorias-20261118/p6-r02/evidencias-operacionais.json) e [respostas CSV](melhorias-20261118/respostas-p6.csv): a coleta é automática e não declara aprovação humana da equipe.
+- [Análise textual complementar assistida por IA](melhorias-20261118/revisao-textual-ia.json): separada dos julgamentos automáticos preservados.
+- [Bateria separada de teste](melhorias-20261118/teste-separado-r01.json): 120 tentativas; memória automática 21/30 contra histórico 24/30. Resultado negativo preservado, sem ajustes do produto por essas respostas.
+- [Figura P6](melhorias-20261118/p6-resultados.png) e [pesquisa atualizada](../docs/pesquisa-abnt.pdf): rascunho para revisão coletiva, sem alegação de versão final.
+
+`melhorias-20261118/p6-r01` preserva a preparação que falhou antes de gerar sessões; `p6-r02` é uma execução nova. Nenhuma evidência de 14/11 foi sobrescrita. Os nomes e fatos da avaliação são sintéticos. A publicação/tag, o vídeo oficial e a revisão humana permanecem pendentes.
+
 ## 15/11/2026: preparação opcional OpenAI
 
 [preparacao-openai-20261115](agente/preparacao-openai-20261115/): resumo com hashes/configuração, log de 903 testes aprovados/66 ignorados, lint/diff-check e links. Override remoto validado somente com `docker compose config` e chave fictícia; nenhum serviço OpenAI iniciado nem chamada externa. Tokens novos foram testados por SDK simulado, não medidos num modelo real. Usuário possui ChatGPT Free: chave/créditos necessários ainda são bloqueio. [Procedimento e limites](../docs/openai-opcional.md). Ollama/porta 8002 e resultados históricos preservados; P6/reservado não executados.

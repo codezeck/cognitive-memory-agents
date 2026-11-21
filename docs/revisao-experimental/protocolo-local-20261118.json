@@ -1,0 +1,15 @@
+{
+  "versao": "p6-local-v1",
+  "execucao_autorizada": true,
+  "referencia": "docs/revisao-experimental/decisao-20261118.md",
+  "aprovacao_terceiros": false,
+  "dataset_sha256": "0bf605bf03f4803dffc1ffac388a97140b6c60aa1fa144d10d8af84cc4a49ad8",
+  "anotacoes_sha256": "3143f17411b42f622192dde9f9dd450b299f19ce722d65511c3b76b979be81c6",
+  "contratos": {
+    "u02/s5/esquecer_chaves": {
+      "aprovado": true,
+      "mensagem": "Esqueça tudo sobre meu carro.",
+      "referencia": "docs/revisao-experimental/decisao-20261118.md"
+    }
+  }
+}

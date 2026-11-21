@@ -1,0 +1,931 @@
+{
+  "arquivo": "modelo-casos-comparativo-40.json",
+  "bytes": 24176,
+  "sha256_original": "4f2a68fb61a5b77b8470243b16d06d96169809314fd49f5e175e4b37a6bf3338",
+  "casos": 40,
+  "categorias": {
+    "recuperacao": 16,
+    "atualizacao": 10,
+    "esquecimento": 7,
+    "sem_informacao": 4,
+    "multiplos_fatos": 3
+  },
+  "atributos_aceitos": [
+    "carro",
+    "cidade",
+    "disciplina",
+    "esporte",
+    "filhos",
+    "hobby",
+    "instrumento",
+    "nome",
+    "pet",
+    "profissao",
+    "quantidade_pets",
+    "time",
+    "viagem"
+  ],
+  "erro_arquivo": "O conjunto próprio deve ser uma lista JSON com 1 a 20 casos.",
+  "erros_individuais": [
+    {
+      "id": "V3T003",
+      "erro": "V3T003: avaliacao.atributo ausente ou não suportado pelo julgador"
+    },
+    {
+      "id": "V3T004",
+      "erro": "V3T004: avaliacao.atributo ausente ou não suportado pelo julgador"
+    },
+    {
+      "id": "V3T006",
+      "erro": "V3T006: avaliacao.atributo ausente ou não suportado pelo julgador"
+    },
+    {
+      "id": "V3T007",
+      "erro": "V3T007: avaliacao.atributo ausente ou não suportado pelo julgador"
+    },
+    {
+      "id": "V3T010",
+      "erro": "V3T010: avaliacao.atributo ausente ou não suportado pelo julgador"
+    },
+    {
+      "id": "V3T011",
+      "erro": "V3T011: avaliacao.atributo ausente ou não suportado pelo julgador"
+    },
+    {
+      "id": "V3T012",
+      "erro": "V3T012: avaliacao.atributo ausente ou não suportado pelo julgador"
+    },
+    {
+      "id": "V3T015",
+      "erro": "V3T015: avaliacao.atributo ausente ou não suportado pelo julgador"
+    },
+    {
+      "id": "V3T019",
+      "erro": "V3T019: avaliacao.atributo ausente ou não suportado pelo julgador"
+    },
+    {
+      "id": "V3T020",
+      "erro": "V3T020: avaliacao.atributo ausente ou não suportado pelo julgador"
+    },
+    {
+      "id": "V3T022",
+      "erro": "V3T022: avaliacao.atributo ausente ou não suportado pelo julgador"
+    },
+    {
+      "id": "V3T023",
+      "erro": "V3T023: avaliacao.atributo ausente ou não suportado pelo julgador"
+    },
+    {
+      "id": "V3T025",
+      "erro": "V3T025: avaliacao.atributo ausente ou não suportado pelo julgador"
+    },
+    {
+      "id": "V3T029",
+      "erro": "V3T029: avaliacao.atributo ausente ou não suportado pelo julgador"
+    },
+    {
+      "id": "V3T030",
+      "erro": "V3T030: avaliacao.atributo ausente ou não suportado pelo julgador"
+    },
+    {
+      "id": "V3T032",
+      "erro": "V3T032: avaliacao.atributo ausente ou não suportado pelo julgador"
+    },
+    {
+      "id": "V3T033",
+      "erro": "V3T033: avaliacao.atributo ausente ou não suportado pelo julgador"
+    },
+    {
+      "id": "V3T035",
+      "erro": "V3T035: avaliacao.atributo ausente ou não suportado pelo julgador"
+    },
+    {
+      "id": "V3T037",
+      "erro": "V3T037: avaliacao.atributo ausente ou não suportado pelo julgador"
+    },
+    {
+      "id": "V3T040",
+      "erro": "V3T040: avaliacao.atributo ausente ou não suportado pelo julgador"
+    }
+  ],
+  "resumo": [
+    {
+      "id": "V3T001",
+      "categoria": "recuperacao",
+      "atributo": "cidade",
+      "tipo": "factual",
+      "fatos": [
+        "Moro em Campinas."
+      ],
+      "pergunta": "Em qual cidade eu vivo?",
+      "esperado": "Campinas",
+      "memorias": [
+        "Moro em Campinas."
+      ],
+      "estado": {
+        "cidade": "Campinas"
+      },
+      "antigos": [],
+      "gabarito_julgado_aprovado": true,
+      "gabarito_revisao": false
+    },
+    {
+      "id": "V3T002",
+      "categoria": "recuperacao",
+      "atributo": "profissao",
+      "tipo": "factual",
+      "fatos": [
+        "Trabalho como Enfermeira."
+      ],
+      "pergunta": "Qual é a minha profissão?",
+      "esperado": "Enfermeira",
+      "memorias": [
+        "Trabalho como Enfermeira."
+      ],
+      "estado": {
+        "profissao": "Enfermeira"
+      },
+      "antigos": [],
+      "gabarito_julgado_aprovado": true,
+      "gabarito_revisao": false
+    },
+    {
+      "id": "V3T003",
+      "categoria": "recuperacao",
+      "atributo": "cor_favorita",
+      "tipo": "factual",
+      "fatos": [
+        "Minha cor favorita é Verde."
+      ],
+      "pergunta": "Qual é a minha cor favorita?",
+      "esperado": "Verde",
+      "memorias": [
+        "Minha cor favorita é Verde."
+      ],
+      "estado": {
+        "cor_favorita": "Verde"
+      },
+      "antigos": [],
+      "gabarito_julgado_aprovado": false,
+      "gabarito_revisao": true
+    },
+    {
+      "id": "V3T004",
+      "categoria": "recuperacao",
+      "atributo": "nome_cachorro",
+      "tipo": "factual",
+      "fatos": [
+        "Meu cachorro se chama Thor."
+      ],
+      "pergunta": "Qual é o nome do meu cachorro?",
+      "esperado": "Thor",
+      "memorias": [
+        "Meu cachorro se chama Thor."
+      ],
+      "estado": {
+        "nome_cachorro": "Thor"
+      },
+      "antigos": [],
+      "gabarito_julgado_aprovado": false,
+      "gabarito_revisao": true
+    },
+    {
+      "id": "V3T005",
+      "categoria": "recuperacao",
+      "atributo": "time",
+      "tipo": "factual",
+      "fatos": [
+        "Torço para o Palmeiras."
+      ],
+      "pergunta": "Para qual time eu torço?",
+      "esperado": "Palmeiras",
+      "memorias": [
+        "Torço para o Palmeiras."
+      ],
+      "estado": {
+        "time": "Palmeiras"
+      },
+      "antigos": [],
+      "gabarito_julgado_aprovado": true,
+      "gabarito_revisao": false
+    },
+    {
+      "id": "V3T006",
+      "categoria": "recuperacao",
+      "atributo": "comida_favorita",
+      "tipo": "factual",
+      "fatos": [
+        "Minha comida favorita é Lasanha."
+      ],
+      "pergunta": "Qual é a minha comida favorita?",
+      "esperado": "Lasanha",
+      "memorias": [
+        "Minha comida favorita é Lasanha."
+      ],
+      "estado": {
+        "comida_favorita": "Lasanha"
+      },
+      "antigos": [],
+      "gabarito_julgado_aprovado": false,
+      "gabarito_revisao": true
+    },
+    {
+      "id": "V3T007",
+      "categoria": "recuperacao",
+      "atributo": "linguagem",
+      "tipo": "factual",
+      "fatos": [
+        "Estudo a linguagem Rust."
+      ],
+      "pergunta": "Qual linguagem de programação eu estudo?",
+      "esperado": "Rust",
+      "memorias": [
+        "Estudo a linguagem Rust."
+      ],
+      "estado": {
+        "linguagem": "Rust"
+      },
+      "antigos": [],
+      "gabarito_julgado_aprovado": false,
+      "gabarito_revisao": true
+    },
+    {
+      "id": "V3T008",
+      "categoria": "recuperacao",
+      "atributo": "instrumento",
+      "tipo": "factual",
+      "fatos": [
+        "Toco Violão."
+      ],
+      "pergunta": "Qual instrumento eu toco?",
+      "esperado": "Violão",
+      "memorias": [
+        "Toco Violão."
+      ],
+      "estado": {
+        "instrumento": "Violão"
+      },
+      "antigos": [],
+      "gabarito_julgado_aprovado": true,
+      "gabarito_revisao": false
+    },
+    {
+      "id": "V3T009",
+      "categoria": "recuperacao",
+      "atributo": "carro",
+      "tipo": "factual",
+      "fatos": [
+        "Meu carro é um Fiat Argo."
+      ],
+      "pergunta": "Qual é o meu carro?",
+      "esperado": "Fiat Argo",
+      "memorias": [
+        "Meu carro é um Fiat Argo."
+      ],
+      "estado": {
+        "carro": "Fiat Argo"
+      },
+      "antigos": [],
+      "gabarito_julgado_aprovado": true,
+      "gabarito_revisao": false
+    },
+    {
+      "id": "V3T010",
+      "categoria": "recuperacao",
+      "atributo": "curso",
+      "tipo": "factual",
+      "fatos": [
+        "Faço o curso de Engenharia Civil."
+      ],
+      "pergunta": "Qual curso eu faço?",
+      "esperado": "Engenharia Civil",
+      "memorias": [
+        "Faço o curso de Engenharia Civil."
+      ],
+      "estado": {
+        "curso": "Engenharia Civil"
+      },
+      "antigos": [],
+      "gabarito_julgado_aprovado": false,
+      "gabarito_revisao": true
+    },
+    {
+      "id": "V3T011",
+      "categoria": "recuperacao",
+      "atributo": "bebida_favorita",
+      "tipo": "factual",
+      "fatos": [
+        "Minha bebida favorita é Suco de uva."
+      ],
+      "pergunta": "Qual é a minha bebida favorita?",
+      "esperado": "Suco de uva",
+      "memorias": [
+        "Minha bebida favorita é Suco de uva."
+      ],
+      "estado": {
+        "bebida_favorita": "Suco de uva"
+      },
+      "antigos": [],
+      "gabarito_julgado_aprovado": false,
+      "gabarito_revisao": true
+    },
+    {
+      "id": "V3T012",
+      "categoria": "recuperacao",
+      "atributo": "empresa",
+      "tipo": "factual",
+      "fatos": [
+        "Trabalho na empresa Nortec."
+      ],
+      "pergunta": "Em qual empresa eu trabalho?",
+      "esperado": "Nortec",
+      "memorias": [
+        "Trabalho na empresa Nortec."
+      ],
+      "estado": {
+        "empresa": "Nortec"
+      },
+      "antigos": [],
+      "gabarito_julgado_aprovado": false,
+      "gabarito_revisao": true
+    },
+    {
+      "id": "V3T013",
+      "categoria": "recuperacao",
+      "atributo": "esporte",
+      "tipo": "factual",
+      "fatos": [
+        "Pratico Natação."
+      ],
+      "pergunta": "Qual esporte eu pratico?",
+      "esperado": "Natação",
+      "memorias": [
+        "Pratico Natação."
+      ],
+      "estado": {
+        "esporte": "Natação"
+      },
+      "antigos": [],
+      "gabarito_julgado_aprovado": true,
+      "gabarito_revisao": false
+    },
+    {
+      "id": "V3T014",
+      "categoria": "recuperacao",
+      "atributo": "cidade",
+      "tipo": "factual",
+      "fatos": [
+        "Moro em Sorocaba."
+      ],
+      "pergunta": "Em qual cidade eu vivo?",
+      "esperado": "Sorocaba",
+      "memorias": [
+        "Moro em Sorocaba."
+      ],
+      "estado": {
+        "cidade": "Sorocaba"
+      },
+      "antigos": [],
+      "gabarito_julgado_aprovado": true,
+      "gabarito_revisao": false
+    },
+    {
+      "id": "V3T015",
+      "categoria": "recuperacao",
+      "atributo": "nome_cachorro",
+      "tipo": "factual",
+      "fatos": [
+        "Meu cachorro se chama Mel."
+      ],
+      "pergunta": "Qual é o nome do meu cachorro?",
+      "esperado": "Mel",
+      "memorias": [
+        "Meu cachorro se chama Mel."
+      ],
+      "estado": {
+        "nome_cachorro": "Mel"
+      },
+      "antigos": [],
+      "gabarito_julgado_aprovado": false,
+      "gabarito_revisao": true
+    },
+    {
+      "id": "V3T016",
+      "categoria": "recuperacao",
+      "atributo": "profissao",
+      "tipo": "factual",
+      "fatos": [
+        "Trabalho como Designer."
+      ],
+      "pergunta": "Qual é a minha profissão?",
+      "esperado": "Designer",
+      "memorias": [
+        "Trabalho como Designer."
+      ],
+      "estado": {
+        "profissao": "Designer"
+      },
+      "antigos": [],
+      "gabarito_julgado_aprovado": true,
+      "gabarito_revisao": false
+    },
+    {
+      "id": "V3T017",
+      "categoria": "atualizacao",
+      "atributo": "cidade",
+      "tipo": "factual",
+      "fatos": [
+        "Moro em Atibaia.",
+        "Atualização: Moro em Bragança Paulista."
+      ],
+      "pergunta": "Em qual cidade eu vivo?",
+      "esperado": "Bragança Paulista",
+      "memorias": [
+        "Moro em Bragança Paulista."
+      ],
+      "estado": {
+        "cidade": "Bragança Paulista"
+      },
+      "antigos": [
+        "Atibaia"
+      ],
+      "gabarito_julgado_aprovado": true,
+      "gabarito_revisao": false
+    },
+    {
+      "id": "V3T018",
+      "categoria": "atualizacao",
+      "atributo": "profissao",
+      "tipo": "factual",
+      "fatos": [
+        "Trabalho como Professor.",
+        "Atualização: Trabalho como Analista de dados."
+      ],
+      "pergunta": "Qual é a minha profissão?",
+      "esperado": "Analista de dados",
+      "memorias": [
+        "Trabalho como Analista de dados."
+      ],
+      "estado": {
+        "profissao": "Analista de dados"
+      },
+      "antigos": [
+        "Professor"
+      ],
+      "gabarito_julgado_aprovado": true,
+      "gabarito_revisao": false
+    },
+    {
+      "id": "V3T019",
+      "categoria": "atualizacao",
+      "atributo": "cor_favorita",
+      "tipo": "factual",
+      "fatos": [
+        "Minha cor favorita é Azul.",
+        "Atualização: Minha cor favorita é Roxo."
+      ],
+      "pergunta": "Qual é a minha cor favorita?",
+      "esperado": "Roxo",
+      "memorias": [
+        "Minha cor favorita é Roxo."
+      ],
+      "estado": {
+        "cor_favorita": "Roxo"
+      },
+      "antigos": [
+        "Azul"
+      ],
+      "gabarito_julgado_aprovado": false,
+      "gabarito_revisao": true
+    },
+    {
+      "id": "V3T020",
+      "categoria": "atualizacao",
+      "atributo": "nome_cachorro",
+      "tipo": "factual",
+      "fatos": [
+        "Meu cachorro se chama Bidu.",
+        "Atualização: Meu cachorro se chama Luna."
+      ],
+      "pergunta": "Qual é o nome do meu cachorro?",
+      "esperado": "Luna",
+      "memorias": [
+        "Meu cachorro se chama Luna."
+      ],
+      "estado": {
+        "nome_cachorro": "Luna"
+      },
+      "antigos": [
+        "Bidu"
+      ],
+      "gabarito_julgado_aprovado": false,
+      "gabarito_revisao": true
+    },
+    {
+      "id": "V3T021",
+      "categoria": "atualizacao",
+      "atributo": "time",
+      "tipo": "factual",
+      "fatos": [
+        "Torço para o Santos.",
+        "Atualização: Torço para o São Paulo."
+      ],
+      "pergunta": "Para qual time eu torço?",
+      "esperado": "São Paulo",
+      "memorias": [
+        "Torço para o São Paulo."
+      ],
+      "estado": {
+        "time": "São Paulo"
+      },
+      "antigos": [
+        "Santos"
+      ],
+      "gabarito_julgado_aprovado": true,
+      "gabarito_revisao": false
+    },
+    {
+      "id": "V3T022",
+      "categoria": "atualizacao",
+      "atributo": "comida_favorita",
+      "tipo": "factual",
+      "fatos": [
+        "Minha comida favorita é Pizza.",
+        "Atualização: Minha comida favorita é Feijoada."
+      ],
+      "pergunta": "Qual é a minha comida favorita?",
+      "esperado": "Feijoada",
+      "memorias": [
+        "Minha comida favorita é Feijoada."
+      ],
+      "estado": {
+        "comida_favorita": "Feijoada"
+      },
+      "antigos": [
+        "Pizza"
+      ],
+      "gabarito_julgado_aprovado": false,
+      "gabarito_revisao": true
+    },
+    {
+      "id": "V3T023",
+      "categoria": "atualizacao",
+      "atributo": "linguagem",
+      "tipo": "factual",
+      "fatos": [
+        "Estudo a linguagem Java.",
+        "Atualização: Estudo a linguagem Go."
+      ],
+      "pergunta": "Qual linguagem de programação eu estudo?",
+      "esperado": "Go",
+      "memorias": [
+        "Estudo a linguagem Go."
+      ],
+      "estado": {
+        "linguagem": "Go"
+      },
+      "antigos": [
+        "Java"
+      ],
+      "gabarito_julgado_aprovado": false,
+      "gabarito_revisao": true
+    },
+    {
+      "id": "V3T024",
+      "categoria": "atualizacao",
+      "atributo": "carro",
+      "tipo": "factual",
+      "fatos": [
+        "Meu carro é um Gol.",
+        "Atualização: Meu carro é um Onix."
+      ],
+      "pergunta": "Qual é o meu carro?",
+      "esperado": "Onix",
+      "memorias": [
+        "Meu carro é um Onix."
+      ],
+      "estado": {
+        "carro": "Onix"
+      },
+      "antigos": [
+        "Gol"
+      ],
+      "gabarito_julgado_aprovado": true,
+      "gabarito_revisao": false
+    },
+    {
+      "id": "V3T025",
+      "categoria": "atualizacao",
+      "atributo": "empresa",
+      "tipo": "factual",
+      "fatos": [
+        "Trabalho na empresa Alfa Tech.",
+        "Atualização: Trabalho na empresa Beta Soluções."
+      ],
+      "pergunta": "Em qual empresa eu trabalho?",
+      "esperado": "Beta Soluções",
+      "memorias": [
+        "Trabalho na empresa Beta Soluções."
+      ],
+      "estado": {
+        "empresa": "Beta Soluções"
+      },
+      "antigos": [
+        "Alfa Tech"
+      ],
+      "gabarito_julgado_aprovado": false,
+      "gabarito_revisao": true
+    },
+    {
+      "id": "V3T026",
+      "categoria": "atualizacao",
+      "atributo": "esporte",
+      "tipo": "factual",
+      "fatos": [
+        "Pratico Futsal.",
+        "Atualização: Pratico Tênis."
+      ],
+      "pergunta": "Qual esporte eu pratico?",
+      "esperado": "Tênis",
+      "memorias": [
+        "Pratico Tênis."
+      ],
+      "estado": {
+        "esporte": "Tênis"
+      },
+      "antigos": [
+        "Futsal"
+      ],
+      "gabarito_julgado_aprovado": true,
+      "gabarito_revisao": false
+    },
+    {
+      "id": "V3T027",
+      "categoria": "esquecimento",
+      "atributo": "time",
+      "tipo": "factual",
+      "fatos": [
+        "Torço para o Flamengo.",
+        "Esqueça meu time."
+      ],
+      "pergunta": "Para qual time eu torço?",
+      "esperado": "DESCONHECIDO",
+      "memorias": [],
+      "estado": {},
+      "antigos": [],
+      "gabarito_julgado_aprovado": true,
+      "gabarito_revisao": false
+    },
+    {
+      "id": "V3T028",
+      "categoria": "esquecimento",
+      "atributo": "cidade",
+      "tipo": "factual",
+      "fatos": [
+        "Moro em Osasco.",
+        "Esqueça minha cidade."
+      ],
+      "pergunta": "Em qual cidade eu vivo?",
+      "esperado": "DESCONHECIDO",
+      "memorias": [],
+      "estado": {},
+      "antigos": [],
+      "gabarito_julgado_aprovado": true,
+      "gabarito_revisao": false
+    },
+    {
+      "id": "V3T029",
+      "categoria": "esquecimento",
+      "atributo": "comida_favorita",
+      "tipo": "factual",
+      "fatos": [
+        "Minha comida favorita é Sushi.",
+        "Esqueça minha comida favorita."
+      ],
+      "pergunta": "Qual é a minha comida favorita?",
+      "esperado": "DESCONHECIDO",
+      "memorias": [],
+      "estado": {},
+      "antigos": [],
+      "gabarito_julgado_aprovado": false,
+      "gabarito_revisao": true
+    },
+    {
+      "id": "V3T030",
+      "categoria": "esquecimento",
+      "atributo": "nome_cachorro",
+      "tipo": "factual",
+      "fatos": [
+        "Meu cachorro se chama Rex.",
+        "Esqueça o nome do meu cachorro."
+      ],
+      "pergunta": "Qual é o nome do meu cachorro?",
+      "esperado": "DESCONHECIDO",
+      "memorias": [],
+      "estado": {},
+      "antigos": [],
+      "gabarito_julgado_aprovado": false,
+      "gabarito_revisao": true
+    },
+    {
+      "id": "V3T031",
+      "categoria": "esquecimento",
+      "atributo": "instrumento",
+      "tipo": "factual",
+      "fatos": [
+        "Toco Bateria.",
+        "Esqueça meu instrumento."
+      ],
+      "pergunta": "Qual instrumento eu toco?",
+      "esperado": "DESCONHECIDO",
+      "memorias": [],
+      "estado": {},
+      "antigos": [],
+      "gabarito_julgado_aprovado": true,
+      "gabarito_revisao": false
+    },
+    {
+      "id": "V3T032",
+      "categoria": "esquecimento",
+      "atributo": "bebida_favorita",
+      "tipo": "factual",
+      "fatos": [
+        "Minha bebida favorita é Café.",
+        "Esqueça minha bebida favorita."
+      ],
+      "pergunta": "Qual é a minha bebida favorita?",
+      "esperado": "DESCONHECIDO",
+      "memorias": [],
+      "estado": {},
+      "antigos": [],
+      "gabarito_julgado_aprovado": false,
+      "gabarito_revisao": true
+    },
+    {
+      "id": "V3T033",
+      "categoria": "esquecimento",
+      "atributo": "curso",
+      "tipo": "factual",
+      "fatos": [
+        "Faço o curso de Direito.",
+        "Esqueça meu curso."
+      ],
+      "pergunta": "Qual curso eu faço?",
+      "esperado": "DESCONHECIDO",
+      "memorias": [],
+      "estado": {},
+      "antigos": [],
+      "gabarito_julgado_aprovado": false,
+      "gabarito_revisao": true
+    },
+    {
+      "id": "V3T034",
+      "categoria": "sem_informacao",
+      "atributo": "profissao",
+      "tipo": "factual",
+      "fatos": [
+        "Moro em Valinhos."
+      ],
+      "pergunta": "Qual é a minha profissão?",
+      "esperado": "DESCONHECIDO",
+      "memorias": [
+        "Moro em Valinhos."
+      ],
+      "estado": {
+        "cidade": "Valinhos"
+      },
+      "antigos": [],
+      "gabarito_julgado_aprovado": true,
+      "gabarito_revisao": false
+    },
+    {
+      "id": "V3T035",
+      "categoria": "sem_informacao",
+      "atributo": "nome_cachorro",
+      "tipo": "factual",
+      "fatos": [
+        "Minha cor favorita é Laranja."
+      ],
+      "pergunta": "Qual é o nome do meu cachorro?",
+      "esperado": "DESCONHECIDO",
+      "memorias": [
+        "Minha cor favorita é Laranja."
+      ],
+      "estado": {
+        "cor_favorita": "Laranja"
+      },
+      "antigos": [],
+      "gabarito_julgado_aprovado": false,
+      "gabarito_revisao": true
+    },
+    {
+      "id": "V3T036",
+      "categoria": "sem_informacao",
+      "atributo": "carro",
+      "tipo": "factual",
+      "fatos": [
+        "Pratico Vôlei."
+      ],
+      "pergunta": "Qual é o meu carro?",
+      "esperado": "DESCONHECIDO",
+      "memorias": [
+        "Pratico Vôlei."
+      ],
+      "estado": {
+        "esporte": "Vôlei"
+      },
+      "antigos": [],
+      "gabarito_julgado_aprovado": true,
+      "gabarito_revisao": false
+    },
+    {
+      "id": "V3T037",
+      "categoria": "sem_informacao",
+      "atributo": "empresa",
+      "tipo": "factual",
+      "fatos": [
+        "Estudo a linguagem Python."
+      ],
+      "pergunta": "Em qual empresa eu trabalho?",
+      "esperado": "DESCONHECIDO",
+      "memorias": [
+        "Estudo a linguagem Python."
+      ],
+      "estado": {
+        "linguagem": "Python"
+      },
+      "antigos": [],
+      "gabarito_julgado_aprovado": false,
+      "gabarito_revisao": true
+    },
+    {
+      "id": "V3T038",
+      "categoria": "multiplos_fatos",
+      "atributo": "profissao",
+      "tipo": "factual",
+      "fatos": [
+        "Moro em Jundiaí.",
+        "Trabalho como Eletricista."
+      ],
+      "pergunta": "Qual é a minha profissão?",
+      "esperado": "Eletricista",
+      "memorias": [
+        "Moro em Jundiaí.",
+        "Trabalho como Eletricista."
+      ],
+      "estado": {
+        "cidade": "Jundiaí",
+        "profissao": "Eletricista"
+      },
+      "antigos": [],
+      "gabarito_julgado_aprovado": true,
+      "gabarito_revisao": false
+    },
+    {
+      "id": "V3T039",
+      "categoria": "multiplos_fatos",
+      "atributo": "time",
+      "tipo": "factual",
+      "fatos": [
+        "Torço para o Grêmio.",
+        "Minha comida favorita é Churrasco."
+      ],
+      "pergunta": "Para qual time eu torço?",
+      "esperado": "Grêmio",
+      "memorias": [
+        "Torço para o Grêmio.",
+        "Minha comida favorita é Churrasco."
+      ],
+      "estado": {
+        "time": "Grêmio",
+        "comida_favorita": "Churrasco"
+      },
+      "antigos": [],
+      "gabarito_julgado_aprovado": true,
+      "gabarito_revisao": false
+    },
+    {
+      "id": "V3T040",
+      "categoria": "multiplos_fatos",
+      "atributo": "curso",
+      "tipo": "factual",
+      "fatos": [
+        "Meu cachorro se chama Fred.",
+        "Faço o curso de Pedagogia."
+      ],
+      "pergunta": "Qual curso eu faço?",
+      "esperado": "Pedagogia",
+      "memorias": [
+        "Meu cachorro se chama Fred.",
+        "Faço o curso de Pedagogia."
+      ],
+      "estado": {
+        "nome_cachorro": "Fred",
+        "curso": "Pedagogia"
+      },
+      "antigos": [],
+      "gabarito_julgado_aprovado": false,
+      "gabarito_revisao": true
+    }
+  ]
+}

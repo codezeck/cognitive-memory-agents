@@ -1,5 +1,7 @@
 # Integração da entrega — 14/11/2026
 
+**Estado atual em 20/11:** bateria validada por Ezequiel no escopo testado; [médias e limites](consolidacao-testes-20261120.md), pesquisa atualizada e fechamento documental em andamento. A composição de três integrantes foi aceita pelo professor. **Registro de 18/11 — v3:** avaliação, PDF, composição de três integrantes e MIT estão no [checklist atual](checklist-entrega.md) e [índice](../evidencias/entrega-v3-20261118/README.md). O restante preserva o histórico de 14/11, inclusive pendências e números superados. Não usar a matriz histórica como estado atual.
+
 Branch `fix/validacao-entrega-docker`, base `2be5d51`. Master remota conferida com `git ls-remote`: mesma referência. Trabalho anterior preservado. Enunciado original lido em `reference/Projetos-IA-Programacao-Enunciados.md`, versão de 09/10/2026; não foi encontrada orientação posterior na pasta local nem nos itens recentes do repositório consultados. As PRs #41/#42/#43 estão integradas; suas descrições históricas não são pendências atuais.
 
 | Origem/requisito | Implementação e teste | Evidência | Estado inicial/próximo passo |

@@ -1,0 +1,157 @@
+{
+  "qualidade": [
+    {
+      "cenario": "historico_completo",
+      "casos": 21,
+      "aprovados": 6,
+      "reprovados": 4,
+      "pendentes": 11,
+      "falhas": 0,
+      "factual": {
+        "total": 17,
+        "aprovados": 3,
+        "reprovados": 3,
+        "pendentes": 11,
+        "naoAplicaveis": 4,
+        "desconhecidos": 0
+      },
+      "abstencao": {
+        "total": 4,
+        "aprovados": 3,
+        "reprovados": 1,
+        "pendentes": 0,
+        "naoAplicaveis": 17,
+        "desconhecidos": 0
+      },
+      "formato": {
+        "total": 21,
+        "aprovados": 3,
+        "reprovados": 18,
+        "pendentes": 0,
+        "naoAplicaveis": 0,
+        "desconhecidos": 0
+      },
+      "observados": 21,
+      "integrais": 3,
+      "abstencoesIndevidas": 0,
+      "informacaoAntiga": {
+        "tentativas_elegiveis": 9,
+        "numerador": 0,
+        "denominador": 7,
+        "nao_verificados": 2,
+        "nao_aplicaveis": 12,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 77.77777777777777,
+        "taxa_pct": 0
+      },
+      "ausentes": 0
+    },
+    {
+      "cenario": "memoria_automatica",
+      "casos": 21,
+      "aprovados": 17,
+      "reprovados": 0,
+      "pendentes": 4,
+      "falhas": 0,
+      "factual": {
+        "total": 17,
+        "aprovados": 13,
+        "reprovados": 0,
+        "pendentes": 4,
+        "naoAplicaveis": 4,
+        "desconhecidos": 0
+      },
+      "abstencao": {
+        "total": 4,
+        "aprovados": 4,
+        "reprovados": 0,
+        "pendentes": 0,
+        "naoAplicaveis": 17,
+        "desconhecidos": 0
+      },
+      "formato": {
+        "total": 21,
+        "aprovados": 10,
+        "reprovados": 11,
+        "pendentes": 0,
+        "naoAplicaveis": 0,
+        "desconhecidos": 0
+      },
+      "observados": 21,
+      "integrais": 10,
+      "abstencoesIndevidas": 0,
+      "informacaoAntiga": {
+        "tentativas_elegiveis": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 12,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100,
+        "taxa_pct": 0
+      },
+      "ausentes": 0
+    }
+  ],
+  "tokens": [
+    {
+      "cenario": "historico_completo",
+      "unidade": "sessões",
+      "p6": true,
+      "etapas": {
+        "sessao": {
+          "tokens_entrada": 24306,
+          "tokens_saida": 1105,
+          "tokens_total": 25411
+        },
+        "pergunta_final": {
+          "tokens_entrada": 11011,
+          "tokens_saida": 302,
+          "tokens_total": 11313
+        },
+        "ingestao": {
+          "tokens_entrada": 13295,
+          "tokens_saida": 803,
+          "tokens_total": 14098
+        }
+      },
+      "incompletos": [],
+      "medidos": 20,
+      "previstos": 20,
+      "total": 25411,
+      "subtotal": 25411,
+      "chamadas": 50,
+      "locais": 3
+    },
+    {
+      "cenario": "memoria_automatica",
+      "unidade": "sessões",
+      "p6": true,
+      "etapas": {
+        "sessao": {
+          "tokens_entrada": 3417,
+          "tokens_saida": 187,
+          "tokens_total": 3604
+        },
+        "pergunta_final": {
+          "tokens_entrada": 2570,
+          "tokens_saida": 104,
+          "tokens_total": 2674
+        },
+        "ingestao": {
+          "tokens_entrada": 847,
+          "tokens_saida": 83,
+          "tokens_total": 930
+        }
+      },
+      "incompletos": [],
+      "medidos": 20,
+      "previstos": 20,
+      "total": 3604,
+      "subtotal": 3604,
+      "chamadas": 23,
+      "locais": 30
+    }
+  ],
+  "reducao": 85.81716579434104
+}

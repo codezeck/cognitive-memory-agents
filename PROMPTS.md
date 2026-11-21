@@ -2,6 +2,25 @@
 
 Escopo: agente e avaliação (`src/agent.py`, `src/modelos/`, `eval/`).
 
+## 18/11/2026: contexto v3 — acertos e quantidade de tokens
+
+- **Pedido:** “precisamos melhorar os acertos e a quantia de tokens”.
+- **Aceito:** confirmação local de operações totalmente reconhecidas, sem atribuir texto local ao modelo; consultas pessoais com prompt breve e fatos atuais; resolução unívoca de negação por valor; limpeza de resíduos na RAM; reconhecimento de suporte também no baseline completo.
+- **Correção crítica:** interrompida e preservada a primeira tentativa quando a checagem detectou que a nova gramática poderia bloquear fatos válidos no baseline. Foram acrescentados testes para filhos, profissão e viagem. A nova saída usa fontes identificadas separadamente.
+- **Medições:** 48/48 aprovações P4 da memória automática em 16 casos sintéticos com três repetições; o baseline teve 36/48 e um timeout. Economia pareada de 84,88% em 47/48 pares. Na P6: 21/21 aprovações, zero julgamentos não verificados da automática, 3.593/22.228 tokens (83,84% menos) e checkpoints operacionais aprovados no escopo medido.
+- **Limites aceitos:** as confirmações de armazenamento não geram tokens, mas têm custo de processamento/SQLite. Os conjuntos anteriores são agora desenvolvimento, não teste reservado. A bateria nova não é cega ou independente. O P4 pode rejeitar a palavra Quatro quando só o numeral 4 está anotado; não alteramos aliases ou resultados retrospectivamente. Equivalência estatística não foi demonstrada.
+- **Evidências:** [relatório v3](docs/acertos-tokens-contexto-v3.md) e [decisão anterior à medição](docs/revisao-experimental/decisao-contexto-v3-20261118.md).
+
+## 18/11/2026: confiabilidade, contexto e avaliação real
+
+- **Pedido:** melhorar o que já funciona e concluir a avaliação conforme o escopo do professor. Ao consultar as revisões pendentes, o usuário determinou: “vamos corrigir da nossa maneira o prazo está curto”.
+- **Aceito:** corrigir reconhecimento de consultas pessoais, busca por chave e montagem de contexto; manter o baseline completo; testar em ambiente próprio; resolver explicitamente contrato de esquecimento e checkpoint vazio; executar desenvolvimento, P6 e teste separado com Ollama real.
+- **Correções da implementação assistida:** os primeiros testes reproduziram dez falhas de suporte. A suíte completa detectou que a opção compacta também atingia o baseline; a construção do agente do baseline foi corrigida e testes de histórico longo passaram. O primeiro preparo P6 tentou observar SQLite antes da criação sob demanda; foi corrigido e recebeu teste de processo real sem LLM. A tentativa inicial foi preservada.
+- **Resultados aceitos como evidência:** desenvolvimento 20/21 contra 16/21, P6 com 42 respostas e zero falhas técnicas, persistência/exclusão verificadas no escopo medido e redução de 25,27% dos tokens completos. A bateria separada teve 21/30 contra 24/30 e apenas 2,40% de economia; as metas adicionais foram reprovadas.
+- **Descartado:** afirmar sucesso global com base só no desenvolvimento, tratar não verificados como acertos, modificar gabaritos para acompanhar o modelo ou atribuir aprovação aos colegas. A análise textual assistida por IA permanece separada do P4 original e do requisito de revisão humana.
+- **Limites:** paráfrases, negação de carro não reconhecida e detalhes inventados ainda falham. O PDF foi atualizado como rascunho com resultados negativos visíveis. Sem publicação, merge, tag, vídeo oficial, licença definida ou envio acadêmico nesta etapa.
+- **Referências:** [relatório](docs/melhorias-avaliacao-20261118.md), [decisão](docs/revisao-experimental/decisao-20261118.md), [evidências](evidencias/README.md#rodadas-reais-de-18112026).
+
 ## 15/11/2026: autorização de publicação para revisão
 
 O usuário solicitou publicar a última atualização em PR para aprovação e continuar em outro dia. Essa autorização substitui a proibição anterior de commit/push/PR somente para esta publicação; não autoriza merge, tag, envio final ou avaliações bloqueadas. Conferidos branch/base remota, alterações e candidatos novos, padrões de credenciais, datasets oficiais inalterados e testes. PR deve explicitar as falhas/limites, o caminho Ollama e a revisão de Paloma/Vinicius, sem declarar a entrega pronta. Evidências brutas preservadas e sem normalização de fins de linha nesta publicação.
@@ -27,6 +46,8 @@ Verificação: 897 testes Python aprovados/66 ignorados, 8 JavaScript e lint; 80
 Artefatos e limites: [matriz](docs/andamento-entrega.md), [evidências](evidencias/README.md), [revisão experimental](docs/revisao-experimental/README.md), [checklist](docs/checklist-entrega.md). Rascunho PDF, gráficos e roteiro preparados; vídeo oficial, CI remoto/tag, licença e revisão coletiva continuam pendentes. Não foram enviados avisos a terceiros nem feitos commits/push/PR/merge/tag/envio.
 
 ## Ferramentas usadas
+
+Assistência desta etapa: Codex/ChatGPT para auditoria, integração e consolidação documental; sem presumir plano de assinatura ou revisão humana. Contextos disponíveis e coleta dos colegas: [registro de IA](docs/registro-ia/README.md).
 
 - Claude (chat).
 - ChatGPT (versão gratuita).
@@ -164,3 +185,24 @@ Resultado oficial (7 casos x 3 repetições = 21 por cenário, modelo `qwen2.5-c
 - Apenas 7 casos; diferenças de 1 ou 2 respostas são ruído (o modelo não é determinístico).
 - `memoria_persistente_api` é pré-carregada com o estado esperado, então representa um teto, não uma medição.
 - O avaliador compara texto exato, o que penaliza respostas corretas com formato diferente.
+
+
+## Fechamento da candidata v3 — 18/11/2026
+
+A assistência de IA ajudou a implementar busca por chave e contexto compacto, confirmações locais com proveniência explícita, tratamento limitado de negação, testes e executores de avaliação. Também consolidou o relatório v3, PDF, gráficos/CSV derivados dos brutos, checklist e inventário de licenças. O usuário confirmou a instituição conforme transcrita, composição de três integrantes e MIT com autorização do grupo, e autorizou a publicação. Resultados negativos e desconhecidos foram preservados. Revisão humana não foi atribuída à IA nem aos colegas. A tentativa de preparar vídeo pela ferramenta de controle de tela foi encerrada por falha na confirmação da URL; roteiro atualizado, sem vídeo fictício. Evidências e estado atual: `evidencias/entrega-v3-20261118/README.md`.
+
+
+## 18/11/2026 — Consolidação para validação e registro das conversas
+
+- **Pedido, resumido:** atualizar README/GitHub e documentos necessários, preservar nomes/RA e a mensagem do Tema 11 como primeiro dos 16 temas do portfólio, preparar prompt de continuidade e listar tarefas para os colegas; reunir o contexto disponível das conversas.
+- **Esclarecimento do usuário:** a prioridade citada como “font” era conferir e atualizar o README online.
+- **Decisão:** preservar integralmente o cabeçalho e a mensagem do portfólio; consolidar documentação corrente, cinco decisões de arquitetura, manual do GitHub até o chat e comandos Docker para avaliação isolada. Contextos dos colegas dependem de envio por eles.
+- **Correções e limites:** separar histórico da v3, manter as 12 respostas do baseline sem parecer até revisão humana e não converter a síntese desta conversa em transcrição integral ou aprovação dos colegas. Vídeo, captura real de CI, revisão humana e fechamento da tag continuam com critérios próprios.
+- **Artefatos:** [documentação técnica](docs/README.md), [prompt](docs/prompt-finalizacao.md), [contextos e modelo](docs/registro-ia/README.md), [pendências](docs/pendencias-equipe.md). Validação efetiva e publicação são registradas no índice de evidências depois da execução.
+
+Retomada em 19/11/2026: conferidos 960 testes Python aprovados/66 ignorados, oito JavaScript, lint e links locais; o comando Docker P6 completou 40 registros de sessão e 42 respostas sem falhas técnicas. Acrescentado preparo de protocolo que aceita apenas LF/CRLF, com seis regressões. A conferência operacional é separada dos resultados originais da pesquisa. Evidências em `evidencias/entrega-v3-20261118/verificacao-documentacao/`.
+
+
+## 21/11/2026: fechamento das avaliações da interface e publicação
+
+O usuário pediu tokens ao lado dos círculos na P6, correção das reprovações gramaticais do julgador e conferência de SQL/scripts nos campos de conversa/importação. Foram aceitas regras limitadas versionadas somente para a P6 e testes com exemplos positivos/negativos, sem mudar o comparativo sintético, o chat, as anotações ou os originais. Inconclusivos e falhas reais permaneceram registrados; não foi atribuída revisão humana ao assistente. O usuário executou novas P6, declarou concluída a validação funcional no escopo testado e autorizou publicar no GitHub. A consolidação preserva médias por protocolo e por etapa, sem afirmar efeito causal das manutenções. Ver [relatório](docs/fechamento-avaliacao-20261121.md) e [evidências](evidencias/fechamento-p6-20261121/README.md). Clone novo, limpeza Docker, parecer humano, vídeo, tag e envio têm critérios posteriores próprios.

@@ -366,9 +366,9 @@ def metricas(chamadas: list[dict]) -> dict:
     }
 
 
-def executar_historico(caso: dict, provedor: str, modelo: str) -> list[dict]:
+def executar_historico(caso: dict, provedor: str, modelo: str, *, observador=None) -> list[dict]:
     """Executa o controle pelo agente, sem extração ou busca de memórias."""
-    agente = AgenteLocal()
+    agente = AgenteLocal(contexto_compacto=False)
     selecao = SelecaoModelo(provedor.lower(), modelo)
     chamadas = []
 
@@ -392,6 +392,8 @@ def executar_historico(caso: dict, provedor: str, modelo: str) -> list[dict]:
                    if getattr(resultado, "origem_uso", None) is not None else {}),
                 "latencia_ms": int((time.perf_counter() - inicio) * 1000),
             })
+            if observador is not None:
+                observador(chamadas[-1])
         return chamadas
     finally:
         agente.nova_sessao(USUARIO_HISTORICO)
@@ -604,7 +606,10 @@ def executar_cenario(
         }
         return registro
 
-    except Exception:
+    except Exception as erro:
+        recebidas = getattr(erro, 'chamadas_observadas', None)
+        if not chamadas and isinstance(recebidas, list):
+            chamadas = recebidas
         if observacao_tokens is not None:
             observacao_tokens.update(tokens_tentativa(caso, cenario, chamadas))
         raise
@@ -883,6 +888,8 @@ def main() -> int:
     parser.add_argument("--provedor", default="ollama")
     parser.add_argument("--modelo", default="qwen2.5-coder:3b")
     parser.add_argument("--repeticoes", type=int, default=1)
+    parser.add_argument('--timeout-api', type=float, default=120,
+                        help='Prazo HTTP por requisição à API (padrão legado: 120 segundos).')
     parser.add_argument(
         "--timeout-historico", type=float, default=None,
         help="Prazo total em segundos por caso de histórico (padrão: 30 + 60 por turno).",
@@ -901,6 +908,8 @@ def main() -> int:
 
     if args.repeticoes < 1:
         parser.error("--repeticoes precisa ser pelo menos 1.")
+    if not math.isfinite(args.timeout_api) or args.timeout_api <= 0:
+        parser.error('--timeout-api precisa ser positivo e finito.')
     if args.timeout_historico is not None and (
         not math.isfinite(args.timeout_historico) or args.timeout_historico <= 0
     ):
@@ -941,7 +950,7 @@ def main() -> int:
     with httpx.Client(
         base_url=args.base_url.rstrip("/"),
         headers=headers,
-        timeout=120,
+        timeout=args.timeout_api,
     ) as cliente:
         saude = cliente.get("/saude")
         saude.raise_for_status()
@@ -1042,6 +1051,10 @@ def main() -> int:
         "resumo": resumir(resultados),
         "comparacoes_tokens": comparar_tokens(resultados),
     }
+
+    from eval.informacao_antiga import analisar_informacao_antiga
+    documento['analise_informacao_antiga'] = analisar_informacao_antiga(
+        documento, casos=casos, repeticoes=args.repeticoes)
 
     saida.parent.mkdir(parents=True, exist_ok=True)
     saida.write_text(

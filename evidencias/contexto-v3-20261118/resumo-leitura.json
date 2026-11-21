@@ -1,0 +1,409 @@
+{
+  "validacao": {
+    "automatica": 48,
+    "historico": 36,
+    "tentativas": 48,
+    "economia_tokens_pct": 84.88
+  },
+  "p6": {
+    "memoria_automatica": {
+      "aprovados": 21,
+      "nao_verificados": 0,
+      "chamadas_modelo": 23,
+      "operacoes_locais": 30
+    },
+    "historico_completo": {
+      "aprovados": 8,
+      "nao_verificados": 12,
+      "chamadas_modelo": 50,
+      "operacoes_locais": 3
+    }
+  },
+  "p6_tokens": {
+    "pares_previstos": 20,
+    "cobertura_pct": 100.0,
+    "pares_identificados": 20,
+    "pares_medidos": 20,
+    "chaves_duplicadas_descartadas": 0,
+    "pares_sem_medicao": 0,
+    "sessoes": [
+      {
+        "usuario_id": "u01",
+        "sessao": 1
+      },
+      {
+        "usuario_id": "u01",
+        "sessao": 2
+      },
+      {
+        "usuario_id": "u01",
+        "sessao": 3
+      },
+      {
+        "usuario_id": "u01",
+        "sessao": 4
+      },
+      {
+        "usuario_id": "u01",
+        "sessao": 5
+      },
+      {
+        "usuario_id": "u02",
+        "sessao": 1
+      },
+      {
+        "usuario_id": "u02",
+        "sessao": 2
+      },
+      {
+        "usuario_id": "u02",
+        "sessao": 3
+      },
+      {
+        "usuario_id": "u02",
+        "sessao": 4
+      },
+      {
+        "usuario_id": "u02",
+        "sessao": 5
+      },
+      {
+        "usuario_id": "u03",
+        "sessao": 1
+      },
+      {
+        "usuario_id": "u03",
+        "sessao": 2
+      },
+      {
+        "usuario_id": "u03",
+        "sessao": 3
+      },
+      {
+        "usuario_id": "u03",
+        "sessao": 4
+      },
+      {
+        "usuario_id": "u03",
+        "sessao": 5
+      },
+      {
+        "usuario_id": "u04",
+        "sessao": 1
+      },
+      {
+        "usuario_id": "u04",
+        "sessao": 2
+      },
+      {
+        "usuario_id": "u04",
+        "sessao": 3
+      },
+      {
+        "usuario_id": "u04",
+        "sessao": 4
+      },
+      {
+        "usuario_id": "u04",
+        "sessao": 5
+      }
+    ],
+    "tokens_automaticos": 3593,
+    "tokens_historico": 22228,
+    "reducao_pct": 83.84
+  },
+  "validacao_tokens_pareados": {
+    "pares_identificados": 48,
+    "chaves_duplicadas_descartadas": 0,
+    "pares_medidos": 47,
+    "pares_sem_medicao": 1,
+    "casos_repeticoes": [
+      {
+        "id": "V3T001",
+        "repeticao": 1,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T001",
+        "repeticao": 2,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T001",
+        "repeticao": 3,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T002",
+        "repeticao": 1,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T002",
+        "repeticao": 2,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T002",
+        "repeticao": 3,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T003",
+        "repeticao": 1,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T003",
+        "repeticao": 2,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T003",
+        "repeticao": 3,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T004",
+        "repeticao": 1,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T004",
+        "repeticao": 2,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T004",
+        "repeticao": 3,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T005",
+        "repeticao": 1,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T005",
+        "repeticao": 2,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T005",
+        "repeticao": 3,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T006",
+        "repeticao": 1,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T006",
+        "repeticao": 2,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T006",
+        "repeticao": 3,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T007",
+        "repeticao": 1,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T007",
+        "repeticao": 2,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T007",
+        "repeticao": 3,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T008",
+        "repeticao": 1,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T008",
+        "repeticao": 3,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T009",
+        "repeticao": 1,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T009",
+        "repeticao": 2,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T009",
+        "repeticao": 3,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T010",
+        "repeticao": 1,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T010",
+        "repeticao": 2,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T010",
+        "repeticao": 3,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T011",
+        "repeticao": 1,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T011",
+        "repeticao": 2,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T011",
+        "repeticao": 3,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T012",
+        "repeticao": 1,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T012",
+        "repeticao": 2,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T012",
+        "repeticao": 3,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T013",
+        "repeticao": 1,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T013",
+        "repeticao": 2,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T013",
+        "repeticao": 3,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T014",
+        "repeticao": 1,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T014",
+        "repeticao": 2,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T014",
+        "repeticao": 3,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T015",
+        "repeticao": 1,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T015",
+        "repeticao": 2,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T015",
+        "repeticao": 3,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T016",
+        "repeticao": 1,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T016",
+        "repeticao": 2,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      },
+      {
+        "id": "V3T016",
+        "repeticao": 3,
+        "provedor": "ollama",
+        "modelo": "qwen2.5-coder:3b"
+      }
+    ],
+    "tokens_historico": 39844,
+    "tokens_cenario": 6025,
+    "reducao_pct": 84.88
+  },
+  "dataset_sha256": "d3d8469bde14a377da3f4767769e71cc72479877f63bffe5584edf869b6a9206"
+}

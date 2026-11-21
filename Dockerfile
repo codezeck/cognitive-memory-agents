@@ -10,6 +10,8 @@ RUN python -m pip install --no-cache-dir -r requirements.txt
 
 COPY src ./src
 COPY eval ./eval
+COPY tools ./tools
+COPY docs/revisao-experimental ./docs/revisao-experimental
 
 RUN mkdir -p /app/dados
 

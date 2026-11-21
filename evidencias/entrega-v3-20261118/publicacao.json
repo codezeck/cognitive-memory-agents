@@ -1,0 +1,100 @@
+{
+  "pr": "https://github.com/codezeck/cognitive-memory-agents/pull/45",
+  "commit_validado": "8b89b4b33bd9697ce3cf9b98506a1944b61b8edd",
+  "ci_url": "https://github.com/codezeck/cognitive-memory-agents/actions/runs/44435946851",
+  "ci_resultado": "success",
+  "ci_tipo": "pull_request",
+  "tag_v1_0": false,
+  "revisao_solicitada": [
+    "Palomalimaa",
+    "Vinicius000011"
+  ],
+  "revisoes_recebidas": 0,
+  "video_produzido": false,
+  "captura_tela_ci": false,
+  "motivo_sem_captura": "Ferramenta de controle da tela encerrou acesso por não confirmar URL do navegador no Windows.",
+  "jobs": [
+    {
+      "id": 135264727263,
+      "name": "tests",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 44435946851,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Baixar o código",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Configurar Python",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Instalar dependências",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Verificar erros criticos de codigo",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Configurar Node para testes da interface",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Testar apresentacao das metricas no navegador",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Executar testes",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Post Configurar Node para testes da interface",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14
+        },
+        {
+          "name": "Post Configurar Python",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15
+        },
+        {
+          "name": "Post Baixar o código",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17
+        }
+      ]
+    }
+  ]
+}

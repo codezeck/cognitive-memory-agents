@@ -35,7 +35,7 @@ class Conversador:
 
     def conversar(self, usuario_id: str, mensagem: str,
               selecao: SelecaoModelo) -> ResultadoConversa:
-
+        houve_esquecimento = False
         if self.gerenciador is not None:
             resultados = self.gerenciador.processar(usuario_id, mensagem)
 
@@ -47,8 +47,19 @@ class Conversador:
             if houve_esquecimento:
                 self.agente.nova_sessao(usuario_id)
 
+            confirmar = getattr(self.agente, 'registrar_operacao', None)
+            if callable(confirmar):
+                local = confirmar(usuario_id, mensagem, resultados, selecao)
+                if local is not None:
+                    return ResultadoConversa(
+                        resposta=local.resposta, memorias_usadas=[], tokens_entrada=local.tokens_entrada,
+                        tokens_saida=local.tokens_saida, origem_uso=local.origem_uso,
+                        chamadas_modelo_observadas=local.chamadas_modelo_observadas)
+
         memorias = self.memoria.buscar(usuario_id, mensagem, self.k)
         r = self.agente.responder(usuario_id, mensagem, memorias, selecao)
+        if houve_esquecimento and callable(getattr(self.agente, 'registrar_operacao', None)):
+            self.agente.nova_sessao(usuario_id)
         return ResultadoConversa(
             resposta=r.resposta,
             memorias_usadas=[m["texto"] for m in memorias],
