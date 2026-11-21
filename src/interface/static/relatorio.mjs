@@ -6,27 +6,43 @@ const lista=v=>Array.isArray(v)?v:[];
 const inteiro = v => Number.isSafeInteger(v) && v >= 0;
 function registrosDaTarefa(doc,p6){
   const originais=lista(doc.resultados),analise=doc.analise_tarefa;
-  if(p6||analise?.disponivel!==true||analise.versao!=="tarefa-comum-p4-v1"||!Array.isArray(analise.resultados)||analise.resultados.length!==originais.length)
+  if(p6){
+    if(analise?.disponivel!==true||!(["tarefa-p6-conteudo-v1","tarefa-p6-conteudo-v2"].includes(analise.versao))||!Array.isArray(analise.resultados))return {registros:originais,comum:false};
+    const perguntas=originais.map((q,i)=>[q,i]).filter(([q])=>q?.evento?.tipo==="pergunta"),porIndice=new Map();
+    if(!perguntas.length||analise.resultados.length!==perguntas.length)return {registros:originais,comum:false};
+    for(const a of analise.resultados){
+      const q=originais[a?.indice];
+      if(!inteiro(a?.indice)||porIndice.has(a.indice)||q?.evento?.tipo!=="pergunta"||a.id!==q.evento.id||a.cenario!==q.cenario||a.repeticao!==1||typeof a.esperado!=="string"||a.julgamento?.versao!==analise.versao.replace("tarefa-",""))return {registros:originais,comum:false};
+      if(["acerto_factual","abstencao_correta","sem_informacao_proibida","formato_ok"].some(k=>{
+        const c=a.julgamento[k];return !c||!(["aprovado","reprovado","nao_verificado","nao_aplicavel"].includes(c.status))||c.valor!==({aprovado:true,reprovado:false,nao_verificado:null,nao_aplicavel:null}[c.status]);
+      }))return {registros:originais,comum:false};
+      if((q.estado!=="concluido"||q.trajetoria_integra!==true||q.erro)&&a.julgamento.passou===true)return {registros:originais,comum:false};
+      porIndice.set(a.indice,a);
+    }
+    return {comum:true,registros:originais.map((q,i)=>porIndice.has(i)?{...q,julgamento_original:q.julgamento,julgamento:porIndice.get(i).julgamento,esperado:porIndice.get(i).esperado}:q)};
+  }
+  if(analise?.disponivel!==true||analise.versao!=="tarefa-comum-p4-v1"||!Array.isArray(analise.resultados)||analise.resultados.length!==originais.length)
     return {registros:originais,comum:false};
   const validos=analise.resultados.every((a,i)=>a.indice===i&&a.id===originais[i]?.id&&a.cenario===originais[i]?.cenario&&a.repeticao===originais[i]?.repeticao&&a.julgamento&&typeof a.esperado==="string");
   if(!validos)return {registros:originais,comum:false};
   return {comum:true,registros:originais.map((q,i)=>({...q,julgamento_original:q.julgamento,julgamento:analise.resultados[i].julgamento,esperado:analise.resultados[i].esperado}))};
 }
-function tokensCenario(registros,cenario,previstos){
+function tokensCenario(registros,cenario,previstos,opcoes={}){
+  const etapaVazia=s=>opcoes.etapasVazias===true&&s.chamadas_modelo===0&&s.chamadas_previstas===0&&s.chamadas_observadas===0;
   const grupo=registros.filter(q=>q.cenario===cenario),medidos=grupo.filter(q=>{
     const s=q.tokens_por_etapa?.sessao??q;
-    return s.metricas_completas===true&&inteiro(s.tokens_total)&&(s.tokens_total>0||(s.chamadas_modelo===0&&inteiro(s.respostas_locais_confirmadas)&&s.respostas_locais_confirmadas>0));
+    return s.metricas_completas===true&&inteiro(s.tokens_total)&&(s.tokens_total>0||(s.chamadas_modelo===0&&inteiro(s.respostas_locais_confirmadas)&&s.respostas_locais_confirmadas>0)||etapaVazia(s));
   });
   const completo=grupo.length>0&&grupo.length===previstos&&medidos.length===grupo.length;
   const detalhes=Object.fromEntries(etapas.map(etapa=>[etapa,Object.fromEntries(canais.map(campo=>{
     const medidas=grupo.map(q=>q.tokens_por_etapa?.[etapa]??(etapa==="sessao"?q:{}));
     const conhecidos=medidas.filter(s=>inteiro(s[campo])&&(campo!=="tokens_total"||s.metricas_completas===true)
-      &&(s[campo]>0||(s.chamadas_modelo===0&&(etapa==="ingestao"||s.respostas_locais_confirmadas>0))));
+      &&(s[campo]>0||(s.chamadas_modelo===0&&(etapa==="ingestao"||s.respostas_locais_confirmadas>0||etapaVazia(s)))));
     return [campo,grupo.length>0&&grupo.length===previstos&&conhecidos.length===grupo.length?conhecidos.reduce((a,s)=>a+s[campo],0):null];
   }))]));
   const parcelas=grupo.map(q=>{
     const s=q.tokens_por_etapa?.sessao??q,v=s.tokens_total_observados;
-    if(inteiro(v)&&(v>0||(s.chamadas_modelo===0&&inteiro(s.respostas_locais_confirmadas)&&s.respostas_locais_confirmadas>0)))return v;
+    if(inteiro(v)&&(v>0||(s.chamadas_modelo===0&&inteiro(s.respostas_locais_confirmadas)&&s.respostas_locais_confirmadas>0)||etapaVazia(s)))return v;
     return medidos.includes(q)?s.tokens_total:null;
   }).filter(inteiro);
   const incompletos=grupo.filter(q=>!medidos.includes(q)).map(q=>{
@@ -38,10 +54,34 @@ function tokensCenario(registros,cenario,previstos){
       turnosObservados:inteiro(s.chamadas_observadas)?s.chamadas_observadas:null,
       turnosPrevistos:inteiro(s.chamadas_previstas)?s.chamadas_previstas:null};
   });
-  return {cenario,etapas:detalhes,incompletos,medidos:medidos.length,previstos,total:completo?medidos.reduce((a,q)=>a+(q.tokens_por_etapa?.sessao??q).tokens_total,0):null,
+  return {cenario,unidade:opcoes.unidade||"registros",p6:opcoes.etapasVazias===true,etapas:detalhes,incompletos,medidos:medidos.length,previstos,total:completo?medidos.reduce((a,q)=>a+(q.tokens_por_etapa?.sessao??q).tokens_total,0):null,
     subtotal:parcelas.length?parcelas.reduce((a,v)=>a+v,0):null,
     chamadas:grupo.length&&grupo.every(q=>inteiro(q.chamadas_modelo))?grupo.reduce((a,q)=>a+q.chamadas_modelo,0):null,
     locais:grupo.length&&grupo.every(q=>inteiro(q.respostas_locais_confirmadas))?grupo.reduce((a,q)=>a+q.respostas_locais_confirmadas,0):null};
+}
+function tokensP6(doc,cenario){
+  const fontes=lista(doc.sessoes).filter(s=>s?.cenario===cenario);
+  const identificavel=s=>typeof s.usuario_id==="string"&&s.usuario_id.trim().length>0&&inteiro(s.sessao)&&s.sessao>0;
+  const chave=s=>JSON.stringify([s.usuario_id,s.sessao]),contagens=new Map();
+  for(const s of fontes)if(identificavel(s))contagens.set(chave(s),(contagens.get(chave(s))||0)+1);
+  const unicas=fontes.filter(s=>identificavel(s)&&contagens.get(chave(s))===1);
+  const registros=unicas.map(s=>({cenario,id:`${s.usuario_id}/s${s.sessao}`,estado:s.estado,
+    tokens_por_etapa:{ingestao:s.tokens?.ingestao,pergunta_final:s.tokens?.perguntas,sessao:s.tokens?.sessao},
+    chamadas_modelo:s.tokens?.sessao?.chamadas_modelo,respostas_locais_confirmadas:s.tokens?.sessao?.respostas_locais_confirmadas}));
+  const declarados=doc.comparacoes_tokens?.sessao?.tokens_total?.pares_previstos;
+  const previstos=inteiro(declarados)&&declarados>0?declarados:20;
+  const medida=tokensCenario(registros,cenario,previstos,{etapasVazias:true,unidade:"sessões"});
+  const rejeitadas=fontes.length-unicas.length;
+  if(rejeitadas){
+    medida.total=null;medida.chamadas=null;
+    for(const etapa of Object.values(medida.etapas))for(const campo of canais)etapa[campo]=null;
+    medida.incompletos.push({id:"Identificação das sessões",repeticao:null,
+      motivo:`${rejeitadas} registro(s) duplicado(s) ou sem identificação confiável foram excluídos da soma.`});
+  }
+  if(unicas.length!==previstos)medida.incompletos.push({id:"Cobertura das sessões",repeticao:null,
+    motivo:`${unicas.length} sessões únicas registradas para ${previstos} previstas. O total permanece desconhecido.`});
+  if(rejeitadas){medida.total=null;medida.chamadas=null;}
+  return medida;
 }
 function pendente(q){
   const j=q.julgamento;
@@ -72,7 +112,7 @@ const respostaDe=q=>q.resultado?.resposta??q.resposta;
 function abstencaoIndevida(q){
   const texto=respostaDe(q);
   return q.julgamento?.tipo_resposta==="factual"&&q.julgamento?.acerto_factual?.status==="reprovado"
-    &&typeof texto==="string"&&/^(desconhecido|n[aã]o sei)[.!]?$/iu.test(texto.trim());
+    &&typeof texto==="string"&&(q.julgamento.acerto_factual.motivo==="abstencao_indevida_fato_esperado"||/^(desconhecido|n[aã]o sei)[.!]?$/iu.test(texto.trim()));
 }
 function problemasDe(q){
   const j=q.julgamento||{},problemas=[];
@@ -217,7 +257,9 @@ export function projetarRelatorio(doc) {
     const problemas=problemasDe(q);
     if(antigaResposta?.retornou_antiga===true)problemas.push({tipo:"conteudo",rotulo:"Informação antiga devolvida como resposta",motivo:antigaResposta.motivo});
     else if(antigaResposta?.aplicavel===true&&antigaResposta.status==="nao_verificado")problemas.push({tipo:"pendente",rotulo:"Informação antiga: análise inconclusiva",motivo:antigaResposta.motivo});
-    return {informacaoAntiga:antigaResposta,id:q.id||q.evento?.id,cenario:q.cenario,repeticao:inteiro(q.repeticao)?q.repeticao:null,
+    const notaAvaliacao=p6&&q.julgamento?.acerto_factual?.status==="nao_verificado"&&q.julgamento.acerto_factual.motivo==="parafrase_nao_reconhecida"?
+      "O avaliador automático não reconheceu esta forma da frase. O conteúdo fica inconclusivo: compare a resposta com o fato esperado; isso não confirma acerto nem erro.":null;
+    return {notaAvaliacao,informacaoAntiga:antigaResposta,id:q.id||q.evento?.id,cenario:q.cenario,repeticao:inteiro(q.repeticao)?q.repeticao:null,
       esperado:typeof esperado==="string"?esperado:Array.isArray(esperado)?esperado.join(" / "):"Não incorporado neste relatório; consulte as anotações.",
       problemas,pergunta:p6?q.evento.texto:fonte?.mensagens?.at(-1)||q.pergunta||"Pergunta não incorporada neste relatório; consulte o roteiro original.",
       resposta:(p6?q.resultado?.resposta:q.resposta)??"Sem resposta observada",julgamento:q.julgamento||{},julgamentoOriginal:q.julgamento_original||null,
@@ -228,7 +270,8 @@ export function projetarRelatorio(doc) {
     pergunta:q.evento?.texto||q.evento?.tipo||"Evento operacional",esperado:"Conclusão do evento operacional; não é uma pergunta factual.",
     resposta:q.resultado?.resposta??"Sem resposta observada",julgamento:q.julgamento||{},problemas:problemasDe(q)})):[];
   return {principal:p,linhas,qualidade,objetivos,perguntas,p6,tarefaComum:leitura.comum,controleSemMemoria,
-    tokensCenarios:p6?[]:cenarios.map(c=>tokensCenario(lista(doc.resultados),c,doc.resumo[c]?.casos)),
+    analiseConteudo:p6&&leitura.comum?doc.analise_tarefa.versao.replace("tarefa-p6-conteudo-",""):null,
+    tokensCenarios:p6?cenarios.map(c=>tokensP6(doc,c)):cenarios.map(c=>tokensCenario(lista(doc.resultados),c,doc.resumo[c]?.casos)),
     ocorrencias:[...perguntas.filter(q=>q.problemas.length),...errosOperacionais],
     protocolo:p6?"P6 · 20 sessões por cenário":"Comparativo de casos",
     conjunto:doc.interface?.conjunto||"origem não declarada",

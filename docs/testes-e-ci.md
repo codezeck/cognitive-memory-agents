@@ -1,5 +1,7 @@
 # Testes e integração contínua
 
+**P6, revisão final de 21/11:** 1.174 testes Python aprovados, 67 ignorados e 70 testes JavaScript aprovados. Inclui os casos positivos/negativos da [análise P6 v2](julgamento-p6.md), preservação do P4/comparativo, conferência visual clara/escura/estreita e os doze testes de [proteção das entradas](seguranca-entradas.md). Nenhuma chamada de modelo foi executada para validar o julgador. Os registros datados abaixo permanecem históricos.
+
 **Atualização de 21/11:** 1.092 testes Python aprovados e 67 opcionais ignorados; 51 testes JavaScript aprovados. A nova métrica foi validada sem LLM real: afirmação antiga, contraste temporal, menção ambígua, esquecimento, falha, anotação inválida, cobertura e preservação de resultados. [XML e log](../evidencias/informacao-antiga-20261121/README.md). Os números anteriores abaixo são registros datados.
 
 ## Cobertura e alcance
@@ -31,3 +33,15 @@ Essas ferramentas de desenvolvimento não são pré-requisitos para o professor 
 O [workflow](../.github/workflows/tests.yml) instala dependências, executa Ruff crítico, os testes JS e pytest. Os testes padrão não usam serviços pagos nem baixam pesos de LLM. Consulte [GitHub Actions](https://github.com/codezeck/cognitive-memory-agents/actions/workflows/tests.yml) e os checks do [PR #45](https://github.com/codezeck/cognitive-memory-agents/pull/45).
 
 O workflow roda em PRs para `master`/`main`, push nessas branches/`feature/**` e na tag `v1.0`. CI aprovado em PR não substitui o CI da tag exigido pelo enunciado. Depois da revisão e integração, criar a tag uma única vez, guardar URL/PNG da execução verde e SHA. [Checklist](checklist-entrega.md). Não mover tag publicada nem atribuir a alguém uma revisão inexistente.
+
+
+## Conferência local posterior — P6 e entradas
+
+Em 21/11, a suíte completa posterior registrou **1.150 testes Python aprovados, 67 opcionais ignorados e 67 testes JavaScript aprovados**. Inclui análise P6 versionada, preservação do P4 e do comparativo, proteção contra aprovação por palavra isolada, trajetória incompleta e análise desalinhada. Doze testes adicionais conferem entradas em SQLite temporário e API simulada. A apresentação P6 foi inspecionada nos modos claro, escuro e estreito; conversa e importação foram verificadas no navegador quanto à renderização literal de marcação.
+
+Essa validação local não é um novo resultado de LLM nem CI da versão publicada. Os registros datados anteriores não são substituídos. Para executar todos os testes JavaScript no PowerShell, use:
+
+```powershell
+$testes = (Get-ChildItem -LiteralPath tests -Filter '*.mjs').FullName
+node --test $testes
+```

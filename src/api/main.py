@@ -56,6 +56,9 @@ async def proteger_interface(request: Request, call_next):
         )
         resposta.headers["X-Content-Type-Options"] = "nosniff"
         resposta.headers["Referrer-Policy"] = "no-referrer"
+        if request.url.path == "/" or request.url.path.startswith("/interface/arquivos/"):
+            # Revalidar também os módulos importados após atualizar a instalação.
+            resposta.headers["Cache-Control"] = "no-cache"
     return resposta
 
 

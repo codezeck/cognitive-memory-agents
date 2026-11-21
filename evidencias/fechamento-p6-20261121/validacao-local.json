@@ -1,0 +1,29 @@
+{
+  "fonte_clone_servido": "iguais",
+  "arquivos_locais_alterados_ou_novos": 35,
+  "testes_python_aprovados": 1174,
+  "testes_python_ignorados": 67,
+  "testes_node_aprovados": 70,
+  "visual": [
+    "claro",
+    "escuro",
+    "estreito"
+  ],
+  "leitura_v2": {
+    "historico_completo": {
+      "acerto_factual": 13,
+      "abstencao_correta": 4
+    },
+    "memoria_automatica": {
+      "acerto_factual": 16,
+      "abstencao_correta": 4
+    }
+  },
+  "sha256_relatorio_original": "c2f0c0afc4783878efab75fd8d3510943eb1b8a94763c0882f485eeca518d085",
+  "arquivos_de_resultados_preservados": 279,
+  "tokens_originais": "preservados",
+  "codigo_do_chat_comparativo_p4": "preservado",
+  "diff_check": "aprovado",
+  "git_versionamento": false,
+  "chamadas_modelo_novas": false
+}

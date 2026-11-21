@@ -86,6 +86,14 @@ Na última rodada personalizada, com 45 oportunidades factuais e quinze de abste
 
 O personalizado foi proposto com auxílio de IA, selecionado de quarenta para vinte casos compatíveis, com cinco anotações de abstenção corrigidas antes das execuções. Não é teste cego independente. Uma P6 posterior completa teve 3.556 contra 21.739 tokens em vinte pares, redução de 83,64%; a outra teve medição parcial. Essas sessões permanecem separadas das tentativas sintéticas e da P6 de 18/11. Ezequiel encerrou a validação funcional desta bateria e autorizou a documentação; revisão humana, vídeo e publicação final permanecem itens de entrega distintos.
 
+## Consolidação P6 de 21/11
+
+Cinco P6 completas executadas pelo usuário no mesmo ambiente totalizaram cem pares de sessões e 105 respostas por cenário. Os hashes registram a mesma geração, roteiro e anotações. A soma foi de 124.344 tokens no histórico e 17.883 na automática: redução consolidada de 85,62%, média por rodada completa de 24.868,8 e 3.576,6 tokens. A média aritmética dos percentuais individuais foi 85,51%, estatística distinta; a faixa observada foi de 83,83% a 87,32%. Os conjuntos sintéticos e personalizados permanecem separados. As etapas da análise/interface não isolam efeito causal sobre geração.
+
+A análise P6 adicional v2 foi aplicada aos originais sem novo modelo, mantendo P4/P5 e formato. No consolidado, a automática teve 79/85 fatos aprovados, uma reprovação e cinco inconclusivos; o histórico teve 50/85 aprovados, treze reprovações e 22 inconclusivos. Abstenções: 20/20 na automática e 18/20 no histórico, com uma reprovação e uma inconclusiva neste último. A última rodada teve 16/17 fatos aprovados e um inconclusivo na automática, contra 9/17, quatro reprovados e quatro inconclusivos no histórico. Não se convertem esses limites em equivalência estatística ou reconhecimento semântico universal. Os originais, leituras, hashes e recálculo constam do pacote de fechamento de 21/11.
+
+Ezequiel declarou concluída a validação funcional no escopo ensaiado e autorizou a publicação. Revisão do grupo, CI da versão publicada, revalidação do clone novo, vídeo e tag da entrega permanecem itens distintos.
+
 ## Erros e alcance
 
 Três falhas anteriores orientaram o desenvolvimento: recuperação perdida em paráfrases sobre residência ou veículo; manutenção de um carro após negação por valor não reconhecida; e resposta com quantidade correta de gatos, mas um nome inventado. As respostas originais, inclusive resultados negativos da v2, continuam disponíveis. A v3 amplia o reconhecimento e reduz a oportunidade de acrescentar detalhes não solicitados, mas as baterias conhecidas não se tornam testes reservados após serem usadas para correção.

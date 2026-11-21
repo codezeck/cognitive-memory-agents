@@ -201,3 +201,8 @@ A assistência de IA ajudou a implementar busca por chave e contexto compacto, c
 - **Artefatos:** [documentação técnica](docs/README.md), [prompt](docs/prompt-finalizacao.md), [contextos e modelo](docs/registro-ia/README.md), [pendências](docs/pendencias-equipe.md). Validação efetiva e publicação são registradas no índice de evidências depois da execução.
 
 Retomada em 19/11/2026: conferidos 960 testes Python aprovados/66 ignorados, oito JavaScript, lint e links locais; o comando Docker P6 completou 40 registros de sessão e 42 respostas sem falhas técnicas. Acrescentado preparo de protocolo que aceita apenas LF/CRLF, com seis regressões. A conferência operacional é separada dos resultados originais da pesquisa. Evidências em `evidencias/entrega-v3-20261118/verificacao-documentacao/`.
+
+
+## 21/11/2026: fechamento das avaliações da interface e publicação
+
+O usuário pediu tokens ao lado dos círculos na P6, correção das reprovações gramaticais do julgador e conferência de SQL/scripts nos campos de conversa/importação. Foram aceitas regras limitadas versionadas somente para a P6 e testes com exemplos positivos/negativos, sem mudar o comparativo sintético, o chat, as anotações ou os originais. Inconclusivos e falhas reais permaneceram registrados; não foi atribuída revisão humana ao assistente. O usuário executou novas P6, declarou concluída a validação funcional no escopo testado e autorizou publicar no GitHub. A consolidação preserva médias por protocolo e por etapa, sem afirmar efeito causal das manutenções. Ver [relatório](docs/fechamento-avaliacao-20261121.md) e [evidências](evidencias/fechamento-p6-20261121/README.md). Clone novo, limpeza Docker, parecer humano, vídeo, tag e envio têm critérios posteriores próprios.

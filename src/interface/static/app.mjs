@@ -1,4 +1,4 @@
-import {projetarRelatorio,usoResposta,nomesCenario,distribuicaoCriterio} from "./relatorio.mjs";
+import {projetarRelatorio,usoResposta,nomesCenario,distribuicaoCriterio} from "./relatorio.mjs?v=p6-conteudo-20261121-2";
 import {bloqueioAvaliacao} from "./avaliacao.mjs";
 import {instalarAparencia} from "./aparencia.mjs";
 import {confirmarAvaliacao} from "./confirmacao.mjs";
@@ -167,6 +167,7 @@ function detalheResposta(q){
   const detalhe=elemento("details"),titulo=q.id+" · "+(nomesCenario[q.cenario]||q.cenario)+(q.repeticao!==null?" · repetição "+q.repeticao:"");
   detalhe.append(elemento("summary",titulo));
   if(q.informacaoAntiga)detalhe.append(elemento("p","Informação antiga: "+(q.informacaoAntiga.status==="nao_aplicavel"?"não aplicável":q.informacaoAntiga.retornou_antiga===true?"devolvida indevidamente":q.informacaoAntiga.retornou_antiga===false?"sem retorno indevido reconhecido":"inconclusivo")+" · "+q.informacaoAntiga.motivo,"fine-print"));
+  if(q.notaAvaliacao)detalhe.append(elemento("p",q.notaAvaliacao,"notice"));
   for(const problema of q.problemas)detalhe.append(elemento("p",problema.rotulo+(problema.motivo?" · "+problema.motivo:""),"report-problem"));
   detalhe.append(elemento("p","Pergunta / evento: "+q.pergunta),elemento("p","Esperado neste cenário: "+q.esperado),elemento("p","Resposta: "+q.resposta));
   for(const [chave,rotulo] of [["acerto_factual","Acerto factual"],["abstencao_correta","Abstenção"],["sem_informacao_proibida","Informações proibidas"],["formato_ok","Formato"]]){
@@ -214,7 +215,7 @@ function painelTokensCenario(t,maior){
   const valores=elemento("dl",undefined,"quality-metrics");
   for(const [nome,valor] of [["Tokens de entrada",t.etapas.sessao.tokens_entrada],["Tokens de saída",t.etapas.sessao.tokens_saida],["Chamadas ao modelo",t.chamadas]])
     valores.append(elemento("dt",nome),elemento("dd",valor===null?"Não medido":fmt(valor)));
-  painel.append(valores,elemento("p","Tokens medidos em "+t.medidos+" de "+fmt(t.previstos)+" registros; isso não é contagem de acertos."+(t.total===null?t.subtotal===null?" Nenhuma parcela de tokens foi devolvida.":" Subtotal observado: "+fmt(t.subtotal)+"; inclui parcelas de turnos concluídos e não representa o total.":"")+(t.chamadas===0&&t.locais>0?" Respostas locais, sem chamada ao modelo nesta rodada.":""),"fine-print"));
+  painel.append(valores,elemento("p","Tokens medidos em "+t.medidos+" de "+fmt(t.previstos)+" "+(t.unidade||"registros")+"; isso não é contagem de acertos."+(t.total===null?t.subtotal===null?" Nenhuma parcela de tokens foi devolvida.":" Subtotal observado: "+fmt(t.subtotal)+"; inclui parcelas de turnos concluídos e não representa o total.":"")+(t.chamadas===0&&t.locais>0?" Respostas locais, sem chamada ao modelo nesta rodada.":""),"fine-print"));
   if(t.incompletos.length){
     const causas=elemento("div",undefined,"notice token-diagnostics");
     causas.append(elemento("strong","Por que a medição está incompleta?"));
@@ -230,7 +231,7 @@ function painelTokensCenario(t,maior){
   const detalhe=elemento("details",undefined,"scenario-token-details");detalhe.append(elemento("summary","Ver medição por etapa"));
   const tabela=elemento("table"),cabeca=elemento("thead"),cabecalho=elemento("tr"),corpo=elemento("tbody");
   for(const nome of ["Etapa","Entrada","Saída","Total"])cabecalho.append(elemento("th",nome));cabeca.append(cabecalho);
-  for(const [etapa,nome] of [["ingestao","Antes da pergunta"],["pergunta_final","Pergunta final"],["sessao","Sessão inteira"]]){
+  for(const [etapa,nome] of [["ingestao","Antes da pergunta"],["pergunta_final",t.p6?"Perguntas da sessão":"Pergunta final"],["sessao","Sessão inteira"]]){
     const linha=elemento("tr");linha.append(elemento("th",nome));
     for(const campo of ["tokens_entrada","tokens_saida","tokens_total"])linha.append(elemento("td",t.etapas[etapa][campo]===null?"Não medido":fmt(t.etapas[etapa][campo])));
     corpo.append(linha);
@@ -252,7 +253,7 @@ function mostrarRelatorio(doc,origem){
   $("paired-token-bars").hidden=!r.p6;$("all-scenario-tokens").replaceChildren();
   const maior=Math.max(...r.tokensCenarios.map(t=>t.total||0),1);
   $("all-scenario-tokens").hidden=true;
-  $("quality-method").textContent=r.p6?"Julgamentos originais da P6, sem mudança de critérios.":r.tarefaComum?
+  $("quality-method").textContent=r.p6?(r.tarefaComum?"P6: análise de conteúdo "+r.analiseConteudo+" sobre as respostas salvas, com o mesmo gabarito nos dois cenários. Julgamentos originais preservados em Mostrar respostas; formato avaliado separadamente. São 21 perguntas em 20 sessões por cenário.":"P6: julgamentos originais de 21 perguntas por cenário, distribuídas em 20 sessões. Sem análise atualizada compatível; inconclusivo não é erro confirmado. Compare pergunta, fato esperado e resposta em Mostrar respostas."):r.tarefaComum?
     "As mesmas perguntas e respostas esperadas são usadas nos quatro cenários. As avaliações originais continuam disponíveis nos detalhes e no relatório baixado.":
     r.controleSemMemoria==="modelo_direto"?"Julgamentos originais do controle direto com o gabarito da tarefa. Fatos e abstenções são medidas distintas.":
     "Critérios originais da execução. Sem gabarito comum compatível: o controle sem memória pode medir apenas abstenção e não deve ser classificado como vencedor em recuperação.";
@@ -282,6 +283,7 @@ function mostrarRelatorio(doc,origem){
     resultado.append(elemento("p",antiga?"Valores antigos anotados: "+antiga.tentativas_elegiveis+" oportunidades; "+antiga.nao_verificados+" inconclusivas; "+antiga.aplicabilidade_desconhecida+" sem aplicabilidade definida. Cobertura: "+(antiga.cobertura_pct===null?"não aplicável":pf.format(antiga.cobertura_pct)+"%")+". Maior taxa é pior. Menção ambígua exige revisão; esquecimento e isolamento não entram nesta taxa.":"A taxa de informação antiga requer anotações originais compatíveis; ausência de análise não significa zero erros.","fine-print"));
     linha.append(elemento("p",q.cenario==="sem_memoria"?(r.controleSemMemoria==="modelo_direto"?"Ollama direto: somente a pergunta final, sem histórico, memórias ou abstenção local. ":r.controleSemMemoria==="api_local"?"Controle legado via API, sem fatos anteriores. A regra local pode responder sem chamar Ollama. ":"Método do controle sem memória não identificado nos registros. ")+(r.tarefaComum?"Não fornecer o fato solicitado conta como falha na tarefa factual; abstenção necessária é contada separadamente.":"As abstenções corretas não demonstram recuperação de memória."):
       q.factual.reprovados+" resposta(s) factual(is) reprovada(s), incluindo "+q.abstencoesIndevidas+" abstenção(ões) indevida(s); "+q.factual.pendentes+" julgamento(s) factual(is) pendente(s).","fine-print"));
+    if(r.p6&&q.factual.pendentes>0)resultado.append(elemento("p",q.factual.pendentes+" resposta(s) factual(is) inconclusiva(s) não entram como acerto ou erro confirmado. Frases corretas e incorretas podem ficar fora da gramática do avaliador; abra Mostrar respostas para conferir.","fine-print"));
     const corpo=elemento("div",undefined,"scenario-body");corpo.append(resultado);
     const tokens=r.tokensCenarios.find(t=>t.cenario===q.cenario);
     if(tokens)corpo.append(painelTokensCenario(tokens,maior));

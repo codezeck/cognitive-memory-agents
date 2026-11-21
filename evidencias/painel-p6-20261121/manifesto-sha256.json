@@ -1,0 +1,12 @@
+{
+  "relatorio-original.json": "fb7cc7ba315f054b5fd31cf08c118c95c537aa7246313c4f9e5d2486f3edb025",
+  "diagnostico.json": "ae23639d146e0197df219f0804ca8c684120033afc2d6f51a930d7c35062d935",
+  "analise-complementar.json": "90ece71212331d6919f5bcfb2d169447090b28c06ad416eab868063c4374d30b",
+  "projecao-verificada.json": "e054f1d174ae8e52e44267dc2060caa9f2a80dde6930d70ec08f65681958e157",
+  "testes-node.log": "7f5294f43113f47a27bd28177da4790c5b3b7954c8cbb876ff261f94329dfeea",
+  "testes-python.xml": "4a4c09ebb1c349bdb247e3b6525f2483f24e7abd476e1c1f19e16914d76c2e8f",
+  "interface-replay/resultado-celular.png": "2fb02f311be2eed6f3ef532364e653de2ea96acecf83b56eed3001a86196a280",
+  "interface-replay/resultado-claro.png": "25635f7ef589c9003d11f31a9fc443781da35d64a0e739de76e842954bf349b9",
+  "interface-replay/resultado-escuro.png": "d6fbd1bd25be77d408231206222b2202adcf8f4954a5a5c593b00bf3f51b4aad",
+  "README.md": "620a04b4a2d280e8551401966b86db0f96ff83556cd5017c7028c8f2743c96f6"
+}

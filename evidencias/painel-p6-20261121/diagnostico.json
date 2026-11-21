@@ -1,0 +1,1967 @@
+{
+  "pasta": "489dae868fa043eda68d68c48ea7cb6f",
+  "sha256": "fb7cc7ba315f054b5fd31cf08c118c95c537aa7246313c4f9e5d2486f3edb025",
+  "gerado_em": "2026-11-21T14:08:36.355967+00:00",
+  "estado": "concluida",
+  "falhas": 0,
+  "tokens": {
+    "pares_previstos": 20,
+    "cobertura_pct": 100.0,
+    "pares_identificados": 20,
+    "pares_medidos": 20,
+    "chaves_duplicadas_descartadas": 0,
+    "pares_sem_medicao": 0,
+    "sessoes": [
+      {
+        "usuario_id": "u01",
+        "sessao": 1
+      },
+      {
+        "usuario_id": "u01",
+        "sessao": 2
+      },
+      {
+        "usuario_id": "u01",
+        "sessao": 3
+      },
+      {
+        "usuario_id": "u01",
+        "sessao": 4
+      },
+      {
+        "usuario_id": "u01",
+        "sessao": 5
+      },
+      {
+        "usuario_id": "u02",
+        "sessao": 1
+      },
+      {
+        "usuario_id": "u02",
+        "sessao": 2
+      },
+      {
+        "usuario_id": "u02",
+        "sessao": 3
+      },
+      {
+        "usuario_id": "u02",
+        "sessao": 4
+      },
+      {
+        "usuario_id": "u02",
+        "sessao": 5
+      },
+      {
+        "usuario_id": "u03",
+        "sessao": 1
+      },
+      {
+        "usuario_id": "u03",
+        "sessao": 2
+      },
+      {
+        "usuario_id": "u03",
+        "sessao": 3
+      },
+      {
+        "usuario_id": "u03",
+        "sessao": 4
+      },
+      {
+        "usuario_id": "u03",
+        "sessao": 5
+      },
+      {
+        "usuario_id": "u04",
+        "sessao": 1
+      },
+      {
+        "usuario_id": "u04",
+        "sessao": 2
+      },
+      {
+        "usuario_id": "u04",
+        "sessao": 3
+      },
+      {
+        "usuario_id": "u04",
+        "sessao": 4
+      },
+      {
+        "usuario_id": "u04",
+        "sessao": 5
+      }
+    ],
+    "tokens_automaticos": 3604,
+    "tokens_historico": 25411,
+    "reducao_pct": 85.82
+  },
+  "sessoes_exemplo": [
+    {
+      "tipo": "sessao",
+      "cenario": "memoria_automatica",
+      "usuario_id": "u01",
+      "sessao": 1,
+      "estado": "concluida",
+      "perguntas": 0,
+      "falhas": 0,
+      "configuracao_comparavel": true,
+      "tokens": {
+        "ingestao": {
+          "chamadas_modelo": 0,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 3,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 0,
+          "tokens_entrada_observados": 0,
+          "chamadas_com_entrada": 3,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 0,
+          "tokens_saida_observados": 0,
+          "chamadas_com_saida": 3,
+          "metricas_completas": true,
+          "tokens_total": 0,
+          "tokens_total_observados": 0,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 3,
+          "chamadas_observadas": 3,
+          "cobertura": {
+            "entrada": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        },
+        "perguntas": {
+          "chamadas_modelo": 0,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 0,
+          "tokens_entrada_observados": 0,
+          "chamadas_com_entrada": 0,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 0,
+          "tokens_saida_observados": 0,
+          "chamadas_com_saida": 0,
+          "metricas_completas": true,
+          "tokens_total": 0,
+          "tokens_total_observados": 0,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 0,
+          "chamadas_observadas": 0,
+          "cobertura": {
+            "entrada": {
+              "numerador": 0,
+              "denominador": 0,
+              "nao_verificados": 0,
+              "cobertura_pct": null
+            },
+            "saida": {
+              "numerador": 0,
+              "denominador": 0,
+              "nao_verificados": 0,
+              "cobertura_pct": null
+            }
+          }
+        },
+        "sessao": {
+          "chamadas_modelo": 0,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 3,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 0,
+          "tokens_entrada_observados": 0,
+          "chamadas_com_entrada": 3,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 0,
+          "tokens_saida_observados": 0,
+          "chamadas_com_saida": 3,
+          "metricas_completas": true,
+          "tokens_total": 0,
+          "tokens_total_observados": 0,
+          "chamadas_com_tokens_zero": 0,
+          "chamadas_previstas": 3,
+          "chamadas_observadas": 3,
+          "cobertura": {
+            "entrada": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            },
+            "saida": {
+              "numerador": 3,
+              "denominador": 3,
+              "nao_verificados": 0,
+              "cobertura_pct": 100.0
+            }
+          }
+        }
+      },
+      "latencia_chamadas_ms": 25,
+      "latencia_observada_ms": 25,
+      "cobertura_latencia": {
+        "numerador": 3,
+        "denominador": 3,
+        "cobertura_pct": 100.0
+      },
+      "tempo_orquestracao_ms": 1641.32
+    }
+  ],
+  "respostas": [
+    {
+      "cenario": "memoria_automatica",
+      "id": "u01/s2/pergunta1",
+      "pergunta": "Onde eu moro?",
+      "esperado": "Osasco",
+      "antigos": [],
+      "tipo": "factual",
+      "resposta": "Você mora em Osasco.",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "afirmacao_reconhecida"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "reprovado",
+          "valor": false,
+          "motivo": "texto_adicional_ou_pontuacao"
+        },
+        "proibicao_aplicavel": false,
+        "ocorrencias_proibidas": [],
+        "passou": true,
+        "protocolo_ok": false,
+        "revisao_necessaria": false
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "historico_completo",
+      "id": "u01/s2/pergunta1",
+      "pergunta": "Onde eu moro?",
+      "esperado": "Osasco",
+      "antigos": [],
+      "tipo": "factual",
+      "resposta": "Sua memória registra que você mora em Osasco.",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "nao_verificado",
+          "valor": null,
+          "motivo": "parafrase_nao_reconhecida"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "reprovado",
+          "valor": false,
+          "motivo": "texto_adicional_ou_pontuacao"
+        },
+        "proibicao_aplicavel": false,
+        "ocorrencias_proibidas": [],
+        "passou": false,
+        "protocolo_ok": false,
+        "revisao_necessaria": true
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "memoria_automatica",
+      "id": "u03/s2/pergunta1",
+      "pergunta": "Que hobby eu tenho?",
+      "esperado": "fotografia",
+      "antigos": [],
+      "tipo": "factual",
+      "resposta": "Gosta de fotografia.",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "afirmacao_reconhecida"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "reprovado",
+          "valor": false,
+          "motivo": "texto_adicional_ou_pontuacao"
+        },
+        "proibicao_aplicavel": false,
+        "ocorrencias_proibidas": [],
+        "passou": true,
+        "protocolo_ok": false,
+        "revisao_necessaria": false
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "historico_completo",
+      "id": "u03/s2/pergunta1",
+      "pergunta": "Que hobby eu tenho?",
+      "esperado": "fotografia",
+      "antigos": [],
+      "tipo": "factual",
+      "resposta": "Baseado no que você disse anteriormente, você se diz ser um designer gráfico. No entanto, não há informações suficientes para me dizer qual é seu hobby específico. Se você quiser compartilhar mais sobre o que faz ou o que você gosta, eu ficarei feliz em ouvir.",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "reprovado",
+          "valor": false,
+          "motivo": "incerteza_ou_alternativas"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "reprovado",
+          "valor": false,
+          "motivo": "texto_adicional_ou_pontuacao"
+        },
+        "proibicao_aplicavel": false,
+        "ocorrencias_proibidas": [],
+        "passou": false,
+        "protocolo_ok": false,
+        "revisao_necessaria": false
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "memoria_automatica",
+      "id": "u01/s3/pergunta2",
+      "pergunta": "Em que cidade eu moro hoje?",
+      "esperado": "Campinas",
+      "antigos": [
+        "Osasco"
+      ],
+      "tipo": "factual",
+      "resposta": "Campinas",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "valor_aceito"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "valor_isolado_sem_explicacao"
+        },
+        "proibicao_aplicavel": false,
+        "ocorrencias_proibidas": [],
+        "passou": true,
+        "protocolo_ok": true,
+        "revisao_necessaria": false
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "historico_completo",
+      "id": "u01/s3/pergunta2",
+      "pergunta": "Em que cidade eu moro hoje?",
+      "esperado": "Campinas",
+      "antigos": [
+        "Osasco"
+      ],
+      "tipo": "factual",
+      "resposta": "Sua memória registra que você mora em Campinas hoje.",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "nao_verificado",
+          "valor": null,
+          "motivo": "parafrase_nao_reconhecida"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "reprovado",
+          "valor": false,
+          "motivo": "texto_adicional_ou_pontuacao"
+        },
+        "proibicao_aplicavel": false,
+        "ocorrencias_proibidas": [],
+        "passou": false,
+        "protocolo_ok": false,
+        "revisao_necessaria": true
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "memoria_automatica",
+      "id": "u02/s3/pergunta1",
+      "pergunta": "Quantos filhos eu tenho?",
+      "esperado": "três",
+      "antigos": [
+        "dois"
+      ],
+      "tipo": "factual",
+      "resposta": "3",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "valor_aceito"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "valor_isolado_sem_explicacao"
+        },
+        "proibicao_aplicavel": false,
+        "ocorrencias_proibidas": [],
+        "passou": true,
+        "protocolo_ok": true,
+        "revisao_necessaria": false
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "historico_completo",
+      "id": "u02/s3/pergunta1",
+      "pergunta": "Quantos filhos eu tenho?",
+      "esperado": "três",
+      "antigos": [
+        "dois"
+      ],
+      "tipo": "factual",
+      "resposta": "Você tem três filhos.",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "afirmacao_reconhecida"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "reprovado",
+          "valor": false,
+          "motivo": "texto_adicional_ou_pontuacao"
+        },
+        "proibicao_aplicavel": false,
+        "ocorrencias_proibidas": [],
+        "passou": true,
+        "protocolo_ok": false,
+        "revisao_necessaria": false
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "memoria_automatica",
+      "id": "u03/s3/pergunta2",
+      "pergunta": "Para onde vou viajar em dezembro?",
+      "esperado": "Portugal",
+      "antigos": [
+        "Japão"
+      ],
+      "tipo": "factual",
+      "resposta": "Portugal",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "valor_aceito"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "valor_isolado_sem_explicacao"
+        },
+        "proibicao_aplicavel": false,
+        "ocorrencias_proibidas": [],
+        "passou": true,
+        "protocolo_ok": true,
+        "revisao_necessaria": false
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "historico_completo",
+      "id": "u03/s3/pergunta2",
+      "pergunta": "Para onde vou viajar em dezembro?",
+      "esperado": "Portugal",
+      "antigos": [
+        "Japão"
+      ],
+      "tipo": "factual",
+      "resposta": "Você está planejando uma viagem para Portugal em dezembro.",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "nao_verificado",
+          "valor": null,
+          "motivo": "parafrase_nao_reconhecida"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "reprovado",
+          "valor": false,
+          "motivo": "texto_adicional_ou_pontuacao"
+        },
+        "proibicao_aplicavel": false,
+        "ocorrencias_proibidas": [],
+        "passou": false,
+        "protocolo_ok": false,
+        "revisao_necessaria": true
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "memoria_automatica",
+      "id": "u04/s3/pergunta1",
+      "pergunta": "Qual é o meu trabalho?",
+      "esperado": "analista de dados",
+      "antigos": [
+        "programador"
+      ],
+      "tipo": "factual",
+      "resposta": "Analisador de dados.",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "nao_verificado",
+          "valor": null,
+          "motivo": "parafrase_nao_reconhecida"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "reprovado",
+          "valor": false,
+          "motivo": "texto_adicional_ou_pontuacao"
+        },
+        "proibicao_aplicavel": false,
+        "ocorrencias_proibidas": [],
+        "passou": false,
+        "protocolo_ok": false,
+        "revisao_necessaria": true
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "historico_completo",
+      "id": "u04/s3/pergunta1",
+      "pergunta": "Qual é o meu trabalho?",
+      "esperado": "analista de dados",
+      "antigos": [
+        "programador"
+      ],
+      "tipo": "factual",
+      "resposta": "Seu trabalho é programador.",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "nao_verificado",
+          "valor": null,
+          "motivo": "parafrase_nao_reconhecida"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "reprovado",
+          "valor": false,
+          "motivo": "texto_adicional_ou_pontuacao"
+        },
+        "proibicao_aplicavel": false,
+        "ocorrencias_proibidas": [],
+        "passou": false,
+        "protocolo_ok": false,
+        "revisao_necessaria": true
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "memoria_automatica",
+      "id": "u01/s4/pergunta3",
+      "pergunta": "Qual é a minha profissão?",
+      "esperado": "coordenadora de enfermagem",
+      "antigos": [
+        "enfermeira"
+      ],
+      "tipo": "factual",
+      "resposta": "Coordenadora de enfermagem.",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "valor_aceito"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "reprovado",
+          "valor": false,
+          "motivo": "texto_adicional_ou_pontuacao"
+        },
+        "proibicao_aplicavel": false,
+        "ocorrencias_proibidas": [],
+        "passou": true,
+        "protocolo_ok": false,
+        "revisao_necessaria": false
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "historico_completo",
+      "id": "u01/s4/pergunta3",
+      "pergunta": "Qual é a minha profissão?",
+      "esperado": "coordenadora de enfermagem",
+      "antigos": [
+        "enfermeira"
+      ],
+      "tipo": "factual",
+      "resposta": "Sua memória registra que você é enfermeira e agora coordenadora de enfermagem.",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "nao_verificado",
+          "valor": null,
+          "motivo": "parafrase_nao_reconhecida"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "reprovado",
+          "valor": false,
+          "motivo": "texto_adicional_ou_pontuacao"
+        },
+        "proibicao_aplicavel": false,
+        "ocorrencias_proibidas": [],
+        "passou": false,
+        "protocolo_ok": false,
+        "revisao_necessaria": true
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "memoria_automatica",
+      "id": "u02/s4/pergunta2",
+      "pergunta": "Qual carro eu dirijo?",
+      "esperado": "Onix",
+      "antigos": [
+        "Gol",
+        "Gol azul"
+      ],
+      "tipo": "factual",
+      "resposta": "Onix branco.",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "valor_aceito"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "reprovado",
+          "valor": false,
+          "motivo": "texto_adicional_ou_pontuacao"
+        },
+        "proibicao_aplicavel": false,
+        "ocorrencias_proibidas": [],
+        "passou": true,
+        "protocolo_ok": false,
+        "revisao_necessaria": false
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "historico_completo",
+      "id": "u02/s4/pergunta2",
+      "pergunta": "Qual carro eu dirijo?",
+      "esperado": "Onix",
+      "antigos": [
+        "Gol",
+        "Gol azul"
+      ],
+      "tipo": "factual",
+      "resposta": "Você dirige o Onix branco.",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "reprovado",
+          "valor": false,
+          "motivo": "valor_incorreto_ou_afirmacao_nao_sustentada"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "reprovado",
+          "valor": false,
+          "motivo": "texto_adicional_ou_pontuacao"
+        },
+        "proibicao_aplicavel": false,
+        "ocorrencias_proibidas": [],
+        "passou": false,
+        "protocolo_ok": false,
+        "revisao_necessaria": false
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "memoria_automatica",
+      "id": "u03/s4/pergunta3",
+      "pergunta": "Quantos gatos eu tenho?",
+      "esperado": "dois",
+      "antigos": [],
+      "tipo": "factual",
+      "resposta": "Você tem dois gatos: Luna e Simba.",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "nao_verificado",
+          "valor": null,
+          "motivo": "parafrase_nao_reconhecida"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "reprovado",
+          "valor": false,
+          "motivo": "texto_adicional_ou_pontuacao"
+        },
+        "proibicao_aplicavel": false,
+        "ocorrencias_proibidas": [],
+        "passou": false,
+        "protocolo_ok": false,
+        "revisao_necessaria": true
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "historico_completo",
+      "id": "u03/s4/pergunta3",
+      "pergunta": "Quantos gatos eu tenho?",
+      "esperado": "dois",
+      "antigos": [],
+      "tipo": "factual",
+      "resposta": "Você tem dois gatos: Luna e Simba.",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "nao_verificado",
+          "valor": null,
+          "motivo": "parafrase_nao_reconhecida"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "reprovado",
+          "valor": false,
+          "motivo": "texto_adicional_ou_pontuacao"
+        },
+        "proibicao_aplicavel": false,
+        "ocorrencias_proibidas": [],
+        "passou": false,
+        "protocolo_ok": false,
+        "revisao_necessaria": true
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "memoria_automatica",
+      "id": "u04/s4/pergunta2",
+      "pergunta": "Onde eu moro?",
+      "esperado": [
+        "DESCONHECIDO",
+        "não sei"
+      ],
+      "antigos": null,
+      "tipo": "abstencao",
+      "resposta": "DESCONHECIDO",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "abstencao",
+        "acerto_factual": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_de_abstencao"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "abstencao_explicita"
+        },
+        "formato_ok": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "token_literal_DESCONHECIDO"
+        },
+        "proibicao_aplicavel": true,
+        "ocorrencias_proibidas": [],
+        "passou": true,
+        "protocolo_ok": true,
+        "revisao_necessaria": false
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "historico_completo",
+      "id": "u04/s4/pergunta2",
+      "pergunta": "Onde eu moro?",
+      "esperado": [
+        "DESCONHECIDO",
+        "não sei"
+      ],
+      "antigos": null,
+      "tipo": "abstencao",
+      "resposta": "DESCONHECIDO",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "abstencao",
+        "acerto_factual": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_de_abstencao"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "abstencao_explicita"
+        },
+        "formato_ok": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "token_literal_DESCONHECIDO"
+        },
+        "proibicao_aplicavel": true,
+        "ocorrencias_proibidas": [],
+        "passou": true,
+        "protocolo_ok": true,
+        "revisao_necessaria": false
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "memoria_automatica",
+      "id": "u04/s4/pergunta3",
+      "pergunta": "Qual instrumento eu toco?",
+      "esperado": [
+        "DESCONHECIDO",
+        "não sei"
+      ],
+      "antigos": null,
+      "tipo": "abstencao",
+      "resposta": "DESCONHECIDO",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "abstencao",
+        "acerto_factual": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_de_abstencao"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "abstencao_explicita"
+        },
+        "formato_ok": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "token_literal_DESCONHECIDO"
+        },
+        "proibicao_aplicavel": true,
+        "ocorrencias_proibidas": [],
+        "passou": true,
+        "protocolo_ok": true,
+        "revisao_necessaria": false
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "historico_completo",
+      "id": "u04/s4/pergunta3",
+      "pergunta": "Qual instrumento eu toco?",
+      "esperado": [
+        "DESCONHECIDO",
+        "não sei"
+      ],
+      "antigos": null,
+      "tipo": "abstencao",
+      "resposta": "DESCONHECIDO",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "abstencao",
+        "acerto_factual": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_de_abstencao"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "abstencao_explicita"
+        },
+        "formato_ok": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "token_literal_DESCONHECIDO"
+        },
+        "proibicao_aplicavel": true,
+        "ocorrencias_proibidas": [],
+        "passou": true,
+        "protocolo_ok": true,
+        "revisao_necessaria": false
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "memoria_automatica",
+      "id": "u01/s5/pergunta4",
+      "pergunta": "Qual cidade é a minha casa atualmente?",
+      "esperado": "Santos",
+      "antigos": [
+        "Osasco",
+        "Campinas"
+      ],
+      "tipo": "factual",
+      "resposta": "Santos.",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "valor_aceito"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "reprovado",
+          "valor": false,
+          "motivo": "texto_adicional_ou_pontuacao"
+        },
+        "proibicao_aplicavel": false,
+        "ocorrencias_proibidas": [],
+        "passou": true,
+        "protocolo_ok": false,
+        "revisao_necessaria": false
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "historico_completo",
+      "id": "u01/s5/pergunta4",
+      "pergunta": "Qual cidade é a minha casa atualmente?",
+      "esperado": "Santos",
+      "antigos": [
+        "Osasco",
+        "Campinas"
+      ],
+      "tipo": "factual",
+      "resposta": "Sua memória registra que sua casa atualmente é em Santos.",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "nao_verificado",
+          "valor": null,
+          "motivo": "parafrase_nao_reconhecida"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "reprovado",
+          "valor": false,
+          "motivo": "texto_adicional_ou_pontuacao"
+        },
+        "proibicao_aplicavel": false,
+        "ocorrencias_proibidas": [],
+        "passou": false,
+        "protocolo_ok": false,
+        "revisao_necessaria": true
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "memoria_automatica",
+      "id": "u01/s5/pergunta5",
+      "pergunta": "Como se chama o meu cachorro?",
+      "esperado": "Thor",
+      "antigos": [],
+      "tipo": "factual",
+      "resposta": "Thor",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "valor_aceito"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "valor_isolado_sem_explicacao"
+        },
+        "proibicao_aplicavel": false,
+        "ocorrencias_proibidas": [],
+        "passou": true,
+        "protocolo_ok": true,
+        "revisao_necessaria": false
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "historico_completo",
+      "id": "u01/s5/pergunta5",
+      "pergunta": "Como se chama o meu cachorro?",
+      "esperado": "Thor",
+      "antigos": [],
+      "tipo": "factual",
+      "resposta": "Sua memória registra que seu cachorro se chama Thor.",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "nao_verificado",
+          "valor": null,
+          "motivo": "parafrase_nao_reconhecida"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "reprovado",
+          "valor": false,
+          "motivo": "texto_adicional_ou_pontuacao"
+        },
+        "proibicao_aplicavel": false,
+        "ocorrencias_proibidas": [],
+        "passou": false,
+        "protocolo_ok": false,
+        "revisao_necessaria": true
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "memoria_automatica",
+      "id": "u01/s5/pergunta6",
+      "pergunta": "Que esporte eu pratico?",
+      "esperado": "natação",
+      "antigos": [
+        "corrida"
+      ],
+      "tipo": "factual",
+      "resposta": "Natação",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "valor_aceito"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "valor_isolado_sem_explicacao"
+        },
+        "proibicao_aplicavel": false,
+        "ocorrencias_proibidas": [],
+        "passou": true,
+        "protocolo_ok": true,
+        "revisao_necessaria": false
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "historico_completo",
+      "id": "u01/s5/pergunta6",
+      "pergunta": "Que esporte eu pratico?",
+      "esperado": "natação",
+      "antigos": [
+        "corrida"
+      ],
+      "tipo": "factual",
+      "resposta": "Sua memória registra que você praticou natação e agora é coordenadora de enfermagem.",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "nao_verificado",
+          "valor": null,
+          "motivo": "parafrase_nao_reconhecida"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "reprovado",
+          "valor": false,
+          "motivo": "texto_adicional_ou_pontuacao"
+        },
+        "proibicao_aplicavel": false,
+        "ocorrencias_proibidas": [],
+        "passou": false,
+        "protocolo_ok": false,
+        "revisao_necessaria": true
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "memoria_automatica",
+      "id": "u02/s5/pergunta3",
+      "pergunta": "Qual carro eu dirijo?",
+      "esperado": [
+        "DESCONHECIDO",
+        "não sei"
+      ],
+      "antigos": null,
+      "tipo": "abstencao",
+      "resposta": "DESCONHECIDO",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "abstencao",
+        "acerto_factual": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_de_abstencao"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "abstencao_explicita"
+        },
+        "formato_ok": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "token_literal_DESCONHECIDO"
+        },
+        "proibicao_aplicavel": true,
+        "ocorrencias_proibidas": [],
+        "passou": true,
+        "protocolo_ok": true,
+        "revisao_necessaria": false
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "historico_completo",
+      "id": "u02/s5/pergunta3",
+      "pergunta": "Qual carro eu dirijo?",
+      "esperado": [
+        "DESCONHECIDO",
+        "não sei"
+      ],
+      "antigos": null,
+      "tipo": "abstencao",
+      "resposta": "Desculpe, mas eu não tenho informações atualizadas sobre qual carro você dirige.",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "abstencao",
+        "acerto_factual": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_de_abstencao"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "reprovado",
+          "valor": false,
+          "motivo": "abstencao_com_especulacao_ou_ressalva"
+        },
+        "formato_ok": {
+          "status": "reprovado",
+          "valor": false,
+          "motivo": "token_literal_DESCONHECIDO"
+        },
+        "proibicao_aplicavel": true,
+        "ocorrencias_proibidas": [],
+        "passou": false,
+        "protocolo_ok": false,
+        "revisao_necessaria": false
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "memoria_automatica",
+      "id": "u02/s5/pergunta4",
+      "pergunta": "Para qual time eu torço?",
+      "esperado": "Coritiba",
+      "antigos": [],
+      "tipo": "factual",
+      "resposta": "Torço para Coritiba.",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "nao_verificado",
+          "valor": null,
+          "motivo": "parafrase_nao_reconhecida"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "reprovado",
+          "valor": false,
+          "motivo": "texto_adicional_ou_pontuacao"
+        },
+        "proibicao_aplicavel": false,
+        "ocorrencias_proibidas": [],
+        "passou": false,
+        "protocolo_ok": false,
+        "revisao_necessaria": true
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "historico_completo",
+      "id": "u02/s5/pergunta4",
+      "pergunta": "Para qual time eu torço?",
+      "esperado": "Coritiba",
+      "antigos": [],
+      "tipo": "factual",
+      "resposta": "Desculpe, mas eu não tenho informações atualizadas sobre qual time você torce.",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "nao_verificado",
+          "valor": null,
+          "motivo": "parafrase_nao_reconhecida"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "reprovado",
+          "valor": false,
+          "motivo": "texto_adicional_ou_pontuacao"
+        },
+        "proibicao_aplicavel": false,
+        "ocorrencias_proibidas": [],
+        "passou": false,
+        "protocolo_ok": false,
+        "revisao_necessaria": true
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "memoria_automatica",
+      "id": "u02/s5/pergunta5",
+      "pergunta": "O que eu ensino?",
+      "esperado": "matemática",
+      "antigos": [],
+      "tipo": "factual",
+      "resposta": "Ensino matemática.",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "afirmacao_reconhecida"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "reprovado",
+          "valor": false,
+          "motivo": "texto_adicional_ou_pontuacao"
+        },
+        "proibicao_aplicavel": false,
+        "ocorrencias_proibidas": [],
+        "passou": true,
+        "protocolo_ok": false,
+        "revisao_necessaria": false
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "historico_completo",
+      "id": "u02/s5/pergunta5",
+      "pergunta": "O que eu ensino?",
+      "esperado": "matemática",
+      "antigos": [],
+      "tipo": "factual",
+      "resposta": "Você ensina matemática.",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "afirmacao_reconhecida"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "reprovado",
+          "valor": false,
+          "motivo": "texto_adicional_ou_pontuacao"
+        },
+        "proibicao_aplicavel": false,
+        "ocorrencias_proibidas": [],
+        "passou": true,
+        "protocolo_ok": false,
+        "revisao_necessaria": false
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "memoria_automatica",
+      "id": "u03/s5/pergunta4",
+      "pergunta": "Qual é o meu cargo?",
+      "esperado": "diretora de arte",
+      "antigos": [
+        "designer gráfica"
+      ],
+      "tipo": "factual",
+      "resposta": "A diretora de arte é seu cargo.",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "nao_verificado",
+          "valor": null,
+          "motivo": "parafrase_nao_reconhecida"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "reprovado",
+          "valor": false,
+          "motivo": "texto_adicional_ou_pontuacao"
+        },
+        "proibicao_aplicavel": false,
+        "ocorrencias_proibidas": [],
+        "passou": false,
+        "protocolo_ok": false,
+        "revisao_necessaria": true
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "historico_completo",
+      "id": "u03/s5/pergunta4",
+      "pergunta": "Qual é o meu cargo?",
+      "esperado": "diretora de arte",
+      "antigos": [
+        "designer gráfica"
+      ],
+      "tipo": "factual",
+      "resposta": "Você é designer gráfico.",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "reprovado",
+          "valor": false,
+          "motivo": "valor_incorreto_ou_afirmacao_nao_sustentada"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "reprovado",
+          "valor": false,
+          "motivo": "texto_adicional_ou_pontuacao"
+        },
+        "proibicao_aplicavel": false,
+        "ocorrencias_proibidas": [],
+        "passou": false,
+        "protocolo_ok": false,
+        "revisao_necessaria": false
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "memoria_automatica",
+      "id": "u03/s5/pergunta5",
+      "pergunta": "Onde eu moro?",
+      "esperado": "Recife",
+      "antigos": [],
+      "tipo": "factual",
+      "resposta": "Recife",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "valor_aceito"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "valor_isolado_sem_explicacao"
+        },
+        "proibicao_aplicavel": true,
+        "ocorrencias_proibidas": [],
+        "passou": true,
+        "protocolo_ok": true,
+        "revisao_necessaria": false
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "historico_completo",
+      "id": "u03/s5/pergunta5",
+      "pergunta": "Onde eu moro?",
+      "esperado": "Recife",
+      "antigos": [],
+      "tipo": "factual",
+      "resposta": "Você mora em Recife.",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "afirmacao_reconhecida"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "reprovado",
+          "valor": false,
+          "motivo": "texto_adicional_ou_pontuacao"
+        },
+        "proibicao_aplicavel": true,
+        "ocorrencias_proibidas": [],
+        "passou": true,
+        "protocolo_ok": false,
+        "revisao_necessaria": false
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "memoria_automatica",
+      "id": "u04/s5/pergunta4",
+      "pergunta": "Onde eu moro?",
+      "esperado": "Belém",
+      "antigos": [],
+      "tipo": "factual",
+      "resposta": "Você mora em Belém.",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "afirmacao_reconhecida"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "reprovado",
+          "valor": false,
+          "motivo": "texto_adicional_ou_pontuacao"
+        },
+        "proibicao_aplicavel": true,
+        "ocorrencias_proibidas": [],
+        "passou": true,
+        "protocolo_ok": false,
+        "revisao_necessaria": false
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "historico_completo",
+      "id": "u04/s5/pergunta4",
+      "pergunta": "Onde eu moro?",
+      "esperado": "Belém",
+      "antigos": [],
+      "tipo": "factual",
+      "resposta": "Você está atualmente em Belém.",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "nao_verificado",
+          "valor": null,
+          "motivo": "parafrase_nao_reconhecida"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "reprovado",
+          "valor": false,
+          "motivo": "texto_adicional_ou_pontuacao"
+        },
+        "proibicao_aplicavel": true,
+        "ocorrencias_proibidas": [],
+        "passou": false,
+        "protocolo_ok": false,
+        "revisao_necessaria": true
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "memoria_automatica",
+      "id": "u04/s5/pergunta5",
+      "pergunta": "Qual é a minha profissão?",
+      "esperado": [
+        "DESCONHECIDO",
+        "não sei"
+      ],
+      "antigos": null,
+      "tipo": "abstencao",
+      "resposta": "DESCONHECIDO",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "abstencao",
+        "acerto_factual": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_de_abstencao"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "abstencao_explicita"
+        },
+        "formato_ok": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "token_literal_DESCONHECIDO"
+        },
+        "proibicao_aplicavel": true,
+        "ocorrencias_proibidas": [],
+        "passou": true,
+        "protocolo_ok": true,
+        "revisao_necessaria": false
+      },
+      "erro": null,
+      "trajetoria": true
+    },
+    {
+      "cenario": "historico_completo",
+      "id": "u04/s5/pergunta5",
+      "pergunta": "Qual é a minha profissão?",
+      "esperado": [
+        "DESCONHECIDO",
+        "não sei"
+      ],
+      "antigos": null,
+      "tipo": "abstencao",
+      "resposta": "DESCONHECIDO",
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "abstencao",
+        "acerto_factual": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_de_abstencao"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "abstencao_explicita"
+        },
+        "formato_ok": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "token_literal_DESCONHECIDO"
+        },
+        "proibicao_aplicavel": true,
+        "ocorrencias_proibidas": [],
+        "passou": true,
+        "protocolo_ok": true,
+        "revisao_necessaria": false
+      },
+      "erro": null,
+      "trajetoria": true
+    }
+  ]
+}

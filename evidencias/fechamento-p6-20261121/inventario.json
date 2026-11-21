@@ -1,0 +1,1338 @@
+[
+  {
+    "id": "d8a44d6a71e549398649d16c737ab2a7",
+    "gerado_em": "2026-11-21T12:28:21.927390+00:00",
+    "arquivo": "relatorios/d8a44d6a71e549398649d16c737ab2a7.json",
+    "sha256": "038a9a1dcc824958e81a4fcc998c4de1559744ef03a8c82dc51de1d86f123ee5",
+    "bytes": 755180,
+    "estado_orquestracao": "concluida",
+    "falhas": 0,
+    "tokens": {
+      "pares_previstos": 20,
+      "cobertura_pct": 100.0,
+      "pares_identificados": 20,
+      "pares_medidos": 20,
+      "chaves_duplicadas_descartadas": 0,
+      "pares_sem_medicao": 0,
+      "sessoes": [
+        {
+          "usuario_id": "u01",
+          "sessao": 1
+        },
+        {
+          "usuario_id": "u01",
+          "sessao": 2
+        },
+        {
+          "usuario_id": "u01",
+          "sessao": 3
+        },
+        {
+          "usuario_id": "u01",
+          "sessao": 4
+        },
+        {
+          "usuario_id": "u01",
+          "sessao": 5
+        },
+        {
+          "usuario_id": "u02",
+          "sessao": 1
+        },
+        {
+          "usuario_id": "u02",
+          "sessao": 2
+        },
+        {
+          "usuario_id": "u02",
+          "sessao": 3
+        },
+        {
+          "usuario_id": "u02",
+          "sessao": 4
+        },
+        {
+          "usuario_id": "u02",
+          "sessao": 5
+        },
+        {
+          "usuario_id": "u03",
+          "sessao": 1
+        },
+        {
+          "usuario_id": "u03",
+          "sessao": 2
+        },
+        {
+          "usuario_id": "u03",
+          "sessao": 3
+        },
+        {
+          "usuario_id": "u03",
+          "sessao": 4
+        },
+        {
+          "usuario_id": "u03",
+          "sessao": 5
+        },
+        {
+          "usuario_id": "u04",
+          "sessao": 1
+        },
+        {
+          "usuario_id": "u04",
+          "sessao": 2
+        },
+        {
+          "usuario_id": "u04",
+          "sessao": 3
+        },
+        {
+          "usuario_id": "u04",
+          "sessao": 4
+        },
+        {
+          "usuario_id": "u04",
+          "sessao": 5
+        }
+      ],
+      "tokens_automaticos": 3572,
+      "tokens_historico": 23016,
+      "reducao_pct": 84.48
+    },
+    "interface_metadados": {
+      "protocolo": "p6",
+      "repeticoes": 1,
+      "preparacao_modelo": {
+        "tipo": "carregamento_sem_prompt_de_teste",
+        "modelo": "qwen2.5-coder:3b",
+        "digest": "f72c60cabf6237b07f6e632b2c48d533cef25eda2efbd34bed21c5e9c01e6225",
+        "concluido_em": "2026-11-21T12:26:40.013029+00:00",
+        "duracao_segundos": 0.06,
+        "prazo_segundos": 900,
+        "incluido_nos_tokens_dos_casos": false,
+        "limite": "Preparação separada; não mede o custo total do sistema nem garante ausência de falhas futuras."
+      },
+      "codigo_saida": 0,
+      "conjunto": "oficial",
+      "modelo": "qwen2.5-coder:3b",
+      "commit_base": "não informado; fontes identificadas pelos hashes desta execução",
+      "origem": "nova execução explícita; sem resultados históricos",
+      "revisao_humana": "não realizada nesta execução",
+      "fontes_sha256": {
+        "src/agent.py": "6b38b0dab8064550cf53c9e58d4fce0cfd66680cc648b7e8fec8b021c742c8ee",
+        "src/api/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/api/agente_local.py": "b537e8928a821902e14e09a71d51a0d00a650c146126f66c36fe12df73ff86e3",
+        "src/api/catalogo.py": "9dd79eb15ea6d05d3da9264274b5826b29f7172a4e68f7ea35b1df1112d3f005",
+        "src/api/config.py": "9cfcd341587bddd1d493919ad9255ddb67187020c0ad5d287a739788ec1d806f",
+        "src/api/dependencias.py": "e64791456b9d192cead55336d82df20b51b65297acd902e6a6401f7a05c1308c",
+        "src/api/erros.py": "f200f7c9c12f1fb08b8681bb65dfca50db3d74dc2a6196dad5351633bbb9d45d",
+        "src/api/falsos.py": "45d15805f3be1b2ef8cb3e99410184f548ab0062e591bb8e66759a9417caf627",
+        "src/api/main.py": "4fab7cb03a4c7e0119b4755ba89edb70fab9e27760141d5e18fdbf73f52449a4",
+        "src/api/schemas.py": "0fade78929892adc81c90191b0f631485d00631e50e97cd3e22b42bd71bb6c0c",
+        "src/api/seguranca.py": "ca4f44a7859f30931e1aa4626d0b615bf3775ca5a6ec02a20af2984287cc7596",
+        "src/api/servico.py": "e05be9e6d7d1d563543a1c5ac97231811721c7dd68f08da844fea0ae68ca4e83",
+        "src/armazenamento/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/armazenamento/banco.py": "d4f6ee4ee4b1d51ab3964e455a05db746decb76b116f66b682f7f8a994a49806",
+        "src/armazenamento/repositorio.py": "8bf1be4b1039168fc7a0aa22458cca09ad7e3b79d3f0750e80d9a973251876da",
+        "src/contexto.py": "0cf0d99b510d23f148c2af03336fde398848ab5a25810615b4d401e62263e016",
+        "src/evidencias_pessoais.py": "08d2c763cac3b42b72776ff45ea8568fc97a70e29d66cbb218c518b1543751fd",
+        "src/inicializacao.py": "804cf7fc3fa2a51ccc52c095e080c89c84693fe1e751ada1f87fbf83c117bced",
+        "src/interface/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/interface/analise.py": "efde4fbe716d3d747e998f1074970e05a24964066eeac8e1c894d259b8d4a0ba",
+        "src/interface/api_avaliacao.py": "900f770742131e5e3f37a308cee09c83b71cc4eb374984b13a6a3fe710c0a9cf",
+        "src/interface/avaliacoes.py": "71c85c9861d12777718f49f60826ec5c968bc98ef4df48950244749ff1c8d129",
+        "src/interface/comparativo.py": "69fafb9429e72ef6e4670f0d3d5852ddec0cb8fa7629ca1d6f81b75d60aee8f5",
+        "src/interface/controle_modelo.py": "9ea56192edb46815c660f9190589fda7dbd1dd8f22d562245ab8aa3314343f32",
+        "src/interface/executar_avaliacao.py": "06ccfa1d86a50d58f3ead37fcaddd0fb486f64155d7f59dc8019c88dce9c57a7",
+        "src/interface/preparo.py": "f4560c8e32ae2a3b0fadb328cc5e0a3f635b5ddb75b0529153506bc873533635",
+        "src/interface/protocolos.py": "8603c2c46dc08274eeecc36d50c2950edd8eecf1df26fa1a326123ca983d8a8e",
+        "src/interface/rotas.py": "896540e8ff798f082cef37589de4f60bd3eb22d9d8ac39e13578c5f9f4c85326",
+        "src/memoria/__init__.py": "b96b1ba69f524be88f77b693f5f329003702884d655db3c42268a1141e78b0b4",
+        "src/memoria/avaliacao_regras.py": "d9f454757bb8cbb81cb64e41d7bdcaec9c45a0566848678029d2e362dbe2d72d",
+        "src/memoria/base.py": "627adc3ff35255b14551ed0f0af4574e629ba0f8eb893ac8d7f0f6071eb1e620",
+        "src/memoria/benchmark.py": "d03fe3719e17214be0d4a69ac1e7dabbc02acdf3e4d2e4f4480e5bbac243abcf",
+        "src/memoria/consultas.py": "3de93785cb401f95d28f6f5f35c8219f0ea3d6153962d6224f33f0c2e4ae9246",
+        "src/memoria/embeddings.py": "f0da190fd4f02b6a53108f9e6d15fd82a3026d500c418155c2ee59d890faa670",
+        "src/memoria/embeddings_semantico.py": "0477275cdd6ff9d6736022b0fae4df10100f1a5ab789faf81cd7f2ee38d9c478",
+        "src/memoria/gerenciador.py": "5c0a154446d9756941bf4608f4379360cb90741978477b3e6171fa47f41ecd64",
+        "src/memoria/regras.py": "eeae5d3f23477011b60aa21391f5211426f444c01877d0d63df4edde0026f9a8",
+        "src/memoria/store_mem.py": "d9f496ff41b9fe08299f3651c7588082f11be900ac3ba07352d1778bea9f4cc1",
+        "src/modelos/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/modelos/base.py": "37f8b13d3bcb6fd0c98d299b2c5740157570f1b39d45eb14fd42d12c9d3add91",
+        "src/modelos/ollama_adapter.py": "0d2da667eb968a8db6fcd151c4bea1575918b500b74842a22a1f2b7cdbe8b792",
+        "src/modelos/openai_adapter.py": "5d6d65b973e7d6a86f8d0740a4b75765722d13540f1863d3f833163caf2e1001",
+        "src/observabilidade.py": "59d8e8c6d441e1ca77e04d7b9cc8a8af8dfbdf1fdc03bd1565a84b76869b095b",
+        "src/teste_ollama.py": "982f109eb143f86bb0449cfa7ee9ab836092bd0992473f07ef762017da512719",
+        "eval/avaliar_api_real.py": "f49a1579171a664e7cd17e011cb83f3f9bb540fa3b50f3efef359609526d0fbb",
+        "eval/avaliar_comparativo.py": "f8972d773617dc8791ef225998a73138a93f07e3274f5ad08c59b4884f6c51cb",
+        "eval/avaliar_memoria.py": "9a832909e230e75445c39bcb4a9c414925f40a9300a55047ab493a02a638adf4",
+        "eval/avaliar_regras.py": "4fe1bbfd12e6fd93a0c2b71089481eeb1f109ae98841d04971d1035d40b356e6",
+        "eval/avaliar_sessoes_integradas.py": "7aee5719dabb108ef47026a0de04c71527b92e2aad7330c44ff154fe295af7e5",
+        "eval/evaluate.py": "0cea7260a55db971fc4141cd5a352ce17d0ab55c4ff2cc6062f8aa7d4fe4af68",
+        "eval/historico_processo.py": "ca3768dcc6635af81e9c48de137cdffa190138434a18ab99023e4a3b8931bf97",
+        "eval/informacao_antiga.py": "b911f37b303d1d24900c0c74989de5c784c5e7da3f8e2b115402822b2224f84d",
+        "eval/julgamento_respostas.py": "a9f91d9d44fb9d65cf82992ce0835988ce7999f1819e3db9331aabe31502f84d",
+        "eval/sessoes_evidencias.py": "8ed5a1758f7ce562b1a7acc300b881f39a35a6a52f2d0dade074133d13da25c0",
+        "eval/sessoes_transporte.py": "9f91445a1125f042c55b08b01edcbe510bb0b4179610342f7dc7cd3d028357a6",
+        "tools/encerrar_ensaio.py": "55af064b84e7e53e5f1494b65ec77e84cbcf20ff6f999620080a5ed8ec9925f1",
+        "tools/ensaiar_interface.py": "dda172578b9f3c4bf6ea59268657f89863803868ddb5cada69d76ec16d41aec1",
+        "tools/executar_p6_local.py": "84dfe9b7ed6526f1baf3e657ee226bf8ff2768e62d05fc4102be1478d82985d5",
+        "tools/gerar_figuras_v3.py": "4de8a8a5ca47b84b22212c36280f0201f58b98b9ad2ae375700036c5ee2452f5",
+        "tools/gerar_manifesto_entrega.py": "c043fb98c79b1e8beea890cff34ac5b74b363c46e2d173bfb6351e1db953e581",
+        "tools/gerar_pesquisa.py": "63c6fef11be351c5a4bcb2e450c7528ce53313375ef9b80843cd5f8dbbc34da0",
+        "tools/inventariar_licencas.py": "f7c69fb8c2075600821a71697aaf1db8eb4ecec10cb7397cf73737ae027eb8e9",
+        "tools/preparar_revisao_experimental.py": "4ac67add2406a6d19c1b0ef81bc8543d872d7275d262056b4ef7a3b776d2a73e",
+        "tools/preparar_validacao_v3.py": "b9fb42216ee9df63e5f3a66de3a944d5b6850777eb68a5e69e9e7c7e94efe6af",
+        "tools/registrar_entrega.py": "8c4458efa6196eabc1c462be23ee715c9a881f927f1e6dd19f3f5529beded293",
+        "tools/reproduzir_p6.py": "d5bd4b665e990cb911ee8ad320d6ad833a9e88a1ba1145876a7b42cea570e1d6",
+        "tools/resumir_contexto_v3.py": "35ff46e832d9bb9b0279d37aa89a2b39e964e11960802b0c51950516cac4ec7b",
+        "tools/resumir_melhorias.py": "7386b7b5ff67eb6773eb3a2949c54507f876cef5d38af78cd71aa4677f74fea8",
+        "tools/sumarizar_desenvolvimento.py": "a1f68195b1601d3264b499543184a5ef0453b8256f863c5c84637ed4d576bd9c",
+        "tools/verificar_documentacao.py": "bf1a8009f70869f2d665d3deecf8ec5f07a7ac09ad7c354c2520fd8d156c8e79"
+      },
+      "dataset_sha256": "0bf605bf03f4803dffc1ffac388a97140b6c60aa1fa144d10d8af84cc4a49ad8"
+    },
+    "qualidade": {
+      "historico_completo": {
+        "v2": {
+          "acerto_factual": {
+            "aprovado": 8,
+            "nao_verificado": 9,
+            "nao_aplicavel": 4
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 17,
+            "aprovado": 4
+          },
+          "formato_ok": {
+            "reprovado": 18,
+            "aprovado": 3
+          }
+        },
+        "p4": {
+          "acerto_factual": {
+            "aprovado": 7,
+            "nao_verificado": 10,
+            "nao_aplicavel": 4
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 17,
+            "aprovado": 3,
+            "reprovado": 1
+          },
+          "formato_ok": {
+            "reprovado": 18,
+            "aprovado": 3
+          }
+        }
+      },
+      "memoria_automatica": {
+        "v2": {
+          "acerto_factual": {
+            "aprovado": 17,
+            "nao_aplicavel": 4
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 17,
+            "aprovado": 4
+          },
+          "formato_ok": {
+            "aprovado": 9,
+            "reprovado": 12
+          }
+        },
+        "p4": {
+          "acerto_factual": {
+            "aprovado": 15,
+            "nao_verificado": 2,
+            "nao_aplicavel": 4
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 17,
+            "aprovado": 4
+          },
+          "formato_ok": {
+            "aprovado": 9,
+            "reprovado": 12
+          }
+        }
+      }
+    },
+    "geracao_sha256": "dfd95a3a686ae4c65cffc281f8424d52c95e054ac8e3d9d791e015c6e45b92f6",
+    "anotacoes_sha256": "75641d4198918b6eff1fff85ef11497e2136183a05866c10974fc7bf5ea4920e",
+    "etapa": "Sem análise P6 adicional"
+  },
+  {
+    "id": "489dae868fa043eda68d68c48ea7cb6f",
+    "gerado_em": "2026-11-21T14:08:36.355967+00:00",
+    "arquivo": "relatorios/489dae868fa043eda68d68c48ea7cb6f.json",
+    "sha256": "fb7cc7ba315f054b5fd31cf08c118c95c537aa7246313c4f9e5d2486f3edb025",
+    "bytes": 756336,
+    "estado_orquestracao": "concluida",
+    "falhas": 0,
+    "tokens": {
+      "pares_previstos": 20,
+      "cobertura_pct": 100.0,
+      "pares_identificados": 20,
+      "pares_medidos": 20,
+      "chaves_duplicadas_descartadas": 0,
+      "pares_sem_medicao": 0,
+      "sessoes": [
+        {
+          "usuario_id": "u01",
+          "sessao": 1
+        },
+        {
+          "usuario_id": "u01",
+          "sessao": 2
+        },
+        {
+          "usuario_id": "u01",
+          "sessao": 3
+        },
+        {
+          "usuario_id": "u01",
+          "sessao": 4
+        },
+        {
+          "usuario_id": "u01",
+          "sessao": 5
+        },
+        {
+          "usuario_id": "u02",
+          "sessao": 1
+        },
+        {
+          "usuario_id": "u02",
+          "sessao": 2
+        },
+        {
+          "usuario_id": "u02",
+          "sessao": 3
+        },
+        {
+          "usuario_id": "u02",
+          "sessao": 4
+        },
+        {
+          "usuario_id": "u02",
+          "sessao": 5
+        },
+        {
+          "usuario_id": "u03",
+          "sessao": 1
+        },
+        {
+          "usuario_id": "u03",
+          "sessao": 2
+        },
+        {
+          "usuario_id": "u03",
+          "sessao": 3
+        },
+        {
+          "usuario_id": "u03",
+          "sessao": 4
+        },
+        {
+          "usuario_id": "u03",
+          "sessao": 5
+        },
+        {
+          "usuario_id": "u04",
+          "sessao": 1
+        },
+        {
+          "usuario_id": "u04",
+          "sessao": 2
+        },
+        {
+          "usuario_id": "u04",
+          "sessao": 3
+        },
+        {
+          "usuario_id": "u04",
+          "sessao": 4
+        },
+        {
+          "usuario_id": "u04",
+          "sessao": 5
+        }
+      ],
+      "tokens_automaticos": 3604,
+      "tokens_historico": 25411,
+      "reducao_pct": 85.82
+    },
+    "interface_metadados": {
+      "protocolo": "p6",
+      "repeticoes": 1,
+      "preparacao_modelo": {
+        "tipo": "carregamento_sem_prompt_de_teste",
+        "modelo": "qwen2.5-coder:3b",
+        "digest": "f72c60cabf6237b07f6e632b2c48d533cef25eda2efbd34bed21c5e9c01e6225",
+        "concluido_em": "2026-11-21T14:06:37.033980+00:00",
+        "duracao_segundos": 18.772,
+        "prazo_segundos": 900,
+        "incluido_nos_tokens_dos_casos": false,
+        "limite": "Preparação separada; não mede o custo total do sistema nem garante ausência de falhas futuras."
+      },
+      "codigo_saida": 0,
+      "conjunto": "oficial",
+      "modelo": "qwen2.5-coder:3b",
+      "commit_base": "não informado; fontes identificadas pelos hashes desta execução",
+      "origem": "nova execução explícita; sem resultados históricos",
+      "revisao_humana": "não realizada nesta execução",
+      "fontes_sha256": {
+        "src/agent.py": "6b38b0dab8064550cf53c9e58d4fce0cfd66680cc648b7e8fec8b021c742c8ee",
+        "src/api/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/api/agente_local.py": "b537e8928a821902e14e09a71d51a0d00a650c146126f66c36fe12df73ff86e3",
+        "src/api/catalogo.py": "9dd79eb15ea6d05d3da9264274b5826b29f7172a4e68f7ea35b1df1112d3f005",
+        "src/api/config.py": "9cfcd341587bddd1d493919ad9255ddb67187020c0ad5d287a739788ec1d806f",
+        "src/api/dependencias.py": "e64791456b9d192cead55336d82df20b51b65297acd902e6a6401f7a05c1308c",
+        "src/api/erros.py": "f200f7c9c12f1fb08b8681bb65dfca50db3d74dc2a6196dad5351633bbb9d45d",
+        "src/api/falsos.py": "45d15805f3be1b2ef8cb3e99410184f548ab0062e591bb8e66759a9417caf627",
+        "src/api/main.py": "4fab7cb03a4c7e0119b4755ba89edb70fab9e27760141d5e18fdbf73f52449a4",
+        "src/api/schemas.py": "0fade78929892adc81c90191b0f631485d00631e50e97cd3e22b42bd71bb6c0c",
+        "src/api/seguranca.py": "ca4f44a7859f30931e1aa4626d0b615bf3775ca5a6ec02a20af2984287cc7596",
+        "src/api/servico.py": "e05be9e6d7d1d563543a1c5ac97231811721c7dd68f08da844fea0ae68ca4e83",
+        "src/armazenamento/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/armazenamento/banco.py": "d4f6ee4ee4b1d51ab3964e455a05db746decb76b116f66b682f7f8a994a49806",
+        "src/armazenamento/repositorio.py": "8bf1be4b1039168fc7a0aa22458cca09ad7e3b79d3f0750e80d9a973251876da",
+        "src/contexto.py": "0cf0d99b510d23f148c2af03336fde398848ab5a25810615b4d401e62263e016",
+        "src/evidencias_pessoais.py": "08d2c763cac3b42b72776ff45ea8568fc97a70e29d66cbb218c518b1543751fd",
+        "src/inicializacao.py": "804cf7fc3fa2a51ccc52c095e080c89c84693fe1e751ada1f87fbf83c117bced",
+        "src/interface/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/interface/analise.py": "efde4fbe716d3d747e998f1074970e05a24964066eeac8e1c894d259b8d4a0ba",
+        "src/interface/api_avaliacao.py": "900f770742131e5e3f37a308cee09c83b71cc4eb374984b13a6a3fe710c0a9cf",
+        "src/interface/avaliacoes.py": "71c85c9861d12777718f49f60826ec5c968bc98ef4df48950244749ff1c8d129",
+        "src/interface/comparativo.py": "69fafb9429e72ef6e4670f0d3d5852ddec0cb8fa7629ca1d6f81b75d60aee8f5",
+        "src/interface/controle_modelo.py": "9ea56192edb46815c660f9190589fda7dbd1dd8f22d562245ab8aa3314343f32",
+        "src/interface/executar_avaliacao.py": "06ccfa1d86a50d58f3ead37fcaddd0fb486f64155d7f59dc8019c88dce9c57a7",
+        "src/interface/preparo.py": "f4560c8e32ae2a3b0fadb328cc5e0a3f635b5ddb75b0529153506bc873533635",
+        "src/interface/protocolos.py": "8603c2c46dc08274eeecc36d50c2950edd8eecf1df26fa1a326123ca983d8a8e",
+        "src/interface/rotas.py": "896540e8ff798f082cef37589de4f60bd3eb22d9d8ac39e13578c5f9f4c85326",
+        "src/memoria/__init__.py": "b96b1ba69f524be88f77b693f5f329003702884d655db3c42268a1141e78b0b4",
+        "src/memoria/avaliacao_regras.py": "d9f454757bb8cbb81cb64e41d7bdcaec9c45a0566848678029d2e362dbe2d72d",
+        "src/memoria/base.py": "627adc3ff35255b14551ed0f0af4574e629ba0f8eb893ac8d7f0f6071eb1e620",
+        "src/memoria/benchmark.py": "d03fe3719e17214be0d4a69ac1e7dabbc02acdf3e4d2e4f4480e5bbac243abcf",
+        "src/memoria/consultas.py": "3de93785cb401f95d28f6f5f35c8219f0ea3d6153962d6224f33f0c2e4ae9246",
+        "src/memoria/embeddings.py": "f0da190fd4f02b6a53108f9e6d15fd82a3026d500c418155c2ee59d890faa670",
+        "src/memoria/embeddings_semantico.py": "0477275cdd6ff9d6736022b0fae4df10100f1a5ab789faf81cd7f2ee38d9c478",
+        "src/memoria/gerenciador.py": "5c0a154446d9756941bf4608f4379360cb90741978477b3e6171fa47f41ecd64",
+        "src/memoria/regras.py": "eeae5d3f23477011b60aa21391f5211426f444c01877d0d63df4edde0026f9a8",
+        "src/memoria/store_mem.py": "d9f496ff41b9fe08299f3651c7588082f11be900ac3ba07352d1778bea9f4cc1",
+        "src/modelos/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/modelos/base.py": "37f8b13d3bcb6fd0c98d299b2c5740157570f1b39d45eb14fd42d12c9d3add91",
+        "src/modelos/ollama_adapter.py": "0d2da667eb968a8db6fcd151c4bea1575918b500b74842a22a1f2b7cdbe8b792",
+        "src/modelos/openai_adapter.py": "5d6d65b973e7d6a86f8d0740a4b75765722d13540f1863d3f833163caf2e1001",
+        "src/observabilidade.py": "59d8e8c6d441e1ca77e04d7b9cc8a8af8dfbdf1fdc03bd1565a84b76869b095b",
+        "src/teste_ollama.py": "982f109eb143f86bb0449cfa7ee9ab836092bd0992473f07ef762017da512719",
+        "eval/avaliar_api_real.py": "f49a1579171a664e7cd17e011cb83f3f9bb540fa3b50f3efef359609526d0fbb",
+        "eval/avaliar_comparativo.py": "f8972d773617dc8791ef225998a73138a93f07e3274f5ad08c59b4884f6c51cb",
+        "eval/avaliar_memoria.py": "9a832909e230e75445c39bcb4a9c414925f40a9300a55047ab493a02a638adf4",
+        "eval/avaliar_regras.py": "4fe1bbfd12e6fd93a0c2b71089481eeb1f109ae98841d04971d1035d40b356e6",
+        "eval/avaliar_sessoes_integradas.py": "7aee5719dabb108ef47026a0de04c71527b92e2aad7330c44ff154fe295af7e5",
+        "eval/evaluate.py": "0cea7260a55db971fc4141cd5a352ce17d0ab55c4ff2cc6062f8aa7d4fe4af68",
+        "eval/historico_processo.py": "ca3768dcc6635af81e9c48de137cdffa190138434a18ab99023e4a3b8931bf97",
+        "eval/informacao_antiga.py": "b911f37b303d1d24900c0c74989de5c784c5e7da3f8e2b115402822b2224f84d",
+        "eval/julgamento_respostas.py": "a9f91d9d44fb9d65cf82992ce0835988ce7999f1819e3db9331aabe31502f84d",
+        "eval/sessoes_evidencias.py": "8ed5a1758f7ce562b1a7acc300b881f39a35a6a52f2d0dade074133d13da25c0",
+        "eval/sessoes_transporte.py": "9f91445a1125f042c55b08b01edcbe510bb0b4179610342f7dc7cd3d028357a6",
+        "tools/encerrar_ensaio.py": "55af064b84e7e53e5f1494b65ec77e84cbcf20ff6f999620080a5ed8ec9925f1",
+        "tools/ensaiar_interface.py": "dda172578b9f3c4bf6ea59268657f89863803868ddb5cada69d76ec16d41aec1",
+        "tools/executar_p6_local.py": "84dfe9b7ed6526f1baf3e657ee226bf8ff2768e62d05fc4102be1478d82985d5",
+        "tools/gerar_figuras_v3.py": "4de8a8a5ca47b84b22212c36280f0201f58b98b9ad2ae375700036c5ee2452f5",
+        "tools/gerar_manifesto_entrega.py": "c043fb98c79b1e8beea890cff34ac5b74b363c46e2d173bfb6351e1db953e581",
+        "tools/gerar_pesquisa.py": "63c6fef11be351c5a4bcb2e450c7528ce53313375ef9b80843cd5f8dbbc34da0",
+        "tools/inventariar_licencas.py": "f7c69fb8c2075600821a71697aaf1db8eb4ecec10cb7397cf73737ae027eb8e9",
+        "tools/preparar_revisao_experimental.py": "4ac67add2406a6d19c1b0ef81bc8543d872d7275d262056b4ef7a3b776d2a73e",
+        "tools/preparar_validacao_v3.py": "b9fb42216ee9df63e5f3a66de3a944d5b6850777eb68a5e69e9e7c7e94efe6af",
+        "tools/registrar_entrega.py": "8c4458efa6196eabc1c462be23ee715c9a881f927f1e6dd19f3f5529beded293",
+        "tools/reproduzir_p6.py": "d5bd4b665e990cb911ee8ad320d6ad833a9e88a1ba1145876a7b42cea570e1d6",
+        "tools/resumir_contexto_v3.py": "35ff46e832d9bb9b0279d37aa89a2b39e964e11960802b0c51950516cac4ec7b",
+        "tools/resumir_melhorias.py": "7386b7b5ff67eb6773eb3a2949c54507f876cef5d38af78cd71aa4677f74fea8",
+        "tools/sumarizar_desenvolvimento.py": "a1f68195b1601d3264b499543184a5ef0453b8256f863c5c84637ed4d576bd9c",
+        "tools/verificar_documentacao.py": "bf1a8009f70869f2d665d3deecf8ec5f07a7ac09ad7c354c2520fd8d156c8e79"
+      },
+      "dataset_sha256": "0bf605bf03f4803dffc1ffac388a97140b6c60aa1fa144d10d8af84cc4a49ad8"
+    },
+    "qualidade": {
+      "historico_completo": {
+        "v2": {
+          "acerto_factual": {
+            "aprovado": 8,
+            "reprovado": 2,
+            "nao_verificado": 7,
+            "nao_aplicavel": 4
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 17,
+            "aprovado": 3,
+            "nao_verificado": 1
+          },
+          "formato_ok": {
+            "reprovado": 18,
+            "aprovado": 3
+          }
+        },
+        "p4": {
+          "acerto_factual": {
+            "nao_verificado": 11,
+            "reprovado": 3,
+            "aprovado": 3,
+            "nao_aplicavel": 4
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 17,
+            "aprovado": 3,
+            "reprovado": 1
+          },
+          "formato_ok": {
+            "reprovado": 18,
+            "aprovado": 3
+          }
+        }
+      },
+      "memoria_automatica": {
+        "v2": {
+          "acerto_factual": {
+            "aprovado": 13,
+            "nao_verificado": 4,
+            "nao_aplicavel": 4
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 17,
+            "aprovado": 4
+          },
+          "formato_ok": {
+            "reprovado": 11,
+            "aprovado": 10
+          }
+        },
+        "p4": {
+          "acerto_factual": {
+            "aprovado": 13,
+            "nao_verificado": 4,
+            "nao_aplicavel": 4
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 17,
+            "aprovado": 4
+          },
+          "formato_ok": {
+            "reprovado": 11,
+            "aprovado": 10
+          }
+        }
+      }
+    },
+    "geracao_sha256": "dfd95a3a686ae4c65cffc281f8424d52c95e054ac8e3d9d791e015c6e45b92f6",
+    "anotacoes_sha256": "75641d4198918b6eff1fff85ef11497e2136183a05866c10974fc7bf5ea4920e",
+    "etapa": "Sem análise P6 adicional"
+  },
+  {
+    "id": "8aa34eb92b7d4e2bba88f71c43fb3895",
+    "gerado_em": "2026-11-21T14:27:05.590876+00:00",
+    "arquivo": "relatorios/8aa34eb92b7d4e2bba88f71c43fb3895.json",
+    "sha256": "461b673431120f9a4e5dde304a64748be4f79d921cfe829c4d77ec4798a63edb",
+    "bytes": 753819,
+    "estado_orquestracao": "concluida",
+    "falhas": 0,
+    "tokens": {
+      "pares_previstos": 20,
+      "cobertura_pct": 100.0,
+      "pares_identificados": 20,
+      "pares_medidos": 20,
+      "chaves_duplicadas_descartadas": 0,
+      "pares_sem_medicao": 0,
+      "sessoes": [
+        {
+          "usuario_id": "u01",
+          "sessao": 1
+        },
+        {
+          "usuario_id": "u01",
+          "sessao": 2
+        },
+        {
+          "usuario_id": "u01",
+          "sessao": 3
+        },
+        {
+          "usuario_id": "u01",
+          "sessao": 4
+        },
+        {
+          "usuario_id": "u01",
+          "sessao": 5
+        },
+        {
+          "usuario_id": "u02",
+          "sessao": 1
+        },
+        {
+          "usuario_id": "u02",
+          "sessao": 2
+        },
+        {
+          "usuario_id": "u02",
+          "sessao": 3
+        },
+        {
+          "usuario_id": "u02",
+          "sessao": 4
+        },
+        {
+          "usuario_id": "u02",
+          "sessao": 5
+        },
+        {
+          "usuario_id": "u03",
+          "sessao": 1
+        },
+        {
+          "usuario_id": "u03",
+          "sessao": 2
+        },
+        {
+          "usuario_id": "u03",
+          "sessao": 3
+        },
+        {
+          "usuario_id": "u03",
+          "sessao": 4
+        },
+        {
+          "usuario_id": "u03",
+          "sessao": 5
+        },
+        {
+          "usuario_id": "u04",
+          "sessao": 1
+        },
+        {
+          "usuario_id": "u04",
+          "sessao": 2
+        },
+        {
+          "usuario_id": "u04",
+          "sessao": 3
+        },
+        {
+          "usuario_id": "u04",
+          "sessao": 4
+        },
+        {
+          "usuario_id": "u04",
+          "sessao": 5
+        }
+      ],
+      "tokens_automaticos": 3565,
+      "tokens_historico": 22045,
+      "reducao_pct": 83.83
+    },
+    "interface_metadados": {
+      "protocolo": "p6",
+      "repeticoes": 1,
+      "preparacao_modelo": {
+        "tipo": "carregamento_sem_prompt_de_teste",
+        "modelo": "qwen2.5-coder:3b",
+        "digest": "f72c60cabf6237b07f6e632b2c48d533cef25eda2efbd34bed21c5e9c01e6225",
+        "concluido_em": "2026-11-21T14:25:10.260687+00:00",
+        "duracao_segundos": 12.499,
+        "prazo_segundos": 900,
+        "incluido_nos_tokens_dos_casos": false,
+        "limite": "Preparação separada; não mede o custo total do sistema nem garante ausência de falhas futuras."
+      },
+      "codigo_saida": 0,
+      "conjunto": "oficial",
+      "modelo": "qwen2.5-coder:3b",
+      "commit_base": "não informado; fontes identificadas pelos hashes desta execução",
+      "origem": "nova execução explícita; sem resultados históricos",
+      "revisao_humana": "não realizada nesta execução",
+      "fontes_sha256": {
+        "src/agent.py": "6b38b0dab8064550cf53c9e58d4fce0cfd66680cc648b7e8fec8b021c742c8ee",
+        "src/api/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/api/agente_local.py": "b537e8928a821902e14e09a71d51a0d00a650c146126f66c36fe12df73ff86e3",
+        "src/api/catalogo.py": "9dd79eb15ea6d05d3da9264274b5826b29f7172a4e68f7ea35b1df1112d3f005",
+        "src/api/config.py": "9cfcd341587bddd1d493919ad9255ddb67187020c0ad5d287a739788ec1d806f",
+        "src/api/dependencias.py": "e64791456b9d192cead55336d82df20b51b65297acd902e6a6401f7a05c1308c",
+        "src/api/erros.py": "f200f7c9c12f1fb08b8681bb65dfca50db3d74dc2a6196dad5351633bbb9d45d",
+        "src/api/falsos.py": "45d15805f3be1b2ef8cb3e99410184f548ab0062e591bb8e66759a9417caf627",
+        "src/api/main.py": "4fab7cb03a4c7e0119b4755ba89edb70fab9e27760141d5e18fdbf73f52449a4",
+        "src/api/schemas.py": "0fade78929892adc81c90191b0f631485d00631e50e97cd3e22b42bd71bb6c0c",
+        "src/api/seguranca.py": "ca4f44a7859f30931e1aa4626d0b615bf3775ca5a6ec02a20af2984287cc7596",
+        "src/api/servico.py": "e05be9e6d7d1d563543a1c5ac97231811721c7dd68f08da844fea0ae68ca4e83",
+        "src/armazenamento/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/armazenamento/banco.py": "d4f6ee4ee4b1d51ab3964e455a05db746decb76b116f66b682f7f8a994a49806",
+        "src/armazenamento/repositorio.py": "8bf1be4b1039168fc7a0aa22458cca09ad7e3b79d3f0750e80d9a973251876da",
+        "src/contexto.py": "0cf0d99b510d23f148c2af03336fde398848ab5a25810615b4d401e62263e016",
+        "src/evidencias_pessoais.py": "08d2c763cac3b42b72776ff45ea8568fc97a70e29d66cbb218c518b1543751fd",
+        "src/inicializacao.py": "804cf7fc3fa2a51ccc52c095e080c89c84693fe1e751ada1f87fbf83c117bced",
+        "src/interface/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/interface/analise.py": "efde4fbe716d3d747e998f1074970e05a24964066eeac8e1c894d259b8d4a0ba",
+        "src/interface/api_avaliacao.py": "900f770742131e5e3f37a308cee09c83b71cc4eb374984b13a6a3fe710c0a9cf",
+        "src/interface/avaliacoes.py": "71c85c9861d12777718f49f60826ec5c968bc98ef4df48950244749ff1c8d129",
+        "src/interface/comparativo.py": "69fafb9429e72ef6e4670f0d3d5852ddec0cb8fa7629ca1d6f81b75d60aee8f5",
+        "src/interface/controle_modelo.py": "9ea56192edb46815c660f9190589fda7dbd1dd8f22d562245ab8aa3314343f32",
+        "src/interface/executar_avaliacao.py": "06ccfa1d86a50d58f3ead37fcaddd0fb486f64155d7f59dc8019c88dce9c57a7",
+        "src/interface/preparo.py": "f4560c8e32ae2a3b0fadb328cc5e0a3f635b5ddb75b0529153506bc873533635",
+        "src/interface/protocolos.py": "8603c2c46dc08274eeecc36d50c2950edd8eecf1df26fa1a326123ca983d8a8e",
+        "src/interface/rotas.py": "896540e8ff798f082cef37589de4f60bd3eb22d9d8ac39e13578c5f9f4c85326",
+        "src/memoria/__init__.py": "b96b1ba69f524be88f77b693f5f329003702884d655db3c42268a1141e78b0b4",
+        "src/memoria/avaliacao_regras.py": "d9f454757bb8cbb81cb64e41d7bdcaec9c45a0566848678029d2e362dbe2d72d",
+        "src/memoria/base.py": "627adc3ff35255b14551ed0f0af4574e629ba0f8eb893ac8d7f0f6071eb1e620",
+        "src/memoria/benchmark.py": "d03fe3719e17214be0d4a69ac1e7dabbc02acdf3e4d2e4f4480e5bbac243abcf",
+        "src/memoria/consultas.py": "3de93785cb401f95d28f6f5f35c8219f0ea3d6153962d6224f33f0c2e4ae9246",
+        "src/memoria/embeddings.py": "f0da190fd4f02b6a53108f9e6d15fd82a3026d500c418155c2ee59d890faa670",
+        "src/memoria/embeddings_semantico.py": "0477275cdd6ff9d6736022b0fae4df10100f1a5ab789faf81cd7f2ee38d9c478",
+        "src/memoria/gerenciador.py": "5c0a154446d9756941bf4608f4379360cb90741978477b3e6171fa47f41ecd64",
+        "src/memoria/regras.py": "eeae5d3f23477011b60aa21391f5211426f444c01877d0d63df4edde0026f9a8",
+        "src/memoria/store_mem.py": "d9f496ff41b9fe08299f3651c7588082f11be900ac3ba07352d1778bea9f4cc1",
+        "src/modelos/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/modelos/base.py": "37f8b13d3bcb6fd0c98d299b2c5740157570f1b39d45eb14fd42d12c9d3add91",
+        "src/modelos/ollama_adapter.py": "0d2da667eb968a8db6fcd151c4bea1575918b500b74842a22a1f2b7cdbe8b792",
+        "src/modelos/openai_adapter.py": "5d6d65b973e7d6a86f8d0740a4b75765722d13540f1863d3f833163caf2e1001",
+        "src/observabilidade.py": "59d8e8c6d441e1ca77e04d7b9cc8a8af8dfbdf1fdc03bd1565a84b76869b095b",
+        "src/teste_ollama.py": "982f109eb143f86bb0449cfa7ee9ab836092bd0992473f07ef762017da512719",
+        "eval/avaliar_api_real.py": "f49a1579171a664e7cd17e011cb83f3f9bb540fa3b50f3efef359609526d0fbb",
+        "eval/avaliar_comparativo.py": "f8972d773617dc8791ef225998a73138a93f07e3274f5ad08c59b4884f6c51cb",
+        "eval/avaliar_memoria.py": "9a832909e230e75445c39bcb4a9c414925f40a9300a55047ab493a02a638adf4",
+        "eval/avaliar_regras.py": "4fe1bbfd12e6fd93a0c2b71089481eeb1f109ae98841d04971d1035d40b356e6",
+        "eval/avaliar_sessoes_integradas.py": "7aee5719dabb108ef47026a0de04c71527b92e2aad7330c44ff154fe295af7e5",
+        "eval/evaluate.py": "0cea7260a55db971fc4141cd5a352ce17d0ab55c4ff2cc6062f8aa7d4fe4af68",
+        "eval/historico_processo.py": "ca3768dcc6635af81e9c48de137cdffa190138434a18ab99023e4a3b8931bf97",
+        "eval/informacao_antiga.py": "b911f37b303d1d24900c0c74989de5c784c5e7da3f8e2b115402822b2224f84d",
+        "eval/julgamento_respostas.py": "a9f91d9d44fb9d65cf82992ce0835988ce7999f1819e3db9331aabe31502f84d",
+        "eval/sessoes_evidencias.py": "8ed5a1758f7ce562b1a7acc300b881f39a35a6a52f2d0dade074133d13da25c0",
+        "eval/sessoes_transporte.py": "9f91445a1125f042c55b08b01edcbe510bb0b4179610342f7dc7cd3d028357a6",
+        "tools/encerrar_ensaio.py": "55af064b84e7e53e5f1494b65ec77e84cbcf20ff6f999620080a5ed8ec9925f1",
+        "tools/ensaiar_interface.py": "dda172578b9f3c4bf6ea59268657f89863803868ddb5cada69d76ec16d41aec1",
+        "tools/executar_p6_local.py": "84dfe9b7ed6526f1baf3e657ee226bf8ff2768e62d05fc4102be1478d82985d5",
+        "tools/gerar_figuras_v3.py": "4de8a8a5ca47b84b22212c36280f0201f58b98b9ad2ae375700036c5ee2452f5",
+        "tools/gerar_manifesto_entrega.py": "c043fb98c79b1e8beea890cff34ac5b74b363c46e2d173bfb6351e1db953e581",
+        "tools/gerar_pesquisa.py": "63c6fef11be351c5a4bcb2e450c7528ce53313375ef9b80843cd5f8dbbc34da0",
+        "tools/inventariar_licencas.py": "f7c69fb8c2075600821a71697aaf1db8eb4ecec10cb7397cf73737ae027eb8e9",
+        "tools/preparar_revisao_experimental.py": "4ac67add2406a6d19c1b0ef81bc8543d872d7275d262056b4ef7a3b776d2a73e",
+        "tools/preparar_validacao_v3.py": "b9fb42216ee9df63e5f3a66de3a944d5b6850777eb68a5e69e9e7c7e94efe6af",
+        "tools/registrar_entrega.py": "8c4458efa6196eabc1c462be23ee715c9a881f927f1e6dd19f3f5529beded293",
+        "tools/reproduzir_p6.py": "d5bd4b665e990cb911ee8ad320d6ad833a9e88a1ba1145876a7b42cea570e1d6",
+        "tools/resumir_contexto_v3.py": "35ff46e832d9bb9b0279d37aa89a2b39e964e11960802b0c51950516cac4ec7b",
+        "tools/resumir_melhorias.py": "7386b7b5ff67eb6773eb3a2949c54507f876cef5d38af78cd71aa4677f74fea8",
+        "tools/sumarizar_desenvolvimento.py": "a1f68195b1601d3264b499543184a5ef0453b8256f863c5c84637ed4d576bd9c",
+        "tools/verificar_documentacao.py": "bf1a8009f70869f2d665d3deecf8ec5f07a7ac09ad7c354c2520fd8d156c8e79"
+      },
+      "dataset_sha256": "0bf605bf03f4803dffc1ffac388a97140b6c60aa1fa144d10d8af84cc4a49ad8"
+    },
+    "qualidade": {
+      "historico_completo": {
+        "v2": {
+          "acerto_factual": {
+            "aprovado": 12,
+            "reprovado": 5,
+            "nao_aplicavel": 4
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 17,
+            "aprovado": 4
+          },
+          "formato_ok": {
+            "reprovado": 18,
+            "aprovado": 3
+          }
+        },
+        "p4": {
+          "acerto_factual": {
+            "aprovado": 7,
+            "nao_verificado": 8,
+            "reprovado": 2,
+            "nao_aplicavel": 4
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 17,
+            "aprovado": 3,
+            "nao_verificado": 1
+          },
+          "formato_ok": {
+            "reprovado": 18,
+            "aprovado": 3
+          }
+        }
+      },
+      "memoria_automatica": {
+        "v2": {
+          "acerto_factual": {
+            "aprovado": 17,
+            "nao_aplicavel": 4
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 17,
+            "aprovado": 4
+          },
+          "formato_ok": {
+            "aprovado": 10,
+            "reprovado": 11
+          }
+        },
+        "p4": {
+          "acerto_factual": {
+            "aprovado": 16,
+            "nao_aplicavel": 4,
+            "nao_verificado": 1
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 17,
+            "aprovado": 4
+          },
+          "formato_ok": {
+            "aprovado": 10,
+            "reprovado": 11
+          }
+        }
+      }
+    },
+    "geracao_sha256": "dfd95a3a686ae4c65cffc281f8424d52c95e054ac8e3d9d791e015c6e45b92f6",
+    "anotacoes_sha256": "75641d4198918b6eff1fff85ef11497e2136183a05866c10974fc7bf5ea4920e",
+    "etapa": "Sem análise P6 adicional"
+  },
+  {
+    "id": "296d35d7afbb4630a3c02189e429ffda",
+    "gerado_em": "2026-11-21T15:20:23.068975+00:00",
+    "arquivo": "relatorios/296d35d7afbb4630a3c02189e429ffda.json",
+    "sha256": "c2f0c0afc4783878efab75fd8d3510943eb1b8a94763c0882f485eeca518d085",
+    "bytes": 757208,
+    "estado_orquestracao": "concluida",
+    "falhas": 0,
+    "tokens": {
+      "pares_previstos": 20,
+      "cobertura_pct": 100.0,
+      "pares_identificados": 20,
+      "pares_medidos": 20,
+      "chaves_duplicadas_descartadas": 0,
+      "pares_sem_medicao": 0,
+      "sessoes": [
+        {
+          "usuario_id": "u01",
+          "sessao": 1
+        },
+        {
+          "usuario_id": "u01",
+          "sessao": 2
+        },
+        {
+          "usuario_id": "u01",
+          "sessao": 3
+        },
+        {
+          "usuario_id": "u01",
+          "sessao": 4
+        },
+        {
+          "usuario_id": "u01",
+          "sessao": 5
+        },
+        {
+          "usuario_id": "u02",
+          "sessao": 1
+        },
+        {
+          "usuario_id": "u02",
+          "sessao": 2
+        },
+        {
+          "usuario_id": "u02",
+          "sessao": 3
+        },
+        {
+          "usuario_id": "u02",
+          "sessao": 4
+        },
+        {
+          "usuario_id": "u02",
+          "sessao": 5
+        },
+        {
+          "usuario_id": "u03",
+          "sessao": 1
+        },
+        {
+          "usuario_id": "u03",
+          "sessao": 2
+        },
+        {
+          "usuario_id": "u03",
+          "sessao": 3
+        },
+        {
+          "usuario_id": "u03",
+          "sessao": 4
+        },
+        {
+          "usuario_id": "u03",
+          "sessao": 5
+        },
+        {
+          "usuario_id": "u04",
+          "sessao": 1
+        },
+        {
+          "usuario_id": "u04",
+          "sessao": 2
+        },
+        {
+          "usuario_id": "u04",
+          "sessao": 3
+        },
+        {
+          "usuario_id": "u04",
+          "sessao": 4
+        },
+        {
+          "usuario_id": "u04",
+          "sessao": 5
+        }
+      ],
+      "tokens_automaticos": 3566,
+      "tokens_historico": 28125,
+      "reducao_pct": 87.32
+    },
+    "interface_metadados": {
+      "protocolo": "p6",
+      "repeticoes": 1,
+      "preparacao_modelo": {
+        "tipo": "carregamento_sem_prompt_de_teste",
+        "modelo": "qwen2.5-coder:3b",
+        "digest": "f72c60cabf6237b07f6e632b2c48d533cef25eda2efbd34bed21c5e9c01e6225",
+        "concluido_em": "2026-11-21T15:17:24.066726+00:00",
+        "duracao_segundos": 20.039,
+        "prazo_segundos": 900,
+        "incluido_nos_tokens_dos_casos": false,
+        "limite": "Preparação separada; não mede o custo total do sistema nem garante ausência de falhas futuras."
+      },
+      "codigo_saida": 0,
+      "conjunto": "oficial",
+      "modelo": "qwen2.5-coder:3b",
+      "commit_base": "não informado; fontes identificadas pelos hashes desta execução",
+      "origem": "nova execução explícita; sem resultados históricos",
+      "revisao_humana": "não realizada nesta execução",
+      "fontes_sha256": {
+        "src/agent.py": "6b38b0dab8064550cf53c9e58d4fce0cfd66680cc648b7e8fec8b021c742c8ee",
+        "src/api/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/api/agente_local.py": "b537e8928a821902e14e09a71d51a0d00a650c146126f66c36fe12df73ff86e3",
+        "src/api/catalogo.py": "9dd79eb15ea6d05d3da9264274b5826b29f7172a4e68f7ea35b1df1112d3f005",
+        "src/api/config.py": "9cfcd341587bddd1d493919ad9255ddb67187020c0ad5d287a739788ec1d806f",
+        "src/api/dependencias.py": "e64791456b9d192cead55336d82df20b51b65297acd902e6a6401f7a05c1308c",
+        "src/api/erros.py": "f200f7c9c12f1fb08b8681bb65dfca50db3d74dc2a6196dad5351633bbb9d45d",
+        "src/api/falsos.py": "45d15805f3be1b2ef8cb3e99410184f548ab0062e591bb8e66759a9417caf627",
+        "src/api/main.py": "f16694340578180673bf3d9a00324fbe85d627204014f053c36439117d6d72c6",
+        "src/api/schemas.py": "0fade78929892adc81c90191b0f631485d00631e50e97cd3e22b42bd71bb6c0c",
+        "src/api/seguranca.py": "ca4f44a7859f30931e1aa4626d0b615bf3775ca5a6ec02a20af2984287cc7596",
+        "src/api/servico.py": "e05be9e6d7d1d563543a1c5ac97231811721c7dd68f08da844fea0ae68ca4e83",
+        "src/armazenamento/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/armazenamento/banco.py": "d4f6ee4ee4b1d51ab3964e455a05db746decb76b116f66b682f7f8a994a49806",
+        "src/armazenamento/repositorio.py": "8bf1be4b1039168fc7a0aa22458cca09ad7e3b79d3f0750e80d9a973251876da",
+        "src/contexto.py": "0cf0d99b510d23f148c2af03336fde398848ab5a25810615b4d401e62263e016",
+        "src/evidencias_pessoais.py": "08d2c763cac3b42b72776ff45ea8568fc97a70e29d66cbb218c518b1543751fd",
+        "src/inicializacao.py": "804cf7fc3fa2a51ccc52c095e080c89c84693fe1e751ada1f87fbf83c117bced",
+        "src/interface/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/interface/analise.py": "c8eb29ddef2b018986729c7479098569f4ebd71f824828979b1ca04f4010c810",
+        "src/interface/analise_p6.py": "f0be6ac75c442b80fa84bfa50857af0dc934c240b4636922af6b787f4828d78f",
+        "src/interface/api_avaliacao.py": "900f770742131e5e3f37a308cee09c83b71cc4eb374984b13a6a3fe710c0a9cf",
+        "src/interface/avaliacoes.py": "71c85c9861d12777718f49f60826ec5c968bc98ef4df48950244749ff1c8d129",
+        "src/interface/comparativo.py": "69fafb9429e72ef6e4670f0d3d5852ddec0cb8fa7629ca1d6f81b75d60aee8f5",
+        "src/interface/controle_modelo.py": "9ea56192edb46815c660f9190589fda7dbd1dd8f22d562245ab8aa3314343f32",
+        "src/interface/executar_avaliacao.py": "06ccfa1d86a50d58f3ead37fcaddd0fb486f64155d7f59dc8019c88dce9c57a7",
+        "src/interface/preparo.py": "f4560c8e32ae2a3b0fadb328cc5e0a3f635b5ddb75b0529153506bc873533635",
+        "src/interface/protocolos.py": "8603c2c46dc08274eeecc36d50c2950edd8eecf1df26fa1a326123ca983d8a8e",
+        "src/interface/rotas.py": "896540e8ff798f082cef37589de4f60bd3eb22d9d8ac39e13578c5f9f4c85326",
+        "src/memoria/__init__.py": "b96b1ba69f524be88f77b693f5f329003702884d655db3c42268a1141e78b0b4",
+        "src/memoria/avaliacao_regras.py": "d9f454757bb8cbb81cb64e41d7bdcaec9c45a0566848678029d2e362dbe2d72d",
+        "src/memoria/base.py": "627adc3ff35255b14551ed0f0af4574e629ba0f8eb893ac8d7f0f6071eb1e620",
+        "src/memoria/benchmark.py": "d03fe3719e17214be0d4a69ac1e7dabbc02acdf3e4d2e4f4480e5bbac243abcf",
+        "src/memoria/consultas.py": "3de93785cb401f95d28f6f5f35c8219f0ea3d6153962d6224f33f0c2e4ae9246",
+        "src/memoria/embeddings.py": "f0da190fd4f02b6a53108f9e6d15fd82a3026d500c418155c2ee59d890faa670",
+        "src/memoria/embeddings_semantico.py": "0477275cdd6ff9d6736022b0fae4df10100f1a5ab789faf81cd7f2ee38d9c478",
+        "src/memoria/gerenciador.py": "5c0a154446d9756941bf4608f4379360cb90741978477b3e6171fa47f41ecd64",
+        "src/memoria/regras.py": "eeae5d3f23477011b60aa21391f5211426f444c01877d0d63df4edde0026f9a8",
+        "src/memoria/store_mem.py": "d9f496ff41b9fe08299f3651c7588082f11be900ac3ba07352d1778bea9f4cc1",
+        "src/modelos/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/modelos/base.py": "37f8b13d3bcb6fd0c98d299b2c5740157570f1b39d45eb14fd42d12c9d3add91",
+        "src/modelos/ollama_adapter.py": "0d2da667eb968a8db6fcd151c4bea1575918b500b74842a22a1f2b7cdbe8b792",
+        "src/modelos/openai_adapter.py": "5d6d65b973e7d6a86f8d0740a4b75765722d13540f1863d3f833163caf2e1001",
+        "src/observabilidade.py": "59d8e8c6d441e1ca77e04d7b9cc8a8af8dfbdf1fdc03bd1565a84b76869b095b",
+        "src/teste_ollama.py": "982f109eb143f86bb0449cfa7ee9ab836092bd0992473f07ef762017da512719",
+        "eval/avaliar_api_real.py": "f49a1579171a664e7cd17e011cb83f3f9bb540fa3b50f3efef359609526d0fbb",
+        "eval/avaliar_comparativo.py": "f8972d773617dc8791ef225998a73138a93f07e3274f5ad08c59b4884f6c51cb",
+        "eval/avaliar_memoria.py": "9a832909e230e75445c39bcb4a9c414925f40a9300a55047ab493a02a638adf4",
+        "eval/avaliar_regras.py": "4fe1bbfd12e6fd93a0c2b71089481eeb1f109ae98841d04971d1035d40b356e6",
+        "eval/avaliar_sessoes_integradas.py": "7aee5719dabb108ef47026a0de04c71527b92e2aad7330c44ff154fe295af7e5",
+        "eval/evaluate.py": "0cea7260a55db971fc4141cd5a352ce17d0ab55c4ff2cc6062f8aa7d4fe4af68",
+        "eval/historico_processo.py": "ca3768dcc6635af81e9c48de137cdffa190138434a18ab99023e4a3b8931bf97",
+        "eval/informacao_antiga.py": "b911f37b303d1d24900c0c74989de5c784c5e7da3f8e2b115402822b2224f84d",
+        "eval/julgamento_p6.py": "e554dbcbe6838d639d10736d7cf67cde5b0992ca95006a566f94bec39d31afc2",
+        "eval/julgamento_respostas.py": "a9f91d9d44fb9d65cf82992ce0835988ce7999f1819e3db9331aabe31502f84d",
+        "eval/sessoes_evidencias.py": "8ed5a1758f7ce562b1a7acc300b881f39a35a6a52f2d0dade074133d13da25c0",
+        "eval/sessoes_transporte.py": "9f91445a1125f042c55b08b01edcbe510bb0b4179610342f7dc7cd3d028357a6",
+        "tools/encerrar_ensaio.py": "55af064b84e7e53e5f1494b65ec77e84cbcf20ff6f999620080a5ed8ec9925f1",
+        "tools/ensaiar_interface.py": "dda172578b9f3c4bf6ea59268657f89863803868ddb5cada69d76ec16d41aec1",
+        "tools/executar_p6_local.py": "84dfe9b7ed6526f1baf3e657ee226bf8ff2768e62d05fc4102be1478d82985d5",
+        "tools/gerar_figuras_v3.py": "4de8a8a5ca47b84b22212c36280f0201f58b98b9ad2ae375700036c5ee2452f5",
+        "tools/gerar_manifesto_entrega.py": "c043fb98c79b1e8beea890cff34ac5b74b363c46e2d173bfb6351e1db953e581",
+        "tools/gerar_pesquisa.py": "63c6fef11be351c5a4bcb2e450c7528ce53313375ef9b80843cd5f8dbbc34da0",
+        "tools/inventariar_licencas.py": "f7c69fb8c2075600821a71697aaf1db8eb4ecec10cb7397cf73737ae027eb8e9",
+        "tools/preparar_revisao_experimental.py": "4ac67add2406a6d19c1b0ef81bc8543d872d7275d262056b4ef7a3b776d2a73e",
+        "tools/preparar_validacao_v3.py": "b9fb42216ee9df63e5f3a66de3a944d5b6850777eb68a5e69e9e7c7e94efe6af",
+        "tools/registrar_entrega.py": "8c4458efa6196eabc1c462be23ee715c9a881f927f1e6dd19f3f5529beded293",
+        "tools/reproduzir_p6.py": "d5bd4b665e990cb911ee8ad320d6ad833a9e88a1ba1145876a7b42cea570e1d6",
+        "tools/resumir_contexto_v3.py": "35ff46e832d9bb9b0279d37aa89a2b39e964e11960802b0c51950516cac4ec7b",
+        "tools/resumir_melhorias.py": "7386b7b5ff67eb6773eb3a2949c54507f876cef5d38af78cd71aa4677f74fea8",
+        "tools/sumarizar_desenvolvimento.py": "a1f68195b1601d3264b499543184a5ef0453b8256f863c5c84637ed4d576bd9c",
+        "tools/verificar_documentacao.py": "bf1a8009f70869f2d665d3deecf8ec5f07a7ac09ad7c354c2520fd8d156c8e79"
+      },
+      "dataset_sha256": "0bf605bf03f4803dffc1ffac388a97140b6c60aa1fa144d10d8af84cc4a49ad8"
+    },
+    "qualidade": {
+      "historico_completo": {
+        "v2": {
+          "acerto_factual": {
+            "aprovado": 13,
+            "reprovado": 2,
+            "nao_verificado": 2,
+            "nao_aplicavel": 4
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 17,
+            "aprovado": 4
+          },
+          "formato_ok": {
+            "reprovado": 18,
+            "aprovado": 3
+          }
+        },
+        "p4": {
+          "acerto_factual": {
+            "aprovado": 6,
+            "reprovado": 3,
+            "nao_verificado": 8,
+            "nao_aplicavel": 4
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 17,
+            "aprovado": 3,
+            "reprovado": 1
+          },
+          "formato_ok": {
+            "reprovado": 18,
+            "aprovado": 3
+          }
+        }
+      },
+      "memoria_automatica": {
+        "v2": {
+          "acerto_factual": {
+            "aprovado": 16,
+            "reprovado": 1,
+            "nao_aplicavel": 4
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 17,
+            "aprovado": 4
+          },
+          "formato_ok": {
+            "reprovado": 11,
+            "aprovado": 10
+          }
+        },
+        "p4": {
+          "acerto_factual": {
+            "aprovado": 16,
+            "reprovado": 1,
+            "nao_aplicavel": 4
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 17,
+            "aprovado": 4
+          },
+          "formato_ok": {
+            "reprovado": 11,
+            "aprovado": 10
+          }
+        }
+      }
+    },
+    "geracao_sha256": "dfd95a3a686ae4c65cffc281f8424d52c95e054ac8e3d9d791e015c6e45b92f6",
+    "anotacoes_sha256": "75641d4198918b6eff1fff85ef11497e2136183a05866c10974fc7bf5ea4920e",
+    "etapa": "Análise P6 v1"
+  },
+  {
+    "id": "a81327a4279b4a84a41cf964876c28de",
+    "gerado_em": "2026-11-21T15:38:53.246018+00:00",
+    "arquivo": "relatorios/a81327a4279b4a84a41cf964876c28de.json",
+    "sha256": "80ce31467cda7e997729c86e3c20030dfb430765db3d6736d5882fb1575686b5",
+    "bytes": 756599,
+    "estado_orquestracao": "concluida",
+    "falhas": 0,
+    "tokens": {
+      "pares_previstos": 20,
+      "cobertura_pct": 100.0,
+      "pares_identificados": 20,
+      "pares_medidos": 20,
+      "chaves_duplicadas_descartadas": 0,
+      "pares_sem_medicao": 0,
+      "sessoes": [
+        {
+          "usuario_id": "u01",
+          "sessao": 1
+        },
+        {
+          "usuario_id": "u01",
+          "sessao": 2
+        },
+        {
+          "usuario_id": "u01",
+          "sessao": 3
+        },
+        {
+          "usuario_id": "u01",
+          "sessao": 4
+        },
+        {
+          "usuario_id": "u01",
+          "sessao": 5
+        },
+        {
+          "usuario_id": "u02",
+          "sessao": 1
+        },
+        {
+          "usuario_id": "u02",
+          "sessao": 2
+        },
+        {
+          "usuario_id": "u02",
+          "sessao": 3
+        },
+        {
+          "usuario_id": "u02",
+          "sessao": 4
+        },
+        {
+          "usuario_id": "u02",
+          "sessao": 5
+        },
+        {
+          "usuario_id": "u03",
+          "sessao": 1
+        },
+        {
+          "usuario_id": "u03",
+          "sessao": 2
+        },
+        {
+          "usuario_id": "u03",
+          "sessao": 3
+        },
+        {
+          "usuario_id": "u03",
+          "sessao": 4
+        },
+        {
+          "usuario_id": "u03",
+          "sessao": 5
+        },
+        {
+          "usuario_id": "u04",
+          "sessao": 1
+        },
+        {
+          "usuario_id": "u04",
+          "sessao": 2
+        },
+        {
+          "usuario_id": "u04",
+          "sessao": 3
+        },
+        {
+          "usuario_id": "u04",
+          "sessao": 4
+        },
+        {
+          "usuario_id": "u04",
+          "sessao": 5
+        }
+      ],
+      "tokens_automaticos": 3576,
+      "tokens_historico": 25747,
+      "reducao_pct": 86.11
+    },
+    "interface_metadados": {
+      "protocolo": "p6",
+      "repeticoes": 1,
+      "preparacao_modelo": {
+        "tipo": "carregamento_sem_prompt_de_teste",
+        "modelo": "qwen2.5-coder:3b",
+        "digest": "f72c60cabf6237b07f6e632b2c48d533cef25eda2efbd34bed21c5e9c01e6225",
+        "concluido_em": "2026-11-21T15:36:52.165212+00:00",
+        "duracao_segundos": 12.421,
+        "prazo_segundos": 900,
+        "incluido_nos_tokens_dos_casos": false,
+        "limite": "Preparação separada; não mede o custo total do sistema nem garante ausência de falhas futuras."
+      },
+      "codigo_saida": 0,
+      "conjunto": "oficial",
+      "modelo": "qwen2.5-coder:3b",
+      "commit_base": "não informado; fontes identificadas pelos hashes desta execução",
+      "origem": "nova execução explícita; sem resultados históricos",
+      "revisao_humana": "não realizada nesta execução",
+      "fontes_sha256": {
+        "src/agent.py": "6b38b0dab8064550cf53c9e58d4fce0cfd66680cc648b7e8fec8b021c742c8ee",
+        "src/api/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/api/agente_local.py": "b537e8928a821902e14e09a71d51a0d00a650c146126f66c36fe12df73ff86e3",
+        "src/api/catalogo.py": "9dd79eb15ea6d05d3da9264274b5826b29f7172a4e68f7ea35b1df1112d3f005",
+        "src/api/config.py": "9cfcd341587bddd1d493919ad9255ddb67187020c0ad5d287a739788ec1d806f",
+        "src/api/dependencias.py": "e64791456b9d192cead55336d82df20b51b65297acd902e6a6401f7a05c1308c",
+        "src/api/erros.py": "f200f7c9c12f1fb08b8681bb65dfca50db3d74dc2a6196dad5351633bbb9d45d",
+        "src/api/falsos.py": "45d15805f3be1b2ef8cb3e99410184f548ab0062e591bb8e66759a9417caf627",
+        "src/api/main.py": "f16694340578180673bf3d9a00324fbe85d627204014f053c36439117d6d72c6",
+        "src/api/schemas.py": "0fade78929892adc81c90191b0f631485d00631e50e97cd3e22b42bd71bb6c0c",
+        "src/api/seguranca.py": "ca4f44a7859f30931e1aa4626d0b615bf3775ca5a6ec02a20af2984287cc7596",
+        "src/api/servico.py": "e05be9e6d7d1d563543a1c5ac97231811721c7dd68f08da844fea0ae68ca4e83",
+        "src/armazenamento/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/armazenamento/banco.py": "d4f6ee4ee4b1d51ab3964e455a05db746decb76b116f66b682f7f8a994a49806",
+        "src/armazenamento/repositorio.py": "8bf1be4b1039168fc7a0aa22458cca09ad7e3b79d3f0750e80d9a973251876da",
+        "src/contexto.py": "0cf0d99b510d23f148c2af03336fde398848ab5a25810615b4d401e62263e016",
+        "src/evidencias_pessoais.py": "08d2c763cac3b42b72776ff45ea8568fc97a70e29d66cbb218c518b1543751fd",
+        "src/inicializacao.py": "804cf7fc3fa2a51ccc52c095e080c89c84693fe1e751ada1f87fbf83c117bced",
+        "src/interface/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/interface/analise.py": "c8eb29ddef2b018986729c7479098569f4ebd71f824828979b1ca04f4010c810",
+        "src/interface/analise_p6.py": "5b7dcbea032fc0e8ddcacdc067d7b0051d89e4ea862b3bbb23763b3bd327563d",
+        "src/interface/api_avaliacao.py": "900f770742131e5e3f37a308cee09c83b71cc4eb374984b13a6a3fe710c0a9cf",
+        "src/interface/avaliacoes.py": "71c85c9861d12777718f49f60826ec5c968bc98ef4df48950244749ff1c8d129",
+        "src/interface/comparativo.py": "69fafb9429e72ef6e4670f0d3d5852ddec0cb8fa7629ca1d6f81b75d60aee8f5",
+        "src/interface/controle_modelo.py": "9ea56192edb46815c660f9190589fda7dbd1dd8f22d562245ab8aa3314343f32",
+        "src/interface/executar_avaliacao.py": "06ccfa1d86a50d58f3ead37fcaddd0fb486f64155d7f59dc8019c88dce9c57a7",
+        "src/interface/preparo.py": "f4560c8e32ae2a3b0fadb328cc5e0a3f635b5ddb75b0529153506bc873533635",
+        "src/interface/protocolos.py": "8603c2c46dc08274eeecc36d50c2950edd8eecf1df26fa1a326123ca983d8a8e",
+        "src/interface/rotas.py": "896540e8ff798f082cef37589de4f60bd3eb22d9d8ac39e13578c5f9f4c85326",
+        "src/memoria/__init__.py": "b96b1ba69f524be88f77b693f5f329003702884d655db3c42268a1141e78b0b4",
+        "src/memoria/avaliacao_regras.py": "d9f454757bb8cbb81cb64e41d7bdcaec9c45a0566848678029d2e362dbe2d72d",
+        "src/memoria/base.py": "627adc3ff35255b14551ed0f0af4574e629ba0f8eb893ac8d7f0f6071eb1e620",
+        "src/memoria/benchmark.py": "d03fe3719e17214be0d4a69ac1e7dabbc02acdf3e4d2e4f4480e5bbac243abcf",
+        "src/memoria/consultas.py": "3de93785cb401f95d28f6f5f35c8219f0ea3d6153962d6224f33f0c2e4ae9246",
+        "src/memoria/embeddings.py": "f0da190fd4f02b6a53108f9e6d15fd82a3026d500c418155c2ee59d890faa670",
+        "src/memoria/embeddings_semantico.py": "0477275cdd6ff9d6736022b0fae4df10100f1a5ab789faf81cd7f2ee38d9c478",
+        "src/memoria/gerenciador.py": "5c0a154446d9756941bf4608f4379360cb90741978477b3e6171fa47f41ecd64",
+        "src/memoria/regras.py": "eeae5d3f23477011b60aa21391f5211426f444c01877d0d63df4edde0026f9a8",
+        "src/memoria/store_mem.py": "d9f496ff41b9fe08299f3651c7588082f11be900ac3ba07352d1778bea9f4cc1",
+        "src/modelos/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/modelos/base.py": "37f8b13d3bcb6fd0c98d299b2c5740157570f1b39d45eb14fd42d12c9d3add91",
+        "src/modelos/ollama_adapter.py": "0d2da667eb968a8db6fcd151c4bea1575918b500b74842a22a1f2b7cdbe8b792",
+        "src/modelos/openai_adapter.py": "5d6d65b973e7d6a86f8d0740a4b75765722d13540f1863d3f833163caf2e1001",
+        "src/observabilidade.py": "59d8e8c6d441e1ca77e04d7b9cc8a8af8dfbdf1fdc03bd1565a84b76869b095b",
+        "src/teste_ollama.py": "982f109eb143f86bb0449cfa7ee9ab836092bd0992473f07ef762017da512719",
+        "eval/avaliar_api_real.py": "f49a1579171a664e7cd17e011cb83f3f9bb540fa3b50f3efef359609526d0fbb",
+        "eval/avaliar_comparativo.py": "f8972d773617dc8791ef225998a73138a93f07e3274f5ad08c59b4884f6c51cb",
+        "eval/avaliar_memoria.py": "9a832909e230e75445c39bcb4a9c414925f40a9300a55047ab493a02a638adf4",
+        "eval/avaliar_regras.py": "4fe1bbfd12e6fd93a0c2b71089481eeb1f109ae98841d04971d1035d40b356e6",
+        "eval/avaliar_sessoes_integradas.py": "7aee5719dabb108ef47026a0de04c71527b92e2aad7330c44ff154fe295af7e5",
+        "eval/evaluate.py": "0cea7260a55db971fc4141cd5a352ce17d0ab55c4ff2cc6062f8aa7d4fe4af68",
+        "eval/historico_processo.py": "ca3768dcc6635af81e9c48de137cdffa190138434a18ab99023e4a3b8931bf97",
+        "eval/informacao_antiga.py": "b911f37b303d1d24900c0c74989de5c784c5e7da3f8e2b115402822b2224f84d",
+        "eval/julgamento_p6.py": "d38632f792a52973b0d7c6f13b9e49fc668e56702f899c04289387dda9c0005b",
+        "eval/julgamento_respostas.py": "a9f91d9d44fb9d65cf82992ce0835988ce7999f1819e3db9331aabe31502f84d",
+        "eval/sessoes_evidencias.py": "8ed5a1758f7ce562b1a7acc300b881f39a35a6a52f2d0dade074133d13da25c0",
+        "eval/sessoes_transporte.py": "9f91445a1125f042c55b08b01edcbe510bb0b4179610342f7dc7cd3d028357a6",
+        "tools/encerrar_ensaio.py": "55af064b84e7e53e5f1494b65ec77e84cbcf20ff6f999620080a5ed8ec9925f1",
+        "tools/ensaiar_interface.py": "dda172578b9f3c4bf6ea59268657f89863803868ddb5cada69d76ec16d41aec1",
+        "tools/executar_p6_local.py": "84dfe9b7ed6526f1baf3e657ee226bf8ff2768e62d05fc4102be1478d82985d5",
+        "tools/gerar_figuras_v3.py": "4de8a8a5ca47b84b22212c36280f0201f58b98b9ad2ae375700036c5ee2452f5",
+        "tools/gerar_manifesto_entrega.py": "c043fb98c79b1e8beea890cff34ac5b74b363c46e2d173bfb6351e1db953e581",
+        "tools/gerar_pesquisa.py": "63c6fef11be351c5a4bcb2e450c7528ce53313375ef9b80843cd5f8dbbc34da0",
+        "tools/inventariar_licencas.py": "f7c69fb8c2075600821a71697aaf1db8eb4ecec10cb7397cf73737ae027eb8e9",
+        "tools/preparar_revisao_experimental.py": "4ac67add2406a6d19c1b0ef81bc8543d872d7275d262056b4ef7a3b776d2a73e",
+        "tools/preparar_validacao_v3.py": "b9fb42216ee9df63e5f3a66de3a944d5b6850777eb68a5e69e9e7c7e94efe6af",
+        "tools/registrar_entrega.py": "8c4458efa6196eabc1c462be23ee715c9a881f927f1e6dd19f3f5529beded293",
+        "tools/reproduzir_p6.py": "d5bd4b665e990cb911ee8ad320d6ad833a9e88a1ba1145876a7b42cea570e1d6",
+        "tools/resumir_contexto_v3.py": "35ff46e832d9bb9b0279d37aa89a2b39e964e11960802b0c51950516cac4ec7b",
+        "tools/resumir_melhorias.py": "7386b7b5ff67eb6773eb3a2949c54507f876cef5d38af78cd71aa4677f74fea8",
+        "tools/sumarizar_desenvolvimento.py": "a1f68195b1601d3264b499543184a5ef0453b8256f863c5c84637ed4d576bd9c",
+        "tools/verificar_documentacao.py": "bf1a8009f70869f2d665d3deecf8ec5f07a7ac09ad7c354c2520fd8d156c8e79"
+      },
+      "dataset_sha256": "0bf605bf03f4803dffc1ffac388a97140b6c60aa1fa144d10d8af84cc4a49ad8"
+    },
+    "qualidade": {
+      "historico_completo": {
+        "v2": {
+          "acerto_factual": {
+            "aprovado": 9,
+            "nao_verificado": 4,
+            "reprovado": 4,
+            "nao_aplicavel": 4
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 17,
+            "aprovado": 3,
+            "reprovado": 1
+          },
+          "formato_ok": {
+            "reprovado": 18,
+            "aprovado": 3
+          }
+        },
+        "p4": {
+          "acerto_factual": {
+            "aprovado": 5,
+            "nao_verificado": 7,
+            "reprovado": 5,
+            "nao_aplicavel": 4
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 17,
+            "aprovado": 3,
+            "reprovado": 1
+          },
+          "formato_ok": {
+            "reprovado": 18,
+            "aprovado": 3
+          }
+        }
+      },
+      "memoria_automatica": {
+        "v2": {
+          "acerto_factual": {
+            "aprovado": 16,
+            "nao_aplicavel": 4,
+            "nao_verificado": 1
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 17,
+            "aprovado": 4
+          },
+          "formato_ok": {
+            "aprovado": 12,
+            "reprovado": 9
+          }
+        },
+        "p4": {
+          "acerto_factual": {
+            "aprovado": 16,
+            "nao_aplicavel": 4,
+            "nao_verificado": 1
+          },
+          "abstencao_correta": {
+            "nao_aplicavel": 17,
+            "aprovado": 4
+          },
+          "formato_ok": {
+            "aprovado": 12,
+            "reprovado": 9
+          }
+        }
+      }
+    },
+    "geracao_sha256": "dfd95a3a686ae4c65cffc281f8424d52c95e054ac8e3d9d791e015c6e45b92f6",
+    "anotacoes_sha256": "75641d4198918b6eff1fff85ef11497e2136183a05866c10974fc7bf5ea4920e",
+    "etapa": "Análise P6 v2"
+  }
+]

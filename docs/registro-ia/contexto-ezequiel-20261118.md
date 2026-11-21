@@ -23,3 +23,10 @@ Ezequiel deve conferir esta síntese, reunir trechos relevantes de seus outros c
 
 
 Nesta consolidação foi encontrada uma diferença LF/CRLF nos hashes congelados da P6 entre Windows e Git/Linux. Foi acrescentado preparo de protocolo novo que aceita somente os finais de linha e rejeita alteração de conteúdo. Dados, anotações, protocolo e resultados históricos permanecem intactos; seis regressões e comandos Docker verificam esse contrato.
+
+
+## Continuação em 21/11: P6, entradas e publicação autorizada
+
+O usuário validou a nova apresentação da P6 e repetiu rodadas reais. A assistência de IA implementou tokens por cenário, revalidação dos módulos do navegador e análise P6 adicional versionada, com contraexemplos para negação, valores antigos, especulação, detalhes não anotados e trajetórias incompletas. As respostas, P4/P5, anotações e tokens originais não foram reescritos. O comparativo sintético e a conversa mantiveram seus critérios/código de produção. A conferência de entradas utilizou SQLite temporário e navegador simulado; nenhum teste com LLM real foi iniciado pela assistência nesta continuação.
+
+Após mais uma rodada, Ezequiel declarou concluída a validação funcional no escopo testado, solicitou médias por etapa e autorizou publicar as alterações no GitHub. Não autorizou inferir parecer dos colegas, merge ou tag final. O plano de clone novo e limpeza permanece posterior à publicação e verificação; a limpeza não foi executada. Os MDs privados dos demais integrantes continuam dependendo deles. Referência: [fechamento de 21/11](../fechamento-avaliacao-20261121.md).

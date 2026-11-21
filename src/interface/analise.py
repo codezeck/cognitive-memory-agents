@@ -7,6 +7,7 @@ import json
 from eval.julgamento_respostas import julgar_resposta
 from eval.informacao_antiga import analisar_informacao_antiga
 from src.interface.protocolos import validar_casos
+from src.interface.analise_p6 import analisar_p6
 
 VERSAO = 'tarefa-comum-p4-v1'
 CENARIOS = {'sem_memoria', 'historico_completo', 'memoria_persistente_api', 'memoria_regras_api'}
@@ -16,8 +17,10 @@ def analisar_tarefa(documento):
     antiga = analisar_informacao_antiga(documento)
     indisponivel = {'versao': VERSAO, 'disponivel': False, 'informacao_antiga': antiga,
                    'motivo': 'Gabarito original completo ou registros compatíveis não incorporados. Julgamentos originais preservados.'}
-    if not isinstance(documento, dict) or isinstance(documento.get('sessoes'), list):
+    if not isinstance(documento, dict):
         return indisponivel
+    if isinstance(documento.get('sessoes'), list):
+        return analisar_p6(documento, antiga)
     interface = documento.get('interface')
     if not isinstance(interface, dict):
         return indisponivel

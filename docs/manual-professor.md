@@ -390,3 +390,17 @@ A [consolidação](consolidacao-testes-20261120.md) distingue o roteiro oficial 
 ## Informação antiga na resposta final
 
 Cada faixa mostra a [taxa de informação antiga indevida](informacao-antiga-respostas.md), com oportunidades, cobertura e inconclusivos. Maior taxa é pior. “Mostrar respostas” explica a classificação; sem anotações compatíveis não se assume taxa zero. Os resultados antigos, P4/P5 e tokens continuam preservados. A [conferência offline](../evidencias/informacao-antiga-20261121/README.md) não faz chamadas ao modelo. Esta entrega usa Ollama local, sem depender de créditos de API; [OpenAI permanece opcional](openai-opcional.md#escolha-de-provedor-para-a-entrega).
+
+## P6: tokens ao lado da qualidade
+
+A P6 possui duas faixas, cada uma com círculos de fatos/abstenções e tokens por cenário. São vinte sessões e 21 perguntas por cenário. A medição usa as sessões, sem confundir número de perguntas com cobertura de tokens. Inconclusivo não é erro confirmado; [diagnóstico e exemplos](painel-p6-20261121.md). A leitura dos relatórios existentes não repete chamadas ao modelo nem reescreve julgamentos.
+
+
+## Leitura atualizada do conteúdo na P6
+
+A [análise de conteúdo versionada da P6](julgamento-p6.md) usa o gabarito incorporado na rodada, igualmente para histórico completo e memória automática. Reconhece formas completas adicionais e separa recusa indevida de abstenção necessária. Os julgamentos originais ficam disponíveis em “Mostrar respostas”; o JSON baixado permanece original. O painel identifica a leitura adicional. Conteúdo, formato, informação proibida e tokens continuam separados. O comparativo sintético e os arquivos próprios não mudaram de critério.
+
+
+## Proteção dos campos de entrada
+
+A [conferência das entradas](seguranca-entradas.md) explica por que mensagens e arquivos JSON são tratados como dados, sem execução de SQL, comandos ou HTML. Inclui testes com banco temporário e navegador simulado; não é certificação de segurança universal.

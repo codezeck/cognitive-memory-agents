@@ -18,3 +18,10 @@ Preparação: Docker Desktop aberto, projeto próprio, dados sintéticos e porta
 Verificar as respostas antes de narrar sucesso. Se ocorrer falha, preservá-la e explicar. Assistir ao vídeo inteiro, conferir duração de 180–300 segundos, comandos legíveis, ausência de segredos e correspondência ao commit. Adicionar MP4, duração, SHA256, data/fuso e capturas ao índice. PNGs históricos não substituem o vídeo.
 
 Atualização documental de 20/11: resultados e tabelas no [relatório consolidado](consolidacao-testes-20261120.md). Preferir reabrir a rodada já salva durante o vídeo, identificando-a como anterior; não simular que uma avaliação longa concluiu dentro da gravação. O usuário validou a bateria no escopo ensaiado. Composição de três integrantes aceita pelo professor.
+
+
+## Instalação e apresentação dos resultados
+
+O percurso documentado cobre a inicialização pelo Docker e o fluxo principal, dentro de três a cinco minutos, em tela inteira. Git, Docker Desktop e pesos podem estar preparados antes da gravação, declarando o cache usado; não apresentar essa preparação como download completo gravado. Mostrar somente a interface já aberta deixa de evidenciar a subida do serviço prevista no roteiro.
+
+O comparativo sintético apresenta quatro cenários; a P6 apresenta dois. Ao reabrir uma P6, explicar que a análise de conteúdo v1 é adicional ao julgamento original e que conteúdo e formato são distintos. Uma bateria longa pode ser mostrada como relatório salvo, deixando explícito que foi executada antes. Este roteiro não comprova autorização do professor para cortes ou aceleração; confirmar esse ponto se optar por editar a espera.

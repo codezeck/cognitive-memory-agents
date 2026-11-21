@@ -114,7 +114,7 @@ Código e documentação próprios sob [MIT](LICENSE), com autorização do grup
 
 Na leitura dos resultados, **Fatos corretos** e **Abstenções corretas** têm contagens separadas; “não sei” não é recuperação de um fato disponível. **Conteúdo + formato** exige aprovação integral sem pendência. A seção **Ocorrências que precisam de atenção** lista caso, repetição, esperado, resposta e motivo, com filtros de conteúdo, formato, pendência e erro técnico. Veja os detalhes no [Manual do Professor](docs/manual-professor.md#interpretar-qualidade-e-localizar-falhas-no-relatório). A visualização preserva os julgamentos e arquivos originais.
 
-A interface oferece **Caderno claro/escuro**, alternado pelo botão de lua, e **Histórico de avaliações** por perfil. Os resultados aparecem no início da tela em **quatro faixas verticais**, com círculos de fatos/abstenções, legenda, tokens de entrada/saída, chamadas, barras na mesma escala e **Mostrar respostas** dentro de cada cenário. A confirmação de uma nova avaliação usa uma janela do próprio painel. Leituras e downloads do histórico não executam modelos. O mesmo gabarito da tarefa é usado na leitura adicional sem substituir os julgamentos originais. Novas rodadas do comparativo consultam Ollama diretamente no controle sem memória; relatórios antigos podem conter a política local. Consulte o [manual](docs/manual-professor.md#aparência-resultados-e-histórico-de-avaliações).
+A interface oferece **Caderno claro/escuro**, alternado pelo botão de lua, e **Histórico de avaliações** por perfil. Os resultados aparecem no início da tela em **quatro faixas no comparativo sintético e duas na P6**, com círculos de fatos/abstenções, legenda, tokens de entrada/saída, chamadas, barras na mesma escala e **Mostrar respostas** dentro de cada cenário. A confirmação de uma nova avaliação usa uma janela do próprio painel. Leituras e downloads do histórico não executam modelos. O mesmo gabarito da tarefa é usado na leitura adicional sem substituir os julgamentos originais. Novas rodadas do comparativo consultam Ollama diretamente no controle sem memória; relatórios antigos podem conter a política local. Consulte o [manual](docs/manual-professor.md#aparência-resultados-e-histórico-de-avaliações).
 
 
 ### Controle sem memória nas novas avaliações da interface
@@ -166,3 +166,15 @@ a P6 conservam seus limites. Veja os [limites e medições parciais](docs/manual
 A [métrica separada](docs/informacao-antiga-respostas.md) mostra, por cenário, valores antigos devolvidos indevidamente, cobertura e inconclusivos, preservando os julgamentos originais. Ela não confunde menção temporal, esquecimento ou isolamento com esse erro. A leitura dos [relatórios já salvos](evidencias/informacao-antiga-20261121/README.md) não repete modelos.
 
 A entrega usa **Ollama local**, sem depender de créditos de API externa. ChatGPT Plus não é requisito nem inclui o uso da API OpenAI; o faturamento é separado. O adaptador OpenAI permanece opcional, com testes simulados e sem execução real nesta entrega. [Decisão e fonte oficial](docs/openai-opcional.md#escolha-de-provedor-para-a-entrega).
+
+
+### Análise atualizada da P6 e conferência das entradas
+
+A [análise de conteúdo versionada da P6](docs/julgamento-p6.md) aplica regras iguais aos dois cenários usando as anotações incorporadas no relatório. Os tokens aparecem ao lado dos círculos em cada faixa. Conteúdo, formato e informação proibida continuam separados; as notas P4 originais permanecem nos detalhes e no JSON baixado. Esta atualização não muda o comparativo sintético nem os testes com arquivo próprio. A [conferência de segurança das entradas](docs/seguranca-entradas.md) usa banco temporário e navegador simulado.
+
+Antes de remover uma cópia local, conclua a rodada em andamento, confira a publicação dos arquivos e preserve os resultados necessários. O [percurso de revalidação em cópia nova](docs/revalidacao-clone.md) diferencia clone limpo de volumes Docker vazios.
+
+
+### Validação funcional concluída pelo usuário — 21/11
+
+Ezequiel concluiu a validação no escopo ensaiado e autorizou publicar as atualizações. O [relatório das cinco P6 de hoje](docs/fechamento-avaliacao-20261121.md) registra **85,62% de redução consolidada**, com cem pares medidos: média de 24.868,8 tokens por rodada no histórico e 3.576,6 na automática. É um consolidado P6 separado dos casos sintéticos e personalizados, com mesmas fontes de geração e anotações identificadas por hashes. Na última P6: 16/17 fatos aprovados e um inconclusivo na automática; histórico com 9/17 aprovados, quatro reprovados e quatro inconclusivos na análise v2. Os limites do julgador e as notas originais permanecem visíveis. Esse aceite não substitui revisão humana de PR, CI da versão publicada, vídeo, validação do clone novo ou envio.
