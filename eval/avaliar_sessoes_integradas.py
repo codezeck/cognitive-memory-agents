@@ -168,7 +168,8 @@ def planejar(dados: dict) -> tuple[Evento, ...]:
                     eventos.append(Evento(f"{prefixo}/pergunta{indice}", uid, numero,
                                           "pergunta", texto=q["pergunta"]))
             eventos.append(Evento(prefixo + "/checkpoint_persistencia", uid, numero,
-                                  "checkpoint_persistencia"))
+                                  "checkpoint_persistencia",
+                                  estado_vazio_esperado=apagar and not fatos))
     return tuple(eventos)
 
 
@@ -179,6 +180,11 @@ def classificar_checkpoint(evento, resultado, *, cenario, simulado):
         return "nao_verificado"
     if evento.tipo == "checkpoint_persistencia":
         antes, depois = resultado.get("estado_antes"), resultado.get("estado_depois")
+        if evento.estado_vazio_esperado:
+            if (resultado.get("reinicio_confirmado") is True
+                    and isinstance(antes, dict) and isinstance(depois, dict)):
+                return "vazio_consistente" if not antes and not depois else "reprovado"
+            return "nao_verificado"
         verificado = (resultado.get("reinicio_confirmado") is True
                       and isinstance(antes, (dict, list)) and bool(antes) and antes == depois)
         completo = (type(resultado.get("reinicio_confirmado")) is bool
@@ -322,7 +328,7 @@ def executar(dados, transportes, saida, *, provedor="ollama", modelo="qwen2.5-co
         except (OSError, subprocess.CalledProcessError):
             commit = None
         registrar({
-            "tipo": "inicio", "versao": "p6-etapa3", "execucao_id": execucao_id,
+            "tipo": "inicio", "versao": "p6-etapa4-vazio", "execucao_id": execucao_id,
             "gerado_em": datetime.now(timezone.utc).isoformat(), "simulado": simulado,
             "provedor": provedor, "modelo": modelo, "repeticao": repeticao,
             "commit": commit,
@@ -477,7 +483,7 @@ def executar(dados, transportes, saida, *, provedor="ollama", modelo="qwen2.5-co
                 previstos = [e for e in eventos if e.tipo == tipo]
                 estados = {r["evento"]["id"]: r.get("checkpoint") for r in resultados if r["cenario"] == c}
                 checkpoints[c][tipo] = _medida([
-                    "nao_aplicavel" if c == "historico_completo" else
+                    "nao_aplicavel" if c == "historico_completo" or estados.get(e.id) == "vazio_consistente" else
                     True if estados.get(e.id) in {"verificado", "verificado_simulado"} else
                     False if estados.get(e.id) == "reprovado" else None
                     for e in previstos])
@@ -497,10 +503,18 @@ def executar(dados, transportes, saida, *, provedor="ollama", modelo="qwen2.5-co
                                             for r in resultados) for c in CENARIOS},
             "metricas_recuperacao_lexical": recuperacao,
             "metricas_checkpoints": checkpoints,
+            "consistencia_estado_vazio": {
+                c: {r['evento']['id']: r.get('checkpoint') for r in resultados
+                    if r['cenario'] == c and r['evento'].get('estado_vazio_esperado')}
+                for c in CENARIOS
+            },
             "falhas_fechamento": falhas_fechamento,
             "metricas_resposta": {c: resumir_metricas_resposta(respostas[c]) for c in CENARIOS},
             "comparacoes_tokens": comparar_sessoes(sessoes),
         }
+        from eval.informacao_antiga import analisar_informacao_antiga
+        resumo['analise_informacao_antiga'] = analisar_informacao_antiga(
+            {**resumo, 'resultados': resultados}, anotacoes=anotacoes_validas)
         registrar(resumo)
     return {**resumo, "resultados": resultados}
 

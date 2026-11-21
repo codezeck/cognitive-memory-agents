@@ -1,0 +1,106 @@
+{
+  "evento_id": "u01/s1/checkpoint_persistencia",
+  "coletado_em": "2026-11-19T00:46:06.768761+00:00",
+  "sqlite_antes": [
+    {
+      "id": "41d66edc343d49ee9cd009ce25ada53b",
+      "usuario_id": "p6_p6-e5aee4c942da_u01",
+      "texto": "Mora em Osasco.",
+      "chave": "cidade",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Osasco\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:45:51.868237+00:00",
+      "atualizada_em": "2026-11-19T00:45:51.868237+00:00"
+    },
+    {
+      "id": "9412d828830a40868f0d28ab05abc9eb",
+      "usuario_id": "p6_p6-e5aee4c942da_u01",
+      "texto": "Pet: cachorro chamado Thor.",
+      "chave": "pet:cachorro:thor",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Thor\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:05.465737+00:00",
+      "atualizada_em": "2026-11-19T00:46:05.465737+00:00"
+    },
+    {
+      "id": "f626c702dcc24fc0901d1175e07c2e35",
+      "usuario_id": "p6_p6-e5aee4c942da_u01",
+      "texto": "Profissão: enfermeira.",
+      "chave": "profissao",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"enfermeira\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:05.429777+00:00",
+      "atualizada_em": "2026-11-19T00:46:05.429777+00:00"
+    }
+  ],
+  "sqlite_depois": [
+    {
+      "id": "41d66edc343d49ee9cd009ce25ada53b",
+      "usuario_id": "p6_p6-e5aee4c942da_u01",
+      "texto": "Mora em Osasco.",
+      "chave": "cidade",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Osasco\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:45:51.868237+00:00",
+      "atualizada_em": "2026-11-19T00:45:51.868237+00:00"
+    },
+    {
+      "id": "9412d828830a40868f0d28ab05abc9eb",
+      "usuario_id": "p6_p6-e5aee4c942da_u01",
+      "texto": "Pet: cachorro chamado Thor.",
+      "chave": "pet:cachorro:thor",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Thor\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:05.465737+00:00",
+      "atualizada_em": "2026-11-19T00:46:05.465737+00:00"
+    },
+    {
+      "id": "f626c702dcc24fc0901d1175e07c2e35",
+      "usuario_id": "p6_p6-e5aee4c942da_u01",
+      "texto": "Profissão: enfermeira.",
+      "chave": "profissao",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"enfermeira\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:05.429777+00:00",
+      "atualizada_em": "2026-11-19T00:46:05.429777+00:00"
+    }
+  ],
+  "ram_antes": {
+    "versao_observador": "ram-v1",
+    "instancia_id": "cc5d21fbf1964f119901e87076515bd7",
+    "pid": 8,
+    "usuario_id": "p6_p6-e5aee4c942da_u01",
+    "coletado_em": "2026-11-19T00:46:05.496237+00:00",
+    "escopo": "historico_do_usuario_neste_processo",
+    "processos_cobertos": 1,
+    "historico_existe": true,
+    "mensagens_total": 7,
+    "mensagens_sistema": 1,
+    "mensagens_usuario": 3,
+    "mensagens_assistente": 3,
+    "mensagens_pessoais": 6,
+    "alvos_no_historico": 0,
+    "mensagens_pessoais_sem_alvo": 6,
+    "ocorrencias_por_rotulo": {},
+    "limitacao": "Correspondencias literais normalizadas; avaliar sem escritores concorrentes e cobrir todos os workers relevantes."
+  },
+  "ram_depois": {
+    "versao_observador": "ram-v1",
+    "instancia_id": "4ee2147fe1b34f439dccbfd38ead0a7c",
+    "pid": 14,
+    "usuario_id": "p6_p6-e5aee4c942da_u01",
+    "coletado_em": "2026-11-19T00:46:06.766914+00:00",
+    "escopo": "historico_do_usuario_neste_processo",
+    "processos_cobertos": 1,
+    "historico_existe": false,
+    "mensagens_total": 0,
+    "mensagens_sistema": 0,
+    "mensagens_usuario": 0,
+    "mensagens_assistente": 0,
+    "mensagens_pessoais": 0,
+    "alvos_no_historico": 0,
+    "mensagens_pessoais_sem_alvo": 0,
+    "ocorrencias_por_rotulo": {},
+    "limitacao": "Correspondencias literais normalizadas; avaliar sem escritores concorrentes e cobrir todos os workers relevantes."
+  }
+}

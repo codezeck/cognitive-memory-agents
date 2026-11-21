@@ -1,0 +1,43 @@
+cenario,evento_id,pergunta,resposta,esperado,p4_passou,p4_revisao,revisao_ia,motivo_revisao
+memoria_automatica,u01/s2/pergunta1,Onde eu moro?,Você mora em Osasco.,Osasco,True,False,,
+historico_completo,u01/s2/pergunta1,Onde eu moro?,Você mora em Osasco.,Osasco,True,False,,
+memoria_automatica,u03/s2/pergunta1,Que hobby eu tenho?,Você gosta de fotografia.,fotografia,True,False,,
+historico_completo,u03/s2/pergunta1,Que hobby eu tenho?,"Desculpe, mas como uma inteligência artificial, não posso acessar informações pessoais ou personalizar detalhes como hobbies. Você gostaria de compartilhar mais sobre seus interesses ou interesses?",fotografia,False,False,False,Recusa informar o hobby já declarado: fotografia.
+memoria_automatica,u01/s3/pergunta2,Em que cidade eu moro hoje?,Hoje você mora em Campinas.,Campinas,False,True,True,"Afirma Campinas, valor atual anotado."
+historico_completo,u01/s3/pergunta2,Em que cidade eu moro hoje?,Hoje você mora em Campinas.,Campinas,False,True,True,"Afirma Campinas, valor atual anotado."
+memoria_automatica,u02/s3/pergunta1,Quantos filhos eu tenho?,Você tem três filhos.,três,True,False,,
+historico_completo,u02/s3/pergunta1,Quantos filhos eu tenho?,Você tem três filhos.,três,True,False,,
+memoria_automatica,u03/s3/pergunta2,Para onde vou viajar em dezembro?,Você planeja viajar para Portugal em dezembro.,Portugal,False,True,True,"Afirma Portugal em dezembro, destino atual anotado."
+historico_completo,u03/s3/pergunta2,Para onde vou viajar em dezembro?,Você está viajando para Portugal em dezembro.,Portugal,False,True,True,"Afirma Portugal em dezembro, destino atual anotado."
+memoria_automatica,u04/s3/pergunta1,Qual é o meu trabalho?,Você é um analista de dados.,analista de dados,False,False,True,Afirma analista de dados; o artigo um não muda o cargo.
+historico_completo,u04/s3/pergunta1,Qual é o meu trabalho?,"Atualmente, seu trabalho envolve desenvolvimento de projetos de inteligência artificial usando Python.",analista de dados,False,True,False,Descreve desenvolvimento com Python; não informa analista de dados.
+memoria_automatica,u01/s4/pergunta3,Qual é a minha profissão?,Você é coordenadora de enfermagem.,coordenadora de enfermagem,True,False,,
+historico_completo,u01/s4/pergunta3,Qual é a minha profissão?,Sua profissão é enfermeira.,coordenadora de enfermagem,False,False,False,"Retorna enfermeira, profissão antiga."
+memoria_automatica,u02/s4/pergunta2,Qual carro eu dirijo?,Você dirige um Onix branco.,Onix,True,False,,
+historico_completo,u02/s4/pergunta2,Qual carro eu dirijo?,Você dirige o Onix branco.,Onix,False,False,True,Afirma Onix branco; o artigo o não muda o carro.
+memoria_automatica,u03/s4/pergunta3,Quantos gatos eu tenho?,Você tem dois gatos: um chamado Leo e outro chamado Simba.,dois,False,True,False,"Quantidade dois correta, mas inventa Leo; o nome anotado é Luna."
+historico_completo,u03/s4/pergunta3,Quantos gatos eu tenho?,Você tem dois gatos: Luna e Simba.,dois,False,True,True,Quantidade dois e nomes Luna e Simba coerentes com a trajetória.
+memoria_automatica,u04/s4/pergunta2,Onde eu moro?,DESCONHECIDO,"['DESCONHECIDO', 'não sei']",True,False,,
+historico_completo,u04/s4/pergunta2,Onde eu moro?,DESCONHECIDO,"['DESCONHECIDO', 'não sei']",True,False,,
+memoria_automatica,u04/s4/pergunta3,Qual instrumento eu toco?,DESCONHECIDO,"['DESCONHECIDO', 'não sei']",True,False,,
+historico_completo,u04/s4/pergunta3,Qual instrumento eu toco?,DESCONHECIDO,"['DESCONHECIDO', 'não sei']",True,False,,
+memoria_automatica,u01/s5/pergunta4,Qual cidade é a minha casa atualmente?,Sua residência atual é Santos.,Santos,False,True,True,Afirma residência atual em Santos.
+historico_completo,u01/s5/pergunta4,Qual cidade é a minha casa atualmente?,Sua casa atual é Santos.,Santos,False,True,True,Afirma residência atual em Santos.
+memoria_automatica,u01/s5/pergunta5,Como se chama o meu cachorro?,O nome do seu cachorro é Thor.,Thor,False,True,True,Afirma Thor como nome do cachorro.
+historico_completo,u01/s5/pergunta5,Como se chama o meu cachorro?,Seu cachorro se chama Thor.,Thor,False,True,True,Afirma Thor como nome do cachorro.
+memoria_automatica,u01/s5/pergunta6,Que esporte eu pratico?,Você pratica natação.,natação,True,False,,
+historico_completo,u01/s5/pergunta6,Que esporte eu pratico?,Você pratica natação.,natação,True,False,,
+memoria_automatica,u02/s5/pergunta3,Qual carro eu dirijo?,DESCONHECIDO,"['DESCONHECIDO', 'não sei']",True,False,,
+historico_completo,u02/s5/pergunta3,Qual carro eu dirijo?,"Você dirige o Onix branco, mas agora que esqueci sobre isso, não tenho certeza de qual carro você dirige.","['DESCONHECIDO', 'não sei']",False,False,False,Expõe Onix branco após o pedido de esquecimento.
+memoria_automatica,u02/s5/pergunta4,Para qual time eu torço?,Coritiba,Coritiba,True,False,,
+historico_completo,u02/s5/pergunta4,Para qual time eu torço?,Você torce pelo Coritiba.,Coritiba,True,False,,
+memoria_automatica,u02/s5/pergunta5,O que eu ensino?,Ensino matemática.,matemática,True,False,,
+historico_completo,u02/s5/pergunta5,O que eu ensino?,Você ensina matemática.,matemática,True,False,,
+memoria_automatica,u03/s5/pergunta4,Qual é o meu cargo?,Você é a diretora de arte.,diretora de arte,False,False,True,Afirma diretora de arte; o artigo a não muda o cargo.
+historico_completo,u03/s5/pergunta4,Qual é o meu cargo?,DESCONHECIDO,diretora de arte,False,False,False,Abstém apesar de a trajetória informar diretora de arte.
+memoria_automatica,u03/s5/pergunta5,Onde eu moro?,Você mora em Recife.,Recife,True,False,,
+historico_completo,u03/s5/pergunta5,Onde eu moro?,Você mora em Recife.,Recife,True,False,,
+memoria_automatica,u04/s5/pergunta4,Onde eu moro?,Você mora em Belém.,Belém,True,False,,
+historico_completo,u04/s5/pergunta4,Onde eu moro?,DESCONHECIDO,Belém,False,False,False,Abstém apesar do reaprendizado da cidade Belém.
+memoria_automatica,u04/s5/pergunta5,Qual é a minha profissão?,DESCONHECIDO,"['DESCONHECIDO', 'não sei']",True,False,,
+historico_completo,u04/s5/pergunta5,Qual é a minha profissão?,DESCONHECIDO,"['DESCONHECIDO', 'não sei']",True,False,,

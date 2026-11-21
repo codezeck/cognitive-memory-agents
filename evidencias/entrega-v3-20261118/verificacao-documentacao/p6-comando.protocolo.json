@@ -1,0 +1,24 @@
+{
+  "versao": "p6-local-contexto-v3",
+  "execucao_autorizada": true,
+  "referencia": "docs/revisao-experimental/decisao-contexto-v3-20261118.md / reprodução com bytes deste checkout",
+  "aprovacao_terceiros": false,
+  "dataset_sha256": "0bf605bf03f4803dffc1ffac388a97140b6c60aa1fa144d10d8af84cc4a49ad8",
+  "anotacoes_sha256": "3143f17411b42f622192dde9f9dd450b299f19ce722d65511c3b76b979be81c6",
+  "contratos": {
+    "u02/s5/esquecer_chaves": {
+      "aprovado": true,
+      "mensagem": "Esqueça tudo sobre meu carro.",
+      "referencia": "docs/revisao-experimental/decisao-contexto-v3-20261118.md"
+    }
+  },
+  "reproducao": {
+    "protocolo_original": "docs/revisao-experimental/protocolo-contexto-v3-20261118.json",
+    "hashes_originais": {
+      "dataset_sha256": "0bf605bf03f4803dffc1ffac388a97140b6c60aa1fa144d10d8af84cc4a49ad8",
+      "anotacoes_sha256": "3143f17411b42f622192dde9f9dd450b299f19ce722d65511c3b76b979be81c6"
+    },
+    "diferenca_permitida": "somente LF/CRLF; conteúdo não pode mudar",
+    "revisao_humana_adicional": false
+  }
+}

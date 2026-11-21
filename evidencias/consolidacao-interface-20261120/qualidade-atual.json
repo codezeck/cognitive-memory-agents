@@ -1,0 +1,242 @@
+[
+  {
+    "execucao": "36193efda5304a95b807d1e49361b8c3",
+    "conjunto": "próprio",
+    "repeticoes": 1,
+    "cenario": "historico_completo",
+    "fatos": {
+      "oportunidades": 15,
+      "aprovados": 14,
+      "reprovados": 0,
+      "nao_verificados": 1
+    },
+    "abstencoes": {
+      "oportunidades": 5,
+      "aprovados": 4,
+      "reprovados": 1,
+      "nao_verificados": 0
+    },
+    "conteudo_formato_aprovados": 17,
+    "tentativas": 20
+  },
+  {
+    "execucao": "36193efda5304a95b807d1e49361b8c3",
+    "conjunto": "próprio",
+    "repeticoes": 1,
+    "cenario": "memoria_regras_api",
+    "fatos": {
+      "oportunidades": 15,
+      "aprovados": 14,
+      "reprovados": 1,
+      "nao_verificados": 0
+    },
+    "abstencoes": {
+      "oportunidades": 5,
+      "aprovados": 5,
+      "reprovados": 0,
+      "nao_verificados": 0
+    },
+    "conteudo_formato_aprovados": 19,
+    "tentativas": 20
+  },
+  {
+    "execucao": "36193efda5304a95b807d1e49361b8c3",
+    "conjunto": "próprio",
+    "repeticoes": 1,
+    "cenario": "sem_memoria",
+    "fatos": {
+      "oportunidades": 15,
+      "aprovados": 1,
+      "reprovados": 11,
+      "nao_verificados": 3
+    },
+    "abstencoes": {
+      "oportunidades": 5,
+      "aprovados": 3,
+      "reprovados": 2,
+      "nao_verificados": 0
+    },
+    "conteudo_formato_aprovados": 4,
+    "tentativas": 20
+  },
+  {
+    "execucao": "36193efda5304a95b807d1e49361b8c3",
+    "conjunto": "próprio",
+    "repeticoes": 1,
+    "cenario": "memoria_persistente_api",
+    "fatos": {
+      "oportunidades": 15,
+      "aprovados": 14,
+      "reprovados": 0,
+      "nao_verificados": 1
+    },
+    "abstencoes": {
+      "oportunidades": 5,
+      "aprovados": 5,
+      "reprovados": 0,
+      "nao_verificados": 0
+    },
+    "conteudo_formato_aprovados": 17,
+    "tentativas": 20
+  },
+  {
+    "execucao": "cf9d4a516d9a466bb196e0f8f6788276",
+    "conjunto": "próprio",
+    "repeticoes": 3,
+    "cenario": "historico_completo",
+    "fatos": {
+      "oportunidades": 45,
+      "aprovados": 44,
+      "reprovados": 1,
+      "nao_verificados": 0
+    },
+    "abstencoes": {
+      "oportunidades": 15,
+      "aprovados": 8,
+      "reprovados": 7,
+      "nao_verificados": 0
+    },
+    "conteudo_formato_aprovados": 48,
+    "tentativas": 60
+  },
+  {
+    "execucao": "cf9d4a516d9a466bb196e0f8f6788276",
+    "conjunto": "próprio",
+    "repeticoes": 3,
+    "cenario": "memoria_regras_api",
+    "fatos": {
+      "oportunidades": 45,
+      "aprovados": 42,
+      "reprovados": 3,
+      "nao_verificados": 0
+    },
+    "abstencoes": {
+      "oportunidades": 15,
+      "aprovados": 15,
+      "reprovados": 0,
+      "nao_verificados": 0
+    },
+    "conteudo_formato_aprovados": 50,
+    "tentativas": 60
+  },
+  {
+    "execucao": "cf9d4a516d9a466bb196e0f8f6788276",
+    "conjunto": "próprio",
+    "repeticoes": 3,
+    "cenario": "sem_memoria",
+    "fatos": {
+      "oportunidades": 45,
+      "aprovados": 1,
+      "reprovados": 37,
+      "nao_verificados": 7
+    },
+    "abstencoes": {
+      "oportunidades": 15,
+      "aprovados": 7,
+      "reprovados": 6,
+      "nao_verificados": 2
+    },
+    "conteudo_formato_aprovados": 5,
+    "tentativas": 60
+  },
+  {
+    "execucao": "cf9d4a516d9a466bb196e0f8f6788276",
+    "conjunto": "próprio",
+    "repeticoes": 3,
+    "cenario": "memoria_persistente_api",
+    "fatos": {
+      "oportunidades": 45,
+      "aprovados": 40,
+      "reprovados": 0,
+      "nao_verificados": 5
+    },
+    "abstencoes": {
+      "oportunidades": 15,
+      "aprovados": 15,
+      "reprovados": 0,
+      "nao_verificados": 0
+    },
+    "conteudo_formato_aprovados": 54,
+    "tentativas": 60
+  },
+  {
+    "execucao": "f377808d9c414f90bd27543659d384e4",
+    "conjunto": "oficial",
+    "repeticoes": 3,
+    "cenario": "historico_completo",
+    "fatos": {
+      "oportunidades": 33,
+      "aprovados": 28,
+      "reprovados": 4,
+      "nao_verificados": 1
+    },
+    "abstencoes": {
+      "oportunidades": 15,
+      "aprovados": 5,
+      "reprovados": 9,
+      "nao_verificados": 1
+    },
+    "conteudo_formato_aprovados": 33,
+    "tentativas": 48
+  },
+  {
+    "execucao": "f377808d9c414f90bd27543659d384e4",
+    "conjunto": "oficial",
+    "repeticoes": 3,
+    "cenario": "memoria_regras_api",
+    "fatos": {
+      "oportunidades": 33,
+      "aprovados": 33,
+      "reprovados": 0,
+      "nao_verificados": 0
+    },
+    "abstencoes": {
+      "oportunidades": 15,
+      "aprovados": 15,
+      "reprovados": 0,
+      "nao_verificados": 0
+    },
+    "conteudo_formato_aprovados": 46,
+    "tentativas": 48
+  },
+  {
+    "execucao": "f377808d9c414f90bd27543659d384e4",
+    "conjunto": "oficial",
+    "repeticoes": 3,
+    "cenario": "sem_memoria",
+    "fatos": {
+      "oportunidades": 33,
+      "aprovados": 0,
+      "reprovados": 32,
+      "nao_verificados": 1
+    },
+    "abstencoes": {
+      "oportunidades": 15,
+      "aprovados": 12,
+      "reprovados": 3,
+      "nao_verificados": 0
+    },
+    "conteudo_formato_aprovados": 9,
+    "tentativas": 48
+  },
+  {
+    "execucao": "f377808d9c414f90bd27543659d384e4",
+    "conjunto": "oficial",
+    "repeticoes": 3,
+    "cenario": "memoria_persistente_api",
+    "fatos": {
+      "oportunidades": 33,
+      "aprovados": 33,
+      "reprovados": 0,
+      "nao_verificados": 0
+    },
+    "abstencoes": {
+      "oportunidades": 15,
+      "aprovados": 15,
+      "reprovados": 0,
+      "nao_verificados": 0
+    },
+    "conteudo_formato_aprovados": 46,
+    "tentativas": 48
+  }
+]

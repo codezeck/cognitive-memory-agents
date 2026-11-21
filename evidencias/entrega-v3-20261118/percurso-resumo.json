@@ -1,0 +1,85 @@
+{
+  "tipo": "fim",
+  "aprovadas": 19,
+  "falhas": 0,
+  "verificacoes": [
+    {
+      "nome": "uma_api_dedicada",
+      "aprovado": true
+    },
+    {
+      "nome": "modelo_real_e_demonstracao",
+      "aprovado": true
+    },
+    {
+      "nome": "chat_http_200",
+      "aprovado": true
+    },
+    {
+      "nome": "saude",
+      "aprovado": true
+    },
+    {
+      "nome": "identidade_a",
+      "aprovado": true
+    },
+    {
+      "nome": "confirmacao_local_explicita",
+      "aprovado": true
+    },
+    {
+      "nome": "nova_sessao",
+      "aprovado": true
+    },
+    {
+      "nome": "cidade_recuperada_pelo_modelo",
+      "aprovado": true
+    },
+    {
+      "nome": "nova_sessao",
+      "aprovado": true
+    },
+    {
+      "nome": "valor_atual",
+      "aprovado": true
+    },
+    {
+      "nome": "processo_reiniciado",
+      "aprovado": true
+    },
+    {
+      "nome": "cookie_preservou_identidade",
+      "aprovado": true
+    },
+    {
+      "nome": "persistiu_apos_reinicio",
+      "aprovado": true
+    },
+    {
+      "nome": "identidade_b",
+      "aprovado": true
+    },
+    {
+      "nome": "isolamento_b",
+      "aprovado": true
+    },
+    {
+      "nome": "identidade_a",
+      "aprovado": true
+    },
+    {
+      "nome": "nova_sessao",
+      "aprovado": true
+    },
+    {
+      "nome": "abstencao_apos_esquecimento",
+      "aprovado": true
+    },
+    {
+      "nome": "pergunta_geral_no_modelo",
+      "aprovado": true
+    }
+  ],
+  "inspecao_visual_v3": false,
+  "video_produzido": false
+}

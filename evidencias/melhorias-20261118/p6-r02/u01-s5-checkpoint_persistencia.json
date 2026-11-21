@@ -1,0 +1,506 @@
+{
+  "evento_id": "u01/s5/checkpoint_persistencia",
+  "coletado_em": "2026-11-19T00:15:15.142920+00:00",
+  "sqlite_antes": [
+    {
+      "id": "1647f3177afc4d0f9e6d71ebc8e752e7",
+      "usuario_id": "p6_p6-bdfc1179724f_u01",
+      "texto": "Pratica corrida de rua.",
+      "chave": "esporte",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"corrida de rua\"}",
+      "ativa": 0,
+      "criada_em": "2026-11-19T00:14:08.756745+00:00",
+      "atualizada_em": "2026-11-19T00:15:05.164310+00:00"
+    },
+    {
+      "id": "8c2f802aefee4ce0a2890a190ca1606a",
+      "usuario_id": "p6_p6-bdfc1179724f_u01",
+      "texto": "Mora em Campinas.",
+      "chave": "cidade",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Campinas\"}",
+      "ativa": 0,
+      "criada_em": "2026-11-19T00:14:30.680406+00:00",
+      "atualizada_em": "2026-11-19T00:15:06.669037+00:00"
+    },
+    {
+      "id": "993a67ee49a14079859c7b0bf3fadc4d",
+      "usuario_id": "p6_p6-bdfc1179724f_u01",
+      "texto": "Profissão: coordenadora de enfermagem.",
+      "chave": "profissao",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"coordenadora de enfermagem\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:14:45.956379+00:00",
+      "atualizada_em": "2026-11-19T00:14:45.956379+00:00"
+    },
+    {
+      "id": "c113e4e284c543f9964adf8e99a8d9e3",
+      "usuario_id": "p6_p6-bdfc1179724f_u01",
+      "texto": "Mora em Santos.",
+      "chave": "cidade",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Santos\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:15:06.669037+00:00",
+      "atualizada_em": "2026-11-19T00:15:06.669037+00:00"
+    },
+    {
+      "id": "de3a18736fea46e8bfb4ebfc4082bae6",
+      "usuario_id": "p6_p6-bdfc1179724f_u01",
+      "texto": "Pet: cachorro chamado Thor.",
+      "chave": "pet:cachorro:thor",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Thor\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:12:57.651436+00:00",
+      "atualizada_em": "2026-11-19T00:12:57.651436+00:00"
+    },
+    {
+      "id": "e00615ada17d4a888f96de602e617aad",
+      "usuario_id": "p6_p6-bdfc1179724f_u01",
+      "texto": "Favorito (comida): lasanha.",
+      "chave": "favorito:comida",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"lasanha\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:14:10.836371+00:00",
+      "atualizada_em": "2026-11-19T00:14:10.836371+00:00"
+    },
+    {
+      "id": "f2e2d0ddc548414485639ec7c481f86b",
+      "usuario_id": "p6_p6-bdfc1179724f_u01",
+      "texto": "Mora em Osasco.",
+      "chave": "cidade",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Osasco\"}",
+      "ativa": 0,
+      "criada_em": "2026-11-19T00:12:42.480139+00:00",
+      "atualizada_em": "2026-11-19T00:14:30.680406+00:00"
+    },
+    {
+      "id": "f8a505ce1a71437c90ea71166abe603e",
+      "usuario_id": "p6_p6-bdfc1179724f_u01",
+      "texto": "Pratica natação.",
+      "chave": "esporte",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"natação\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:15:05.164310+00:00",
+      "atualizada_em": "2026-11-19T00:15:05.164310+00:00"
+    },
+    {
+      "id": "fedb08df9afa46b482fb32d249d070de",
+      "usuario_id": "p6_p6-bdfc1179724f_u01",
+      "texto": "Profissão: enfermeira.",
+      "chave": "profissao",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"enfermeira\"}",
+      "ativa": 0,
+      "criada_em": "2026-11-19T00:12:55.994981+00:00",
+      "atualizada_em": "2026-11-19T00:14:45.956379+00:00"
+    },
+    {
+      "id": "1a5484ddf86f42c6943d4c5f535c967a",
+      "usuario_id": "p6_p6-bdfc1179724f_u02",
+      "texto": "Tem 2 filhos.",
+      "chave": "filhos",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"2\"}",
+      "ativa": 0,
+      "criada_em": "2026-11-19T00:13:16.086350+00:00",
+      "atualizada_em": "2026-11-19T00:14:34.443529+00:00"
+    },
+    {
+      "id": "1e833fe2d052400685c0fb734000aea6",
+      "usuario_id": "p6_p6-bdfc1179724f_u02",
+      "texto": "Tem 3 filhos.",
+      "chave": "filhos",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"3\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:14:34.443529+00:00",
+      "atualizada_em": "2026-11-19T00:14:34.443529+00:00"
+    },
+    {
+      "id": "26dd13fb31ce422ea076357092230e3b",
+      "usuario_id": "p6_p6-bdfc1179724f_u02",
+      "texto": "Carro: Gol azul.",
+      "chave": "carro",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Gol azul\"}",
+      "ativa": 0,
+      "criada_em": "2026-11-19T00:14:15.683257+00:00",
+      "atualizada_em": "2026-11-19T00:14:50.389807+00:00"
+    },
+    {
+      "id": "45e75abca4344f998e1d9ad5a0c93075",
+      "usuario_id": "p6_p6-bdfc1179724f_u02",
+      "texto": "Profissão: professor de matemática.",
+      "chave": "profissao",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"professor de matemática\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:13:14.367216+00:00",
+      "atualizada_em": "2026-11-19T00:13:14.367216+00:00"
+    },
+    {
+      "id": "c4da6cd637f6470483f392149c535bd9",
+      "usuario_id": "p6_p6-bdfc1179724f_u02",
+      "texto": "Torce para Coritiba.",
+      "chave": "time",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Coritiba\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:14:16.871939+00:00",
+      "atualizada_em": "2026-11-19T00:14:16.871939+00:00"
+    },
+    {
+      "id": "e8e945bac26545f289e6dd69e2f59db4",
+      "usuario_id": "p6_p6-bdfc1179724f_u02",
+      "texto": "Carro: Onix branco.",
+      "chave": "carro",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Onix branco\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:14:50.389807+00:00",
+      "atualizada_em": "2026-11-19T00:14:50.389807+00:00"
+    },
+    {
+      "id": "f41677647b39464abd2ac649375087ed",
+      "usuario_id": "p6_p6-bdfc1179724f_u02",
+      "texto": "Mora em Curitiba.",
+      "chave": "cidade",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Curitiba\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:13:01.170137+00:00",
+      "atualizada_em": "2026-11-19T00:13:01.170137+00:00"
+    },
+    {
+      "id": "09a273d9119b4630b6658557bd09d0cc",
+      "usuario_id": "p6_p6-bdfc1179724f_u03",
+      "texto": "Pet: gato chamado Luna.",
+      "chave": "pet:gato:luna",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Luna\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:13:47.459102+00:00",
+      "atualizada_em": "2026-11-19T00:13:47.459102+00:00"
+    },
+    {
+      "id": "14c7ae2edfed48f29747e9d7496c9f6c",
+      "usuario_id": "p6_p6-bdfc1179724f_u03",
+      "texto": "Pet: gato chamado Simba.",
+      "chave": "pet:gato:simba",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Simba\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:14:54.054219+00:00",
+      "atualizada_em": "2026-11-19T00:14:54.054219+00:00"
+    },
+    {
+      "id": "56e8322c1aad4cf2bc5de96b14a1c497",
+      "usuario_id": "p6_p6-bdfc1179724f_u03",
+      "texto": "Profissão: designer gráfica.",
+      "chave": "profissao",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"designer gráfica\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:13:49.111813+00:00",
+      "atualizada_em": "2026-11-19T00:13:49.111813+00:00"
+    },
+    {
+      "id": "6099417a0a424933be8046ff1aa1bb5f",
+      "usuario_id": "p6_p6-bdfc1179724f_u03",
+      "texto": "Gosta de fotografia.",
+      "chave": "gosto:fotografia",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"fotografia\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:14:20.131884+00:00",
+      "atualizada_em": "2026-11-19T00:14:20.131884+00:00"
+    },
+    {
+      "id": "6c5131e54db943efbd8e54702bed100e",
+      "usuario_id": "p6_p6-bdfc1179724f_u03",
+      "texto": "Planeja viajar para Japão em dezembro.",
+      "chave": "viagem",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Japão em dezembro\"}",
+      "ativa": 0,
+      "criada_em": "2026-11-19T00:14:21.459992+00:00",
+      "atualizada_em": "2026-11-19T00:14:37.814722+00:00"
+    },
+    {
+      "id": "7ded6e18005749dd8b25f5088c2be209",
+      "usuario_id": "p6_p6-bdfc1179724f_u03",
+      "texto": "Mora em Recife.",
+      "chave": "cidade",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Recife\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:13:19.168867+00:00",
+      "atualizada_em": "2026-11-19T00:13:19.168867+00:00"
+    },
+    {
+      "id": "8e373a0a3cbf4626974acab784a621a4",
+      "usuario_id": "p6_p6-bdfc1179724f_u03",
+      "texto": "Planeja viajar para Portugal em dezembro.",
+      "chave": "viagem",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Portugal em dezembro\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:14:37.814722+00:00",
+      "atualizada_em": "2026-11-19T00:14:37.814722+00:00"
+    }
+  ],
+  "sqlite_depois": [
+    {
+      "id": "1647f3177afc4d0f9e6d71ebc8e752e7",
+      "usuario_id": "p6_p6-bdfc1179724f_u01",
+      "texto": "Pratica corrida de rua.",
+      "chave": "esporte",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"corrida de rua\"}",
+      "ativa": 0,
+      "criada_em": "2026-11-19T00:14:08.756745+00:00",
+      "atualizada_em": "2026-11-19T00:15:05.164310+00:00"
+    },
+    {
+      "id": "8c2f802aefee4ce0a2890a190ca1606a",
+      "usuario_id": "p6_p6-bdfc1179724f_u01",
+      "texto": "Mora em Campinas.",
+      "chave": "cidade",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Campinas\"}",
+      "ativa": 0,
+      "criada_em": "2026-11-19T00:14:30.680406+00:00",
+      "atualizada_em": "2026-11-19T00:15:06.669037+00:00"
+    },
+    {
+      "id": "993a67ee49a14079859c7b0bf3fadc4d",
+      "usuario_id": "p6_p6-bdfc1179724f_u01",
+      "texto": "Profissão: coordenadora de enfermagem.",
+      "chave": "profissao",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"coordenadora de enfermagem\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:14:45.956379+00:00",
+      "atualizada_em": "2026-11-19T00:14:45.956379+00:00"
+    },
+    {
+      "id": "c113e4e284c543f9964adf8e99a8d9e3",
+      "usuario_id": "p6_p6-bdfc1179724f_u01",
+      "texto": "Mora em Santos.",
+      "chave": "cidade",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Santos\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:15:06.669037+00:00",
+      "atualizada_em": "2026-11-19T00:15:06.669037+00:00"
+    },
+    {
+      "id": "de3a18736fea46e8bfb4ebfc4082bae6",
+      "usuario_id": "p6_p6-bdfc1179724f_u01",
+      "texto": "Pet: cachorro chamado Thor.",
+      "chave": "pet:cachorro:thor",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Thor\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:12:57.651436+00:00",
+      "atualizada_em": "2026-11-19T00:12:57.651436+00:00"
+    },
+    {
+      "id": "e00615ada17d4a888f96de602e617aad",
+      "usuario_id": "p6_p6-bdfc1179724f_u01",
+      "texto": "Favorito (comida): lasanha.",
+      "chave": "favorito:comida",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"lasanha\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:14:10.836371+00:00",
+      "atualizada_em": "2026-11-19T00:14:10.836371+00:00"
+    },
+    {
+      "id": "f2e2d0ddc548414485639ec7c481f86b",
+      "usuario_id": "p6_p6-bdfc1179724f_u01",
+      "texto": "Mora em Osasco.",
+      "chave": "cidade",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Osasco\"}",
+      "ativa": 0,
+      "criada_em": "2026-11-19T00:12:42.480139+00:00",
+      "atualizada_em": "2026-11-19T00:14:30.680406+00:00"
+    },
+    {
+      "id": "f8a505ce1a71437c90ea71166abe603e",
+      "usuario_id": "p6_p6-bdfc1179724f_u01",
+      "texto": "Pratica natação.",
+      "chave": "esporte",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"natação\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:15:05.164310+00:00",
+      "atualizada_em": "2026-11-19T00:15:05.164310+00:00"
+    },
+    {
+      "id": "fedb08df9afa46b482fb32d249d070de",
+      "usuario_id": "p6_p6-bdfc1179724f_u01",
+      "texto": "Profissão: enfermeira.",
+      "chave": "profissao",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"enfermeira\"}",
+      "ativa": 0,
+      "criada_em": "2026-11-19T00:12:55.994981+00:00",
+      "atualizada_em": "2026-11-19T00:14:45.956379+00:00"
+    },
+    {
+      "id": "1a5484ddf86f42c6943d4c5f535c967a",
+      "usuario_id": "p6_p6-bdfc1179724f_u02",
+      "texto": "Tem 2 filhos.",
+      "chave": "filhos",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"2\"}",
+      "ativa": 0,
+      "criada_em": "2026-11-19T00:13:16.086350+00:00",
+      "atualizada_em": "2026-11-19T00:14:34.443529+00:00"
+    },
+    {
+      "id": "1e833fe2d052400685c0fb734000aea6",
+      "usuario_id": "p6_p6-bdfc1179724f_u02",
+      "texto": "Tem 3 filhos.",
+      "chave": "filhos",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"3\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:14:34.443529+00:00",
+      "atualizada_em": "2026-11-19T00:14:34.443529+00:00"
+    },
+    {
+      "id": "26dd13fb31ce422ea076357092230e3b",
+      "usuario_id": "p6_p6-bdfc1179724f_u02",
+      "texto": "Carro: Gol azul.",
+      "chave": "carro",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Gol azul\"}",
+      "ativa": 0,
+      "criada_em": "2026-11-19T00:14:15.683257+00:00",
+      "atualizada_em": "2026-11-19T00:14:50.389807+00:00"
+    },
+    {
+      "id": "45e75abca4344f998e1d9ad5a0c93075",
+      "usuario_id": "p6_p6-bdfc1179724f_u02",
+      "texto": "Profissão: professor de matemática.",
+      "chave": "profissao",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"professor de matemática\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:13:14.367216+00:00",
+      "atualizada_em": "2026-11-19T00:13:14.367216+00:00"
+    },
+    {
+      "id": "c4da6cd637f6470483f392149c535bd9",
+      "usuario_id": "p6_p6-bdfc1179724f_u02",
+      "texto": "Torce para Coritiba.",
+      "chave": "time",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Coritiba\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:14:16.871939+00:00",
+      "atualizada_em": "2026-11-19T00:14:16.871939+00:00"
+    },
+    {
+      "id": "e8e945bac26545f289e6dd69e2f59db4",
+      "usuario_id": "p6_p6-bdfc1179724f_u02",
+      "texto": "Carro: Onix branco.",
+      "chave": "carro",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Onix branco\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:14:50.389807+00:00",
+      "atualizada_em": "2026-11-19T00:14:50.389807+00:00"
+    },
+    {
+      "id": "f41677647b39464abd2ac649375087ed",
+      "usuario_id": "p6_p6-bdfc1179724f_u02",
+      "texto": "Mora em Curitiba.",
+      "chave": "cidade",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Curitiba\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:13:01.170137+00:00",
+      "atualizada_em": "2026-11-19T00:13:01.170137+00:00"
+    },
+    {
+      "id": "09a273d9119b4630b6658557bd09d0cc",
+      "usuario_id": "p6_p6-bdfc1179724f_u03",
+      "texto": "Pet: gato chamado Luna.",
+      "chave": "pet:gato:luna",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Luna\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:13:47.459102+00:00",
+      "atualizada_em": "2026-11-19T00:13:47.459102+00:00"
+    },
+    {
+      "id": "14c7ae2edfed48f29747e9d7496c9f6c",
+      "usuario_id": "p6_p6-bdfc1179724f_u03",
+      "texto": "Pet: gato chamado Simba.",
+      "chave": "pet:gato:simba",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Simba\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:14:54.054219+00:00",
+      "atualizada_em": "2026-11-19T00:14:54.054219+00:00"
+    },
+    {
+      "id": "56e8322c1aad4cf2bc5de96b14a1c497",
+      "usuario_id": "p6_p6-bdfc1179724f_u03",
+      "texto": "Profissão: designer gráfica.",
+      "chave": "profissao",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"designer gráfica\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:13:49.111813+00:00",
+      "atualizada_em": "2026-11-19T00:13:49.111813+00:00"
+    },
+    {
+      "id": "6099417a0a424933be8046ff1aa1bb5f",
+      "usuario_id": "p6_p6-bdfc1179724f_u03",
+      "texto": "Gosta de fotografia.",
+      "chave": "gosto:fotografia",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"fotografia\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:14:20.131884+00:00",
+      "atualizada_em": "2026-11-19T00:14:20.131884+00:00"
+    },
+    {
+      "id": "6c5131e54db943efbd8e54702bed100e",
+      "usuario_id": "p6_p6-bdfc1179724f_u03",
+      "texto": "Planeja viajar para Japão em dezembro.",
+      "chave": "viagem",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Japão em dezembro\"}",
+      "ativa": 0,
+      "criada_em": "2026-11-19T00:14:21.459992+00:00",
+      "atualizada_em": "2026-11-19T00:14:37.814722+00:00"
+    },
+    {
+      "id": "7ded6e18005749dd8b25f5088c2be209",
+      "usuario_id": "p6_p6-bdfc1179724f_u03",
+      "texto": "Mora em Recife.",
+      "chave": "cidade",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Recife\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:13:19.168867+00:00",
+      "atualizada_em": "2026-11-19T00:13:19.168867+00:00"
+    },
+    {
+      "id": "8e373a0a3cbf4626974acab784a621a4",
+      "usuario_id": "p6_p6-bdfc1179724f_u03",
+      "texto": "Planeja viajar para Portugal em dezembro.",
+      "chave": "viagem",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Portugal em dezembro\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:14:37.814722+00:00",
+      "atualizada_em": "2026-11-19T00:14:37.814722+00:00"
+    }
+  ],
+  "ram_antes": {
+    "versao_observador": "ram-v1",
+    "instancia_id": "5cb7ded7625a48b398bcd7e17601d6d9",
+    "pid": 52,
+    "usuario_id": "p6_p6-bdfc1179724f_u01",
+    "coletado_em": "2026-11-19T00:15:13.710470+00:00",
+    "escopo": "historico_do_usuario_neste_processo",
+    "processos_cobertos": 1,
+    "historico_existe": true,
+    "mensagens_total": 11,
+    "mensagens_sistema": 1,
+    "mensagens_usuario": 5,
+    "mensagens_assistente": 5,
+    "mensagens_pessoais": 10,
+    "alvos_no_historico": 0,
+    "mensagens_pessoais_sem_alvo": 10,
+    "ocorrencias_por_rotulo": {},
+    "limitacao": "Correspondencias literais normalizadas; avaliar sem escritores concorrentes e cobrir todos os workers relevantes."
+  },
+  "ram_depois": {
+    "versao_observador": "ram-v1",
+    "instancia_id": "90d16c8d272f4877b006100c29dcf3df",
+    "pid": 54,
+    "usuario_id": "p6_p6-bdfc1179724f_u01",
+    "coletado_em": "2026-11-19T00:15:15.141345+00:00",
+    "escopo": "historico_do_usuario_neste_processo",
+    "processos_cobertos": 1,
+    "historico_existe": false,
+    "mensagens_total": 0,
+    "mensagens_sistema": 0,
+    "mensagens_usuario": 0,
+    "mensagens_assistente": 0,
+    "mensagens_pessoais": 0,
+    "alvos_no_historico": 0,
+    "mensagens_pessoais_sem_alvo": 0,
+    "ocorrencias_por_rotulo": {},
+    "limitacao": "Correspondencias literais normalizadas; avaliar sem escritores concorrentes e cobrir todos os workers relevantes."
+  }
+}

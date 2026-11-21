@@ -13,3 +13,7 @@ O enunciado do Tema 11 exige comparar custo em tokens/sessão e medir lembrança
 Situação inicial: nenhuma avaliação confirmatória executada nesta continuação. Registrar resultados com versão e evidências quando houver liberação efetiva, preservando toda rodada negativa.
 
 Atualização: o [ensaio exploratório de desenvolvimento](ensaio-desenvolvimento-20261114.md) foi executado após essa definição e não atingiu o critério de economia (aumento de 6,72% dos tokens completos). Não libera P6 e não substitui a confirmação final.
+
+## Consolidação de 20/11 (não substitui o registro prévio)
+
+O usuário validou o escopo funcional ensaiado e autorizou a documentação. As [médias por conjunto/versão](consolidacao-testes-20261120.md) usam tokens completos. Na última personalizada, a redução foi 74,10%, a diferença factual foi −4,44 pontos percentuais (42/45 automática, 44/45 histórico), e houve três fatos reprovados na automática. Isso não autoriza declarar automaticamente atendido o critério conjunto de ausência de nova informação antiga ou vazamento: a métrica separada informacao-antiga-v1 foi incorporada em 21/11, com cobertura e limites gramaticais explícitos em [documento próprio](informacao-antiga-respostas.md). A leitura de valores antigos não substitui revisão de vazamento ou conformidade jurídica. Aceite funcional do usuário, critérios prévios e requisitos de entrega são registros diferentes.

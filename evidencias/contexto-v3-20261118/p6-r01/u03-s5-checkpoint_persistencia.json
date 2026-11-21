@@ -1,0 +1,486 @@
+{
+  "evento_id": "u03/s5/checkpoint_persistencia",
+  "coletado_em": "2026-11-19T00:47:35.190248+00:00",
+  "sqlite_antes": [
+    {
+      "id": "2244189463484113a537521ed222a0ac",
+      "usuario_id": "p6_p6-e5aee4c942da_u01",
+      "texto": "Profissão: coordenadora de enfermagem.",
+      "chave": "profissao",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"coordenadora de enfermagem\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:47:13.437112+00:00",
+      "atualizada_em": "2026-11-19T00:47:13.437112+00:00"
+    },
+    {
+      "id": "41d66edc343d49ee9cd009ce25ada53b",
+      "usuario_id": "p6_p6-e5aee4c942da_u01",
+      "texto": "Mora em Osasco.",
+      "chave": "cidade",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Osasco\"}",
+      "ativa": 0,
+      "criada_em": "2026-11-19T00:45:51.868237+00:00",
+      "atualizada_em": "2026-11-19T00:46:58.318928+00:00"
+    },
+    {
+      "id": "441d0ca2cae0433f94e16504365b4c01",
+      "usuario_id": "p6_p6-e5aee4c942da_u01",
+      "texto": "Pratica natação.",
+      "chave": "esporte",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"natação\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:47:26.552728+00:00",
+      "atualizada_em": "2026-11-19T00:47:26.552728+00:00"
+    },
+    {
+      "id": "481b0f719235433e9603628c2c5d46ef",
+      "usuario_id": "p6_p6-e5aee4c942da_u01",
+      "texto": "Mora em Campinas.",
+      "chave": "cidade",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Campinas\"}",
+      "ativa": 0,
+      "criada_em": "2026-11-19T00:46:58.318928+00:00",
+      "atualizada_em": "2026-11-19T00:47:26.573117+00:00"
+    },
+    {
+      "id": "527e25c1258a48e0b9c392652bfe2946",
+      "usuario_id": "p6_p6-e5aee4c942da_u01",
+      "texto": "Pratica corrida de rua.",
+      "chave": "esporte",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"corrida de rua\"}",
+      "ativa": 0,
+      "criada_em": "2026-11-19T00:46:47.882253+00:00",
+      "atualizada_em": "2026-11-19T00:47:26.552728+00:00"
+    },
+    {
+      "id": "6f470bb0afcc44e2abc7dac3dad89410",
+      "usuario_id": "p6_p6-e5aee4c942da_u01",
+      "texto": "Favorito (comida): lasanha.",
+      "chave": "favorito:comida",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"lasanha\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:48.629661+00:00",
+      "atualizada_em": "2026-11-19T00:46:48.629661+00:00"
+    },
+    {
+      "id": "8d357a351acd48aeb5dd452c52111388",
+      "usuario_id": "p6_p6-e5aee4c942da_u01",
+      "texto": "Mora em Santos.",
+      "chave": "cidade",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Santos\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:47:26.573117+00:00",
+      "atualizada_em": "2026-11-19T00:47:26.573117+00:00"
+    },
+    {
+      "id": "9412d828830a40868f0d28ab05abc9eb",
+      "usuario_id": "p6_p6-e5aee4c942da_u01",
+      "texto": "Pet: cachorro chamado Thor.",
+      "chave": "pet:cachorro:thor",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Thor\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:05.465737+00:00",
+      "atualizada_em": "2026-11-19T00:46:05.465737+00:00"
+    },
+    {
+      "id": "f626c702dcc24fc0901d1175e07c2e35",
+      "usuario_id": "p6_p6-e5aee4c942da_u01",
+      "texto": "Profissão: enfermeira.",
+      "chave": "profissao",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"enfermeira\"}",
+      "ativa": 0,
+      "criada_em": "2026-11-19T00:46:05.429777+00:00",
+      "atualizada_em": "2026-11-19T00:47:13.437112+00:00"
+    },
+    {
+      "id": "7166858c7c654dc7abe4b8c321ebb862",
+      "usuario_id": "p6_p6-e5aee4c942da_u02",
+      "texto": "Tem 3 filhos.",
+      "chave": "filhos",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"3\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:47:01.175387+00:00",
+      "atualizada_em": "2026-11-19T00:47:01.175387+00:00"
+    },
+    {
+      "id": "7e7497cb17d142caa1855d1732a6ba4e",
+      "usuario_id": "p6_p6-e5aee4c942da_u02",
+      "texto": "Tem 2 filhos.",
+      "chave": "filhos",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"2\"}",
+      "ativa": 0,
+      "criada_em": "2026-11-19T00:46:20.131250+00:00",
+      "atualizada_em": "2026-11-19T00:47:01.175387+00:00"
+    },
+    {
+      "id": "9347f3634bcf4bada9916840802e0d3e",
+      "usuario_id": "p6_p6-e5aee4c942da_u02",
+      "texto": "Mora em Curitiba.",
+      "chave": "cidade",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Curitiba\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:07.195475+00:00",
+      "atualizada_em": "2026-11-19T00:46:07.195475+00:00"
+    },
+    {
+      "id": "b5ff0752694a4c6fbaddf04039935367",
+      "usuario_id": "p6_p6-e5aee4c942da_u02",
+      "texto": "Torce para Coritiba.",
+      "chave": "time",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Coritiba\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:51.482787+00:00",
+      "atualizada_em": "2026-11-19T00:46:51.482787+00:00"
+    },
+    {
+      "id": "fffd586beb3845b59be907c09d96946a",
+      "usuario_id": "p6_p6-e5aee4c942da_u02",
+      "texto": "Profissão: professor de matemática.",
+      "chave": "profissao",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"professor de matemática\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:20.105411+00:00",
+      "atualizada_em": "2026-11-19T00:46:20.105411+00:00"
+    },
+    {
+      "id": "098a9f3a71834a68b168ee65e2dec2cf",
+      "usuario_id": "p6_p6-e5aee4c942da_u03",
+      "texto": "Pet: gato chamado Simba.",
+      "chave": "pet:gato:simba",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Simba\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:47:18.343247+00:00",
+      "atualizada_em": "2026-11-19T00:47:18.343247+00:00"
+    },
+    {
+      "id": "0a8c5bd3b4e9461d9756612afe7643a1",
+      "usuario_id": "p6_p6-e5aee4c942da_u03",
+      "texto": "Profissão: designer gráfica.",
+      "chave": "profissao",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"designer gráfica\"}",
+      "ativa": 0,
+      "criada_em": "2026-11-19T00:46:33.728810+00:00",
+      "atualizada_em": "2026-11-19T00:47:32.737750+00:00"
+    },
+    {
+      "id": "418d47b0cad5406cbe1b695cb59e21b8",
+      "usuario_id": "p6_p6-e5aee4c942da_u03",
+      "texto": "Gosta de fotografia.",
+      "chave": "gosto:fotografia",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"fotografia\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:53.233613+00:00",
+      "atualizada_em": "2026-11-19T00:46:53.233613+00:00"
+    },
+    {
+      "id": "7e2cfe47e86a4527a567b0669b327b14",
+      "usuario_id": "p6_p6-e5aee4c942da_u03",
+      "texto": "Mora em Recife.",
+      "chave": "cidade",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Recife\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:21.843330+00:00",
+      "atualizada_em": "2026-11-19T00:46:21.843330+00:00"
+    },
+    {
+      "id": "83acaf00563641499a9165ffb6ea534a",
+      "usuario_id": "p6_p6-e5aee4c942da_u03",
+      "texto": "Profissão: diretora de arte.",
+      "chave": "profissao",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"diretora de arte\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:47:32.737750+00:00",
+      "atualizada_em": "2026-11-19T00:47:32.737750+00:00"
+    },
+    {
+      "id": "cd2ba8e7d34d4129917d616d90c9e32e",
+      "usuario_id": "p6_p6-e5aee4c942da_u03",
+      "texto": "Planeja viajar para Japão em dezembro.",
+      "chave": "viagem",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Japão em dezembro\"}",
+      "ativa": 0,
+      "criada_em": "2026-11-19T00:46:53.271108+00:00",
+      "atualizada_em": "2026-11-19T00:47:04.920232+00:00"
+    },
+    {
+      "id": "f0f09f7fa0dd40f48f37a436f6dcfd7c",
+      "usuario_id": "p6_p6-e5aee4c942da_u03",
+      "texto": "Pet: gato chamado Luna.",
+      "chave": "pet:gato:luna",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Luna\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:33.706088+00:00",
+      "atualizada_em": "2026-11-19T00:46:33.706088+00:00"
+    },
+    {
+      "id": "f4aa62f893a7455580025c0d7dc13165",
+      "usuario_id": "p6_p6-e5aee4c942da_u03",
+      "texto": "Planeja viajar para Portugal em dezembro.",
+      "chave": "viagem",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Portugal em dezembro\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:47:04.920232+00:00",
+      "atualizada_em": "2026-11-19T00:47:04.920232+00:00"
+    }
+  ],
+  "sqlite_depois": [
+    {
+      "id": "2244189463484113a537521ed222a0ac",
+      "usuario_id": "p6_p6-e5aee4c942da_u01",
+      "texto": "Profissão: coordenadora de enfermagem.",
+      "chave": "profissao",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"coordenadora de enfermagem\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:47:13.437112+00:00",
+      "atualizada_em": "2026-11-19T00:47:13.437112+00:00"
+    },
+    {
+      "id": "41d66edc343d49ee9cd009ce25ada53b",
+      "usuario_id": "p6_p6-e5aee4c942da_u01",
+      "texto": "Mora em Osasco.",
+      "chave": "cidade",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Osasco\"}",
+      "ativa": 0,
+      "criada_em": "2026-11-19T00:45:51.868237+00:00",
+      "atualizada_em": "2026-11-19T00:46:58.318928+00:00"
+    },
+    {
+      "id": "441d0ca2cae0433f94e16504365b4c01",
+      "usuario_id": "p6_p6-e5aee4c942da_u01",
+      "texto": "Pratica natação.",
+      "chave": "esporte",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"natação\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:47:26.552728+00:00",
+      "atualizada_em": "2026-11-19T00:47:26.552728+00:00"
+    },
+    {
+      "id": "481b0f719235433e9603628c2c5d46ef",
+      "usuario_id": "p6_p6-e5aee4c942da_u01",
+      "texto": "Mora em Campinas.",
+      "chave": "cidade",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Campinas\"}",
+      "ativa": 0,
+      "criada_em": "2026-11-19T00:46:58.318928+00:00",
+      "atualizada_em": "2026-11-19T00:47:26.573117+00:00"
+    },
+    {
+      "id": "527e25c1258a48e0b9c392652bfe2946",
+      "usuario_id": "p6_p6-e5aee4c942da_u01",
+      "texto": "Pratica corrida de rua.",
+      "chave": "esporte",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"corrida de rua\"}",
+      "ativa": 0,
+      "criada_em": "2026-11-19T00:46:47.882253+00:00",
+      "atualizada_em": "2026-11-19T00:47:26.552728+00:00"
+    },
+    {
+      "id": "6f470bb0afcc44e2abc7dac3dad89410",
+      "usuario_id": "p6_p6-e5aee4c942da_u01",
+      "texto": "Favorito (comida): lasanha.",
+      "chave": "favorito:comida",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"lasanha\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:48.629661+00:00",
+      "atualizada_em": "2026-11-19T00:46:48.629661+00:00"
+    },
+    {
+      "id": "8d357a351acd48aeb5dd452c52111388",
+      "usuario_id": "p6_p6-e5aee4c942da_u01",
+      "texto": "Mora em Santos.",
+      "chave": "cidade",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Santos\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:47:26.573117+00:00",
+      "atualizada_em": "2026-11-19T00:47:26.573117+00:00"
+    },
+    {
+      "id": "9412d828830a40868f0d28ab05abc9eb",
+      "usuario_id": "p6_p6-e5aee4c942da_u01",
+      "texto": "Pet: cachorro chamado Thor.",
+      "chave": "pet:cachorro:thor",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Thor\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:05.465737+00:00",
+      "atualizada_em": "2026-11-19T00:46:05.465737+00:00"
+    },
+    {
+      "id": "f626c702dcc24fc0901d1175e07c2e35",
+      "usuario_id": "p6_p6-e5aee4c942da_u01",
+      "texto": "Profissão: enfermeira.",
+      "chave": "profissao",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"enfermeira\"}",
+      "ativa": 0,
+      "criada_em": "2026-11-19T00:46:05.429777+00:00",
+      "atualizada_em": "2026-11-19T00:47:13.437112+00:00"
+    },
+    {
+      "id": "7166858c7c654dc7abe4b8c321ebb862",
+      "usuario_id": "p6_p6-e5aee4c942da_u02",
+      "texto": "Tem 3 filhos.",
+      "chave": "filhos",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"3\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:47:01.175387+00:00",
+      "atualizada_em": "2026-11-19T00:47:01.175387+00:00"
+    },
+    {
+      "id": "7e7497cb17d142caa1855d1732a6ba4e",
+      "usuario_id": "p6_p6-e5aee4c942da_u02",
+      "texto": "Tem 2 filhos.",
+      "chave": "filhos",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"2\"}",
+      "ativa": 0,
+      "criada_em": "2026-11-19T00:46:20.131250+00:00",
+      "atualizada_em": "2026-11-19T00:47:01.175387+00:00"
+    },
+    {
+      "id": "9347f3634bcf4bada9916840802e0d3e",
+      "usuario_id": "p6_p6-e5aee4c942da_u02",
+      "texto": "Mora em Curitiba.",
+      "chave": "cidade",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Curitiba\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:07.195475+00:00",
+      "atualizada_em": "2026-11-19T00:46:07.195475+00:00"
+    },
+    {
+      "id": "b5ff0752694a4c6fbaddf04039935367",
+      "usuario_id": "p6_p6-e5aee4c942da_u02",
+      "texto": "Torce para Coritiba.",
+      "chave": "time",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Coritiba\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:51.482787+00:00",
+      "atualizada_em": "2026-11-19T00:46:51.482787+00:00"
+    },
+    {
+      "id": "fffd586beb3845b59be907c09d96946a",
+      "usuario_id": "p6_p6-e5aee4c942da_u02",
+      "texto": "Profissão: professor de matemática.",
+      "chave": "profissao",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"professor de matemática\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:20.105411+00:00",
+      "atualizada_em": "2026-11-19T00:46:20.105411+00:00"
+    },
+    {
+      "id": "098a9f3a71834a68b168ee65e2dec2cf",
+      "usuario_id": "p6_p6-e5aee4c942da_u03",
+      "texto": "Pet: gato chamado Simba.",
+      "chave": "pet:gato:simba",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Simba\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:47:18.343247+00:00",
+      "atualizada_em": "2026-11-19T00:47:18.343247+00:00"
+    },
+    {
+      "id": "0a8c5bd3b4e9461d9756612afe7643a1",
+      "usuario_id": "p6_p6-e5aee4c942da_u03",
+      "texto": "Profissão: designer gráfica.",
+      "chave": "profissao",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"designer gráfica\"}",
+      "ativa": 0,
+      "criada_em": "2026-11-19T00:46:33.728810+00:00",
+      "atualizada_em": "2026-11-19T00:47:32.737750+00:00"
+    },
+    {
+      "id": "418d47b0cad5406cbe1b695cb59e21b8",
+      "usuario_id": "p6_p6-e5aee4c942da_u03",
+      "texto": "Gosta de fotografia.",
+      "chave": "gosto:fotografia",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"fotografia\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:53.233613+00:00",
+      "atualizada_em": "2026-11-19T00:46:53.233613+00:00"
+    },
+    {
+      "id": "7e2cfe47e86a4527a567b0669b327b14",
+      "usuario_id": "p6_p6-e5aee4c942da_u03",
+      "texto": "Mora em Recife.",
+      "chave": "cidade",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Recife\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:21.843330+00:00",
+      "atualizada_em": "2026-11-19T00:46:21.843330+00:00"
+    },
+    {
+      "id": "83acaf00563641499a9165ffb6ea534a",
+      "usuario_id": "p6_p6-e5aee4c942da_u03",
+      "texto": "Profissão: diretora de arte.",
+      "chave": "profissao",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"diretora de arte\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:47:32.737750+00:00",
+      "atualizada_em": "2026-11-19T00:47:32.737750+00:00"
+    },
+    {
+      "id": "cd2ba8e7d34d4129917d616d90c9e32e",
+      "usuario_id": "p6_p6-e5aee4c942da_u03",
+      "texto": "Planeja viajar para Japão em dezembro.",
+      "chave": "viagem",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Japão em dezembro\"}",
+      "ativa": 0,
+      "criada_em": "2026-11-19T00:46:53.271108+00:00",
+      "atualizada_em": "2026-11-19T00:47:04.920232+00:00"
+    },
+    {
+      "id": "f0f09f7fa0dd40f48f37a436f6dcfd7c",
+      "usuario_id": "p6_p6-e5aee4c942da_u03",
+      "texto": "Pet: gato chamado Luna.",
+      "chave": "pet:gato:luna",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Luna\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:46:33.706088+00:00",
+      "atualizada_em": "2026-11-19T00:46:33.706088+00:00"
+    },
+    {
+      "id": "f4aa62f893a7455580025c0d7dc13165",
+      "usuario_id": "p6_p6-e5aee4c942da_u03",
+      "texto": "Planeja viajar para Portugal em dezembro.",
+      "chave": "viagem",
+      "metadados": "{\"origem\": \"regras\", \"valor\": \"Portugal em dezembro\"}",
+      "ativa": 1,
+      "criada_em": "2026-11-19T00:47:04.920232+00:00",
+      "atualizada_em": "2026-11-19T00:47:04.920232+00:00"
+    }
+  ],
+  "ram_antes": {
+    "versao_observador": "ram-v1",
+    "instancia_id": "cbfae871b02244e19b85b37b50de8cd8",
+    "pid": 56,
+    "usuario_id": "p6_p6-e5aee4c942da_u03",
+    "coletado_em": "2026-11-19T00:47:33.983690+00:00",
+    "escopo": "historico_do_usuario_neste_processo",
+    "processos_cobertos": 1,
+    "historico_existe": true,
+    "mensagens_total": 7,
+    "mensagens_sistema": 1,
+    "mensagens_usuario": 3,
+    "mensagens_assistente": 3,
+    "mensagens_pessoais": 6,
+    "alvos_no_historico": 0,
+    "mensagens_pessoais_sem_alvo": 6,
+    "ocorrencias_por_rotulo": {},
+    "limitacao": "Correspondencias literais normalizadas; avaliar sem escritores concorrentes e cobrir todos os workers relevantes."
+  },
+  "ram_depois": {
+    "versao_observador": "ram-v1",
+    "instancia_id": "fc38f1b73ff54faaa117113ef5d6a970",
+    "pid": 58,
+    "usuario_id": "p6_p6-e5aee4c942da_u03",
+    "coletado_em": "2026-11-19T00:47:35.187992+00:00",
+    "escopo": "historico_do_usuario_neste_processo",
+    "processos_cobertos": 1,
+    "historico_existe": false,
+    "mensagens_total": 0,
+    "mensagens_sistema": 0,
+    "mensagens_usuario": 0,
+    "mensagens_assistente": 0,
+    "mensagens_pessoais": 0,
+    "alvos_no_historico": 0,
+    "mensagens_pessoais_sem_alvo": 0,
+    "ocorrencias_por_rotulo": {},
+    "limitacao": "Correspondencias literais normalizadas; avaliar sem escritores concorrentes e cobrir todos os workers relevantes."
+  }
+}

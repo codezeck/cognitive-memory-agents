@@ -7,6 +7,7 @@ from dataclasses import dataclass, field
 from datetime import datetime, timezone
 
 from src.memoria.embeddings import Embedder, EmbedderHash
+from src.memoria.consultas import selecionar_por_chave
 
 
 @dataclass
@@ -67,6 +68,11 @@ class MemoriaEmRam:
         ativas = [r for r in self._dados.get(usuario_id, []) if r.ativa]
         if not ativas or not consulta.strip() or k <= 0:
             return []
+
+        estruturadas = selecionar_por_chave(consulta, [
+            {'id': r.id, 'texto': r.texto, 'chave': r.chave} for r in ativas], k)
+        if estruturadas is not None:
+            return estruturadas
 
         q = self.embedder.embed([consulta])[0]
         pontuadas = [

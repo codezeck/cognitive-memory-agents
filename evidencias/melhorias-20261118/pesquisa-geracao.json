@@ -1,0 +1,17 @@
+{
+  "paginas_total": 25,
+  "paginas_textuais": 17,
+  "primeira_textual": 8,
+  "primeira_referencias": 25,
+  "status": "rascunho_para_revisao_coletiva",
+  "sha256": "4b64636701ecf291c4af8f1b6a6092591f82ac72fec9b4b5793fe20992cc5382",
+  "fontes": {
+    "evidencias\\comparativo_oficial_3rep.json": "f247abd524075477f74b5f43511dc80313c67d7ec183d13f199e5962727bb5af",
+    "evidencias\\entrega\\20261114-entrega-ae9eb113\\comparativo-desenvolvimento.json": "ba3d6bed4f7fa085d830465ec256be82cece8181c5d987aa95f269872b0a7670"
+  },
+  "fontes_atuais": {
+    "docs\\melhorias-avaliacao-20261118.md": "e6ee189008fe76c9f5d19967d2c94a902b3dc6f1bb7533f5de2f55002c7d3e5c",
+    "evidencias\\melhorias-20261118\\p6-r02\\resumo.json": "b665bd5d2fd51ef6c79ee7700a3ffb8ee8cf14d7337890039b97205a81a9822f",
+    "evidencias\\melhorias-20261118\\p6-resultados.png": "e3dedf507a98af4a0ea8fee6cad7013788afdcaf89eff36ac92e3e41159c0e8a"
+  }
+}

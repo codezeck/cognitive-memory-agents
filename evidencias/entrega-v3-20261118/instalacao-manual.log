@@ -1,0 +1,142 @@
+1/3 Construindo a aplicacao e preparando o Ollama no Docker...
+ Image cma-candidata-v3-api Building 
+ Image cma-candidata-v3-preparar Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.08kB 0.0s done
+#1 DONE 0.0s
+
+#2 [api internal] load build definition from Dockerfile
+#2 transferring dockerfile: 360B done
+#2 DONE 0.0s
+
+#3 [preparar internal] load metadata for docker.io/library/python:3.13-slim
+#3 ...
+
+#4 [auth] library/python:pull token for registry-1.docker.io
+#4 DONE 0.0s
+
+#3 [preparar internal] load metadata for docker.io/library/python:3.13-slim
+#3 DONE 1.1s
+
+#5 [api internal] load .dockerignore
+#5 transferring context: 164B done
+#5 DONE 0.0s
+
+#6 [api 1/7] FROM docker.io/library/python:3.13-slim@sha256:e48f59cdba69a3cbd9ed2cf0f348d90d45a8d350d98134cf1070bc106ee9ed90
+#6 resolve docker.io/library/python:3.13-slim@sha256:e48f59cdba69a3cbd9ed2cf0f348d90d45a8d350d98134cf1070bc106ee9ed90 0.0s done
+#6 DONE 0.0s
+
+#7 [api internal] load build context
+#7 transferring context: 521.79kB 0.0s done
+#7 transferring context: 521.79kB 0.0s done
+#7 DONE 0.1s
+
+#8 [preparar 2/7] WORKDIR /app
+#8 CACHED
+
+#9 [preparar 3/7] COPY requirements.txt .
+#9 CACHED
+
+#10 [api 4/7] RUN python -m pip install --no-cache-dir -r requirements.txt
+#10 CACHED
+
+#11 [preparar 5/7] COPY src ./src
+#11 DONE 0.0s
+
+#12 [api 6/7] COPY eval ./eval
+#12 DONE 0.1s
+
+#12 [preparar 6/7] COPY eval ./eval
+#12 DONE 0.1s
+
+#13 [api 7/7] RUN mkdir -p /app/dados
+#13 DONE 0.4s
+
+#13 [preparar 7/7] RUN mkdir -p /app/dados
+#13 DONE 0.4s
+
+#14 [api] exporting to image
+#14 exporting layers 0.1s done
+#14 exporting manifest sha256:38c485194c85530dcaae3c2187de8ede75cae5f7b907d6cb904b823bf1f219bf 0.0s done
+#14 exporting config sha256:93cbb6e8d81b62a121897daf279b5c66d6e5500399019ab77ecb69c6122ecd02 0.0s done
+#14 exporting attestation manifest sha256:e09960c1dd92505c9b984ebfae3eca0977621ee5a0ab89ffddd0d1d9e78d9e29 0.0s done
+#14 exporting manifest list sha256:6a10b70b842ed8636a73078142548cd3a4b067e6279012d553094877ef74229b 0.0s done
+#14 naming to docker.io/library/cma-candidata-v3-api:latest
+#14 naming to docker.io/library/cma-candidata-v3-api:latest done
+#14 unpacking to docker.io/library/cma-candidata-v3-api:latest 0.1s done
+#14 DONE 0.3s
+
+#15 [preparar] exporting to image
+#15 exporting layers 0.1s done
+#15 exporting manifest sha256:3ed6bcb10c51b43ae84d7b3c6299f73c58c90ae6c85aeac2ddef2e5ab684f311 0.0s done
+#15 exporting config sha256:2f310b1528dab210e8a05512a764e7dfb2036600aec23c570e0952b63016ca24 0.0s done
+#15 exporting attestation manifest sha256:6c731387ddc71db386a088a3d407adf99c5fb77cc14e3f9abc56dd4c4e63849d 0.0s done
+#15 exporting manifest list sha256:2172d0704668c6d8c08c7fde15c7b96f0fef72a0cf6ddb8e65855457494800ec 0.0s done
+#15 naming to docker.io/library/cma-candidata-v3-preparar:latest done
+#15 unpacking to docker.io/library/cma-candidata-v3-preparar:latest 0.1s done
+#15 DONE 0.3s
+
+#16 [api] resolving provenance for metadata file
+#16 DONE 0.0s
+
+#17 [preparar] resolving provenance for metadata file
+#17 DONE 0.0s
+ Image cma-candidata-v3-api Built 
+ Image cma-candidata-v3-preparar Built 
+ Volume cma-candidata-v3_credenciais_demo Creating 
+ Network cma-candidata-v3_default Creating 
+ Volume cma-candidata-v3_modelos_ollama Creating 
+ Volume cma-candidata-v3_credenciais_demo Creating 
+ Volume cma-candidata-v3_modelos_ollama Creating 
+ Network cma-candidata-v3_default Creating 
+ Volume cma-candidata-v3_modelos_ollama Created 
+ Volume cma-candidata-v3_modelos_ollama Created 
+ Volume cma-candidata-v3_credenciais_demo Created 
+ Volume cma-candidata-v3_credenciais_demo Created 
+ Network cma-candidata-v3_default Created 
+ Network cma-candidata-v3_default Created 
+ Container cma-candidata-v3-ollama-1 Creating 
+ Container cma-candidata-v3-ollama-1 Created 
+ Container cma-candidata-v3-preparar-1 Creating 
+ Container cma-candidata-v3-preparar-1 Created 
+ Container cma-candidata-v3-ollama-1 Starting 
+ Container cma-candidata-v3-ollama-1 Started 
+ Container cma-candidata-v3-ollama-1 Waiting 
+ Container cma-candidata-v3-ollama-1 Healthy 
+ Container cma-candidata-v3-preparar-1 Starting 
+ Container cma-candidata-v3-preparar-1 Started 
+Duas identidades sinteticas preparadas em volume privado.
+Preparando modelo qwen2.5-coder:3b. O primeiro download pode levar varios minutos.
+Modelo: pulling manifest
+Modelo: 0% — 0 / 1929903072 bytes
+Modelo: 10% — 193102202 / 1929903072 bytes
+Modelo: 20% — 386726521 / 1929903072 bytes
+Modelo: 30% — 581588400 / 1929903072 bytes
+Modelo: 40% — 772886973 / 1929903072 bytes
+Modelo: 50% — 967939515 / 1929903072 bytes
+Modelo: 60% — 1158037061 / 1929903072 bytes
+Modelo: 70% — 1351064245 / 1929903072 bytes
+Modelo: 80% — 1545705922 / 1929903072 bytes
+Modelo: 90% — 1737061580 / 1929903072 bytes
+Modelo: 100% — 1929903072 / 1929903072 bytes
+Modelo: 0% — 0 / 68 bytes
+Modelo: 0% — 0 / 1615 bytes
+Modelo: 0% — 0 / 7384 bytes
+Modelo: 100% — 487 / 487 bytes
+Modelo: verifying sha256 digest
+Modelo: writing manifest
+Modelo: success
+Conferindo carregamento real do modelo...
+Modelo carregado e disponivel. A API pode iniciar.
+ Volume cma-candidata-v3_memoria_dados Creating 
+ Volume cma-candidata-v3_memoria_dados Creating 
+ Volume cma-candidata-v3_memoria_dados Created 
+ Volume cma-candidata-v3_memoria_dados Created 
+ Container cma-candidata-v3-api-1 Creating 
+ Container cma-candidata-v3-api-1 Created 
+ Container cma-candidata-v3-api-1 Starting 
+ Container cma-candidata-v3-api-1 Started 
+2/3 Conferindo API e acesso local...
+3/3 Aplicacao pronta: http://127.0.0.1:18003
+Acesso sintetico por cookie HttpOnly; nao e preciso copiar tokens.
+Para parar sem apagar dados: docker compose --env-file .env.example -p cma-candidata-v3 stop

@@ -1,0 +1,16 @@
+{
+  "testes_python_aprovados": 954,
+  "testes_python_ignorados": 66,
+  "testes_js_aprovados": 8,
+  "lint": "aprovado",
+  "links_locais": 208,
+  "git_diff_check": "aprovado",
+  "fontes_src_iguais_as_da_p6": true,
+  "api_local": "http://127.0.0.1:8002/",
+  "versao": "memoria-contexto-v3",
+  "imagem_anterior": "sha256:acccb58c64ba663cedb6d73831b05ae5cd7fb93fd6ddb27bdbb22ee7aacd59d7",
+  "banco_modelo_credenciais": "volumes existentes preservados",
+  "api_saude": "ok",
+  "chat_http": 200,
+  "imagem_atual": "sha256:216bd22927cedbdff9b114770dd1036116a24ede8f9283ef6e9f62a4dd1a55e5"
+}

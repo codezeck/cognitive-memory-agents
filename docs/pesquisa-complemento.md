@@ -1,5 +1,9 @@
 # Complemento da pesquisa: entrega e validade
 
+**Atualização documental de 20/11:** médias por conjunto/versão, controle Ollama direto e qualidade estão na [consolidação atual](consolidacao-testes-20261120.md). Ezequiel validou a bateria no escopo ensaiado; o professor aceitou o grupo com três integrantes. As pendências descritas nas seções históricas abaixo não reabrem essas confirmações.
+
+**Referência histórica — v3 de 18/11:** P6 e validação sintética já executadas; resultados, denominadores e limites em [relatório v3](acertos-tokens-contexto-v3.md). Para repetir com Docker, use o [roteiro atual](reproduzir-avaliacao-v3.md). As seções datadas abaixo conservam protocolos e estados anteriores; pendências antigas não representam o estado atual.
+
 Este texto integra o rascunho PDF com a contribuição existente, sem substituir os documentos operacionais. As afirmações são limitadas às evidências datadas. Metadados institucionais e revisão coletiva ainda precisam ser confirmados.
 
 ## Execução reprodutível e unidade de observação

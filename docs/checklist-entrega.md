@@ -1,18 +1,43 @@
-# Revisão e publicação: plano sem executar
+# Checklist de entrega — versão candidata v3
 
-**Atualização de 15/11:** o usuário autorizou commit, push e abertura de PR desta atualização para revisão, sem merge. Os itens abaixo mantêm o estado e as pendências da preparação anterior; autorização para abrir PR não libera P6/reservado, tag, envio acadêmico ou aprovação automática. Ollama permanece o caminho da entrega. Os artefatos brutos novos usam `-text` em `.gitattributes` para preservar bytes/hashes no Git. Hashes de fontes nos ensaios identificam os bytes da cópia de trabalho/imagem naquele instante, podendo diferir por fim de linha em outro checkout; não são hashes de blobs Git.
+Atualizado em 20/11/2026; evidências históricas conservam suas datas. O usuário autorizou publicação e confirmou MIT em nome do grupo. A composição de **três integrantes foi aceita pelo professor**, conforme confirmação explícita de Ezequiel. Instituição: **Faculdade UniAnchieta**, conforme informada. Cidade e professor foram omitidos por orientação do usuário.
 
-Estado em 14/11/2026, branch `fix/validacao-entrega-docker`, sem commit. Conferir a [matriz](andamento-entrega.md) e o [relatório exploratório](ensaio-desenvolvimento-20261114.md). A entrega completa ainda não está pronta.
+| Item | Estado e evidência |
+|---|---|
+| Memória, atualização, esquecimento e contexto | Implementados; [relatório v3](acertos-tokens-contexto-v3.md) |
+| P6: 20 sessões por cenário | Modelo real; 21/21 respostas da automática aprovadas; 19/19 checkpoints não vazios de persistência e 2/2 de exclusão |
+| Acertos e tokens históricos de 18/11 | P6: 3.593 contra 22.228 tokens, redução de 83,84% em 20/20 pares. Validação: 48/48 aprovações; 84,88% em 47/48 pares. Baseline com julgamentos não verificados e um timeout; sem equivalência estatística demonstrada |
+| Pesquisa PDF v3 de 18/11 (registro histórico) | [PDF](pesquisa-abnt.pdf): 25 páginas totais, 16 textuais, 11 referências; todas as páginas renderizadas e conferidas; metodologia atual, referências ordenadas e apêndice de reprodução |
+| Documentação técnica | [Índice dos nove itens](README.md), [manual completo](manual-professor.md), [reprodução Docker](reproduzir-avaliacao-v3.md) e [cinco decisões](decisoes-arquitetura.md) consolidados |
+| Contextos de IA | [Síntese disponível e modelo](registro-ia/README.md) preparados; cada colega ainda precisa fornecer/conferir seus registros |
+| Dados acadêmicos | [Registro validado](dados-academicos.json); três autores |
+| Licenças | [MIT](../LICENSE) autorizada; [NOTICE](../NOTICE) e [terceiros](licencas.md) separados |
+| Tabelas, gráficos, JSON, logs e falhas | [Índice consolidado](../evidencias/entrega-v3-20261118/README.md), com fontes e denominadores |
+| Testes | 960 Python aprovados, 66 ignorados; 8 JavaScript e lint crítico aprovados na v3; [CI da candidata aprovado](https://github.com/codezeck/cognitive-memory-agents/actions/runs/44435946851) |
+| Instalação em cópia limpa | [Manual](manual-professor.md) validado em checkout limpo: novo volume de pesos, API pronta e 19 verificações HTTP aprovadas; [registro](../evidencias/entrega-v3-20261118/instalacao-resumo.json) |
+| Vídeo de 3–5 minutos em tela inteira | Pendente; [roteiro atualizado](roteiro-demonstracao.md). Controle de tela encerrado por não confirmar URL no Windows |
+| Publicação e revisão de PR | [PR #45 publicado](https://github.com/codezeck/cognitive-memory-agents/pull/45); CI aprovado; revisão solicitada a Paloma/Vinícius, ainda sem parecer |
+| Fechamento e envio | Obter revisão humana, integrar versão aprovada, marcar `v1.0`, aguardar CI da tag e guardar link/captura. Conferir canal de envio com professor |
 
-1. **Referência da revisão humana:** receber o registro prometido e o escopo aprovado por Vinicius/Paloma; confrontar hashes, mensagem literal, quantidade versus recuperação, aliases, valores antigos, dez metadados reservados e checkpoint vazio. Não transformar afirmação de existência em aprovação de todos os itens.
-2. **Revisão técnica da integração:** Paloma confere inicializador, autenticação local, cookies/origem, Docker, exclusão e observador opt-in; Vinicius confere regras/estado/recuperação; Zeck confere guarda, contratos de uso, avaliações e novos resultados. A origem dos arquivos de interface é o worktree existente preservado, sem alegar autoria exclusiva da integração reutilizada.
-3. **Meta global não atingida:** discutir o aumento de 6,72% dos tokens completos e as falhas de suporte/abstenção descritas na rodada de desenvolvimento. Qualquer futura mudança de orçamento de contexto ou contrato precisa de decisão explícita e nova versão; esta etapa não a inicia. Não usar reservado para ajuste.
-4. **Congelar protocolo e rodar avaliação liberada:** somente depois dos itens anteriores, preparar instância própria e evidências evento a evento; executar P6 de 20 sessões e a fase final reservada conforme o guia, preservando negativos e os critérios prévios ≥30%/≤5 p.p./nenhum novo vazamento ou desatualização. Reavaliar conclusões sem substituir retrospectivamente esta rodada.
-5. **Revisão acadêmica:** confirmar instituição, cidade, docente e autorização da composição de três integrantes versus quatro no enunciado. Integrar contribuições de memória/infraestrutura e conferir citações, referências e forma institucional do rascunho PDF. Times 12/A4/margens/1,5 e 14 páginas textuais estão preparados; isso não certifica conformidade integral de todas as normas ABNT.
-6. **Licenças:** definir com os titulares uma licença para o código, ainda sem arquivo LICENSE. Conferir dependências e licença própria Qwen Research do modelo; não atribuir Apache-2.0 ao modelo nem decidir unilateralmente concessão de direitos dos colegas.
-7. **Gravar demonstração:** seguir roteiro de 3–5 minutos em tela inteira, mostrar subida Docker e fluxo real, declarar cache/preparo, revisar ausência de segredos. PNG de navegador não é vídeo oficial.
-8. **Preparar revisão Git:** conferir status, diff, referências remotas e conflitos; não misturar datasets/resultados antigos. Sugestão de divisão revisável: interface/startup; observabilidade e uso; testes/workflow; documentação/evidências. Rodar pytest, Node, lint e diff-check na versão candidata.
-9. **Publicar somente após autorização posterior:** commits/PR revisados, CI remoto da versão candidata, eventual merge autorizado e tag `v1.0`. O workflow local foi preparado para testar também o push dessa tag; sua execução remota ainda não ocorreu. Capturar link/print real na tag e histórico/contribuições. Nenhuma dessas operações foi executada agora.
-10. **Envio:** conferir artefatos, índice, manual, PDF, vídeo, logs/métricas/figuras, revisão humana e canal/prazo atualizado com professor; então realizar envio explicitamente autorizado. Não declarar enviado antes disso.
+## O que significa o último passo
 
-Reprodução dos documentos (opcional, ambiente separado): instalar `requirements-documentacao.txt`, executar `python tools/sumarizar_desenvolvimento.py` e `python tools/gerar_pesquisa.py`. O gerador PDF usa Times instalado no Windows e produz PNG de revisão em pasta ignorada. Confirme os caminhos das fontes antes de usá-lo em outro SO.
+A tag `v1.0` é um marcador Git que identifica exatamente o código entregue. CI verde significa que os testes automáticos passaram **naquele código**. Link e captura permitem ao professor conferir. CI de PR comprova a candidata; o enunciado pede também CI na tag. A gravação demonstra a execução real; o CI não repete toda a avaliação do modelo.
+
+Depois da revisão humana e da integração autorizada:
+
+```powershell
+git switch master
+git pull --ff-only origin master
+git tag -a v1.0 -m "Entrega acadêmica v1.0"
+git push origin v1.0
+```
+
+Conferir antes que a tag não existe e que `master` contém a versão revisada. Não mover uma tag publicada. O workflow aceita `v1.0`. Guardar URL da execução, SHA do commit e PNG da tela verde no índice. Não declarar revisão, tag ou envio sem esses registros.
+
+Documentos históricos de 14/11 e da v2 permanecem datados. Para o estado atual, usar este checklist e o relatório v3.
+
+## Fechamento funcional informado em 20/11
+
+Ezequiel validou a bateria oficial e o conjunto personalizado e autorizou passar à documentação. [Consolidação](consolidacao-testes-20261120.md): 84,80% no histórico oficial de versões, 84,91% na rodada oficial atual e 74,13% nas duas rodadas personalizadas. Última personalizada: 42/45 fatos e 15/15 abstenções na automática, contra 44/45 e 8/15 no histórico, com 60/60 pares medidos. Três reprovações factuais da automática e os inconclusivos dos controles permanecem registrados. A taxa separada de informação antiga foi incorporada em 21/11, com anotações, cobertura e limites gramaticais explícitos; ver [métrica](informacao-antiga-respostas.md). O aceite do usuário não substitui revisão humana, vídeo, CI da tag ou envio.
+
+A pesquisa e seu PDF foram atualizados para esses métodos, médias, qualidade e limitações. A contagem atual de páginas e os hashes constam de `pesquisa-consolidacao-geracao.json`; a linha de 18/11 acima é histórica. Novas evidências: [índice de 20/11](../evidencias/consolidacao-interface-20261120/README.md). Não houve publicação ou operação de versionamento nesta atualização documental.

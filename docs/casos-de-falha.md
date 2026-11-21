@@ -1,5 +1,9 @@
 # Casos de falha
 
+**Estado v3:** [acertos, tokens e limites atuais](acertos-tokens-contexto-v3.md). Busca por chave e negação foram corrigidas nos casos reconhecidos; outras formas exigem avaliação. O [índice](../evidencias/entrega-v3-20261118/README.md) vincula falhas e interpretações.
+
+**Rodada histórica v2 de 18/11:** o [relatório daquela rodada](melhorias-avaliacao-20261118.md) registra falhas de paráfrase sobre residência/veículo, carro mantido após negação não reconhecida, abstenção indevida sobre esporte e nome de gato inventado. Inclui respostas literais, CSV e análise de limitações do julgador. Os três casos abaixo permanecem históricos e não foram apagados para melhorar os números.
+
 **Proveniência:** os três casos e números abaixo são históricos. A atualização de 14/11 está no [ensaio de desenvolvimento](ensaio-desenvolvimento-20261114.md) (todas as 22 falhas) e no [relatório Docker](validacao-entrega-docker.md), incluindo o erro aritmético r05 e as correções do iniciador. A guarda resolveu as formas pessoais de cidade ensaiadas; outras formas sem suporte e abstenções indevidas continuam reproduzíveis. Busca vazia não comprova exclusão no banco/RAM nem conformidade jurídica.
 
 Casos em que o sistema errou, com a análise da causa e como reproduzir. Os dados vêm das avaliações oficiais em `evidencias/` (ver `docs/guia-avaliacao.md`). Onde a causa ainda não foi confirmada no código, o texto diz "a confirmar".

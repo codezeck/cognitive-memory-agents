@@ -5,3 +5,15 @@ evidencias/agente/validacao-docker-20261114-* -text -whitespace
 evidencias/agente/preparacao-openai-20261115/** -text -whitespace
 evidencias/entrega/** -text -whitespace
 docs/pesquisa-abnt.pdf binary
+
+evidencias/contexto-v3-20261118/** -text -whitespace
+evidencias/melhorias-20261118/** -text -whitespace
+evidencias/entrega-v3-20261118/*.log -text -whitespace
+evidencias/entrega-v3-20261118/**/*.log -text -whitespace
+evidencias/entrega-v3-20261118/** -text
+third_party/licenses/** -text -whitespace
+
+# Preservar os hashes das novas evidencias entre Windows e Linux.
+evidencias/consolidacao-interface-20261120/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+evidencias/informacao-antiga-20261121/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+evidencias/informacao-antiga-20261121/*.log -whitespace

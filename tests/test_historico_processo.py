@@ -45,6 +45,9 @@ def _worker_simulado(conexao, caso, provedor, modelo):
 
     class ConexaoObservada:
         def send(self, resultado):
+            if resultado.get('tipo') == 'parcial':
+                conexao.send(resultado)
+                return
             assert agent.obter_historico(comparativo.USUARIO_HISTORICO) == [
                 {"role": "system", "content": agent.SYSTEM_PROMPT},
             ]
@@ -78,6 +81,35 @@ def _worker_simulado(conexao, caso, provedor, modelo):
 
 def _worker_travado(conexao, caso, provedor, modelo):
     threading.Event().wait(30)
+
+
+def _worker_parcial_travado(conexao, caso, provedor, modelo):
+    conexao.send({'tipo': 'parcial', 'chamada': {'resposta': 'simulada', 'tokens_entrada': 11, 'tokens_saida': 3}})
+    threading.Event().wait(30)
+
+
+def _worker_parcial_abrupto(conexao, caso, provedor, modelo):
+    conexao.send({'tipo': 'parcial', 'chamada': {'resposta': 'simulada', 'tokens_entrada': 11, 'tokens_saida': 3}})
+    os._exit(7)
+
+
+@pytest.mark.parametrize('alvo,erro_esperado,prazo', [(_worker_parcial_travado, TimeoutError, 2),
+                                                   (_worker_parcial_abrupto, RuntimeError, 20)])
+def test_turnos_recebidos_sobrevivem_a_timeout_ou_saida_abrupta(alvo, erro_esperado, prazo):
+    with pytest.raises(erro_esperado) as erro:
+        processos.executar_historico_em_processo(_caso(turnos=3), 'ollama', 'simulado', timeout=prazo, _alvo=alvo)
+    assert len(erro.value.chamadas_observadas) == 1
+    assert erro.value.chamadas_observadas[0]['tokens_entrada'] == 11
+    assert multiprocessing.active_children() == []
+
+
+def test_erro_no_terceiro_turno_preserva_os_dois_anteriores_sem_repetir():
+    caso = {**_caso(turnos=3), 'falhar_na_chamada': 3}
+    with pytest.raises(processos.FalhaProcessoHistorico) as erro:
+        processos.executar_historico_em_processo(caso, 'ollama', 'simulado', timeout=20, _alvo=_worker_simulado)
+    assert [c['resposta'] for c in erro.value.chamadas_observadas] == ['Resposta simulada 1', 'Resposta simulada 2']
+    assert sum(c['tokens_entrada'] + c['tokens_saida'] for c in erro.value.chamadas_observadas) == 28
+    assert multiprocessing.active_children() == []
 
 
 def _worker_responde_e_trava(conexao, caso, provedor, modelo):
@@ -167,6 +199,20 @@ def test_erro_do_filho_e_reportado_e_processo_recolhido():
         processos.executar_historico_em_processo(
             caso, "ollama", "modelo-simulado", timeout=20, _alvo=_worker_simulado,
         )
+    assert multiprocessing.active_children() == []
+
+
+def _worker_erro_com_cadeia(conexao, caso, provedor, modelo):
+    conexao.send({'ok': False, 'tipo': 'ProvedorTimeout', 'mensagem': 'timeout simulado',
+                  'tipos_causa': ['ProvedorTimeout', 'ModeloIndisponivelError', 'ReadTimeout']})
+    conexao.close()
+
+
+def test_cadeia_do_erro_atravessa_processo_sem_perder_tipo():
+    with pytest.raises(processos.FalhaProcessoHistorico) as erro:
+        processos.executar_historico_em_processo(_caso(), 'ollama', 'simulado', timeout=20,
+                                                _alvo=_worker_erro_com_cadeia)
+    assert erro.value.tipos_causa == ['ProvedorTimeout', 'ModeloIndisponivelError', 'ReadTimeout']
     assert multiprocessing.active_children() == []
 
 

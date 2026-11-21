@@ -1,5 +1,9 @@
 # Guia de avaliação
 
+**Referência atual — v3:** P6 e validação sintética já executadas; resultados, denominadores e limites em [relatório v3](acertos-tokens-contexto-v3.md). Para repetir com Docker, use o [roteiro atual](reproduzir-avaliacao-v3.md). As seções datadas abaixo conservam protocolos e estados anteriores; pendências antigas não representam o estado atual.
+
+**Rodadas de 18/11:** o [relatório atual](melhorias-avaliacao-20261118.md) documenta desenvolvimento, P6 real e conjunto separado de teste, com comandos, hashes, denominadores e resultados negativos. Para repetir a coleta operacional em nova instância, use `python -B -m tools.executar_p6_local` conforme a [decisão de protocolo](revisao-experimental/decisao-20261118.md). O wrapper `python -B -m src.interface.comparativo` agora aceita `--dataset CAMINHO` e valida as anotações antes de iniciar a API. O baseline desliga a política compacta. A pesquisa e as evidências continuam sujeitas à revisão humana e aos itens finais de entrega.
+
 Como reproduzir as avaliações do projeto e como ler as métricas. Comandos para Windows (PowerShell), na raiz do repositório.
 
 OpenAI opcional: [preparação do chat e comparativo por API](openai-opcional.md), sem pesos Ollama no modo remoto. O wrapper aceita `--provedor openai`; exige chave/créditos no servidor. ChatGPT Free não fornece essa credencial. Integração preparada e testada com SDK simulado, sem rodada real OpenAI nem liberação de P6.
@@ -428,3 +432,59 @@ O modelo local não é determinístico: o mesmo caso pode passar numa repetiçã
 2. Estado estruturado e recuperação equivalente já estão implementados e testados; falta produzir a evidência experimental atual, mantendo a exata como informação complementar.
 3. Rodar a avaliação oficial final com 3 repetições, no commit congelado, e registrar commit, data e hora.
 4. Revisar com Vinicius os metadados P4 ausentes dos dez casos de teste, antes da rodada reservada.
+
+
+## Interface atual: leitura e falhas de medição
+
+O [Manual do Professor](manual-professor.md) descreve o tema Caderno claro/
+escuro, resultados no topo, histórico por perfil, quatro faixas de cenários,
+círculos de fatos e abstenções, barras de tokens e respostas expansíveis em
+cada faixa. Aprovação factual, abstenção necessária, formato, pendência e
+falha técnica continuam separados. A interface não registra aprovação
+humana. P6 mantém seu identificador, roteiro e contratos próprios.
+
+Nas novas rodadas do comparativo, sem memória consulta diretamente o Ollama
+com a pergunta final; relatórios antigos com política local continuam
+identificados e preservados. O wrapper usa limites explícitos e auditáveis:
+na interface, 180 s por consulta nos quatro cenários, API HTTP 210 s e
+supervisão do histórico de 30 + 180 s por turno, com máximo global de 4 h.
+O padrão CLI legado de 60 s permanece disponível. Esses ajustes ocorrem
+nos processos isolados; não alteram a conversa normal nem a P6.
+
+O histórico transmite medições após cada turno concluído. Em timeout ou
+falha, conserva parcelas já recebidas em `tokens_*_observados`; a chamada
+sem retorno mantém consumo desconhecido. Nem ausência de resposta nem
+contagem inválida equivalem a zero. Total completo exige todos os registros;
+o subtotal visual inclui apenas parcelas observadas e não é custo integral.
+A comparação percentual continua usando pares únicos com medição compatível,
+sem preencher pares ausentes. O painel identifica caso/repetição e causa;
+o wrapper sinaliza erro técnico com código não zero e conserva o relatório.
+Os documentos antigos não são reescritos. Consulte
+[medição incompleta e tempo limite](manual-professor.md#medição-incompleta-e-tempo-limite)
+para a distinção entre timeout, reprovação semântica e revisão pendente.
+
+
+### Gerar arquivos próprios sem confundir casos e repetições
+
+Antes de gerar um JSON com uma IA, consulte os
+[limites, atributos aceitos e classificação factual/abstenção](manual-professor.md#limites-para-gerar-um-conjunto-com-ajuda-de-ia).
+A interface aceita 1–20 casos diferentes e 128 KB por conjunto; o julgador
+reconhece uma lista fechada de atributos. DESCONHECIDO esperado por ausência
+ou esquecimento deve ser anotado como abstenção, não recuperação factual.
+O validador estrutural não substitui a revisão dos gabaritos.
+
+Os 48 resultados por cenário do protocolo oficial vêm de 16 casos repetidos
+três vezes, não de um arquivo com 48 casos. Um conjunto de 20 casos com três
+repetições produz 60 tentativas por cenário e 240 nos quatro cenários.
+Não confundir essa contagem com acertos ou chamadas ao modelo. Um arquivo
+de 40 casos deve ser dividido em dois conjuntos de até 20; dividir não
+dispensa corrigir atributos e classificações. Recusa de importação é
+incompatibilidade do conjunto antes da execução, não resultado do agente.
+
+## Consolidação de resultados, sem executar modelos
+
+As médias de 20/11 estão na [consolidação por conjunto/versão](consolidacao-testes-20261120.md). Executar `python evidencias/consolidacao-interface-20261120/recalcular.py` verifica os relatórios preservados e recalcula consumos e reduções sem Docker, rede ou LLM. O histórico oficial de versões, a versão atual e o personalizado têm denominadores distintos; P6 é apresentada por sessão, separadamente. Médias de desenvolvimento não demonstram efeito causal de cada manutenção.
+
+## Informação antiga na resposta final
+
+Cada faixa mostra a [taxa de informação antiga indevida](informacao-antiga-respostas.md), com oportunidades, cobertura e inconclusivos. Maior taxa é pior. “Mostrar respostas” explica a classificação; sem anotações compatíveis não se assume taxa zero. Os resultados antigos, P4/P5 e tokens continuam preservados. A [conferência offline](../evidencias/informacao-antiga-20261121/README.md) não faz chamadas ao modelo. Esta entrega usa Ollama local, sem depender de créditos de API; [OpenAI permanece opcional](openai-opcional.md#escolha-de-provedor-para-a-entrega).

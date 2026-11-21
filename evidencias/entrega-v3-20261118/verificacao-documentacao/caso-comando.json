@@ -1,0 +1,26 @@
+[
+  {
+    "id": "V3T001",
+    "categoria": "recuperacao",
+    "descricao": "Validação sintética v3; valores novos e escopo congelado",
+    "mensagens": [
+      "Moro em Jacareí.",
+      "Em qual cidade eu vivo? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [
+      "Moro em Jacareí."
+    ],
+    "esperado": "Jacareí",
+    "estado_regras_esperado": {
+      "cidade": "Jacareí"
+    },
+    "informacoes_esquecidas": [],
+    "avaliacao": {
+      "tipo_resposta": "factual",
+      "atributo": "cidade",
+      "aliases_aceitos": [],
+      "valores_antigos": [],
+      "informacoes_proibidas": []
+    }
+  }
+]

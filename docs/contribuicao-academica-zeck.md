@@ -1,5 +1,7 @@
 # Contribuição de Zeck para a pesquisa acadêmica
 
+**Referência atual — v3:** P6 e validação sintética já executadas; resultados, denominadores e limites em [relatório v3](acertos-tokens-contexto-v3.md). Para repetir com Docker, use o [roteiro atual](reproduzir-avaliacao-v3.md). As seções datadas abaixo conservam protocolos e estados anteriores; pendências antigas não representam o estado atual.
+
 Preparação em 12/11/2026, atualizada em 14/11. Responsabilidade: agente, provedores, contexto, julgador e avaliação. Este texto alimenta o [rascunho PDF](pesquisa-abnt.pdf), junto ao [complemento](pesquisa-complemento.md) e ao [ensaio de desenvolvimento](ensaio-desenvolvimento-20261114.md). Revisão coletiva, metadados institucionais e P6 ainda pendem; não é submissão final.
 
 Base inicial de 12/11: `master` em `fc759f31f47ca4fb8dc6b28e5b4f5491cddda986`. Estado conferido em 14/11: `2be5d51`, com as PRs #41/#42/#43 integradas. P4-v3, compatibilidade estrutural 21/21, resposta vazia tratada como erro e reset após DELETE individual estão integrados. A suíte desta base teve 827 aprovados e 1 ignorado; a [sondagem real Docker/Ollama](validacao-entrega-docker.md) comprovou o fluxo de armazenamento, mas registrou falhas de abstenção após exclusão. Nenhum desses resultados equivale à P6 final.

@@ -1,0 +1,1422 @@
+{
+  "gerado_em": "2026-11-19T02:16:19.020452+00:00",
+  "versao_metricas_tokens": "p3-uso-local-v1",
+  "dataset": "/saida/caso-validacao-comando.json",
+  "usuario_sintetico": "eval_comparativo",
+  "versao_julgador": "p4-v3",
+  "versao_metricas_resposta": "p5-v1",
+  "observacoes": [
+    "Sem memória envia apenas a pergunta final.",
+    "historico_completo usa AgenteLocal.responder com memorias=[], sem /conversas, extração ou busca de memórias; limpa o histórico local antes e depois de cada caso, inclusive em erro.",
+    "Cada caso de historico_completo executa em processo spawn independente; o limite de histórico é ampliado apenas no filho para preservar todos os turnos do caso.",
+    "Timeout do histórico: automático: 30 + 60 segundos por turno; a supervisão encerra o filho em erro ou timeout.",
+    "memoria_regras_api envia mensagens anteriores pela API, reinicia a sessão antes da pergunta final e preserva as memórias persistidas.",
+    "Os cenários via API continuam processando as regras automáticas de memória em toda chamada a /conversas.",
+    "No histórico local, os campos legados de latência medem a chamada direta ao agente, sem o percurso HTTP da API; essas latências não são equivalentes.",
+    "Memória persistente API é pré-carregada manualmente com o estado esperado do caso.",
+    "Tokens são separados em ingestão conversacional, pergunta final e sessão; entrada, saída e total são reportados independentemente quando conhecidos.",
+    "Valores null são desconhecidos. Subtotais observados não representam custos completos; falhas e timeouts podem ter consumido tokens não recuperáveis pela P1/P2.",
+    "Parcelas já recebidas pelo avaliador são preservadas mesmo em erro; chamadas não devolvidas pelo filho continuam desconhecidas.",
+    "A preparação do estado-ouro, embeddings, regras, armazenamento e infraestrutura não têm seu custo medido em tokens de geração; zero chamadas de ingestão não significa preparação gratuita.",
+    "Comparações usam pares únicos de caso, repetição, provedor e modelo; pré-carregada e sem memória são controles comparados apenas na pergunta final.",
+    "Zeros reportados em chamadas são sinalizados e tratados como desconhecidos, sem economia calculada; zero de ingestão só é conhecido quando não houve chamadas nessa etapa.",
+    "O cenário memoria_regras_api processa mensagens anteriores pela API e mantém as memórias persistidas ao reiniciar a sessão antes da pergunta final.",
+    "O cenário memoria_regras_api avalia a resposta final e a recuperação de memórias pela API; a correção do estado interno não é medida separadamente nesta execução.",
+    "A limpeza remove os dados do usuário sintético ao terminar cada cenário.",
+    "P5 separa recuperação factual da resposta, abstenção e vazamento de alvos esquecidos explícitos; taxas usam julgamentos verificados, com cobertura e não verificados reportados à parte.",
+    "Ausência de vazamento nos controles sem fatos anteriores ou com estado-ouro não comprova aquisição e esquecimento; ocorrências na resposta não medem exclusão completa no armazenamento."
+  ],
+  "resultados": [
+    {
+      "id": "V3T001",
+      "categoria": "recuperacao",
+      "cenario": "sem_memoria",
+      "via": "api",
+      "provedor": "ollama",
+      "modelo": "qwen2.5-coder:3b",
+      "repeticao": 1,
+      "passou": true,
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "abstencao",
+        "acerto_factual": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_de_abstencao"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "abstencao_explicita"
+        },
+        "formato_ok": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "token_literal_DESCONHECIDO"
+        },
+        "proibicao_aplicavel": false,
+        "ocorrencias_proibidas": [],
+        "passou": true,
+        "protocolo_ok": true,
+        "revisao_necessaria": false
+      },
+      "vazamento_esquecidos": {
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "vazou": null,
+        "ocorrencias": [],
+        "motivo": "sem_alvos_esquecidos_anotados"
+      },
+      "protocolo_ok": true,
+      "esperado": "DESCONHECIDO",
+      "resposta": "DESCONHECIDO",
+      "memorias_esperadas": [
+        "Moro em Jacareí."
+      ],
+      "memorias_usadas": [],
+      "recuperacao_memoria_ok": null,
+      "recuperacao_equivalente_ok": null,
+      "estado_regras_esperado": null,
+      "estado_regras_obtido": null,
+      "estado_regras_ok": null,
+      "tempo_execucao_ms": 433.16,
+      "chamadas_modelo": 0,
+      "versao_metricas_tokens": "p3-uso-local-v1",
+      "respostas_locais_confirmadas": 1,
+      "chamadas_com_entrada_zero_nao_verificado": 0,
+      "tokens_entrada": 0,
+      "tokens_entrada_observados": 0,
+      "chamadas_com_entrada": 1,
+      "chamadas_com_saida_zero_nao_verificado": 0,
+      "tokens_saida": 0,
+      "tokens_saida_observados": 0,
+      "chamadas_com_saida": 1,
+      "metricas_completas": true,
+      "tokens_total": 0,
+      "tokens_total_observados": 0,
+      "chamadas_com_tokens_zero": 0,
+      "latencia_api_total_ms": 21,
+      "latencia_api_media_ms": 21,
+      "tokens_por_etapa": {
+        "ingestao": {
+          "chamadas_modelo": 0,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 0,
+          "tokens_entrada_observados": 0,
+          "chamadas_com_entrada": 0,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 0,
+          "tokens_saida_observados": 0,
+          "chamadas_com_saida": 0,
+          "metricas_completas": true,
+          "tokens_total": 0,
+          "tokens_total_observados": 0,
+          "chamadas_com_tokens_zero": 0
+        },
+        "pergunta_final": {
+          "chamadas_modelo": 0,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 1,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 0,
+          "tokens_entrada_observados": 0,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 0,
+          "tokens_saida_observados": 0,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 0,
+          "tokens_total_observados": 0,
+          "chamadas_com_tokens_zero": 0
+        },
+        "sessao": {
+          "chamadas_modelo": 0,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 1,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 0,
+          "tokens_entrada_observados": 0,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 0,
+          "tokens_saida_observados": 0,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 0,
+          "tokens_total_observados": 0,
+          "chamadas_com_tokens_zero": 0
+        }
+      },
+      "preparacao": {
+        "tipo": "sem_fatos_anteriores",
+        "memorias_previstas": 0,
+        "custo_obtencao_estado_ouro": "nao_aplicavel",
+        "custo_total_sistema_medido": false
+      }
+    },
+    {
+      "id": "V3T001",
+      "categoria": "recuperacao",
+      "cenario": "historico_completo",
+      "via": "agente_local",
+      "provedor": "ollama",
+      "modelo": "qwen2.5-coder:3b",
+      "repeticao": 1,
+      "passou": true,
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "valor_aceito"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "valor_isolado_sem_explicacao"
+        },
+        "proibicao_aplicavel": false,
+        "ocorrencias_proibidas": [],
+        "passou": true,
+        "protocolo_ok": true,
+        "revisao_necessaria": false
+      },
+      "vazamento_esquecidos": {
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "vazou": null,
+        "ocorrencias": [],
+        "motivo": "sem_alvos_esquecidos_anotados"
+      },
+      "protocolo_ok": true,
+      "esperado": "Jacareí",
+      "resposta": "Jacareí",
+      "memorias_esperadas": [
+        "Moro em Jacareí."
+      ],
+      "memorias_usadas": [],
+      "recuperacao_memoria_ok": null,
+      "recuperacao_equivalente_ok": null,
+      "estado_regras_esperado": null,
+      "estado_regras_obtido": null,
+      "estado_regras_ok": null,
+      "tempo_execucao_ms": 7846.27,
+      "chamadas_modelo": 2,
+      "versao_metricas_tokens": "p3-uso-local-v1",
+      "respostas_locais_confirmadas": 0,
+      "chamadas_com_entrada_zero_nao_verificado": 0,
+      "tokens_entrada": 601,
+      "tokens_entrada_observados": 601,
+      "chamadas_com_entrada": 2,
+      "chamadas_com_saida_zero_nao_verificado": 0,
+      "tokens_saida": 42,
+      "tokens_saida_observados": 42,
+      "chamadas_com_saida": 2,
+      "metricas_completas": true,
+      "tokens_total": 643,
+      "tokens_total_observados": 643,
+      "chamadas_com_tokens_zero": 0,
+      "latencia_api_total_ms": 5757,
+      "latencia_api_media_ms": 2878.5,
+      "tokens_por_etapa": {
+        "ingestao": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 256,
+          "tokens_entrada_observados": 256,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 38,
+          "tokens_saida_observados": 38,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 294,
+          "tokens_total_observados": 294,
+          "chamadas_com_tokens_zero": 0
+        },
+        "pergunta_final": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 345,
+          "tokens_entrada_observados": 345,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 4,
+          "tokens_saida_observados": 4,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 349,
+          "tokens_total_observados": 349,
+          "chamadas_com_tokens_zero": 0
+        },
+        "sessao": {
+          "chamadas_modelo": 2,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 601,
+          "tokens_entrada_observados": 601,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 42,
+          "tokens_saida_observados": 42,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 643,
+          "tokens_total_observados": 643,
+          "chamadas_com_tokens_zero": 0
+        }
+      },
+      "preparacao": {
+        "tipo": "conversacional",
+        "memorias_previstas": 0,
+        "custo_obtencao_estado_ouro": "nao_aplicavel",
+        "custo_total_sistema_medido": false
+      }
+    },
+    {
+      "id": "V3T001",
+      "categoria": "recuperacao",
+      "cenario": "memoria_persistente_api",
+      "via": "api",
+      "provedor": "ollama",
+      "modelo": "qwen2.5-coder:3b",
+      "repeticao": 1,
+      "passou": true,
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "valor_aceito"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "valor_isolado_sem_explicacao"
+        },
+        "proibicao_aplicavel": false,
+        "ocorrencias_proibidas": [],
+        "passou": true,
+        "protocolo_ok": true,
+        "revisao_necessaria": false
+      },
+      "vazamento_esquecidos": {
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "vazou": null,
+        "ocorrencias": [],
+        "motivo": "sem_alvos_esquecidos_anotados"
+      },
+      "protocolo_ok": true,
+      "esperado": "Jacareí",
+      "resposta": "Jacareí",
+      "memorias_esperadas": [
+        "Moro em Jacareí."
+      ],
+      "memorias_usadas": [
+        "Moro em Jacareí."
+      ],
+      "recuperacao_memoria_ok": true,
+      "recuperacao_equivalente_ok": true,
+      "estado_regras_esperado": null,
+      "estado_regras_obtido": null,
+      "estado_regras_ok": null,
+      "tempo_execucao_ms": 2071.46,
+      "chamadas_modelo": 1,
+      "versao_metricas_tokens": "p3-uso-local-v1",
+      "respostas_locais_confirmadas": 0,
+      "chamadas_com_entrada_zero_nao_verificado": 0,
+      "tokens_entrada": 185,
+      "tokens_entrada_observados": 185,
+      "chamadas_com_entrada": 1,
+      "chamadas_com_saida_zero_nao_verificado": 0,
+      "tokens_saida": 4,
+      "tokens_saida_observados": 4,
+      "chamadas_com_saida": 1,
+      "metricas_completas": true,
+      "tokens_total": 189,
+      "tokens_total_observados": 189,
+      "chamadas_com_tokens_zero": 0,
+      "latencia_api_total_ms": 2032,
+      "latencia_api_media_ms": 2032,
+      "tokens_por_etapa": {
+        "ingestao": {
+          "chamadas_modelo": 0,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 0,
+          "tokens_entrada_observados": 0,
+          "chamadas_com_entrada": 0,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 0,
+          "tokens_saida_observados": 0,
+          "chamadas_com_saida": 0,
+          "metricas_completas": true,
+          "tokens_total": 0,
+          "tokens_total_observados": 0,
+          "chamadas_com_tokens_zero": 0
+        },
+        "pergunta_final": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 185,
+          "tokens_entrada_observados": 185,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 4,
+          "tokens_saida_observados": 4,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 189,
+          "tokens_total_observados": 189,
+          "chamadas_com_tokens_zero": 0
+        },
+        "sessao": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 185,
+          "tokens_entrada_observados": 185,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 4,
+          "tokens_saida_observados": 4,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 189,
+          "tokens_total_observados": 189,
+          "chamadas_com_tokens_zero": 0
+        }
+      },
+      "preparacao": {
+        "tipo": "estado_ouro_pre_carregado",
+        "memorias_previstas": 1,
+        "custo_obtencao_estado_ouro": "nao_medido",
+        "custo_total_sistema_medido": false
+      }
+    },
+    {
+      "id": "V3T001",
+      "categoria": "recuperacao",
+      "cenario": "memoria_regras_api",
+      "via": "api",
+      "provedor": "ollama",
+      "modelo": "qwen2.5-coder:3b",
+      "repeticao": 1,
+      "passou": true,
+      "julgamento": {
+        "versao": "p4-v3",
+        "tipo_resposta": "factual",
+        "acerto_factual": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "valor_aceito"
+        },
+        "sem_informacao_proibida": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "sem_ocorrencia_anotada"
+        },
+        "abstencao_correta": {
+          "status": "nao_aplicavel",
+          "valor": null,
+          "motivo": "caso_factual"
+        },
+        "formato_ok": {
+          "status": "aprovado",
+          "valor": true,
+          "motivo": "valor_isolado_sem_explicacao"
+        },
+        "proibicao_aplicavel": false,
+        "ocorrencias_proibidas": [],
+        "passou": true,
+        "protocolo_ok": true,
+        "revisao_necessaria": false
+      },
+      "vazamento_esquecidos": {
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "vazou": null,
+        "ocorrencias": [],
+        "motivo": "sem_alvos_esquecidos_anotados"
+      },
+      "protocolo_ok": true,
+      "esperado": "Jacareí",
+      "resposta": "Jacareí",
+      "memorias_esperadas": [
+        "Moro em Jacareí."
+      ],
+      "memorias_usadas": [
+        "Mora em Jacareí."
+      ],
+      "recuperacao_memoria_ok": false,
+      "recuperacao_equivalente_ok": true,
+      "estado_regras_esperado": {
+        "cidade": "Jacareí"
+      },
+      "estado_regras_obtido": {
+        "cidade": "Jacareí"
+      },
+      "estado_regras_ok": true,
+      "tempo_execucao_ms": 825.23,
+      "chamadas_modelo": 1,
+      "versao_metricas_tokens": "p3-uso-local-v1",
+      "respostas_locais_confirmadas": 1,
+      "chamadas_com_entrada_zero_nao_verificado": 0,
+      "tokens_entrada": 185,
+      "tokens_entrada_observados": 185,
+      "chamadas_com_entrada": 2,
+      "chamadas_com_saida_zero_nao_verificado": 0,
+      "tokens_saida": 4,
+      "tokens_saida_observados": 4,
+      "chamadas_com_saida": 2,
+      "metricas_completas": true,
+      "tokens_total": 189,
+      "tokens_total_observados": 189,
+      "chamadas_com_tokens_zero": 0,
+      "latencia_api_total_ms": 797,
+      "latencia_api_media_ms": 398.5,
+      "tokens_por_etapa": {
+        "ingestao": {
+          "chamadas_modelo": 0,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 1,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 0,
+          "tokens_entrada_observados": 0,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 0,
+          "tokens_saida_observados": 0,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 0,
+          "tokens_total_observados": 0,
+          "chamadas_com_tokens_zero": 0
+        },
+        "pergunta_final": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 0,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 185,
+          "tokens_entrada_observados": 185,
+          "chamadas_com_entrada": 1,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 4,
+          "tokens_saida_observados": 4,
+          "chamadas_com_saida": 1,
+          "metricas_completas": true,
+          "tokens_total": 189,
+          "tokens_total_observados": 189,
+          "chamadas_com_tokens_zero": 0
+        },
+        "sessao": {
+          "chamadas_modelo": 1,
+          "versao_metricas_tokens": "p3-uso-local-v1",
+          "respostas_locais_confirmadas": 1,
+          "chamadas_com_entrada_zero_nao_verificado": 0,
+          "tokens_entrada": 185,
+          "tokens_entrada_observados": 185,
+          "chamadas_com_entrada": 2,
+          "chamadas_com_saida_zero_nao_verificado": 0,
+          "tokens_saida": 4,
+          "tokens_saida_observados": 4,
+          "chamadas_com_saida": 2,
+          "metricas_completas": true,
+          "tokens_total": 189,
+          "tokens_total_observados": 189,
+          "chamadas_com_tokens_zero": 0
+        }
+      },
+      "preparacao": {
+        "tipo": "conversacional",
+        "memorias_previstas": 0,
+        "custo_obtencao_estado_ouro": "nao_aplicavel",
+        "custo_total_sistema_medido": false
+      }
+    }
+  ],
+  "resumo": {
+    "sem_memoria": {
+      "casos": 1,
+      "executados": 1,
+      "falhas": 0,
+      "aprovados": 1,
+      "taxa_aprovacao_pct": 100.0,
+      "tokens_entrada": 0,
+      "tokens_saida": 0,
+      "tokens_total": 0,
+      "tokens_por_etapa": {
+        "ingestao": {
+          "casos_tentados": 1,
+          "tokens_entrada": 0,
+          "tokens_entrada_observados": 0,
+          "casos_com_tokens_entrada": 1,
+          "tokens_saida": 0,
+          "tokens_saida_observados": 0,
+          "casos_com_tokens_saida": 1,
+          "tokens_total": 0,
+          "tokens_total_observados": 0,
+          "casos_com_tokens_total": 1,
+          "casos_medidos": 1,
+          "casos_desconhecidos": 0,
+          "media_tokens_total_por_caso_medido": 0.0,
+          "casos_com_tokens_zero": 0
+        },
+        "pergunta_final": {
+          "casos_tentados": 1,
+          "tokens_entrada": 0,
+          "tokens_entrada_observados": 0,
+          "casos_com_tokens_entrada": 1,
+          "tokens_saida": 0,
+          "tokens_saida_observados": 0,
+          "casos_com_tokens_saida": 1,
+          "tokens_total": 0,
+          "tokens_total_observados": 0,
+          "casos_com_tokens_total": 1,
+          "casos_medidos": 1,
+          "casos_desconhecidos": 0,
+          "media_tokens_total_por_caso_medido": 0.0,
+          "casos_com_tokens_zero": 0
+        },
+        "sessao": {
+          "casos_tentados": 1,
+          "tokens_entrada": 0,
+          "tokens_entrada_observados": 0,
+          "casos_com_tokens_entrada": 1,
+          "tokens_saida": 0,
+          "tokens_saida_observados": 0,
+          "casos_com_tokens_saida": 1,
+          "tokens_total": 0,
+          "tokens_total_observados": 0,
+          "casos_com_tokens_total": 1,
+          "casos_medidos": 1,
+          "casos_desconhecidos": 0,
+          "media_tokens_total_por_caso_medido": 0.0,
+          "casos_com_tokens_zero": 0
+        }
+      },
+      "julgamento": {
+        "casos_tentados": 1,
+        "acerto_factual": {
+          "casos_considerados": 1,
+          "verificados": 0,
+          "aprovados": 0,
+          "nao_aplicaveis": 1,
+          "nao_verificados": 0,
+          "taxa_aprovacao_pct": null
+        },
+        "sem_informacao_proibida": {
+          "casos_considerados": 0,
+          "verificados": 0,
+          "aprovados": 0,
+          "nao_aplicaveis": 0,
+          "nao_verificados": 0,
+          "taxa_aprovacao_pct": null
+        },
+        "abstencao_correta": {
+          "casos_considerados": 1,
+          "verificados": 1,
+          "aprovados": 1,
+          "nao_aplicaveis": 0,
+          "nao_verificados": 0,
+          "taxa_aprovacao_pct": 100.0
+        },
+        "formato_ok": {
+          "casos_considerados": 1,
+          "verificados": 1,
+          "aprovados": 1,
+          "nao_aplicaveis": 0,
+          "nao_verificados": 0,
+          "taxa_aprovacao_pct": 100.0
+        },
+        "protocolo_ok": 1
+      },
+      "metricas_resposta": {
+        "recuperacao_factual": {
+          "tentativas_elegiveis": 0,
+          "julgamentos_verificados": 0,
+          "numerador": 0,
+          "denominador": 0,
+          "nao_verificados": 0,
+          "nao_aplicaveis": 1,
+          "aplicabilidade_desconhecida": 0,
+          "cobertura_pct": null,
+          "taxa_pct": null
+        },
+        "abstencao_correta": {
+          "tentativas_elegiveis": 1,
+          "julgamentos_verificados": 1,
+          "numerador": 1,
+          "denominador": 1,
+          "nao_verificados": 0,
+          "nao_aplicaveis": 0,
+          "aplicabilidade_desconhecida": 0,
+          "cobertura_pct": 100.0,
+          "taxa_pct": 100.0
+        },
+        "vazamento_esquecidos": {
+          "tentativas_elegiveis": 0,
+          "julgamentos_verificados": 0,
+          "numerador": 0,
+          "denominador": 0,
+          "nao_verificados": 0,
+          "nao_aplicaveis": 1,
+          "aplicabilidade_desconhecida": 0,
+          "cobertura_pct": null,
+          "taxa_pct": null
+        }
+      },
+      "casos_com_metricas_incompletas": 0,
+      "latencia_api_media_por_caso_ms": 21.0,
+      "casos_com_memoria_esperada": 0,
+      "memorias_recuperadas_exatamente": 0,
+      "taxa_recuperacao_exata_pct": null,
+      "memorias_recuperadas_equivalentes": 0,
+      "taxa_recuperacao_equivalente_pct": null,
+      "casos_sem_memoria_esperada": 0,
+      "casos_sem_residuos_memoria": 0,
+      "estados_regras_verificados": 0,
+      "estados_regras_corretos": 0
+    },
+    "historico_completo": {
+      "casos": 1,
+      "executados": 1,
+      "falhas": 0,
+      "aprovados": 1,
+      "taxa_aprovacao_pct": 100.0,
+      "tokens_entrada": 601,
+      "tokens_saida": 42,
+      "tokens_total": 643,
+      "tokens_por_etapa": {
+        "ingestao": {
+          "casos_tentados": 1,
+          "tokens_entrada": 256,
+          "tokens_entrada_observados": 256,
+          "casos_com_tokens_entrada": 1,
+          "tokens_saida": 38,
+          "tokens_saida_observados": 38,
+          "casos_com_tokens_saida": 1,
+          "tokens_total": 294,
+          "tokens_total_observados": 294,
+          "casos_com_tokens_total": 1,
+          "casos_medidos": 1,
+          "casos_desconhecidos": 0,
+          "media_tokens_total_por_caso_medido": 294.0,
+          "casos_com_tokens_zero": 0
+        },
+        "pergunta_final": {
+          "casos_tentados": 1,
+          "tokens_entrada": 345,
+          "tokens_entrada_observados": 345,
+          "casos_com_tokens_entrada": 1,
+          "tokens_saida": 4,
+          "tokens_saida_observados": 4,
+          "casos_com_tokens_saida": 1,
+          "tokens_total": 349,
+          "tokens_total_observados": 349,
+          "casos_com_tokens_total": 1,
+          "casos_medidos": 1,
+          "casos_desconhecidos": 0,
+          "media_tokens_total_por_caso_medido": 349.0,
+          "casos_com_tokens_zero": 0
+        },
+        "sessao": {
+          "casos_tentados": 1,
+          "tokens_entrada": 601,
+          "tokens_entrada_observados": 601,
+          "casos_com_tokens_entrada": 1,
+          "tokens_saida": 42,
+          "tokens_saida_observados": 42,
+          "casos_com_tokens_saida": 1,
+          "tokens_total": 643,
+          "tokens_total_observados": 643,
+          "casos_com_tokens_total": 1,
+          "casos_medidos": 1,
+          "casos_desconhecidos": 0,
+          "media_tokens_total_por_caso_medido": 643.0,
+          "casos_com_tokens_zero": 0
+        }
+      },
+      "julgamento": {
+        "casos_tentados": 1,
+        "acerto_factual": {
+          "casos_considerados": 1,
+          "verificados": 1,
+          "aprovados": 1,
+          "nao_aplicaveis": 0,
+          "nao_verificados": 0,
+          "taxa_aprovacao_pct": 100.0
+        },
+        "sem_informacao_proibida": {
+          "casos_considerados": 0,
+          "verificados": 0,
+          "aprovados": 0,
+          "nao_aplicaveis": 0,
+          "nao_verificados": 0,
+          "taxa_aprovacao_pct": null
+        },
+        "abstencao_correta": {
+          "casos_considerados": 1,
+          "verificados": 0,
+          "aprovados": 0,
+          "nao_aplicaveis": 1,
+          "nao_verificados": 0,
+          "taxa_aprovacao_pct": null
+        },
+        "formato_ok": {
+          "casos_considerados": 1,
+          "verificados": 1,
+          "aprovados": 1,
+          "nao_aplicaveis": 0,
+          "nao_verificados": 0,
+          "taxa_aprovacao_pct": 100.0
+        },
+        "protocolo_ok": 1
+      },
+      "metricas_resposta": {
+        "recuperacao_factual": {
+          "tentativas_elegiveis": 1,
+          "julgamentos_verificados": 1,
+          "numerador": 1,
+          "denominador": 1,
+          "nao_verificados": 0,
+          "nao_aplicaveis": 0,
+          "aplicabilidade_desconhecida": 0,
+          "cobertura_pct": 100.0,
+          "taxa_pct": 100.0
+        },
+        "abstencao_correta": {
+          "tentativas_elegiveis": 0,
+          "julgamentos_verificados": 0,
+          "numerador": 0,
+          "denominador": 0,
+          "nao_verificados": 0,
+          "nao_aplicaveis": 1,
+          "aplicabilidade_desconhecida": 0,
+          "cobertura_pct": null,
+          "taxa_pct": null
+        },
+        "vazamento_esquecidos": {
+          "tentativas_elegiveis": 0,
+          "julgamentos_verificados": 0,
+          "numerador": 0,
+          "denominador": 0,
+          "nao_verificados": 0,
+          "nao_aplicaveis": 1,
+          "aplicabilidade_desconhecida": 0,
+          "cobertura_pct": null,
+          "taxa_pct": null
+        }
+      },
+      "casos_com_metricas_incompletas": 0,
+      "latencia_api_media_por_caso_ms": 5757.0,
+      "casos_com_memoria_esperada": 0,
+      "memorias_recuperadas_exatamente": 0,
+      "taxa_recuperacao_exata_pct": null,
+      "memorias_recuperadas_equivalentes": 0,
+      "taxa_recuperacao_equivalente_pct": null,
+      "casos_sem_memoria_esperada": 0,
+      "casos_sem_residuos_memoria": 0,
+      "estados_regras_verificados": 0,
+      "estados_regras_corretos": 0
+    },
+    "memoria_persistente_api": {
+      "casos": 1,
+      "executados": 1,
+      "falhas": 0,
+      "aprovados": 1,
+      "taxa_aprovacao_pct": 100.0,
+      "tokens_entrada": 185,
+      "tokens_saida": 4,
+      "tokens_total": 189,
+      "tokens_por_etapa": {
+        "ingestao": {
+          "casos_tentados": 1,
+          "tokens_entrada": 0,
+          "tokens_entrada_observados": 0,
+          "casos_com_tokens_entrada": 1,
+          "tokens_saida": 0,
+          "tokens_saida_observados": 0,
+          "casos_com_tokens_saida": 1,
+          "tokens_total": 0,
+          "tokens_total_observados": 0,
+          "casos_com_tokens_total": 1,
+          "casos_medidos": 1,
+          "casos_desconhecidos": 0,
+          "media_tokens_total_por_caso_medido": 0.0,
+          "casos_com_tokens_zero": 0
+        },
+        "pergunta_final": {
+          "casos_tentados": 1,
+          "tokens_entrada": 185,
+          "tokens_entrada_observados": 185,
+          "casos_com_tokens_entrada": 1,
+          "tokens_saida": 4,
+          "tokens_saida_observados": 4,
+          "casos_com_tokens_saida": 1,
+          "tokens_total": 189,
+          "tokens_total_observados": 189,
+          "casos_com_tokens_total": 1,
+          "casos_medidos": 1,
+          "casos_desconhecidos": 0,
+          "media_tokens_total_por_caso_medido": 189.0,
+          "casos_com_tokens_zero": 0
+        },
+        "sessao": {
+          "casos_tentados": 1,
+          "tokens_entrada": 185,
+          "tokens_entrada_observados": 185,
+          "casos_com_tokens_entrada": 1,
+          "tokens_saida": 4,
+          "tokens_saida_observados": 4,
+          "casos_com_tokens_saida": 1,
+          "tokens_total": 189,
+          "tokens_total_observados": 189,
+          "casos_com_tokens_total": 1,
+          "casos_medidos": 1,
+          "casos_desconhecidos": 0,
+          "media_tokens_total_por_caso_medido": 189.0,
+          "casos_com_tokens_zero": 0
+        }
+      },
+      "julgamento": {
+        "casos_tentados": 1,
+        "acerto_factual": {
+          "casos_considerados": 1,
+          "verificados": 1,
+          "aprovados": 1,
+          "nao_aplicaveis": 0,
+          "nao_verificados": 0,
+          "taxa_aprovacao_pct": 100.0
+        },
+        "sem_informacao_proibida": {
+          "casos_considerados": 0,
+          "verificados": 0,
+          "aprovados": 0,
+          "nao_aplicaveis": 0,
+          "nao_verificados": 0,
+          "taxa_aprovacao_pct": null
+        },
+        "abstencao_correta": {
+          "casos_considerados": 1,
+          "verificados": 0,
+          "aprovados": 0,
+          "nao_aplicaveis": 1,
+          "nao_verificados": 0,
+          "taxa_aprovacao_pct": null
+        },
+        "formato_ok": {
+          "casos_considerados": 1,
+          "verificados": 1,
+          "aprovados": 1,
+          "nao_aplicaveis": 0,
+          "nao_verificados": 0,
+          "taxa_aprovacao_pct": 100.0
+        },
+        "protocolo_ok": 1
+      },
+      "metricas_resposta": {
+        "recuperacao_factual": {
+          "tentativas_elegiveis": 1,
+          "julgamentos_verificados": 1,
+          "numerador": 1,
+          "denominador": 1,
+          "nao_verificados": 0,
+          "nao_aplicaveis": 0,
+          "aplicabilidade_desconhecida": 0,
+          "cobertura_pct": 100.0,
+          "taxa_pct": 100.0
+        },
+        "abstencao_correta": {
+          "tentativas_elegiveis": 0,
+          "julgamentos_verificados": 0,
+          "numerador": 0,
+          "denominador": 0,
+          "nao_verificados": 0,
+          "nao_aplicaveis": 1,
+          "aplicabilidade_desconhecida": 0,
+          "cobertura_pct": null,
+          "taxa_pct": null
+        },
+        "vazamento_esquecidos": {
+          "tentativas_elegiveis": 0,
+          "julgamentos_verificados": 0,
+          "numerador": 0,
+          "denominador": 0,
+          "nao_verificados": 0,
+          "nao_aplicaveis": 1,
+          "aplicabilidade_desconhecida": 0,
+          "cobertura_pct": null,
+          "taxa_pct": null
+        }
+      },
+      "casos_com_metricas_incompletas": 0,
+      "latencia_api_media_por_caso_ms": 2032.0,
+      "casos_com_memoria_esperada": 1,
+      "memorias_recuperadas_exatamente": 1,
+      "taxa_recuperacao_exata_pct": 100.0,
+      "memorias_recuperadas_equivalentes": 1,
+      "taxa_recuperacao_equivalente_pct": 100.0,
+      "casos_sem_memoria_esperada": 0,
+      "casos_sem_residuos_memoria": 0,
+      "estados_regras_verificados": 0,
+      "estados_regras_corretos": 0
+    },
+    "memoria_regras_api": {
+      "casos": 1,
+      "executados": 1,
+      "falhas": 0,
+      "aprovados": 1,
+      "taxa_aprovacao_pct": 100.0,
+      "tokens_entrada": 185,
+      "tokens_saida": 4,
+      "tokens_total": 189,
+      "tokens_por_etapa": {
+        "ingestao": {
+          "casos_tentados": 1,
+          "tokens_entrada": 0,
+          "tokens_entrada_observados": 0,
+          "casos_com_tokens_entrada": 1,
+          "tokens_saida": 0,
+          "tokens_saida_observados": 0,
+          "casos_com_tokens_saida": 1,
+          "tokens_total": 0,
+          "tokens_total_observados": 0,
+          "casos_com_tokens_total": 1,
+          "casos_medidos": 1,
+          "casos_desconhecidos": 0,
+          "media_tokens_total_por_caso_medido": 0.0,
+          "casos_com_tokens_zero": 0
+        },
+        "pergunta_final": {
+          "casos_tentados": 1,
+          "tokens_entrada": 185,
+          "tokens_entrada_observados": 185,
+          "casos_com_tokens_entrada": 1,
+          "tokens_saida": 4,
+          "tokens_saida_observados": 4,
+          "casos_com_tokens_saida": 1,
+          "tokens_total": 189,
+          "tokens_total_observados": 189,
+          "casos_com_tokens_total": 1,
+          "casos_medidos": 1,
+          "casos_desconhecidos": 0,
+          "media_tokens_total_por_caso_medido": 189.0,
+          "casos_com_tokens_zero": 0
+        },
+        "sessao": {
+          "casos_tentados": 1,
+          "tokens_entrada": 185,
+          "tokens_entrada_observados": 185,
+          "casos_com_tokens_entrada": 1,
+          "tokens_saida": 4,
+          "tokens_saida_observados": 4,
+          "casos_com_tokens_saida": 1,
+          "tokens_total": 189,
+          "tokens_total_observados": 189,
+          "casos_com_tokens_total": 1,
+          "casos_medidos": 1,
+          "casos_desconhecidos": 0,
+          "media_tokens_total_por_caso_medido": 189.0,
+          "casos_com_tokens_zero": 0
+        }
+      },
+      "julgamento": {
+        "casos_tentados": 1,
+        "acerto_factual": {
+          "casos_considerados": 1,
+          "verificados": 1,
+          "aprovados": 1,
+          "nao_aplicaveis": 0,
+          "nao_verificados": 0,
+          "taxa_aprovacao_pct": 100.0
+        },
+        "sem_informacao_proibida": {
+          "casos_considerados": 0,
+          "verificados": 0,
+          "aprovados": 0,
+          "nao_aplicaveis": 0,
+          "nao_verificados": 0,
+          "taxa_aprovacao_pct": null
+        },
+        "abstencao_correta": {
+          "casos_considerados": 1,
+          "verificados": 0,
+          "aprovados": 0,
+          "nao_aplicaveis": 1,
+          "nao_verificados": 0,
+          "taxa_aprovacao_pct": null
+        },
+        "formato_ok": {
+          "casos_considerados": 1,
+          "verificados": 1,
+          "aprovados": 1,
+          "nao_aplicaveis": 0,
+          "nao_verificados": 0,
+          "taxa_aprovacao_pct": 100.0
+        },
+        "protocolo_ok": 1
+      },
+      "metricas_resposta": {
+        "recuperacao_factual": {
+          "tentativas_elegiveis": 1,
+          "julgamentos_verificados": 1,
+          "numerador": 1,
+          "denominador": 1,
+          "nao_verificados": 0,
+          "nao_aplicaveis": 0,
+          "aplicabilidade_desconhecida": 0,
+          "cobertura_pct": 100.0,
+          "taxa_pct": 100.0
+        },
+        "abstencao_correta": {
+          "tentativas_elegiveis": 0,
+          "julgamentos_verificados": 0,
+          "numerador": 0,
+          "denominador": 0,
+          "nao_verificados": 0,
+          "nao_aplicaveis": 1,
+          "aplicabilidade_desconhecida": 0,
+          "cobertura_pct": null,
+          "taxa_pct": null
+        },
+        "vazamento_esquecidos": {
+          "tentativas_elegiveis": 0,
+          "julgamentos_verificados": 0,
+          "numerador": 0,
+          "denominador": 0,
+          "nao_verificados": 0,
+          "nao_aplicaveis": 1,
+          "aplicabilidade_desconhecida": 0,
+          "cobertura_pct": null,
+          "taxa_pct": null
+        }
+      },
+      "casos_com_metricas_incompletas": 0,
+      "latencia_api_media_por_caso_ms": 797.0,
+      "casos_com_memoria_esperada": 1,
+      "memorias_recuperadas_exatamente": 0,
+      "taxa_recuperacao_exata_pct": 0.0,
+      "memorias_recuperadas_equivalentes": 1,
+      "taxa_recuperacao_equivalente_pct": 100.0,
+      "casos_sem_memoria_esperada": 0,
+      "casos_sem_residuos_memoria": 0,
+      "estados_regras_verificados": 1,
+      "estados_regras_corretos": 1
+    }
+  },
+  "comparacoes_tokens": {
+    "sem_memoria": {
+      "pergunta_final": {
+        "tokens_entrada": {
+          "pares_identificados": 1,
+          "chaves_duplicadas_descartadas": 0,
+          "pares_medidos": 1,
+          "pares_sem_medicao": 0,
+          "casos_repeticoes": [
+            {
+              "id": "V3T001",
+              "repeticao": 1,
+              "provedor": "ollama",
+              "modelo": "qwen2.5-coder:3b"
+            }
+          ],
+          "tokens_historico": 345,
+          "tokens_cenario": 0,
+          "reducao_pct": 100.0
+        },
+        "tokens_saida": {
+          "pares_identificados": 1,
+          "chaves_duplicadas_descartadas": 0,
+          "pares_medidos": 1,
+          "pares_sem_medicao": 0,
+          "casos_repeticoes": [
+            {
+              "id": "V3T001",
+              "repeticao": 1,
+              "provedor": "ollama",
+              "modelo": "qwen2.5-coder:3b"
+            }
+          ],
+          "tokens_historico": 4,
+          "tokens_cenario": 0,
+          "reducao_pct": 100.0
+        },
+        "tokens_total": {
+          "pares_identificados": 1,
+          "chaves_duplicadas_descartadas": 0,
+          "pares_medidos": 1,
+          "pares_sem_medicao": 0,
+          "casos_repeticoes": [
+            {
+              "id": "V3T001",
+              "repeticao": 1,
+              "provedor": "ollama",
+              "modelo": "qwen2.5-coder:3b"
+            }
+          ],
+          "tokens_historico": 349,
+          "tokens_cenario": 0,
+          "reducao_pct": 100.0
+        }
+      }
+    },
+    "memoria_persistente_api": {
+      "pergunta_final": {
+        "tokens_entrada": {
+          "pares_identificados": 1,
+          "chaves_duplicadas_descartadas": 0,
+          "pares_medidos": 1,
+          "pares_sem_medicao": 0,
+          "casos_repeticoes": [
+            {
+              "id": "V3T001",
+              "repeticao": 1,
+              "provedor": "ollama",
+              "modelo": "qwen2.5-coder:3b"
+            }
+          ],
+          "tokens_historico": 345,
+          "tokens_cenario": 185,
+          "reducao_pct": 46.38
+        },
+        "tokens_saida": {
+          "pares_identificados": 1,
+          "chaves_duplicadas_descartadas": 0,
+          "pares_medidos": 1,
+          "pares_sem_medicao": 0,
+          "casos_repeticoes": [
+            {
+              "id": "V3T001",
+              "repeticao": 1,
+              "provedor": "ollama",
+              "modelo": "qwen2.5-coder:3b"
+            }
+          ],
+          "tokens_historico": 4,
+          "tokens_cenario": 4,
+          "reducao_pct": 0.0
+        },
+        "tokens_total": {
+          "pares_identificados": 1,
+          "chaves_duplicadas_descartadas": 0,
+          "pares_medidos": 1,
+          "pares_sem_medicao": 0,
+          "casos_repeticoes": [
+            {
+              "id": "V3T001",
+              "repeticao": 1,
+              "provedor": "ollama",
+              "modelo": "qwen2.5-coder:3b"
+            }
+          ],
+          "tokens_historico": 349,
+          "tokens_cenario": 189,
+          "reducao_pct": 45.85
+        }
+      }
+    },
+    "memoria_regras_api": {
+      "ingestao": {
+        "tokens_entrada": {
+          "pares_identificados": 1,
+          "chaves_duplicadas_descartadas": 0,
+          "pares_medidos": 1,
+          "pares_sem_medicao": 0,
+          "casos_repeticoes": [
+            {
+              "id": "V3T001",
+              "repeticao": 1,
+              "provedor": "ollama",
+              "modelo": "qwen2.5-coder:3b"
+            }
+          ],
+          "tokens_historico": 256,
+          "tokens_cenario": 0,
+          "reducao_pct": 100.0
+        },
+        "tokens_saida": {
+          "pares_identificados": 1,
+          "chaves_duplicadas_descartadas": 0,
+          "pares_medidos": 1,
+          "pares_sem_medicao": 0,
+          "casos_repeticoes": [
+            {
+              "id": "V3T001",
+              "repeticao": 1,
+              "provedor": "ollama",
+              "modelo": "qwen2.5-coder:3b"
+            }
+          ],
+          "tokens_historico": 38,
+          "tokens_cenario": 0,
+          "reducao_pct": 100.0
+        },
+        "tokens_total": {
+          "pares_identificados": 1,
+          "chaves_duplicadas_descartadas": 0,
+          "pares_medidos": 1,
+          "pares_sem_medicao": 0,
+          "casos_repeticoes": [
+            {
+              "id": "V3T001",
+              "repeticao": 1,
+              "provedor": "ollama",
+              "modelo": "qwen2.5-coder:3b"
+            }
+          ],
+          "tokens_historico": 294,
+          "tokens_cenario": 0,
+          "reducao_pct": 100.0
+        }
+      },
+      "pergunta_final": {
+        "tokens_entrada": {
+          "pares_identificados": 1,
+          "chaves_duplicadas_descartadas": 0,
+          "pares_medidos": 1,
+          "pares_sem_medicao": 0,
+          "casos_repeticoes": [
+            {
+              "id": "V3T001",
+              "repeticao": 1,
+              "provedor": "ollama",
+              "modelo": "qwen2.5-coder:3b"
+            }
+          ],
+          "tokens_historico": 345,
+          "tokens_cenario": 185,
+          "reducao_pct": 46.38
+        },
+        "tokens_saida": {
+          "pares_identificados": 1,
+          "chaves_duplicadas_descartadas": 0,
+          "pares_medidos": 1,
+          "pares_sem_medicao": 0,
+          "casos_repeticoes": [
+            {
+              "id": "V3T001",
+              "repeticao": 1,
+              "provedor": "ollama",
+              "modelo": "qwen2.5-coder:3b"
+            }
+          ],
+          "tokens_historico": 4,
+          "tokens_cenario": 4,
+          "reducao_pct": 0.0
+        },
+        "tokens_total": {
+          "pares_identificados": 1,
+          "chaves_duplicadas_descartadas": 0,
+          "pares_medidos": 1,
+          "pares_sem_medicao": 0,
+          "casos_repeticoes": [
+            {
+              "id": "V3T001",
+              "repeticao": 1,
+              "provedor": "ollama",
+              "modelo": "qwen2.5-coder:3b"
+            }
+          ],
+          "tokens_historico": 349,
+          "tokens_cenario": 189,
+          "reducao_pct": 45.85
+        }
+      },
+      "sessao": {
+        "tokens_entrada": {
+          "pares_identificados": 1,
+          "chaves_duplicadas_descartadas": 0,
+          "pares_medidos": 1,
+          "pares_sem_medicao": 0,
+          "casos_repeticoes": [
+            {
+              "id": "V3T001",
+              "repeticao": 1,
+              "provedor": "ollama",
+              "modelo": "qwen2.5-coder:3b"
+            }
+          ],
+          "tokens_historico": 601,
+          "tokens_cenario": 185,
+          "reducao_pct": 69.22
+        },
+        "tokens_saida": {
+          "pares_identificados": 1,
+          "chaves_duplicadas_descartadas": 0,
+          "pares_medidos": 1,
+          "pares_sem_medicao": 0,
+          "casos_repeticoes": [
+            {
+              "id": "V3T001",
+              "repeticao": 1,
+              "provedor": "ollama",
+              "modelo": "qwen2.5-coder:3b"
+            }
+          ],
+          "tokens_historico": 42,
+          "tokens_cenario": 4,
+          "reducao_pct": 90.48
+        },
+        "tokens_total": {
+          "pares_identificados": 1,
+          "chaves_duplicadas_descartadas": 0,
+          "pares_medidos": 1,
+          "pares_sem_medicao": 0,
+          "casos_repeticoes": [
+            {
+              "id": "V3T001",
+              "repeticao": 1,
+              "provedor": "ollama",
+              "modelo": "qwen2.5-coder:3b"
+            }
+          ],
+          "tokens_historico": 643,
+          "tokens_cenario": 189,
+          "reducao_pct": 70.61
+        }
+      }
+    }
+  }
+}

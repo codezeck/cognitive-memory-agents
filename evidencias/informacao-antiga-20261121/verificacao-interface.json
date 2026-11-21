@@ -1,0 +1,10 @@
+{
+  "origem": "replay de cópia sintética do relatório, sem modelo real",
+  "vistas": [
+    "claro",
+    "escuro",
+    "celular"
+  ],
+  "taxa_cobertura_inconclusivos_detalhes": "aprovados",
+  "nao_repete_avaliacao_ao_ler": true
+}

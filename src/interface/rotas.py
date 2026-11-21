@@ -6,11 +6,13 @@ import os
 import re
 from pathlib import Path
 from urllib.parse import quote, urlsplit
+from typing import Literal
 
 import httpx
-from fastapi import APIRouter, Depends, HTTPException, Request
+from fastapi import APIRouter, Depends, HTTPException, Request, Query
 from fastapi.responses import FileResponse, JSONResponse, Response
 from fastapi.security import HTTPAuthorizationCredentials
+from fastapi.routing import APIRoute
 from pydantic import BaseModel, ConfigDict, Field
 
 from src.api.dependencias import get_catalogo
@@ -18,8 +20,29 @@ from src.api.erros import AcessoNegado, NaoAutenticado
 from src.api.schemas import ID_REGEX, MemoriaIdPath
 from src.api.seguranca import usuario_autenticado
 from src.interface import avaliacoes
+from src.interface.analise import analisar_tarefa
+from src.interface.protocolos import LIMITE_BYTES, fonte_v3, roteiros, validar_casos
 
-router = APIRouter(prefix="/interface", include_in_schema=False)
+class RotaLimitada(APIRoute):
+    def get_route_handler(self):
+        original = super().get_route_handler()
+
+        async def limitado(request: Request):
+            if request.method == 'POST' and request.url.path in {'/interface/avaliacoes', '/interface/conjuntos/validar', '/interface/relatorios/analise'}:
+                partes, total = [], 0
+                limite = 8 * 1024 * 1024 if request.url.path == '/interface/relatorios/analise' else LIMITE_BYTES + 16 * 1024
+                async for parte in request.stream():
+                    total += len(parte)
+                    if total > limite:
+                        raise HTTPException(413, 'Relatório excede 8 MB.' if request.url.path == '/interface/relatorios/analise' else 'Arquivo muito grande: use um conjunto JSON de até 128 KB.')
+                    partes.append(parte)
+                request._body = b''.join(partes)
+            return await original(request)
+
+        return limitado
+
+
+router = APIRouter(prefix="/interface", include_in_schema=False, route_class=RotaLimitada)
 PASTA = Path(__file__).parent / "static"
 COOKIE = "cma_acesso"
 
@@ -71,7 +94,19 @@ class EntradaConsulta(BaseModel):
 class EntradaAvaliacao(BaseModel):
     model_config = ConfigDict(extra="forbid")
     modelo: str = Field(min_length=1, max_length=100)
-    repeticoes: int = Field(default=1, ge=1, le=3)
+    repeticoes: int = Field(default=1, strict=True, ge=1, le=3)
+    protocolo: Literal['comparativo_v3', 'p6'] = 'comparativo_v3'
+    casos: list[dict] | None = Field(default=None, min_length=1, max_length=20)
+
+
+class EntradaConjunto(BaseModel):
+    model_config = ConfigDict(extra='forbid')
+    casos: list[dict] = Field(min_length=1, max_length=20)
+
+
+class EntradaRelatorio(BaseModel):
+    model_config = ConfigDict(extra='forbid')
+    documento: dict
 
 
 def mesma_origem(request: Request):
@@ -98,6 +133,39 @@ def credencial(request: Request) -> tuple[str, str]:
 def _sem_cache(response: Response) -> Response:
     response.headers["Cache-Control"] = "no-store"
     return response
+
+
+@router.post('/conjuntos/validar')
+def validar_conjunto(corpo: EntradaConjunto, auth=Depends(credencial)):
+    try:
+        validar_casos(corpo.casos)
+    except ValueError as erro:
+        raise HTTPException(422, str(erro)) from None
+    return _sem_cache(JSONResponse({'valido': True, 'casos': corpo.casos,
+                                   'quantidade': len(corpo.casos), 'limite_bytes': LIMITE_BYTES}))
+
+
+@router.get('/roteiros')
+def consultar_roteiros(auth=Depends(credencial)):
+    return _sem_cache(JSONResponse({'protocolos': roteiros()}))
+
+
+@router.post('/relatorios/analise')
+def analisar_relatorio(corpo: EntradaRelatorio, auth=Depends(credencial)):
+    return _sem_cache(JSONResponse(analisar_tarefa(corpo.documento)))
+
+
+@router.get('/conjuntos/exemplo')
+def baixar_exemplo(auth=Depends(credencial)):
+    # Um exemplo real do conjunto oficial; 1/3 repetições são opções de execução.
+    return _sem_cache(JSONResponse(fonte_v3()[:1], headers={
+        'Content-Disposition': 'attachment; filename="modelo-casos-comparativo.json"'}))
+
+
+@router.get('/conjuntos/oficial')
+def baixar_conjunto_oficial(auth=Depends(credencial)):
+    return _sem_cache(JSONResponse(fonte_v3(), headers={
+        'Content-Disposition': 'attachment; filename="dataset-validacao-v3.json"'}))
 
 
 @router.post("/demonstracao", dependencies=[Depends(mesma_origem)])
@@ -209,22 +277,34 @@ async def disponibilidade(auth=Depends(credencial), catalogo=Depends(get_catalog
         "api": "disponivel", "ollama": estado, "modelos_instalados": instalados,
         "modelos": modelos,
         "comparativo_liberado": os.getenv("HABILITAR_COMPARATIVO_INTERFACE") == "1",
+        "impedimento_avaliacao": avaliacoes.impedimento(),
+        "avaliacao_ativa": avaliacoes.ativa(auth[1]),
     }))
 
 
 @router.post("/avaliacoes")
 def iniciar_avaliacao(
-    corpo: EntradaAvaliacao, auth=Depends(credencial), catalogo=Depends(get_catalogo),
+    corpo: EntradaAvaliacao, request: Request, auth=Depends(credencial), catalogo=Depends(get_catalogo),
 ):
+    if request.url.hostname not in {'localhost', '127.0.0.1', '::1'}:
+        raise AcessoNegado('Avaliações pela interface são exclusivas do endereço local da aplicação.')
     catalogo.resolver("ollama", corpo.modelo)
     return _sem_cache(JSONResponse(
-        avaliacoes.iniciar(auth[1], corpo.modelo, corpo.repeticoes), status_code=202,
+        avaliacoes.iniciar(auth[1], corpo.modelo, corpo.repeticoes, corpo.protocolo, corpo.casos), status_code=202,
     ))
+
+
+@router.get('/avaliacoes')
+def historico_avaliacoes(deslocamento: int = Query(default=0, ge=0),
+                        limite: int = Query(default=20, ge=1, le=50), auth=Depends(credencial)):
+    return _sem_cache(JSONResponse(avaliacoes.listar(auth[1], deslocamento, limite)))
 
 
 @router.get("/avaliacoes/{codigo}")
 def consultar_avaliacao(codigo: str, auth=Depends(credencial)):
     documento, _ = avaliacoes.consultar(codigo, auth[1])
+    if isinstance(documento.get('relatorio'), dict):
+        documento['relatorio'] = {**documento['relatorio'], 'analise_tarefa': analisar_tarefa(documento['relatorio'])}
     return _sem_cache(JSONResponse(documento))
 
 
@@ -233,4 +313,4 @@ def baixar_relatorio(codigo: str, auth=Depends(credencial)):
     documento, caminho = avaliacoes.consultar(codigo, auth[1])
     if caminho is None:
         raise HTTPException(409, documento.get("mensagem", "A avaliação ainda está em andamento."))
-    return _sem_cache(FileResponse(caminho, media_type="application/json", filename="comparativo-memoria.json"))
+    return _sem_cache(FileResponse(caminho, media_type="application/json", filename="avaliacao-memoria.json"))

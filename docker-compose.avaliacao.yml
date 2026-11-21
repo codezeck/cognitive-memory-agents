@@ -1,0 +1,27 @@
+# Executar junto com docker-compose.yml. Não publica portas nem monta o banco da demo.
+services:
+  avaliacao:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /trabalho
+    entrypoint: ["python", "-B"]
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+      LLM_PROVIDER: ollama
+      LLM_MODEL: qwen2.5-coder:3b
+      OPENAI_API_KEY: ""
+      API_TOKENS: ""
+      API_TOKENS_FILE: ""
+      MODO_DEMONSTRACAO: "0"
+      USAR_FALSOS: "0"
+      PYTHONDONTWRITEBYTECODE: "1"
+    volumes:
+      - ./src:/trabalho/src:ro
+      - ./eval:/trabalho/eval:ro
+      - ./tools:/trabalho/tools:ro
+      - ./docs/revisao-experimental:/trabalho/docs/revisao-experimental:ro
+      - ./.env.reproducoes:/saida
+    depends_on:
+      preparar:
+        condition: service_completed_successfully

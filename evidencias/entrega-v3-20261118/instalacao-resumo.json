@@ -1,0 +1,19 @@
+{
+  "instante_registro_utc": "2026-11-19T01:22:22.421546+00:00",
+  "commit": "8b89b4b33bd9697ce3cf9b98506a1944b61b8edd",
+  "copia": ".env.instalacao-candidata-v3",
+  "checkout_limpo": true,
+  "comando_manual": ".\\Iniciar.ps1 -Porta 18003 -Projeto cma-candidata-v3 -SemAbrir",
+  "sem_abrir": "Somente suprime abertura automática do navegador; preparo e validação da API são os mesmos.",
+  "porta": 18003,
+  "projeto": "cma-candidata-v3",
+  "novo_volume_modelos": true,
+  "imagens_camadas_cache": true,
+  "download_pesos_observado_bytes": 1929903072,
+  "resultado": "Aplicação pronta, HTTP 200 e 19 verificações do percurso aprovadas",
+  "novas_capturas_ui": false,
+  "log_sha256": "927cac56fcd67c9677a6b69f1d41ca523ac2fcf1187a32e55dd2fa5449a99234",
+  "log_formato": "UTF-8 derivado sem alterar o texto; stdout original UTF-16 preservado",
+  "log_original": "instalacao-manual-raw-utf16.log",
+  "log_original_sha256": "2eb2ceb9b4b19e770f5b3ec09da0114dd0caf6f03c623318e0f3b05d9b791374"
+}

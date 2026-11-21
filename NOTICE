@@ -1,0 +1,15 @@
+Cognitive Memory Agents
+Copyright (c) 2026 Ezequiel da Silva Manço, Vinícius Silva Dos Santos,
+and Paloma Quimbely de Lima Silva. Project code: MIT; see LICENSE.
+
+The project downloads and uses qwen2.5-coder:3b through Ollama.
+Model weights are not included in this repository and are not licensed under MIT.
+Qwen is licensed under the Qwen RESEARCH LICENSE AGREEMENT,
+Copyright (c) Alibaba Cloud. All Rights Reserved.
+
+Model source and terms:
+https://huggingface.co/Qwen/Qwen2.5-Coder-3B-Instruct
+https://huggingface.co/Qwen/Qwen2.5-Coder-3B-Instruct/blob/main/LICENSE
+
+Third-party dependencies retain their respective licenses.
+See docs/licencas.md and third_party/licenses/.

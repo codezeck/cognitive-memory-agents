@@ -1,0 +1,43 @@
+cenario,evento_id,pergunta,resposta,passou_p4,revisao_necessaria
+memoria_automatica,u01/s2/pergunta1,Onde eu moro?,Osasco,True,False
+historico_completo,u01/s2/pergunta1,Onde eu moro?,Você mora em Osasco.,True,False
+memoria_automatica,u03/s2/pergunta1,Que hobby eu tenho?,Fotografia.,True,False
+historico_completo,u03/s2/pergunta1,Que hobby eu tenho?,Você tem o hobby de viajar.,False,True
+memoria_automatica,u01/s3/pergunta2,Em que cidade eu moro hoje?,Campinas,True,False
+historico_completo,u01/s3/pergunta2,Em que cidade eu moro hoje?,Hoje você mora em Campinas.,False,True
+memoria_automatica,u02/s3/pergunta1,Quantos filhos eu tenho?,3,True,False
+historico_completo,u02/s3/pergunta1,Quantos filhos eu tenho?,Você tem três filhos.,True,False
+memoria_automatica,u03/s3/pergunta2,Para onde vou viajar em dezembro?,Portugal,True,False
+historico_completo,u03/s3/pergunta2,Para onde vou viajar em dezembro?,Você vai para Portugal em dezembro.,False,False
+memoria_automatica,u04/s3/pergunta1,Qual é o meu trabalho?,Analista de dados.,True,False
+historico_completo,u04/s3/pergunta1,Qual é o meu trabalho?,Agora você trabalha como analista de dados.,False,True
+memoria_automatica,u01/s4/pergunta3,Qual é a minha profissão?,Coordenadora de enfermagem.,True,False
+historico_completo,u01/s4/pergunta3,Qual é a minha profissão?,Agora você é coordenadora de enfermagem.,False,True
+memoria_automatica,u02/s4/pergunta2,Qual carro eu dirijo?,Onix branco,True,False
+historico_completo,u02/s4/pergunta2,Qual carro eu dirijo?,Você dirige um Onix branco.,True,False
+memoria_automatica,u03/s4/pergunta3,Quantos gatos eu tenho?,2,True,False
+historico_completo,u03/s4/pergunta3,Quantos gatos eu tenho?,"Você tem dois gatos, Luna e Simba.",False,True
+memoria_automatica,u04/s4/pergunta2,Onde eu moro?,DESCONHECIDO,True,False
+historico_completo,u04/s4/pergunta2,Onde eu moro?,DESCONHECIDO,True,False
+memoria_automatica,u04/s4/pergunta3,Qual instrumento eu toco?,DESCONHECIDO,True,False
+historico_completo,u04/s4/pergunta3,Qual instrumento eu toco?,DESCONHECIDO,True,False
+memoria_automatica,u01/s5/pergunta4,Qual cidade é a minha casa atualmente?,Santos.,True,False
+historico_completo,u01/s5/pergunta4,Qual cidade é a minha casa atualmente?,Agora você reside em Santos.,False,True
+memoria_automatica,u01/s5/pergunta5,Como se chama o meu cachorro?,Thor.,True,False
+historico_completo,u01/s5/pergunta5,Como se chama o meu cachorro?,O nome do seu cachorro é Thor.,False,True
+memoria_automatica,u01/s5/pergunta6,Que esporte eu pratico?,Natação,True,False
+historico_completo,u01/s5/pergunta6,Que esporte eu pratico?,Você está praticando natação.,False,True
+memoria_automatica,u02/s5/pergunta3,Qual carro eu dirijo?,DESCONHECIDO,True,False
+historico_completo,u02/s5/pergunta3,Qual carro eu dirijo?,Eu não tenho informações atualizadas sobre qual carro você dirige.,False,True
+memoria_automatica,u02/s5/pergunta4,Para qual time eu torço?,Coritiba,True,False
+historico_completo,u02/s5/pergunta4,Para qual time eu torço?,"Desculpe, não tenho informações sobre qual time você torce.",False,True
+memoria_automatica,u02/s5/pergunta5,O que eu ensino?,Ensino matemática.,True,False
+historico_completo,u02/s5/pergunta5,O que eu ensino?,Você ensina matemática.,True,False
+memoria_automatica,u03/s5/pergunta4,Qual é o meu cargo?,Diretora de arte,True,False
+historico_completo,u03/s5/pergunta4,Qual é o meu cargo?,Você é designer gráfico e também é diretora de arte.,False,True
+memoria_automatica,u03/s5/pergunta5,Onde eu moro?,Você mora em Recife.,True,False
+historico_completo,u03/s5/pergunta5,Onde eu moro?,Você mora em Recife.,True,False
+memoria_automatica,u04/s5/pergunta4,Onde eu moro?,Belém,True,False
+historico_completo,u04/s5/pergunta4,Onde eu moro?,Você agora mora em Belém.,False,True
+memoria_automatica,u04/s5/pergunta5,Qual é a minha profissão?,DESCONHECIDO,True,False
+historico_completo,u04/s5/pergunta5,Qual é a minha profissão?,DESCONHECIDO,True,False

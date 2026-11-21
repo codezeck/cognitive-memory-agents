@@ -16,6 +16,7 @@ from typing import Callable
 
 SALVAR = "salvar"
 ESQUECER = "esquecer"
+ESQUECER_VALOR = "esquecer_valor"
 APAGAR_USUARIO = "apagar_usuario"
 
 
@@ -94,6 +95,11 @@ def _negar(chave: str) -> Callable:
         v = _val(m, o)
         return [Decisao(ESQUECER, chave, v, negacao=True)] if v else []
     return f
+
+
+def _negar_valor(m, original):
+    valor = _val(m, original)
+    return [Decisao(ESQUECER_VALOR, valor=valor, negacao=True)] if valor else []
 
 
 def _pet(m, o):
@@ -181,6 +187,7 @@ _regra(r"\bnao\s+tenho\s+(?:nenhum\s+|nenhuma\s+)?filh[oa]s?\b",
 _regra(_NEG + r"\btorco\s+(?:pelo|pela|pro|para\s+o|para\s+a|para)\s+" + _V, _salvar("time", "Torce para {v}."))
 _regra(r"\bmeu\s+time\s+(?:do\s+coracao\s+)?e\s+(?:o\s+|a\s+)" + _V, _salvar("time", "Torce para {v}."))
 _regra(r"\bnao\s+torco\s+mais\s+(?:pelo|pela|pro|para\s+o|para\s+a|para)\s+" + _V, _negar("time"))
+_regra(r"\bnao\s+(?:tenho|uso|possuo)\s+mais\s+(?:o\s+|a\s+)?" + _V, _negar_valor)
 # favoritos e gostos
 _regra(r"\b(?:minha|meu)\s+(?P<cat>" + _CAT + r")\s+favorit[oa]\s+e\s+(?:o\s+|a\s+)?" + _V, _fav)
 _regra(_NEG + r"\bgosto\s+(?:muito\s+)?de\s+(?:o\s+|a\s+)?" + _V, _gosto)
@@ -244,6 +251,8 @@ def extrair(mensagem: str) -> list[Decisao]:
     t = sem_acento(original)
     # frases interrogativas são ignoradas (mantém os índices)
     t = re.sub(r"[^.!?\n]*\?", lambda m: " " * len(m.group()), t)
+    t = re.sub(r"(?:^|(?<=[.!?\n]))\s*(?:talvez|se|suponha|imagine|hipoteticamente)\b[^.!?\n]*",
+               lambda m: ' ' * len(m.group()), t)
     if not t.strip():
         return []
 
@@ -261,3 +270,26 @@ def extrair(mensagem: str) -> list[Decisao]:
             vistos.add(chave)
             saida.append(d)
     return saida
+
+
+def somente_operacoes(mensagem: str) -> bool:
+    """True somente se regras cobrem a mensagem inteira, sem pedido de geração."""
+    t = sem_acento(mensagem.strip())
+    if (not extrair(mensagem) or '?' in t or re.search(
+            r'\b(?:explique|resuma|calcule|traduza|sugira|recomende|talvez|suponha|imagine|porque|por que)\b', t)):
+        return False
+    coberto = list(t)
+    for m in _VERBO_ESQ.finditer(t):
+        cauda = _TOPICO.sub(' ', m.group('cauda'))
+        cauda = re.sub(r'\b(?:tudo|todos|todas|sobre|de|do|da|o|a|os|as|meu|minha|meus|minhas|mim|que|eu|te|disse|falei|contei|e|memorias|dados|informacoes)\b', ' ', cauda)
+        if cauda.strip():
+            return False
+    for padrao, fn in _REGRAS:
+        for m in padrao.finditer(t):
+            if fn(m, mensagem.strip()):
+                coberto[m.start():m.end()] = ' ' * (m.end() - m.start())
+    for padrao in (_APAGAR_TUDO, _VERBO_ESQ):
+        for m in padrao.finditer(t):
+            coberto[m.start():m.end()] = ' ' * (m.end() - m.start())
+    resto = re.sub(r'[.,;!\s]+', ' ', ''.join(coberto)).strip()
+    return bool(re.fullmatch(r'(?:(?:eu|agora|atualmente|e)\s*)*', resto))

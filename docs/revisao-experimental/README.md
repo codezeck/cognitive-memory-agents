@@ -1,4 +1,8 @@
-# Pacote de revisão experimental, não liberado para execução
+# Revisão experimental e preparação histórica
+
+**Estado v3:** execução local autorizada e realizada, com [resultados](../acertos-tokens-contexto-v3.md). [Revisão complementar do baseline](revisao-humana-baseline-v3.csv) preparada com os campos humanos em branco. Revisão de PR e pareceres dos colegas continuam pendentes. Os arquivos de proposta e os estados datados abaixo preservam o histórico.
+
+**Estado atualizado em 18/11:** o usuário autorizou resolver as decisões nesta sessão. A [decisão local](decisao-20261118.md) e o protocolo com hashes permitiram uma rodada P6 real com coleta automática; a cópia anotada dos dez casos separados também foi executada. Os textos abaixo e os arquivos `.proposta.json` preservam a preparação anterior e não representam o estado atual de execução. Não houve aprovação atribuída a Vinícius ou Paloma. Consulte os [resultados atuais](../melhorias-avaliacao-20261118.md); revisão humana cruzada permanece um requisito acadêmico separado.
 
 Preparado em 14/11/2026. O usuário informou que existe revisão registrada e que fornecerá a referência; ela ainda não foi recebida. Nenhum arquivo desta pasta representa aprovação de Vinicius/Paloma. Propostas usam `aprovado: false` e não são datasets executáveis.
 
