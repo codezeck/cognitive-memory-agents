@@ -11,10 +11,10 @@ function ambiente(valor=null){
   return {documento,seletor,armazenamento,valores,listeners};
 }
 
-test("Caderno inicia claro e salva somente o tema no navegador",()=>{
+test("Caderno inicia escuro e salva somente o tema no navegador",()=>{
   const a=ambiente();instalarAparencia(a.documento,a.armazenamento);
-  assert.equal(a.documento.documentElement.dataset.tema,"claro");assert.equal(a.seletor.atributos["aria-label"],"Ativar modo escuro");assert.equal(a.seletor.atributos["aria-pressed"],"false");
-  assert.deepEqual(JSON.parse(a.valores.get("cma-aparencia")),{tema:"claro"});
+  assert.equal(a.documento.documentElement.dataset.tema,"escuro");assert.equal(a.seletor.atributos["aria-label"],"Ativar modo claro");assert.equal(a.seletor.atributos["aria-pressed"],"true");
+  assert.deepEqual(JSON.parse(a.valores.get("cma-aparencia")),{tema:"escuro"});
 });
 test("recupera escuro no carregamento e persiste a troca para claro",()=>{
   const a=ambiente('{"tema":"escuro"}');instalarAparencia(a.documento,a.armazenamento);
@@ -31,35 +31,35 @@ test("migra a preferência antiga sem preservar acento ou outros campos",()=>{
   assert.equal("acento" in a.documento.documentElement.dataset,false);
   assert.deepEqual(JSON.parse(a.valores.get("cma-aparencia")),{tema:"escuro"});
 });
-test("valores desconhecidos e JSON inválido voltam ao tema claro",()=>{
-  for(const valor of ['{invalido','null','[]','"escuro"','42','{"tema":"outro"}','{"tema":{}}','{"acento":"ciano"}']){
+test("valores desconhecidos e JSON inválido voltam ao tema escuro",()=>{
+  for(const valor of ['{invalido','null','[]','"claro"','42','{"tema":"outro"}','{"tema":{}}','{"acento":"ciano"}']){
     const a=ambiente(valor);instalarAparencia(a.documento,a.armazenamento);
-    assert.equal(a.documento.documentElement.dataset.tema,"claro");
-    assert.deepEqual(JSON.parse(a.valores.get("cma-aparencia")),{tema:"claro"});
+    assert.equal(a.documento.documentElement.dataset.tema,"escuro");
+    assert.deepEqual(JSON.parse(a.valores.get("cma-aparencia")),{tema:"escuro"});
   }
 });
 test("falha ao ler ou salvar não bloqueia a aparência nem o botão",()=>{
   const a=ambiente(),armazenamento={getItem(){throw Error("leitura indisponível");},setItem(){throw Error("gravação indisponível");}};
   assert.doesNotThrow(()=>instalarAparencia(a.documento,armazenamento));
-  assert.equal(a.documento.documentElement.dataset.tema,"claro");
-  assert.doesNotThrow(()=>a.seletor.mudar("escuro"));assert.equal(a.documento.documentElement.dataset.tema,"escuro");
+  assert.equal(a.documento.documentElement.dataset.tema,"escuro");
+  assert.doesNotThrow(()=>a.seletor.mudar("claro"));assert.equal(a.documento.documentElement.dataset.tema,"claro");
 });
 test("acesso negado à propriedade localStorage também é tolerado",()=>{
   const anterior=Object.getOwnPropertyDescriptor(globalThis,"localStorage");
   Object.defineProperty(globalThis,"localStorage",{configurable:true,get(){throw Error("acesso negado");}});
   try{
     const a=ambiente();assert.doesNotThrow(()=>instalarAparencia(a.documento));
-    a.seletor.mudar("escuro");assert.equal(a.documento.documentElement.dataset.tema,"escuro");
+    a.seletor.mudar("claro");assert.equal(a.documento.documentElement.dataset.tema,"claro");
   }finally{
     if(anterior)Object.defineProperty(globalThis,"localStorage",anterior);else delete globalThis.localStorage;
   }
 });
 test("botão de lua alterna com clique e mantém estado acessível",()=>{
   const a=ambiente();instalarAparencia(a.documento,a.armazenamento);
-  a.seletor.mudar();assert.equal(a.documento.documentElement.dataset.tema,"escuro");
-  assert.equal(a.seletor.atributos["aria-pressed"],"true");assert.equal(a.seletor.atributos["aria-label"],"Ativar modo claro");
   a.seletor.mudar();assert.equal(a.documento.documentElement.dataset.tema,"claro");
-  assert.equal(a.seletor.atributos["aria-pressed"],"false");assert.equal(a.seletor.atributos.title,"Ativar modo escuro");
+  assert.equal(a.seletor.atributos["aria-pressed"],"false");assert.equal(a.seletor.atributos["aria-label"],"Ativar modo escuro");
+  a.seletor.mudar();assert.equal(a.documento.documentElement.dataset.tema,"escuro");
+  assert.equal(a.seletor.atributos["aria-pressed"],"true");assert.equal(a.seletor.atributos.title,"Ativar modo claro");
 });
 
 test("documento sem botão ainda aplica o tema e permite remover listeners",()=>{

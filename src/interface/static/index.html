@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-tema="escuro">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Memória — laboratório de agentes</title>
-<link rel="icon" href="data:,"><link rel="stylesheet" href="/interface/arquivos/estilo.css?v=p6-conteudo-20261121-2">
-<script type="module" src="/interface/arquivos/app.mjs?v=p6-conteudo-20261121-2"></script>
+<link rel="icon" href="data:,"><link rel="stylesheet" href="/interface/arquivos/estilo.css?v=conversa-perfis-20261121">
+<script type="module" src="/interface/arquivos/app.mjs?v=conversa-perfis-20261121"></script>
 </head>
 <body>
 <div class="shell">
@@ -22,7 +22,7 @@
 <header class="topbar"><div><span class="eyebrow">COGNITIVE MEMORY AGENTS</span><div id="service-status" class="service-status" role="status">Conecte-se para verificar os serviços</div></div><div class="account"><span id="test-badge" class="badge warning" hidden>Modo de testes · sem LLM real</span><span class="avatar" aria-hidden="true">U</span><div class="account-identity"><span class="small-label">USUÁRIO AUTENTICADO</span><strong id="user-name">Não conectado</strong></div><select id="demo-profile" aria-label="Perfil sintético da demonstração" hidden><option value="a">Perfil A</option><option value="b">Perfil B</option></select><button id="logout" class="text-button" hidden>Sair</button><button id="appearance-theme" class="theme-toggle" type="button" aria-label="Ativar modo escuro" aria-pressed="false" title="Ativar modo escuro"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21.752 15.002A9.718 9.718 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 2.25 12c0 5.385 4.365 9.75 9.75 9.75a9.753 9.753 0 0 0 9.752-6.748Z"/></svg></button></div></header>
 <div id="notice" class="notice" role="status" hidden></div>
 <section id="tab-conversa" class="tab-page">
-<div class="page-heading"><div><span class="eyebrow">01 / CONVERSA</span><h1>O contexto continua.</h1><p>Converse, comece outra sessão e veja o que o agente lembra.</p></div><button id="new-session" class="secondary" disabled>↻ Nova sessão</button></div>
+<div class="page-heading"><div><span class="eyebrow">01 / CONVERSA</span><h1>O contexto continua.</h1><p>Converse, comece outra sessão e veja o que o agente lembra. As últimas 500 mensagens de cada perfil ficam neste navegador; nova sessão ou exclusão limpa essas mensagens.</p></div><button id="new-session" class="secondary" disabled>↻ Nova sessão</button></div>
 <div class="workspace">
 <div class="chat-card">
 <div class="card-heading"><div><span class="dot"></span><strong>Conversa com memória</strong></div><select id="model" aria-label="Provedor e modelo" disabled><option>Conecte-se para escolher</option></select></div>
@@ -83,6 +83,10 @@
 </main>
 </div>
 <dialog id="login"><form id="login-form"><span class="brand-mark" aria-hidden="true">m</span><span class="eyebrow">BEM-VINDO AO LABORATÓRIO</span><h1>Conecte seu usuário.</h1><p>Na demonstração padrão, o acesso é preparado automaticamente. Credenciais manuais são usadas apenas na configuração técnica externa.</p><label for="token">Credencial de acesso</label><input id="token" name="token" type="password" autocomplete="off" spellcheck="false" required placeholder="Cole sua credencial aqui"><p id="login-error" class="error" role="alert"></p><button id="login-button" class="primary" type="submit">Entrar no laboratório ↗</button><small>A credencial não é exibida no chat nem gravada no armazenamento da página. A sessão usa um cookie protegido contra leitura por scripts.</small></form><button id="reactivate-demo" type="button" class="primary" hidden>Retomar acesso local</button></dialog>
+<dialog id="delete-confirmation" class="evaluation-confirmation" aria-labelledby="delete-confirm-title" aria-describedby="delete-confirm-description">
+<form method="dialog"><div class="confirmation-heading"><span class="brand-mark" aria-hidden="true">m</span><span class="eyebrow">CUIDADO COM SUAS MEMÓRIAS</span></div>
+<h2 id="delete-confirm-title"></h2><p id="delete-confirm-description"></p>
+<div class="confirmation-actions"><button id="delete-confirm-cancel" class="secondary" type="submit" value="cancelar" autofocus>Cancelar</button><button class="primary" type="submit" value="apagar">Confirmar exclusão</button></div></form></dialog>
 <dialog id="evaluation-confirmation" class="evaluation-confirmation" aria-labelledby="evaluation-confirm-title" aria-describedby="evaluation-confirm-description">
 <form method="dialog">
 <div class="confirmation-heading"><span class="brand-mark" aria-hidden="true">m</span><span class="eyebrow">NOVA AVALIAÇÃO LOCAL</span></div>

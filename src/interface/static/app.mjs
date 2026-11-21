@@ -1,7 +1,9 @@
-import {projetarRelatorio,usoResposta,nomesCenario,distribuicaoCriterio} from "./relatorio.mjs?v=p6-conteudo-20261121-2";
+import {projetarRelatorio,usoResposta,nomesCenario,distribuicaoCriterio} from "./relatorio.mjs?v=conversa-perfis-20261121";
 import {bloqueioAvaliacao} from "./avaliacao.mjs";
 import {instalarAparencia} from "./aparencia.mjs";
-import {confirmarAvaliacao} from "./confirmacao.mjs";
+import {confirmarAvaliacao,confirmarExclusao} from "./confirmacao.mjs";
+import {criarHistorico} from "./historico-conversa.mjs";
+const historicoConversa=criarHistorico({getItem:k=>localStorage.getItem(k),setItem:(k,v)=>localStorage.setItem(k,v),removeItem:k=>localStorage.removeItem(k)});
 const $=id=>document.getElementById(id);
 const nf=new Intl.NumberFormat("pt-BR"), pf=new Intl.NumberFormat("pt-BR",{maximumFractionDigits:1});
 let usuario=null,ocupado=false,modelos=[],soma=0,chamadas=0,incompleta=false,poll=null;
@@ -27,11 +29,13 @@ function travar(valor){
   ocupado=valor;
   for(const id of ["message","send","model","new-session","memory-query","memory-search","forget-all"])
     $(id).disabled=valor||!usuario;
+  $("demo-profile").disabled=valor;
   $("send").textContent=valor?"Aguardando…":"Enviar ↑";
 }
 function limparAvaliacao(){
   conexaoVersao++;
   if($("evaluation-confirmation").open)$("evaluation-confirmation").close("cancelar");
+  if($("delete-confirmation").open)$("delete-confirmation").close("cancelar");
   if(poll){clearTimeout(poll);poll=null;}
   avaliacaoAtual=null;casosProprios=null;
   historicoVersao++;aberturaVersao++;historicoDeslocamento=null;
@@ -44,15 +48,19 @@ function limparAvaliacao(){
   $("dataset-status").textContent="Nenhum conjunto próprio validado.";
 }
 function conectar(dados){
-  if(usuario!==dados.usuario_id)limparAvaliacao();
-  usuario=dados.usuario_id;$("user-name").textContent=usuario;$("test-badge").hidden=!dados.modo_teste;
+  const mudou=usuario!==dados.usuario_id;
+  if(mudou)limparAvaliacao();
+  usuario=dados.usuario_id;
+  if(mudou){limparConversa(false);for(const item of historicoConversa.ler(usuario))bolha(item.papel,item.texto,item.memorias,false);}
+  $("user-name").textContent=usuario;$("test-badge").hidden=!dados.modo_teste;
   $("logout").hidden=demonstracao;$("token").value="";$("login-error").textContent="";
   $("demo-profile").hidden=!demonstracao;$("demo-profile").value=dados.perfil||"a";
   if($("login").open)$("login").close();travar(false);servicos();carregarRoteiros();carregarHistorico();
   const guardado=sessionStorage.getItem("cma-avaliacao:"+usuario);
   if(guardado){try{const j=JSON.parse(guardado);if(j.usuario===usuario)acompanhar(j.id);}catch{}}
 }
-function limparConversa(){
+function limparConversa(apagar=true){
+  if(apagar)historicoConversa.limpar(usuario);
   for(const n of $("messages").querySelectorAll(".bubble"))n.remove();
   $("welcome").hidden=false;
   soma=0;chamadas=0;incompleta=false;
@@ -70,7 +78,8 @@ function desconectar(){
   if(!$("login").open)$("login").showModal();
 }
 function elemento(tag,texto,classe){const e=document.createElement(tag);if(texto!==undefined)e.textContent=texto;if(classe)e.className=classe;return e;}
-function bolha(papel,texto,memorias=[]){
+function bolha(papel,texto,memorias=[],guardar=true){
+  if(guardar)historicoConversa.adicionar(usuario,papel,texto,memorias);
   $("welcome").hidden=true;
   const e=elemento("div",undefined,"bubble "+(papel==="Você"?"user":"assistant"));
   e.append(elemento("small",papel.toUpperCase()),document.createTextNode(texto));
@@ -95,7 +104,7 @@ async function buscar(consulta){
     const excluir=elemento("button","Excluir esta memória","text-button");
     excluir.type="button";
     excluir.addEventListener("click",async()=>{
-      if(ocupado||!confirm("Excluir somente esta memória e reiniciar a conversa recente? Versões substituídas podem permanecer até a exclusão total."))return;
+      if(ocupado||!await confirmarApagamento("Excluir esta memória?","A memória selecionada e as mensagens visíveis deste perfil serão apagadas. Versões substituídas podem permanecer até a exclusão total."))return;
       travar(true);
       try{await requisicao("/memorias/"+encodeURIComponent(m.id),{method:"DELETE"});limparConversa();aviso("Memória selecionada excluída. A conversa recente foi reiniciada.");await buscar(consulta);}
       catch(erro){aviso(erro.message,true);}finally{travar(false);}
@@ -103,6 +112,11 @@ async function buscar(consulta){
     e.append(excluir);
     $("memories").append(e);
   }
+}
+async function confirmarApagamento(titulo,descricao){
+  const dono=usuario,geracao=conexaoVersao;
+  try{return await confirmarExclusao({titulo,descricao})&&dono===usuario&&geracao===conexaoVersao&&!ocupado;}
+  catch{aviso("Não foi possível abrir a confirmação. Recarregue a página.",true);return false;}
 }
 function selecao(){const i=Number($("model").value);return modelos[i]||{};}
 async function servicos(){
@@ -139,19 +153,21 @@ $("message").addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey&&!e.
 $("message-form").addEventListener("submit",async e=>{
   e.preventDefault();const mensagem=$("message").value.trim();if(!mensagem||ocupado||!usuario)return;
   const m=selecao();if(!m.provedor){aviso("Selecione um modelo configurado.",true);return;}
+  const donoConversa=usuario,geracaoConversa=conexaoVersao;
   travar(true);aviso("");bolha("Você",mensagem);$("message").value="";
   try{
     const dados=await requisicao("/conversas",{method:"POST",body:JSON.stringify({mensagem,provedor:m.provedor,modelo:m.modelo})});
     bolha("Agente",dados.resposta,dados.memorias_usadas||[]);tokens(dados);
-  }catch(erro){incompleta=true;$("session-total").textContent="Medição incompleta";bolha("Sistema",erro.message);aviso("A resposta não foi concluída. Confira os serviços; uma memória pode ter sido registrada antes da falha.",true);if(usuario)await servicos();}
+  }catch(erro){if(usuario!==donoConversa||conexaoVersao!==geracaoConversa)return;incompleta=true;$("session-total").textContent="Medição incompleta";bolha("Sistema",erro.message);aviso("A resposta não foi concluída. Confira os serviços; uma memória pode ter sido registrada antes da falha.",true);if(usuario)await servicos();}
   finally{
+    if(usuario!==donoConversa||conexaoVersao!==geracaoConversa)return;
     if(usuario){try{await buscar(mensagem);}catch(erro){aviso(erro.message,true);}}
     travar(false);if(usuario)$("message").focus();
   }
 });
 $("memory-form").addEventListener("submit",async e=>{e.preventDefault();try{await buscar($("memory-query").value);}catch(erro){aviso(erro.message,true);}});
 $("forget-all").addEventListener("click",async()=>{
-  if(ocupado||!usuario||!confirm("Apagar TODAS as memórias deste usuário, incluindo versões substituídas, e reiniciar a conversa recente?"))return;
+  if(ocupado||!usuario||!await confirmarApagamento("Apagar todas as minhas memórias?","Todas as memórias deste perfil, incluindo versões substituídas, e suas mensagens visíveis serão apagadas. Os outros perfis serão preservados."))return;
   travar(true);
   try{const dados=await requisicao("/memorias",{method:"DELETE"});limparConversa();aviso("Exclusão total concluída: "+dados.removidas+" registro(s) removido(s). Outros usuários foram preservados.");}
   catch(erro){aviso(erro.message,true);}finally{travar(false);}
@@ -476,8 +492,10 @@ $("run-evaluation").addEventListener("click",async()=>{
 });
 $("demo-profile").addEventListener("change",async()=>{
   if(ocupado)return;
-  try{const dados=await requisicao("/demonstracao",{method:"POST",body:JSON.stringify({perfil:$("demo-profile").value})});limparConversa();conectar(dados);aviso("Perfil sintético alterado. Os fatos de cada perfil permanecem separados.");}
-  catch(erro){aviso(erro.message,true);}
+  $("demo-profile").disabled=true;
+  try{const dados=await requisicao("/demonstracao",{method:"POST",body:JSON.stringify({perfil:$("demo-profile").value})});conectar(dados);aviso("Perfil alterado. As mensagens deste perfil foram restauradas neste navegador.");}
+  catch(erro){$("demo-profile").value=usuario==="demo_visitante"?"b":"a";aviso(erro.message,true);}
+  finally{$("demo-profile").disabled=ocupado;}
 });
 $("reactivate-demo").addEventListener("click",async()=>{
   try{conectar(await requisicao("/demonstracao",{method:"POST",body:JSON.stringify({perfil:$("demo-profile").value||"a"})}));aviso("Acesso local retomado; envie novamente sua mensagem se desejar.");}

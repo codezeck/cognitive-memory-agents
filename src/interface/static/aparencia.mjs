@@ -1,13 +1,13 @@
 // Preferência visual deste navegador. Não interfere no agente nem nas avaliações.
 const CHAVE="cma-aparencia";
-const temaValido=valor=>valor==="escuro"?"escuro":"claro";
+const temaValido=valor=>valor==="claro"?"claro":"escuro";
 
 export function instalarAparencia(documento=globalThis.document,armazenamento){
   if(!documento?.documentElement)return ()=>{};
   if(armazenamento===undefined){
     try{armazenamento=globalThis.localStorage;}catch{armazenamento=null;}
   }
-  let tema="claro";
+  let tema="escuro";
   try{
     const salvo=JSON.parse(armazenamento?.getItem(CHAVE)??"null");
     if(salvo&&typeof salvo==="object"&&!Array.isArray(salvo))tema=temaValido(salvo.tema);

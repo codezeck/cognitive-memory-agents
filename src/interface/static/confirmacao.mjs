@@ -15,3 +15,17 @@ export function confirmarAvaliacao({protocolo,quantidade,modelo},documento=globa
     }catch(erro){dialogo.removeEventListener("close",fechar);reject(erro);}
   });
 }
+
+export function confirmarExclusao({titulo,descricao},documento=globalThis.document){
+  const dialogo=documento?.getElementById("delete-confirmation");
+  if(!dialogo||dialogo.open)return Promise.resolve(false);
+  documento.getElementById("delete-confirm-title").textContent=titulo;
+  documento.getElementById("delete-confirm-description").textContent=descricao;
+  dialogo.returnValue="cancelar";
+  return new Promise((resolve,reject)=>{
+    const fechar=()=>resolve(dialogo.returnValue==="apagar");
+    dialogo.addEventListener("close",fechar,{once:true});
+    try{dialogo.showModal();documento.getElementById("delete-confirm-cancel").focus();}
+    catch(erro){dialogo.removeEventListener("close",fechar);reject(erro);}
+  });
+}
