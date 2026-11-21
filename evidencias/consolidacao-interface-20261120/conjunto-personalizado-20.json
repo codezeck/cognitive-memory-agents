@@ -1,0 +1,512 @@
+[
+  {
+    "id": "V3T001",
+    "categoria": "recuperacao",
+    "descricao": "Recuperação simples de um fato informado",
+    "mensagens": [
+      "Moro em Campinas.",
+      "Em qual cidade eu vivo? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [
+      "Moro em Campinas."
+    ],
+    "esperado": "Campinas",
+    "estado_regras_esperado": {
+      "cidade": "Campinas"
+    },
+    "informacoes_esquecidas": [],
+    "avaliacao": {
+      "tipo_resposta": "factual",
+      "atributo": "cidade",
+      "aliases_aceitos": [],
+      "valores_antigos": [],
+      "informacoes_proibidas": []
+    }
+  },
+  {
+    "id": "V3T002",
+    "categoria": "recuperacao",
+    "descricao": "Recuperação simples de um fato informado",
+    "mensagens": [
+      "Trabalho como Enfermeira.",
+      "Qual é a minha profissão? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [
+      "Trabalho como Enfermeira."
+    ],
+    "esperado": "Enfermeira",
+    "estado_regras_esperado": {
+      "profissao": "Enfermeira"
+    },
+    "informacoes_esquecidas": [],
+    "avaliacao": {
+      "tipo_resposta": "factual",
+      "atributo": "profissao",
+      "aliases_aceitos": [
+        "enfermeira"
+      ],
+      "valores_antigos": [],
+      "informacoes_proibidas": []
+    }
+  },
+  {
+    "id": "V3T005",
+    "categoria": "recuperacao",
+    "descricao": "Recuperação simples de um fato informado",
+    "mensagens": [
+      "Torço para o Palmeiras.",
+      "Para qual time eu torço? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [
+      "Torço para o Palmeiras."
+    ],
+    "esperado": "Palmeiras",
+    "estado_regras_esperado": {
+      "time": "Palmeiras"
+    },
+    "informacoes_esquecidas": [],
+    "avaliacao": {
+      "tipo_resposta": "factual",
+      "atributo": "time",
+      "aliases_aceitos": [
+        "Sociedade Esportiva Palmeiras"
+      ],
+      "valores_antigos": [],
+      "informacoes_proibidas": []
+    }
+  },
+  {
+    "id": "V3T008",
+    "categoria": "recuperacao",
+    "descricao": "Recuperação simples de um fato informado",
+    "mensagens": [
+      "Toco Violão.",
+      "Qual instrumento eu toco? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [
+      "Toco Violão."
+    ],
+    "esperado": "Violão",
+    "estado_regras_esperado": {
+      "instrumento": "Violão"
+    },
+    "informacoes_esquecidas": [],
+    "avaliacao": {
+      "tipo_resposta": "factual",
+      "atributo": "instrumento",
+      "aliases_aceitos": [],
+      "valores_antigos": [],
+      "informacoes_proibidas": []
+    }
+  },
+  {
+    "id": "V3T009",
+    "categoria": "recuperacao",
+    "descricao": "Recuperação simples de um fato informado",
+    "mensagens": [
+      "Meu carro é um Fiat Argo.",
+      "Qual é o meu carro? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [
+      "Meu carro é um Fiat Argo."
+    ],
+    "esperado": "Fiat Argo",
+    "estado_regras_esperado": {
+      "carro": "Fiat Argo"
+    },
+    "informacoes_esquecidas": [],
+    "avaliacao": {
+      "tipo_resposta": "factual",
+      "atributo": "carro",
+      "aliases_aceitos": [
+        "Argo"
+      ],
+      "valores_antigos": [],
+      "informacoes_proibidas": []
+    }
+  },
+  {
+    "id": "V3T013",
+    "categoria": "recuperacao",
+    "descricao": "Recuperação simples de um fato informado",
+    "mensagens": [
+      "Pratico Natação.",
+      "Qual esporte eu pratico? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [
+      "Pratico Natação."
+    ],
+    "esperado": "Natação",
+    "estado_regras_esperado": {
+      "esporte": "Natação"
+    },
+    "informacoes_esquecidas": [],
+    "avaliacao": {
+      "tipo_resposta": "factual",
+      "atributo": "esporte",
+      "aliases_aceitos": [],
+      "valores_antigos": [],
+      "informacoes_proibidas": []
+    }
+  },
+  {
+    "id": "V3T014",
+    "categoria": "recuperacao",
+    "descricao": "Recuperação simples de um fato informado",
+    "mensagens": [
+      "Moro em Sorocaba.",
+      "Em qual cidade eu vivo? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [
+      "Moro em Sorocaba."
+    ],
+    "esperado": "Sorocaba",
+    "estado_regras_esperado": {
+      "cidade": "Sorocaba"
+    },
+    "informacoes_esquecidas": [],
+    "avaliacao": {
+      "tipo_resposta": "factual",
+      "atributo": "cidade",
+      "aliases_aceitos": [],
+      "valores_antigos": [],
+      "informacoes_proibidas": []
+    }
+  },
+  {
+    "id": "V3T016",
+    "categoria": "recuperacao",
+    "descricao": "Recuperação simples de um fato informado",
+    "mensagens": [
+      "Trabalho como Designer.",
+      "Qual é a minha profissão? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [
+      "Trabalho como Designer."
+    ],
+    "esperado": "Designer",
+    "estado_regras_esperado": {
+      "profissao": "Designer"
+    },
+    "informacoes_esquecidas": [],
+    "avaliacao": {
+      "tipo_resposta": "factual",
+      "atributo": "profissao",
+      "aliases_aceitos": [],
+      "valores_antigos": [],
+      "informacoes_proibidas": []
+    }
+  },
+  {
+    "id": "V3T017",
+    "categoria": "atualizacao",
+    "descricao": "Informação atualizada; vale o valor mais recente",
+    "mensagens": [
+      "Moro em Atibaia.",
+      "Atualização: Moro em Bragança Paulista.",
+      "Em qual cidade eu vivo? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [
+      "Moro em Bragança Paulista."
+    ],
+    "esperado": "Bragança Paulista",
+    "estado_regras_esperado": {
+      "cidade": "Bragança Paulista"
+    },
+    "informacoes_esquecidas": [],
+    "avaliacao": {
+      "tipo_resposta": "factual",
+      "atributo": "cidade",
+      "aliases_aceitos": [],
+      "valores_antigos": [
+        "Atibaia"
+      ],
+      "informacoes_proibidas": []
+    }
+  },
+  {
+    "id": "V3T018",
+    "categoria": "atualizacao",
+    "descricao": "Informação atualizada; vale o valor mais recente",
+    "mensagens": [
+      "Trabalho como Professor.",
+      "Atualização: Trabalho como Analista de dados.",
+      "Qual é a minha profissão? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [
+      "Trabalho como Analista de dados."
+    ],
+    "esperado": "Analista de dados",
+    "estado_regras_esperado": {
+      "profissao": "Analista de dados"
+    },
+    "informacoes_esquecidas": [],
+    "avaliacao": {
+      "tipo_resposta": "factual",
+      "atributo": "profissao",
+      "aliases_aceitos": [],
+      "valores_antigos": [
+        "Professor"
+      ],
+      "informacoes_proibidas": []
+    }
+  },
+  {
+    "id": "V3T021",
+    "categoria": "atualizacao",
+    "descricao": "Informação atualizada; vale o valor mais recente",
+    "mensagens": [
+      "Torço para o Santos.",
+      "Atualização: Torço para o São Paulo.",
+      "Para qual time eu torço? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [
+      "Torço para o São Paulo."
+    ],
+    "esperado": "São Paulo",
+    "estado_regras_esperado": {
+      "time": "São Paulo"
+    },
+    "informacoes_esquecidas": [],
+    "avaliacao": {
+      "tipo_resposta": "factual",
+      "atributo": "time",
+      "aliases_aceitos": [],
+      "valores_antigos": [
+        "Santos"
+      ],
+      "informacoes_proibidas": []
+    }
+  },
+  {
+    "id": "V3T024",
+    "categoria": "atualizacao",
+    "descricao": "Informação atualizada; vale o valor mais recente",
+    "mensagens": [
+      "Meu carro é um Gol.",
+      "Atualização: Meu carro é um Onix.",
+      "Qual é o meu carro? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [
+      "Meu carro é um Onix."
+    ],
+    "esperado": "Onix",
+    "estado_regras_esperado": {
+      "carro": "Onix"
+    },
+    "informacoes_esquecidas": [],
+    "avaliacao": {
+      "tipo_resposta": "factual",
+      "atributo": "carro",
+      "aliases_aceitos": [],
+      "valores_antigos": [
+        "Gol"
+      ],
+      "informacoes_proibidas": []
+    }
+  },
+  {
+    "id": "V3T026",
+    "categoria": "atualizacao",
+    "descricao": "Informação atualizada; vale o valor mais recente",
+    "mensagens": [
+      "Pratico Futsal.",
+      "Atualização: Pratico Tênis.",
+      "Qual esporte eu pratico? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [
+      "Pratico Tênis."
+    ],
+    "esperado": "Tênis",
+    "estado_regras_esperado": {
+      "esporte": "Tênis"
+    },
+    "informacoes_esquecidas": [],
+    "avaliacao": {
+      "tipo_resposta": "factual",
+      "atributo": "esporte",
+      "aliases_aceitos": [],
+      "valores_antigos": [
+        "Futsal"
+      ],
+      "informacoes_proibidas": []
+    }
+  },
+  {
+    "id": "V3T027",
+    "categoria": "esquecimento",
+    "descricao": "Informação pedida para ser esquecida não pode ser retornada",
+    "mensagens": [
+      "Torço para o Flamengo.",
+      "Esqueça meu time.",
+      "Para qual time eu torço? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [],
+    "esperado": "DESCONHECIDO",
+    "estado_regras_esperado": {},
+    "informacoes_esquecidas": [
+      "Flamengo"
+    ],
+    "avaliacao": {
+      "tipo_resposta": "abstencao",
+      "atributo": "time",
+      "aliases_aceitos": [],
+      "valores_antigos": [],
+      "informacoes_proibidas": [
+        "Flamengo"
+      ]
+    }
+  },
+  {
+    "id": "V3T028",
+    "categoria": "esquecimento",
+    "descricao": "Informação pedida para ser esquecida não pode ser retornada",
+    "mensagens": [
+      "Moro em Osasco.",
+      "Esqueça minha cidade.",
+      "Em qual cidade eu vivo? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [],
+    "esperado": "DESCONHECIDO",
+    "estado_regras_esperado": {},
+    "informacoes_esquecidas": [
+      "Osasco"
+    ],
+    "avaliacao": {
+      "tipo_resposta": "abstencao",
+      "atributo": "cidade",
+      "aliases_aceitos": [],
+      "valores_antigos": [],
+      "informacoes_proibidas": [
+        "Osasco"
+      ]
+    }
+  },
+  {
+    "id": "V3T031",
+    "categoria": "esquecimento",
+    "descricao": "Informação pedida para ser esquecida não pode ser retornada",
+    "mensagens": [
+      "Toco Bateria.",
+      "Esqueça meu instrumento.",
+      "Qual instrumento eu toco? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [],
+    "esperado": "DESCONHECIDO",
+    "estado_regras_esperado": {},
+    "informacoes_esquecidas": [
+      "Bateria"
+    ],
+    "avaliacao": {
+      "tipo_resposta": "abstencao",
+      "atributo": "instrumento",
+      "aliases_aceitos": [],
+      "valores_antigos": [],
+      "informacoes_proibidas": [
+        "Bateria"
+      ]
+    }
+  },
+  {
+    "id": "V3T034",
+    "categoria": "sem_informacao",
+    "descricao": "Pergunta sobre atributo nunca informado",
+    "mensagens": [
+      "Moro em Valinhos.",
+      "Qual é a minha profissão? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [
+      "Moro em Valinhos."
+    ],
+    "esperado": "DESCONHECIDO",
+    "estado_regras_esperado": {
+      "cidade": "Valinhos"
+    },
+    "informacoes_esquecidas": [],
+    "avaliacao": {
+      "tipo_resposta": "abstencao",
+      "atributo": "profissao",
+      "aliases_aceitos": [],
+      "valores_antigos": [],
+      "informacoes_proibidas": []
+    }
+  },
+  {
+    "id": "V3T036",
+    "categoria": "sem_informacao",
+    "descricao": "Pergunta sobre atributo nunca informado",
+    "mensagens": [
+      "Pratico Vôlei.",
+      "Qual é o meu carro? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [
+      "Pratico Vôlei."
+    ],
+    "esperado": "DESCONHECIDO",
+    "estado_regras_esperado": {
+      "esporte": "Vôlei"
+    },
+    "informacoes_esquecidas": [],
+    "avaliacao": {
+      "tipo_resposta": "abstencao",
+      "atributo": "carro",
+      "aliases_aceitos": [],
+      "valores_antigos": [],
+      "informacoes_proibidas": []
+    }
+  },
+  {
+    "id": "V3T038",
+    "categoria": "multiplos_fatos",
+    "descricao": "Vários fatos armazenados; pergunta sobre um deles",
+    "mensagens": [
+      "Moro em Jundiaí.",
+      "Trabalho como Eletricista.",
+      "Qual é a minha profissão? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [
+      "Moro em Jundiaí.",
+      "Trabalho como Eletricista."
+    ],
+    "esperado": "Eletricista",
+    "estado_regras_esperado": {
+      "cidade": "Jundiaí",
+      "profissao": "Eletricista"
+    },
+    "informacoes_esquecidas": [],
+    "avaliacao": {
+      "tipo_resposta": "factual",
+      "atributo": "profissao",
+      "aliases_aceitos": [],
+      "valores_antigos": [],
+      "informacoes_proibidas": []
+    }
+  },
+  {
+    "id": "V3T039",
+    "categoria": "multiplos_fatos",
+    "descricao": "Vários fatos armazenados; pergunta sobre um deles",
+    "mensagens": [
+      "Torço para o Grêmio.",
+      "Minha comida favorita é Churrasco.",
+      "Para qual time eu torço? Responda somente com o valor solicitado, sem explicações. Se não houver informação suficiente, responda exatamente DESCONHECIDO."
+    ],
+    "memorias": [
+      "Torço para o Grêmio.",
+      "Minha comida favorita é Churrasco."
+    ],
+    "esperado": "Grêmio",
+    "estado_regras_esperado": {
+      "time": "Grêmio",
+      "comida_favorita": "Churrasco"
+    },
+    "informacoes_esquecidas": [],
+    "avaliacao": {
+      "tipo_resposta": "factual",
+      "atributo": "time",
+      "aliases_aceitos": [],
+      "valores_antigos": [],
+      "informacoes_proibidas": []
+    }
+  }
+]

@@ -25,6 +25,7 @@ import httpx
 from eval import avaliar_sessoes_integradas as p6
 from eval.sessoes_evidencias import VerificadorEvidencias
 from eval.sessoes_transporte import Credencial, TransporteHTTP, TransporteHistorico, Evento
+from src.interface.protocolos import gravar_progresso
 
 RAIZ = Path(__file__).resolve().parents[1]
 
@@ -205,6 +206,7 @@ def main():
     parser.add_argument('--commit-base', required=True)
     parser.add_argument('--protocolo', type=Path, required=True)
     parser.add_argument('--modelo', default='qwen2.5-coder:3b')
+    parser.add_argument('--progresso', type=Path)
     args = parser.parse_args()
     protocolo = json.loads(args.protocolo.read_text(encoding='utf-8'))
     for campo, caminho in [('dataset_sha256', p6.DATASET),
@@ -244,6 +246,28 @@ def main():
             transportes = {'memoria_automatica': TransporteObservado(cliente, usuarios,
                                 contratos=protocolo['contratos'], verificar_checkpoint=coletor),
                           'historico_completo': TransporteHistorico(contratos=protocolo['contratos'], timeout=3600)}
+            sessoes, perguntas = set(), set()
+            for cenario, transporte in transportes.items():
+                original = transporte.executar
+
+                def observar(evento, *, original=original, cenario=cenario, **opcoes):
+                    gravar_progresso(args.progresso, fase='Executando P6', concluidos=len(sessoes),
+                                     previstos=40, unidade='sessões', respostas=len(perguntas), respostas_previstas=42,
+                                     cenario=cenario, usuario=evento.usuario_id, sessao=evento.sessao,
+                                     evento=evento.tipo, pergunta=evento.texto if evento.tipo == 'pergunta' else None)
+                    try:
+                        return original(evento, **opcoes)
+                    finally:
+                        if evento.tipo == 'checkpoint_persistencia':
+                            sessoes.add((cenario, evento.usuario_id, evento.sessao))
+                        if evento.tipo == 'pergunta':
+                            perguntas.add((cenario, evento.id))
+                        gravar_progresso(args.progresso, fase='Evento encerrado; consultar resultado',
+                                         concluidos=len(sessoes), previstos=40, unidade='sessões',
+                                         respostas=len(perguntas), respostas_previstas=42,
+                                         cenario=cenario, usuario=evento.usuario_id, sessao=evento.sessao, evento=evento.tipo)
+
+                transporte.executar = observar
             resultado = p6.executar(dados, transportes, pasta / 'eventos.jsonl', provedor='ollama',
                                    modelo=args.modelo, anotacoes=anotacoes, execucao_id=execucao)
             gravar(pasta / 'resumo.json', {k: v for k, v in resultado.items() if k != 'resultados'})

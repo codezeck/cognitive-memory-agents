@@ -68,3 +68,11 @@ flowchart LR
 ## Responsabilidades registradas
 
 Ezequiel: agente, contexto, provedores, avaliação e documentação; Vinícius: regras, fatos, conflitos, recuperação e dados; Paloma: API, persistência, Docker e integração. A revisão cruzada e a validação das contribuições dependem dos registros reais de cada integrante.
+
+### Esclarecimento de 21/11: geração local na entrega
+
+O grupo decidiu usar **Ollama com modelo local** para que professor e equipe executem o projeto sem contratar API externa nem depender de créditos de uso. Hardware, energia, armazenamento e download continuam tendo custo; “gratuito” aqui significa ausência de cobrança por uma API de geração no percurso da entrega.
+
+**ChatGPT Plus não é requisito para usar a API da OpenAI nem inclui seu uso.** A API tem acesso e faturamento próprios; uma assinatura do ChatGPT não deve ser tratada como chave de API. A alternativa OpenAI permanece código opcional testado com clientes simulados, sem rodada real e fora do escopo de ativação desta entrega. A escolha não implica que a API esteja comprovadamente executada nem autoriza cobrança.
+
+Fonte oficial: [ChatGPT Plus e separação do uso da API](https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus) e [faturamento separado](https://help.openai.com/en/articles/9039756-managing-billing-for-chatgpt-and-the-api-platform), conferidos em 20/11/2026. Não confundir ferramentas de IA usadas no desenvolvimento com o provedor integrado ao chatbot.

@@ -25,3 +25,7 @@ As conversas privadas dos colegas dependem deles. Revisão humana, defesa oral e
 ## Próxima sessão
 
 Usar o [prompt de continuidade](prompt-finalizacao.md), conferir PR/CI/revisões atuais e executar primeiro o que já estiver autorizado e independente de parecer humano. O enunciado disponível prevê Marco 4 em 21/11, demonstração em 28/11 e envio de 30/11 a 02/12; orientação posterior do professor prevalece.
+
+## Atualização de 20/11
+
+Ezequiel confirmou o aceite do professor para três integrantes e encerrou a validação funcional da bateria ensaiada. A [consolidação](consolidacao-testes-20261120.md) e o PDF atualizado passam à revisão documental coletiva, com médias por roteiro e qualidade separada. Não marcar essa atualização como revisão humana já realizada. Seguem os itens de fechamento acima, os registros dos colegas e a revisão dos limites da [métrica separada de informações antigas](informacao-antiga-respostas.md), já implementada.

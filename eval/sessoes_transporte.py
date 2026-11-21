@@ -7,7 +7,7 @@ from typing import Callable, Protocol
 
 import httpx
 
-from eval.historico_processo import executar_historico_em_processo
+from eval.historico_processo import executar_historico_em_processo, tipos_causa
 
 
 @dataclass(frozen=True)
@@ -254,7 +254,14 @@ class TransporteHistorico:
                 self._resultados[episodio] = erro
         resultado = self._resultados[episodio]
         if isinstance(resultado, Exception):
-            raise RuntimeError("Falha no lote de histórico; consumo não recebido é desconhecido.") from resultado
+            tipos = getattr(resultado, 'tipos_causa', tipos_causa(resultado))
+            timeout = any('timeout' in t.lower() for t in tipos)
+            motivo = ('O modelo ou o lote excedeu o prazo' if timeout else
+                      'O processo do histórico falhou')
+            raise RuntimeError(
+                f"Falha no lote de histórico: {motivo} ({' → '.join(tipos)}). "
+                "Os eventos deste episódio não são repetidos; consumo não recebido é desconhecido."
+            ) from resultado
         return {**resultado[posicao], "origem": "lote_spawn", "memorias_usadas": []}
 
     def verificar_inicio(self, eventos, *, execucao_id, provedor, modelo):

@@ -1,13 +1,13 @@
 # Checklist de entrega — versão candidata v3
 
-Estado de 18/11/2026. O usuário autorizou publicação e confirmou MIT em nome do grupo. A composição de **três integrantes está validada**. Instituição: **Faculdade UniAnchieta**, conforme informada. Cidade e professor foram omitidos por orientação do usuário.
+Atualizado em 20/11/2026; evidências históricas conservam suas datas. O usuário autorizou publicação e confirmou MIT em nome do grupo. A composição de **três integrantes foi aceita pelo professor**, conforme confirmação explícita de Ezequiel. Instituição: **Faculdade UniAnchieta**, conforme informada. Cidade e professor foram omitidos por orientação do usuário.
 
 | Item | Estado e evidência |
 |---|---|
 | Memória, atualização, esquecimento e contexto | Implementados; [relatório v3](acertos-tokens-contexto-v3.md) |
 | P6: 20 sessões por cenário | Modelo real; 21/21 respostas da automática aprovadas; 19/19 checkpoints não vazios de persistência e 2/2 de exclusão |
-| Acertos e tokens | P6: 3.593 contra 22.228 tokens, redução de 83,84% em 20/20 pares. Validação: 48/48 aprovações; 84,88% em 47/48 pares. Baseline com julgamentos não verificados e um timeout; sem equivalência estatística demonstrada |
-| Pesquisa PDF v3 | [PDF](pesquisa-abnt.pdf): 25 páginas totais, 16 textuais, 11 referências; todas as páginas renderizadas e conferidas; metodologia atual, referências ordenadas e apêndice de reprodução |
+| Acertos e tokens históricos de 18/11 | P6: 3.593 contra 22.228 tokens, redução de 83,84% em 20/20 pares. Validação: 48/48 aprovações; 84,88% em 47/48 pares. Baseline com julgamentos não verificados e um timeout; sem equivalência estatística demonstrada |
+| Pesquisa PDF v3 de 18/11 (registro histórico) | [PDF](pesquisa-abnt.pdf): 25 páginas totais, 16 textuais, 11 referências; todas as páginas renderizadas e conferidas; metodologia atual, referências ordenadas e apêndice de reprodução |
 | Documentação técnica | [Índice dos nove itens](README.md), [manual completo](manual-professor.md), [reprodução Docker](reproduzir-avaliacao-v3.md) e [cinco decisões](decisoes-arquitetura.md) consolidados |
 | Contextos de IA | [Síntese disponível e modelo](registro-ia/README.md) preparados; cada colega ainda precisa fornecer/conferir seus registros |
 | Dados acadêmicos | [Registro validado](dados-academicos.json); três autores |
@@ -35,3 +35,9 @@ git push origin v1.0
 Conferir antes que a tag não existe e que `master` contém a versão revisada. Não mover uma tag publicada. O workflow aceita `v1.0`. Guardar URL da execução, SHA do commit e PNG da tela verde no índice. Não declarar revisão, tag ou envio sem esses registros.
 
 Documentos históricos de 14/11 e da v2 permanecem datados. Para o estado atual, usar este checklist e o relatório v3.
+
+## Fechamento funcional informado em 20/11
+
+Ezequiel validou a bateria oficial e o conjunto personalizado e autorizou passar à documentação. [Consolidação](consolidacao-testes-20261120.md): 84,80% no histórico oficial de versões, 84,91% na rodada oficial atual e 74,13% nas duas rodadas personalizadas. Última personalizada: 42/45 fatos e 15/15 abstenções na automática, contra 44/45 e 8/15 no histórico, com 60/60 pares medidos. Três reprovações factuais da automática e os inconclusivos dos controles permanecem registrados. A taxa separada de informação antiga foi incorporada em 21/11, com anotações, cobertura e limites gramaticais explícitos; ver [métrica](informacao-antiga-respostas.md). O aceite do usuário não substitui revisão humana, vídeo, CI da tag ou envio.
+
+A pesquisa e seu PDF foram atualizados para esses métodos, médias, qualidade e limitações. A contagem atual de páginas e os hashes constam de `pesquisa-consolidacao-geracao.json`; a linha de 18/11 acima é histórica. Novas evidências: [índice de 20/11](../evidencias/consolidacao-interface-20261120/README.md). Não houve publicação ou operação de versionamento nesta atualização documental.

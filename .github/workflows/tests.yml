@@ -44,8 +44,8 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Testar apresentacao das metricas no navegador
-        run: node --test tests/test_relatorio.mjs
+      - name: Testar modulos da interface e apresentacao das metricas
+        run: node --test tests/*.mjs
 
       - name: Executar testes
         run: python -m pytest -v

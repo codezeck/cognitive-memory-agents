@@ -55,6 +55,7 @@ def main(argv=None):
     parser.add_argument('--saida-dir', required=True, type=Path)
     parser.add_argument('--commit-base', required=True)
     parser.add_argument('--modelo', default='qwen2.5-coder:3b')
+    parser.add_argument('--progresso', type=Path)
     parser.add_argument('--somente-preparar', action='store_true',
                         help='Valida fontes e grava protocolo, sem chamar API/modelo.')
     args = parser.parse_args(argv)
@@ -73,7 +74,8 @@ def main(argv=None):
     return subprocess.run(
         [sys.executable, '-B', '-m', 'tools.executar_p6_local',
          '--saida-dir', str(saida), '--commit-base', args.commit_base,
-         '--protocolo', str(protocolo), '--modelo', args.modelo], cwd=RAIZ,
+         '--protocolo', str(protocolo), '--modelo', args.modelo,
+         *(['--progresso', str(args.progresso)] if args.progresso else [])], cwd=RAIZ,
         check=False).returncode
 
 

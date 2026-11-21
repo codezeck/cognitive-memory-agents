@@ -1,5 +1,9 @@
 # Índice de evidências
 
+**21/11:** [análise adicional de informação antiga, derivados e testes](informacao-antiga-20261121/README.md); os originais e os números de tokens anteriores foram preservados.
+
+**Consolidação de 20/11:** [14 relatórios locais preservados, médias e recálculo](consolidacao-interface-20261120/README.md). Oficial e personalizado separados, P6 em unidade própria, qualidade e falhas mantidas.
+
 **Candidata v3 de 18/11:** [índice consolidado](entrega-v3-20261118/README.md), PDF, gráficos, CSV e fontes brutas; ver pendências atuais nesse índice.
 
 ## Contexto v3 — acertos e tokens

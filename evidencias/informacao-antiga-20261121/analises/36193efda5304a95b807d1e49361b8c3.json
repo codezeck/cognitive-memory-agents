@@ -1,0 +1,1178 @@
+{
+  "versao": "informacao-antiga-v1",
+  "disponivel": true,
+  "anotacoes_sha256": "115be24fa51a3c6f09605177044afd97cb846aa55519a7ae3076b51b1658eb66",
+  "motivo": "Análise adicional dos valores antigos anotados; não altera P4/P5, tokens ou respostas. Maior taxa é pior. Cobertura literal e gramatical limitada; sem revisão humana automática.",
+  "resultados": [
+    {
+      "indice": 1,
+      "id": "V3T001",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 5,
+      "id": "V3T002",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 9,
+      "id": "V3T005",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 13,
+      "id": "V3T008",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 17,
+      "id": "V3T009",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 21,
+      "id": "V3T013",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 25,
+      "id": "V3T014",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 29,
+      "id": "V3T016",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 33,
+      "id": "V3T017",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "verificado",
+        "retornou_antiga": false,
+        "ocorrencias_literais": [],
+        "motivo": "sem_ocorrencia_literal_dos_valores_antigos"
+      }
+    },
+    {
+      "indice": 37,
+      "id": "V3T018",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "verificado",
+        "retornou_antiga": false,
+        "ocorrencias_literais": [],
+        "motivo": "sem_ocorrencia_literal_dos_valores_antigos"
+      }
+    },
+    {
+      "indice": 41,
+      "id": "V3T021",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "verificado",
+        "retornou_antiga": false,
+        "ocorrencias_literais": [],
+        "motivo": "sem_ocorrencia_literal_dos_valores_antigos"
+      }
+    },
+    {
+      "indice": 45,
+      "id": "V3T024",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "verificado",
+        "retornou_antiga": false,
+        "ocorrencias_literais": [],
+        "motivo": "sem_ocorrencia_literal_dos_valores_antigos"
+      }
+    },
+    {
+      "indice": 49,
+      "id": "V3T026",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "verificado",
+        "retornou_antiga": false,
+        "ocorrencias_literais": [],
+        "motivo": "sem_ocorrencia_literal_dos_valores_antigos"
+      }
+    },
+    {
+      "indice": 53,
+      "id": "V3T027",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "abstencao_ou_esquecimento_avaliados_separadamente"
+      }
+    },
+    {
+      "indice": 57,
+      "id": "V3T028",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "abstencao_ou_esquecimento_avaliados_separadamente"
+      }
+    },
+    {
+      "indice": 61,
+      "id": "V3T031",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "abstencao_ou_esquecimento_avaliados_separadamente"
+      }
+    },
+    {
+      "indice": 65,
+      "id": "V3T034",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "abstencao_ou_esquecimento_avaliados_separadamente"
+      }
+    },
+    {
+      "indice": 69,
+      "id": "V3T036",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "abstencao_ou_esquecimento_avaliados_separadamente"
+      }
+    },
+    {
+      "indice": 73,
+      "id": "V3T038",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 77,
+      "id": "V3T039",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 2,
+      "id": "V3T001",
+      "cenario": "memoria_persistente_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 6,
+      "id": "V3T002",
+      "cenario": "memoria_persistente_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 10,
+      "id": "V3T005",
+      "cenario": "memoria_persistente_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 14,
+      "id": "V3T008",
+      "cenario": "memoria_persistente_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 18,
+      "id": "V3T009",
+      "cenario": "memoria_persistente_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 22,
+      "id": "V3T013",
+      "cenario": "memoria_persistente_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 26,
+      "id": "V3T014",
+      "cenario": "memoria_persistente_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 30,
+      "id": "V3T016",
+      "cenario": "memoria_persistente_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 34,
+      "id": "V3T017",
+      "cenario": "memoria_persistente_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "verificado",
+        "retornou_antiga": false,
+        "ocorrencias_literais": [],
+        "motivo": "sem_ocorrencia_literal_dos_valores_antigos"
+      }
+    },
+    {
+      "indice": 38,
+      "id": "V3T018",
+      "cenario": "memoria_persistente_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "verificado",
+        "retornou_antiga": false,
+        "ocorrencias_literais": [],
+        "motivo": "sem_ocorrencia_literal_dos_valores_antigos"
+      }
+    },
+    {
+      "indice": 42,
+      "id": "V3T021",
+      "cenario": "memoria_persistente_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "verificado",
+        "retornou_antiga": false,
+        "ocorrencias_literais": [],
+        "motivo": "sem_ocorrencia_literal_dos_valores_antigos"
+      }
+    },
+    {
+      "indice": 46,
+      "id": "V3T024",
+      "cenario": "memoria_persistente_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "verificado",
+        "retornou_antiga": false,
+        "ocorrencias_literais": [],
+        "motivo": "sem_ocorrencia_literal_dos_valores_antigos"
+      }
+    },
+    {
+      "indice": 50,
+      "id": "V3T026",
+      "cenario": "memoria_persistente_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "verificado",
+        "retornou_antiga": false,
+        "ocorrencias_literais": [],
+        "motivo": "sem_ocorrencia_literal_dos_valores_antigos"
+      }
+    },
+    {
+      "indice": 54,
+      "id": "V3T027",
+      "cenario": "memoria_persistente_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "abstencao_ou_esquecimento_avaliados_separadamente"
+      }
+    },
+    {
+      "indice": 58,
+      "id": "V3T028",
+      "cenario": "memoria_persistente_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "abstencao_ou_esquecimento_avaliados_separadamente"
+      }
+    },
+    {
+      "indice": 62,
+      "id": "V3T031",
+      "cenario": "memoria_persistente_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "abstencao_ou_esquecimento_avaliados_separadamente"
+      }
+    },
+    {
+      "indice": 66,
+      "id": "V3T034",
+      "cenario": "memoria_persistente_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "abstencao_ou_esquecimento_avaliados_separadamente"
+      }
+    },
+    {
+      "indice": 70,
+      "id": "V3T036",
+      "cenario": "memoria_persistente_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "abstencao_ou_esquecimento_avaliados_separadamente"
+      }
+    },
+    {
+      "indice": 74,
+      "id": "V3T038",
+      "cenario": "memoria_persistente_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 78,
+      "id": "V3T039",
+      "cenario": "memoria_persistente_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 3,
+      "id": "V3T001",
+      "cenario": "memoria_regras_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 7,
+      "id": "V3T002",
+      "cenario": "memoria_regras_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 11,
+      "id": "V3T005",
+      "cenario": "memoria_regras_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 15,
+      "id": "V3T008",
+      "cenario": "memoria_regras_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 19,
+      "id": "V3T009",
+      "cenario": "memoria_regras_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 23,
+      "id": "V3T013",
+      "cenario": "memoria_regras_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 27,
+      "id": "V3T014",
+      "cenario": "memoria_regras_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 31,
+      "id": "V3T016",
+      "cenario": "memoria_regras_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 35,
+      "id": "V3T017",
+      "cenario": "memoria_regras_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "verificado",
+        "retornou_antiga": false,
+        "ocorrencias_literais": [],
+        "motivo": "sem_ocorrencia_literal_dos_valores_antigos"
+      }
+    },
+    {
+      "indice": 39,
+      "id": "V3T018",
+      "cenario": "memoria_regras_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "verificado",
+        "retornou_antiga": false,
+        "ocorrencias_literais": [],
+        "motivo": "sem_ocorrencia_literal_dos_valores_antigos"
+      }
+    },
+    {
+      "indice": 43,
+      "id": "V3T021",
+      "cenario": "memoria_regras_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "verificado",
+        "retornou_antiga": false,
+        "ocorrencias_literais": [],
+        "motivo": "sem_ocorrencia_literal_dos_valores_antigos"
+      }
+    },
+    {
+      "indice": 47,
+      "id": "V3T024",
+      "cenario": "memoria_regras_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "verificado",
+        "retornou_antiga": false,
+        "ocorrencias_literais": [],
+        "motivo": "sem_ocorrencia_literal_dos_valores_antigos"
+      }
+    },
+    {
+      "indice": 51,
+      "id": "V3T026",
+      "cenario": "memoria_regras_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "verificado",
+        "retornou_antiga": false,
+        "ocorrencias_literais": [],
+        "motivo": "sem_ocorrencia_literal_dos_valores_antigos"
+      }
+    },
+    {
+      "indice": 55,
+      "id": "V3T027",
+      "cenario": "memoria_regras_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "abstencao_ou_esquecimento_avaliados_separadamente"
+      }
+    },
+    {
+      "indice": 59,
+      "id": "V3T028",
+      "cenario": "memoria_regras_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "abstencao_ou_esquecimento_avaliados_separadamente"
+      }
+    },
+    {
+      "indice": 63,
+      "id": "V3T031",
+      "cenario": "memoria_regras_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "abstencao_ou_esquecimento_avaliados_separadamente"
+      }
+    },
+    {
+      "indice": 67,
+      "id": "V3T034",
+      "cenario": "memoria_regras_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "abstencao_ou_esquecimento_avaliados_separadamente"
+      }
+    },
+    {
+      "indice": 71,
+      "id": "V3T036",
+      "cenario": "memoria_regras_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "abstencao_ou_esquecimento_avaliados_separadamente"
+      }
+    },
+    {
+      "indice": 75,
+      "id": "V3T038",
+      "cenario": "memoria_regras_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 79,
+      "id": "V3T039",
+      "cenario": "memoria_regras_api",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 0,
+      "id": "V3T001",
+      "cenario": "sem_memoria",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 4,
+      "id": "V3T002",
+      "cenario": "sem_memoria",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 8,
+      "id": "V3T005",
+      "cenario": "sem_memoria",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 12,
+      "id": "V3T008",
+      "cenario": "sem_memoria",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 16,
+      "id": "V3T009",
+      "cenario": "sem_memoria",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 20,
+      "id": "V3T013",
+      "cenario": "sem_memoria",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 24,
+      "id": "V3T014",
+      "cenario": "sem_memoria",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 28,
+      "id": "V3T016",
+      "cenario": "sem_memoria",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 32,
+      "id": "V3T017",
+      "cenario": "sem_memoria",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "verificado",
+        "retornou_antiga": false,
+        "ocorrencias_literais": [],
+        "motivo": "sem_ocorrencia_literal_dos_valores_antigos"
+      }
+    },
+    {
+      "indice": 36,
+      "id": "V3T018",
+      "cenario": "sem_memoria",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "verificado",
+        "retornou_antiga": false,
+        "ocorrencias_literais": [],
+        "motivo": "sem_ocorrencia_literal_dos_valores_antigos"
+      }
+    },
+    {
+      "indice": 40,
+      "id": "V3T021",
+      "cenario": "sem_memoria",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "verificado",
+        "retornou_antiga": false,
+        "ocorrencias_literais": [],
+        "motivo": "sem_ocorrencia_literal_dos_valores_antigos"
+      }
+    },
+    {
+      "indice": 44,
+      "id": "V3T024",
+      "cenario": "sem_memoria",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "verificado",
+        "retornou_antiga": false,
+        "ocorrencias_literais": [],
+        "motivo": "sem_ocorrencia_literal_dos_valores_antigos"
+      }
+    },
+    {
+      "indice": 48,
+      "id": "V3T026",
+      "cenario": "sem_memoria",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "verificado",
+        "retornou_antiga": false,
+        "ocorrencias_literais": [],
+        "motivo": "sem_ocorrencia_literal_dos_valores_antigos"
+      }
+    },
+    {
+      "indice": 52,
+      "id": "V3T027",
+      "cenario": "sem_memoria",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "abstencao_ou_esquecimento_avaliados_separadamente"
+      }
+    },
+    {
+      "indice": 56,
+      "id": "V3T028",
+      "cenario": "sem_memoria",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "abstencao_ou_esquecimento_avaliados_separadamente"
+      }
+    },
+    {
+      "indice": 60,
+      "id": "V3T031",
+      "cenario": "sem_memoria",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "abstencao_ou_esquecimento_avaliados_separadamente"
+      }
+    },
+    {
+      "indice": 64,
+      "id": "V3T034",
+      "cenario": "sem_memoria",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "abstencao_ou_esquecimento_avaliados_separadamente"
+      }
+    },
+    {
+      "indice": 68,
+      "id": "V3T036",
+      "cenario": "sem_memoria",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "abstencao_ou_esquecimento_avaliados_separadamente"
+      }
+    },
+    {
+      "indice": 72,
+      "id": "V3T038",
+      "cenario": "sem_memoria",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 76,
+      "id": "V3T039",
+      "cenario": "sem_memoria",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    }
+  ],
+  "cenarios": {
+    "historico_completo": {
+      "tentativas_previstas": 20,
+      "tentativas_elegiveis": 5,
+      "julgamentos_verificados": 5,
+      "numerador": 0,
+      "denominador": 5,
+      "nao_verificados": 0,
+      "nao_aplicaveis": 15,
+      "aplicabilidade_desconhecida": 0,
+      "cobertura_pct": 100.0,
+      "taxa_pct": 0.0
+    },
+    "memoria_persistente_api": {
+      "tentativas_previstas": 20,
+      "tentativas_elegiveis": 5,
+      "julgamentos_verificados": 5,
+      "numerador": 0,
+      "denominador": 5,
+      "nao_verificados": 0,
+      "nao_aplicaveis": 15,
+      "aplicabilidade_desconhecida": 0,
+      "cobertura_pct": 100.0,
+      "taxa_pct": 0.0
+    },
+    "memoria_regras_api": {
+      "tentativas_previstas": 20,
+      "tentativas_elegiveis": 5,
+      "julgamentos_verificados": 5,
+      "numerador": 0,
+      "denominador": 5,
+      "nao_verificados": 0,
+      "nao_aplicaveis": 15,
+      "aplicabilidade_desconhecida": 0,
+      "cobertura_pct": 100.0,
+      "taxa_pct": 0.0
+    },
+    "sem_memoria": {
+      "tentativas_previstas": 20,
+      "tentativas_elegiveis": 5,
+      "julgamentos_verificados": 5,
+      "numerador": 0,
+      "denominador": 5,
+      "nao_verificados": 0,
+      "nao_aplicaveis": 15,
+      "aplicabilidade_desconhecida": 0,
+      "cobertura_pct": 100.0,
+      "taxa_pct": 0.0
+    }
+  }
+}

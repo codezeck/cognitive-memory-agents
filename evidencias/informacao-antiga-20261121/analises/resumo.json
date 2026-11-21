@@ -1,0 +1,752 @@
+[
+  {
+    "execucao": "36193efda5304a95b807d1e49361b8c3",
+    "protocolo": "comparativo_v3",
+    "conjunto": "próprio",
+    "repeticoes": 1,
+    "disponivel": true,
+    "cenarios": {
+      "historico_completo": {
+        "tentativas_previstas": 20,
+        "tentativas_elegiveis": 5,
+        "julgamentos_verificados": 5,
+        "numerador": 0,
+        "denominador": 5,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 15,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "memoria_persistente_api": {
+        "tentativas_previstas": 20,
+        "tentativas_elegiveis": 5,
+        "julgamentos_verificados": 5,
+        "numerador": 0,
+        "denominador": 5,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 15,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "memoria_regras_api": {
+        "tentativas_previstas": 20,
+        "tentativas_elegiveis": 5,
+        "julgamentos_verificados": 5,
+        "numerador": 0,
+        "denominador": 5,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 15,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "sem_memoria": {
+        "tentativas_previstas": 20,
+        "tentativas_elegiveis": 5,
+        "julgamentos_verificados": 5,
+        "numerador": 0,
+        "denominador": 5,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 15,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      }
+    }
+  },
+  {
+    "execucao": "66a547f102364a3facd19c7fa4f78377",
+    "protocolo": "comparativo_v3",
+    "conjunto": "oficial",
+    "repeticoes": 3,
+    "disponivel": true,
+    "cenarios": {
+      "historico_completo": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "memoria_persistente_api": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "memoria_regras_api": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "sem_memoria": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      }
+    }
+  },
+  {
+    "execucao": "74811af8dd3b482fb52fcfe5e5cd2d8f",
+    "protocolo": "comparativo_v3",
+    "conjunto": "oficial",
+    "repeticoes": 3,
+    "disponivel": true,
+    "cenarios": {
+      "historico_completo": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "memoria_persistente_api": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "memoria_regras_api": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "sem_memoria": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      }
+    }
+  },
+  {
+    "execucao": "7a1add5bd6d745c1bd6508976b9462b1",
+    "protocolo": "comparativo_v3",
+    "conjunto": "oficial",
+    "repeticoes": 3,
+    "disponivel": true,
+    "cenarios": {
+      "historico_completo": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "memoria_persistente_api": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "memoria_regras_api": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "sem_memoria": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      }
+    }
+  },
+  {
+    "execucao": "825d6d43890b43abb4784ff24942793d",
+    "protocolo": "comparativo_v3",
+    "conjunto": "oficial",
+    "repeticoes": 3,
+    "disponivel": true,
+    "cenarios": {
+      "historico_completo": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "memoria_persistente_api": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "memoria_regras_api": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "sem_memoria": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      }
+    }
+  },
+  {
+    "execucao": "9c8e1e285593479e9a64a565f06282d7",
+    "protocolo": "comparativo_v3",
+    "conjunto": "oficial",
+    "repeticoes": 1,
+    "disponivel": true,
+    "cenarios": {
+      "historico_completo": {
+        "tentativas_previstas": 16,
+        "tentativas_elegiveis": 3,
+        "julgamentos_verificados": 3,
+        "numerador": 0,
+        "denominador": 3,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 13,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "memoria_persistente_api": {
+        "tentativas_previstas": 16,
+        "tentativas_elegiveis": 3,
+        "julgamentos_verificados": 3,
+        "numerador": 0,
+        "denominador": 3,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 13,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "memoria_regras_api": {
+        "tentativas_previstas": 16,
+        "tentativas_elegiveis": 3,
+        "julgamentos_verificados": 3,
+        "numerador": 0,
+        "denominador": 3,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 13,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "sem_memoria": {
+        "tentativas_previstas": 16,
+        "tentativas_elegiveis": 3,
+        "julgamentos_verificados": 3,
+        "numerador": 0,
+        "denominador": 3,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 13,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      }
+    }
+  },
+  {
+    "execucao": "a650e3e5b7a34612ad7f146b8a659931",
+    "protocolo": "comparativo_v3",
+    "conjunto": "oficial",
+    "repeticoes": 3,
+    "disponivel": true,
+    "cenarios": {
+      "historico_completo": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "memoria_persistente_api": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "memoria_regras_api": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "sem_memoria": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      }
+    }
+  },
+  {
+    "execucao": "a7b3a5398bd2477990526e418fe1ad47",
+    "protocolo": "comparativo_v3",
+    "conjunto": "oficial",
+    "repeticoes": 3,
+    "disponivel": true,
+    "cenarios": {
+      "historico_completo": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "memoria_persistente_api": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "memoria_regras_api": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "sem_memoria": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      }
+    }
+  },
+  {
+    "execucao": "bea572b4fa954e13a03b2b808077c3bb",
+    "protocolo": "comparativo_v3",
+    "conjunto": "oficial",
+    "repeticoes": 3,
+    "disponivel": true,
+    "cenarios": {
+      "historico_completo": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "memoria_persistente_api": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "memoria_regras_api": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "sem_memoria": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      }
+    }
+  },
+  {
+    "execucao": "cf9d4a516d9a466bb196e0f8f6788276",
+    "protocolo": "comparativo_v3",
+    "conjunto": "próprio",
+    "repeticoes": 3,
+    "disponivel": true,
+    "cenarios": {
+      "historico_completo": {
+        "tentativas_previstas": 60,
+        "tentativas_elegiveis": 15,
+        "julgamentos_verificados": 15,
+        "numerador": 0,
+        "denominador": 15,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 45,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "memoria_persistente_api": {
+        "tentativas_previstas": 60,
+        "tentativas_elegiveis": 15,
+        "julgamentos_verificados": 13,
+        "numerador": 0,
+        "denominador": 13,
+        "nao_verificados": 2,
+        "nao_aplicaveis": 45,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 86.67,
+        "taxa_pct": 0.0
+      },
+      "memoria_regras_api": {
+        "tentativas_previstas": 60,
+        "tentativas_elegiveis": 15,
+        "julgamentos_verificados": 15,
+        "numerador": 0,
+        "denominador": 15,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 45,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "sem_memoria": {
+        "tentativas_previstas": 60,
+        "tentativas_elegiveis": 15,
+        "julgamentos_verificados": 15,
+        "numerador": 0,
+        "denominador": 15,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 45,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      }
+    }
+  },
+  {
+    "execucao": "d980bd3d41b6447d942f95c0719dbe15",
+    "protocolo": "p6",
+    "conjunto": null,
+    "repeticoes": null,
+    "disponivel": true,
+    "cenarios": {
+      "historico_completo": {
+        "tentativas_previstas": 21,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 5,
+        "numerador": 0,
+        "denominador": 5,
+        "nao_verificados": 4,
+        "nao_aplicaveis": 12,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 55.56,
+        "taxa_pct": 0.0
+      },
+      "memoria_automatica": {
+        "tentativas_previstas": 21,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 12,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      }
+    }
+  },
+  {
+    "execucao": "dd33918d77184d028351b021a8db0203",
+    "protocolo": "p6",
+    "conjunto": null,
+    "repeticoes": null,
+    "disponivel": true,
+    "cenarios": {
+      "historico_completo": {
+        "tentativas_previstas": 21,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 1,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 12,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 11.11
+      },
+      "memoria_automatica": {
+        "tentativas_previstas": 21,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 12,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      }
+    }
+  },
+  {
+    "execucao": "f377808d9c414f90bd27543659d384e4",
+    "protocolo": "comparativo_v3",
+    "conjunto": "oficial",
+    "repeticoes": 3,
+    "disponivel": true,
+    "cenarios": {
+      "historico_completo": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "memoria_persistente_api": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "memoria_regras_api": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "sem_memoria": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      }
+    }
+  },
+  {
+    "execucao": "f7c3de6bb9564f3f8e7f4897fbf823e3",
+    "protocolo": "comparativo_v3",
+    "conjunto": "oficial",
+    "repeticoes": 3,
+    "disponivel": true,
+    "cenarios": {
+      "historico_completo": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "memoria_persistente_api": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "memoria_regras_api": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      },
+      "sem_memoria": {
+        "tentativas_previstas": 48,
+        "tentativas_elegiveis": 9,
+        "julgamentos_verificados": 9,
+        "numerador": 0,
+        "denominador": 9,
+        "nao_verificados": 0,
+        "nao_aplicaveis": 39,
+        "aplicabilidade_desconhecida": 0,
+        "cobertura_pct": 100.0,
+        "taxa_pct": 0.0
+      }
+    }
+  }
+]

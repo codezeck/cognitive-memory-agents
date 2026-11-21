@@ -512,6 +512,9 @@ def executar(dados, transportes, saida, *, provedor="ollama", modelo="qwen2.5-co
             "metricas_resposta": {c: resumir_metricas_resposta(respostas[c]) for c in CENARIOS},
             "comparacoes_tokens": comparar_sessoes(sessoes),
         }
+        from eval.informacao_antiga import analisar_informacao_antiga
+        resumo['analise_informacao_antiga'] = analisar_informacao_antiga(
+            {**resumo, 'resultados': resultados}, anotacoes=anotacoes_validas)
         registrar(resumo)
     return {**resumo, "resultados": resultados}
 

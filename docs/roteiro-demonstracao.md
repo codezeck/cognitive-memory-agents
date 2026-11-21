@@ -13,6 +13,8 @@ Preparação: Docker Desktop aberto, projeto próprio, dados sintéticos e porta
 | 2:15–2:55 | Executar `docker compose --env-file .env.example -p cma-video restart api`; atualizar página e perguntar cidade. Mostrar persistência após reinício do processo |
 | 2:55–3:20 | Perfil B, perguntar cidade sem ter informado uma. Esperado: `DESCONHECIDO`, sem dados de A |
 | 3:20–4:00 | Voltar A; `Esqueça minha cidade.`; Nova sessão; perguntar cidade. Depois `Qual e a capital da Franca?`, mostrando que perguntas gerais continuam no modelo |
-| 4:00–4:30 | Mostrar índice/PDF. “P6: 21/21 aprovações da automática, 83,84% menos tokens nos 20 pares. São casos sintéticos; há limitações do julgador e da gramática. Revisão humana e CI na tag fecham a entrega.” |
+| 4:00–4:30 | Mostrar o histórico, abrir um relatório e suas respostas, depois o índice/PDF. “Na versão atual, o oficial teve 84,91% de redução; o personalizado consolidado, 74,13%. A última personalizada teve 42/45 fatos na automática e 44/45 no histórico, com 15/15 contra 8/15 abstenções. Economia e qualidade são medidas juntas; não é ganho fixo. Revisão humana e CI da tag fecham a entrega.” |
 
 Verificar as respostas antes de narrar sucesso. Se ocorrer falha, preservá-la e explicar. Assistir ao vídeo inteiro, conferir duração de 180–300 segundos, comandos legíveis, ausência de segredos e correspondência ao commit. Adicionar MP4, duração, SHA256, data/fuso e capturas ao índice. PNGs históricos não substituem o vídeo.
+
+Atualização documental de 20/11: resultados e tabelas no [relatório consolidado](consolidacao-testes-20261120.md). Preferir reabrir a rodada já salva durante o vídeo, identificando-a como anterior; não simular que uma avaliação longa concluiu dentro da gravação. O usuário validou a bateria no escopo ensaiado. Composição de três integrantes aceita pelo professor.

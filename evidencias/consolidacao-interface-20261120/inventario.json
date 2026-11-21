@@ -1,0 +1,2587 @@
+[
+  {
+    "pasta": "36193efda5304a95b807d1e49361b8c3",
+    "arquivo_sha256": "bf0acf3a397b4cd832372f0328e8a49ce457a1eef942001fe0a600778436c5b0",
+    "gerado_em": "2026-11-20T16:56:18.607687+00:00",
+    "protocolo": "comparativo_v3",
+    "conjunto": "próprio",
+    "repeticoes": 1,
+    "casos": 20,
+    "dataset": "30a53f9b074fbc0d19c3b8ed27159d4dd8253716c6aa0ac114625808e873328e",
+    "modelo": "qwen2.5-coder:3b",
+    "nucleo": "295328a15acd2c50db52e6c7b301dbe2cab2035f73b7c4674132c6f08aedc73e",
+    "executor": "8085f817220e075e9f0b179bc6ff541c3c1fc01c9e161dd1bcaf4dea1ab68d07",
+    "fontes_presentes": true,
+    "limites": {
+      "versao": "comparativo-limites-v1",
+      "timeout_modelo_s": 180.0,
+      "timeout_api_s": 210.0,
+      "timeout_historico_base_s": 30,
+      "timeout_historico_por_turno_s": 180.0,
+      "escopo": "processos_isolados_do_comparativo",
+      "repeticao_automatica": false
+    },
+    "controle": "modelo_direto",
+    "codigo_saida": 0,
+    "cenarios": {
+      "sem_memoria": {
+        "tentativas": 20,
+        "medidos": 20,
+        "falhas": 0,
+        "tokens_completos": 1563,
+        "subtotal_medido": 1563,
+        "fatos": {
+          "reprovado": 11,
+          "aprovado": 1,
+          "nao_verificado": 3,
+          "nao_aplicavel": 5
+        },
+        "vias": {
+          "ollama_direto": 20
+        }
+      },
+      "historico_completo": {
+        "tentativas": 20,
+        "medidos": 20,
+        "falhas": 0,
+        "tokens_completos": 15593,
+        "subtotal_medido": 15593,
+        "fatos": {
+          "aprovado": 14,
+          "nao_verificado": 1,
+          "nao_aplicavel": 5
+        },
+        "vias": {
+          "agente_local": 20
+        }
+      },
+      "memoria_persistente_api": {
+        "tentativas": 20,
+        "medidos": 20,
+        "falhas": 0,
+        "tokens_completos": 2863,
+        "subtotal_medido": 2863,
+        "fatos": {
+          "aprovado": 14,
+          "nao_verificado": 1,
+          "nao_aplicavel": 5
+        },
+        "vias": {
+          "api": 20
+        }
+      },
+      "memoria_regras_api": {
+        "tentativas": 20,
+        "medidos": 20,
+        "falhas": 0,
+        "tokens_completos": 4018,
+        "subtotal_medido": 4018,
+        "fatos": {
+          "aprovado": 14,
+          "reprovado": 1,
+          "nao_aplicavel": 5
+        },
+        "vias": {
+          "api": 20
+        }
+      }
+    },
+    "pareados": {
+      "pares": 20,
+      "historico": 15593,
+      "automatica": 4018,
+      "reducao_pct": 74.23202719168857,
+      "historico_previsto": 20,
+      "automatica_prevista": 20
+    }
+  },
+  {
+    "pasta": "66a547f102364a3facd19c7fa4f78377",
+    "arquivo_sha256": "8c9c276d8876ade35bc456e5965f0bc61a5c3f9cb1409fa8545d3ffdeb3c10a8",
+    "gerado_em": "2026-11-20T12:31:49.902643+00:00",
+    "protocolo": "comparativo_v3",
+    "conjunto": "oficial",
+    "repeticoes": 3,
+    "casos": 16,
+    "dataset": "d3d8469bde14a377da3f4767769e71cc72479877f63bffe5584edf869b6a9206",
+    "modelo": "qwen2.5-coder:3b",
+    "nucleo": "295328a15acd2c50db52e6c7b301dbe2cab2035f73b7c4674132c6f08aedc73e",
+    "executor": "09ebcbf1162868114c1a521b3516f34544ae510c2ae6bab9b712358fc6b73ae8",
+    "fontes_presentes": true,
+    "limites": null,
+    "controle": "modelo_direto",
+    "codigo_saida": 0,
+    "cenarios": {
+      "sem_memoria": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 3691,
+        "subtotal_medido": 3691,
+        "fatos": {
+          "reprovado": 31,
+          "nao_aplicavel": 15,
+          "nao_verificado": 2
+        },
+        "vias": {
+          "ollama_direto": 48
+        }
+      },
+      "historico_completo": {
+        "tentativas": 48,
+        "medidos": 47,
+        "falhas": 1,
+        "tokens_completos": null,
+        "subtotal_medido": 40390,
+        "fatos": {
+          "aprovado": 30,
+          "nao_aplicavel": 15,
+          "nao_verificado": 3
+        },
+        "vias": {
+          "agente_local": 47,
+          "ausente": 1
+        }
+      },
+      "memoria_persistente_api": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 6211,
+        "subtotal_medido": 6211,
+        "fatos": {
+          "aprovado": 33,
+          "nao_aplicavel": 15
+        },
+        "vias": {
+          "api": 48
+        }
+      },
+      "memoria_regras_api": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 6212,
+        "subtotal_medido": 6212,
+        "fatos": {
+          "aprovado": 33,
+          "nao_aplicavel": 15
+        },
+        "vias": {
+          "api": 48
+        }
+      }
+    },
+    "pareados": {
+      "pares": 47,
+      "historico": 40390,
+      "automatica": 6026,
+      "reducao_pct": 85.08046546174796,
+      "historico_previsto": 48,
+      "automatica_prevista": 48
+    }
+  },
+  {
+    "pasta": "74811af8dd3b482fb52fcfe5e5cd2d8f",
+    "arquivo_sha256": "aeb50c9a95ae1978c79d0ae9ca158718b60d44a8201eee492dcb33f2d77efaba",
+    "gerado_em": "2026-11-20T02:50:09.519643+00:00",
+    "protocolo": "comparativo_v3",
+    "conjunto": "oficial",
+    "repeticoes": 3,
+    "casos": 16,
+    "dataset": "d3d8469bde14a377da3f4767769e71cc72479877f63bffe5584edf869b6a9206",
+    "modelo": "qwen2.5-coder:3b",
+    "nucleo": "295328a15acd2c50db52e6c7b301dbe2cab2035f73b7c4674132c6f08aedc73e",
+    "executor": "1a66237294b65b3fddbb4423e7684d014f34f746fcbbb00f403300ebb86ab850",
+    "fontes_presentes": true,
+    "limites": null,
+    "controle": null,
+    "codigo_saida": 0,
+    "cenarios": {
+      "sem_memoria": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 0,
+        "subtotal_medido": 0,
+        "fatos": {
+          "nao_aplicavel": 48
+        },
+        "vias": {
+          "api": 48
+        }
+      },
+      "historico_completo": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 40215,
+        "subtotal_medido": 40215,
+        "fatos": {
+          "aprovado": 29,
+          "nao_aplicavel": 15,
+          "reprovado": 3,
+          "nao_verificado": 1
+        },
+        "vias": {
+          "agente_local": 48
+        }
+      },
+      "memoria_persistente_api": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 6212,
+        "subtotal_medido": 6212,
+        "fatos": {
+          "aprovado": 33,
+          "nao_aplicavel": 15
+        },
+        "vias": {
+          "api": 48
+        }
+      },
+      "memoria_regras_api": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 6211,
+        "subtotal_medido": 6211,
+        "fatos": {
+          "aprovado": 33,
+          "nao_aplicavel": 15
+        },
+        "vias": {
+          "api": 48
+        }
+      }
+    },
+    "pareados": {
+      "pares": 48,
+      "historico": 40215,
+      "automatica": 6211,
+      "reducao_pct": 84.55551411164987,
+      "historico_previsto": 48,
+      "automatica_prevista": 48
+    }
+  },
+  {
+    "pasta": "7a1add5bd6d745c1bd6508976b9462b1",
+    "arquivo_sha256": "c11b0f4625dcc340553a76f1cc2f4fd8a05294c954d503fb55d9b3b0a8c40928",
+    "gerado_em": "2026-11-20T13:10:14.924330+00:00",
+    "protocolo": "comparativo_v3",
+    "conjunto": "oficial",
+    "repeticoes": 3,
+    "casos": 16,
+    "dataset": "d3d8469bde14a377da3f4767769e71cc72479877f63bffe5584edf869b6a9206",
+    "modelo": "qwen2.5-coder:3b",
+    "nucleo": "295328a15acd2c50db52e6c7b301dbe2cab2035f73b7c4674132c6f08aedc73e",
+    "executor": "09ebcbf1162868114c1a521b3516f34544ae510c2ae6bab9b712358fc6b73ae8",
+    "fontes_presentes": true,
+    "limites": null,
+    "controle": "modelo_direto",
+    "codigo_saida": 0,
+    "cenarios": {
+      "sem_memoria": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 3701,
+        "subtotal_medido": 3701,
+        "fatos": {
+          "reprovado": 31,
+          "nao_aplicavel": 15,
+          "nao_verificado": 2
+        },
+        "vias": {
+          "ollama_direto": 48
+        }
+      },
+      "historico_completo": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 41153,
+        "subtotal_medido": 41153,
+        "fatos": {
+          "aprovado": 31,
+          "nao_aplicavel": 15,
+          "reprovado": 2
+        },
+        "vias": {
+          "agente_local": 48
+        }
+      },
+      "memoria_persistente_api": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 6213,
+        "subtotal_medido": 6213,
+        "fatos": {
+          "aprovado": 33,
+          "nao_aplicavel": 15
+        },
+        "vias": {
+          "api": 48
+        }
+      },
+      "memoria_regras_api": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 6210,
+        "subtotal_medido": 6210,
+        "fatos": {
+          "aprovado": 33,
+          "nao_aplicavel": 15
+        },
+        "vias": {
+          "api": 48
+        }
+      }
+    },
+    "pareados": {
+      "pares": 48,
+      "historico": 41153,
+      "automatica": 6210,
+      "reducao_pct": 84.909970111535,
+      "historico_previsto": 48,
+      "automatica_prevista": 48
+    }
+  },
+  {
+    "pasta": "825d6d43890b43abb4784ff24942793d",
+    "arquivo_sha256": "7ac546190a368180a77e6d3729ba65a3fbfbc9b51b4586f8b3cbe3114ef971bc",
+    "gerado_em": "2026-11-20T11:16:17.986478+00:00",
+    "protocolo": "comparativo_v3",
+    "conjunto": "oficial",
+    "repeticoes": 3,
+    "casos": 16,
+    "dataset": "d3d8469bde14a377da3f4767769e71cc72479877f63bffe5584edf869b6a9206",
+    "modelo": "qwen2.5-coder:3b",
+    "nucleo": "295328a15acd2c50db52e6c7b301dbe2cab2035f73b7c4674132c6f08aedc73e",
+    "executor": "1a66237294b65b3fddbb4423e7684d014f34f746fcbbb00f403300ebb86ab850",
+    "fontes_presentes": true,
+    "limites": null,
+    "controle": null,
+    "codigo_saida": 0,
+    "cenarios": {
+      "sem_memoria": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 0,
+        "subtotal_medido": 0,
+        "fatos": {
+          "nao_aplicavel": 48
+        },
+        "vias": {
+          "api": 48
+        }
+      },
+      "historico_completo": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 41014,
+        "subtotal_medido": 41014,
+        "fatos": {
+          "aprovado": 29,
+          "nao_aplicavel": 15,
+          "nao_verificado": 2,
+          "reprovado": 2
+        },
+        "vias": {
+          "agente_local": 48
+        }
+      },
+      "memoria_persistente_api": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 6215,
+        "subtotal_medido": 6215,
+        "fatos": {
+          "aprovado": 33,
+          "nao_aplicavel": 15
+        },
+        "vias": {
+          "api": 48
+        }
+      },
+      "memoria_regras_api": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 6211,
+        "subtotal_medido": 6211,
+        "fatos": {
+          "aprovado": 33,
+          "nao_aplicavel": 15
+        },
+        "vias": {
+          "api": 48
+        }
+      }
+    },
+    "pareados": {
+      "pares": 48,
+      "historico": 41014,
+      "automatica": 6211,
+      "reducao_pct": 84.85639050080461,
+      "historico_previsto": 48,
+      "automatica_prevista": 48
+    }
+  },
+  {
+    "pasta": "9c8e1e285593479e9a64a565f06282d7",
+    "arquivo_sha256": "82872dca995e071055d2a73aec8ca227c0cd06ff8824c0a778bf01ef7c5e30ac",
+    "gerado_em": "2026-11-20T00:31:29.286491+00:00",
+    "protocolo": "comparativo_v3",
+    "conjunto": "oficial",
+    "repeticoes": 1,
+    "casos": 16,
+    "dataset": "d3d8469bde14a377da3f4767769e71cc72479877f63bffe5584edf869b6a9206",
+    "modelo": "qwen2.5-coder:3b",
+    "nucleo": "295328a15acd2c50db52e6c7b301dbe2cab2035f73b7c4674132c6f08aedc73e",
+    "executor": "3b62ad9a314aa16e2bb9afd0903ad0c8068beb41846dcda274ad9d979672a16d",
+    "fontes_presentes": true,
+    "limites": null,
+    "controle": null,
+    "codigo_saida": 0,
+    "cenarios": {
+      "sem_memoria": {
+        "tentativas": 16,
+        "medidos": 16,
+        "falhas": 0,
+        "tokens_completos": 0,
+        "subtotal_medido": 0,
+        "fatos": {
+          "nao_aplicavel": 16
+        },
+        "vias": {
+          "api": 16
+        }
+      },
+      "historico_completo": {
+        "tentativas": 16,
+        "medidos": 16,
+        "falhas": 0,
+        "tokens_completos": 13535,
+        "subtotal_medido": 13535,
+        "fatos": {
+          "aprovado": 8,
+          "nao_aplicavel": 5,
+          "reprovado": 2,
+          "nao_verificado": 1
+        },
+        "vias": {
+          "agente_local": 16
+        }
+      },
+      "memoria_persistente_api": {
+        "tentativas": 16,
+        "medidos": 16,
+        "falhas": 0,
+        "tokens_completos": 2070,
+        "subtotal_medido": 2070,
+        "fatos": {
+          "aprovado": 11,
+          "nao_aplicavel": 5
+        },
+        "vias": {
+          "api": 16
+        }
+      },
+      "memoria_regras_api": {
+        "tentativas": 16,
+        "medidos": 16,
+        "falhas": 0,
+        "tokens_completos": 2070,
+        "subtotal_medido": 2070,
+        "fatos": {
+          "aprovado": 11,
+          "nao_aplicavel": 5
+        },
+        "vias": {
+          "api": 16
+        }
+      }
+    },
+    "pareados": {
+      "pares": 16,
+      "historico": 13535,
+      "automatica": 2070,
+      "reducao_pct": 84.7063169560399,
+      "historico_previsto": 16,
+      "automatica_prevista": 16
+    }
+  },
+  {
+    "pasta": "a650e3e5b7a34612ad7f146b8a659931",
+    "arquivo_sha256": "0c017b93ac1feaf1b306256d1b9b71af6e3d96c7d9e86fe794b8998993d927a8",
+    "gerado_em": "2026-11-20T10:33:00.212553+00:00",
+    "protocolo": "comparativo_v3",
+    "conjunto": "oficial",
+    "repeticoes": 3,
+    "casos": 16,
+    "dataset": "d3d8469bde14a377da3f4767769e71cc72479877f63bffe5584edf869b6a9206",
+    "modelo": "qwen2.5-coder:3b",
+    "nucleo": "295328a15acd2c50db52e6c7b301dbe2cab2035f73b7c4674132c6f08aedc73e",
+    "executor": "1a66237294b65b3fddbb4423e7684d014f34f746fcbbb00f403300ebb86ab850",
+    "fontes_presentes": true,
+    "limites": null,
+    "controle": null,
+    "codigo_saida": 0,
+    "cenarios": {
+      "sem_memoria": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 0,
+        "subtotal_medido": 0,
+        "fatos": {
+          "nao_aplicavel": 48
+        },
+        "vias": {
+          "api": 48
+        }
+      },
+      "historico_completo": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 42023,
+        "subtotal_medido": 42023,
+        "fatos": {
+          "aprovado": 29,
+          "nao_aplicavel": 15,
+          "reprovado": 4
+        },
+        "vias": {
+          "agente_local": 48
+        }
+      },
+      "memoria_persistente_api": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 6210,
+        "subtotal_medido": 6210,
+        "fatos": {
+          "aprovado": 33,
+          "nao_aplicavel": 15
+        },
+        "vias": {
+          "api": 48
+        }
+      },
+      "memoria_regras_api": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 6212,
+        "subtotal_medido": 6212,
+        "fatos": {
+          "aprovado": 33,
+          "nao_aplicavel": 15
+        },
+        "vias": {
+          "api": 48
+        }
+      }
+    },
+    "pareados": {
+      "pares": 48,
+      "historico": 42023,
+      "automatica": 6212,
+      "reducao_pct": 85.21761892297076,
+      "historico_previsto": 48,
+      "automatica_prevista": 48
+    }
+  },
+  {
+    "pasta": "a7b3a5398bd2477990526e418fe1ad47",
+    "arquivo_sha256": "decf9010879452f95316b97f6c665d1c6740be7537edcb5daef0aa382edb2c0a",
+    "gerado_em": "2026-11-20T03:27:43.693521+00:00",
+    "protocolo": "comparativo_v3",
+    "conjunto": "oficial",
+    "repeticoes": 3,
+    "casos": 16,
+    "dataset": "d3d8469bde14a377da3f4767769e71cc72479877f63bffe5584edf869b6a9206",
+    "modelo": "qwen2.5-coder:3b",
+    "nucleo": "295328a15acd2c50db52e6c7b301dbe2cab2035f73b7c4674132c6f08aedc73e",
+    "executor": "1a66237294b65b3fddbb4423e7684d014f34f746fcbbb00f403300ebb86ab850",
+    "fontes_presentes": true,
+    "limites": null,
+    "controle": null,
+    "codigo_saida": 0,
+    "cenarios": {
+      "sem_memoria": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 0,
+        "subtotal_medido": 0,
+        "fatos": {
+          "nao_aplicavel": 48
+        },
+        "vias": {
+          "api": 48
+        }
+      },
+      "historico_completo": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 40889,
+        "subtotal_medido": 40889,
+        "fatos": {
+          "aprovado": 29,
+          "nao_aplicavel": 15,
+          "reprovado": 2,
+          "nao_verificado": 2
+        },
+        "vias": {
+          "agente_local": 48
+        }
+      },
+      "memoria_persistente_api": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 6214,
+        "subtotal_medido": 6214,
+        "fatos": {
+          "aprovado": 33,
+          "nao_aplicavel": 15
+        },
+        "vias": {
+          "api": 48
+        }
+      },
+      "memoria_regras_api": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 6211,
+        "subtotal_medido": 6211,
+        "fatos": {
+          "aprovado": 33,
+          "nao_aplicavel": 15
+        },
+        "vias": {
+          "api": 48
+        }
+      }
+    },
+    "pareados": {
+      "pares": 48,
+      "historico": 40889,
+      "automatica": 6211,
+      "reducao_pct": 84.81009562474016,
+      "historico_previsto": 48,
+      "automatica_prevista": 48
+    }
+  },
+  {
+    "pasta": "bea572b4fa954e13a03b2b808077c3bb",
+    "arquivo_sha256": "295e3919fd9bb6ecad162d9f37550d6e2c4c74184bfdb564e80b1866fd762c7e",
+    "gerado_em": "2026-11-20T00:36:46.150509+00:00",
+    "protocolo": "comparativo_v3",
+    "conjunto": "oficial",
+    "repeticoes": 3,
+    "casos": 16,
+    "dataset": "d3d8469bde14a377da3f4767769e71cc72479877f63bffe5584edf869b6a9206",
+    "modelo": "qwen2.5-coder:3b",
+    "nucleo": "295328a15acd2c50db52e6c7b301dbe2cab2035f73b7c4674132c6f08aedc73e",
+    "executor": "3b62ad9a314aa16e2bb9afd0903ad0c8068beb41846dcda274ad9d979672a16d",
+    "fontes_presentes": true,
+    "limites": null,
+    "controle": null,
+    "codigo_saida": 0,
+    "cenarios": {
+      "sem_memoria": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 0,
+        "subtotal_medido": 0,
+        "fatos": {
+          "nao_aplicavel": 48
+        },
+        "vias": {
+          "api": 48
+        }
+      },
+      "historico_completo": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 39694,
+        "subtotal_medido": 39694,
+        "fatos": {
+          "aprovado": 30,
+          "nao_aplicavel": 15,
+          "nao_verificado": 1,
+          "reprovado": 2
+        },
+        "vias": {
+          "agente_local": 48
+        }
+      },
+      "memoria_persistente_api": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 6212,
+        "subtotal_medido": 6212,
+        "fatos": {
+          "aprovado": 33,
+          "nao_aplicavel": 15
+        },
+        "vias": {
+          "api": 48
+        }
+      },
+      "memoria_regras_api": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 6211,
+        "subtotal_medido": 6211,
+        "fatos": {
+          "aprovado": 33,
+          "nao_aplicavel": 15
+        },
+        "vias": {
+          "api": 48
+        }
+      }
+    },
+    "pareados": {
+      "pares": 48,
+      "historico": 39694,
+      "automatica": 6211,
+      "reducao_pct": 84.35279891167431,
+      "historico_previsto": 48,
+      "automatica_prevista": 48
+    }
+  },
+  {
+    "pasta": "cf9d4a516d9a466bb196e0f8f6788276",
+    "arquivo_sha256": "f39342da89bea6b16da8c9fd717b00a09887e2f23be7026497ea7c9e4491380c",
+    "gerado_em": "2026-11-20T17:07:20.791530+00:00",
+    "protocolo": "comparativo_v3",
+    "conjunto": "próprio",
+    "repeticoes": 3,
+    "casos": 20,
+    "dataset": "30a53f9b074fbc0d19c3b8ed27159d4dd8253716c6aa0ac114625808e873328e",
+    "modelo": "qwen2.5-coder:3b",
+    "nucleo": "295328a15acd2c50db52e6c7b301dbe2cab2035f73b7c4674132c6f08aedc73e",
+    "executor": "8085f817220e075e9f0b179bc6ff541c3c1fc01c9e161dd1bcaf4dea1ab68d07",
+    "fontes_presentes": true,
+    "limites": {
+      "versao": "comparativo-limites-v1",
+      "timeout_modelo_s": 180.0,
+      "timeout_api_s": 210.0,
+      "timeout_historico_base_s": 30,
+      "timeout_historico_por_turno_s": 180.0,
+      "escopo": "processos_isolados_do_comparativo",
+      "repeticao_automatica": false
+    },
+    "controle": "modelo_direto",
+    "codigo_saida": 0,
+    "cenarios": {
+      "sem_memoria": {
+        "tentativas": 60,
+        "medidos": 60,
+        "falhas": 0,
+        "tokens_completos": 4697,
+        "subtotal_medido": 4697,
+        "fatos": {
+          "nao_verificado": 7,
+          "reprovado": 37,
+          "nao_aplicavel": 15,
+          "aprovado": 1
+        },
+        "vias": {
+          "ollama_direto": 60
+        }
+      },
+      "historico_completo": {
+        "tentativas": 60,
+        "medidos": 60,
+        "falhas": 0,
+        "tokens_completos": 46282,
+        "subtotal_medido": 46282,
+        "fatos": {
+          "aprovado": 44,
+          "nao_aplicavel": 15,
+          "reprovado": 1
+        },
+        "vias": {
+          "agente_local": 60
+        }
+      },
+      "memoria_persistente_api": {
+        "tentativas": 60,
+        "medidos": 60,
+        "falhas": 0,
+        "tokens_completos": 8597,
+        "subtotal_medido": 8597,
+        "fatos": {
+          "aprovado": 40,
+          "nao_verificado": 5,
+          "nao_aplicavel": 15
+        },
+        "vias": {
+          "api": 60
+        }
+      },
+      "memoria_regras_api": {
+        "tentativas": 60,
+        "medidos": 60,
+        "falhas": 0,
+        "tokens_completos": 11989,
+        "subtotal_medido": 11989,
+        "fatos": {
+          "aprovado": 42,
+          "reprovado": 3,
+          "nao_aplicavel": 15
+        },
+        "vias": {
+          "api": 60
+        }
+      }
+    },
+    "pareados": {
+      "pares": 60,
+      "historico": 46282,
+      "automatica": 11989,
+      "reducao_pct": 74.09576077092606,
+      "historico_previsto": 60,
+      "automatica_prevista": 60
+    }
+  },
+  {
+    "pasta": "d980bd3d41b6447d942f95c0719dbe15",
+    "arquivo_sha256": "00a6f928a43fe0f633e8df59e7f206527cb40cb4a8a69cb527ad1e85c46b515d",
+    "gerado_em": "2026-11-20T00:45:41.288884+00:00",
+    "protocolo": "p6",
+    "codigo_saida": 1,
+    "situacao": "protocolo_separado",
+    "comparacoes_tokens": {
+      "ingestao": {
+        "tokens_entrada": {
+          "pares_previstos": 20,
+          "cobertura_pct": 75.0,
+          "pares_identificados": 20,
+          "pares_medidos": 15,
+          "chaves_duplicadas_descartadas": 0,
+          "pares_sem_medicao": 5,
+          "sessoes": [
+            {
+              "usuario_id": "u02",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 5
+            }
+          ],
+          "tokens_automaticos": 715,
+          "tokens_historico": 8342,
+          "reducao_pct": 91.43
+        },
+        "tokens_saida": {
+          "pares_previstos": 20,
+          "cobertura_pct": 75.0,
+          "pares_identificados": 20,
+          "pares_medidos": 15,
+          "chaves_duplicadas_descartadas": 0,
+          "pares_sem_medicao": 5,
+          "sessoes": [
+            {
+              "usuario_id": "u02",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 5
+            }
+          ],
+          "tokens_automaticos": 47,
+          "tokens_historico": 330,
+          "reducao_pct": 85.76
+        },
+        "tokens_total": {
+          "pares_previstos": 20,
+          "cobertura_pct": 75.0,
+          "pares_identificados": 20,
+          "pares_medidos": 15,
+          "chaves_duplicadas_descartadas": 0,
+          "pares_sem_medicao": 5,
+          "sessoes": [
+            {
+              "usuario_id": "u02",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 5
+            }
+          ],
+          "tokens_automaticos": 762,
+          "tokens_historico": 8672,
+          "reducao_pct": 91.21
+        }
+      },
+      "perguntas": {
+        "tokens_entrada": {
+          "pares_previstos": 20,
+          "cobertura_pct": 80.0,
+          "pares_identificados": 20,
+          "pares_medidos": 16,
+          "chaves_duplicadas_descartadas": 0,
+          "pares_sem_medicao": 4,
+          "sessoes": [
+            {
+              "usuario_id": "u01",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 5
+            }
+          ],
+          "tokens_automaticos": 1665,
+          "tokens_historico": 5934,
+          "reducao_pct": 71.94
+        },
+        "tokens_saida": {
+          "pares_previstos": 20,
+          "cobertura_pct": 80.0,
+          "pares_identificados": 20,
+          "pares_medidos": 16,
+          "chaves_duplicadas_descartadas": 0,
+          "pares_sem_medicao": 4,
+          "sessoes": [
+            {
+              "usuario_id": "u01",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 5
+            }
+          ],
+          "tokens_automaticos": 57,
+          "tokens_historico": 148,
+          "reducao_pct": 61.49
+        },
+        "tokens_total": {
+          "pares_previstos": 20,
+          "cobertura_pct": 80.0,
+          "pares_identificados": 20,
+          "pares_medidos": 16,
+          "chaves_duplicadas_descartadas": 0,
+          "pares_sem_medicao": 4,
+          "sessoes": [
+            {
+              "usuario_id": "u01",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 5
+            }
+          ],
+          "tokens_automaticos": 1722,
+          "tokens_historico": 6082,
+          "reducao_pct": 71.69
+        }
+      },
+      "sessao": {
+        "tokens_entrada": {
+          "pares_previstos": 20,
+          "cobertura_pct": 75.0,
+          "pares_identificados": 20,
+          "pares_medidos": 15,
+          "chaves_duplicadas_descartadas": 0,
+          "pares_sem_medicao": 5,
+          "sessoes": [
+            {
+              "usuario_id": "u02",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 5
+            }
+          ],
+          "tokens_automaticos": 2380,
+          "tokens_historico": 14276,
+          "reducao_pct": 83.33
+        },
+        "tokens_saida": {
+          "pares_previstos": 20,
+          "cobertura_pct": 75.0,
+          "pares_identificados": 20,
+          "pares_medidos": 15,
+          "chaves_duplicadas_descartadas": 0,
+          "pares_sem_medicao": 5,
+          "sessoes": [
+            {
+              "usuario_id": "u02",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 5
+            }
+          ],
+          "tokens_automaticos": 104,
+          "tokens_historico": 478,
+          "reducao_pct": 78.24
+        },
+        "tokens_total": {
+          "pares_previstos": 20,
+          "cobertura_pct": 75.0,
+          "pares_identificados": 20,
+          "pares_medidos": 15,
+          "chaves_duplicadas_descartadas": 0,
+          "pares_sem_medicao": 5,
+          "sessoes": [
+            {
+              "usuario_id": "u02",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 5
+            }
+          ],
+          "tokens_automaticos": 2484,
+          "tokens_historico": 14754,
+          "reducao_pct": 83.16
+        }
+      }
+    },
+    "sessoes": 40
+  },
+  {
+    "pasta": "dd33918d77184d028351b021a8db0203",
+    "arquivo_sha256": "560e843413da2029da6ee170b9ae63cba53d421a72db41b6aa7c9016fba2fe97",
+    "gerado_em": "2026-11-20T12:57:56.816069+00:00",
+    "protocolo": "p6",
+    "codigo_saida": 0,
+    "situacao": "protocolo_separado",
+    "comparacoes_tokens": {
+      "ingestao": {
+        "tokens_entrada": {
+          "pares_previstos": 20,
+          "cobertura_pct": 100.0,
+          "pares_identificados": 20,
+          "pares_medidos": 20,
+          "chaves_duplicadas_descartadas": 0,
+          "pares_sem_medicao": 0,
+          "sessoes": [
+            {
+              "usuario_id": "u01",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 5
+            }
+          ],
+          "tokens_automaticos": 847,
+          "tokens_historico": 11874,
+          "reducao_pct": 92.87
+        },
+        "tokens_saida": {
+          "pares_previstos": 20,
+          "cobertura_pct": 100.0,
+          "pares_identificados": 20,
+          "pares_medidos": 20,
+          "chaves_duplicadas_descartadas": 0,
+          "pares_sem_medicao": 0,
+          "sessoes": [
+            {
+              "usuario_id": "u01",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 5
+            }
+          ],
+          "tokens_automaticos": 54,
+          "tokens_historico": 438,
+          "reducao_pct": 87.67
+        },
+        "tokens_total": {
+          "pares_previstos": 20,
+          "cobertura_pct": 100.0,
+          "pares_identificados": 20,
+          "pares_medidos": 20,
+          "chaves_duplicadas_descartadas": 0,
+          "pares_sem_medicao": 0,
+          "sessoes": [
+            {
+              "usuario_id": "u01",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 5
+            }
+          ],
+          "tokens_automaticos": 901,
+          "tokens_historico": 12312,
+          "reducao_pct": 92.68
+        }
+      },
+      "perguntas": {
+        "tokens_entrada": {
+          "pares_previstos": 20,
+          "cobertura_pct": 100.0,
+          "pares_identificados": 20,
+          "pares_medidos": 20,
+          "chaves_duplicadas_descartadas": 0,
+          "pares_sem_medicao": 0,
+          "sessoes": [
+            {
+              "usuario_id": "u01",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 5
+            }
+          ],
+          "tokens_automaticos": 2570,
+          "tokens_historico": 9245,
+          "reducao_pct": 72.2
+        },
+        "tokens_saida": {
+          "pares_previstos": 20,
+          "cobertura_pct": 100.0,
+          "pares_identificados": 20,
+          "pares_medidos": 20,
+          "chaves_duplicadas_descartadas": 0,
+          "pares_sem_medicao": 0,
+          "sessoes": [
+            {
+              "usuario_id": "u01",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 5
+            }
+          ],
+          "tokens_automaticos": 85,
+          "tokens_historico": 182,
+          "reducao_pct": 53.3
+        },
+        "tokens_total": {
+          "pares_previstos": 20,
+          "cobertura_pct": 100.0,
+          "pares_identificados": 20,
+          "pares_medidos": 20,
+          "chaves_duplicadas_descartadas": 0,
+          "pares_sem_medicao": 0,
+          "sessoes": [
+            {
+              "usuario_id": "u01",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 5
+            }
+          ],
+          "tokens_automaticos": 2655,
+          "tokens_historico": 9427,
+          "reducao_pct": 71.84
+        }
+      },
+      "sessao": {
+        "tokens_entrada": {
+          "pares_previstos": 20,
+          "cobertura_pct": 100.0,
+          "pares_identificados": 20,
+          "pares_medidos": 20,
+          "chaves_duplicadas_descartadas": 0,
+          "pares_sem_medicao": 0,
+          "sessoes": [
+            {
+              "usuario_id": "u01",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 5
+            }
+          ],
+          "tokens_automaticos": 3417,
+          "tokens_historico": 21119,
+          "reducao_pct": 83.82
+        },
+        "tokens_saida": {
+          "pares_previstos": 20,
+          "cobertura_pct": 100.0,
+          "pares_identificados": 20,
+          "pares_medidos": 20,
+          "chaves_duplicadas_descartadas": 0,
+          "pares_sem_medicao": 0,
+          "sessoes": [
+            {
+              "usuario_id": "u01",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 5
+            }
+          ],
+          "tokens_automaticos": 139,
+          "tokens_historico": 620,
+          "reducao_pct": 77.58
+        },
+        "tokens_total": {
+          "pares_previstos": 20,
+          "cobertura_pct": 100.0,
+          "pares_identificados": 20,
+          "pares_medidos": 20,
+          "chaves_duplicadas_descartadas": 0,
+          "pares_sem_medicao": 0,
+          "sessoes": [
+            {
+              "usuario_id": "u01",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u01",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u02",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u03",
+              "sessao": 5
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 1
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 2
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 3
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 4
+            },
+            {
+              "usuario_id": "u04",
+              "sessao": 5
+            }
+          ],
+          "tokens_automaticos": 3556,
+          "tokens_historico": 21739,
+          "reducao_pct": 83.64
+        }
+      }
+    },
+    "sessoes": 40
+  },
+  {
+    "pasta": "f377808d9c414f90bd27543659d384e4",
+    "arquivo_sha256": "5fcfe0b84ef165a00f11e3fe990c9535ace36b81df7ed83b1afb65f2c6d96cd8",
+    "gerado_em": "2026-11-20T16:37:33.306341+00:00",
+    "protocolo": "comparativo_v3",
+    "conjunto": "oficial",
+    "repeticoes": 3,
+    "casos": 16,
+    "dataset": "d3d8469bde14a377da3f4767769e71cc72479877f63bffe5584edf869b6a9206",
+    "modelo": "qwen2.5-coder:3b",
+    "nucleo": "295328a15acd2c50db52e6c7b301dbe2cab2035f73b7c4674132c6f08aedc73e",
+    "executor": "8085f817220e075e9f0b179bc6ff541c3c1fc01c9e161dd1bcaf4dea1ab68d07",
+    "fontes_presentes": true,
+    "limites": {
+      "versao": "comparativo-limites-v1",
+      "timeout_modelo_s": 180.0,
+      "timeout_api_s": 210.0,
+      "timeout_historico_base_s": 30,
+      "timeout_historico_por_turno_s": 180.0,
+      "escopo": "processos_isolados_do_comparativo",
+      "repeticao_automatica": false
+    },
+    "controle": "modelo_direto",
+    "codigo_saida": 0,
+    "cenarios": {
+      "sem_memoria": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 3686,
+        "subtotal_medido": 3686,
+        "fatos": {
+          "reprovado": 32,
+          "nao_aplicavel": 15,
+          "nao_verificado": 1
+        },
+        "vias": {
+          "ollama_direto": 48
+        }
+      },
+      "historico_completo": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 41174,
+        "subtotal_medido": 41174,
+        "fatos": {
+          "aprovado": 28,
+          "nao_aplicavel": 15,
+          "reprovado": 4,
+          "nao_verificado": 1
+        },
+        "vias": {
+          "agente_local": 48
+        }
+      },
+      "memoria_persistente_api": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 6212,
+        "subtotal_medido": 6212,
+        "fatos": {
+          "aprovado": 33,
+          "nao_aplicavel": 15
+        },
+        "vias": {
+          "api": 48
+        }
+      },
+      "memoria_regras_api": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 6212,
+        "subtotal_medido": 6212,
+        "fatos": {
+          "aprovado": 33,
+          "nao_aplicavel": 15
+        },
+        "vias": {
+          "api": 48
+        }
+      }
+    },
+    "pareados": {
+      "pares": 48,
+      "historico": 41174,
+      "automatica": 6212,
+      "reducao_pct": 84.91280905425754,
+      "historico_previsto": 48,
+      "automatica_prevista": 48
+    }
+  },
+  {
+    "pasta": "f7c3de6bb9564f3f8e7f4897fbf823e3",
+    "arquivo_sha256": "8111b96b8d40713a43dc5727243cae7da12981da15eff4e98fc699b310aad4c4",
+    "gerado_em": "2026-11-20T11:53:18.851564+00:00",
+    "protocolo": "comparativo_v3",
+    "conjunto": "oficial",
+    "repeticoes": 3,
+    "casos": 16,
+    "dataset": "d3d8469bde14a377da3f4767769e71cc72479877f63bffe5584edf869b6a9206",
+    "modelo": "qwen2.5-coder:3b",
+    "nucleo": "295328a15acd2c50db52e6c7b301dbe2cab2035f73b7c4674132c6f08aedc73e",
+    "executor": "09ebcbf1162868114c1a521b3516f34544ae510c2ae6bab9b712358fc6b73ae8",
+    "fontes_presentes": true,
+    "limites": null,
+    "controle": "modelo_direto",
+    "codigo_saida": 0,
+    "cenarios": {
+      "sem_memoria": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 3698,
+        "subtotal_medido": 3698,
+        "fatos": {
+          "reprovado": 30,
+          "nao_aplicavel": 15,
+          "nao_verificado": 3
+        },
+        "vias": {
+          "ollama_direto": 48
+        }
+      },
+      "historico_completo": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 40933,
+        "subtotal_medido": 40933,
+        "fatos": {
+          "aprovado": 30,
+          "reprovado": 3,
+          "nao_aplicavel": 15
+        },
+        "vias": {
+          "agente_local": 48
+        }
+      },
+      "memoria_persistente_api": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 6211,
+        "subtotal_medido": 6211,
+        "fatos": {
+          "aprovado": 33,
+          "nao_aplicavel": 15
+        },
+        "vias": {
+          "api": 48
+        }
+      },
+      "memoria_regras_api": {
+        "tentativas": 48,
+        "medidos": 48,
+        "falhas": 0,
+        "tokens_completos": 6212,
+        "subtotal_medido": 6212,
+        "fatos": {
+          "aprovado": 33,
+          "nao_aplicavel": 15
+        },
+        "vias": {
+          "api": 48
+        }
+      }
+    },
+    "pareados": {
+      "pares": 48,
+      "historico": 40933,
+      "automatica": 6212,
+      "reducao_pct": 84.82398065130823,
+      "historico_previsto": 48,
+      "automatica_prevista": 48
+    }
+  }
+]

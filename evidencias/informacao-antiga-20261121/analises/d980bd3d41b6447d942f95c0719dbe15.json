@@ -1,0 +1,622 @@
+{
+  "versao": "informacao-antiga-v1",
+  "disponivel": true,
+  "anotacoes_sha256": "75641d4198918b6eff1fff85ef11497e2136183a05866c10974fc7bf5ea4920e",
+  "motivo": "Análise adicional dos valores antigos anotados; não altera P4/P5, tokens ou respostas. Maior taxa é pior. Cobertura literal e gramatical limitada; sem revisão humana automática.",
+  "resultados": [
+    {
+      "indice": 47,
+      "id": "u01/s2/pergunta1",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 81,
+      "id": "u01/s3/pergunta2",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "nao_verificado",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "resposta_ausente_ou_trajetoria_incompleta"
+      }
+    },
+    {
+      "indice": 113,
+      "id": "u01/s4/pergunta3",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "nao_verificado",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "resposta_ausente_ou_trajetoria_incompleta"
+      }
+    },
+    {
+      "indice": 151,
+      "id": "u01/s5/pergunta4",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "nao_verificado",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "resposta_ausente_ou_trajetoria_incompleta"
+      }
+    },
+    {
+      "indice": 153,
+      "id": "u01/s5/pergunta5",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 155,
+      "id": "u01/s5/pergunta6",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "nao_verificado",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "resposta_ausente_ou_trajetoria_incompleta"
+      }
+    },
+    {
+      "indice": 89,
+      "id": "u02/s3/pergunta1",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "verificado",
+        "retornou_antiga": false,
+        "ocorrencias_literais": [],
+        "motivo": "sem_ocorrencia_literal_dos_valores_antigos"
+      }
+    },
+    {
+      "indice": 121,
+      "id": "u02/s4/pergunta2",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "verificado",
+        "retornou_antiga": false,
+        "ocorrencias_literais": [],
+        "motivo": "sem_ocorrencia_literal_dos_valores_antigos"
+      }
+    },
+    {
+      "indice": 165,
+      "id": "u02/s5/pergunta3",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "abstencao_ou_esquecimento_avaliados_separadamente"
+      }
+    },
+    {
+      "indice": 167,
+      "id": "u02/s5/pergunta4",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 169,
+      "id": "u02/s5/pergunta5",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 65,
+      "id": "u03/s2/pergunta1",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 97,
+      "id": "u03/s3/pergunta2",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "verificado",
+        "retornou_antiga": false,
+        "ocorrencias_literais": [],
+        "motivo": "sem_ocorrencia_literal_dos_valores_antigos"
+      }
+    },
+    {
+      "indice": 129,
+      "id": "u03/s4/pergunta3",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 177,
+      "id": "u03/s5/pergunta4",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "verificado",
+        "retornou_antiga": false,
+        "ocorrencias_literais": [],
+        "motivo": "sem_ocorrencia_literal_dos_valores_antigos"
+      }
+    },
+    {
+      "indice": 179,
+      "id": "u03/s5/pergunta5",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 105,
+      "id": "u04/s3/pergunta1",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "verificado",
+        "retornou_antiga": false,
+        "ocorrencias_literais": [],
+        "motivo": "sem_ocorrencia_literal_dos_valores_antigos"
+      }
+    },
+    {
+      "indice": 139,
+      "id": "u04/s4/pergunta2",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "abstencao_ou_esquecimento_avaliados_separadamente"
+      }
+    },
+    {
+      "indice": 141,
+      "id": "u04/s4/pergunta3",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "abstencao_ou_esquecimento_avaliados_separadamente"
+      }
+    },
+    {
+      "indice": 187,
+      "id": "u04/s5/pergunta4",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 189,
+      "id": "u04/s5/pergunta5",
+      "cenario": "historico_completo",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "abstencao_ou_esquecimento_avaliados_separadamente"
+      }
+    },
+    {
+      "indice": 46,
+      "id": "u01/s2/pergunta1",
+      "cenario": "memoria_automatica",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 80,
+      "id": "u01/s3/pergunta2",
+      "cenario": "memoria_automatica",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "verificado",
+        "retornou_antiga": false,
+        "ocorrencias_literais": [],
+        "motivo": "sem_ocorrencia_literal_dos_valores_antigos"
+      }
+    },
+    {
+      "indice": 112,
+      "id": "u01/s4/pergunta3",
+      "cenario": "memoria_automatica",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "verificado",
+        "retornou_antiga": false,
+        "ocorrencias_literais": [],
+        "motivo": "sem_ocorrencia_literal_dos_valores_antigos"
+      }
+    },
+    {
+      "indice": 150,
+      "id": "u01/s5/pergunta4",
+      "cenario": "memoria_automatica",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "verificado",
+        "retornou_antiga": false,
+        "ocorrencias_literais": [],
+        "motivo": "sem_ocorrencia_literal_dos_valores_antigos"
+      }
+    },
+    {
+      "indice": 152,
+      "id": "u01/s5/pergunta5",
+      "cenario": "memoria_automatica",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 154,
+      "id": "u01/s5/pergunta6",
+      "cenario": "memoria_automatica",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "verificado",
+        "retornou_antiga": false,
+        "ocorrencias_literais": [],
+        "motivo": "sem_ocorrencia_literal_dos_valores_antigos"
+      }
+    },
+    {
+      "indice": 88,
+      "id": "u02/s3/pergunta1",
+      "cenario": "memoria_automatica",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "verificado",
+        "retornou_antiga": false,
+        "ocorrencias_literais": [],
+        "motivo": "sem_ocorrencia_literal_dos_valores_antigos"
+      }
+    },
+    {
+      "indice": 120,
+      "id": "u02/s4/pergunta2",
+      "cenario": "memoria_automatica",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "verificado",
+        "retornou_antiga": false,
+        "ocorrencias_literais": [],
+        "motivo": "sem_ocorrencia_literal_dos_valores_antigos"
+      }
+    },
+    {
+      "indice": 164,
+      "id": "u02/s5/pergunta3",
+      "cenario": "memoria_automatica",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "abstencao_ou_esquecimento_avaliados_separadamente"
+      }
+    },
+    {
+      "indice": 166,
+      "id": "u02/s5/pergunta4",
+      "cenario": "memoria_automatica",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 168,
+      "id": "u02/s5/pergunta5",
+      "cenario": "memoria_automatica",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 64,
+      "id": "u03/s2/pergunta1",
+      "cenario": "memoria_automatica",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 96,
+      "id": "u03/s3/pergunta2",
+      "cenario": "memoria_automatica",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "verificado",
+        "retornou_antiga": false,
+        "ocorrencias_literais": [],
+        "motivo": "sem_ocorrencia_literal_dos_valores_antigos"
+      }
+    },
+    {
+      "indice": 128,
+      "id": "u03/s4/pergunta3",
+      "cenario": "memoria_automatica",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 176,
+      "id": "u03/s5/pergunta4",
+      "cenario": "memoria_automatica",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "verificado",
+        "retornou_antiga": false,
+        "ocorrencias_literais": [],
+        "motivo": "sem_ocorrencia_literal_dos_valores_antigos"
+      }
+    },
+    {
+      "indice": 178,
+      "id": "u03/s5/pergunta5",
+      "cenario": "memoria_automatica",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 104,
+      "id": "u04/s3/pergunta1",
+      "cenario": "memoria_automatica",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": true,
+        "status": "verificado",
+        "retornou_antiga": false,
+        "ocorrencias_literais": [],
+        "motivo": "sem_ocorrencia_literal_dos_valores_antigos"
+      }
+    },
+    {
+      "indice": 138,
+      "id": "u04/s4/pergunta2",
+      "cenario": "memoria_automatica",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "abstencao_ou_esquecimento_avaliados_separadamente"
+      }
+    },
+    {
+      "indice": 140,
+      "id": "u04/s4/pergunta3",
+      "cenario": "memoria_automatica",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "abstencao_ou_esquecimento_avaliados_separadamente"
+      }
+    },
+    {
+      "indice": 186,
+      "id": "u04/s5/pergunta4",
+      "cenario": "memoria_automatica",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "sem_valor_antigo_anotado"
+      }
+    },
+    {
+      "indice": 188,
+      "id": "u04/s5/pergunta5",
+      "cenario": "memoria_automatica",
+      "repeticao": 1,
+      "medida": {
+        "versao": "informacao-antiga-v1",
+        "aplicavel": false,
+        "status": "nao_aplicavel",
+        "retornou_antiga": null,
+        "ocorrencias_literais": [],
+        "motivo": "abstencao_ou_esquecimento_avaliados_separadamente"
+      }
+    }
+  ],
+  "cenarios": {
+    "historico_completo": {
+      "tentativas_previstas": 21,
+      "tentativas_elegiveis": 9,
+      "julgamentos_verificados": 5,
+      "numerador": 0,
+      "denominador": 5,
+      "nao_verificados": 4,
+      "nao_aplicaveis": 12,
+      "aplicabilidade_desconhecida": 0,
+      "cobertura_pct": 55.56,
+      "taxa_pct": 0.0
+    },
+    "memoria_automatica": {
+      "tentativas_previstas": 21,
+      "tentativas_elegiveis": 9,
+      "julgamentos_verificados": 9,
+      "numerador": 0,
+      "denominador": 9,
+      "nao_verificados": 0,
+      "nao_aplicaveis": 12,
+      "aplicabilidade_desconhecida": 0,
+      "cobertura_pct": 100.0,
+      "taxa_pct": 0.0
+    }
+  }
+}

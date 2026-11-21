@@ -46,7 +46,7 @@ services:
       MODO_DEMONSTRACAO: "1"
       CMA_PORT: ${CMA_PORT:-8001}
       USAR_FALSOS: "0"
-      HABILITAR_COMPARATIVO_INTERFACE: "0"
+      HABILITAR_COMPARATIVO_INTERFACE: "1"
     volumes:
       - memoria_dados:/app/dados
       - credenciais_demo:/segredos:ro

@@ -359,6 +359,23 @@ def test_historico_nao_reexecuta_lote_com_falha(dados):
     assert executor.call_count == 1
 
 
+def test_historico_informa_causa_sem_payload_sensivel_e_sem_retry(dados):
+    from eval.historico_processo import FalhaProcessoHistorico
+    eventos = integrado.planejar(dados)
+    erro_original = FalhaProcessoHistorico('Bearer segredo-nao-expor', ['ProvedorTimeout', 'ReadTimeout'])
+    executor = Mock(side_effect=erro_original)
+    t = TransporteHistorico(contratos=contrato_fixture(eventos), executor=executor)
+    t.validar(eventos)
+    for e in [e for e in eventos if e.usuario_id == 'u01' and e.tipo == 'fato'][:2]:
+        with pytest.raises(RuntimeError) as erro:
+            t.executar(e, provedor='ollama', modelo='simulado')
+        assert 'excedeu o prazo' in str(erro.value)
+        assert 'ReadTimeout' in str(erro.value)
+        assert 'segredo' not in str(erro.value)
+        assert 'desconhecido' in str(erro.value)
+    assert executor.call_count == 1
+
+
 def test_anotacoes_invalidas_nao_criam_saida_nem_iniciam_clientes(dados, tmp_path):
     ts = clientes()
     with pytest.raises(ValueError):

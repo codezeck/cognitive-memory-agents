@@ -7,6 +7,12 @@
     "Vinícius Silva Dos Santos",
     "Paloma Quimbely de Lima Silva"
   ],
+  "ras": {
+    "Ezequiel da Silva Manço": "2410701",
+    "Vinícius Silva Dos Santos": "2412504",
+    "Paloma Quimbely de Lima Silva": "2411659"
+  },
+  "ras_fonte": "README.md do repositório; inclusão solicitada pelo usuário em 19/11/2026.",
   "composicao_validada": true,
   "composicao_fonte": "Confirmação explícita do usuário nesta sessão, em 18/11/2026.",
   "cidade": null,

@@ -1,5 +1,7 @@
 # Acertos e tokens: contexto v3 — 18/11/2026
 
+**Atualização de 20/11:** médias por versão, controle Ollama direto e conjunto personalizado na [consolidação atual](consolidacao-testes-20261120.md). Os resultados abaixo são o registro histórico de 18/11; o controle sem memória dessa bateria usava política local.
+
 Versão posterior à [rodada v2](melhorias-avaliacao-20261118.md). Base Git `b912ab6`, árvore local identificada nos manifestos. Ollama real, mesmo modelo `qwen2.5-coder:3b`, API e banco descartáveis. Dados e gabaritos P6 originais preservados.
 
 ## Mudanças do produto

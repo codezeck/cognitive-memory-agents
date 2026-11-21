@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import hashlib
+import argparse
 import json
 import re
 from html import escape
@@ -25,6 +26,7 @@ EVID = ROOT / 'evidencias/entrega/20261114-entrega-ae9eb113'
 FIG = EVID / 'figuras'
 ATUAL = ROOT / 'evidencias/melhorias-20261118'
 ENTREGA3 = ROOT / 'evidencias/entrega-v3-20261118'
+CONSOLIDACAO = ROOT / 'evidencias/consolidacao-interface-20261120'
 
 
 def limpo(texto):
@@ -56,6 +58,11 @@ class Indice(TableOfContents):
 
 
 def main():
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--saida',type=Path,default=ROOT/'docs/pesquisa-abnt.pdf')
+    parser.add_argument('--metadados',type=Path,default=ROOT/'docs/pesquisa-consolidacao-geracao.json')
+    parser.add_argument('--render-dir',type=Path,default=ROOT/'.env.pdf-revisao-v3-final')
+    args=parser.parse_args()
     FIG.mkdir(exist_ok=True)
     ENTREGA3.mkdir(exist_ok=True)
     academicos=json.loads((ROOT/'docs/dados-academicos.json').read_text(encoding='utf-8'))
@@ -96,7 +103,11 @@ def main():
     elementos=[]
     def p(txt,estilo=corpo): elementos.append(Paragraph(limpo(txt),estilo))
     def titulo(txt): elementos.append(Paragraph(txt,cap))
-    autores=academicos['integrantes']
+    ras=academicos.get('ras',{})
+    if (set(ras)!=set(academicos['integrantes'])
+            or any(not isinstance(v,str) or not re.fullmatch(r'\d{7}',v) for v in ras.values())):
+        raise ValueError('Cada integrante precisa de um RA válido no cadastro acadêmico.')
+    autores=[nome+' - RA: '+ras[nome] for nome in academicos['integrantes']]
     p(academicos['instituicao'].upper(),centro)
     p('PROJETO INTEGRADOR',centro);p('EAD_PROINT_100.DD-ADS-PI-10-74.2026.74',centro)
     elementos.append(Spacer(1,2*cm))
@@ -104,18 +115,18 @@ def main():
     elementos.append(Spacer(1,3*cm))
     p('COGNITIVE MEMORY AGENTS',ParagraphStyle('Titulo',parent=centro,fontName='TimesBold',fontSize=16,leading=22))
     p('Memória contextual, abstenção e avaliação de um agente local',centro)
-    elementos.append(Spacer(1,3*cm));p('Versão candidata v3 para revisão',centro);p('18 de novembro de 2026',centro)
+    elementos.append(Spacer(1,3*cm));p('Versão candidata v3 para revisão',centro);p('Atualização documental de 21 de novembro de 2026',centro)
     elementos.append(PageBreak())
     p('COGNITIVE MEMORY AGENTS',centro)
     elementos.append(Spacer(1,3*cm))
     p('Trabalho de Projeto Integrador apresentado à '+academicos['instituicao']+' sobre o Tema 11: memória de longo prazo para agentes. O estudo documenta a arquitetura implementada, a avaliação experimental e as evidências operacionais de um chatbot com memória persistente.',corpo)
-    p('Autores: '+', '.join(academicos['integrantes'])+'. O projeto reúne as frentes de agente e avaliação, memória e conflitos, API e infraestrutura.',corpo)
+    p('Autores: '+', '.join(autores)+'. O projeto reúne as frentes de agente e avaliação, memória e conflitos, API e infraestrutura.',corpo)
     p('A versão v3 incorpora resultados de qualidade e custo, limitações do julgador e rastreabilidade dos dados. A revisão final do grupo e os registros de publicação, demonstração e envio são acompanhados no checklist de entrega.',corpo)
     elementos.append(PageBreak());titulo('RESUMO')
-    p('Este trabalho apresenta um agente conversacional com memória persistente por usuário, API, SQLite e Ollama. O objetivo é avaliar continuidade, atualização, esquecimento e custo em tokens, distinguindo geração de linguagem e evidências de armazenamento. A versão v3 confirma localmente operações inteiramente reconhecidas e usa contexto breve em consultas pessoais com suporte, mantendo o modelo nas respostas factuais e gerais. Na avaliação P6, vinte sessões por cenário produziram 42 respostas sem falhas técnicas. A memória automática teve 21 respostas aprovadas pelo P4; no histórico completo, oito foram aprovadas e doze ficaram sem julgamento conclusivo. O custo completo foi de 3.593 e 22.228 tokens, respectivamente, redução de 83,84% nos vinte pares medidos. Dezenove checkpoints de persistência após reinício e dois de exclusão foram verificados; a consistência de estado vazio foi analisada separadamente. Uma bateria sintética de dezesseis casos com três repetições teve 48 aprovações na memória automática e 36 no baseline, incluindo um timeout deste; a economia foi 84,88% nos 47 pares medidos. Os resultados anteriores negativos foram preservados. O estudo não é cego ou independente, não isola causalmente cada alteração e não comprova equivalência estatística, generalização irrestrita ou conformidade jurídica.')
+    p('Este trabalho apresenta um agente conversacional com memória persistente por usuário, API, SQLite e Ollama. Avalia continuidade, atualização, esquecimento e tokens de geração. A arquitetura confirma localmente operações reconhecidas e seleciona contexto para respostas com suporte. A P6 de 18/11 completou vinte sessões por cenário e 42 respostas: 21 aprovações P4 na automática; oito aprovações e doze julgamentos não verificados no histórico. A redução foi 83,84% em vinte pares completos, com dezenove checkpoints não vazios de persistência e dois de exclusão verificados. O levantamento posterior preservou 14 relatórios locais. Nove comparativos oficiais completos, ao longo de versões do executor, tiveram redução consolidada de 84,80%; a rodada oficial atual teve 84,91%. Duas rodadas do conjunto personalizado atual somaram oitenta tentativas por cenário e redução de 74,13%, com médias de 200,09 tokens na automática e 773,44 no histórico. Na última rodada, a automática aprovou 42/45 fatos e 15/15 abstenções, contra 44/45 e 8/15 no histórico. Erros, formato, inconclusivos e medições parciais permanecem explícitos. O novo controle sem memória consulta Ollama diretamente. Os dados são sintéticos, conhecidos ou selecionados pela equipe; repetições não são amostras independentes. O estudo não demonstra equivalência estatística, economia universal ou conformidade jurídica.')
     p('Palavras-chave: agentes de linguagem; memória contextual; avaliação; esquecimento; reprodutibilidade.',refs)
     elementos.append(PageBreak());titulo('ABSTRACT')
-    p('This study presents a conversational agent with per-user persistent memory, an API, SQLite and Ollama. The evaluation examines continuity, updates, forgetting and token cost while distinguishing language generation from storage evidence. Version v3 confirms fully recognized memory operations locally and uses brief context for supported personal queries; factual and general answers still use the model. The P6 evaluation completed twenty sessions per scenario and collected 42 answers without technical failures. Automatic memory received 21 P4 approvals; full history received eight approvals and twelve unresolved judgments. Full-session token totals were 3,593 and 22,228 respectively, an 83.84 percent reduction across all twenty measured pairs. Nineteen nonempty persistence checkpoints after restarts and two deletion checkpoints passed; empty-state consistency was assessed separately. Sixteen synthetic cases with three repetitions yielded 48 approvals for automatic memory and 36 for the baseline, which had one timeout. Token savings were 84.88 percent across the 47 measured pairs. Earlier negative results were preserved. The study is neither blind nor independent, does not isolate individual causal effects, and does not establish statistical equivalence, unrestricted generalization or legal compliance.')
+    p('This study presents a conversational agent with per-user persistent memory, an API, SQLite and Ollama. It evaluates continuity, updates, forgetting and generation tokens. Recognized memory operations are confirmed locally, while supported answers use selected context. The November 18 P6 evaluation completed twenty sessions per scenario and 42 answers: automatic memory received 21 P4 approvals, while full history received eight approvals and twelve unresolved judgments. Token reduction was 83.84 percent across twenty complete pairs; nineteen nonempty persistence checkpoints and two deletion checkpoints passed. A subsequent inventory preserved 14 local reports. Nine complete official comparisons across executor versions showed a pooled reduction of 84.80 percent; the current official run showed 84.91 percent. Two current custom-dataset runs comprised eighty attempts per scenario and showed a pooled reduction of 74.13 percent, averaging 200.09 tokens per attempt for automatic memory and 773.44 for full history. In the last run, automatic memory received 42/45 factual approvals and 15/15 correct abstentions, compared with 44/45 and 8/15 for full history. Errors, format violations, unresolved judgments and partial measurements remain explicit. The new no-memory control queries Ollama directly. Synthetic data and selected cases are not blind independent validation; repetitions are not independent samples. The study does not establish statistical equivalence, universal savings or legal compliance.')
     p('Keywords: language agents; contextual memory; evaluation; forgetting; reproducibility.',refs)
     for nome,tipo in [('LISTA DE FIGURAS','FiguraEntry'),('LISTA DE TABELAS','TabelaEntry')]:
         elementos.append(PageBreak());p(nome,cap)
@@ -137,7 +148,7 @@ def main():
         if n>2:elementos.append(PageBreak())
         titulo(nome);markdown(secoes[n])
     p('3.1 Protocolo e métricas',sub);markdown(secoes[5])
-    p('Os procedimentos operacionais a seguir foram desenvolvidos nos ensaios de integração e reutilizados no estudo. Os resultados históricos permanecem identificados por data; os resultados da v3 e seus limites constam das subseções 4.3 e 4.4.')
+    p('Os procedimentos operacionais a seguir foram desenvolvidos nos ensaios de integração e reutilizados no estudo. Os resultados históricos permanecem identificados por data; os resultados da v3 e seus limites constam das subseções 4.3 a 4.5.')
     suplemento=(ROOT/'docs/pesquisa-complemento.md').read_text(encoding='utf-8')
     markdown(suplemento[suplemento.index('## '):suplemento.index('## Resultado operacional')])
     p('3.2 Política de contexto e confirmação local v3',sub)
@@ -168,7 +179,27 @@ def main():
     tab3.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),colors.HexColor('#e2e9e6')),('LINEBELOW',(0,0),(-1,0),0.6,colors.black),('LINEBELOW',(0,-1),(-1,-1),0.6,colors.black),('VALIGN',(0,0),(-1,-1),'TOP'),('TOPPADDING',(0,0),(-1,-1),7),('BOTTOMPADDING',(0,0),(-1,-1),7)]))
     elementos.append(KeepTogether([Paragraph('Tabela 2 - P6 v3: resultados e denominadores',tabela),tab3,Paragraph('Fonte: resumo P6 v3. A comparação de tokens tem cobertura 20/20; qualidade automática do baseline é parcialmente não verificada.',legenda)]))
     elementos.append(KeepTogether([Paragraph('Figura 4 - Validação sintética v3: aprovação e custo pareado',figura),Image(str(ENTREGA3/'figuras/validacao-v3.png'),width=15.5*cm,height=6.2*cm),Paragraph('Fonte: validação v3, dezesseis casos e três repetições. Um timeout no baseline exclui um par da comparação de tokens; não é teste cego.',legenda)]))
-    p('4.4 Análise de erros e validade',sub)
+    p('4.4 Consolidação das rodadas locais de 20/11',sub)
+    markdown(blocos_v3['Consolidação de 20/11'])
+    consolidado=json.loads((CONSOLIDACAO/'consolidado.json').read_text(encoding='utf-8'))
+    atuais=[g for g in consolidado['grupos'] if g['etapa']=='Etapa 4']
+    oficial=next(g for g in atuais if g['conjunto']=='oficial')
+    personalizado=next(g for g in atuais if g['conjunto']!='oficial')
+    def numero(v):return f'{v:,.2f}'.replace(',','X').replace('.',',').replace('X','.')
+    linhas4=[['Cenário','Oficial (48)','Personalizado (80)']]
+    for nome in oficial['cenarios']:
+        linhas4.append([nome,numero(oficial['cenarios'][nome]['media_tokens_por_tentativa']),numero(personalizado['cenarios'][nome]['media_tokens_por_tentativa'])])
+    def tabela_atual(titulo_texto,linhas,larguras,nota):
+        tab=Table([[Paragraph(limpo(str(v)),celula) for v in row] for row in linhas],colWidths=[v*cm for v in larguras],repeatRows=1)
+        tab.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),colors.HexColor('#e2e9e6')),('LINEBELOW',(0,0),(-1,0),0.6,colors.black),('LINEBELOW',(0,-1),(-1,-1),0.6,colors.black),('VALIGN',(0,0),(-1,-1),'TOP'),('TOPPADDING',(0,0),(-1,-1),5),('BOTTOMPADDING',(0,0),(-1,-1),5)]))
+        elementos.append(KeepTogether([Paragraph(titulo_texto,tabela),tab,Paragraph(nota,legenda)]))
+    tabela_atual('Tabela 3 - Consumo médio atual em tokens por tentativa',linhas4,[6,5,5],'Fonte: relatórios locais preservados e consolidados de 20/11. Episódio completo; pré-carregada não mede aquisição. Reduções: oficial atual 84,91%; personalizado 74,13%.')
+    elementos.append(KeepTogether([Paragraph('Figura 5 - Consumo médio nos dois conjuntos atuais',figura),Image(str(CONSOLIDACAO/'medias-atuais.png'),width=15.5*cm,height=6.2*cm),Paragraph('Fonte: consolidados de 20/11; tokens de geração por tentativa completa. Menos tokens não implica mais acertos.',legenda)]))
+    tabela_atual('Tabela 4 - Qualidade da última rodada personalizada',[
+        ['Cenário','Fatos / 45','Abstenção / 15','Estrito / 60'],
+        ['Histórico completo','44','8','48'],['Memória automática','42','15','50'],['Sem memória','1','7','5'],['Pré-carregada','40','15','54']],
+        [5.2,3.6,3.6,3.6],'Fonte: P4 original, três repetições de vinte casos. Estrito exige conteúdo e formato. Sem memória: sete fatos e duas abstenções inconclusivos; pré-carregada: cinco fatos inconclusivos. Não são acertos ou erros confirmados.')
+    p('4.5 Análise de erros e validade',sub)
     markdown(blocos_v3['Erros e alcance'])
     elementos.append(PageBreak())
     titulo('5 CONSIDERAÇÕES FINAIS')
@@ -181,6 +212,7 @@ def main():
             texto=re.sub(r'\[([^]]+)\]\(([^)]+)\)',r'\2',linha)
             bibliografia.append(re.sub(r'^\d+\. ','',texto))
     for txt in [
+        'OPENAI. What is ChatGPT Plus? Documento de suporte: uso de API separado da assinatura. Disponível em: https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus. Acesso em: 20 nov. 2026.',
         'DOCKER. Control startup and shutdown order in Compose. Documentação oficial. Disponível em: https://docs.docker.com/compose/how-tos/startup-order/. Acesso em: 14 nov. 2026.',
         'OLLAMA. Docker. Documentação oficial. Disponível em: https://docs.ollama.com/docker. Acesso em: 14 nov. 2026.',
         'QWEN. Qwen2.5-Coder-3B-Instruct. Model card e licença Qwen Research. Disponível em: https://huggingface.co/Qwen/Qwen2.5-Coder-3B-Instruct. Acesso em: 14 nov. 2026.',
@@ -189,7 +221,8 @@ def main():
     elementos.append(PageBreak());titulo('APÊNDICE A - ROTEIRO E MATERIAIS DE REPRODUÇÃO')
     apendice=ParagraphStyle('Apendice',parent=corpo,alignment=0)
     for bloco in re.split(r'\n\s*\n',blocos_v3['Apêndice A'].strip()):p(' '.join(bloco.splitlines()),apendice)
-    destino=ROOT/'docs/pesquisa-abnt.pdf'
+    destino=args.saida.resolve()
+    destino.parent.mkdir(parents=True,exist_ok=True)
     def pagina(canvas,doc):
         if doc.page>=getattr(doc,'primeira_textual',999):
             canvas.saveState();canvas.setFont('Times',10);canvas.setFillColor(colors.black)
@@ -202,11 +235,17 @@ def main():
     paginas=[p.get_text() for p in pdf]
     inicio=next(i for i,t in enumerate(paginas) if '1 INTRODUÇÃO' in t and 'SUMÁRIO' not in t)
     fim=next(i for i,t in enumerate(paginas) if i>inicio and ('\nREFERÊNCIAS\n' in t or t.startswith('REFERÊNCIAS')))
-    revisao=ROOT/'.env.pdf-revisao-v3-final';revisao.mkdir(exist_ok=True)
+    revisao=args.render_dir.resolve();revisao.mkdir(parents=True,exist_ok=True)
     for i,pg in enumerate(pdf):pg.get_pixmap(matrix=pymupdf.Matrix(0.8,0.8)).save(revisao/f'pagina-{i+1:02}.png')
-    metadados={'paginas_total':len(pdf),'paginas_textuais':fim-inicio,'primeira_textual':inicio+1,'primeira_referencias':fim+1,'status':'candidata_v3_para_revisao_humana','sha256':hashlib.sha256(destino.read_bytes()).hexdigest(),'fontes':{str(a.relative_to(ROOT)):hashlib.sha256(a.read_bytes()).hexdigest() for a in arquivos.values()}}
+    metadados={'paginas_total':len(pdf),'paginas_textuais':fim-inicio,'primeira_textual':inicio+1,'primeira_referencias':fim+1,'status':'candidata_v3_consolidacao_20261121_para_revisao_humana','sha256':hashlib.sha256(destino.read_bytes()).hexdigest(),'fontes':{str(a.relative_to(ROOT)):hashlib.sha256(a.read_bytes()).hexdigest() for a in arquivos.values()}}
     metadados['fontes_atuais']={str(a.relative_to(ROOT)):hashlib.sha256(a.read_bytes()).hexdigest() for a in [ROOT/'docs/pesquisa-v3.md', ROOT/'docs/dados-academicos.json', ROOT/'docs/contribuicao-academica-zeck.md', ROOT/'docs/pesquisa-complemento.md', ROOT/'tools/gerar_pesquisa.py', ROOT/'evidencias/contexto-v3-20261118/p6-r01/resumo.json', ENTREGA3/'figuras/p6-v3.png', ENTREGA3/'figuras/validacao-v3.png']}
-    (ENTREGA3/'pesquisa-geracao.json').write_text(json.dumps(metadados,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
+    fontes_consolidadas=[ROOT/'docs/consolidacao-testes-20261120.md', CONSOLIDACAO/'consolidado.json', CONSOLIDACAO/'inventario.json', CONSOLIDACAO/'qualidade-atual.json', CONSOLIDACAO/'recalcular.py', CONSOLIDACAO/'manifesto-sha256.json', CONSOLIDACAO/'medias-atuais.png']
+    metadados['fontes_atuais'].update({str(a.relative_to(ROOT)):hashlib.sha256(a.read_bytes()).hexdigest() for a in fontes_consolidadas})
+    metadados['relatorios_20261120']={d['pasta']:d['arquivo_sha256'] for d in json.loads((CONSOLIDACAO/'inventario.json').read_text(encoding='utf-8'))}
+    fontes_adicionais=[ROOT/'docs/informacao-antiga-respostas.md', ROOT/'docs/openai-opcional.md', ROOT/'eval/informacao_antiga.py', ROOT/'evidencias/informacao-antiga-20261121/analises/resumo.json']
+    metadados['fontes_atuais'].update({str(a.relative_to(ROOT)):hashlib.sha256(a.read_bytes()).hexdigest() for a in fontes_adicionais})
+    args.metadados.parent.mkdir(parents=True,exist_ok=True)
+    args.metadados.write_text(json.dumps(metadados,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
     print(json.dumps(metadados,ensure_ascii=True))
 
 
