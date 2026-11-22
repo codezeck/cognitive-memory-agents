@@ -206,3 +206,256 @@ Retomada em 19/11/2026: conferidos 960 testes Python aprovados/66 ignorados, oit
 ## 21/11/2026: fechamento das avaliações da interface e publicação
 
 O usuário pediu tokens ao lado dos círculos na P6, correção das reprovações gramaticais do julgador e conferência de SQL/scripts nos campos de conversa/importação. Foram aceitas regras limitadas versionadas somente para a P6 e testes com exemplos positivos/negativos, sem mudar o comparativo sintético, o chat, as anotações ou os originais. Inconclusivos e falhas reais permaneceram registrados; não foi atribuída revisão humana ao assistente. O usuário executou novas P6, declarou concluída a validação funcional no escopo testado e autorizou publicar no GitHub. A consolidação preserva médias por protocolo e por etapa, sem afirmar efeito causal das manutenções. Ver [relatório](docs/fechamento-avaliacao-20261121.md) e [evidências](evidencias/fechamento-p6-20261121/README.md). Clone novo, limpeza Docker, parecer humano, vídeo, tag e envio têm critérios posteriores próprios.
+
+---
+
+# Seleção documental da equipe — 22/11/2026
+
+Os registros anteriores deste arquivo foram preservados. A seleção abaixo reúne dez interações dos três integrantes e complementa o histórico; não substitui as entradas anteriores. As pendências citadas em registros datados descrevem o estado daquela época. Cada integrante ainda deve conferir seu histórico e as interpretações das decisões; esta consolidação não registra aprovação humana da PR.
+
+# PROMPTS.md — Dez interações relevantes com IA
+
+**Projeto:** Cognitive Memory Agents — Tema 11  
+**Integrantes:** Ezequiel, Paloma e Vinicius  
+**Data da seleção:** 22/11/2026
+
+## Critério e limites
+
+Este documento seleciona **10 interações reais registradas** que ajudam a explicar decisões técnicas, testes e desenvolvimento. Os prompts do Codex são extraídos literalmente das sessões locais recuperadas no arquivo Ezequiel 3. Os de Vinicius são citações literais curtas de seu histórico com Claude. Os de Paloma são mensagens literais presentes na transcrição do PDF. A resposta é resumida sem inventar confirmação de execução; o resultado é marcado conforme a evidência, e a autoria pertence a quem enviou a mensagem, não a quem fez o merge. A ordem abaixo segue a cronologia aproximada conhecida; entradas sem dia comprovado são identificadas.
+
+## 01. Vinicius — Data exata não recuperada; início do desenvolvimento — Claude
+
+**Prompt original (transcrição recuperada):**
+
+```text
+lembrando que eu não vou utilizar ollama, e preciso seguir com as atualizações que já foram feitas no projeto, preciso clonar o repositório e trabalhar na minha area
+```
+
+**Resposta resumida:** Orientou clone, sincronização com Git e alternativas de embeddings sem Ollama.
+
+**Resultado e justificativa:** Aceito. Respeitou o escopo próprio do integrante e a decisão de usar solução não dependente do Ollama em sua máquina.
+
+**Fonte verificável:** [Histórico de Vinicius](docs/historicos/Vinicius%20-%20Historico%20Completo.md), apêndice que preserva `historico_conversa_projeto_integrador.md`, Fase 1, item 2
+
+## 02. Vinicius — Data exata não recuperada; organização da equipe — Claude
+
+**Prompt original (transcrição recuperada):**
+
+```text
+mais o PR nao deve ser validado por outro colaborador pelas regras do projeto ?
+```
+
+**Resposta resumida:** Corrigiu o fluxo de PR, recomendando revisão cruzada e proteção da master.
+
+**Resultado e justificativa:** Orientação aceita. Registra a exigência de revisão por outro integrante; o trecho não comprova, por si só, que uma revisão tenha sido realizada.
+
+**Fonte verificável:** [Histórico de Vinicius](docs/historicos/Vinicius%20-%20Historico%20Completo.md), apêndice que preserva `historico_conversa_projeto_integrador.md`, Fase 2, item 11
+
+## 03. Vinicius — Data exata não recuperada; preparação de automação — Claude
+
+**Prompt original (transcrição recuperada):**
+
+```text
+quero que todas as alterações sejam executadas pelo powershell
+```
+
+**Resposta resumida:** Propôs scripts PowerShell para gerar arquivos; corrigiu diferença de um byte por quebra de linha final após falha de hashes.
+
+**Resultado e justificativa:** Corrigido e aceito após ajuste. A primeira versão falhou e a segunda passou nas verificações, mostrando validação da saída gerada.
+
+**Fonte verificável:** [Histórico de Vinicius](docs/historicos/Vinicius%20-%20Historico%20Completo.md), apêndice que preserva `historico_conversa_projeto_integrador.md`, Fase 4, item 19
+
+## 04. Ezequiel — 07/11/2026, 11:41:17 — Codex
+
+**Prompt original (transcrição recuperada):**
+
+```text
+Analise a estrutura do projeto Cognitive Memory Agents e explique como os componentes estão organizados. Não modifique, crie ou exclua nenhum arquivo. Não execute comandos que alterem o projeto. Apenas faça uma análise inicial e apresente suas conclusões." Essa é só a primeira checagem. Depois a gente aprofunda.
+```
+
+**Resposta resumida:** Codex examinou organização, enunciado, testes e desenho do comparativo. Identificou contaminação do baseline, ausência de prova integrada das vinte sessões e métricas com alcance limitado.
+
+**Resultado e justificativa:** Diagnóstico incorporado às autorizações P1–P6; aceite individual de cada frase não presumido. **Justificativa:** Os pedidos seguintes tratam os problemas encontrados; 367 testes não resolviam a validade do experimento. Evidências e decisões avaliadas conforme o relatório de origem.
+
+**Fonte verificável:** [Histórico de Ezequiel](docs/historicos/Ezequiel%20-%20Historico%20Completo.md), Parte 3, seção 8, IA001. As respostas e implementações citadas pertencem à etapa documentada; não se presume execução a partir de uma solicitação de planejamento isolada.
+
+## 05. Ezequiel — 07/11/2026, 12:10:10 — Codex
+
+**Prompt original (transcrição recuperada):**
+
+```text
+Analise exclusivamente a correção P1 do
+Cognitive Memory Agents.
+
+Objetivo: isolar o cenário historico_completo,
+sem memória automática.
+
+Preserve o modelo, as instruções e os critérios
+de resposta entre os cenários.
+
+Priorize alterações em eval/ e src/agent.py.
+
+Se precisar alterar API ou memória, identifique
+o que depende da Paloma ou do Vinícius.
+
+Apresente um plano mínimo, riscos e testes.
+
+Não altere arquivos, não execute LLM,
+não instale dependências nem faça commits.
+Aguarde minha autorização.
+```
+
+**Resposta resumida:** Planejou e implementou chamada direta ao agente com memórias vazias, limpeza antes/depois e testes simulados.
+
+**Resultado e justificativa:** Aceito para implementação; consolidado em c11d404. **Justificativa:** Ezequiel autorizou explicitamente a P1 e depois seu versionamento. Evidências e decisões avaliadas conforme o relatório de origem.
+
+**Fonte verificável:** [Histórico de Ezequiel](docs/historicos/Ezequiel%20-%20Historico%20Completo.md), Parte 3, seção 8, IA005. As respostas e implementações citadas pertencem à etapa documentada; não se presume execução a partir de uma solicitação de planejamento isolada.
+
+## 06. Ezequiel — 07/11/2026, 12:42:15 — Codex
+
+**Prompt original (transcrição recuperada):**
+
+```text
+Continue o trabalho no Cognitive Memory Agents.
+
+OBJETIVO:
+Revisar a implementação da P1 e planejar a P2.
+
+1. Verifique se a P1 está corretamente isolada.
+2. Analise se USUARIO_HISTORICO pode causar
+   contaminação entre execuções simultâneas.
+3. Identifique onde o histórico é limitado
+   a dez interações.
+4. Proponha uma solução para preservar o
+   histórico completo exclusivamente na avaliação.
+5. Priorize alterações em eval/ e seus testes.
+6. Não modifique a API, armazenamento ou
+   lógica de memória.
+7. Identifique riscos e testes necessários.
+
+RESTRIÇÕES:
+- Não modificar arquivos.
+- Não instalar dependências.
+- Não executar LLM real.
+- Não realizar commits, pushes ou PRs.
+- Não alterar a implementação da P1.
+- Apresentar diagnóstico e plano de correção.
+- Aguardar autorização.
+
+Informe se a P2 pode ser implementada
+sem modificar src/agent.py.
+```
+
+**Resposta resumida:** Revisou concorrência/limite e implementou processo filho spawn, ampliação apenas local, timeout e isolamento.
+
+**Resultado e justificativa:** Aceito para implementação; consolidado em c11d404. **Justificativa:** Autorização original preserva agente/API e exige regressões. Evidências e decisões avaliadas conforme o relatório de origem.
+
+**Fonte verificável:** [Histórico de Ezequiel](docs/historicos/Ezequiel%20-%20Historico%20Completo.md), Parte 3, seção 8, IA007. As respostas e implementações citadas pertencem à etapa documentada; não se presume execução a partir de uma solicitação de planejamento isolada.
+
+## 07. Ezequiel — 07/11/2026, 13:00:27 — Codex
+
+**Prompt original (transcrição recuperada):**
+
+```text
+Analise exclusivamente a P3:
+comparação justa de consumo de tokens.
+
+Preserve integralmente P1 e P2.
+
+Verifique:
+- Tokens de entrada e saída por cenário.
+- Ingestão, pergunta final e total da sessão.
+- Custos de preparação não contabilizados.
+- Equivalência das métricas entre agente e API.
+- Denominadores e limitações experimentais.
+
+Proponha alterações mínimas no avaliador,
+testes e documentação.
+
+Não modifique arquivos.
+Não execute LLM real.
+Não altere API, agente ou memória.
+Não faça commit, push ou merge.
+
+Apresente diagnóstico e plano.
+Aguarde autorização.
+```
+
+**Resposta resumida:** Separou ingestão, pergunta e sessão, entrada/saída/total, pares equivalentes e desconhecidos.
+
+**Resultado e justificativa:** Aceito com correções posteriores de zeros e denominadores. **Justificativa:** A auditoria subsequente encontrou origem de zero não verificável; a correção pertence ao mesmo histórico. Evidências e decisões avaliadas conforme o relatório de origem.
+
+**Fonte verificável:** [Histórico de Ezequiel](docs/historicos/Ezequiel%20-%20Historico%20Completo.md), Parte 3, seção 8, IA009. As respostas e implementações citadas pertencem à etapa documentada; não se presume execução a partir de uma solicitação de planejamento isolada.
+
+## 08. Ezequiel — 07/11/2026, 13:05:46 — Codex
+
+**Prompt original (transcrição recuperada):**
+
+```text
+Autorizo implementar exclusivamente a P3,
+conforme o plano apresentado.
+
+Separe tokens de entrada, saída e total em:
+- Ingestão conversacional
+- Pergunta final
+- Sessão completa
+
+Preserve contagens conhecidas e identifique
+medições ausentes como desconhecidas.
+
+Compare apenas casos e repetições equivalentes.
+Não apresente custos incompletos como zero.
+
+Documente a preparação manual das memórias
+e seus custos não medidos.
+
+Preserve integralmente P1 e P2.
+Não modifique agente, API, memória,
+adaptadores ou armazenamento.
+
+Altere apenas o avaliador, testes e guia.
+Execute testes simulados e a suíte completa.
+
+Não execute LLM real, instale dependências,
+faça commit, push, merge ou PR.
+
+Apresente os resultados e aguarde revisão.
+```
+
+**Resposta resumida:** Separou ingestão, pergunta e sessão, entrada/saída/total, pares equivalentes e desconhecidos.
+
+**Resultado e justificativa:** Aceito com correções posteriores de zeros e denominadores. **Justificativa:** A auditoria subsequente encontrou origem de zero não verificável; a correção pertence ao mesmo histórico. Evidências e decisões avaliadas conforme o relatório de origem.
+
+**Fonte verificável:** [Histórico de Ezequiel](docs/historicos/Ezequiel%20-%20Historico%20Completo.md), Parte 3, seção 8, IA010. As respostas e implementações citadas pertencem à etapa documentada; não se presume execução a partir de uma solicitação de planejamento isolada.
+
+## 09. Paloma — 07/11/2026, 11:40 — Claude
+
+**Prompt original (transcrição recuperada):**
+
+```text
+Eu subi e esqueci de por o reviewers, o que eu faço?
+```
+
+**Resposta resumida:** Orientou a adicionar revisores à PR já aberta sem criar nova PR.
+
+**Resultado e justificativa:** Orientação aceita; aplicação não comprovada pelo trecho. Assegura revisão cruzada e preserva o fluxo de integração.
+
+**Fonte verificável:** [Histórico de Paloma](docs/historicos/Paloma%20-%20Historico%20Completo.md), Apêndice A (extração do PDF de origem), mensagem 07/11 11:40
+
+## 10. Paloma — 17/11/2026, 15:39 — Claude
+
+**Prompt original (transcrição recuperada):**
+
+```text
+Olá antes de continuarmos, consegue identificar se houve mudança no seguimento do projeto?
+```
+
+**Resposta resumida:** Revisou o avanço do repositório e orientou a sincronização com o trabalho integrado da equipe.
+
+**Resultado e justificativa:** Consulta registrada; não equivale a alteração executada. Evita trabalhar sobre contrato antigo, especialmente esquecimento e P6.
+
+**Fonte verificável:** [Histórico de Paloma](docs/historicos/Paloma%20-%20Historico%20Completo.md), Apêndice A (extração do PDF de origem), mensagem 17/11 15:39
+
+## Verificação antes da publicação
+
+Os integrantes devem conferir o texto citado contra as fontes originais e confirmar a interpretação de cada resultado. Os registros resumidos de Claude não substituem transcrição integral e não permitem supor execução de comandos. Há outros prompts documentados no histórico integral para eventual substituição, caso o professor queira exemplos com implementação e teste final mais diretamente vinculados.
