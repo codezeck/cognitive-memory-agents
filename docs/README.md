@@ -1,5 +1,9 @@
 # Documentação técnica — candidata v3
 
+## Fechamento em 22/11
+
+A aplicação já está na master pela PR #45. A [PR #46](https://github.com/codezeck/cognitive-memory-agents/pull/46) reúne [históricos da equipe](registro-ia/README.md), correção da conferência P6, [vídeo e instalação nova](../evidencias/fechamento-entrega-20261122/README.md) e atualizações de fechamento. O [checklist](checklist-entrega.md) identifica revisão humana, tag/CI da tag e envio ainda pendentes. Os registros de 18–21/11 abaixo conservam suas datas.
+
 Comece pelo [manual do professor](manual-professor.md). O projeto usa Faculdade UniAnchieta, três integrantes e MIT, conforme validações do usuário. Os registros antigos permanecem identificados como históricos; rodadas só são consolidadas com pares e configuração identificados, mantendo versões e conjuntos separados.
 
 | Conteúdo mínimo do enunciado | Documento atual |

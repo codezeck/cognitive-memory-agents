@@ -1,19 +1,21 @@
 # Contextos de conversas e registro de IA
 
-O enunciado exige no mínimo dez interações relevantes no registro do grupo. O [PROMPTS.md](../../PROMPTS.md) já possui 16 interações numeradas, além de atualizações posteriores. Isso não exige dez por pessoa, mas a contribuição e as decisões de cada integrante precisam ficar demonstráveis.
+Atualizado em 22/11/2026. O enunciado pede pelo menos dez interações relevantes para o grupo. O [PROMPTS.md](../../PROMPTS.md) preserva os registros anteriores e acrescenta a seleção de dez interações dos três integrantes; não é exigido um arquivo com dez por pessoa.
 
-## O que já está reunido
+## Históricos individuais
 
-- [Síntese do contexto disponível de Ezequiel nesta conversa](contexto-ezequiel-20261118.md).
-- Registro histórico existente no `PROMPTS.md`, com aceites, correções, descartes e limitações.
-- [Prompt para continuar a finalização](../prompt-finalizacao.md), com links para o estado real do repositório.
+Os históricos completos dos registros disponíveis ficam em `docs/historicos/`:
 
-Esta síntese não é uma exportação integral de todas as conversas. Usa somente mensagens e resultados disponíveis nesta sessão. Os históricos de outros chats/contas e as conversas de Paloma e Vinícius não foram acessados. Trechos não recuperados devem permanecer identificados; não reconstruir um prompt como citação literal de memória.
+- [Ezequiel — Histórico completo](../historicos/Ezequiel%20-%20Historico%20Completo.md): reúne os três arquivos de origem, com as ressalvas de cada fonte.
+- [Paloma — Histórico completo](../historicos/Paloma%20-%20Historico%20Completo.md): consolidação e apêndice de texto extraído do PDF fornecido.
+- [Vinicius — Histórico completo](../historicos/Vinicius%20-%20Historico%20Completo.md): consolidação e registros de origem preservados.
 
-## O que pedir aos colegas
+Na preparação desta atualização, os arquivos estão na [PR #46](https://github.com/codezeck/cognitive-memory-agents/pull/46); só entram na `master` após revisão e integração. “Completo” refere-se aos registros disponíveis, não a uma exportação integral de todas as contas ou conversas. Resumos e transcrições estão identificados, e merge não define autoria.
 
-Cada integrante pode copiar o [modelo de coleta](modelo-contexto-colega.md) e preencher suas interações relevantes: ferramenta/data, pedido original ou resumo identificado, resposta resumida, decisão com motivo, arquivo/commit/PR e validação. Incluir exemplos em que a IA errou ou uma sugestão foi descartada. As frentes propostas estão em [pendências da equipe](../pendencias-equipe.md).
+Cada integrante ainda deve conferir as próprias citações e as decisões descritas. A organização assistida por IA não é aprovação humana do texto, código, pesquisa ou resultados. Segredos e dados pessoais de exemplos não devem ser publicados.
 
-Reunir apenas o que é necessário à autoria, ao método e à rastreabilidade. Remover chaves, tokens, cookies, contatos privados e dados pessoais reais dos exemplos antes de publicar. Um link privado para conversa pode ser guardado pelo autor, mas a evidência acadêmica precisa ter uma síntese legível no repositório.
+## Registros e modelos anteriores
 
-O autor deve conferir sua síntese e publicar ou autorizar o trecho. O responsável pela consolidação incorpora os registros revisados no `PROMPTS.md`, preservando autor e origem. A síntese assistida por IA não substitui revisão humana de código ou dos resultados.
+- [Síntese de Ezequiel de 18/11](contexto-ezequiel-20261118.md), preservada como registro datado.
+- [Modelo de coleta](modelo-contexto-colega.md), disponível para complementos; não indica ausência dos históricos já recebidos.
+- [Prompt de continuidade](../prompt-finalizacao.md) e [pendências reais](../pendencias-equipe.md).

@@ -5,7 +5,7 @@ Copiar o bloco abaixo em uma nova conversa no repositório. Os arquivos e o GitH
 ```text
 Continue a finalização do projeto Cognitive Memory Agents, Tema 11, em D:\cognitive-memory-agents.
 
-Leia README.md, docs/README.md, docs/checklist-entrega.md, docs/pendencias-equipe.md, docs/registro-ia/README.md e evidencias/entrega-v3-20261118/README.md. Confira o estado do Git e do PR #45 antes de trabalhar. A candidata está na branch fix/confiabilidade-contexto-memoria; a integração e a tag final dependem dos registros reais de revisão.
+Leia README.md, docs/README.md, docs/checklist-entrega.md, docs/pendencias-equipe.md, docs/registro-ia/README.md e evidencias/entrega-v3-20261118/README.md. Confira o estado do Git e da PR #46 antes de trabalhar. A PR #45 foi integrada à master; o fechamento está na branch docs/historicos-equipe-prompts-20261122. Revisão humana da PR #46, integração, tag e CI da tag dependem dos respectivos registros reais.
 
 Preserve integralmente os nomes/RA dos três integrantes e o parágrafo do README que identifica o Tema 11 como o primeiro dos 16 temas do portfólio. Instituição correta: Faculdade UniAnchieta. A composição de três pessoas foi aceita pelo professor, conforme confirmação explícita de Ezequiel. Cidade e professor devem permanecer omitidos. MIT foi confirmada com autorização do grupo; Qwen e dependências têm licenças próprias.
 
@@ -19,7 +19,7 @@ Conclua a documentação que ainda estiver inconsistente, teste os comandos pert
 
 Reúna somente contextos de conversas realmente disponíveis. Use o modelo para solicitar aos colegas as próprias sínteses; identifique resumo versus transcrição literal e remova segredos. Não invente mensagens, autoria, pareceres ou aprovação de Paloma/Vinícius.
 
-O vídeo de 3–5 minutos e a captura real do CI ainda dependem de gravação; há roteiro. Quando houver parecer humano e integração aprovada, conferir a versão, criar v1.0 se ainda não existir, aguardar CI verde dessa tag e registrar SHA/link/captura. Não mover tag publicada nem declarar envio ao professor sem registro. A data/canal de envio devem ser conferidos com o grupo.
+O vídeo do usuário foi publicado com 4min59,75s, cortes apenas de pausas e proveniência; a instalação isolada de 22/11 passou em 19 verificações. Consulte evidencias/fechamento-entrega-20261122/README.md. Os históricos dos três integrantes já estão reunidos. Não repetir gravação ou experimento sem necessidade. A captura real do CI da tag ainda depende da versão aprovada. Quando houver parecer humano e integração aprovada, conferir a versão, criar v1.0 se ainda não existir, aguardar CI verde dessa tag e registrar SHA/link/captura. Não mover tag publicada nem declarar envio ao professor sem registro. A data/canal de envio devem ser conferidos com o grupo.
 
 Ao terminar, informe o que mudou, como foi validado, links de PR/CI, artefatos atualizados e as pendências restantes por pessoa. Use português claro e mantenha atualizações breves durante o trabalho.
 ```

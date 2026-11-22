@@ -1,13 +1,13 @@
 # Manual do professor: Docker e chat real
 
-Versão candidata v3 de 18/11/2026. Publicação, instalação e revisão são registradas no [índice da candidata](../evidencias/entrega-v3-20261118/README.md). Usa Ollama e SQLite reais, sem chave paga.
+Versão v3 integrada à `master` pela PR #45. [Conferência de 22/11](../evidencias/fechamento-entrega-20261122/README.md): vídeo dentro de cinco minutos e instalação isolada com 19 verificações aprovadas. A atualização documental está na PR #46, ainda sujeita a revisão. Usa Ollama e SQLite reais, sem chave paga. O [índice de 18/11](../evidencias/entrega-v3-20261118/README.md) permanece histórico.
 
 ## Baixar a versão correta pelo GitHub
 
-Enquanto o PR #45 não estiver integrado, a versão atual está na branch `fix/confiabilidade-contexto-memoria`; a `master` ainda contém a versão anterior. Instale Git somente se for clonar. Alternativa: selecionar essa branch no GitHub, clicar em **Code → Download ZIP**, extrair e abrir a pasta que contém `docker-compose.yml`.
+A PR #45 está integrada: use a `master` para a aplicação atual. Os documentos e evidências de fechamento ficam na branch da PR #46 até sua integração. Instale Git somente se for clonar. Alternativa: selecionar a branch no GitHub, clicar em **Code → Download ZIP**, extrair e abrir a pasta que contém `docker-compose.yml`. Depois de publicada a tag `v1.0`, use essa tag para a entrega final.
 
 ```powershell
-git clone --branch fix/confiabilidade-contexto-memoria https://github.com/codezeck/cognitive-memory-agents.git
+git clone --branch master https://github.com/codezeck/cognitive-memory-agents.git
 cd cognitive-memory-agents
 git rev-parse HEAD
 ```

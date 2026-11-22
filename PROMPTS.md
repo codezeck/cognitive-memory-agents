@@ -459,3 +459,11 @@ Olá antes de continuarmos, consegue identificar se houve mudança no seguimento
 ## Verificação antes da publicação
 
 Os integrantes devem conferir o texto citado contra as fontes originais e confirmar a interpretação de cada resultado. Os registros resumidos de Claude não substituem transcrição integral e não permitem supor execução de comandos. Há outros prompts documentados no histórico integral para eventual substituição, caso o professor queira exemplos com implementação e teste final mais diretamente vinculados.
+
+## 22/11/2026 — Correção da reprodução e fechamento documental
+
+- **Prompt original:** “Faça a atualização que precisa ser feita então.”
+- **Contexto:** a conferência contra o enunciado identificou cache ausente no manifesto P6, documentação com estados antigos, vídeo de 5min04s e necessidade de registrar uma instalação nova.
+- **Resposta e execução:** removida do manifesto somente a exigência do cache não distribuído, acrescentadas as conferências offline ao CI e atualizados os índices/manuais. Vídeo original do usuário preservado; cópia de 4min59,75s com cortes de pausas, sem aceleração, com proveniência. Instalação separada com volumes novos: 19 verificações reais aprovadas. Os três comandos offline passaram sem novas chamadas de modelo.
+- **Decisão e limites:** atualização solicitada explicitamente pelo usuário; confirmação do vídeo definitivo registrada na conversa. A implementação não atribui revisão humana aos colegas, não altera resultados históricos ou código da aplicação e não cria tag nem efetua merge sem os requisitos. A conferência dos históricos, pesquisa, referências e pareceres do baseline continua com o grupo.
+- **Evidências:** [pacote de fechamento](evidencias/fechamento-entrega-20261122/README.md) e [PR #46](https://github.com/codezeck/cognitive-memory-agents/pull/46).

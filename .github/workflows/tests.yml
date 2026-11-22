@@ -39,6 +39,12 @@ jobs:
       - name: Verificar links locais da documentacao
         run: python -B tools/verificar_documentacao.py
 
+      - name: Conferir reproducao das evidencias publicadas
+        run: |
+          python -B evidencias/fechamento-p6-20261121/recalcular.py
+          python -B evidencias/consolidacao-interface-20261120/recalcular.py
+          python -B evidencias/informacao-antiga-20261121/conferir.py
+
       - name: Configurar Node para testes da interface
         uses: actions/setup-node@v4
         with:

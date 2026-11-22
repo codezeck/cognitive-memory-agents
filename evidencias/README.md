@@ -1,5 +1,9 @@
 # Índice de evidências
 
+## Estado atual — 22/11/2026
+
+[Pacote de fechamento](fechamento-entrega-20261122/README.md): vídeo de 4min59,75s, versão exibida e edição documentadas, instalação isolada com 19 verificações aprovadas e correção da reprodução offline da P6. Os relatórios de 20/11 e as análises de informação antiga também foram reconferidos sem modelo. Os [históricos da equipe](../docs/registro-ia/README.md) estão reunidos na PR #46. A PR #45 já foi integrada; revisão do fechamento, tag, CI/captura da tag e envio seguem pendentes. As seções datadas abaixo são históricas e não sobrepõem este estado.
+
 **21/11:** [análise adicional de informação antiga, derivados e testes](informacao-antiga-20261121/README.md); os originais e os números de tokens anteriores foram preservados.
 
 **Consolidação de 20/11:** [14 relatórios locais preservados, médias e recálculo](consolidacao-interface-20261120/README.md). Oficial e personalizado separados, P6 em unidade própria, qualidade e falhas mantidas.

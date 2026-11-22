@@ -1,5 +1,9 @@
 # Testes e integração contínua
 
+## Conferência de 22/11
+
+O [CI anterior da PR #46](https://github.com/codezeck/cognitive-memory-agents/actions/runs/45058788502) aprovou 1.175 testes Python, com 66 ignorados, e 76 JavaScript. A correção do manifesto P6 não muda respostas ou tokens. Os três comandos de conferência offline do [pacote de fechamento](../evidencias/fechamento-entrega-20261122/README.md) passaram localmente e foram adicionados ao workflow para detectar arquivos ausentes em checkout limpo. Os checks do novo commit devem passar antes do merge; o CI da futura tag continua obrigatório. As contagens datadas abaixo permanecem históricas.
+
 **P6, revisão final de 21/11:** 1.174 testes Python aprovados, 67 ignorados e 70 testes JavaScript aprovados. Inclui os casos positivos/negativos da [análise P6 v2](julgamento-p6.md), preservação do P4/comparativo, conferência visual clara/escura/estreita e os doze testes de [proteção das entradas](seguranca-entradas.md). Nenhuma chamada de modelo foi executada para validar o julgador. Os registros datados abaixo permanecem históricos.
 
 **Atualização de 21/11:** 1.092 testes Python aprovados e 67 opcionais ignorados; 51 testes JavaScript aprovados. A nova métrica foi validada sem LLM real: afirmação antiga, contraste temporal, menção ambígua, esquecimento, falha, anotação inválida, cobertura e preservação de resultados. [XML e log](../evidencias/informacao-antiga-20261121/README.md). Os números anteriores abaixo são registros datados.

@@ -1,6 +1,10 @@
 # Checklist de entrega — versão candidata v3
 
-Atualizado em 20/11/2026; evidências históricas conservam suas datas. O usuário autorizou publicação e confirmou MIT em nome do grupo. A composição de **três integrantes foi aceita pelo professor**, conforme confirmação explícita de Ezequiel. Instituição: **Faculdade UniAnchieta**, conforme informada. Cidade e professor foram omitidos por orientação do usuário.
+## Conferência atual de 22/11
+
+A reprodução offline da P6 foi corrigida removendo do manifesto somente o cache Python não distribuído; cinco rodadas/cem pares conferidos. Os três comandos offline entram no CI. Pesquisa: 28 páginas totais e 19 textuais, com revisão coletiva ainda pendente; o PDF de 21/11 conserva seu contexto histórico. A planilha complementar do baseline continua com 12 pareceres em branco. Vídeo e instalação nova constam do [pacote atual](../evidencias/fechamento-entrega-20261122/README.md). Nenhuma dessas verificações representa aprovação humana ou envio. As seções datadas abaixo conservam os registros anteriores.
+
+Atualizado em 22/11/2026; evidências históricas conservam suas datas. O usuário autorizou publicação e confirmou MIT em nome do grupo. A composição de **três integrantes foi aceita pelo professor**, conforme confirmação explícita de Ezequiel. Instituição: **Faculdade UniAnchieta**, conforme informada. Cidade e professor foram omitidos por orientação do usuário.
 
 | Item | Estado e evidência |
 |---|---|
@@ -9,14 +13,14 @@ Atualizado em 20/11/2026; evidências históricas conservam suas datas. O usuár
 | Acertos e tokens históricos de 18/11 | P6: 3.593 contra 22.228 tokens, redução de 83,84% em 20/20 pares. Validação: 48/48 aprovações; 84,88% em 47/48 pares. Baseline com julgamentos não verificados e um timeout; sem equivalência estatística demonstrada |
 | Pesquisa PDF v3 de 18/11 (registro histórico) | [PDF](pesquisa-abnt.pdf): 25 páginas totais, 16 textuais, 11 referências; todas as páginas renderizadas e conferidas; metodologia atual, referências ordenadas e apêndice de reprodução |
 | Documentação técnica | [Índice dos nove itens](README.md), [manual completo](manual-professor.md), [reprodução Docker](reproduzir-avaliacao-v3.md) e [cinco decisões](decisoes-arquitetura.md) consolidados |
-| Contextos de IA | [Síntese disponível e modelo](registro-ia/README.md) preparados; cada colega ainda precisa fornecer/conferir seus registros |
+| Contextos de IA | [Três históricos individuais](registro-ia/README.md) e seleção de dez interações no PROMPTS reunidos na PR #46; conferência pelos autores pendente |
 | Dados acadêmicos | [Registro validado](dados-academicos.json); três autores |
 | Licenças | [MIT](../LICENSE) autorizada; [NOTICE](../NOTICE) e [terceiros](licencas.md) separados |
 | Tabelas, gráficos, JSON, logs e falhas | [Índice consolidado](../evidencias/entrega-v3-20261118/README.md), com fontes e denominadores |
-| Testes | 960 Python aprovados, 66 ignorados; 8 JavaScript e lint crítico aprovados na v3; [CI da candidata aprovado](https://github.com/codezeck/cognitive-memory-agents/actions/runs/44435946851) |
-| Instalação em cópia limpa | [Manual](manual-professor.md) validado em checkout limpo: novo volume de pesos, API pronta e 19 verificações HTTP aprovadas; [registro](../evidencias/entrega-v3-20261118/instalacao-resumo.json) |
-| Vídeo de 3–5 minutos em tela inteira | Pendente; [roteiro atualizado](roteiro-demonstracao.md). Controle de tela encerrado por não confirmar URL no Windows |
-| Publicação e revisão de PR | [PR #45 publicado](https://github.com/codezeck/cognitive-memory-agents/pull/45); CI aprovado; revisão solicitada a Paloma/Vinícius, ainda sem parecer |
+| Testes | [CI anterior da PR #46](https://github.com/codezeck/cognitive-memory-agents/actions/runs/45058788502): 1.175 Python aprovados, 66 ignorados, 76 JavaScript aprovados. Os novos ajustes exigem os checks do novo commit; consultar a PR |
+| Instalação em cópia limpa | [Conferência isolada de 22/11](../evidencias/fechamento-entrega-20261122/README.md): volumes novos, API/modelo reais, 19 verificações aprovadas; imagens/camadas puderam usar cache |
+| Vídeo de 3–5 minutos em tela inteira | [MP4 de 4min59,75s](../evidencias/fechamento-entrega-20261122/demonstracao.mp4), com [proveniência e cortes de pausas](../evidencias/fechamento-entrega-20261122/video-proveniencia.json); revisão da equipe antes do envio |
+| Publicação e revisão de PR | PR #45 integrada à master; [PR #46](https://github.com/codezeck/cognitive-memory-agents/pull/46) contém fechamento e ainda precisa de aprovação de outro integrante |
 | Fechamento e envio | Obter revisão humana, integrar versão aprovada, marcar `v1.0`, aguardar CI da tag e guardar link/captura. Conferir canal de envio com professor |
 
 ## O que significa o último passo

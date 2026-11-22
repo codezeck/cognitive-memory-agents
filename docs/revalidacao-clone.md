@@ -1,6 +1,10 @@
 # Revalidar uma cópia nova antes da entrega
 
-Este procedimento está preparado, mas ainda não foi executado para as alterações locais posteriores de 21/11. As rodadas foram concluídas e aceitas pelo usuário no escopo testado. O ensaio deste clone novo ainda será realizado, sem presumir que o aceite funcional o substitua.
+## Conferência executada em 22/11
+
+O [pacote de fechamento](../evidencias/fechamento-entrega-20261122/README.md) registra uma instalação isolada com fontes equivalentes à master/PR #46, volumes novos de banco/credenciais/modelo e 19 verificações HTTP aprovadas. Imagens e dependências puderam usar cache; o código da aplicação não foi alterado nesta etapa. A gravação do usuário mostra também clone novo e o SHA da versão da PR #45. Uma verificação posterior de qualquer mudança funcional ainda precisa identificar as novas fontes; isso não foi antecipado como CI de uma tag futura. O procedimento abaixo foi escrito antes dessa conferência e continua como roteiro para novas instalações.
+
+Registro de preparação de 21/11: o procedimento abaixo aguardava execução para as últimas alterações. A conferência executada em 22/11 está identificada acima; o aceite funcional anterior e o novo percurso permanecem evidências distintas.
 
 1. Conferir os resultados da rodada final, incluindo perguntas, conteúdo, formato, inconclusivos e cobertura de tokens. Guardar os relatórios necessários.
 2. Revisar e publicar as alterações e a documentação. Confirmar que o commit existe no GitHub e que os testes da revisão correspondente passaram. Publicar uma branch não equivale a integrar o PR ou criar a tag final.

@@ -24,3 +24,6 @@ evidencias/painel-p6-20261121/*.log -whitespace
 
 # Originais e derivados do fechamento P6 preservam bytes entre sistemas.
 evidencias/fechamento-p6-20261121/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Video, logs e manifesto do fechamento preservam bytes entre sistemas.
+evidencias/fechamento-entrega-20261122/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
