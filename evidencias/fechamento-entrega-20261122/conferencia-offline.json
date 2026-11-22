@@ -1,0 +1,26 @@
+{
+  "data": "2026-11-22",
+  "p6_offline": {
+    "rodadas": 5,
+    "pares": 100,
+    "reducao_pct": 85.61812391430226,
+    "resultado": "aprovado após remover a exigência do cache ausente"
+  },
+  "consolidacao_20261120": {
+    "relatorios": 14,
+    "resultado": "originais, consumos, qualidade e médias conferidos"
+  },
+  "informacao_antiga": {
+    "analises": 14,
+    "resultado": "derivados, fontes e hashes conferidos"
+  },
+  "manifesto_p6": {
+    "unica_entrada_removida": "__pycache__/recalcular.cpython-313.pyc",
+    "demais_entradas_preservadas": true
+  },
+  "aplicacao_alterada": false,
+  "resultados_experimentais_alterados": false,
+  "parecer_humano_atribuido": false,
+  "tag_criada": false,
+  "merge_realizado": false
+}

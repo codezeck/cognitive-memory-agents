@@ -1,0 +1,33 @@
+{
+  "data": "2026-11-22",
+  "origem": "Gravação do usuário, confirmada como definitiva nesta conversa.",
+  "arquivo_origem": "2026-11-22 12-25-29.mp4",
+  "sha256_origem": "5de113f6dc349ace757b1322b9115f8dfbef646e6519464a016cc27c156ce6fb",
+  "duracao_origem_segundos": 304.283,
+  "arquivo_publicado": "demonstracao.mp4",
+  "sha256_publicado": "9f9465f984c8dfe1412833d5890189b44e2516f429dce40f60303cd30d5fc2fe",
+  "bytes_publicados": 25944650,
+  "duracao_publicada_segundos": 299.75,
+  "resolucao": [
+    1920,
+    1080
+  ],
+  "quadros_por_segundo": 60,
+  "intervalos_preservados_da_origem_segundos": [
+    [
+      1.2,
+      2.45
+    ],
+    [
+      2.85,
+      301.35
+    ]
+  ],
+  "edicao": "Somente pausas no desktop antes da demonstração e após a fala final; velocidade mantida, sem recorte da tela ou alteração de resultados.",
+  "audio": "AAC estéreo 48 kHz; pausas escolhidas dentro dos intervalos de silêncio detectados.",
+  "validacao": "Duração lida do contêiner MP4 e decodificação completa de vídeo/áudio sem erros; quadro de terminal legível e amostras da gravação inspecionadas.",
+  "commit_visivel_na_gravacao": "38e34e2bf375757f419a25d86676bc37f39caa6c",
+  "tree_da_master_apos_pr45": "e2a7328b791706b314bfec353aa250e68ebacf82",
+  "correspondencia": "A gravação mostra git rev-parse HEAD da branch da PR #45; sua árvore foi preservada no merge da master. Os ajustes posteriores desta PR tratam documentação, evidências e CI, sem mudar a aplicação.",
+  "limites": "O vídeo mostra um percurso de demonstração e relatórios existentes; não é execução integral de todas as baterias nem CI da futura tag. A equipe deve revisar conteúdo e correspondência antes do envio."
+}

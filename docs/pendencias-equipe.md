@@ -1,15 +1,15 @@
 # Pendências para fechar a entrega
 
-Divisão proposta em 18/11/2026. As responsabilidades abaixo são sugestões de execução, não confirmações de aceite ou tarefas já realizadas pelos colegas. Instituição, composição de três integrantes e MIT estão resolvidas.
+Atualizado em 22/11/2026; responsabilidades propostas, sujeitas à distribuição do grupo. As responsabilidades abaixo são sugestões de execução, não confirmações de aceite ou tarefas já realizadas pelos colegas. Instituição, composição de três integrantes e MIT estão resolvidas.
 
 | Entrega restante | Responsável proposto | Como comprovar conclusão |
 |---|---|---|
 | Revisar regras, atualização, negação e respostas do baseline | Vinícius, com revisão de outro integrante | [Planilha de revisão](revisao-experimental/revisao-humana-baseline-v3.csv) preenchida com autor/data/parecer; análise complementar separada dos brutos |
 | Conferir Docker, isolamento, persistência e exclusão no ambiente do professor | Paloma | Rodar [manual](manual-professor.md), registrar versão/ambiente e resultado; conferir logs e checkpoints já coletados |
 | Revisar pesquisa e referências na fonte original | Os três, dividindo capítulos | Parecer com correções/aceite do texto, citações e fontes; não transformar checagem automática em revisão do grupo |
-| Fornecer contextos das conversas de IA | Cada integrante; Paloma e Vinícius ainda precisam enviar os seus | [Modelo](registro-ia/modelo-contexto-colega.md) preenchido e conferido pelo autor; consolidar no `PROMPTS.md` |
-| Gravar vídeo em tela inteira de 3–5 minutos | Ezequiel ou Paloma; revisão pelos outros | MP4 real, código identificado, Docker iniciando e fluxo principal; [roteiro](roteiro-demonstracao.md); ausência de segredos |
-| Revisar PR #45 | Paloma ou Vinícius, sem autoaprovação do autor | Parecer humano no [PR](https://github.com/codezeck/cognitive-memory-agents/pull/45); revisão já solicitada |
+| Conferir os históricos de IA já reunidos | Cada integrante | [Três históricos e PROMPTS](registro-ia/README.md) revisados contra as fontes; registrar correções/aceite |
+| Revisar o vídeo publicado | Os três | [MP4 de 4min59,75s](../evidencias/fechamento-entrega-20261122/demonstracao.mp4), origem/edição registradas; conferir versão, conteúdo e ausência de segredos antes do envio |
+| Revisar PR #47 | Paloma ou Vinícius, sem autoaprovação do autor | Parecer humano no [PR](https://github.com/codezeck/cognitive-memory-agents/pull/47); PRs #45 e #46 já integradas. O merge da #46 foi feito por Vinicius000011; a consulta não retornou parecer formal, que não foi presumido |
 | Integrar e congelar a versão revisada | Mantenedor do repositório, após revisão | `master` contém os commits aprovados; manual aponta para a versão publicada |
 | Tag `v1.0` e CI verde nessa tag | Mantenedor; Paloma pode conferir | SHA, URL e captura PNG real do CI; não mover tag publicada |
 | Índice final, demonstração e envio | Ezequiel com conferência do grupo | Vídeo/CI/revisões vinculados; cada um explica código sem IA; envio no canal definido pelo professor |
@@ -20,7 +20,7 @@ Código v3, P6 real, validação sintética, testes, licença, pesquisa, gráfic
 
 ## Limites de automação
 
-As conversas privadas dos colegas dependem deles. Revisão humana, defesa oral e envio institucional não são substituídos por IA. O controle de tela encerrou a tentativa de vídeo/captura nesta sessão por não confirmar a URL no Windows; o roteiro está preparado para gravação pelo grupo. Não há vídeo oficial nem captura da tela do CI declarados concluídos.
+Os históricos fornecidos já foram reunidos; complementos privados dependem dos autores. O usuário gravou e escolheu o vídeo definitivo, agora publicado com cortes de pausas e duração conferida. A instalação isolada de 22/11 passou em 19 verificações. Revisão humana, defesa oral e envio institucional não são substituídos por IA. Captura e link do CI da tag ainda dependem da criação da versão aprovada.
 
 ## Próxima sessão
 

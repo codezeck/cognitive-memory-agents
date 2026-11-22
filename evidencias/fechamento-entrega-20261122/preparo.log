@@ -1,0 +1,22 @@
+Duas identidades sinteticas preparadas em volume privado.
+Preparando modelo qwen2.5-coder:3b. O primeiro download pode levar varios minutos.
+Modelo: pulling manifest
+Modelo: 0% — 0 / 1929903072 bytes
+Modelo: 10% — 195783200 / 1929903072 bytes
+Modelo: 20% — 387390326 / 1929903072 bytes
+Modelo: 30% — 579446621 / 1929903072 bytes
+Modelo: 40% — 772249676 / 1929903072 bytes
+Modelo: 50% — 966556398 / 1929903072 bytes
+Modelo: 60% — 1158183277 / 1929903072 bytes
+Modelo: 70% — 1353123815 / 1929903072 bytes
+Modelo: 80% — 1545312019 / 1929903072 bytes
+Modelo: 90% — 1739453118 / 1929903072 bytes
+Modelo: 0% — 0 / 68 bytes
+Modelo: 0% — 0 / 1615 bytes
+Modelo: 0% — 0 / 7384 bytes
+Modelo: 100% — 487 / 487 bytes
+Modelo: verifying sha256 digest
+Modelo: writing manifest
+Modelo: success
+Conferindo carregamento real do modelo...
+Modelo carregado e disponivel. A API pode iniciar.
