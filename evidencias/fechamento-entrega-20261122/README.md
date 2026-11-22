@@ -38,4 +38,4 @@ Conferidos: cinco P6/cem pares; 14 relatórios com consumos e médias; 14 análi
 
 ## Fechamento que continua pendente
 
-Aprovação humana da [PR #46](https://github.com/codezeck/cognitive-memory-agents/pull/46), revisão coletiva da pesquisa/referências e das interpretações dos históricos, parecer complementar do baseline quando utilizado, integração revisada, tag `v1.0`, CI verde e captura da tag, apresentação/defesa e envio no canal do professor. A publicação desta atualização não equivale a esses atos.
+Aprovação humana da [PR #47](https://github.com/codezeck/cognitive-memory-agents/pull/47), revisão coletiva da pesquisa/referências e das interpretações dos históricos, parecer complementar do baseline quando utilizado, integração revisada, tag `v1.0`, CI verde e captura da tag, apresentação/defesa e envio no canal do professor. A publicação desta atualização não equivale a esses atos.

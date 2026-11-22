@@ -5,7 +5,7 @@ Copiar o bloco abaixo em uma nova conversa no repositório. Os arquivos e o GitH
 ```text
 Continue a finalização do projeto Cognitive Memory Agents, Tema 11, em D:\cognitive-memory-agents.
 
-Leia README.md, docs/README.md, docs/checklist-entrega.md, docs/pendencias-equipe.md, docs/registro-ia/README.md e evidencias/entrega-v3-20261118/README.md. Confira o estado do Git e da PR #46 antes de trabalhar. A PR #45 foi integrada à master; o fechamento está na branch docs/historicos-equipe-prompts-20261122. Revisão humana da PR #46, integração, tag e CI da tag dependem dos respectivos registros reais.
+Leia README.md, docs/README.md, docs/checklist-entrega.md, docs/pendencias-equipe.md, docs/registro-ia/README.md e evidencias/entrega-v3-20261118/README.md. Confira o estado do Git e da PR #47 antes de trabalhar. As PRs #45 e #46 foram integradas à master; os ajustes de fechamento estão na branch docs/fechamento-entrega-20261122. Revisão humana da PR #47, integração, tag e CI da tag dependem dos respectivos registros reais.
 
 Preserve integralmente os nomes/RA dos três integrantes e o parágrafo do README que identifica o Tema 11 como o primeiro dos 16 temas do portfólio. Instituição correta: Faculdade UniAnchieta. A composição de três pessoas foi aceita pelo professor, conforme confirmação explícita de Ezequiel. Cidade e professor devem permanecer omitidos. MIT foi confirmada com autorização do grupo; Qwen e dependências têm licenças próprias.
 

@@ -13,14 +13,14 @@ Atualizado em 22/11/2026; evidências históricas conservam suas datas. O usuár
 | Acertos e tokens históricos de 18/11 | P6: 3.593 contra 22.228 tokens, redução de 83,84% em 20/20 pares. Validação: 48/48 aprovações; 84,88% em 47/48 pares. Baseline com julgamentos não verificados e um timeout; sem equivalência estatística demonstrada |
 | Pesquisa PDF v3 de 18/11 (registro histórico) | [PDF](pesquisa-abnt.pdf): 25 páginas totais, 16 textuais, 11 referências; todas as páginas renderizadas e conferidas; metodologia atual, referências ordenadas e apêndice de reprodução |
 | Documentação técnica | [Índice dos nove itens](README.md), [manual completo](manual-professor.md), [reprodução Docker](reproduzir-avaliacao-v3.md) e [cinco decisões](decisoes-arquitetura.md) consolidados |
-| Contextos de IA | [Três históricos individuais](registro-ia/README.md) e seleção de dez interações no PROMPTS reunidos na PR #46; conferência pelos autores pendente |
+| Contextos de IA | [Três históricos individuais](registro-ia/README.md) e seleção de dez interações no PROMPTS integrados pela PR #46; índices atualizados na PR #47 e conferência pelos autores pendente |
 | Dados acadêmicos | [Registro validado](dados-academicos.json); três autores |
 | Licenças | [MIT](../LICENSE) autorizada; [NOTICE](../NOTICE) e [terceiros](licencas.md) separados |
 | Tabelas, gráficos, JSON, logs e falhas | [Índice consolidado](../evidencias/entrega-v3-20261118/README.md), com fontes e denominadores |
 | Testes | [CI anterior da PR #46](https://github.com/codezeck/cognitive-memory-agents/actions/runs/45058788502): 1.175 Python aprovados, 66 ignorados, 76 JavaScript aprovados. Os novos ajustes exigem os checks do novo commit; consultar a PR |
 | Instalação em cópia limpa | [Conferência isolada de 22/11](../evidencias/fechamento-entrega-20261122/README.md): volumes novos, API/modelo reais, 19 verificações aprovadas; imagens/camadas puderam usar cache |
 | Vídeo de 3–5 minutos em tela inteira | [MP4 de 4min59,75s](../evidencias/fechamento-entrega-20261122/demonstracao.mp4), com [proveniência e cortes de pausas](../evidencias/fechamento-entrega-20261122/video-proveniencia.json); revisão da equipe antes do envio |
-| Publicação e revisão de PR | PR #45 integrada à master; [PR #46](https://github.com/codezeck/cognitive-memory-agents/pull/46) contém fechamento e ainda precisa de aprovação de outro integrante |
+| Publicação e revisão de PR | PRs #45 e #46 integradas à master; [PR #47](https://github.com/codezeck/cognitive-memory-agents/pull/47) contém os novos ajustes de fechamento e ainda precisa de aprovação de outro integrante |
 | Fechamento e envio | Obter revisão humana, integrar versão aprovada, marcar `v1.0`, aguardar CI da tag e guardar link/captura. Conferir canal de envio com professor |
 
 ## O que significa o último passo

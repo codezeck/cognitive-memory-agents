@@ -9,7 +9,7 @@ Atualizado em 22/11/2026; responsabilidades propostas, sujeitas à distribuiçã
 | Revisar pesquisa e referências na fonte original | Os três, dividindo capítulos | Parecer com correções/aceite do texto, citações e fontes; não transformar checagem automática em revisão do grupo |
 | Conferir os históricos de IA já reunidos | Cada integrante | [Três históricos e PROMPTS](registro-ia/README.md) revisados contra as fontes; registrar correções/aceite |
 | Revisar o vídeo publicado | Os três | [MP4 de 4min59,75s](../evidencias/fechamento-entrega-20261122/demonstracao.mp4), origem/edição registradas; conferir versão, conteúdo e ausência de segredos antes do envio |
-| Revisar PR #46 | Paloma ou Vinícius, sem autoaprovação do autor | Parecer humano no [PR](https://github.com/codezeck/cognitive-memory-agents/pull/46), solicitado aos dois; PR #45 já integrada |
+| Revisar PR #47 | Paloma ou Vinícius, sem autoaprovação do autor | Parecer humano no [PR](https://github.com/codezeck/cognitive-memory-agents/pull/47); PRs #45 e #46 já integradas. O merge da #46 foi feito por Vinicius000011; a consulta não retornou parecer formal, que não foi presumido |
 | Integrar e congelar a versão revisada | Mantenedor do repositório, após revisão | `master` contém os commits aprovados; manual aponta para a versão publicada |
 | Tag `v1.0` e CI verde nessa tag | Mantenedor; Paloma pode conferir | SHA, URL e captura PNG real do CI; não mover tag publicada |
 | Índice final, demonstração e envio | Ezequiel com conferência do grupo | Vídeo/CI/revisões vinculados; cada um explica código sem IA; envio no canal definido pelo professor |

@@ -1,10 +1,10 @@
 # Manual do professor: Docker e chat real
 
-Versão v3 integrada à `master` pela PR #45. [Conferência de 22/11](../evidencias/fechamento-entrega-20261122/README.md): vídeo dentro de cinco minutos e instalação isolada com 19 verificações aprovadas. A atualização documental está na PR #46, ainda sujeita a revisão. Usa Ollama e SQLite reais, sem chave paga. O [índice de 18/11](../evidencias/entrega-v3-20261118/README.md) permanece histórico.
+Versão v3 integrada à `master` pela PR #45. [Conferência de 22/11](../evidencias/fechamento-entrega-20261122/README.md): vídeo dentro de cinco minutos e instalação isolada com 19 verificações aprovadas. A atualização de fechamento está na PR #47, ainda sujeita a revisão; os históricos da PR #46 já foram integrados. Usa Ollama e SQLite reais, sem chave paga. O [índice de 18/11](../evidencias/entrega-v3-20261118/README.md) permanece histórico.
 
 ## Baixar a versão correta pelo GitHub
 
-A PR #45 está integrada: use a `master` para a aplicação atual. Os documentos e evidências de fechamento ficam na branch da PR #46 até sua integração. Instale Git somente se for clonar. Alternativa: selecionar a branch no GitHub, clicar em **Code → Download ZIP**, extrair e abrir a pasta que contém `docker-compose.yml`. Depois de publicada a tag `v1.0`, use essa tag para a entrega final.
+A PR #45 está integrada: use a `master` para a aplicação atual. Os documentos e evidências de fechamento ficam na branch da PR #47 até sua integração. Instale Git somente se for clonar. Alternativa: selecionar a branch no GitHub, clicar em **Code → Download ZIP**, extrair e abrir a pasta que contém `docker-compose.yml`. Depois de publicada a tag `v1.0`, use essa tag para a entrega final.
 
 ```powershell
 git clone --branch master https://github.com/codezeck/cognitive-memory-agents.git

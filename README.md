@@ -18,13 +18,13 @@ Este projeto corresponde ao Tema 11 de um conjunto de 16 temas propostos para a 
 
 Chatbot com memória persistente por usuário: salva fatos, recupera informações em novas sessões, substitui fatos atualizados e permite esquecer. A aplicação integra FastAPI, SQLite, regras de memória e o modelo local `qwen2.5-coder:3b` pelo Ollama. Operações inteiramente reconhecidas recebem confirmação local; respostas factuais com suporte e perguntas gerais continuam no modelo.
 
-**Estado em 22/11/2026:** a aplicação v3 da [PR #45](https://github.com/codezeck/cognitive-memory-agents/pull/45) está integrada à `master`. A [PR #46](https://github.com/codezeck/cognitive-memory-agents/pull/46) reúne os históricos da equipe, a correção da conferência P6 e a documentação/evidências de fechamento; depende de revisão humana. O [vídeo de 4min59,75s e a instalação isolada com 19 verificações aprovadas](evidencias/fechamento-entrega-20261122/README.md) estão registrados. A tag `v1.0`, o CI da tag e o envio acadêmico permanecem pendentes. Consulte [pendências por responsável](docs/pendencias-equipe.md).
+**Estado em 22/11/2026:** a aplicação v3 da [PR #45](https://github.com/codezeck/cognitive-memory-agents/pull/45) está integrada à `master`. Os históricos foram integrados pela [PR #46](https://github.com/codezeck/cognitive-memory-agents/pull/46). A [PR #47](https://github.com/codezeck/cognitive-memory-agents/pull/47) atualiza seus índices, corrige a conferência P6 e reúne as evidências de fechamento; depende de revisão humana. O [vídeo de 4min59,75s e a instalação isolada com 19 verificações aprovadas](evidencias/fechamento-entrega-20261122/README.md) estão registrados. A tag `v1.0`, o CI da tag e o envio acadêmico permanecem pendentes. Consulte [pendências por responsável](docs/pendencias-equipe.md).
 
 ## Baixar e executar
 
 Pré-requisito: Docker Desktop iniciado, usando contêineres Linux e Docker Compose. Git é necessário somente para clonar; também é possível baixar o ZIP da branch no botão **Code** do GitHub. A primeira execução precisa de internet, espaço para imagens/pesos e tempo para o download. Não exige Python, Ollama no host ou chave de API paga.
 
-A aplicação integrada pode ser baixada da `master`. Os ajustes documentais e as evidências novas estão na PR #46 até seu merge:
+A aplicação integrada pode ser baixada da `master`. Os ajustes documentais e as evidências novas estão na PR #47 até seu merge:
 
 ```powershell
 git clone --branch master https://github.com/codezeck/cognitive-memory-agents.git
@@ -55,7 +55,7 @@ Acompanhe progresso e, ao terminar, veja gráficos de tokens/qualidade, objetivo
 | Reproduzir o comparativo e as 20 sessões | [Avaliação v3 com Docker](docs/reproduzir-avaliacao-v3.md) |
 | Executar testes e entender os ignorados | [Testes e integração contínua](docs/testes-e-ci.md) |
 | Conferir pesquisa, métricas e arquivos originais | [Pesquisa PDF](docs/pesquisa-abnt.pdf), [relatório v3](docs/acertos-tokens-contexto-v3.md), [índice de evidências](evidencias/README.md) |
-| Consultar o estado da publicação | [PR #46](https://github.com/codezeck/cognitive-memory-agents/pull/46), [GitHub Actions](https://github.com/codezeck/cognitive-memory-agents/actions/workflows/tests.yml), [checklist](docs/checklist-entrega.md) |
+| Consultar o estado da publicação | [PR #47](https://github.com/codezeck/cognitive-memory-agents/pull/47), [GitHub Actions](https://github.com/codezeck/cognitive-memory-agents/actions/workflows/tests.yml), [checklist](docs/checklist-entrega.md) |
 | Assistir à demonstração e conferir instalação nova | [Vídeo e evidências de 22/11](evidencias/fechamento-entrega-20261122/README.md) |
 
 ## Resultados medidos e limites
@@ -107,7 +107,7 @@ docker compose --env-file .env.example -p cma-demonstracao down
 | Vinícius Silva Dos Santos — [Vinicius000011](https://github.com/Vinicius000011) | Regras, memória, conflitos, recuperação e dados sintéticos |
 | Paloma Quimbely de Lima Silva — [Palomalimaa](https://github.com/Palomalimaa) | API, armazenamento, Docker e integração |
 
-Essas frentes não substituem o histórico dos commits ou a revisão cruzada. O [registro de IA](PROMPTS.md) conserva interações com Claude e ChatGPT e a assistência de Codex/ChatGPT nesta etapa. Decisões aceitas, correções e descartes permanecem identificados. [Índice dos registros de IA](docs/registro-ia/README.md) e [históricos individuais dos três integrantes](docs/historicos/) reunidos na PR #46; a conferência pelos autores continua necessária.
+Essas frentes não substituem o histórico dos commits ou a revisão cruzada. O [registro de IA](PROMPTS.md) conserva interações com Claude e ChatGPT e a assistência de Codex/ChatGPT nesta etapa. Decisões aceitas, correções e descartes permanecem identificados. [Índice dos registros de IA](docs/registro-ia/README.md) e [históricos individuais dos três integrantes](docs/historicos/) integrados pela PR #46; a organização de fechamento está na PR #47 e a conferência pelos autores continua necessária.
 
 ## Licenças
 
